@@ -1,0 +1,31 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python-and-eda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: pip install -e '.[test]'
+      - name: Run Python tests
+        run: pytest -q
+      - name: Regenerate accelerator artifacts
+        run: python -m kernellum --out artifacts/digits_int8
+      - name: Install open-source EDA
+        run: sudo apt-get update && sudo apt-get install -y iverilog yosys
+      - name: Run RTL simulation and synthesis
+        run: bash scripts/run_eda.sh
+      - name: Upload EDA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-eda-evidence
+          path: |
+            artifacts/digits_int8/rtl_sim.log
+            artifacts/digits_int8/yosys_stat.log

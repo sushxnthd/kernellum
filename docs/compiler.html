@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kernellum Compiler v0.1</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrap"><nav class="nav"><a class="brand" href="index.html">KERNELLUM</a><div class="navlinks"><a href="research.html">Research</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav><header class="hero"><div class="eyebrow">Research prototype · v0.1</div><h1>Kernellum Compiler.</h1><p class="lede">Constraint-driven generation of a quantized neural-network accelerator.</p></header><section class="section"><div class="flow">trained workload
+    ↓
+INT8 representation
+    ↓
+latency constraint
+    ↓
+architecture search
+    ↓
+4-lane accelerator
+    ↓
+SystemVerilog + HEX memories
+    ↓
+cycle-accurate verification
+    ↓
+Icarus / Yosys CI flow</div></section><section class="section"><div class="metricgrid"><div class="metric"><strong>96.22%</strong><span>float accuracy</span></div><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>4</strong><span>selected MAC lanes</span></div><div class="metric"><strong>6.8 µs*</strong><span>modeled @ 100 MHz</span></div></div><p class="note" style="margin-top:24px">*Modeled from cycle count. Not an FPGA timing result.</p></section><section class="section"><div class="sectionhead"><h2>Reproduce</h2><p>The Python implementation, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test]'
+pytest -q
+python -m kernellum --out artifacts/digits_int8
+bash scripts/run_eda.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section><footer>© 2026 Kernellum Research</footer></div></body></html>
