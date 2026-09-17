@@ -1,23 +1,20 @@
-# Build status — Kernellum Compiler v0.1
+# Kernellum build status
 
-## Reproduced in the release build environment
+## v0.1 verified
 
-- Python tests: **3/3 PASS**
-- Float held-out accuracy: **96.22%**
-- INT8 held-out accuracy: **96.44%**
-- Float/INT8 prediction agreement: **99.78%**
-- Cycle-accurate software model vs vector INT8 reference: **exact on 450/450 samples**
-- Architecture search: **4 MAC lanes selected / 680 modeled core cycles**
-- Generated weights, biases, golden vectors, RTL, manifest and technical report: **PASS**
+The public GitHub Actions flow currently passes end-to-end:
 
-## Pending independent EDA evidence
+- Python unit tests: **PASS**
+- accelerator regeneration: **PASS**
+- independent cycle-model / vector-INT8 agreement: **450/450**
+- Icarus RTL golden-vector simulation: **32/32 PASS**
+- generic Yosys synthesis: **PASS**
+- Yosys final `check`: **0 problems**
 
-The release environment used to assemble this repository does not contain Icarus Verilog or Yosys, so local HDL simulation and synthesis are not claimed here. The GitHub Actions workflow installs both tools and runs:
+The latest generic synthesis evidence reports 38,170 post-synthesis generic cells. This is not a device-specific FPGA utilization figure.
 
-1. Python regression tests
-2. artifact regeneration
-3. Icarus SystemVerilog compilation
-4. 32-sample end-to-end RTL golden-vector simulation
-5. Yosys synthesis/statistics
+## v0.2 alpha in progress
 
-Physical FPGA timing closure, LUT/FF/DSP/BRAM use, board power and measured inference latency remain future work.
+The repository now includes an ONNX front-end for a deliberately narrow sequential `Gemm/ReLU` subset, a hardware IR, calibration-driven INT8 lowering, dense3 RTL emission and an ECP5-85F target profile.
+
+Physical place-and-route, timing closure, measured board power and measured end-to-end latency are not yet claimed.

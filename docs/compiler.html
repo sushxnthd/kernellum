@@ -1,4 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kernellum Compiler v0.1</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrap"><nav class="nav"><a class="brand" href="index.html">KERNELLUM</a><div class="navlinks"><a href="research.html">Research</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav><header class="hero"><div class="eyebrow">Research prototype · v0.1</div><h1>Kernellum Compiler.</h1><p class="lede">Constraint-driven generation of a quantized neural-network accelerator.</p></header><section class="section"><div class="flow">trained workload
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kernellum Compiler</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrap"><nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav><header class="hero"><div class="eyebrow">Research prototype · v0.1 → v0.2</div><h1>Kernellum Compiler.</h1><p class="lede">Constraint-driven generation and verification of workload-specific neural accelerators.</p></header>
+<section class="section"><div class="flow">trained workload
     ↓
 INT8 representation
     ↓
@@ -8,11 +9,21 @@ architecture search
     ↓
 4-lane accelerator
     ↓
-SystemVerilog + HEX memories
+SystemVerilog + memories
     ↓
-cycle-accurate verification
+cycle model + RTL simulation
     ↓
-Icarus / Yosys CI flow</div></section><section class="section"><div class="metricgrid"><div class="metric"><strong>96.22%</strong><span>float accuracy</span></div><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>4</strong><span>selected MAC lanes</span></div><div class="metric"><strong>6.8 µs*</strong><span>modeled @ 100 MHz</span></div></div><p class="note" style="margin-top:24px">*Modeled from cycle count. Not an FPGA timing result.</p></section><section class="section"><div class="sectionhead"><h2>Reproduce</h2><p>The Python implementation, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test]'
+Yosys synthesis</div></section>
+<section class="section"><div class="metricgrid"><div class="metric"><strong>96.22%</strong><span>float accuracy</span></div><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>32/32</strong><span>RTL golden cases</span></div><div class="metric"><strong>38,170</strong><span>generic Yosys cells*</span></div></div><p class="note" style="margin-top:24px">*Generic post-synthesis logic cells, not named-device LUT/FF/DSP/BRAM utilization.</p></section>
+<section class="section"><div class="sectionhead"><h2>Reproduce v0.1</h2><p>The source, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test]'
 pytest -q
 python -m kernellum --out artifacts/digits_int8
-bash scripts/run_eda.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section><footer>© 2026 Kernellum Research</footer></div></body></html>
+bash scripts/run_eda.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section>
+<section class="section" id="v02"><div class="sectionhead"><h2>v0.2 alpha</h2><p>The next compiler slice adds a real ONNX front-end for a deliberately narrow sequential dense-network subset, lowers it into an explicit hardware IR, quantizes from calibration data, runs architecture search, emits RTL, and carries a named ECP5-85F target profile for FPGA-family mapping.</p></div><div class="flow">ONNX
+  → validated graph subset
+  → hardware IR
+  → calibration + INT8
+  → architecture search
+  → RTL + golden vectors
+  → ECP5-85F family synthesis
+  → later: place-and-route + board measurement</div><p class="note" style="margin-top:24px">The alpha front-end is intentionally explicit about unsupported operators rather than silently approximating arbitrary ONNX graphs.</p></section><footer>© 2026 Kernellum Research</footer></div></body></html>
