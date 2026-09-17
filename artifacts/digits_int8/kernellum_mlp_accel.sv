@@ -74,6 +74,7 @@ module kernellum_mlp_accel #(
 
     always_comb begin
         mac_sum = 32'sd0;
+        lane = 0;
         case (state)
             S_L1: for (lane = 0; lane < LANES; lane = lane + 1)
                 if ((in_base + lane) < IN0)
