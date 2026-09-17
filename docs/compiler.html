@@ -13,17 +13,19 @@ SystemVerilog + memories
     ↓
 cycle model + RTL simulation
     ↓
-Yosys synthesis</div></section>
-<section class="section"><div class="metricgrid"><div class="metric"><strong>96.22%</strong><span>float accuracy</span></div><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>32/32</strong><span>RTL golden cases</span></div><div class="metric"><strong>38,170</strong><span>generic Yosys cells*</span></div></div><p class="note" style="margin-top:24px">*Generic post-synthesis logic cells, not named-device LUT/FF/DSP/BRAM utilization.</p></section>
-<section class="section"><div class="sectionhead"><h2>Reproduce v0.1</h2><p>The source, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test]'
+ECP5-family synthesis</div></section>
+<section class="section"><div class="metricgrid"><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>32/32</strong><span>RTL golden cases</span></div><div class="metric"><strong>7,977</strong><span>ECP5 LUT4 primitives*</span></div><div class="metric"><strong>8</strong><span>ECP5 MULT18X18D primitives*</span></div></div><p class="note" style="margin-top:24px">*Yosys `synth_ecp5` family mapping. These are not post-place-and-route board utilization numbers.</p></section>
+<section class="section"><div class="sectionhead"><h2>Reproduce v0.1</h2><p>The source, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test,onnx]'
 pytest -q
 python -m kernellum --out artifacts/digits_int8
-bash scripts/run_eda.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section>
-<section class="section" id="v02"><div class="sectionhead"><h2>v0.2 alpha</h2><p>The next compiler slice adds a real ONNX front-end for a deliberately narrow sequential dense-network subset, lowers it into an explicit hardware IR, quantizes from calibration data, runs architecture search, emits RTL, and carries a named ECP5-85F target profile for FPGA-family mapping.</p></div><div class="flow">ONNX
-  → validated graph subset
+bash scripts/run_eda.sh
+bash scripts/run_ecp5.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section>
+<section class="section" id="v02"><div class="sectionhead"><h2>v0.2 alpha</h2><p>The new compiler path accepts a real ONNX model for a deliberately narrow sequential dense-network subset, lowers it into an explicit hardware IR, derives INT8 parameters from calibration data, searches architecture parallelism, and emits RTL plus golden vectors. CI then simulates and synthesizes that generated RTL.</p></div><div class="flow">ONNX
+  → validated Gemm/ReLU subset
   → hardware IR
   → calibration + INT8
   → architecture search
-  → RTL + golden vectors
-  → ECP5-85F family synthesis
-  → later: place-and-route + board measurement</div><p class="note" style="margin-top:24px">The alpha front-end is intentionally explicit about unsupported operators rather than silently approximating arbitrary ONNX graphs.</p></section><footer>© 2026 Kernellum Research</footer></div></body></html>
+  → generated RTL + vectors
+  → Icarus simulation
+  → generic + ECP5-family Yosys synthesis
+  → next: place-and-route + board measurement</div><p class="note" style="margin-top:24px">Unsupported graph structures are rejected explicitly; v0.2 alpha does not claim arbitrary ONNX support.</p></section><footer>© 2026 Kernellum Research</footer></div></body></html>
