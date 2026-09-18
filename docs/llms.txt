@@ -1,0 +1,27 @@
+# Kernellum
+
+> Kernellum is building an AI-native model-to-hardware compiler for workload-specific accelerators.
+
+Kernellum Compiler maps supported neural workloads and deployment constraints into an explicit hardware IR, searches candidate accelerator architectures, emits inspectable SystemVerilog RTL, and generates verification evidence.
+
+Current status: research-stage prototype. Physical FPGA place-and-route, measured latency and measured power remain pending and are not claimed.
+
+## Primary pages
+- Home: https://sushxnthd.github.io/kernellum/
+- Compiler: https://sushxnthd.github.io/kernellum/compiler.html
+- Evidence: https://sushxnthd.github.io/kernellum/evidence.html
+- Physical FPGA tracker: https://sushxnthd.github.io/kernellum/hardware.html
+- Work with Kernellum: https://sushxnthd.github.io/kernellum/partner.html
+- Technical Report 001: https://sushxnthd.github.io/kernellum/TR-001.pdf
+- Source: https://github.com/sushxnthd/kernellum
+
+## Demonstrated evidence
+- 96.22% float held-out accuracy
+- 96.44% INT8 held-out accuracy
+- 99.78% float/INT8 prediction agreement
+- 450/450 cycle-model / vector-INT8 agreement
+- 32/32 RTL golden-vector simulation PASS
+- generic Yosys synthesis PASS with 0 CHECK problems
+- ECP5 family mapping: 7,977 LUT4 and 8 MULT18X18D
+
+The 680-cycle / 6.8 µs figure is modeled at an assumed 100 MHz clock, not a measured physical-hardware result.
