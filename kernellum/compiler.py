@@ -274,7 +274,7 @@ module kernellum_mlp_accel #(
 );
     localparam int D0={d0}, D1={d1}, D2={d2}, D3={d3};
     localparam int SHIFT={shift};
-    localparam logic [2:0] S_IDLE=3'd0, S_L1=3'd1, S_L2=3'd2, S_L3=3'd3, S_DONE=3'd4;
+    localparam logic [2:0] S_IDLE=3'd0, S_L1=3'd1, S_L2=3'd2, S_L3=3'd3, S_RQ_MUL=3'd4, S_RQ_WRITE=3'd5, S_DONE=3'd6;
 
     logic signed [7:0] a0 [0:D0-1];
     logic signed [7:0] a1 [0:D1-1];
@@ -294,22 +294,33 @@ module kernellum_mlp_accel #(
     logic signed [31:0] acc;
     logic signed [31:0] mac_sum;
     logic signed [31:0] next_acc;
+    logic [1:0] rq_layer;
+    logic signed [31:0] rq_input;
+    logic signed [31:0] rq_mult;
+    logic signed [63:0] rq_prod;
+    logic rq_relu;
 
-    function automatic signed [7:0] rq8(input signed [31:0] value, input signed [31:0] mult, input bit relu);
-        logic signed [63:0] prod;
+    always_comb begin
+        case (rq_layer)
+            2'd1: begin rq_mult = 32'sd{m1}; rq_relu = 1'b1; end
+            2'd2: begin rq_mult = 32'sd{m2}; rq_relu = 1'b1; end
+            default: begin rq_mult = 32'sd{m3}; rq_relu = 1'b0; end
+        endcase
+    end
+
+    function automatic signed [7:0] rq8_from_prod(input signed [63:0] prod, input bit relu);
         logic signed [63:0] rounded;
         logic signed [63:0] shifted;
         begin
-            prod = $signed(value) * $signed(mult);
             if (prod >= 0)
                 rounded = prod + (64'sd1 <<< (SHIFT-1));
             else
                 rounded = prod - (64'sd1 <<< (SHIFT-1));
             shifted = rounded >>> SHIFT;
             if (relu && shifted < 0) shifted = 0;
-            if (shifted > 127) rq8 = 8'sd127;
-            else if (shifted < -128) rq8 = -8'sd128;
-            else rq8 = shifted[7:0];
+            if (shifted > 127) rq8_from_prod = 8'sd127;
+            else if (shifted < -128) rq8_from_prod = -8'sd128;
+            else rq8_from_prod = shifted[7:0];
         end
     endfunction
 
@@ -342,6 +353,7 @@ module kernellum_mlp_accel #(
         if (rst) begin
             state <= S_IDLE; busy <= 1'b0; done <= 1'b0;
             out_idx <= 0; base_idx <= 0; acc <= 0;
+            rq_layer <= 0; rq_input <= 0; rq_prod <= 0;
         end else begin
             done <= 1'b0;
             if (in_we && !busy) a0[in_addr] <= in_data;
@@ -352,27 +364,49 @@ module kernellum_mlp_accel #(
                 end
                 S_L1: begin
                     if (base_idx + LANES >= D0) begin
-                        a1[out_idx] <= rq8(next_acc + b1[out_idx], 32'sd{m1}, 1'b1);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D1-1) begin state <= S_L2; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
+                        rq_input <= next_acc + b1[out_idx];
+                        rq_layer <= 2'd1;
+                        state <= S_RQ_MUL;
                     end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
                 end
                 S_L2: begin
                     if (base_idx + LANES >= D1) begin
-                        a2[out_idx] <= rq8(next_acc + b2[out_idx], 32'sd{m2}, 1'b1);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D2-1) begin state <= S_L3; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
+                        rq_input <= next_acc + b2[out_idx];
+                        rq_layer <= 2'd2;
+                        state <= S_RQ_MUL;
                     end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
                 end
                 S_L3: begin
                     if (base_idx + LANES >= D2) begin
-                        a3[out_idx] <= rq8(next_acc + b3[out_idx], 32'sd{m3}, 1'b0);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D3-1) begin state <= S_DONE; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
+                        rq_input <= next_acc + b3[out_idx];
+                        rq_layer <= 2'd3;
+                        state <= S_RQ_MUL;
                     end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
+                end
+                S_RQ_MUL: begin
+                    rq_prod <= $signed(rq_input) * $signed(rq_mult);
+                    state <= S_RQ_WRITE;
+                end
+                S_RQ_WRITE: begin
+                    acc <= 0;
+                    base_idx <= 0;
+                    case (rq_layer)
+                        2'd1: begin
+                            a1[out_idx] <= rq8_from_prod(rq_prod, rq_relu);
+                            if (out_idx == D1-1) begin state <= S_L2; out_idx <= 0; end
+                            else begin state <= S_L1; out_idx <= out_idx + 1; end
+                        end
+                        2'd2: begin
+                            a2[out_idx] <= rq8_from_prod(rq_prod, rq_relu);
+                            if (out_idx == D2-1) begin state <= S_L3; out_idx <= 0; end
+                            else begin state <= S_L2; out_idx <= out_idx + 1; end
+                        end
+                        default: begin
+                            a3[out_idx] <= rq8_from_prod(rq_prod, rq_relu);
+                            if (out_idx == D3-1) begin state <= S_DONE; out_idx <= 0; end
+                            else begin state <= S_L3; out_idx <= out_idx + 1; end
+                        end
+                    endcase
                 end
                 S_DONE: begin busy <= 1'b0; done <= 1'b1; state <= S_IDLE; end
                 default: state <= S_IDLE;
