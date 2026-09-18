@@ -36,6 +36,25 @@ The latency column is still modeled from cycle count and the board clock; it is 
 
 Evidence record: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md).
 
+### KRN-EXT-001 — pinned third-party public ONNX model
+
+Kernellum also completed a clean-room evaluation of the pinned `tiny-NPU/models/overlap_perf_test.onnx` graph and weights, authored outside the Kernellum repository.
+
+Network: **64 → 64 → 64 → 32**. Target: the same ULX3S-85F / CABGA381 / 25 MHz reference board.
+
+| MAC lanes | Modeled cycles | Post-route Fmax | 25 MHz timing | TRELLIS_COMB | MULT18X18D |
+|---:|---:|---:|:---:|---:|---:|
+| 1 | 10,560 | 33.51 MHz | PASS | 7,713 | 5 |
+| **2** | **5,440** | **28.18 MHz** | **PASS** | **13,730** | **6** |
+| 4 | 2,880 | 22.06 MHz | FAIL | 26,329 | 8 |
+| 8 | 1,600 | 14.82 MHz | FAIL | 52,974 | 12 |
+
+**Physical-feedback selection:** 2 MAC lanes. The selected bitstream SHA-256 is `50761b00fad5afda5f18c9841291bceea47a04c94155df044b5fb60ef09b2590`.
+
+This is external **public-model** L5 evidence: the graph and weights are third-party, while deterministic synthetic inputs are used for quantization/golden verification because the upstream performance-test model does not publish a task dataset. It is not a customer-validation or application-accuracy claim.
+
+Evidence record: [KRN-EXT-001](research/KRN-EXT-001_RESULT.md).
+
 ### Historical v0.1 baseline
 
 TR-001 froze the earlier non-pipelined baseline at 4 MAC lanes, 680 modeled cycles and 6.8 µs at an assumed 100 MHz clock. Those numbers remain part of the historical report; the current backend adds registered requantization stages and physical-feedback selection.
