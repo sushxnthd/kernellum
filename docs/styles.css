@@ -845,6 +845,19 @@ footer a:hover{color:var(--signal)}
   .measurement-table div{grid-template-columns:1fr 60px}.measurement-table small{grid-column:1/-1}
 }
 
+
+/* launch note layout */
+.launch-header{padding:100px 0 92px;max-width:980px;border-bottom:1px solid var(--line)}
+.launch-header h1{font-size:clamp(58px,8vw,108px);line-height:.92;letter-spacing:-.065em;margin:20px 0 28px}
+.launch-header .lede{max-width:760px}
+.launch-copy{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px}
+.launch-copy h2{font-size:clamp(38px,4.6vw,62px);line-height:1.03}
+.launch-copy>div:last-child>p:not(.large-copy){max-width:690px}
+.boundary-link{display:inline-block;margin-top:16px;color:#b6bdb2;font:9px ui-monospace,SFMono-Regular,Menlo,monospace}
+.boundary-link:hover,.fine a:hover{color:var(--signal)}
+.fine a{color:#9ea69a}
+@media(max-width:800px){.launch-copy{grid-template-columns:1fr}.launch-header{padding:70px 0}.launch-header h1{font-size:58px}}
+
 /* footer */
 footer{
   display:flex;justify-content:space-between;gap:20px;padding:46px 0 68px;border-top:1px solid var(--line);
