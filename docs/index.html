@@ -54,10 +54,10 @@
         Source
       </a>
     </div>
-    <div class="hero-footnote">
+    <a class="hero-footnote" href="hardware.html">
       <span class="pulse-dot"></span>
       <span>Current target: physical FPGA evidence</span>
-    </div>
+    </a>
   </div>
 
   <div class="hero-stage" id="heroStage" aria-label="Interactive accelerator architecture visualization">
@@ -173,7 +173,7 @@
       <div><strong>7,977</strong><span>ECP5 LUT4 primitives*</span></div>
       <div><strong>8</strong><span>MULT18X18D primitives*</span></div>
     </div>
-    <p class="fine">*Yosys family mapping. Not post-place-and-route board utilization.</p>
+    <p class="fine">*Yosys family mapping. Not post-place-and-route board utilization. <a href="evidence.html">Trace the evidence →</a></p>
   </div>
 </section>
 
@@ -199,24 +199,24 @@
 <section class="section notebook-v2">
   <div class="notebook-head" data-reveal>
     <div><div class="superlabel">04 / Lab notebook</div><h2>A research record, not a release feed.</h2></div>
-    <span class="mono muted">SEP 2026 →</span>
+    <a class="mono muted" href="log.html">FULL BUILD LOG →</a>
   </div>
 
   <div class="notebook-list" data-parallax-y="-12">
     <article class="notebook-row" data-reveal>
       <span class="entry-no">001</span>
       <div><time>SEP 2026</time><h3>First complete model-to-RTL path</h3><p>Quantized dense accelerator generation, architecture search, exact cycle-model verification and synthesizable SystemVerilog.</p></div>
-      <span class="entry-mark">v0.1</span>
+      <a class="entry-mark" href="https://github.com/sushxnthd/kernellum/commit/63e4a54d4c046862d90a2d7ff98e3791a194160e">63e4a54 ↗</a>
     </article>
     <article class="notebook-row" data-reveal>
       <span class="entry-no">002</span>
       <div><time>SEP 2026</time><h3>ONNX enters the compiler</h3><p>A deliberately narrow graph subset now lowers into an explicit hardware IR before quantization and generation.</p></div>
-      <span class="entry-mark">v0.2α</span>
+      <a class="entry-mark" href="https://github.com/sushxnthd/kernellum/commit/b4ce966793a95c5cfbb6bda0ed20eb0fb6e91ffb">b4ce966 ↗</a>
     </article>
     <article class="notebook-row notebook-next" data-reveal>
       <span class="entry-no">003</span>
       <div><time>NEXT</time><h3>Make the model touch real hardware</h3><p>Named FPGA target, place-and-route, timing closure, measured latency, utilization, power and energy per inference.</p></div>
-      <span class="entry-mark">◌</span>
+      <a class="entry-mark" href="hardware.html">TRACK →</a>
     </article>
   </div>
 </section>
