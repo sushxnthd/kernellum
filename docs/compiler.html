@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Kernellum Compiler lowers a narrow neural-network graph into hardware IR, searches accelerator configurations and emits verifiable SystemVerilog.">
 <meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
 <meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
-<title>Kernellum Compiler</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+<title>Compiler — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
 <body class="interior compiler-page">
 <div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
 <div class="wrap">
 <nav class="nav">
-<a class="brand" href="index.html"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
 <div class="labstatus">compiler · v0.2α</div>
 <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
 <div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a class="active" href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
@@ -37,6 +38,13 @@
 <div class="stage-caption"><span>GRAPH</span><i></i><span>IR</span><i></i><span>SEARCH</span><i></i><span>RTL</span></div>
 </div>
 </header>
+
+<aside class="field-note note-right" data-reveal aria-label="Founder field note">
+  <svg class="note-arrow" viewBox="0 0 96 48" aria-hidden="true"><path d="M5 8c28 1 49 10 68 28M73 36l-12-2M73 36l-5-11"/></svg>
+  <span class="note-kicker">S.D. / SEARCH NOTE</span>
+  <p>The 4-lane result is not “optimal silicon.” It is the smallest candidate that clears the current modeled 10 μs target.</p>
+  <small>Sep 2026 · modeled at 100 MHz</small>
+</aside>
 
 <section class="section compiler-command" data-reveal>
 <div class="command-copy"><div class="superlabel">01 / Desired interface</div><h2>Describe the workload.<br>Describe the constraints.</h2><p>The long-term interface is intentionally simple. The complexity belongs behind the compiler boundary.</p></div>
@@ -175,5 +183,8 @@ bash scripts/run_eda.sh
 bash scripts/run_ecp5.sh</code></pre>
 </section>
 
-<footer><span>© 2026 Kernellum Research</span><span><a href="index.html">Home</a> · <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></span></footer>
+<footer>
+<span>© 2026 Kernellum Research</span>
+<span>AI-native systems for efficient computing · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span>
+</footer>
 </div></body></html>
