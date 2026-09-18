@@ -1,0 +1,28 @@
+schema_version: 1.0
+board:
+  name: ULX3S 85F reference target
+  vendor: Radiona / ULX3S project
+  fpga_device: LFE5U-85F-6BG381C
+  package: CABGA381
+  oscillator_mhz: 25
+  programming_path: "fujprog or openFPGALoader via USB1; not physically validated by Kernellum"
+constraints:
+  lpf_path: boards/ulx3s_85f/kernellum_demo.lpf
+  clock_pin: G2
+  reset_pin: R1
+  start_pin: T1
+  class_led_pins: [B2, C2, C1, D2]
+  status_led_pin: D1
+pnr:
+  device_selector: 85k
+  target_frequency_mhz: 25
+measurement:
+  latency_method: null
+  power_method: null
+status:
+  reference_pnr_target: true
+  physical_board_validated: false
+notes: >
+  Public board/package/clock/pin data are used only to create a reproducible
+  reference place-and-route target. This profile does not claim that Kernellum
+  has loaded or measured a physical ULX3S board.
