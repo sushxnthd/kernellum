@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#070807"/>
+<g opacity=".18" stroke="#c9ff63"><path d="M0 70h1200M0 140h1200M0 210h1200M0 280h1200M0 350h1200M0 420h1200M0 490h1200M0 560h1200"/><path d="M80 0v630M160 0v630M240 0v630M320 0v630M400 0v630M480 0v630M560 0v630M640 0v630M720 0v630M800 0v630M880 0v630M960 0v630M1040 0v630M1120 0v630"/></g>
+<rect x="72" y="66" width="104" height="104" rx="18" fill="#0c100b" stroke="#2e382c"/>
+<path d="M102 90v56M106 117l38-26M106 119l38 27" fill="none" stroke="#c9ff63" stroke-width="7" stroke-linecap="square"/>
+<circle cx="102" cy="90" r="4" fill="#85f0c2"/><circle cx="144" cy="91" r="4" fill="#85f0c2"/><circle cx="144" cy="146" r="4" fill="#85f0c2"/>
+<text x="72" y="230" fill="#c9ff63" font-family="monospace" font-size="19" letter-spacing="4">KERNELLUM RESEARCH</text>
+<text x="72" y="330" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Models should shape</text>
+<text x="72" y="408" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">the machines that run them.</text>
+<text x="74" y="480" fill="#939d91" font-family="Arial, Helvetica, sans-serif" font-size="27">AI-native systems for efficient computing.</text>
+<g transform="translate(870 180) rotate(-12)">
+<rect width="235" height="170" fill="#0d120c" stroke="#c9ff63"/>
+<rect x="34" y="42" width="167" height="86" fill="#121811" stroke="#43513e"/>
+<g fill="#c9ff63" opacity=".2"><rect x="51" y="59" width="24" height="22"/><rect x="82" y="59" width="24" height="22"/><rect x="113" y="59" width="24" height="22"/><rect x="144" y="59" width="24" height="22"/><rect x="51" y="89" width="24" height="22"/><rect x="82" y="89" width="24" height="22"/><rect x="113" y="89" width="24" height="22"/><rect x="144" y="89" width="24" height="22"/></g>
+<text x="18" y="24" fill="#c9ff63" font-family="monospace" font-size="10">ACCEL / 04</text>
+</g>
+<text x="74" y="566" fill="#626b60" font-family="monospace" font-size="16">MODEL → IR → SEARCH → RTL → PHYSICAL</text>
+</svg>
