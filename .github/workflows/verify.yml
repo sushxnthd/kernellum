@@ -9,6 +9,7 @@ on:
       - "scripts/run_ecp5.sh"
       - "scripts/run_onnx_eda.sh"
       - "scripts/build_onnx_demo.py"
+      - "scripts/build_benchmark_matrix.py"
       - "artifacts/digits_int8/**"
       - "artifacts/onnx_digits/**"
       - "pyproject.toml"
@@ -21,6 +22,7 @@ on:
       - "scripts/run_ecp5.sh"
       - "scripts/run_onnx_eda.sh"
       - "scripts/build_onnx_demo.py"
+      - "scripts/build_benchmark_matrix.py"
       - "artifacts/digits_int8/**"
       - "artifacts/onnx_digits/**"
       - "pyproject.toml"
@@ -47,6 +49,8 @@ jobs:
         run: python -m kernellum --out artifacts/digits_int8
       - name: Build v0.2 ONNX demo accelerator
         run: python scripts/build_onnx_demo.py
+      - name: Build multi-shape compiler benchmark matrix
+        run: python scripts/build_benchmark_matrix.py
       - name: Install open-source EDA
         run: sudo apt-get update && sudo apt-get install -y iverilog yosys
       - name: Run v0.1 RTL simulation and generic synthesis
@@ -67,3 +71,6 @@ jobs:
             artifacts/onnx_digits/yosys_stat.log
             artifacts/onnx_digits/yosys_ecp5_stat.log
             artifacts/onnx_digits/manifest.json
+            artifacts/benchmark_matrix/summary.json
+            artifacts/benchmark_matrix/SUMMARY.md
+            artifacts/benchmark_matrix/*/manifest.json
