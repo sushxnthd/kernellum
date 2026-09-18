@@ -7,6 +7,7 @@ This page is the shortest route through Kernellum's public evidence.
 - [Investor brief](INVESTOR_BRIEF.md) — product wedge, evidence, milestones and commercial direction.
 - [Technical landscape](LANDSCAPE.md) — how Kernellum is positioned relative to HLS, ML compilers and AI-for-EDA.
 - [Roadmap](ROADMAP.md) — staged technical development.
+- [Technical diligence FAQ](FAQ.md) — direct answers to common technical and venture questions.
 
 ## 2. Technical evidence
 
