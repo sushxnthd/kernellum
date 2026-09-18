@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
 <rect width="1200" height="630" fill="#070807"/>
 <g opacity=".18" stroke="#c9ff63"><path d="M0 70h1200M0 140h1200M0 210h1200M0 280h1200M0 350h1200M0 420h1200M0 490h1200M0 560h1200"/><path d="M80 0v630M160 0v630M240 0v630M320 0v630M400 0v630M480 0v630M560 0v630M640 0v630M720 0v630M800 0v630M880 0v630M960 0v630M1040 0v630M1120 0v630"/></g>
-<rect x="72" y="66" width="104" height="104" rx="18" fill="#0c100b" stroke="#2e382c"/>
-<path d="M102 90v56M106 117l38-26M106 119l38 27" fill="none" stroke="#c9ff63" stroke-width="7" stroke-linecap="square"/>
-<circle cx="102" cy="90" r="4" fill="#85f0c2"/><circle cx="144" cy="91" r="4" fill="#85f0c2"/><circle cx="144" cy="146" r="4" fill="#85f0c2"/>
+<rect x="72" y="66" width="104" height="104" rx="18" fill="#090c09" stroke="#2e382c"/>
+<g fill="none" stroke="#c9ff63" stroke-width="4" stroke-linecap="square"><path d="M91 94h10l17 18M91 118h20M91 142h10l17-18"/><path d="m130 112 17-18h10M134 118h23M130 124l17 18h10"/></g>
+<path d="m124 104 14 14-14 14-14-14z" fill="#c9ff63"/><path d="m124 111 7 7-7 7-7-7z" fill="#10150c"/>
+<g fill="#85f0c2"><circle cx="89" cy="94" r="3"/><circle cx="89" cy="118" r="3"/><circle cx="89" cy="142" r="3"/><circle cx="159" cy="94" r="3"/><circle cx="159" cy="118" r="3"/><circle cx="159" cy="142" r="3"/></g>
 <text x="72" y="230" fill="#c9ff63" font-family="monospace" font-size="19" letter-spacing="4">KERNELLUM RESEARCH</text>
 <text x="72" y="330" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Models should shape</text>
 <text x="72" y="408" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">the machines that run them.</text>
