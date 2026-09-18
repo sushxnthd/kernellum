@@ -32,3 +32,5 @@
 - `CONTRIBUTING.md`
 
 TR-002 remains intentionally unassigned until a second substantive technical contribution is complete.
+
+- [KRN-PNR-001 — ULX3S-85F Physical-Feedback P&R Sweep](research/ULX3S_PNR_SWEEP_2026-09-18.md) - board-targeted timing/utilization sweep and architecture-selection record.
