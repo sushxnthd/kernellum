@@ -30,9 +30,10 @@ This page is the shortest route through Kernellum's public evidence.
 
 - [Design Partner Program](DESIGN_PARTNERS.md)
 - [Open benchmark call](https://github.com/sushxnthd/kernellum/issues/2)
-- [KRN-EXT-001 protocol](research/KRN-EXT-001_PROTOCOL.md) — pinned third-party public ONNX model evaluation under clean-room validation.
+- [KRN-EXT-001 result](research/KRN-EXT-001_RESULT.md) — completed clean-room third-party public-model evaluation: 64→64→64→32, 2 lanes selected at 28.18 MHz on the 25 MHz ULX3S target.
+- [KRN-EXT-001 protocol](research/KRN-EXT-001_PROTOCOL.md) — frozen provenance, selection and evidence rules.
 
-External customer/design-partner evidence remains a milestone; KRN-EXT-001 is a public third-party model evaluation under clean-room validation and is not presented as customer validation.
+KRN-EXT-001 is completed external public-model evidence. External customer/design-partner validation remains a separate commercial milestone.
 
 ## 5. Physical validation
 
