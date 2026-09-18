@@ -86,7 +86,9 @@ Remaining physical actions:
 - reproducible benchmark harness.
 
 ### 3. External validation and design partner
-A pinned public third-party ONNX workload from tiny-NPU is currently under clean-room KRN-EXT-001 validation. This tests external model ingestion/implementation, but it is not presented as a customer relationship or application-accuracy result.
+KRN-EXT-001 has completed a clean-room run on a pinned third-party public ONNX model from tiny-NPU (64 → 64 → 64 → 32). On the same ULX3S-85F / 25 MHz target, 1 and 2 lanes close timing at 33.51 and 28.18 MHz, while 4 and 8 lanes fall to 22.06 and 14.82 MHz. The fixed rule therefore selects **2 lanes** and produces a reference bitstream. This is external public-model evidence, not a customer relationship or application-accuracy result.
+
+Evidence: [KRN-EXT-001 result](research/KRN-EXT-001_RESULT.md).
 
 The stronger commercial milestone remains:
 - a workload supplied by an outside team;
