@@ -28,6 +28,8 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
 - **ULX3S P&R evidence:** [`research/ULX3S_PNR_SWEEP_2026-09-18.md`](research/ULX3S_PNR_SWEEP_2026-09-18.md)
 - **External workload protocol:** [`research/KRN-EXT-001_PROTOCOL.md`](research/KRN-EXT-001_PROTOCOL.md)
+- **Physical measurement protocol:** [`research/KRN-HW-001_PROTOCOL.md`](research/KRN-HW-001_PROTOCOL.md)
+- **ULX3S hardware-access call:** [Issue #9](https://github.com/sushxnthd/kernellum/issues/9)
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
@@ -154,7 +156,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow now completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. The next evidence threshold is loading a compatible physical board and measuring end-to-end inference latency, power and energy. Physical bring-up remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1).
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. A pinned third-party ONNX workload is under clean-room KRN-EXT-001 validation. KRN-HW-001 now provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
 
 ## People
 
