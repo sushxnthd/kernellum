@@ -71,7 +71,8 @@
 </article>
 <article class="log-entry current" data-reveal>
 <div class="log-date"><time>18 SEP</time><span>NOW</span></div>
-<div class="log-body"><div class="log-tags"><span>PHYSICAL</span><span>NEXT</span></div><h3>Move from family mapping to a named board.</h3><p>Select an ECP5 board/package, add constraints, run place-and-route, close timing, load a bitstream and measure real latency/power.</p><div class="log-links"><a href="hardware.html">bring-up tracker →</a></div></div>
+<div class="log-body"><div class="log-tags"><span>PHYSICAL</span><span>ULX3S</span></div><h3>Post-route timing enters architecture selection.</h3><p>A 1/2/4/8-lane ULX3S-85F sweep shows that cycle-faster candidates can lose after physical timing: 2 lanes reaches 29.64 MHz and closes the 25 MHz target, while 4 and 8 lanes do not. CI generates the selected reference bitstream.</p><div class="log-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">KRN-PNR-001 ↗</a><a href="hardware.html">hardware tracker →</a></div></div>
+<div class="log-body"><div class="log-tags"><span>PHYSICAL BOARD</span><span>NEXT</span></div><h3>Turn post-route evidence into measurements.</h3><p>Load the generated bitstream on a compatible ULX3S-85F, verify inference on-device, then measure end-to-end latency, board power and energy per inference.</p><div class="log-links"><a href="hardware.html">bring-up tracker →</a></div></div>
 <span class="log-state next">NEXT</span>
 </article>
 </div>
