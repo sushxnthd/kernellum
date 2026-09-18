@@ -3,6 +3,13 @@ name: implementation-evidence
 on:
   push:
     branches: [v0.2-physical-feedback]
+    paths:
+      - 'kernellum/**'
+      - 'scripts/**'
+      - 'boards/**'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - '.github/workflows/implementation.yml'
   workflow_dispatch:
 
 jobs:
