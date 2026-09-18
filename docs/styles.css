@@ -686,6 +686,94 @@ svg{display:block}
   .tilt-card{transform:none!important}
 }
 
+
+/* authored lab marginalia */
+.field-note{
+  position:relative;
+  width:min(560px,86%);
+  margin:-22px 0 92px;
+  padding:22px 30px 24px 31px;
+  color:#24271f;
+  background:
+    repeating-linear-gradient(0deg,rgba(66,70,58,.045) 0,rgba(66,70,58,.045) 1px,transparent 1px,transparent 23px),
+    linear-gradient(100deg,#ddd7c5,#eee9d9 58%,#d8d0bc);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 20px 45px rgba(0,0,0,.20);
+  transform:rotate(-.72deg);
+  transform-origin:12% 50%;
+  z-index:5;
+}
+.field-note.note-right{margin-left:auto;transform:rotate(.62deg)}
+.field-note:before{
+  content:"";
+  position:absolute;
+  width:68px;height:18px;
+  top:-9px;left:34px;
+  background:rgba(202,194,166,.76);
+  border-left:1px solid rgba(92,86,70,.16);
+  border-right:1px solid rgba(92,86,70,.16);
+  transform:rotate(-2deg);
+  opacity:.88;
+}
+.field-note.note-right:before{left:auto;right:42px;transform:rotate(2.5deg)}
+.field-note .note-kicker{
+  display:block;
+  margin-bottom:8px;
+  color:#68705f;
+  font:8px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.16em;
+}
+.field-note p{
+  margin:0;
+  max-width:480px;
+  color:#24271f;
+  font:italic 19px/1.42 Georgia,"Times New Roman",serif;
+  letter-spacing:-.012em;
+}
+.field-note small{
+  display:block;
+  margin-top:11px;
+  color:#737763;
+  font:8px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.08em;
+}
+.note-arrow{
+  position:absolute;
+  width:82px;height:42px;
+  right:-60px;top:21px;
+  overflow:visible;
+  fill:none;
+  stroke:#8d927d;
+  stroke-width:1.4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.7;
+}
+.note-right .note-arrow{right:auto;left:-60px}
+.field-note:hover{transform:rotate(-.28deg) translateY(-2px)}
+.field-note.note-right:hover{transform:rotate(.22deg) translateY(-2px)}
+
+/* shared page rhythm */
+.interior-hero,.hero-v2{border-bottom:0}
+.interior .interior-copy .cta{margin-top:28px}
+.reports-page .featured-copy .superlabel{margin-bottom:7px}
+footer a{color:#aeb5aa}
+footer a:hover{color:var(--signal)}
+
+@media(max-width:700px){
+  .field-note,.field-note.note-right{
+    width:94%;
+    margin:-8px auto 66px;
+    padding:20px 22px;
+    transform:none;
+  }
+  .field-note:hover,.field-note.note-right:hover{transform:none}
+  .field-note p{font-size:17px}
+  .field-note:before{left:28px}
+  .field-note.note-right:before{right:28px}
+  .note-arrow{display:none}
+}
+
 /* footer */
 footer{
   display:flex;justify-content:space-between;gap:20px;padding:46px 0 68px;border-top:1px solid var(--line);
