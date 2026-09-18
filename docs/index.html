@@ -1,7 +1,47 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Kernellum Research develops AI-native systems for efficient computing, automated hardware-software co-design and specialized AI acceleration."><title>Kernellum Research</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrap">
-<nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
-<header class="hero"><div class="eyebrow">Kernellum Research</div><h1>AI-native systems for efficient computing.</h1><p class="lede">Independent research in automated hardware-software co-design, specialized AI acceleration and AI-assisted electronic design automation.</p><div class="cta"><a class="btn primary" href="compiler.html">Explore Kernellum Compiler</a><a class="btn" href="publications.html">Technical reports</a></div></header>
-<section class="section"><div class="sectionhead"><h2>Research direction</h2><p>Kernellum investigates how AI workloads can be mapped automatically onto specialized hardware under explicit latency, memory, area and energy constraints. Public claims are tied to code, tests, synthesis evidence or measured hardware.</p></div><div class="grid"><div class="card"><div class="tag">01</div><h3>Hardware-software co-design</h3><p>Search compute architectures jointly with model representation and execution constraints.</p></div><div class="card"><div class="tag">02</div><h3>Efficient edge AI</h3><p>Quantization, specialization and local inference for constrained devices.</p></div><div class="card"><div class="tag">03</div><h3>AI for EDA</h3><p>Explore automated graph lowering, architecture generation, RTL generation and verification.</p></div></div></section>
-<section class="section"><div class="sectionhead"><h2>Kernellum Compiler v0.1</h2><p>A small but complete research prototype: train and quantize a workload, search accelerator parallelism, emit SystemVerilog and verification collateral, reproduce outputs in RTL simulation, and synthesize the design in CI.</p></div><div class="metricgrid"><div class="metric"><strong>96.44%</strong><span>INT8 held-out accuracy</span></div><div class="metric"><strong>450/450</strong><span>cycle-model exact matches</span></div><div class="metric"><strong>32/32</strong><span>RTL golden cases passed</span></div><div class="metric"><strong>7,977</strong><span>ECP5-mapped LUT4 primitives*</span></div></div><div style="height:24px"></div><div class="flow">model → INT8 quantization → architecture search → RTL + memories → cycle model → RTL simulation → ECP5-family synthesis</div><p class="note" style="margin-top:24px">*Family-mapped Yosys synthesis, not place-and-route utilization. The current 6.8 µs latency is modeled from 680 cycles at an assumed 100 MHz; physical timing and power are not yet claimed.</p></section>
-<section class="section"><div class="split"><div class="panel"><div class="kicker">TECHNICAL REPORT 001</div><h3>Kernellum Compiler v0.1</h3><p>Constraint-Driven Generation of a Quantized Neural Accelerator. Includes reproducibility, architecture search, RTL verification and synthesis evidence.</p><div class="cta"><a class="btn primary" href="TR-001.pdf">Read PDF</a><a class="btn" href="publications.html">Publication record</a></div></div><div class="panel"><div class="kicker">V0.2 ALPHA</div><h3>ONNX → hardware IR → RTL</h3><p>A strict ONNX dense-network subset is now lowered through a hardware IR, quantized, architecture-searched and emitted as synthesizable RTL.</p><a class="btn" href="compiler.html#v02">View compiler</a></div></div></section>
-<footer>© 2026 Kernellum Research · Independent research initiative · <a href="https://github.com/sushxnthd/kernellum">Source on GitHub</a></footer></div></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kernellum Research is an independent AI-hardware research lab building tools that turn models and constraints into specialized compute architectures.">
+<title>Kernellum Research — Models to machines</title><link rel="stylesheet" href="styles.css"></head>
+<body><div class="wrap">
+<nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="labstatus">lab online · build 0.2α</div><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
+
+<header class="hero">
+  <div class="hero-copy"><div class="eyebrow">Independent AI-hardware research lab · 2026</div>
+    <h1>Models should shape the <em>machines</em> that run them.</h1>
+    <p class="lede">Kernellum explores a simple idea: instead of forcing every AI workload onto the same hardware, treat the model and its deployment constraints as a specification for the accelerator itself.</p>
+    <div class="cta"><a class="btn primary" href="compiler.html">Open the compiler →</a><a class="btn" href="TR-001.pdf">Read TR-001</a><a class="btn" href="https://github.com/sushxnthd/kernellum">Source ↗</a></div>
+  </div>
+  <aside class="hero-side"><div class="label">Current build</div><p><strong>Kernellum Compiler v0.2 alpha</strong><br>ONNX subset → hardware IR → INT8 → architecture search → generated RTL.<br><br>Next evidence target: physical FPGA implementation and measured timing/power.</p></aside>
+</header>
+
+<section class="section"><div class="superlabel">The path</div>
+  <div class="pipeline">
+    <div class="pipe"><span>00</span><strong>AI model</strong></div><div class="pipe"><span>01</span><strong>quantize</strong></div><div class="pipe"><span>02</span><strong>constraints</strong></div><div class="pipe"><span>03</span><strong>search</strong></div><div class="pipe"><span>04</span><strong>architecture</strong></div><div class="pipe"><span>05</span><strong>RTL</strong></div><div class="pipe"><span>06</span><strong>silicon</strong></div>
+  </div><div class="signalbar"></div>
+</section>
+
+<section class="section"><div class="sectionhead"><div><div class="superlabel">001 / Evidence</div><h2>What exists now.</h2></div><p>The first prototype is deliberately small, but complete enough to test the thesis end-to-end. It trains and quantizes a neural workload, searches accelerator parallelism, emits SystemVerilog and memories, verifies exact integer behavior, and runs synthesis in CI.</p></div>
+  <div class="metricgrid"><div class="metric"><strong>96.44%</strong><span>INT8 held-out accuracy</span><small>digits test set</small></div><div class="metric"><strong>450/450</strong><span>cycle-model exact matches</span><small>held-out samples</small></div><div class="metric"><strong>32/32</strong><span>RTL golden cases</span><small>Icarus simulation</small></div><div class="metric"><strong>7,977</strong><span>ECP5 LUT4 primitives*</span><small>Yosys family mapping</small></div></div>
+  <p class="fine" style="margin-top:14px">*Synthesis-family mapping, not post-place-and-route board utilization. Physical timing, power and energy are not yet claimed.</p>
+</section>
+
+<section class="section"><div class="sectionhead"><div><div class="superlabel">002 / Lab notebook</div><h2>Built in public.</h2></div><p>Kernellum is meant to read like a research notebook rather than a landing page. Each milestone should leave behind code, a report, a reproducible benchmark, or measured hardware.</p></div>
+  <div class="notebook">
+    <article class="noteentry"><div class="date">SEP 2026 · ENTRY 01</div><h3>v0.1: model → RTL</h3><p>Quantized dense accelerator generation, exact cycle-model verification, RTL simulation, and synthesis evidence.</p></article>
+    <article class="noteentry"><div class="date">SEP 2026 · ENTRY 02</div><h3>v0.2α: ONNX → IR</h3><p>A deliberately narrow ONNX path now lowers supported dense graphs into an explicit hardware IR before code generation.</p></article>
+    <article class="noteentry"><div class="date">NEXT · ENTRY 03</div><h3>Physical evidence</h3><p>Named FPGA target, place-and-route, measured clock, latency, resources, power, and energy per inference.</p></article>
+  </div>
+</section>
+
+<section class="section"><div class="thesis">
+  <div class="statement"><div class="superlabel">Why Kernellum exists</div><blockquote>AI hardware should become <em>programmable at the architecture level</em>, not only at the software level.</blockquote></div>
+  <div class="margin-note"><p>Kernellum began from a practical question: if a workload has known shapes, precision, latency and memory constraints, how much of the accelerator design process can be generated rather than hand-authored?</p><a class="btn" href="research.html">Research thesis →</a></div>
+</div></section>
+
+<section class="section"><div class="founder">
+  <div class="identity"><div class="initials">SD</div><div class="mono">FOUNDER / RESEARCH LEAD<br>KERNELLUM RESEARCH</div></div>
+  <div class="founder-copy"><div class="superlabel">Independent by design</div><h3>Founded by Sushanth Dasari.</h3><p>I started Kernellum to build at the boundary between machine learning and computer architecture: not another model wrapper, but tools that ask what the hardware itself should look like for a given workload.</p><p>The lab is intentionally evidence-first. Modeled values are labeled as modeled. Simulation is labeled as simulation. Physical claims wait for physical hardware.</p><div class="signature">— Sushanth / 2026</div></div>
+</section>
+
+<footer><span>© 2026 Kernellum Research</span><span>AI-native systems for efficient computing · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
+</div></body></html>
