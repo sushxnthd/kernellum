@@ -12,6 +12,7 @@ module kernellum_ulx3s_top #(
     logic start_meta, start_sync, start_prev, start_pulse;
     logic [3:0] class_led;
     logic done_led;
+    logic core_start_marker, core_done_marker;
 
     assign rst = ~btn[0];
 
@@ -34,7 +35,9 @@ module kernellum_ulx3s_top #(
         .rst(rst),
         .start_btn(start_pulse),
         .class_led(class_led),
-        .done_led(done_led)
+        .done_led(done_led),
+        .core_start_marker(core_start_marker),
+        .core_done_marker(core_done_marker)
     );
 
     always_comb begin
@@ -43,7 +46,7 @@ module kernellum_ulx3s_top #(
         led[4] = done_led;
     end
 
-    // Logic-analyzer markers: gp0=start pulse, gn0=completion pulse.
-    assign gp0 = start_pulse;
-    assign gn0 = done_led;
+    // Logic-analyzer markers bracket only the accelerator core.
+    assign gp0 = core_start_marker;
+    assign gn0 = core_done_marker;
 endmodule
