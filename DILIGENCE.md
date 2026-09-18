@@ -29,8 +29,9 @@ This page is the shortest route through Kernellum's public evidence.
 
 - [Design Partner Program](DESIGN_PARTNERS.md)
 - [Open benchmark call](https://github.com/sushxnthd/kernellum/issues/2)
+- [KRN-EXT-001 protocol](research/KRN-EXT-001_PROTOCOL.md) — pinned third-party public ONNX model evaluation under clean-room validation.
 
-External workload evidence is still a milestone, not a completed claim.
+External customer/design-partner evidence remains a milestone; KRN-EXT-001 is a public third-party model evaluation and is not presented as customer validation.
 
 ## 5. Current evidence boundary
 
