@@ -15,6 +15,7 @@ This page is the shortest route through Kernellum's public evidence.
 - [TR-001](https://sushxnthd.github.io/kernellum/TR-001.pdf) — first technical report.
 - [Benchmark policy](BENCHMARKS.md) — evidence ladder from model quality to physical measurement.
 - [Build status](BUILD_STATUS.md) — current synthesis / FPGA status.
+- [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md) — ULX3S-85F 1/2/4/8-lane P&R sweep, timing feedback and selected reference configuration.
 - [Repository](https://github.com/sushxnthd/kernellum) — source, tests and reproducibility.
 
 ## 3. Product surface
