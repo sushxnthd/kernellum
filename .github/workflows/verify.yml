@@ -21,11 +21,13 @@ jobs:
       - name: Build v0.2 ONNX demo accelerator
         run: python scripts/build_onnx_demo.py
       - name: Install open-source EDA
-        run: sudo apt-get update && sudo apt-get install -y iverilog yosys
+        run: sudo apt-get update && sudo apt-get install -y iverilog yosys nextpnr-ecp5 fpga-trellis
       - name: Run v0.1 RTL simulation and generic synthesis
         run: bash scripts/run_eda.sh
       - name: Run v0.1 ECP5 family-mapped synthesis
         run: bash scripts/run_ecp5.sh
+      - name: Run ULX3S-85F reference place-and-route and bitstream build
+        run: bash scripts/run_pnr_ulx3s_85f.sh
       - name: Run v0.2 ONNX-generated RTL simulation and synthesis
         run: bash scripts/run_onnx_eda.sh
       - name: Upload EDA evidence
@@ -36,6 +38,11 @@ jobs:
             artifacts/digits_int8/rtl_sim.log
             artifacts/digits_int8/yosys_stat.log
             artifacts/digits_int8/yosys_ecp5_stat.log
+            artifacts/digits_int8/pnr_ecp5/yosys.log
+            artifacts/digits_int8/pnr_ecp5/nextpnr.log
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.json
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.config
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.bit
             artifacts/onnx_digits/rtl_sim.log
             artifacts/onnx_digits/yosys_stat.log
             artifacts/onnx_digits/yosys_ecp5_stat.log
