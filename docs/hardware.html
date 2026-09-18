@@ -26,7 +26,7 @@
 <div class="interior-copy" data-reveal>
 <div class="eyebrow">Physical FPGA / evidence threshold</div>
 <h1>Make the model touch <em>hardware</em>.</h1>
-<p class="lede">Family-mapped synthesis is done. Physical place-and-route, timing closure, board execution, latency and power are not. This page tracks that boundary explicitly.</p>
+<p class="lede">Family-mapped synthesis is done and a ULX3S-85F reference target now has explicit package, 25 MHz clock and board constraints. CI attempts place-and-route and bitstream generation; physical board execution, measured latency and measured power remain separate evidence thresholds.</p>
 <div class="cta"><a class="btn primary" href="Kernellum_FPGA_Bringup_Protocol_v0.1.pdf">Bring-up protocol ↓</a><a class="btn" href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_pnr_ecp5.sh">P&amp;R scaffold ↗</a><a class="btn" href="https://github.com/sushxnthd/kernellum/issues/1">Issue #1 ↗</a></div>
 </div>
 <div class="interior-stage hardware-stage" data-tilt-stage>
@@ -51,8 +51,8 @@
 <div class="status-grid">
 <article class="status-card done" data-reveal><span>01</span><small>FAMILY PROFILE</small><h3>Lattice ECP5-85F</h3><p>Compiler/EDA flow has an ECP5-85F family target profile.</p><b>READY</b></article>
 <article class="status-card done" data-reveal><span>02</span><small>FAMILY SYNTHESIS</small><h3>Yosys synth_ecp5</h3><p>7,977 LUT4 · 8 MULT18X18D · 58 TRELLIS_DPR16X4 · 145 TRELLIS_FF.</p><b>PASS</b></article>
-<article class="status-card pending" data-reveal><span>03</span><small>NAMED BOARD</small><h3>Board + package</h3><p>No physical board is currently claimed as validated.</p><b>OPEN</b></article>
-<article class="status-card pending" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>Requires a real package and board constraint file.</p><b>PENDING</b></article>
+<article class="status-card done" data-reveal><span>03</span><small>REFERENCE TARGET</small><h3>ULX3S 85F</h3><p>LFE5U-85F-6BG381C · CABGA381 · 25 MHz · real LPF constraints committed. Physical validation remains unclaimed.</p><b>CONFIGURED</b></article>
+<article class="status-card pending" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>CI path now targets the ULX3S-85F reference board and archives the post-route log/config/bitstream when successful.</p><b>VERIFYING</b></article>
 <article class="status-card pending" data-reveal><span>05</span><small>MEASUREMENT</small><h3>Latency + power</h3><p>Must be measured on loaded hardware, not inferred from cycle count.</p><b>PENDING</b></article>
 </div>
 </section>
@@ -72,7 +72,7 @@
 <section class="section hardware-measurements" data-reveal>
 <div><div class="superlabel">03 / Measurement record</div><h2>Blank until hardware earns the numbers.</h2></div>
 <div class="measurement-table">
-<div><span>BOARD</span><b>—</b><small>not selected</small></div>
+<div><span>REFERENCE TARGET</span><b>ULX3S 85F</b><small>not physically validated</small></div>
 <div><span>ACHIEVED FMAX</span><b>—</b><small>not measured</small></div>
 <div><span>END-TO-END LATENCY</span><b>—</b><small>not measured</small></div>
 <div><span>BOARD POWER</span><b>—</b><small>not measured</small></div>
