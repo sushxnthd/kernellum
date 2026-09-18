@@ -41,7 +41,7 @@ Generated RTL, weights, golden vectors, cycle-level reference behavior and EDA l
 
 ### 4. Physical feedback is part of the roadmap
 
-The first ULX3S-85F reference P&R attempt exposed a timing bottleneck in the generated datapath. The backend is being restructured in response. That feedback loop — model -> architecture -> RTL -> physical result -> compiler improvement — is central to the thesis.
+The ULX3S-85F reference flow is the first step toward feeding physical implementation results back into the compiler. The first CI attempt exposed an integration error before nextpnr (output-path quoting), which was fixed and rerun. Once post-route timing/resource evidence is available, the backend can use those results to drive architecture changes. That feedback loop — model -> architecture -> RTL -> physical result -> compiler improvement — is central to the thesis.
 
 ## Current boundary
 
