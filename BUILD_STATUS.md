@@ -25,16 +25,16 @@ CI now builds a real ONNX model through this path and then simulates and synthes
 
 **Status: OPEN — no physical board result is claimed yet.**
 
-The repository now includes `scripts/run_pnr_ecp5.sh`, a place-and-route scaffold that requires an explicit ECP5 package, LPF constraint file and target clock. It intentionally exits rather than guessing these values.
+The repository now includes a generic `scripts/run_pnr_ecp5.sh` scaffold plus a **ULX3S-85F reference target** (`LFE5U-85F-6BG381C`, `CABGA381`, 25 MHz) with committed LPF constraints and `scripts/run_pnr_ulx3s_85f.sh`. CI now attempts board-targeted nextpnr place-and-route and bitstream generation. This is a reproducible reference build target, not evidence that Kernellum has loaded or measured a physical ULX3S board.
 
 Next evidence steps:
 
-1. select an accessible named ECP5 board;
-2. commit the real board/package/clock constraints;
-3. run nextpnr-ecp5 and record achieved timing;
-4. generate/load the bitstream;
-5. verify inference on hardware;
-6. measure end-to-end latency, board power and energy per inference.
+1. verify the ULX3S-85F reference P&R/bitstream CI path and archive timing/utilization evidence;
+2. obtain access to a compatible physical ECP5 board;
+3. load the generated bitstream and confirm the demo path;
+4. measure end-to-end latency;
+5. measure board power;
+6. compute energy per inference with method notes.
 
 Tracking issue: https://github.com/sushxnthd/kernellum/issues/1
 
