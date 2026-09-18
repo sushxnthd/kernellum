@@ -23,7 +23,14 @@ Use the selected bitstream produced by the reproducible reference P&R flow:
 artifacts/digits_int8/pnr_sweep_ulx3s_85f/kernellum_demo_top.bit
 ```
 
-When using a CI artifact, record the workflow run ID and SHA-256 of the exact bitstream loaded.
+Frozen KRN-PNR-001 reference provenance:
+
+- workflow run: **35321132327**;
+- selected architecture: **2 MAC lanes**;
+- post-route Fmax: **29.64 MHz**;
+- reference bitstream SHA-256: `19c403d3a169b320c8ae9584cb388255fdef784ad7d4651becaab690634be415`.
+
+KRN-HW-001 should use this exact bitstream for the primary reference measurement campaign. A different bitstream must be treated as a separate build and explicitly documented rather than silently compared against KRN-PNR-001.
 
 ## Programming
 
