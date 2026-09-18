@@ -70,7 +70,7 @@ def emit_ulx3s_demo_wrapper(case_dir: Path, dims: tuple[int, int, int, int], res
     ow = max(1, int(math.ceil(math.log2(d3))))
     (case_dir / "weights" / "demo_input.hex").write_text(_hex_lines(result.qinputs[0], 8))
 
-    wrapper = f'''\`timescale 1ns/1ps
+    wrapper = f'''`timescale 1ns/1ps
 module kernellum_demo_top #(
     parameter integer ACCEL_LANES = {result.lanes}
 )(
