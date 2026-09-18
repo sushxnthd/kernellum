@@ -16,6 +16,8 @@
 - `research/EVIDENCE_DOSSIER.md`
 - `REPRODUCIBILITY.md`
 - `research/FPGA_BRINGUP_PROTOCOL.md`
+- `research/KRN-EXT-001_PROTOCOL.md`
+- `research/KRN-HW-001_PROTOCOL.md`
 - `research/BUILD_LOG_2026-09.md`
 
 ## Machine-readable templates
@@ -23,6 +25,8 @@
 - `research/templates/evidence_manifest.json`
 - `research/templates/fpga_measurement_record.csv`
 - `research/templates/board_profile_template.yaml`
+- `scripts/krn_hw_001.py` — creates and analyzes physical measurement sessions.
+- `scripts/program_krn_hw_001_ulx3s.sh` — records SRAM programming and bitstream identity.
 
 ## Repository governance
 
