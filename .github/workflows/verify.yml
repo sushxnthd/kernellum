@@ -9,8 +9,11 @@ on:
       - "scripts/run_ecp5.sh"
       - "scripts/run_onnx_eda.sh"
       - "scripts/build_onnx_demo.py"
+      - "scripts/run_multiworkload_bench.py"
+      - "scripts/run_multiworkload_eda.sh"
       - "artifacts/digits_int8/**"
       - "artifacts/onnx_digits/**"
+      - "artifacts/multiworkload/**"
       - "pyproject.toml"
       - ".github/workflows/verify.yml"
   pull_request:
@@ -21,8 +24,11 @@ on:
       - "scripts/run_ecp5.sh"
       - "scripts/run_onnx_eda.sh"
       - "scripts/build_onnx_demo.py"
+      - "scripts/run_multiworkload_bench.py"
+      - "scripts/run_multiworkload_eda.sh"
       - "artifacts/digits_int8/**"
       - "artifacts/onnx_digits/**"
+      - "artifacts/multiworkload/**"
       - "pyproject.toml"
       - ".github/workflows/verify.yml"
   workflow_dispatch:
@@ -47,6 +53,8 @@ jobs:
         run: python -m kernellum --out artifacts/digits_int8
       - name: Build v0.2 ONNX demo accelerator
         run: python scripts/build_onnx_demo.py
+      - name: Build v0.2 structural multi-workload benchmark
+        run: python scripts/run_multiworkload_bench.py
       - name: Install open-source EDA
         run: sudo apt-get update && sudo apt-get install -y iverilog yosys
       - name: Run v0.1 RTL simulation and generic synthesis
@@ -55,6 +63,8 @@ jobs:
         run: bash scripts/run_ecp5.sh
       - name: Run v0.2 ONNX-generated RTL simulation and synthesis
         run: bash scripts/run_onnx_eda.sh
+      - name: Run v0.2 multi-workload RTL simulation and synthesis
+        run: bash scripts/run_multiworkload_eda.sh
       - name: Upload EDA evidence
         uses: actions/upload-artifact@v4
         with:
@@ -67,3 +77,9 @@ jobs:
             artifacts/onnx_digits/yosys_stat.log
             artifacts/onnx_digits/yosys_ecp5_stat.log
             artifacts/onnx_digits/manifest.json
+            artifacts/multiworkload/summary.json
+            artifacts/multiworkload/SUMMARY.md
+            artifacts/multiworkload/*/manifest.json
+            artifacts/multiworkload/*/rtl_sim.log
+            artifacts/multiworkload/*/yosys_stat.log
+            artifacts/multiworkload/*/yosys_ecp5_stat.log
