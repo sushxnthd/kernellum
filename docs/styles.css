@@ -948,7 +948,7 @@ body.interior{
 .research-page{--signal:#73e5ff;--signal-2:#b3f8da;--page-rgb:115,229,255}
 .reports-page{--signal:#ffc86f;--signal-2:#ffe8ad;--page-rgb:255,200,111}
 .compiler-page{--signal:#b5a4ff;--signal-2:#7fe8ff;--page-rgb:181,164,255}
-.log-page{--signal:#ff9478;--signal-2:#ffc86f;--page-rgb:255,148,120}
+.log-page{--signal:#ff9478;--signal-2:#ffc86f;--page-rgb:255,148,120;overflow-x:hidden}
 .evidence-page{--signal:#68ebb0;--signal-2:#8cecff;--page-rgb:104,235,176}
 .hardware-page{--signal:#62f1d3;--signal-2:#9dffd8;--page-rgb:98,241,211}
 .about-page{--signal:#ffd071;--signal-2:#ff9a7c;--page-rgb:255,208,113}
