@@ -1,0 +1,55 @@
+name: reference-pnr
+
+on:
+  push:
+    paths:
+      - "artifacts/digits_int8/**"
+      - "boards/ulx3s_85f/**"
+      - "scripts/run_pnr_ecp5.sh"
+      - "scripts/run_pnr_sweep_ulx3s_85f.sh"
+      - ".github/workflows/reference-pnr.yml"
+  pull_request:
+    paths:
+      - "artifacts/digits_int8/**"
+      - "boards/ulx3s_85f/**"
+      - "scripts/run_pnr_ecp5.sh"
+      - "scripts/run_pnr_sweep_ulx3s_85f.sh"
+      - ".github/workflows/reference-pnr.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: reference-pnr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ulx3s-85f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: pip install -e '.[test,onnx]'
+      - name: Regenerate accelerator artifacts
+        run: python -m kernellum --out artifacts/digits_int8
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Run ULX3S-85F physical-feedback P&R sweep
+        run: bash scripts/run_pnr_sweep_ulx3s_85f.sh
+      - name: Upload reference P&R evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-ulx3s-85f-pnr
+          path: |
+            artifacts/digits_int8/pnr_ecp5_lanes*/yosys.log
+            artifacts/digits_int8/pnr_ecp5_lanes*/nextpnr.log
+            artifacts/digits_int8/pnr_ecp5_lanes*/kernellum_demo_top.json
+            artifacts/digits_int8/pnr_ecp5_lanes*/kernellum_demo_top.config
+            artifacts/digits_int8/pnr_sweep_ulx3s_85f/summary.json
+            artifacts/digits_int8/pnr_sweep_ulx3s_85f/SUMMARY.md
+            artifacts/digits_int8/pnr_sweep_ulx3s_85f/kernellum_demo_top.bit
+          if-no-files-found: warn
