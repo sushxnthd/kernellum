@@ -1,0 +1,34 @@
+# Kernellum Documents
+
+## Formal report
+
+- [Technical Report 001](docs/TR-001.pdf) - compiler v0.1 research report.
+
+## Evidence / reproducibility PDFs
+
+- [Evidence Dossier v0.2](docs/Kernellum_Evidence_Dossier_v0.2.pdf)
+- [Reproducibility Guide v0.2](docs/Kernellum_Reproducibility_Guide_v0.2.pdf)
+- [FPGA Bring-up Protocol v0.1](docs/Kernellum_FPGA_Bringup_Protocol_v0.1.pdf)
+- [Build Log - September 2026](docs/Kernellum_Build_Log_2026-09.pdf)
+
+## Editable/source records
+
+- `research/EVIDENCE_DOSSIER.md`
+- `REPRODUCIBILITY.md`
+- `research/FPGA_BRINGUP_PROTOCOL.md`
+- `research/BUILD_LOG_2026-09.md`
+
+## Machine-readable templates
+
+- `research/templates/evidence_manifest.json`
+- `research/templates/fpga_measurement_record.csv`
+- `research/templates/board_profile_template.yaml`
+
+## Repository governance
+
+- `CITATION.cff`
+- `CHANGELOG.md`
+- `ROADMAP.md`
+- `CONTRIBUTING.md`
+
+TR-002 remains intentionally unassigned until a second substantive technical contribution is complete.
