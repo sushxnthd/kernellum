@@ -2,6 +2,8 @@ name: external-tiny-npu
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "kernellum/compiler.py"
       - "kernellum/onnx_frontend.py"
