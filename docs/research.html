@@ -38,13 +38,16 @@
 </div>
 <div class="float-tag ft-a" data-depth="0.44"><span>≤ 10 μs</span><small>latency target</small></div>
 <div class="float-tag ft-b" data-depth="0.39"><span>INT8</span><small>precision</small></div>
+<div class="scene-satellite sat-a" data-depth="0.60"><b>L</b><span>LAT</span></div>
+<div class="scene-satellite sat-b" data-depth="0.52"><b>M</b><span>MEM</span></div>
+<div class="scene-satellite sat-c" data-depth="0.66"><b>∥</b><span>LANES</span></div>
 </div>
 <div class="stage-caption"><span>MODEL</span><i></i><span>SEARCH</span><i></i><span>ARCH</span></div>
 </div>
 </header>
 
 <section class="section program-grid" data-reveal>
-<article class="program-main">
+<article class="program-main" data-parallax-y="-14">
 <div class="superlabel">01 / Automated co-design</div>
 <h2>Turn deployment constraints into architecture decisions.</h2>
 <p class="large-copy">The compiler should not merely translate a model. It should expose and search the hardware decisions that matter for that model.</p>
@@ -55,7 +58,7 @@
 <span><b>parallelism</b><small>lanes / tiles</small></span>
 </div>
 </article>
-<div class="program-side">
+<div class="program-side" data-parallax-y="12">
 <article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM9 14h6v6H9zM7 10l3 4M17 10l-3 4"/></svg></span><div><b>Hardware IR</b><p>Represent model structure in a form the hardware search can reason about.</p></div></article>
 <article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-7M22 18V3M2 21h22"/></svg></span><div><b>Efficient inference</b><p>Quantization and specialization for constrained edge deployments.</p></div></article>
 <article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8zM1 9h3M20 15h3M15 1v3M9 20v3"/></svg></span><div><b>AI-assisted EDA</b><p>Graph lowering, RTL generation, verification and physical-design feedback.</p></div></article>
@@ -67,7 +70,7 @@
 <div class="superlabel">02 / Claim ladder</div><h2>Evidence should get harder as the claim gets stronger.</h2>
 <p>Kernellum keeps model results, cycle behavior, RTL simulation, synthesis and physical measurement separate. The ladder is not decoration; it is the boundary around what the lab is allowed to claim.</p>
 </div>
-<div class="ladder-track" data-reveal>
+<div class="ladder-track" data-reveal data-parallax-y="-18">
 <div class="ladder-line"><span></span></div>
 <div class="ladder-item done"><i>01</i><div><b>MODEL</b><small>accuracy + quantization</small></div><em>✓</em></div>
 <div class="ladder-item done"><i>02</i><div><b>CYCLE</b><small>450 / 450 exact</small></div><em>✓</em></div>
