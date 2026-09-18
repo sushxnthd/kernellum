@@ -115,6 +115,27 @@
       el.style.setProperty('--parallax-y',y.toFixed(2) + 'px');
     });
 
+    if (journey && journeyStage && journeySteps.length) {
+      const shell = journey.querySelector('.journey-shell');
+      const shellRect = shell.getBoundingClientRect();
+      const total = Math.max(1,shellRect.height-innerHeight);
+      const local = clamp((-shellRect.top)/total,0,1);
+
+      journeyStage.style.setProperty('--journey-scroll-y',(-local*54).toFixed(2)+'px');
+
+      let nearest = journeyIndex;
+      let nearestDistance = Infinity;
+      const targetY = innerHeight * .5;
+      journeySteps.forEach((step,i) => {
+        const r = step.getBoundingClientRect();
+        const center = r.top + r.height/2;
+        const distance = Math.abs(center-targetY);
+        if(distance<nearestDistance){nearestDistance=distance;nearest=i;}
+      });
+
+      if(nearest!==journeyIndex) setJourneyStage(nearest);
+    }
+
     stages.forEach(({stage,scene}) => {
       const rect = stage.getBoundingClientRect();
       const center = rect.top + rect.height / 2 - innerHeight / 2;
@@ -142,6 +163,108 @@
   document.querySelectorAll('.notebook-row,.program-card,.deep-pipeline article,.principle-grid article,.artifact-node').forEach((el,i) => {
     el.style.setProperty('--delay',(i % 6) * 55 + 'ms');
   });
+
+  const journey = document.getElementById('compilerJourney');
+  const journeyStage = document.getElementById('journeyStage');
+  const journeyMachine = document.getElementById('journeyMachine');
+  const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
+  const journeyDots = journeyStage ? [...journeyStage.querySelectorAll('.journey-progress span')] : [];
+  const journeyProgressBar = document.getElementById('journeyProgressBar');
+  const journeyStageNo = document.getElementById('journeyStageNo');
+  const journeyStageLabel = document.getElementById('journeyStageLabel');
+  const journeyStageTitle = document.getElementById('journeyStageTitle');
+  const journeyStageText = document.getElementById('journeyStageText');
+
+  const journeyCopy = [
+    {
+      no:'00', label:'Graph ingest', title:'Start with the workload.',
+      text:'The compiler accepts a deliberately narrow model graph and validates what it can actually lower.'
+    },
+    {
+      no:'01', label:'Hardware IR', title:'Make the graph hardware-readable.',
+      text:'Tensors, operators and shapes become explicit compiler objects for downstream hardware reasoning.'
+    },
+    {
+      no:'02', label:'Architecture search', title:'Search under constraints.',
+      text:'Candidate parallelism is compared using modeled latency. Four MAC lanes are the smallest current candidate meeting the 10 μs target.'
+    },
+    {
+      no:'03', label:'RTL generation', title:'Emit an inspectable implementation.',
+      text:'The selected architecture becomes SystemVerilog, quantized memories and golden vectors.'
+    },
+    {
+      no:'04', label:'Selected accelerator', title:'The output is a machine.',
+      text:'The current prototype resolves to a 4-lane INT8 accelerator with a reproducible verification path.'
+    }
+  ];
+
+  let journeyIndex = 0;
+  function setJourneyStage(index) {
+    if (!journeyStage || !journeySteps.length) return;
+    const next = clamp(index,0,journeySteps.length-1);
+    journeyIndex = next;
+    journeyStage.dataset.stage = String(next);
+
+    journeySteps.forEach((step,i) => step.classList.toggle('active',i===next));
+    journeyDots.forEach((dot,i) => dot.classList.toggle('active',i<=next));
+
+    if (journeyProgressBar) {
+      journeyProgressBar.style.setProperty('--unused','0');
+      journeyProgressBar.style.width = ((next / Math.max(1,journeySteps.length-1)) * 100) + '%';
+    }
+
+    const copy = journeyCopy[next];
+    if (journeyStageNo) journeyStageNo.textContent = copy.no;
+    if (journeyStageLabel) journeyStageLabel.textContent = copy.label;
+    if (journeyStageTitle) journeyStageTitle.textContent = copy.title;
+    if (journeyStageText) journeyStageText.textContent = copy.text;
+  }
+
+  if (journeyStage && journeyMachine && journeySteps.length) {
+    setJourneyStage(0);
+
+    journeySteps.forEach((step,i) => {
+      step.addEventListener('click',() => setJourneyStage(i));
+      step.addEventListener('focus',() => setJourneyStage(i));
+    });
+
+    if (!reduced && finePointer.matches) {
+      let journeyFrame = 0;
+      let journeyPointer = null;
+
+      const renderJourneyPointer = () => {
+        journeyFrame = 0;
+        if (!journeyPointer) return;
+        const r = journeyStage.getBoundingClientRect();
+        const nx = clamp((journeyPointer.x-r.left)/r.width-.5,-.5,.5);
+        const ny = clamp((journeyPointer.y-r.top)/r.height-.5,-.5,.5);
+
+        journeyMachine.style.setProperty('--j-tilt-x',(nx*7).toFixed(2)+'deg');
+        journeyMachine.style.setProperty('--j-tilt-y',(-ny*6).toFixed(2)+'deg');
+
+        journeyStage.querySelectorAll('[data-j-depth]').forEach(el => {
+          const d = clamp(parseFloat(el.dataset.jDepth || 0),0,1);
+          el.style.setProperty('--jdx',(nx*d*20).toFixed(2)+'px');
+          el.style.setProperty('--jdy',(ny*d*20).toFixed(2)+'px');
+        });
+      };
+
+      journeyStage.addEventListener('pointermove',e => {
+        journeyPointer={x:e.clientX,y:e.clientY};
+        if(!journeyFrame) journeyFrame=requestAnimationFrame(renderJourneyPointer);
+      },{passive:true});
+
+      journeyStage.addEventListener('pointerleave',() => {
+        journeyPointer=null;
+        journeyMachine.style.setProperty('--j-tilt-x','0deg');
+        journeyMachine.style.setProperty('--j-tilt-y','0deg');
+        journeyStage.querySelectorAll('[data-j-depth]').forEach(el => {
+          el.style.setProperty('--jdx','0px');
+          el.style.setProperty('--jdy','0px');
+        });
+      });
+    }
+  }
 
   const cardSelector = [
     '.program-card',
