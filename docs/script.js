@@ -306,6 +306,16 @@
     });
   }
 
+  const evidenceButtons = [...document.querySelectorAll('[data-evidence-filter]')];
+  const evidenceCards = [...document.querySelectorAll('[data-evidence-kind]')];
+  evidenceButtons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.evidenceFilter || 'all';
+    evidenceButtons.forEach(b => b.classList.toggle('active', b === button));
+    evidenceCards.forEach(card => {
+      card.hidden = filter !== 'all' && card.dataset.evidenceKind !== filter;
+    });
+  }));
+
   window.addEventListener('scroll',queueScroll,{passive:true});
   window.addEventListener('resize',() => {
     stages.forEach(resetStage);
