@@ -1,8 +1,79 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website"><title>Reports — Kernellum</title><link rel="stylesheet" href="styles.css"></head>
-<body><div class="wrap"><nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="labstatus">research record</div><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
-<header class="hero"><div class="hero-copy"><div class="eyebrow">Technical reports</div><h1>The research record.</h1><p class="lede">Every substantial Kernellum build should leave behind a dated artifact explaining what was implemented, what was measured, and what remains unproven.</p></div><aside class="hero-side"><div class="label">Series</div><p><strong>Kernellum Research Technical Reports</strong><br>Public, versioned, and paired with source whenever possible.</p></aside></header>
-<section class="section"><div class="pub"><div class="pubid">TR-001<br>SEP 2026</div><div><h3>Kernellum Compiler v0.1: Constraint-Driven Generation of a Quantized Neural Accelerator</h3><p>Sushanth Dasari · Kernellum Research. Reproducible model-to-RTL prototype with integer verification, architecture search, RTL simulation and synthesis evidence.</p><div class="cta"><span class="status">Technical report · v1.0</span></div></div><div><a class="btn primary" href="TR-001.pdf">PDF</a><div style="height:8px"></div><a class="btn" href="https://github.com/sushxnthd/kernellum">Code ↗</a></div></div></section>
-<section class="section"><div class="sectionhead"><div><div class="superlabel">Citation</div><h2>TR-001</h2></div><p>Dasari, S. (2026). <em>Kernellum Compiler v0.1: Constraint-Driven Generation of a Quantized Neural Accelerator.</em> Kernellum Research Technical Report 001, v1.0.</p></div></section>
-<section class="section"><div class="sectionhead"><div><div class="superlabel">Next</div><h2>TR-002.</h2></div><p>Reserved for the next substantial research milestone rather than a predetermined marketing release. The likely threshold is a more general compiler path backed by physical FPGA evidence.</p></div></section>
-<footer><span>© 2026 Kernellum Research</span><span><a href="index.html">Home</a> · <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></span></footer></div></body></html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
+<title>Reports — Kernellum</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head>
+<body class="interior reports-page">
+<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<div class="wrap">
+<nav class="nav">
+<a class="brand" href="index.html"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+<div class="labstatus">research record</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+<div class="navlinks" id="navLinks"><a href="research.html">Research</a><a class="active" href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
+</nav>
+
+<header class="interior-hero reports-hero">
+<div class="interior-copy" data-reveal>
+<div class="eyebrow">Technical reports / research record</div>
+<h1>Leave behind <em>evidence</em>, not announcements.</h1>
+<p class="lede">Each substantial Kernellum build should produce a versioned record of what was implemented, what was measured and what remains unproven.</p>
+</div>
+
+<div class="interior-stage report-stage" data-tilt-stage>
+<div class="report-scene" data-tilt-scene data-base-x="58" data-base-z="-26">
+<div class="report-page rp-back" data-depth="0.10"><span>KERNELLUM</span><small>APPENDIX / VECTORS</small></div>
+<div class="report-page rp-mid" data-depth="0.22"><span>TR-001</span><small>METHODS / SEARCH / RTL</small></div>
+<div class="report-page rp-front" data-depth="0.35">
+<div class="report-cover-mark"><img src="kernellum-mark.svg" alt=""></div>
+<div class="report-series">KERNELLUM RESEARCH<br>TECHNICAL REPORT 001</div>
+<h3>Constraint-Driven Generation of a Quantized Neural Accelerator</h3>
+<div class="report-author">SUSHANTH DASARI · SEP 2026</div>
+</div>
+<div class="float-tag report-tag-a" data-depth="0.45"><span>32 / 32</span><small>RTL vectors</small></div>
+<div class="float-tag report-tag-b" data-depth="0.39"><span>450 / 450</span><small>cycle exact</small></div>
+</div>
+</div>
+</header>
+
+<section class="section featured-report" data-reveal>
+<div class="featured-number">001</div>
+<div class="featured-copy">
+<div class="superlabel">Featured report / v1.0</div>
+<h2>Kernellum Compiler v0.1</h2>
+<h3>Constraint-Driven Generation of a Quantized Neural Accelerator</h3>
+<p>The first formal record of Kernellum's model-to-RTL prototype: training, INT8 quantization, architecture search, cycle-exact verification, SystemVerilog generation and synthesis evidence.</p>
+<div class="artifact-chips"><span>INT8</span><span>RTL</span><span>YOSYS</span><span>ICARUS</span><span>REPRODUCIBLE</span></div>
+<div class="cta"><a class="btn primary" href="TR-001.pdf">Read PDF →</a><a class="btn" href="https://github.com/sushxnthd/kernellum">Source ↗</a></div>
+</div>
+<div class="featured-meta">
+<div><span>AUTHOR</span><b>Sushanth Dasari</b></div><div><span>DATE</span><b>September 2026</b></div><div><span>STATUS</span><b>Technical report · v1.0</b></div><div><span>SERIES</span><b>Kernellum Research</b></div>
+</div>
+</section>
+
+<section class="section artifact-chain">
+<div class="section-kicker-row" data-reveal><div><div class="superlabel">02 / What a report points to</div><h2>A paper is only one artifact in the chain.</h2></div><div class="section-index">RECORD / 2026</div></div>
+<div class="artifact-orbit" data-reveal>
+<div class="artifact-center"><img src="kernellum-mark.svg" alt=""><span>TR-001</span></div>
+<div class="artifact-node an1"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></span><b>Report</b></div>
+<div class="artifact-node an2"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span><b>Code</b></div>
+<div class="artifact-node an3"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8z"/></svg></span><b>RTL</b></div>
+<div class="artifact-node an4"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M3 17h4l3-10 4 14 3-9h4"/></svg></span><b>Vectors</b></div>
+<div class="artifact-node an5"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-7M22 18V3M2 21h22"/></svg></span><b>Synthesis</b></div>
+</div>
+</section>
+
+<section class="section citation-panel" data-reveal>
+<div><div class="superlabel">03 / Citation</div><h2>TR-001</h2></div>
+<div class="citation-box"><code>Dasari, S. (2026). Kernellum Compiler v0.1: Constraint-Driven Generation of a Quantized Neural Accelerator. Kernellum Research Technical Report 001, v1.0.</code><span>COPYABLE RECORD</span></div>
+</section>
+
+<section class="section next-report" data-reveal>
+<div class="ghost-number">002</div>
+<div><div class="superlabel">Next report</div><h2>TR-002 is intentionally unassigned.</h2><p>It gets a title only when there is a second substantial technical contribution to freeze—most likely broader graph support plus physical FPGA evidence.</p></div>
+</section>
+
+<footer><span>© 2026 Kernellum Research</span><span><a href="index.html">Home</a> · <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></span></footer>
+</div></body></html>
