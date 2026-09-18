@@ -30,6 +30,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
+[![reference-pnr](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml)
 
 ## Why Kernellum
 
@@ -85,7 +86,7 @@ TR-001 freezes the first complete compiler baseline. The numbers below remain hi
 | Modeled latency @ 100 MHz | **6.8 µs** |
 | Generic Yosys synthesis | **PASS, 0 CHECK problems** |
 
-The 6.8 µs value is a **cycle-count estimate at an assumed 100 MHz clock**, not a physical timing-closure measurement. The latest CI run proves the generated RTL simulates and synthesizes under Icarus Verilog + Yosys; physical FPGA resource, power, Fmax and measured latency results remain future work.
+The 6.8 µs value is a **cycle-count estimate at an assumed 100 MHz clock**, not a physical timing-closure measurement. For this frozen v0.1 record, the generated RTL is verified through simulation and synthesis only; the newer v0.2 flow below carries the current board-targeted P&R/Fmax/resource evidence. Physical-board power, energy and measured latency remain future work.
 
 ## Reproduce v0.1
 
