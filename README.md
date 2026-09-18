@@ -16,6 +16,11 @@ Its flagship project is **Kernellum Compiler**, a research prototype for mapping
 - **FPGA bring-up tracker:** https://sushxnthd.github.io/kernellum/hardware.html
 - **Launch/share copy:** [`LAUNCH.md`](LAUNCH.md)
 - **Technical Report 001:** https://sushxnthd.github.io/kernellum/TR-001.pdf
+- **Evidence Dossier v0.2:** https://sushxnthd.github.io/kernellum/Kernellum_Evidence_Dossier_v0.2.pdf
+- **Reproducibility Guide v0.2:** https://sushxnthd.github.io/kernellum/Kernellum_Reproducibility_Guide_v0.2.pdf
+- **FPGA Bring-up Protocol v0.1:** https://sushxnthd.github.io/kernellum/Kernellum_FPGA_Bringup_Protocol_v0.1.pdf
+- **Build Log (Sep 2026):** https://sushxnthd.github.io/kernellum/Kernellum_Build_Log_2026-09.pdf
+- **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
 
