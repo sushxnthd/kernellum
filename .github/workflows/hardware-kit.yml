@@ -1,0 +1,87 @@
+name: hardware-kit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "HARDWARE_RUNBOOK.md"
+      - "research/KRN-HW-001_PROTOCOL.md"
+      - "scripts/krn_hw_001.py"
+      - "scripts/package_krn_hw_001_kit.py"
+      - "scripts/program_krn_hw_001_ulx3s.sh"
+      - ".github/workflows/hardware-kit.yml"
+  pull_request:
+    paths:
+      - "HARDWARE_RUNBOOK.md"
+      - "research/KRN-HW-001_PROTOCOL.md"
+      - "scripts/krn_hw_001.py"
+      - "scripts/package_krn_hw_001_kit.py"
+      - "scripts/program_krn_hw_001_ulx3s.sh"
+      - ".github/workflows/hardware-kit.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: hardware-kit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REFERENCE_RUN: "35321132327"
+      KIT_TAG: krn-hw-001-kit-v0.1
+      KIT_NAME: kernellum-krn-hw-001-kit-v0.1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download the frozen KRN-PNR-001 artifact
+        run: gh run download "$REFERENCE_RUN" --repo "$GITHUB_REPOSITORY" --name kernellum-eda-evidence --dir reference-pnr
+      - name: Build and verify the handoff kit
+        run: |
+          bitstream="$(find reference-pnr -name kernellum_demo_top.bit -type f -print -quit)"
+          test -n "$bitstream"
+          mkdir -p dist
+          python scripts/package_krn_hw_001_kit.py build \
+            --bitstream "$bitstream" \
+            --out "dist/$KIT_NAME" \
+            --zip "dist/$KIT_NAME.zip" \
+            --source-commit "$GITHUB_SHA" \
+            --workflow-run "$REFERENCE_RUN"
+          python scripts/package_krn_hw_001_kit.py verify "dist/$KIT_NAME"
+          (cd dist && sha256sum "$KIT_NAME.zip" > "$KIT_NAME.zip.sha256")
+      - name: Upload the verified kit
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.KIT_NAME }}
+          path: |
+            dist/${{ env.KIT_NAME }}/
+            dist/${{ env.KIT_NAME }}.zip
+            dist/${{ env.KIT_NAME }}.zip.sha256
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish the persistent prerelease asset
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if gh release view "$KIT_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$KIT_TAG" \
+              "dist/$KIT_NAME.zip" \
+              "dist/$KIT_NAME.zip.sha256" \
+              --clobber \
+              --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$KIT_TAG" \
+              "dist/$KIT_NAME.zip" \
+              "dist/$KIT_NAME.zip.sha256" \
+              --target "$GITHUB_SHA" \
+              --title "KRN-HW-001 Measurement Kit v0.1" \
+              --notes "Integrity-checked ULX3S-85F measurement handoff for the frozen KRN-PNR-001 bitstream. This is a prerelease research kit, not evidence that physical measurement has occurred." \
+              --prerelease \
+              --repo "$GITHUB_REPOSITORY"
+          fi

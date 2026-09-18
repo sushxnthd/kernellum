@@ -14,9 +14,11 @@ This protocol defines the evidence required before Kernellum may claim physical 
 The repository currently has:
 - an ECP5-85F family target profile;
 - passing Yosys `synth_ecp5` family mapping;
-- a board-explicit `scripts/run_pnr_ecp5.sh` scaffold.
+- a board-explicit ULX3S-85F constraint set;
+- completed 1/2/4/8-lane place-and-route evidence;
+- a frozen selected bitstream and self-contained KRN-HW-001 handoff kit.
 
-It does **not** yet have a validated physical board.
+It does **not** yet have a completed physical-board measurement. Use `HARDWARE_RUNBOOK.md` and `research/KRN-HW-001_PROTOCOL.md` for execution; this earlier document remains the general publication-policy record.
 
 ## Board record
 

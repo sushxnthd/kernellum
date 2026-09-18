@@ -82,4 +82,10 @@ Record:
 
 Do not reinterpret the modeled 100 MHz latency as achieved hardware timing.
 
-For board-specific physical work, use the FPGA Bring-up Protocol and GitHub Issue #1.
+## Physical ULX3S measurement handoff
+
+Use the [KRN-HW-001 Hardware Runbook](HARDWARE_RUNBOOK.md) and the integrity-checked [measurement-kit prerelease](https://github.com/sushxnthd/kernellum/releases/tag/krn-hw-001-kit-v0.1). The kit is assembled in CI from the frozen workflow-run-35321132327 bitstream and carries a manifest plus per-file SHA-256 checksums.
+
+The primary physical campaign is valid only for the exact reference bitstream SHA-256 `19c403d3a169b320c8ae9584cb388255fdef784ad7d4651becaab690634be415`. The analyzer still produces summaries for incomplete sessions, but its completion gate requires that hash, the reference workflow identity, a retained programming log, the expected class, minimum latency/power sample counts and complete method metadata.
+
+Physical execution remains tracked in GitHub Issue #1; compatible-board access is requested in Issue #9.

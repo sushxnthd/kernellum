@@ -26,8 +26,8 @@
 <div class="interior-copy" data-reveal>
 <div class="eyebrow">Physical FPGA / evidence threshold</div>
 <h1>Make the model touch <em>hardware</em>.</h1>
-<p class="lede">The ULX3S-85F reference flow now completes place-and-route, feeds post-route timing back into architecture selection and generates a bitstream in CI. Physical board execution, measured latency, power and energy remain the next evidence threshold.</p>
-<div class="cta"><a class="btn primary" href="Kernellum_FPGA_Bringup_Protocol_v0.1.pdf">Bring-up protocol ↓</a><a class="btn" href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_pnr_ecp5.sh">P&amp;R scaffold ↗</a><a class="btn" href="https://github.com/sushxnthd/kernellum/issues/1">Issue #1 ↗</a></div>
+<p class="lede">The ULX3S-85F reference flow now completes place-and-route, feeds post-route timing back into architecture selection and generates a bitstream in CI. An integrity-checked programming and measurement kit is ready; physical board execution, measured latency, power and energy remain the next evidence threshold.</p>
+<div class="cta"><a class="btn primary" href="https://github.com/sushxnthd/kernellum/releases/tag/krn-hw-001-kit-v0.1">Hardware kit ↓</a><a class="btn" href="https://github.com/sushxnthd/kernellum/blob/main/HARDWARE_RUNBOOK.md">Runbook ↗</a><a class="btn" href="https://github.com/sushxnthd/kernellum/issues/1">Issue #1 ↗</a></div>
 </div>
 <div class="interior-stage hardware-stage" data-tilt-stage>
 <div class="hardware-scene" data-tilt-scene>
@@ -53,7 +53,7 @@
 <article class="status-card done" data-reveal><span>02</span><small>FAMILY SYNTHESIS</small><h3>Yosys synth_ecp5</h3><p>7,977 LUT4 · 8 MULT18X18D · 58 TRELLIS_DPR16X4 · 145 TRELLIS_FF.</p><b>PASS</b></article>
 <article class="status-card done" data-reveal><span>03</span><small>REFERENCE TARGET</small><h3>ULX3S 85F</h3><p>LFE5U-85F-6BG381C · CABGA381 · 25 MHz · real LPF constraints committed. Physical validation remains unclaimed.</p><b>CONFIGURED</b></article>
 <article class="status-card done" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>1/2/4/8-lane sweep completed. The 2-lane design reaches 29.64 MHz and closes the 25 MHz board target.</p><b>PASS</b></article>
-<article class="status-card done" data-reveal><span>05</span><small>BITSTREAM</small><h3>Selected 2-lane design</h3><p>Reference bitstream generated in clean-room CI for the selected timing-feasible configuration.</p><b>GENERATED</b></article>
+<article class="status-card done" data-reveal><span>05</span><small>HANDOFF KIT</small><h3>Selected 2-lane design</h3><p>Frozen bitstream, runbook, programming/analyzer tools, empty data templates, manifest and checksums packaged in CI.</p><b>READY</b></article>
 <article class="status-card pending" data-reveal><span>06</span><small>MEASUREMENT</small><h3>Latency + power</h3><p>Must be measured on loaded hardware, not inferred from cycle count or post-route timing.</p><b>PENDING</b></article>
 </div>
 </section>
@@ -64,8 +64,8 @@
 <li><span>01</span><div><b>Reference target — complete</b><p>ULX3S-85F · LFE5U-85F-6BG381C · CABGA381 · 25 MHz with committed LPF constraints.</p></div></li>
 <li><span>02</span><div><b>Architecture sweep — complete</b><p>Run 1/2/4/8 MAC-lane designs through board-targeted place-and-route and record timing/utilization.</p></div></li>
 <li><span>03</span><div><b>Physical-feedback selection — complete</b><p>Select 2 lanes: 29.64 MHz closes 25 MHz; 4 lanes at 22.12 MHz and 8 lanes at 16.10 MHz do not.</p></div></li>
-<li><span>04</span><div><b>Bitstream generation — complete</b><p>Generate the selected reference-board bitstream reproducibly in CI.</p></div></li>
-<li><span>05</span><div><b>Load the physical board — next</b><p>Program a compatible ULX3S-85F and verify the demo inference path on-device.</p></div></li>
+<li><span>04</span><div><b>Bitstream + audited handoff — complete</b><p>Generate the reference bitstream and package it with checksummed operator tooling in CI.</p></div></li>
+<li><span>05</span><div><b>Load the physical board — next</b><p>Use the KRN-HW-001 kit to program a compatible ULX3S-85F and verify the demo inference path on-device.</p></div></li>
 <li><span>06</span><div><b>Measure</b><p>Capture end-to-end inference latency, board power and energy per inference with method notes.</p></div></li>
 </ol>
 </section>

@@ -70,7 +70,7 @@ That narrowness is intentional. Unsupported graphs are rejected rather than sile
 ## Next de-risking milestones
 
 ### 1. Physical board execution
-Already completed: named target, package/pin/clock constraints, multi-architecture nextpnr P&R, post-route Fmax/resource evidence, reference bitstream generation, and the KRN-HW-001 programming/measurement/analyzer tooling.
+Already completed: named target, package/pin/clock constraints, multi-architecture nextpnr P&R, post-route Fmax/resource evidence, reference bitstream generation, and a self-contained, checksummed KRN-HW-001 programming/measurement/analyzer handoff kit.
 
 Remaining physical actions:
 - obtain/access a compatible ULX3S-85F;

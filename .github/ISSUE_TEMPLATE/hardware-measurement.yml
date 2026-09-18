@@ -1,0 +1,100 @@
+name: Physical hardware measurement
+description: Submit a non-confidential KRN-HW-001 ULX3S-85F measurement session.
+title: "[KRN-HW-001] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for running the physical measurement campaign.
+
+        **Do not post credentials, private contact information, sensitive serial numbers, proprietary lab details, customer data, or other confidential material in this public issue.** A complete result must satisfy the checks produced by `python tools/krn_hw_001.py doctor session`.
+  - type: input
+    id: board_revision
+    attributes:
+      label: ULX3S board revision
+      placeholder: "e.g. ULX3S v3.1.7, 85F"
+    validations:
+      required: true
+  - type: dropdown
+    id: density
+    attributes:
+      label: FPGA density
+      options:
+        - 85F / LFE5U-85F-6BG381C
+        - Other (not valid for the primary KRN-HW-001 campaign)
+    validations:
+      required: true
+  - type: input
+    id: kit_source
+    attributes:
+      label: Kit release or workflow run
+      description: Link the downloaded KRN-HW-001 kit release or Actions run.
+      placeholder: "https://github.com/sushxnthd/kernellum/releases/..."
+    validations:
+      required: true
+  - type: input
+    id: bitstream_sha256
+    attributes:
+      label: Bitstream SHA-256
+      placeholder: "19c403d3a169b320c8ae9584cb388255fdef784ad7d4651becaab690634be415"
+    validations:
+      required: true
+  - type: dropdown
+    id: programming
+    attributes:
+      label: SRAM programming result
+      options:
+        - PASS
+        - FAIL
+    validations:
+      required: true
+  - type: input
+    id: observed_class
+    attributes:
+      label: Observed class
+      description: The class index shown by the four result LEDs after completion; expected value is 8.
+      placeholder: "8"
+    validations:
+      required: true
+  - type: textarea
+    id: instruments
+    attributes:
+      label: Instruments and measurement points
+      placeholder: |
+        Latency instrument / probes:
+        Power instrument / board-input point:
+        Sample interval and duration:
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Generated result summary
+      description: Paste the concise status and principal statistics from session/RESULT.md.
+      placeholder: |
+        Evidence status:
+        Latency trials / mean / p95:
+        Idle / active / dynamic power:
+        Total / dynamic energy per inference:
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Raw evidence files
+      description: Drag in a ZIP or provide links to metadata.json, the three CSVs, programming.log, result.json, RESULT.md, and any instrument exports or photographs.
+      placeholder: "Attach files or paste durable public links here."
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Submission checks
+      options:
+        - label: I ran `doctor` and disclosed every failed check.
+          required: true
+        - label: I have not posted confidential or sensitive material.
+          required: true
+        - label: I understand this evidence applies only to the physical ULX3S reference implementation.
+          required: true
