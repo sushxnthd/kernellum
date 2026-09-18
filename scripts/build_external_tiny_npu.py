@@ -22,7 +22,7 @@ SOURCE_URL = (
 
 
 def git_blob_sha1(data: bytes) -> str:
-    header = f"blob {len(data)}\\0".encode()
+    header = b"blob " + str(len(data)).encode() + bytes([0])
     return hashlib.sha1(header + data).hexdigest()
 
 
@@ -54,7 +54,7 @@ def _hex_lines(values: np.ndarray, bits: int = 8) -> str:
     width = bits // 4
     mask = (1 << bits) - 1
     flat = np.asarray(values).reshape(-1)
-    return "\\n".join(f"{int(v) & mask:0{width}x}" for v in flat) + "\\n"
+    return chr(10).join(f"{int(v) & mask:0{width}x}" for v in flat) + chr(10)
 
 
 def emit_board_wrapper(out_dir: Path, result) -> None:
@@ -209,7 +209,7 @@ def main() -> None:
             ),
         }
     )
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\\n")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + chr(10))
 
     print(
         "KERNELLUM_EXT001_BUILD_PASS "
