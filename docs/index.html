@@ -61,7 +61,7 @@
     </div>
     <a class="hero-footnote" href="hardware.html">
       <span class="pulse-dot"></span>
-      <span>Current target: physical FPGA evidence</span>
+      <span>Current target: physical-board measurement</span>
     </a>
   </div>
 
@@ -85,7 +85,7 @@
       </div>
 
       <div class="chip-core" data-depth="0.34">
-        <div class="core-topline"><span>KERNELLUM</span><b>ACCEL / 04</b></div>
+        <div class="core-topline"><span>KERNELLUM</span><b>ACCEL / 02</b></div>
         <div class="core-grid">
           <i></i><i></i><i></i><i></i>
           <i></i><i></i><i></i><i></i>
@@ -99,13 +99,13 @@
         <span class="callout-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8v8H8zM1 9h3M1 15h3M20 9h3M20 15h3M9 1v3M15 1v3M9 20v3M15 20v3"/></svg>
         </span>
-        <span><b>4 MAC lanes</b><small>selected architecture</small></span>
+        <span><b>2 MAC lanes</b><small>ULX3S-selected architecture</small></span>
       </div>
       <div class="scene-callout callout-b" data-depth="0.46">
         <span class="callout-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h4l3-10 4 14 3-9h4"/></svg>
         </span>
-        <span><b>680 cycles</b><small>modeled compute path</small></span>
+        <span><b>29.64 MHz</b><small>post-route Fmax</small></span>
       </div>
       <div class="scene-satellite sat-a" data-depth="0.58"><b>Q</b><span>INT8</span></div>
       <div class="scene-satellite sat-b" data-depth="0.51"><b>R</b><span>RTL</span></div>
@@ -160,13 +160,14 @@
 <section class="section evidence-section">
   <div class="evidence-visual parallax-section" data-reveal>
     <div class="evidence-frame" data-parallax-y="-28">
-      <div class="frame-head"><span>VERIFICATION CHAIN</span><span>v0.1</span></div>
+      <div class="frame-head"><span>VERIFICATION CHAIN</span><span>v0.2α</span></div>
       <div class="verification-stack">
-        <div class="verify-row verified"><span>01</span><b>FLOAT MODEL</b><small>96.22% held-out</small><i>✓</i></div>
-        <div class="verify-row verified"><span>02</span><b>INT8 MODEL</b><small>96.44% held-out</small><i>✓</i></div>
-        <div class="verify-row verified"><span>03</span><b>CYCLE MODEL</b><small>450 / 450 exact</small><i>✓</i></div>
-        <div class="verify-row verified"><span>04</span><b>RTL SIMULATION</b><small>32 / 32 golden</small><i>✓</i></div>
-        <div class="verify-row pending"><span>05</span><b>PHYSICAL FPGA</b><small>next evidence target</small><i>○</i></div>
+        <div class="verify-row verified"><span>01</span><b>MODEL + INT8</b><small>96.44% held-out</small><i>✓</i></div>
+        <div class="verify-row verified"><span>02</span><b>CYCLE MODEL</b><small>450 / 450 exact</small><i>✓</i></div>
+        <div class="verify-row verified"><span>03</span><b>RTL + SYNTH</b><small>clean-room CI</small><i>✓</i></div>
+        <div class="verify-row verified"><span>04</span><b>ULX3S P&amp;R</b><small>2 lanes · 29.64 MHz</small><i>✓</i></div>
+        <div class="verify-row verified"><span>05</span><b>BITSTREAM</b><small>generated in CI</small><i>✓</i></div>
+        <div class="verify-row pending"><span>06</span><b>PHYSICAL BOARD</b><small>measurement next</small><i>○</i></div>
       </div>
     </div>
   </div>
@@ -175,10 +176,10 @@
     <h2>Each claim earns its own level of evidence.</h2>
     <p>We separate model accuracy, cycle-exact behavior, RTL simulation, synthesis and physical measurement. That makes it harder for a modeled number to accidentally become a hardware claim.</p>
     <div class="metric-duo" data-parallax-y="10">
-      <div><strong>7,977</strong><span>ECP5 LUT4 primitives*</span></div>
-      <div><strong>8</strong><span>MULT18X18D primitives*</span></div>
+      <div><strong>5,727</strong><span>TRELLIS_COMB · selected P&amp;R*</span></div>
+      <div><strong>6</strong><span>MULT18X18D · selected P&amp;R*</span></div>
     </div>
-    <p class="fine">*Yosys family mapping. Not post-place-and-route board utilization. <a href="evidence.html">Trace the evidence →</a></p>
+    <p class="fine">*nextpnr result for the 2-lane ULX3S-85F reference configuration. Physical-board power and latency remain unmeasured. <a href="evidence.html">Trace the evidence →</a></p>
   </div>
 </section>
 
@@ -197,7 +198,7 @@
     <div class="flow-edge"><span></span></div>
     <div class="flow-node"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/></svg></span><b>RTL</b><small>SystemVerilog</small></div>
     <div class="flow-edge"><span></span></div>
-    <div class="flow-node future"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8zM1 9h3M1 15h3M20 9h3M20 15h3M9 1v3M15 1v3M9 20v3M15 20v3"/></svg></span><b>Physical</b><small>FPGA next</small></div>
+    <div class="flow-node"><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8zM1 9h3M1 15h3M20 9h3M20 15h3M9 1v3M15 1v3M9 20v3M15 20v3"/></svg></span><b>Physical</b><small>P&amp;R feedback</small></div>
   </div>
 </section>
 
@@ -218,9 +219,14 @@
       <div><time>SEP 2026</time><h3>ONNX enters the compiler</h3><p>A deliberately narrow graph subset now lowers into an explicit hardware IR before quantization and generation.</p></div>
       <a class="entry-mark" href="https://github.com/sushxnthd/kernellum/commit/b4ce966793a95c5cfbb6bda0ed20eb0fb6e91ffb">b4ce966 ↗</a>
     </article>
-    <article class="notebook-row notebook-next" data-reveal>
+    <article class="notebook-row" data-reveal>
       <span class="entry-no">003</span>
-      <div><time>NEXT</time><h3>Make the model touch real hardware</h3><p>Named FPGA target, place-and-route, timing closure, measured latency, utilization, power and energy per inference.</p></div>
+      <div><time>SEP 2026</time><h3>Physical timing changes the architecture choice</h3><p>A ULX3S-85F sweep rejects cycle-faster 4/8-lane candidates that miss 25 MHz and selects the timing-feasible 2-lane design.</p></div>
+      <a class="entry-mark" href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">KRN-PNR-001 ↗</a>
+    </article>
+    <article class="notebook-row notebook-next" data-reveal>
+      <span class="entry-no">004</span>
+      <div><time>NEXT</time><h3>Measure the generated design on a physical board</h3><p>Load the reference bitstream, verify inference, then measure end-to-end latency, board power and energy per inference.</p></div>
       <a class="entry-mark" href="hardware.html">TRACK →</a>
     </article>
   </div>
