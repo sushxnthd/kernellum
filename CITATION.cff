@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use Kernellum Compiler or its public artifacts, please cite this software and Technical Report 001."
+title: "Kernellum Research"
+type: software
+version: "0.2-alpha"
+date-released: 2026-09-18
+authors:
+  - family-names: "Dasari"
+    given-names: "Sushanth"
+repository-code: "https://github.com/sushxnthd/kernellum"
+url: "https://sushxnthd.github.io/kernellum/"
+abstract: "An independent AI-hardware research project exploring model-to-hardware compilation, accelerator architecture search, generated RTL, verification, and reproducible evidence."
+preferred-citation:
+  type: report
+  title: "Kernellum Compiler v0.1: Constraint-Driven Generation of a Quantized Neural Accelerator"
+  authors:
+    - family-names: "Dasari"
+      given-names: "Sushanth"
+  year: 2026
+  publisher:
+    name: "Kernellum Research"
+  version: "1.0"
