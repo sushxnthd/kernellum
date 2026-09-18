@@ -99,6 +99,9 @@
         </span>
         <span><b>680 cycles</b><small>modeled compute path</small></span>
       </div>
+      <div class="scene-satellite sat-a" data-depth="0.58"><b>Q</b><span>INT8</span></div>
+      <div class="scene-satellite sat-b" data-depth="0.51"><b>R</b><span>RTL</span></div>
+      <div class="scene-satellite sat-c" data-depth="0.64"><b>P</b><span>PPA</span></div>
     </div>
 
     <div class="stage-caption">
@@ -116,7 +119,7 @@
     <div class="thesis-copy">
       <p class="large-copy">Given a model, target latency, precision, memory budget and deployment constraints, Kernellum explores which architectural decisions can be generated rather than hand-authored.</p>
     </div>
-    <div class="thesis-detail">
+    <div class="thesis-detail" data-parallax-y="14">
       <div class="detail-row">
         <span class="mini-icon">
           <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM9 14h6v6H9zM7 10l3 4M17 10l-3 4"/></svg>
@@ -156,7 +159,7 @@
     <div class="superlabel">02 / Evidence ladder</div>
     <h2>Each claim earns its own level of evidence.</h2>
     <p>We separate model accuracy, cycle-exact behavior, RTL simulation, synthesis and physical measurement. That makes it harder for a modeled number to accidentally become a hardware claim.</p>
-    <div class="metric-duo">
+    <div class="metric-duo" data-parallax-y="10">
       <div><strong>7,977</strong><span>ECP5 LUT4 primitives*</span></div>
       <div><strong>8</strong><span>MULT18X18D primitives*</span></div>
     </div>
@@ -189,7 +192,7 @@
     <span class="mono muted">SEP 2026 →</span>
   </div>
 
-  <div class="notebook-list">
+  <div class="notebook-list" data-parallax-y="-12">
     <article class="notebook-row" data-reveal>
       <span class="entry-no">001</span>
       <div><time>SEP 2026</time><h3>First complete model-to-RTL path</h3><p>Quantized dense accelerator generation, architecture search, exact cycle-model verification and synthesizable SystemVerilog.</p></div>
