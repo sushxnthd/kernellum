@@ -39,7 +39,7 @@ fi
 
 cd "$ART"
 
-yosys -p "read_verilog -sv kernellum_mlp_accel.sv kernellum_demo_top.sv; synth_ecp5 -top kernellum_demo_top -json '$OUT/kernellum_demo_top.json'; stat; check" \
+yosys -p "read_verilog -sv kernellum_mlp_accel.sv kernellum_demo_top.sv; synth_ecp5 -top kernellum_demo_top -json $OUT/kernellum_demo_top.json; stat; check" \
   | tee "$OUT/yosys.log"
 
 nextpnr-ecp5 \
