@@ -1,9 +1,9 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Kernellum's physical FPGA evidence tracker: current ECP5 synthesis evidence, the unclaimed steps, and the path to measured hardware results.">
+<meta name="description" content="Kernellum's FPGA evidence tracker: completed ULX3S-85F place-and-route and bitstream evidence, plus the remaining path to physical-board measurements.">
 <meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
 <meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
-<meta property="og:title" content="FPGA Bring-up — Kernellum Research"><meta property="og:description" content="Kernellum's physical FPGA evidence tracker: current ECP5 synthesis evidence, the unclaimed steps, and the path to measured hardware results.">
+<meta property="og:title" content="FPGA Bring-up — Kernellum Research"><meta property="og:description" content="Kernellum's FPGA evidence tracker: completed ULX3S-85F place-and-route and bitstream evidence, plus the remaining path to physical-board measurements.">
 <meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
 <title>FPGA Bring-up — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
@@ -12,7 +12,7 @@
 <div class="wrap">
 <nav class="nav">
 <a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
-<div class="labstatus">physical evidence · next</div>
+<div class="labstatus">reference P&amp;R · complete</div>
 <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
 <div class="navlinks" id="navLinks">
 <a href="research.html">Research</a>
@@ -26,7 +26,7 @@
 <div class="interior-copy" data-reveal>
 <div class="eyebrow">Physical FPGA / evidence threshold</div>
 <h1>Make the model touch <em>hardware</em>.</h1>
-<p class="lede">Family-mapped synthesis is done and a ULX3S-85F reference target now has explicit package, 25 MHz clock and board constraints. CI attempts place-and-route and bitstream generation; physical board execution, measured latency and measured power remain separate evidence thresholds.</p>
+<p class="lede">The ULX3S-85F reference flow now completes place-and-route, feeds post-route timing back into architecture selection and generates a bitstream in CI. Physical board execution, measured latency, power and energy remain the next evidence threshold.</p>
 <div class="cta"><a class="btn primary" href="Kernellum_FPGA_Bringup_Protocol_v0.1.pdf">Bring-up protocol ↓</a><a class="btn" href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_pnr_ecp5.sh">P&amp;R scaffold ↗</a><a class="btn" href="https://github.com/sushxnthd/kernellum/issues/1">Issue #1 ↗</a></div>
 </div>
 <div class="interior-stage hardware-stage" data-tilt-stage>
@@ -34,8 +34,8 @@
 <div class="board-plane" data-depth=".12"><div class="board-trace t-a"></div><div class="board-trace t-b"></div><div class="board-trace t-c"></div></div>
 <div class="fpga-package" data-depth=".34"><span>ECP5</span><b>85F</b><small>FAMILY PROFILE</small><i></i><i></i><i></i><i></i></div>
 <div class="board-tag bt1" data-depth=".48"><b>YOSYS</b><span>PASS</span></div>
-<div class="board-tag bt2" data-depth=".56"><b>PNR</b><span>PENDING</span></div>
-<div class="board-tag bt3" data-depth=".64"><b>BOARD</b><span>UNSELECTED</span></div>
+<div class="board-tag bt2" data-depth=".56"><b>PNR</b><span>PASS</span></div>
+<div class="board-tag bt3" data-depth=".64"><b>BOARD</b><span>ULX3S-85F</span></div>
 </div>
 <div class="stage-caption"><span>SYNTH</span><i></i><span>P&amp;R</span><i></i><span>BITSTREAM</span><i></i><span>MEASURE</span></div>
 </div>
@@ -43,7 +43,7 @@
 
 <aside class="field-note note-left" data-reveal aria-label="Founder field note">
 <svg class="note-arrow" viewBox="0 0 96 48" aria-hidden="true"><path d="M92 7C63 9 42 17 23 34M23 34l12-2M23 34l5-11"/></svg>
-<span class="note-kicker">S.D. / HARDWARE RULE</span><p>I’m not picking a board in the copy just to make this page look finished. The exact device/package/constraints need to match hardware I can actually access.</p><small>Sep 2026 · board selection still open</small>
+<span class="note-kicker">S.D. / HARDWARE RULE</span><p>Post-route timing is physical-design evidence, not a physical-board measurement. The distinction stays explicit until the bitstream is loaded and measured.</p><small>Sep 2026 · evidence boundary</small>
 </aside>
 
 <section class="section bringup-status">
@@ -52,19 +52,20 @@
 <article class="status-card done" data-reveal><span>01</span><small>FAMILY PROFILE</small><h3>Lattice ECP5-85F</h3><p>Compiler/EDA flow has an ECP5-85F family target profile.</p><b>READY</b></article>
 <article class="status-card done" data-reveal><span>02</span><small>FAMILY SYNTHESIS</small><h3>Yosys synth_ecp5</h3><p>7,977 LUT4 · 8 MULT18X18D · 58 TRELLIS_DPR16X4 · 145 TRELLIS_FF.</p><b>PASS</b></article>
 <article class="status-card done" data-reveal><span>03</span><small>REFERENCE TARGET</small><h3>ULX3S 85F</h3><p>LFE5U-85F-6BG381C · CABGA381 · 25 MHz · real LPF constraints committed. Physical validation remains unclaimed.</p><b>CONFIGURED</b></article>
-<article class="status-card pending" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>CI path now targets the ULX3S-85F reference board and archives the post-route log/config/bitstream when successful.</p><b>VERIFYING</b></article>
-<article class="status-card pending" data-reveal><span>05</span><small>MEASUREMENT</small><h3>Latency + power</h3><p>Must be measured on loaded hardware, not inferred from cycle count.</p><b>PENDING</b></article>
+<article class="status-card done" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>1/2/4/8-lane sweep completed. The 2-lane design reaches 29.64 MHz and closes the 25 MHz board target.</p><b>PASS</b></article>
+<article class="status-card done" data-reveal><span>05</span><small>BITSTREAM</small><h3>Selected 2-lane design</h3><p>Reference bitstream generated in clean-room CI for the selected timing-feasible configuration.</p><b>GENERATED</b></article>
+<article class="status-card pending" data-reveal><span>06</span><small>MEASUREMENT</small><h3>Latency + power</h3><p>Must be measured on loaded hardware, not inferred from cycle count or post-route timing.</p><b>PENDING</b></article>
 </div>
 </section>
 
 <section class="section bringup-plan" data-reveal>
 <div><div class="superlabel">02 / Bring-up sequence</div><h2>The shortest honest path to physical evidence.</h2></div>
 <ol class="bringup-steps">
-<li><span>01</span><div><b>Select accessible board</b><p>Record exact FPGA device, package, oscillator frequency and programming path.</p></div></li>
-<li><span>02</span><div><b>Add board constraints</b><p>Clock, reset/button and LED/UART pins in a real LPF file.</p></div></li>
-<li><span>03</span><div><b>Run place-and-route</b><p>Use the committed <code>run_pnr_ecp5.sh</code> scaffold with explicit device/package/LPF inputs.</p></div></li>
-<li><span>04</span><div><b>Close timing</b><p>Report achieved Fmax/slack from nextpnr. Do not reuse the 100 MHz modeling assumption.</p></div></li>
-<li><span>05</span><div><b>Load a bitstream</b><p>Exercise the demo top on the board and verify the predicted digit/result path.</p></div></li>
+<li><span>01</span><div><b>Reference target — complete</b><p>ULX3S-85F · LFE5U-85F-6BG381C · CABGA381 · 25 MHz with committed LPF constraints.</p></div></li>
+<li><span>02</span><div><b>Architecture sweep — complete</b><p>Run 1/2/4/8 MAC-lane designs through board-targeted place-and-route and record timing/utilization.</p></div></li>
+<li><span>03</span><div><b>Physical-feedback selection — complete</b><p>Select 2 lanes: 29.64 MHz closes 25 MHz; 4 lanes at 22.12 MHz and 8 lanes at 16.10 MHz do not.</p></div></li>
+<li><span>04</span><div><b>Bitstream generation — complete</b><p>Generate the selected reference-board bitstream reproducibly in CI.</p></div></li>
+<li><span>05</span><div><b>Load the physical board — next</b><p>Program a compatible ULX3S-85F and verify the demo inference path on-device.</p></div></li>
 <li><span>06</span><div><b>Measure</b><p>Capture end-to-end inference latency, board power and energy per inference with method notes.</p></div></li>
 </ol>
 </section>
@@ -72,11 +73,12 @@
 <section class="section hardware-measurements" data-reveal>
 <div><div class="superlabel">03 / Measurement record</div><h2>Blank until hardware earns the numbers.</h2></div>
 <div class="measurement-table">
-<div><span>REFERENCE TARGET</span><b>ULX3S 85F</b><small>not physically validated</small></div>
-<div><span>ACHIEVED FMAX</span><b>—</b><small>not measured</small></div>
-<div><span>END-TO-END LATENCY</span><b>—</b><small>not measured</small></div>
-<div><span>BOARD POWER</span><b>—</b><small>not measured</small></div>
-<div><span>ENERGY / INFERENCE</span><b>—</b><small>not measured</small></div>
+<div><span>REFERENCE TARGET</span><b>ULX3S 85F</b><small>LFE5U-85F-6BG381C · 25 MHz</small></div>
+<div><span>POST-ROUTE FMAX</span><b>29.64 MHz</b><small>2-lane selected configuration · nextpnr</small></div>
+<div><span>POST-ROUTE LOGIC</span><b>5,727</b><small>TRELLIS_COMB · 6 MULT18X18D</small></div>
+<div><span>END-TO-END LATENCY</span><b>—</b><small>not physically measured</small></div>
+<div><span>BOARD POWER</span><b>—</b><small>not physically measured</small></div>
+<div><span>ENERGY / INFERENCE</span><b>—</b><small>not physically measured</small></div>
 </div>
 </section>
 <footer><span>© 2026 Kernellum Research</span><span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
