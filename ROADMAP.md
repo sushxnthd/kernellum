@@ -20,15 +20,29 @@ Completed:
 
 ## Next — physical board execution
 
-Required:
-- obtain access to a compatible ECP5 board;
-- load the generated bitstream;
-- demonstrate inference on hardware;
+Measurement infrastructure is now ready:
+- frozen KRN-HW-001 physical-measurement protocol;
+- reproducible ULX3S SRAM programming capture;
+- exact bitstream SHA-256 recording;
+- raw latency / idle-power / active-power CSV schema;
+- automatic statistics and energy/inference analysis;
+- completion gate that refuses to mark evidence complete without functional correctness, ≥100 latency trials, power samples and measurement metadata.
+
+Remaining physical actions:
+- obtain access to a compatible ULX3S-85F board;
+- load the selected bitstream;
+- demonstrate the expected class-8 reference inference on hardware;
 - measure end-to-end latency;
 - measure board power and energy/inference;
 - compare those measurements against the compiler/post-route model.
 
-Tracking: GitHub Issue #1.
+Tracking: GitHub Issue #1. Hardware-access call: Issue #9.
+
+## Parallel validation — external workload
+
+KRN-EXT-001 pins a public third-party ONNX model from tiny-NPU and runs it through provenance checking, supported ONNX lowering, cycle/reference verification, RTL simulation and the same ULX3S physical-feedback sweep. Clean-room CI validation is in progress; it is not promoted as completed evidence until that run succeeds.
+
+A genuine external design-partner/customer workload remains a separate milestone from this public third-party-model test.
 
 ## After physical evidence — broader compiler
 
