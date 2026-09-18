@@ -447,6 +447,23 @@ svg{display:block}
 .about-page .sat-b{right:2px;top:246px;transform:translateZ(138px) rotateZ(-6deg)}
 .about-page .sat-c{left:122px;bottom:0;transform:translateZ(190px) rotateZ(4deg)}
 
+
+/* secondary interactive depth — anchored cards */
+.tilt-card{
+  --card-rx:0deg;--card-ry:0deg;
+  transform:perspective(900px) rotateX(var(--card-rx)) rotateY(var(--card-ry));
+  transform-style:preserve-3d;
+  transform-origin:center;
+  transition:transform .16s cubic-bezier(.2,.7,.2,1),border-color .18s ease,background .18s ease;
+  will-change:transform;
+}
+.tilt-card:hover{border-color:#465340}
+.tilt-card .mini-icon,.tilt-card .flow-icon{transform:translateZ(14px)}
+.tilt-card h3,.tilt-card b{transform:translateZ(7px)}
+@media(max-width:700px){
+  .tilt-card{transform:none!important}
+}
+
 /* footer */
 footer{
   display:flex;justify-content:space-between;gap:20px;padding:46px 0 68px;border-top:1px solid var(--line);
