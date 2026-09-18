@@ -55,7 +55,8 @@ The public prototype demonstrates:
 - a named ULX3S-85F board target with real package/pin/clock constraints;
 - a 1/2/4/8-lane nextpnr sweep with post-route Fmax/resource evidence;
 - physical-feedback selection of the 2-lane design for the 25 MHz target;
-- reproducible reference-bitstream generation in CI.
+- reproducible reference-bitstream generation in CI;
+- completed KRN-EXT-001 clean-room validation on a pinned third-party tiny-NPU ONNX model, including RTL simulation and ULX3S P&R.
 
 See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact current boundary.
 
@@ -88,6 +89,14 @@ For the demonstrated digits MLP:
 - reference bitstream generated in CI.
 
 Modeled latency values are explicitly separated from post-route timing and from physical-board measurements.
+
+For the external tiny-NPU workload:
+
+- network: 64 → 64 → 64 → 32;
+- 1/2/4/8-lane post-route Fmax: 33.51 / 28.18 / 22.06 / 14.82 MHz;
+- 2 lanes selected for the 25 MHz target;
+- selected bitstream generated with SHA-256 `50761b00fad5afda5f18c9841291bceea47a04c94155df044b5fb60ef09b2590`;
+- externality applies to the model graph/weights, not to an application dataset or customer relationship.
 
 ## Why start with such a small workload?
 
