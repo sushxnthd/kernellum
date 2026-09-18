@@ -1,190 +1,83 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The Kernellum Compiler lowers a narrow neural-network graph into hardware IR, searches accelerator configurations and emits verifiable SystemVerilog.">
-<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
-<link rel="manifest" href="site.webmanifest">
-<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
-<meta property="og:title" content="Compiler — Kernellum Research">
-<meta property="og:description" content="A model-to-hardware research compiler that lowers a neural graph, searches accelerator configurations and emits verifiable RTL.">
-<meta property="og:url" content="https://sushxnthd.github.io/kernellum/compiler.html">
-<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<link rel="canonical" href="https://sushxnthd.github.io/kernellum/compiler.html">
-<title>Compiler — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+<meta name="description" content="The Kernellum Compiler lowers a supported neural graph into hardware IR, searches accelerator configurations and emits verifiable SystemVerilog.">
+<meta name="theme-color" content="#f4f2ea"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website"><meta property="og:title" content="Compiler | Kernellum Research"><meta property="og:description" content="A model-to-hardware research compiler that lowers a neural graph, searches accelerator configurations and emits verifiable RTL."><meta property="og:url" content="https://sushxnthd.github.io/kernellum/compiler.html"><meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg"><link rel="canonical" href="https://sushxnthd.github.io/kernellum/compiler.html">
+<title>Compiler | Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-<body class="interior compiler-page">
-<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<body>
 <div class="wrap">
-<nav class="nav">
-<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
-<div class="labstatus">compiler · v0.2α</div>
-<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-<div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a class="active" href="compiler.html">Compiler</a><a href="log.html">Log</a><a href="about.html">About</a><a href="partner.html">Work with us</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
-</nav>
+<nav class="nav"><a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a><div class="labstatus">Compiler | v0.2 alpha</div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="navlinks" id="navLinks"><a href="research.html">Research</a><a class="active" href="compiler.html">Compiler</a><a href="evidence.html">Evidence</a><a href="publications.html">Reports</a><a href="about.html">About</a><a href="partner.html">Collaborate</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
 
-<header class="interior-hero compiler-hero">
-<div class="interior-copy" data-reveal>
-<div class="eyebrow">Kernellum Compiler / v0.2 alpha</div>
-<h1>Model in.<br><em>Architecture out.</em></h1>
-<p class="lede">A research compiler that treats neural structure and deployment constraints as inputs to accelerator design—not merely software execution.</p>
-<div class="cta"><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a><a class="btn" href="TR-001.pdf">TR-001</a></div>
-</div>
-
-<div class="interior-stage compiler-stage" data-tilt-stage>
-<div class="compiler-scene" data-tilt-scene data-base-x="57" data-base-z="-32">
-<div class="compiler-slab cs-model" data-depth="0.08"><span>MODEL GRAPH</span><div class="graph-mini"><i></i><i></i><i></i><i></i><i></i></div></div>
-<div class="compiler-slab cs-ir" data-depth="0.18"><span>HARDWARE IR</span><div class="ir-mini"><b>GEMM</b><b>RELU</b><b>TENSOR</b></div></div>
-<div class="compiler-slab cs-search" data-depth="0.28"><span>ARCH SEARCH</span><div class="bars"><i></i><i></i><i></i><i></i></div></div>
-<div class="compiler-slab cs-rtl" data-depth="0.38"><span>GENERATED RTL</span><code>always_ff @(posedge clk)</code><code>acc &lt;= acc + x*w;</code></div>
-<div class="compiler-core" data-depth="0.50"><small>SELECTED</small><b>4 × MAC</b><span>INT8 / 680 cyc</span></div>
-<div class="scene-satellite sat-a" data-depth="0.64"><b>O</b><span>ONNX</span></div>
-<div class="scene-satellite sat-b" data-depth="0.56"><b>I</b><span>IR</span></div>
-<div class="scene-satellite sat-c" data-depth="0.70"><b>SV</b><span>RTL</span></div>
-</div>
-<div class="stage-caption"><span>GRAPH</span><i></i><span>IR</span><i></i><span>SEARCH</span><i></i><span>RTL</span></div>
-</div>
+<header class="page-hero hero-process">
+  <div data-reveal><div class="eyebrow">Kernellum Compiler / v0.2 alpha</div><h1>Model in.<br><em>Architecture out.</em></h1><p class="lede">A research compiler that treats neural structure and deployment constraints as inputs to accelerator design, not merely software execution.</p><div class="cta"><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a><a class="btn" href="TR-001.pdf">Read TR-001</a></div></div>
+  <div class="process-strip" data-reveal aria-label="Kernellum compiler pipeline">
+    <div class="process-step"><span>01</span><b>Model graph</b><small>Supported ONNX subset</small></div>
+    <div class="process-step"><span>02</span><b>Hardware IR</b><small>Explicit tensors and ops</small></div>
+    <div class="process-step"><span>03</span><b>Architecture search</b><small>Constraints and candidates</small></div>
+    <div class="process-step"><span>04</span><b>Generated RTL</b><small>SystemVerilog and memories</small></div>
+    <div class="process-step"><span>05</span><b>Evidence</b><small>Vectors, synthesis and P&amp;R</small></div>
+  </div>
 </header>
 
-<section class="section compiler-command" data-reveal>
-<div class="command-copy"><div class="superlabel">01 / Desired interface</div><h2>Describe the workload.<br>Describe the constraints.</h2><p>The long-term interface is intentionally simple. The complexity belongs behind the compiler boundary.</p></div>
-<div class="terminal-window" data-parallax-y="-20">
-<div class="terminal-head"><span></span><span></span><span></span><b>kernellum / compile</b></div>
-<pre><code><span class="prompt">$</span> kernellum compile model.onnx   --precision int8   --latency 10us   --target fpga
+<section class="section" data-reveal>
+  <div class="split">
+    <div><div class="superlabel">01 / Desired interface</div><h2>Describe the workload. Describe the constraints.</h2><p class="large-copy">The interface should stay simple even as the compiler grows more capable.</p><p>Complexity belongs behind the compiler boundary, but decisions and evidence should remain inspectable.</p></div>
+    <div class="terminal-window"><div class="terminal-head"><span></span><span></span><span></span><b>Kernellum / compile</b></div><code><span class="prompt">$</span> kernellum compile model.onnx
+  --precision int8
+  --latency 10us
+  --target fpga
 
-<span class="dim">[lower]</span>   graph → hardware IR
-<span class="dim">[search]</span>  lanes 1 / 2 / 4 / 8 / 16
-<span class="ok">[select]</span>  4 MAC lanes
-<span class="ok">[emit]</span>    SystemVerilog + memories
-<span class="ok">[verify]</span>  golden vectors
-<span class="cursor-block">▋</span></code></pre>
-</div>
-</section>
-
-<section class="compiler-journey" id="compilerJourney" aria-label="Scroll through the Kernellum compilation pipeline">
-  <div class="journey-shell">
-    <div class="journey-sticky">
-      <div class="journey-heading">
-        <div><div class="superlabel">02 / Inside the compiler</div><h2>Watch the model become a machine.</h2></div>
-        <div class="section-index">SCROLL / 05 STAGES</div>
-      </div>
-
-      <div class="journey-stage" id="journeyStage" data-stage="0">
-        <div class="journey-grid" aria-hidden="true"></div>
-        <div class="journey-orbit journey-orbit-a" aria-hidden="true"></div>
-        <div class="journey-orbit journey-orbit-b" aria-hidden="true"></div>
-
-        <div class="journey-machine" id="journeyMachine">
-          <div class="j-layer j-model" data-j-depth=".18">
-            <div class="j-layer-head"><span>00</span><b>MODEL GRAPH</b><small>64 → 32 → 16 → 10</small></div>
-            <div class="j-graph">
-              <i class="jg a1"></i><i class="jg a2"></i><i class="jg a3"></i>
-              <i class="jg b1"></i><i class="jg b2"></i><i class="jg c1"></i>
-              <span class="j-wire w1"></span><span class="j-wire w2"></span><span class="j-wire w3"></span><span class="j-wire w4"></span>
-            </div>
-            <div class="j-badge">ONNX SUBSET</div>
-          </div>
-
-          <div class="j-layer j-ir" data-j-depth=".31">
-            <div class="j-layer-head"><span>01</span><b>HARDWARE IR</b><small>explicit tensors + ops</small></div>
-            <div class="j-ir-blocks">
-              <div><span>T0</span><b>INPUT</b><small>[64]</small></div>
-              <i>→</i><div><span>OP1</span><b>GEMM</b><small>64×32</small></div>
-              <i>→</i><div><span>OP2</span><b>RELU</b><small>INT8</small></div>
-              <i>→</i><div><span>T1</span><b>TENSOR</b><small>[32]</small></div>
-            </div>
-          </div>
-
-          <div class="j-layer j-search" data-j-depth=".44">
-            <div class="j-layer-head"><span>02</span><b>ARCHITECTURE SEARCH</b><small>constraint-driven</small></div>
-            <div class="j-search-bars">
-              <div><span style="--h:30%"></span><b>1×</b><small>27.2 μs</small></div>
-              <div><span style="--h:50%"></span><b>2×</b><small>13.6 μs</small></div>
-              <div class="chosen"><span style="--h:76%"></span><b>4×</b><small>6.8 μs*</small></div>
-              <div><span style="--h:88%"></span><b>8×</b><small>3.4 μs</small></div>
-              <div><span style="--h:96%"></span><b>16×</b><small>1.7 μs</small></div>
-            </div>
-            <div class="j-constraint"><span>MODELED @100 MHz</span><b>≤ 10 μs</b></div>
-          </div>
-
-          <div class="j-layer j-rtl" data-j-depth=".57">
-            <div class="j-layer-head"><span>03</span><b>GENERATED RTL</b><small>SystemVerilog</small></div>
-            <div class="j-code">
-              <span><em>always_ff</em> @(posedge clk) begin</span>
-              <span>&nbsp;&nbsp;<em>if</em> (mac_en)</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;acc &lt;= acc + x * w;</span>
-              <span>&nbsp;&nbsp;<em>if</em> (done) valid &lt;= 1'b1;</span>
-              <span>end</span>
-            </div>
-            <div class="j-code-foot"><span>weights.hex</span><span>biases.hex</span><span>golden_vectors</span></div>
-          </div>
-
-          <div class="j-final" data-j-depth=".76">
-            <div class="j-final-top"><span>KERNELLUM</span><small>SELECTED ARCHITECTURE</small></div>
-            <div class="j-core-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="j-final-stats"><div><b>4</b><span>MAC LANES</span></div><div><b>INT8</b><span>PRECISION</span></div><div><b>680</b><span>CYCLES</span></div></div>
-          </div>
-        </div>
-
-        <div class="journey-readout">
-          <div class="journey-stage-no" id="journeyStageNo">00</div>
-          <div><span class="superlabel" id="journeyStageLabel">Graph ingest</span><h3 id="journeyStageTitle">Start with the workload.</h3><p id="journeyStageText">The compiler accepts a deliberately narrow model graph and validates what it can actually lower.</p></div>
-        </div>
-
-        <div class="journey-progress" aria-hidden="true">
-          <span class="active"></span><span></span><span></span><span></span><span></span>
-          <i id="journeyProgressBar"></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="journey-steps">
-      <article class="journey-step active" data-journey-step="0" tabindex="0">
-        <span>00</span><div><small>GRAPH INGEST</small><h3>Start with the workload.</h3><p>Validate the model structure and reject unsupported operators explicitly.</p></div>
-      </article>
-      <article class="journey-step" data-journey-step="1" tabindex="0">
-        <span>01</span><div><small>HARDWARE IR</small><h3>Make the graph hardware-readable.</h3><p>Tensors, operators and shapes become explicit compiler objects rather than opaque framework calls.</p></div>
-      </article>
-      <article class="journey-step" data-journey-step="2" tabindex="0">
-        <span>02</span><div><small>ARCHITECTURE SEARCH</small><h3>Search under constraints.</h3><p>Candidate parallelism is evaluated against modeled latency and hardware cost. Four MAC lanes are the smallest candidate meeting the 10 μs target in the current model.</p></div>
-      </article>
-      <article class="journey-step" data-journey-step="3" tabindex="0">
-        <span>03</span><div><small>RTL GENERATION</small><h3>Turn the selected design into inspectable RTL.</h3><p>Emit SystemVerilog, quantized memories and golden vectors instead of hiding the result behind an API.</p></div>
-      </article>
-      <article class="journey-step" data-journey-step="4" tabindex="0">
-        <span>04</span><div><small>SELECTED ACCELERATOR</small><h3>The output is a machine.</h3><p>The current prototype resolves to a 4-lane INT8 dense accelerator and a reproducible verification path.</p></div>
-      </article>
-    </div>
+<span class="dim">[lower]</span>  graph to hardware IR
+<span class="dim">[search]</span> lanes 1 / 2 / 4 / 8 / 16
+<span class="ok">[select]</span> architecture candidate
+<span class="ok">[emit]</span>   RTL and memories
+<span class="ok">[verify]</span> golden vectors</code></div>
   </div>
 </section>
 
-<section class="section compiler-evidence" data-reveal>
-<div class="compiler-evidence-main"><div class="superlabel">03 / v0.1 evidence</div><h2>The small complete system.</h2><p>A 64→32→16→10 workload is enough to test whether the entire path can be made inspectable from model through synthesis.</p></div>
-<div class="metric-wall" data-parallax-y="14">
-<div><strong>96.44%</strong><span>INT8 accuracy</span></div>
-<div><strong>450/450</strong><span>cycle exactness</span></div>
-<div><strong>32/32</strong><span>RTL vectors</span></div>
-<div><strong>7,977</strong><span>ECP5 LUT4*</span></div>
-</div>
+<section class="section tint" data-reveal>
+  <div class="section-head"><div><div class="superlabel">02 / Inside the compiler</div><h2>Five stages, one inspectable path.</h2></div><div class="section-index">GRAPH TO RTL</div></div>
+  <div class="record-list">
+    <article class="record"><span>01</span><div><h3>Validate the workload</h3><p>Accept a deliberately narrow model graph and reject unsupported operators explicitly.</p></div><a href="https://github.com/sushxnthd/kernellum">Source ↗</a></article>
+    <article class="record"><span>02</span><div><h3>Build hardware IR</h3><p>Turn tensors, operators and shapes into compiler objects for downstream hardware reasoning.</p></div><a href="evidence.html">Evidence →</a></article>
+    <article class="record"><span>03</span><div><h3>Search under constraints</h3><p>Compare candidate parallelism using modeled latency, then evaluate physical feasibility where evidence exists.</p></div><a href="research.html">Research →</a></article>
+    <article class="record"><span>04</span><div><h3>Emit an implementation</h3><p>Generate SystemVerilog, quantized memories and golden vectors instead of hiding the result behind an API.</p></div><a href="https://github.com/sushxnthd/kernellum/tree/main/artifacts">Artifacts ↗</a></article>
+    <article class="record"><span>05</span><div><h3>Verify each evidence level</h3><p>Keep model, cycle, RTL, synthesis, place-and-route and physical measurements separate.</p></div><a href="evidence.html">Ledger →</a></article>
+  </div>
 </section>
 
-<section class="section boundary-section" data-reveal>
-<div class="boundary-good" data-parallax-y="-9"><div class="kicker">SUPPORTED / CURRENT</div><h3>Dense graph subset → hardware IR → INT8 → search → RTL</h3><p>Enough to test the compiler architecture honestly and reproducibly.</p></div>
-<div class="boundary-line"><span>CLAIM BOUNDARY</span></div>
-<div class="boundary-not" data-parallax-y="9"><div class="kicker">NOT CLAIMED / YET</div><h3>Arbitrary ONNX · production compiler · ASIC readiness</h3><p>No claim of arbitrary operator coverage, physical-board measured latency/power, production deployment or manufacturable silicon.</p><a class="boundary-link" href="hardware.html">Track physical-board measurement →</a></div>
+<section class="section" data-reveal>
+  <div class="section-head"><div><div class="superlabel">03 / Reference result</div><h2>The small complete system.</h2></div><a class="btn" href="TR-001.pdf">Read the method →</a></div>
+  <div class="metric-grid">
+    <div class="metric"><strong>96.44%</strong><span>INT8 held-out accuracy</span></div>
+    <div class="metric"><strong>450/450</strong><span>Cycle-model exactness</span></div>
+    <div class="metric"><strong>32/32</strong><span>RTL golden vectors</span></div>
+    <div class="metric"><strong>4 lanes</strong><span>Modeled v0.1 selection at an assumed 100 MHz</span></div>
+  </div>
+  <p class="fine">The later ULX3S-85F physical-feedback sweep selects a 2-lane implementation for the 25 MHz board target. These are different experiments with different evidence scopes.</p>
 </section>
 
-<section class="section reproduce-v2" data-reveal>
-<div><div class="superlabel">04 / Reproduce</div><h2>Run the public path.</h2></div>
-<pre><code>pip install -e '.[test,onnx]'
+<section class="section tint" data-reveal>
+  <div class="section-head"><div><div class="superlabel">04 / Claim boundary</div><h2>What the compiler is and is not.</h2></div></div>
+  <div class="boundary-grid">
+    <div><div class="label">Supported today</div><h3>Dense graph subset to hardware IR to INT8 search to RTL.</h3><ul><li>Explicit operator validation</li><li>Generated weights and golden vectors</li><li>Cycle, RTL, synthesis and P&amp;R evidence</li></ul></div>
+    <div><div class="label">Not claimed</div><h3>Arbitrary graphs, production readiness or manufacturable silicon.</h3><ul><li>No arbitrary ONNX operator coverage</li><li>No physical-board latency or power result yet</li><li>No claim of ASIC readiness or production deployment</li></ul></div>
+  </div>
+</section>
+
+<section class="section dark" data-reveal>
+  <div class="split"><div><div class="superlabel">05 / Reproduce</div><h2>Run the public path.</h2></div><div class="code-panel"><code>pip install -e '.[test,onnx]'
 pytest -q
 python -m kernellum --out artifacts/digits_int8
 bash scripts/run_eda.sh
-bash scripts/run_ecp5.sh</code></pre>
+bash scripts/run_ecp5.sh</code></div></div>
 </section>
 
-<footer>
-<span>© 2026 Kernellum Research</span>
-<span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span>
-</footer>
-</div></body></html>
+<footer><span>© 2026 Kernellum Research</span><span>Built and maintained by Sushanth Dasari | <a href="https://github.com/sushxnthd/kernellum">Source ↗</a></span></footer>
+</div>
+</body>
+</html>

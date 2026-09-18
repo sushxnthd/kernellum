@@ -1,14 +1,23 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Launch note for Kernellum Research and its first public model-to-RTL compiler prototype.">
-<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
-<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="article"><meta property="og:title" content="Kernellum Research launches"><meta property="og:description" content="An independent AI-hardware research initiative exploring model-to-hardware compilation and efficient computing."><meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<meta name="twitter:card" content="summary_large_image">
-<title>Launch Note — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
-</head><body class="interior launch-page"><div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div><div class="wrap">
-<nav class="nav"><a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a><div class="labstatus">launch note · 17 sep 2026</div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="log.html">Log</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
-<header class="launch-header" data-reveal><div class="eyebrow">17 September 2026 / launch note</div><h1>Kernellum Research launches.</h1><p class="lede">An independent research initiative exploring whether AI models and deployment constraints can help specify the machines that run them.</p><div class="cta"><a class="btn primary" href="compiler.html">Explore the compiler →</a><a class="btn" href="log.html">Build log</a></div></header>
-<section class="section launch-copy" data-reveal><div><div class="superlabel">01 / First public system</div><h2>A small, complete model-to-RTL path.</h2></div><div><p class="large-copy">Kernellum Compiler v0.1 trains and quantizes a compact neural workload, searches parallel accelerator configurations under a modeled latency constraint, emits SystemVerilog and verifies the generated implementation.</p><p>The public record includes 96.44% held-out INT8 accuracy, 450/450 exact cycle-model agreement, 32/32 RTL golden-vector cases, and ECP5 family-mapped synthesis. Physical FPGA timing, board latency and power remain unclaimed.</p></div></section>
-<section class="section launch-copy" data-reveal><div><div class="superlabel">02 / Next threshold</div><h2>Physical evidence.</h2></div><div><p>v0.2α adds a narrow ONNX front-end and explicit hardware IR. The next evidence threshold is a named physical ECP5 board, place-and-route, timing closure and measured latency/power.</p><div class="cta"><a class="btn primary" href="hardware.html">FPGA bring-up →</a><a class="btn" href="evidence.html">Trace evidence</a></div></div></section>
-<footer><span>© 2026 Kernellum Research</span><span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
-</div></body></html>
+<meta name="theme-color" content="#f4f2ea"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="article"><meta property="og:title" content="Kernellum Research launches"><meta property="og:description" content="An independent AI-hardware research initiative exploring model-to-hardware compilation."><meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg"><meta name="twitter:card" content="summary_large_image">
+<title>Launch Note | Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav"><a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a><div class="labstatus">Launch note | 17 Sep 2026</div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="compiler.html">Compiler</a><a href="evidence.html">Evidence</a><a href="publications.html">Reports</a><a href="about.html">About</a><a href="partner.html">Collaborate</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
+
+<header class="page-hero hero-essay" data-reveal><div class="eyebrow">17 September 2026 / Launch note</div><h1>Kernellum Research launches.</h1><p class="lede">An independent research initiative exploring whether AI models and deployment constraints can help specify the machines that run them.</p><div class="cta" style="justify-content:center"><a class="btn primary" href="compiler.html">Explore the compiler →</a><a class="btn" href="log.html">Build log</a></div></header>
+
+<section class="section" data-reveal><div class="split"><div><div class="superlabel">01 / First public system</div><h2>A small, complete model-to-RTL path.</h2></div><div><p class="large-copy">Kernellum Compiler v0.1 trains and quantizes a compact neural workload, searches parallel accelerator configurations, emits SystemVerilog and verifies the generated implementation.</p><p>The launch record includes 96.44% held-out INT8 accuracy, 450 of 450 exact cycle-model cases and 32 of 32 RTL golden-vector cases.</p></div></div></section>
+
+<section class="section tint" data-reveal><div class="split reverse"><div><div class="superlabel">02 / Progress since launch</div><h2>Physical feedback now changes the design.</h2></div><div><p>v0.2 alpha adds a narrow ONNX front end and explicit hardware IR. A later ULX3S-85F place-and-route sweep selects the 2-lane design for the 25 MHz target and produces a reference bitstream in CI.</p><p>Physical-board correctness, latency, power and energy remain the next evidence threshold.</p><div class="cta"><a class="btn primary" href="hardware.html">Hardware status →</a><a class="btn" href="evidence.html">Trace evidence</a></div></div></div></section>
+
+<footer><span>© 2026 Kernellum Research</span><span>Built and maintained by Sushanth Dasari | <a href="https://github.com/sushxnthd/kernellum">Source ↗</a></span></footer>
+</div>
+</body>
+</html>

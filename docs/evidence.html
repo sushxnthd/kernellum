@@ -1,113 +1,46 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Trace Kernellum claims to the public files, vectors, RTL, reports and CI workflows that support them.">
-<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
-<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
-<meta property="og:title" content="Evidence Explorer — Kernellum Research"><meta property="og:description" content="Trace Kernellum claims to the public files, vectors, RTL, reports and CI workflows that support them.">
-<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<title>Evidence Explorer — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
-</head><body class="interior evidence-page">
-<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<meta name="theme-color" content="#f4f2ea"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website"><meta property="og:title" content="Evidence | Kernellum Research"><meta property="og:description" content="Trace Kernellum claims to the public files, vectors, RTL, reports and workflows that support them."><meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<title>Evidence | Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head>
+<body>
 <div class="wrap">
-<nav class="nav">
-<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
-<div class="labstatus">evidence explorer</div>
-<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-<div class="navlinks" id="navLinks">
-<a href="research.html">Research</a>
-<a class="active" href="publications.html">Reports</a>
-<a href="compiler.html">Compiler</a>
-<a href="log.html">Log</a>
-<a href="about.html">About</a>
-<a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
-</div></nav>
-<header class="interior-hero evidence-hero">
-<div class="interior-copy" data-reveal>
-<div class="eyebrow">Evidence explorer / claim → artifact</div>
-<h1>Don’t trust the <em>number</em>. Follow it.</h1>
-<p class="lede">Every headline result below resolves to a public artifact: manifest data, reference code, golden vectors, generated RTL, synthesis status, place-and-route evidence or a technical record.</p>
-<div class="cta"><a class="btn primary" href="Kernellum_Evidence_Dossier_v0.2.pdf">Evidence dossier ↓</a><a class="btn" href="Kernellum_Reproducibility_Guide_v0.2.pdf">Repro guide ↓</a><a class="btn" href="TR-001.pdf">TR-001</a></div>
-</div>
-<div class="interior-stage evidence-stage" data-tilt-stage>
-<div class="evidence-scene" data-tilt-scene>
-<div class="evidence-sheet es1" data-depth=".12"><span>MODEL</span><b>96.44%</b><small>manifest.json</small></div>
-<div class="evidence-sheet es2" data-depth=".24"><span>CYCLE</span><b>450/450</b><small>compiler.py</small></div>
-<div class="evidence-sheet es3" data-depth=".38"><span>RTL</span><b>32/32</b><small>golden vectors</small></div>
-<div class="evidence-sheet es4" data-depth=".52"><span>P&amp;R</span><b>29.64</b><small>MHz · selected</small></div>
-</div>
-<div class="stage-caption"><span>CLAIM</span><i></i><span>FILE</span><i></i><span>RERUN</span></div>
-</div>
+<nav class="nav"><a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a><div class="labstatus">Evidence ledger</div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="compiler.html">Compiler</a><a class="active" href="evidence.html">Evidence</a><a href="publications.html">Reports</a><a href="about.html">About</a><a href="partner.html">Collaborate</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
+
+<header class="page-hero">
+  <div class="hero-grid">
+    <div data-reveal><div class="eyebrow">Claim to artifact</div><h1>Do not trust the number. <em>Follow it.</em></h1><p class="lede">Every headline result resolves to a public artifact: manifest data, reference code, vectors, generated RTL, synthesis status, place-and-route evidence or a technical record.</p><div class="cta"><a class="btn primary" href="Kernellum_Evidence_Dossier_v0.2.pdf">Evidence dossier ↓</a><a class="btn" href="Kernellum_Reproducibility_Guide_v0.2.pdf">Reproducibility guide ↓</a><a class="btn" href="TR-001.pdf">TR-001</a></div></div>
+    <aside class="hero-aside" data-reveal><p>A result is only as credible as the path back to its source.</p><dl><div><dt>Model</dt><dd>Verified</dd></div><div><dt>RTL</dt><dd>Verified</dd></div><div><dt>P&amp;R</dt><dd>Complete</dd></div><div><dt>Physical board</dt><dd>Pending</dd></div></dl></aside>
+  </div>
 </header>
 
-<section class="section explorer-controls" data-reveal>
-<div><div class="superlabel">01 / Filter</div><h2>Trace by evidence level.</h2></div>
-<div class="evidence-filters" role="group" aria-label="Evidence filters">
-<button class="active" data-evidence-filter="all">ALL</button><button data-evidence-filter="model">MODEL</button><button data-evidence-filter="cycle">CYCLE</button><button data-evidence-filter="rtl">RTL</button><button data-evidence-filter="synth">SYNTH</button><button data-evidence-filter="pnr">P&amp;R</button>
+<section class="section compact" data-reveal>
+  <div class="section-head"><div><div class="superlabel">01 / Evidence level</div><h2>Trace a result.</h2></div><div class="evidence-filters" role="group" aria-label="Evidence filters"><button class="active" data-evidence-filter="all">All</button><button data-evidence-filter="model">Model</button><button data-evidence-filter="cycle">Cycle</button><button data-evidence-filter="rtl">RTL</button><button data-evidence-filter="synth">Synthesis</button><button data-evidence-filter="pnr">P&amp;R</button></div></div>
+  <div class="evidence-table">
+    <article class="evidence-row" data-evidence-kind="model"><div class="kind">Model / INT8</div><strong>96.44%</strong><div><h3>Held-out INT8 accuracy</h3><p>450 held-out samples from sklearn.datasets.load_digits.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">Manifest ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/kernellum/compiler.py">Compiler ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="model"><div class="kind">Model / Agreement</div><strong>99.78%</strong><div><h3>Float and INT8 prediction agreement</h3><p>Prediction agreement is recorded independently from held-out accuracy.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">Manifest ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/REPORT.md">Report ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="cycle"><div class="kind">Cycle / Exactness</div><strong>450/450</strong><div><h3>Cycle model matches the vector INT8 reference</h3><p>The scalar lane-by-lane path is checked on every held-out sample.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/kernellum/compiler.py">Cycle model ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/tests/test_pipeline.py">Test ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="cycle"><div class="kind">Search / Modeled</div><strong>680 cycles</strong><div><h3>Four MAC lanes selected in the v0.1 model</h3><p>The smallest candidate meeting the modeled 10 microsecond constraint at an assumed 100 MHz.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">Candidates ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/research/TR-001.md#architecture-search">Method ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="rtl"><div class="kind">RTL / Simulation</div><strong>32/32</strong><div><h3>Golden-vector RTL cases pass</h3><p>The testbench compares all ten output logits against generated golden outputs.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/tb_kernellum_mlp_accel.sv">Testbench ↗</a><a href="https://github.com/sushxnthd/kernellum/tree/main/artifacts/digits_int8/weights">Vectors ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="rtl"><div class="kind">RTL / Generated</div><strong>SystemVerilog</strong><div><h3>Inspect the emitted accelerator</h3><p>Signed INT8 weights and activations, 32-bit accumulators, explicit parallelism and initialized memories.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/kernellum_mlp_accel.sv">Accelerator RTL ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="synth"><div class="kind">Synthesis / ECP5</div><strong>Pass</strong><div><h3>ECP5 family mapping passes</h3><p>Generated RTL passes Yosys synth_ecp5 and structural checks.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/BUILD_STATUS.md">Build status ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_ecp5.sh">Script ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="pnr"><div class="kind">P&amp;R / ULX3S</div><strong>29.64 MHz</strong><div><h3>Physical timing changes the architecture decision</h3><p>The 2-lane design closes the 25 MHz target. The 4-lane and 8-lane variants do not.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">KRN-PNR-001 ↗</a><a href="hardware.html">Hardware status →</a></div></article>
+    <article class="evidence-row" data-evidence-kind="pnr"><div class="kind">P&amp;R / Selected</div><strong>5,727</strong><div><h3>Post-route logic for the selected design</h3><p>The selected 2-lane configuration reports 5,727 TRELLIS_COMB, 333 TRELLIS_FF, 30 TRELLIS_RAMW and 6 MULT18X18D.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">Sweep ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/BENCHMARKS.md">Policy ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="pnr"><div class="kind">Bitstream / CI</div><strong>Generated</strong><div><h3>Reference implementation reaches bitstream generation</h3><p>Loading and measuring the bitstream on physical hardware remain separate evidence.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/.github/workflows/reference-pnr.yml">Workflow ↗</a><a href="https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml">Runs ↗</a></div></article>
+    <article class="evidence-row" data-evidence-kind="synth"><div class="kind">CI / Reproduce</div><strong>Public</strong><div><h3>Clean-room verification workflow</h3><p>GitHub Actions reruns tests, regenerates artifacts, simulates RTL and synthesizes the v0.1 and v0.2 alpha paths.</p></div><div class="links"><a href="https://github.com/sushxnthd/kernellum/blob/main/.github/workflows/verify.yml">Workflow ↗</a><a href="https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml">Runs ↗</a></div></article>
+  </div>
+</section>
+
+<section class="section tint" data-reveal>
+  <div class="section-head"><div><div class="superlabel">02 / Evidence boundary</div><h2>The blank cells matter too.</h2></div></div>
+  <div class="missing-grid"><div><span>Place and route</span><b>Complete</b></div><div><span>Reference bitstream</span><b>Generated</b></div><div><span>Board latency</span><b>Not measured</b></div><div><span>Power and energy</span><b>Not measured</b></div></div>
+</section>
+
+<footer><span>© 2026 Kernellum Research</span><span>Built and maintained by Sushanth Dasari | <a href="https://github.com/sushxnthd/kernellum">Source ↗</a></span></footer>
 </div>
-</section>
-
-<section class="evidence-cards">
-<article class="evidence-card" data-evidence-kind="model" data-reveal>
-<div class="evidence-card-top"><span>MODEL / INT8</span><strong>96.44%</strong></div>
-<h3>Held-out INT8 accuracy.</h3><p>450 held-out samples from <code>sklearn.datasets.load_digits</code>.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">manifest.json ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/kernellum/compiler.py">compiler.py ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/research/TR-001.md#workload">TR-001 workload ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="model" data-reveal>
-<div class="evidence-card-top"><span>MODEL / AGREEMENT</span><strong>99.78%</strong></div>
-<h3>Float / INT8 prediction agreement.</h3><p>Prediction agreement is recorded independently from accuracy.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">manifest.json ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/REPORT.md">evidence report ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="cycle" data-reveal>
-<div class="evidence-card-top"><span>CYCLE / EXACTNESS</span><strong>450/450</strong></div>
-<h3>Cycle model matches vector INT8 exactly.</h3><p>The scalar lane-by-lane execution path is checked against the vectorized integer reference on every held-out sample.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/kernellum/compiler.py">cycle_forward ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/tests/test_pipeline.py">pipeline test ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/research/TR-001.md#evidence-levels">TR-001 evidence ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="cycle" data-reveal>
-<div class="evidence-card-top"><span>SEARCH / MODELED</span><strong>680 cyc</strong></div>
-<h3>Four MAC lanes selected.</h3><p>Smallest candidate meeting the modeled ≤10 μs constraint at an assumed 100 MHz clock.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">candidate table ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/research/TR-001.md#architecture-search">TR-001 search ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="rtl" data-reveal>
-<div class="evidence-card-top"><span>RTL / SIMULATION</span><strong>32/32</strong></div>
-<h3>Golden-vector RTL cases pass.</h3><p>The testbench loads 32 held-out inputs and compares all ten output logits against generated golden outputs.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/tb_kernellum_mlp_accel.sv">testbench ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/weights/golden_inputs.hex">inputs ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/weights/golden_outputs.hex">outputs ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="rtl" data-reveal>
-<div class="evidence-card-top"><span>RTL / GENERATED</span><strong>SV</strong></div>
-<h3>Inspect the emitted accelerator.</h3><p>Signed INT8 weights/activations, 32-bit accumulators, four MAC lanes and explicit memory initialization.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/kernellum_mlp_accel.sv">accelerator RTL ↗</a><a href="https://github.com/sushxnthd/kernellum/tree/main/artifacts/digits_int8/weights">weight memories ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="synth" data-reveal>
-<div class="evidence-card-top"><span>SYNTH / ECP5</span><strong>PASS</strong></div>
-<h3>ECP5 family mapping passes.</h3><p>Generated RTL passes Yosys <code>synth_ecp5</code> and final structural checks before the separate board-targeted P&amp;R flow.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/BUILD_STATUS.md">BUILD_STATUS ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_ecp5.sh">synthesis script ↗</a><a href="hardware.html">hardware evidence →</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="pnr" data-reveal>
-<div class="evidence-card-top"><span>P&amp;R / ULX3S</span><strong>29.64 MHz</strong></div>
-<h3>Physical timing changes the architecture decision.</h3><p>The 2-lane design closes the 25 MHz ULX3S-85F target. Cycle-faster 4-lane and 8-lane variants route at 22.12 MHz and 16.10 MHz and therefore fail the target.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">KRN-PNR-001 ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/BUILD_STATUS.md">build status ↗</a><a href="hardware.html">hardware tracker →</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="pnr" data-reveal>
-<div class="evidence-card-top"><span>P&amp;R / SELECTED</span><strong>5,727</strong></div>
-<h3>Post-route logic for the selected design.</h3><p>The selected 2-lane configuration reports 5,727 TRELLIS_COMB, 333 TRELLIS_FF, 30 TRELLIS_RAMW and 6 MULT18X18D on the named reference target.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">sweep record ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/BENCHMARKS.md">benchmark policy ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="pnr" data-reveal>
-<div class="evidence-card-top"><span>BITSTREAM / CI</span><strong>GENERATED</strong></div>
-<h3>Reference implementation reaches bitstream generation.</h3><p>The selected ULX3S-85F configuration produces a reference bitstream in the scoped P&amp;R workflow. Loading and measuring that bitstream on physical hardware remain separate evidence.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/.github/workflows/reference-pnr.yml">P&amp;R workflow ↗</a><a href="https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml">workflow runs ↗</a></div>
-</article>
-<article class="evidence-card" data-evidence-kind="synth" data-reveal>
-<div class="evidence-card-top"><span>CI / REPRODUCE</span><strong>PUBLIC</strong></div>
-<h3>Clean-room verification workflow.</h3><p>GitHub Actions installs dependencies, reruns tests, regenerates artifacts, simulates RTL and synthesizes both the v0.1 and v0.2α paths.</p>
-<div class="evidence-card-links"><a href="https://github.com/sushxnthd/kernellum/blob/main/.github/workflows/verify.yml">workflow ↗</a><a href="https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml">runs ↗</a></div>
-</article>
-</section>
-
-<section class="section evidence-boundary" data-reveal>
-<div><div class="superlabel">02 / Evidence boundary</div><h2>The blank boxes matter too.</h2></div>
-<div class="missing-grid"><div><span>PLACE + ROUTE</span><b>COMPLETE</b></div><div><span>REFERENCE BITSTREAM</span><b>GENERATED</b></div><div><span>BOARD LATENCY</span><b>NOT MEASURED</b></div><div><span>POWER / ENERGY</span><b>NOT MEASURED</b></div></div>
-</section>
-<footer><span>© 2026 Kernellum Research</span><span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
-</div></body></html>
+</body>
+</html>
