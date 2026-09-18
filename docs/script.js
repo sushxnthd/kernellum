@@ -143,6 +143,46 @@
     el.style.setProperty('--delay',(i % 6) * 55 + 'ms');
   });
 
+  const cardSelector = [
+    '.program-card',
+    '.deep-pipeline article',
+    '.principle-grid article',
+    '.flow-node',
+    '.metric-wall > div',
+    '.detail-row',
+    '.featured-meta > div',
+    '.ladder-item'
+  ].join(',');
+
+  if (!reduced && finePointer.matches) {
+    document.querySelectorAll(cardSelector).forEach(card => {
+      card.classList.add('tilt-card');
+      let frame = 0;
+      let point = null;
+
+      const renderCard = () => {
+        frame = 0;
+        if (!point) return;
+        const r = card.getBoundingClientRect();
+        const nx = clamp((point.x - r.left) / r.width - .5,-.5,.5);
+        const ny = clamp((point.y - r.top) / r.height - .5,-.5,.5);
+        card.style.setProperty('--card-rx',(-ny * 5).toFixed(2) + 'deg');
+        card.style.setProperty('--card-ry',(nx * 6).toFixed(2) + 'deg');
+      };
+
+      card.addEventListener('pointermove',e => {
+        point={x:e.clientX,y:e.clientY};
+        if(!frame) frame=requestAnimationFrame(renderCard);
+      },{passive:true});
+
+      card.addEventListener('pointerleave',() => {
+        point=null;
+        card.style.setProperty('--card-rx','0deg');
+        card.style.setProperty('--card-ry','0deg');
+      });
+    });
+  }
+
   window.addEventListener('scroll',queueScroll,{passive:true});
   window.addEventListener('resize',() => {
     stages.forEach(resetStage);
