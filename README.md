@@ -27,6 +27,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Design partner program:** [`DESIGN_PARTNERS.md`](DESIGN_PARTNERS.md)
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
 - **ULX3S P&R evidence:** [`research/ULX3S_PNR_SWEEP_2026-09-18.md`](research/ULX3S_PNR_SWEEP_2026-09-18.md)
+- **KRN-EXT-001 result:** [`research/KRN-EXT-001_RESULT.md`](research/KRN-EXT-001_RESULT.md)
 - **External workload protocol:** [`research/KRN-EXT-001_PROTOCOL.md`](research/KRN-EXT-001_PROTOCOL.md)
 - **Physical measurement protocol:** [`research/KRN-HW-001_PROTOCOL.md`](research/KRN-HW-001_PROTOCOL.md)
 - **ULX3S hardware-access call:** [Issue #9](https://github.com/sushxnthd/kernellum/issues/9)
@@ -156,7 +157,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. A pinned third-party ONNX workload is under clean-room KRN-EXT-001 validation. KRN-HW-001 now provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. KRN-EXT-001 has now completed the same clean-room L5 path on a pinned third-party tiny-NPU model, selecting 2 lanes at 28.18 MHz for the 25 MHz target. KRN-HW-001 provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
 
 ## People
 
