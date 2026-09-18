@@ -1,0 +1,15 @@
+{
+  "name": "Kernellum Research",
+  "short_name": "Kernellum",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#070807",
+  "theme_color": "#070807",
+  "icons": [
+    {
+      "src": "kernellum-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
