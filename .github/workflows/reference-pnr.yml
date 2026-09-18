@@ -1,0 +1,35 @@
+name: reference-pnr
+
+on:
+  pull_request:
+    paths:
+      - "artifacts/digits_int8/**"
+      - "boards/ulx3s_85f/**"
+      - "scripts/run_pnr_ecp5.sh"
+      - "scripts/run_pnr_ulx3s_85f.sh"
+      - ".github/workflows/reference-pnr.yml"
+  workflow_dispatch:
+
+jobs:
+  ulx3s-85f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Build ULX3S-85F reference bitstream
+        run: bash scripts/run_pnr_ulx3s_85f.sh
+      - name: Upload reference P&R evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-ulx3s-85f-pnr
+          path: |
+            artifacts/digits_int8/pnr_ecp5/yosys.log
+            artifacts/digits_int8/pnr_ecp5/nextpnr.log
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.json
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.config
+            artifacts/digits_int8/pnr_ecp5/kernellum_demo_top.bit
+          if-no-files-found: warn
