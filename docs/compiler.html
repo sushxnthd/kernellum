@@ -1,31 +1,31 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kernellum Compiler</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrap"><nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav><header class="hero"><div class="eyebrow">Research prototype · v0.1 → v0.2</div><h1>Kernellum Compiler.</h1><p class="lede">Constraint-driven generation and verification of workload-specific neural accelerators.</p></header>
-<section class="section"><div class="flow">trained workload
-    ↓
-INT8 representation
-    ↓
-latency constraint
-    ↓
-architecture search
-    ↓
-4-lane accelerator
-    ↓
-SystemVerilog + memories
-    ↓
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kernellum Compiler</title><link rel="stylesheet" href="styles.css"></head>
+<body><div class="wrap"><nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="labstatus">compiler · v0.2α</div><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
+<header class="hero"><div class="hero-copy"><div class="eyebrow">Kernellum Compiler</div><h1>Model in. <em>Architecture out.</em></h1><p class="lede">A research compiler for exploring how neural workloads and deployment constraints can drive specialized accelerator generation.</p><div class="cta"><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a><a class="btn" href="TR-001.pdf">Read TR-001</a></div></div><aside class="hero-side"><div class="label">Current scope</div><p><strong>v0.1:</strong> complete dense INT8 model-to-RTL prototype.<br><br><strong>v0.2α:</strong> narrow ONNX dense-network subset → hardware IR → quantization → search → RTL.</p></aside></header>
+<section class="section"><div class="superlabel">Compiler path</div><div class="flow">model / ONNX subset
+      ↓
+validated graph
+      ↓
+hardware IR
+      ↓
+calibration + INT8 representation
+      ↓
+latency / architecture constraints
+      ↓
+parallelism search
+      ↓
+SystemVerilog + memories + golden vectors
+      ↓
 cycle model + RTL simulation
-    ↓
-ECP5-family synthesis</div></section>
-<section class="section"><div class="metricgrid"><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span></div><div class="metric"><strong>32/32</strong><span>RTL golden cases</span></div><div class="metric"><strong>7,977</strong><span>ECP5 LUT4 primitives*</span></div><div class="metric"><strong>8</strong><span>ECP5 MULT18X18D primitives*</span></div></div><p class="note" style="margin-top:24px">*Yosys `synth_ecp5` family mapping. These are not post-place-and-route board utilization numbers.</p></section>
-<section class="section"><div class="sectionhead"><h2>Reproduce v0.1</h2><p>The source, generated weights, golden vectors, SystemVerilog and CI workflow are public.</p></div><div class="flow">pip install -e '.[test,onnx]'
+      ↓
+Yosys synthesis
+      ↓
+physical FPGA  ← next evidence target</div></section>
+<section class="section"><div class="sectionhead"><div><div class="superlabel">v0.1 evidence</div><h2>Small, complete, inspectable.</h2></div><p>The first workload is a 64→32→16→10 classifier. The compiler path selects a four-lane architecture under the modeled latency target and emits the RTL and memory files used by CI.</p></div><div class="metricgrid"><div class="metric"><strong>96.44%</strong><span>INT8 accuracy</span><small>held-out test set</small></div><div class="metric"><strong>450/450</strong><span>cycle exactness</span><small>integer reference</small></div><div class="metric"><strong>32/32</strong><span>RTL vectors</span><small>Icarus simulation</small></div><div class="metric"><strong>8</strong><span>ECP5 MULT18X18D*</span><small>Yosys mapping</small></div></div><p class="fine" style="margin-top:14px">*Family-mapped synthesis primitive count, not board utilization after place-and-route.</p></section>
+<section class="section" id="v02"><div class="sectionhead"><div><div class="superlabel">v0.2 alpha</div><h2>From topology-specific to graph-driven.</h2></div><p>The next compiler path accepts a deliberately narrow ONNX subset, builds an explicit hardware IR and rejects unsupported structures instead of silently pretending to compile them.</p></div><div class="split"><div class="panel"><div class="kicker">SUPPORTED DIRECTION</div><h3>Graph → hardware IR</h3><p>Dense-network graph validation, tensor metadata, operator lowering, calibration, quantization parameters and architecture-search inputs.</p></div><div class="panel"><div class="kicker">NOT CLAIMED YET</div><h3>Arbitrary ONNX / ASIC readiness</h3><p>No claim of arbitrary operator coverage, production compiler maturity, post-route timing closure, measured power, or manufacturable silicon.</p></div></div></section>
+<section class="section"><div class="sectionhead"><div><div class="superlabel">Reproduce</div><h2>Run the build.</h2></div><p>The repository carries the source, generated artifacts, tests and CI workflow.</p></div><div class="flow">pip install -e '.[test,onnx]'
 pytest -q
 python -m kernellum --out artifacts/digits_int8
 bash scripts/run_eda.sh
-bash scripts/run_ecp5.sh</div><div style="height:20px"></div><a class="btn primary" href="https://github.com/sushxnthd/kernellum">View source ↗</a></section>
-<section class="section" id="v02"><div class="sectionhead"><h2>v0.2 alpha</h2><p>The new compiler path accepts a real ONNX model for a deliberately narrow sequential dense-network subset, lowers it into an explicit hardware IR, derives INT8 parameters from calibration data, searches architecture parallelism, and emits RTL plus golden vectors. CI then simulates and synthesizes that generated RTL.</p></div><div class="flow">ONNX
-  → validated Gemm/ReLU subset
-  → hardware IR
-  → calibration + INT8
-  → architecture search
-  → generated RTL + vectors
-  → Icarus simulation
-  → generic + ECP5-family Yosys synthesis
-  → next: place-and-route + board measurement</div><p class="note" style="margin-top:24px">Unsupported graph structures are rejected explicitly; v0.2 alpha does not claim arbitrary ONNX support.</p></section><footer>© 2026 Kernellum Research</footer></div></body></html>
+bash scripts/run_ecp5.sh</div></section>
+<footer><span>© 2026 Kernellum Research</span><span><a href="index.html">Home</a> · <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></span></footer></div></body></html>
