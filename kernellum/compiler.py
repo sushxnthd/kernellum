@@ -435,7 +435,9 @@ endmodule
     (out_dir / "tb_kernellum_mlp_accel.sv").write_text(tb)
 
     demo = '''`timescale 1ns/1ps
-module kernellum_demo_top(
+module kernellum_demo_top #(
+    parameter int LANES = 4
+)(
     input  logic clk,
     input  logic rst,
     input  logic start_btn,
@@ -458,7 +460,7 @@ module kernellum_demo_top(
 
     initial $readmemh("weights/demo_input.hex", demo_input);
 
-    kernellum_mlp_accel accel(
+    kernellum_mlp_accel #(.LANES(LANES)) accel(
         .clk(clk), .rst(rst), .start(accel_start), .in_we(in_we), .in_addr(in_addr), .in_data(in_data),
         .out_addr(out_addr), .out_data(out_data), .busy(busy), .done(done)
     );
