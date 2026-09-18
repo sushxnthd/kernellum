@@ -178,9 +178,13 @@ for case in matrix["cases"]:
     for r in rows:
         comb = r["resources"]["TRELLIS_COMB"]["used"]
         dsp = r["resources"]["MULT18X18D"]["used"]
+        fmax_text = (
+            f'{r["postroute_fmax_mhz"]:.2f} MHz'
+            if r["postroute_fmax_mhz"] is not None
+            else "route fail"
+        )
         lines.append(
-            f'| {r["lanes"]} | {r["modeled_cycles"]} | '
-            f'{(f"{r["postroute_fmax_mhz"]:.2f} MHz" if r["postroute_fmax_mhz"] is not None else "route fail")} | '
+            f'| {r["lanes"]} | {r["modeled_cycles"]} | {fmax_text} | '
             f'{"yes" if r["timing_met_25mhz"] else "no"} | {r["modeled_core_latency_us_at_25mhz"]:.2f} µs | '
             f'{comb if comb is not None else "n/a"} | {dsp if dsp is not None else "n/a"} |'
         )
