@@ -52,7 +52,10 @@ The public prototype demonstrates:
 - golden-vector RTL simulation;
 - generic Yosys synthesis;
 - ECP5-family synthesis;
-- a named ULX3S-85F reference P&R target under active validation.
+- a named ULX3S-85F board target with real package/pin/clock constraints;
+- a 1/2/4/8-lane nextpnr sweep with post-route Fmax/resource evidence;
+- physical-feedback selection of the 2-lane design for the 25 MHz target;
+- reproducible reference-bitstream generation in CI.
 
 See [BUILD_STATUS.md](BUILD_STATUS.md) for the exact current boundary.
 
@@ -79,9 +82,12 @@ For the demonstrated digits MLP:
 - 450/450 cycle-model / vector-INT8 agreement;
 - 32/32 RTL golden-vector cases PASS;
 - generic Yosys synthesis PASS;
-- ECP5 family mapping PASS.
+- ECP5 family mapping PASS;
+- ULX3S-85F post-route Fmax of 35.96 / 29.64 / 22.12 / 16.10 MHz for 1/2/4/8 lanes;
+- 2 MAC lanes selected because it is the lowest-cycle swept design that closes the 25 MHz board target;
+- reference bitstream generated in CI.
 
-Modeled latency values are explicitly separated from achieved physical timing.
+Modeled latency values are explicitly separated from post-route timing and from physical-board measurements.
 
 ## Why start with such a small workload?
 
@@ -120,9 +126,9 @@ Owning fabricated silicon is a possible later path, not a prerequisite for the f
 
 ## What is the next technical proof point?
 
-A reproducible named-board place-and-route result with timing/resource evidence, followed by actual board loading and measured inference latency/power.
+Actual ULX3S-85F board execution: load the generated bitstream, verify inference on-device, and measure end-to-end latency, power and energy/inference.
 
-The current ULX3S-85F reference flow is intended to establish the first of those steps without conflating it with physical-board validation.
+Named-board place-and-route, timing/resource evidence, physical-feedback architecture selection and reference-bitstream generation are already complete.
 
 ## What is the next commercial proof point?
 
