@@ -11,7 +11,8 @@ import numpy as np
 from kernellum.onnx_frontend import compile_onnx_dense
 
 
-# Validation branch deliberately reuses the exact pinned upstream artifact.\nUPSTREAM_REPO = "harishsg993010/tiny-NPU"
+# Validation branch deliberately reuses the exact pinned upstream artifact.
+UPSTREAM_REPO = "harishsg993010/tiny-NPU"
 UPSTREAM_COMMIT = "8216c22b762011aa20c05fc2768423fd12dda59d"
 UPSTREAM_PATH = "models/overlap_perf_test.onnx"
 UPSTREAM_GIT_BLOB_SHA1 = "070fb6c8f35e6f3b1d91e92143442367a25dc41b"
