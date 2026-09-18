@@ -858,6 +858,51 @@ footer a:hover{color:var(--signal)}
 .fine a{color:#9ea69a}
 @media(max-width:800px){.launch-copy{grid-template-columns:1fr}.launch-header{padding:70px 0}.launch-header h1{font-size:58px}}
 
+
+/* supporting lab documents */
+.doc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.doc-card{
+  min-height:240px;
+  padding:26px;
+  background:#090c09;
+  display:flex;
+  flex-direction:column;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
+}
+.doc-card:hover{
+  background:#0d120c;
+  transform:translateY(-3px);
+}
+.doc-card>span{
+  color:var(--signal);
+  font:8px ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.12em;
+}
+.doc-card h3{
+  margin:54px 0 10px;
+  font-size:20px;
+  letter-spacing:-.02em;
+}
+.doc-card p{
+  font-size:12px;
+  color:#778074;
+  margin:0;
+}
+.doc-card b{
+  margin-top:auto;
+  padding-top:24px;
+  font:9px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#b9c1b6;
+}
+@media(max-width:1020px){.doc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.doc-grid{grid-template-columns:1fr}}
+
 /* footer */
 footer{
   display:flex;justify-content:space-between;gap:20px;padding:46px 0 68px;border-top:1px solid var(--line);
