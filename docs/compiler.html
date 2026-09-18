@@ -53,14 +53,101 @@
 </div>
 </section>
 
-<section class="section compiler-pipeline-deep">
-<div class="section-kicker-row" data-reveal><div><div class="superlabel">02 / Inside the compiler</div><h2>Each layer exposes a different kind of decision.</h2></div><div class="section-index">v0.2α</div></div>
-<div class="deep-pipeline">
-<article data-reveal><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M5 5h5v5H5zM14 5h5v5h-5zM9.5 14h5v5h-5zM7.5 10v2h4.5M16.5 10v2H12"/></svg></span><small>00</small><h3>Graph ingest</h3><p>Validate a deliberately narrow ONNX subset rather than pretend arbitrary graph support.</p></article>
-<article data-reveal><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v5H5zM5 15h14v5H5zM9 9v6M15 9v6"/></svg></span><small>01</small><h3>Hardware IR</h3><p>Make tensors, operators and shapes explicit for downstream hardware reasoning.</p></article>
-<article data-reveal><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-7M22 18V3M2 21h22"/></svg></span><small>02</small><h3>Architecture search</h3><p>Evaluate candidate parallelism against modeled latency and hardware cost.</p></article>
-<article data-reveal><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/></svg></span><small>03</small><h3>Code generation</h3><p>Emit RTL, memories, golden vectors and reproducibility collateral.</p></article>
-</div>
+<section class="compiler-journey" id="compilerJourney" aria-label="Scroll through the Kernellum compilation pipeline">
+  <div class="journey-shell">
+    <div class="journey-sticky">
+      <div class="journey-heading">
+        <div><div class="superlabel">02 / Inside the compiler</div><h2>Watch the model become a machine.</h2></div>
+        <div class="section-index">SCROLL / 05 STAGES</div>
+      </div>
+
+      <div class="journey-stage" id="journeyStage" data-stage="0">
+        <div class="journey-grid" aria-hidden="true"></div>
+        <div class="journey-orbit journey-orbit-a" aria-hidden="true"></div>
+        <div class="journey-orbit journey-orbit-b" aria-hidden="true"></div>
+
+        <div class="journey-machine" id="journeyMachine">
+          <div class="j-layer j-model" data-j-depth=".18">
+            <div class="j-layer-head"><span>00</span><b>MODEL GRAPH</b><small>64 → 32 → 16 → 10</small></div>
+            <div class="j-graph">
+              <i class="jg a1"></i><i class="jg a2"></i><i class="jg a3"></i>
+              <i class="jg b1"></i><i class="jg b2"></i><i class="jg c1"></i>
+              <span class="j-wire w1"></span><span class="j-wire w2"></span><span class="j-wire w3"></span><span class="j-wire w4"></span>
+            </div>
+            <div class="j-badge">ONNX SUBSET</div>
+          </div>
+
+          <div class="j-layer j-ir" data-j-depth=".31">
+            <div class="j-layer-head"><span>01</span><b>HARDWARE IR</b><small>explicit tensors + ops</small></div>
+            <div class="j-ir-blocks">
+              <div><span>T0</span><b>INPUT</b><small>[64]</small></div>
+              <i>→</i><div><span>OP1</span><b>GEMM</b><small>64×32</small></div>
+              <i>→</i><div><span>OP2</span><b>RELU</b><small>INT8</small></div>
+              <i>→</i><div><span>T1</span><b>TENSOR</b><small>[32]</small></div>
+            </div>
+          </div>
+
+          <div class="j-layer j-search" data-j-depth=".44">
+            <div class="j-layer-head"><span>02</span><b>ARCHITECTURE SEARCH</b><small>constraint-driven</small></div>
+            <div class="j-search-bars">
+              <div><span style="--h:30%"></span><b>1×</b><small>27.2 μs</small></div>
+              <div><span style="--h:50%"></span><b>2×</b><small>13.6 μs</small></div>
+              <div class="chosen"><span style="--h:76%"></span><b>4×</b><small>6.8 μs</small></div>
+              <div><span style="--h:88%"></span><b>8×</b><small>3.4 μs</small></div>
+              <div><span style="--h:96%"></span><b>16×</b><small>1.7 μs</small></div>
+            </div>
+            <div class="j-constraint"><span>LATENCY TARGET</span><b>≤ 10 μs</b></div>
+          </div>
+
+          <div class="j-layer j-rtl" data-j-depth=".57">
+            <div class="j-layer-head"><span>03</span><b>GENERATED RTL</b><small>SystemVerilog</small></div>
+            <div class="j-code">
+              <span><em>always_ff</em> @(posedge clk) begin</span>
+              <span>&nbsp;&nbsp;<em>if</em> (mac_en)</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;acc &lt;= acc + x * w;</span>
+              <span>&nbsp;&nbsp;<em>if</em> (done) valid &lt;= 1'b1;</span>
+              <span>end</span>
+            </div>
+            <div class="j-code-foot"><span>weights.hex</span><span>biases.hex</span><span>golden_vectors</span></div>
+          </div>
+
+          <div class="j-final" data-j-depth=".76">
+            <div class="j-final-top"><span>KERNELLUM</span><small>SELECTED ARCHITECTURE</small></div>
+            <div class="j-core-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="j-final-stats"><div><b>4</b><span>MAC LANES</span></div><div><b>INT8</b><span>PRECISION</span></div><div><b>680</b><span>CYCLES</span></div></div>
+          </div>
+        </div>
+
+        <div class="journey-readout">
+          <div class="journey-stage-no" id="journeyStageNo">00</div>
+          <div><span class="superlabel" id="journeyStageLabel">Graph ingest</span><h3 id="journeyStageTitle">Start with the workload.</h3><p id="journeyStageText">The compiler accepts a deliberately narrow model graph and validates what it can actually lower.</p></div>
+        </div>
+
+        <div class="journey-progress" aria-hidden="true">
+          <span class="active"></span><span></span><span></span><span></span><span></span>
+          <i id="journeyProgressBar"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-steps">
+      <article class="journey-step active" data-journey-step="0" tabindex="0">
+        <span>00</span><div><small>GRAPH INGEST</small><h3>Start with the workload.</h3><p>Validate the model structure and reject unsupported operators explicitly.</p></div>
+      </article>
+      <article class="journey-step" data-journey-step="1" tabindex="0">
+        <span>01</span><div><small>HARDWARE IR</small><h3>Make the graph hardware-readable.</h3><p>Tensors, operators and shapes become explicit compiler objects rather than opaque framework calls.</p></div>
+      </article>
+      <article class="journey-step" data-journey-step="2" tabindex="0">
+        <span>02</span><div><small>ARCHITECTURE SEARCH</small><h3>Search under constraints.</h3><p>Candidate parallelism is evaluated against modeled latency and hardware cost. Four MAC lanes are the smallest candidate meeting the 10 μs target in the current model.</p></div>
+      </article>
+      <article class="journey-step" data-journey-step="3" tabindex="0">
+        <span>03</span><div><small>RTL GENERATION</small><h3>Turn the selected design into inspectable RTL.</h3><p>Emit SystemVerilog, quantized memories and golden vectors instead of hiding the result behind an API.</p></div>
+      </article>
+      <article class="journey-step" data-journey-step="4" tabindex="0">
+        <span>04</span><div><small>SELECTED ACCELERATOR</small><h3>The output is a machine.</h3><p>The current prototype resolves to a 4-lane INT8 dense accelerator and a reproducible verification path.</p></div>
+      </article>
+    </div>
+  </div>
 </section>
 
 <section class="section compiler-evidence" data-reveal>
