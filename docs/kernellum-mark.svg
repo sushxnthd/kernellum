@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="t d">
+<title id="t">Kernellum mark</title><desc id="d">Architectural K formed from a vertical compute spine and two signal branches.</desc>
+<rect width="128" height="128" rx="24" fill="#0c100b"/>
+<path d="M36 28v72" stroke="#c9ff63" stroke-width="8" stroke-linecap="square"/>
+<path d="M40 63 88 30M40 65l48 33" fill="none" stroke="#c9ff63" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
+<circle cx="36" cy="28" r="5" fill="#85f0c2"/><circle cx="88" cy="30" r="5" fill="#85f0c2"/><circle cx="88" cy="98" r="5" fill="#85f0c2"/>
+<path d="M20 16h88M20 112h88M16 20v88M112 20v88" stroke="#242923" stroke-width="2"/>
+</svg>
