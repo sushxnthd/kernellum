@@ -4,9 +4,11 @@
 
 ![Kernellum Research](docs/og-card.svg)
 
-Kernellum Research is an independent research initiative exploring automated hardware-software co-design, specialized AI acceleration, and AI-assisted electronic design automation.
+**Kernellum is building an AI-native compiler for workload-specific accelerators.**
 
-Its flagship project is **Kernellum Compiler**, a research prototype for mapping neural workloads and hardware constraints into accelerator architectures, RTL and verification evidence.
+Given a trained model and deployment constraints, **Kernellum Compiler** lowers the workload into a hardware IR, searches candidate accelerator architectures, emits inspectable SystemVerilog, and generates verification evidence.
+
+The current system is a research-stage prototype—not a production silicon compiler—but the model-to-RTL path is public, reproducible, and being pushed toward physical FPGA validation.
 
 ## Explore Kernellum
 
@@ -20,9 +22,27 @@ Its flagship project is **Kernellum Compiler**, a research prototype for mapping
 - **Reproducibility Guide v0.2:** https://sushxnthd.github.io/kernellum/Kernellum_Reproducibility_Guide_v0.2.pdf
 - **FPGA Bring-up Protocol v0.1:** https://sushxnthd.github.io/kernellum/Kernellum_FPGA_Bringup_Protocol_v0.1.pdf
 - **Build Log (Sep 2026):** https://sushxnthd.github.io/kernellum/Kernellum_Build_Log_2026-09.pdf
+- **Investor brief:** [`INVESTOR_BRIEF.md`](INVESTOR_BRIEF.md)
+- **Design partner program:** [`DESIGN_PARTNERS.md`](DESIGN_PARTNERS.md)
+- **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
+
+## Why Kernellum
+
+Most AI deployment treats hardware as fixed. Kernellum treats the workload, latency target, precision, memory budget and deployment constraints as inputs to the hardware-design process.
+
+The intended long-term interface is:
+
+```text
+model + constraints → hardware IR → architecture search → verified RTL → FPGA / ASIC
+```
+
+The goal is not an LLM that merely writes Verilog. The goal is a compiler-like co-design system whose outputs are constrained by the workload, verification chain and, over time, physical PPA feedback.
+
+**Interested in evaluating a real workload?** See the [Design Partner Program](DESIGN_PARTNERS.md).  
+**Evaluating Kernellum as a deep-tech venture?** See the [Investor Brief](INVESTOR_BRIEF.md).
 
 ## Kernellum Compiler v0.1
 
