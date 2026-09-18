@@ -52,6 +52,7 @@ jobs:
             artifacts/benchmark_pnr_ulx3s_85f/*/kernellum_demo_top.bit
             artifacts/benchmark_pnr_ulx3s_85f/*/lanes*/yosys.log
             artifacts/benchmark_pnr_ulx3s_85f/*/lanes*/nextpnr.log
+            artifacts/benchmark_pnr_ulx3s_85f/*/lanes*/route_exit_code.txt
             artifacts/benchmark_pnr_ulx3s_85f/*/lanes*/kernellum_demo_top.json
             artifacts/benchmark_pnr_ulx3s_85f/*/lanes*/kernellum_demo_top.config
           if-no-files-found: warn
