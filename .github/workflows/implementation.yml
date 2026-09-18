@@ -1,0 +1,77 @@
+name: implementation-evidence
+
+on:
+  push:
+    branches: [v0.2-physical-feedback]
+  workflow_dispatch:
+
+jobs:
+  ulx3s-and-benchmarks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install -e '.[test,onnx]'
+
+      - name: Run Python verification
+        run: pytest -q
+
+      - name: Regenerate baseline accelerator
+        run: python -m kernellum --out artifacts/digits_int8
+
+      - name: Build compiler benchmark matrix
+        run: python scripts/run_benchmarks.py
+
+      - name: Install open-source EDA and ECP5 P&R
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog yosys nextpnr-ecp5 fpga-trellis
+
+      - name: Simulate baseline RTL
+        run: bash scripts/run_eda.sh
+
+      - name: Simulate benchmark-generated RTL
+        run: bash scripts/run_benchmark_rtl.sh
+
+      - name: Run ULX3S-85F lane-sweep place-and-route
+        run: bash scripts/run_ulx3s_pnr_sweep.sh
+
+      - name: Feed post-route results back into architecture search
+        run: python scripts/search_with_feedback.py
+
+      - name: Print benchmark evidence
+        if: always()
+        run: |
+          echo '--- benchmark matrix ---'
+          cat artifacts/benchmarks/results.csv || true
+          echo '--- implementation feedback ---'
+          cat artifacts/digits_int8/pnr_ulx3s/implementation_feedback.json || true
+          echo '--- feedback-aware search ---'
+          cat artifacts/digits_int8/pnr_ulx3s/feedback_search.json || true
+
+      - name: Upload benchmark and post-route evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-v02-implementation-evidence
+          if-no-files-found: warn
+          path: |
+            artifacts/benchmarks/results.json
+            artifacts/benchmarks/results.csv
+            artifacts/benchmarks/README.md
+            artifacts/benchmarks/*/benchmark.json
+            artifacts/benchmarks/*/rtl_sim.log
+            artifacts/digits_int8/pnr_ulx3s/**/nextpnr_report.json
+            artifacts/digits_int8/pnr_ulx3s/**/nextpnr.log
+            artifacts/digits_int8/pnr_ulx3s/**/yosys.log
+            artifacts/digits_int8/pnr_ulx3s/**/*.bit
+            artifacts/digits_int8/pnr_ulx3s/**/*.svg
+            artifacts/digits_int8/pnr_ulx3s/implementation_feedback.json
+            artifacts/digits_int8/pnr_ulx3s/implementation_feedback.csv
+            artifacts/digits_int8/pnr_ulx3s/feedback_search.json
