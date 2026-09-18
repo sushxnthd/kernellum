@@ -170,7 +170,10 @@ def compute_cycles(dims: Iterable[int], lanes: int) -> int:
     dims = list(dims)
     total = 0
     for in_dim, out_dim in zip(dims[:-1], dims[1:]):
-        total += out_dim * ((in_dim + lanes - 1) // lanes)
+        mac_cycles = (in_dim + lanes - 1) // lanes
+        # Physical-feedback backend: final accumulation is followed by
+        # registered requant multiply and registered round/saturate writeback.
+        total += out_dim * (mac_cycles + 2)
     return int(total)
 
 
