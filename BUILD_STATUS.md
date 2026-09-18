@@ -50,3 +50,24 @@ Next evidence steps:
 Tracking issue: https://github.com/sushxnthd/kernellum/issues/1
 
 Public tracker: https://sushxnthd.github.io/kernellum/hardware.html
+
+## KRN-EXT-001 external public-model validation
+
+**Status: PASS — clean-room external-model L5 evidence complete.**
+
+Pinned upstream model: `harishsg993010/tiny-NPU` at commit `8216c22b762011aa20c05fc2768423fd12dda59d`, `models/overlap_perf_test.onnx` (64 → 64 → 64 → 32).
+
+The clean-room workflow verifies provenance, compiles the supported ONNX graph, passes generated RTL simulation and sweeps 1/2/4/8 lanes through ULX3S-85F place-and-route.
+
+| lanes | post-route Fmax | closes 25 MHz | modeled cycles |
+|---:|---:|:---:|---:|
+| 1 | 33.51 MHz | yes | 10,560 |
+| **2** | **28.18 MHz** | **yes** | **5,440** |
+| 4 | 22.06 MHz | no | 2,880 |
+| 8 | 14.82 MHz | no | 1,600 |
+
+The fixed physical-feedback rule selects **2 lanes**. Selected bitstream SHA-256: `50761b00fad5afda5f18c9841291bceea47a04c94155df044b5fb60ef09b2590`.
+
+Full record: `research/KRN-EXT-001_RESULT.md`.
+
+The remaining major technical evidence threshold is **KRN-HW-001 physical-board execution and measurement**.
