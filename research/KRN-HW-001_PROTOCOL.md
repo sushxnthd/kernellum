@@ -3,7 +3,7 @@
 **Evidence ID:** KRN-HW-001  
 **Target:** ULX3S-85F / LFE5U-85F-6BG381C / CABGA381  
 **Clock:** 25 MHz  
-**Status:** measurement harness ready; physical board execution required.
+**Status:** integrity-checked handoff kit ready; physical board execution required.
 
 ## Objective
 
@@ -33,6 +33,8 @@ Frozen KRN-PNR-001 reference provenance:
 KRN-HW-001 should use this exact bitstream for the primary reference measurement campaign. A different bitstream must be treated as a separate build and explicitly documented rather than silently compared against KRN-PNR-001.
 
 ## Programming
+
+The preferred path is the self-contained [KRN-HW-001 hardware kit](../HARDWARE_RUNBOOK.md), published by the `hardware-kit` workflow. The kit contains the frozen bitstream, this protocol, programming and analysis tools, empty session files, a machine-readable manifest and SHA-256 checksums.
 
 Recommended SRAM programming command:
 
@@ -116,7 +118,7 @@ Both must be labeled as board-level estimates derived from measured power and me
 
 ## Raw-data format
 
-Create a session with:
+When working from a repository clone, create a session with:
 
 ```bash
 python scripts/krn_hw_001.py init --out measurements/krn_hw_001/<session>
@@ -128,6 +130,18 @@ Then populate:
 - `latency_us.csv`
 - `idle_power.csv`
 - `active_power.csv`
+
+Record the observed class without manually setting pass/fail:
+
+```bash
+python scripts/krn_hw_001.py record-functional measurements/krn_hw_001/<session> 8
+```
+
+Inspect the completion gate at any time with:
+
+```bash
+python scripts/krn_hw_001.py doctor measurements/krn_hw_001/<session>
+```
 
 Finalize with:
 
@@ -141,13 +155,15 @@ The analyzer writes `result.json` and `RESULT.md`.
 
 KRN-HW-001 is complete only when all of the following exist:
 
-- exact bitstream SHA-256;
+- exact frozen reference bitstream SHA-256 match;
+- frozen reference workflow run recorded;
 - board revision / FPGA density recorded;
-- programming command and result recorded;
+- programming command, successful result and non-empty programming log recorded;
 - expected and observed inference output recorded;
 - at least 100 valid latency trials;
-- raw idle-power samples;
-- raw active-power samples;
+- at least 10 raw idle-power samples;
+- at least 10 raw active-power samples;
+- nonnegative active-minus-idle power;
 - instrument/method notes;
 - generated statistical summary;
 - measured total and dynamic energy/inference estimates;

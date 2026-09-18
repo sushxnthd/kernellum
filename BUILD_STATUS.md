@@ -23,7 +23,7 @@ CI builds a real ONNX model through this path, simulates and synthesizes the res
 
 ## Physical FPGA bring-up
 
-**Status: REFERENCE P&R COMPLETE — physical board loading/measurement remains open.**
+**Status: REFERENCE P&R + AUDITABLE HANDOFF COMPLETE — physical board loading/measurement remains open.**
 
 The repository includes a generic `scripts/run_pnr_ecp5.sh` flow plus a **ULX3S-85F reference target** (`LFE5U-85F-6BG381C`, `CABGA381`, 25 MHz) with committed LPF constraints. CI now completes a physical-feedback sweep across 1/2/4/8 MAC-lane variants.
 
@@ -37,6 +37,8 @@ The repository includes a generic `scripts/run_pnr_ecp5.sh` flow plus a **ULX3S-
 The flow selects **2 lanes** as the lowest-cycle configuration that closes the reference board's 25 MHz clock. Selected post-route utilization includes **5,727 TRELLIS_COMB**, **333 TRELLIS_FF**, **30 TRELLIS_RAMW**, and **6 MULT18X18D**. CI generates a bitstream for this configuration.
 
 This is reproducible **reference-board P&R evidence**, not evidence that Kernellum has loaded or measured a physical ULX3S board. Full record: `research/ULX3S_PNR_SWEEP_2026-09-18.md`.
+
+The `hardware-kit` workflow packages the exact frozen reference bitstream with a hardware runbook, programming/analyzer tools, empty raw-data templates, a manifest and checksums. Its completion gate requires the reference SHA/workflow identity, a non-empty programming log, correct class output, ≥100 latency trials, ≥10 samples for each power state, nonnegative dynamic power and complete measurement metadata. Kit preparation is not a physical result.
 
 Next evidence steps:
 

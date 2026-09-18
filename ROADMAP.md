@@ -24,11 +24,14 @@ Completed:
 
 Measurement infrastructure is now ready:
 - frozen KRN-HW-001 physical-measurement protocol;
+- self-contained hardware runbook and integrity-checked collaborator kit;
+- persistent prerelease plus 90-day Actions artifact generated from the frozen P&R run;
 - reproducible ULX3S SRAM programming capture;
 - exact bitstream SHA-256 recording;
 - raw latency / idle-power / active-power CSV schema;
 - automatic statistics and energy/inference analysis;
-- completion gate that refuses to mark evidence complete without functional correctness, ≥100 latency trials, power samples and measurement metadata.
+- completion gate that refuses to mark evidence complete without the exact frozen bitstream/workflow identity, a programming log, functional correctness, ≥100 latency trials, ≥10 samples per power state, nonnegative dynamic power and measurement metadata;
+- public measurement-submission issue form.
 
 Remaining physical actions:
 - obtain access to a compatible ULX3S-85F board;

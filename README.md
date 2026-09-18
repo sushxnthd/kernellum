@@ -31,12 +31,15 @@ The current system is a research-stage prototype—not a production silicon comp
 - **KRN-BENCH-001 result:** [`research/KRN-BENCH-001_RESULT.md`](research/KRN-BENCH-001_RESULT.md)
 - **External workload protocol:** [`research/KRN-EXT-001_PROTOCOL.md`](research/KRN-EXT-001_PROTOCOL.md)
 - **Physical measurement protocol:** [`research/KRN-HW-001_PROTOCOL.md`](research/KRN-HW-001_PROTOCOL.md)
+- **Physical measurement runbook:** [`HARDWARE_RUNBOOK.md`](HARDWARE_RUNBOOK.md)
+- **KRN-HW-001 kit:** [download the integrity-checked prerelease](https://github.com/sushxnthd/kernellum/releases/tag/krn-hw-001-kit-v0.1)
 - **ULX3S hardware-access call:** [Issue #9](https://github.com/sushxnthd/kernellum/issues/9)
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
 [![reference-pnr](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml)
 [![benchmark-pnr](https://github.com/sushxnthd/kernellum/actions/workflows/benchmark-pnr.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/benchmark-pnr.yml)
+[![hardware-kit](https://github.com/sushxnthd/kernellum/actions/workflows/hardware-kit.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/hardware-kit.yml)
 
 ## Why Kernellum
 
@@ -171,7 +174,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. KRN-BENCH-001 now demonstrates that the same timing-constrained selection loop executes across three dense-network shapes, and KRN-EXT-001 completes the clean-room L5 path on a pinned third-party tiny-NPU model. In every completed sweep, physical timing rejects the cycle-faster 4/8-lane candidates and selects 2 lanes for the 25 MHz target. KRN-HW-001 provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. KRN-BENCH-001 now demonstrates that the same timing-constrained selection loop executes across three dense-network shapes, and KRN-EXT-001 completes the clean-room L5 path on a pinned third-party tiny-NPU model. In every completed sweep, physical timing rejects the cycle-faster 4/8-lane candidates and selects 2 lanes for the 25 MHz target. KRN-HW-001 now provides an integrity-checked, self-contained programming, raw-data and analysis kit for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
 
 ## People
 

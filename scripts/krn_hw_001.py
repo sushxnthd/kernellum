@@ -12,6 +12,12 @@ from pathlib import Path
 TARGET = "ULX3S-85F / LFE5U-85F-6BG381C / CABGA381"
 CLOCK_MHZ = 25.0
 EXPECTED_CLASS = 8
+REFERENCE_BITSTREAM_SHA256 = (
+    "19c403d3a169b320c8ae9584cb388255fdef784ad7d4651becaab690634be415"
+)
+REFERENCE_WORKFLOW_RUN = "35321132327"
+MIN_LATENCY_TRIALS = 100
+MIN_POWER_SAMPLES = 10
 
 
 def sha256_file(path: Path) -> str:
@@ -49,7 +55,11 @@ def init_session(out: Path, bitstream: Path | None) -> None:
         "fpga_density": "85F",
         "bitstream_path": bitstream_path,
         "bitstream_sha256": digest,
-        "ci_workflow_run": "",
+        "reference_bitstream_sha256": REFERENCE_BITSTREAM_SHA256,
+        "reference_bitstream_match": digest == REFERENCE_BITSTREAM_SHA256,
+        "ci_workflow_run": (
+            REFERENCE_WORKFLOW_RUN if digest == REFERENCE_BITSTREAM_SHA256 else ""
+        ),
         "programmer": "openFPGALoader",
         "programming_command": (
             f"openFPGALoader --board=ulx3s {bitstream_path}"
@@ -85,6 +95,7 @@ def init_session(out: Path, bitstream: Path | None) -> None:
     print(f"KRN-HW-001 session initialized: {out}")
     if digest:
         print(f"bitstream_sha256={digest}")
+        print(f"reference_bitstream_match={digest == REFERENCE_BITSTREAM_SHA256}")
 
 
 def read_float_rows(path: Path, field: str) -> list[float]:
@@ -100,6 +111,8 @@ def read_float_rows(path: Path, field: str) -> list[float]:
                 raise SystemExit(f"invalid {field} in {path}: {raw!r}") from exc
             if not math.isfinite(value):
                 raise SystemExit(f"non-finite {field} in {path}: {raw!r}")
+            if value <= 0:
+                raise SystemExit(f"non-positive {field} in {path}: {raw!r}")
             values.append(value)
     return values
 
@@ -147,6 +160,114 @@ def stats(values: list[float]) -> dict[str, float | int]:
     }
 
 
+def record_functional(session: Path, observed_class: int) -> bool:
+    if not 0 <= observed_class <= 15:
+        raise SystemExit("observed class must fit the four class LEDs (0..15)")
+    meta_path = session / "metadata.json"
+    if not meta_path.exists():
+        raise SystemExit(f"missing metadata.json in {session}")
+    metadata = json.loads(meta_path.read_text())
+    expected = metadata.get("expected_class", EXPECTED_CLASS)
+    passed = observed_class == expected
+    metadata["observed_class"] = observed_class
+    metadata["functional_pass"] = passed
+    metadata["functional_check_utc"] = datetime.now(timezone.utc).isoformat()
+    meta_path.write_text(json.dumps(metadata, indent=2) + "\n")
+    print(
+        "KRN_HW_001_FUNCTIONAL "
+        f"expected={expected} observed={observed_class} pass={str(passed).lower()}"
+    )
+    return passed
+
+
+def _completion_checks(
+    session: Path,
+    metadata: dict[str, object],
+    latency: list[float],
+    idle_power: list[float],
+    active_power: list[float],
+) -> dict[str, bool]:
+    observed = metadata.get("observed_class")
+    expected = metadata.get("expected_class")
+    functional_pass = bool(metadata.get("functional_pass")) and observed == expected
+    measurement_fields = (
+        "board_revision",
+        "latency_method",
+        "latency_instrument",
+        "power_method",
+        "power_instrument",
+        "measurement_point",
+    )
+    programming_log = session / "programming.log"
+    target_ok = metadata.get("target") == TARGET
+    try:
+        clock_ok = float(metadata.get("clock_mhz", 0)) == CLOCK_MHZ
+    except (TypeError, ValueError):
+        clock_ok = False
+    dynamic_power_nonnegative = bool(
+        idle_power
+        and active_power
+        and statistics.fmean(active_power) >= statistics.fmean(idle_power)
+    )
+    bitstream_sha256 = metadata.get("bitstream_sha256")
+    return {
+        f"latency_trials_at_least_{MIN_LATENCY_TRIALS}": len(latency)
+        >= MIN_LATENCY_TRIALS,
+        f"idle_power_samples_at_least_{MIN_POWER_SAMPLES}": len(idle_power)
+        >= MIN_POWER_SAMPLES,
+        f"active_power_samples_at_least_{MIN_POWER_SAMPLES}": len(active_power)
+        >= MIN_POWER_SAMPLES,
+        "functional_pass": functional_pass,
+        "programming_success": bool(metadata.get("programming_success")),
+        "programming_exit_code_zero": metadata.get("programming_exit_code") == 0,
+        "programmed_utc_recorded": bool(metadata.get("programmed_utc")),
+        "programming_log_recorded": programming_log.is_file()
+        and programming_log.stat().st_size > 0,
+        "reference_bitstream_sha256_match": bitstream_sha256
+        == REFERENCE_BITSTREAM_SHA256,
+        "reference_workflow_run_recorded": str(metadata.get("ci_workflow_run", ""))
+        == REFERENCE_WORKFLOW_RUN,
+        "target_identity_match": target_ok,
+        "clock_25mhz_match": clock_ok,
+        "fpga_density_85f_match": str(metadata.get("fpga_density", "")).upper()
+        == "85F",
+        "measurement_metadata_complete": all(metadata.get(key) for key in measurement_fields),
+        "functional_check_utc_recorded": bool(metadata.get("functional_check_utc")),
+        "dynamic_power_nonnegative": dynamic_power_nonnegative,
+    }
+
+
+def _read_optional_measurements(session: Path) -> tuple[list[float], list[float], list[float]]:
+    latency_path = session / "latency_us.csv"
+    idle_path = session / "idle_power.csv"
+    active_path = session / "active_power.csv"
+    latency = read_float_rows(latency_path, "latency_us") if latency_path.exists() else []
+    idle = read_power(idle_path) if idle_path.exists() else []
+    active = read_power(active_path) if active_path.exists() else []
+    return latency, idle, active
+
+
+def doctor_session(session: Path) -> dict[str, object]:
+    meta_path = session / "metadata.json"
+    if not meta_path.exists():
+        raise SystemExit(f"missing metadata.json in {session}")
+    metadata = json.loads(meta_path.read_text())
+    latency, idle_power, active_power = _read_optional_measurements(session)
+    checks = _completion_checks(session, metadata, latency, idle_power, active_power)
+    report: dict[str, object] = {
+        "evidence_id": "KRN-HW-001",
+        "ready": all(checks.values()),
+        "checks": checks,
+        "sample_counts": {
+            "latency": len(latency),
+            "idle_power": len(idle_power),
+            "active_power": len(active_power),
+        },
+    }
+    print(json.dumps(report, indent=2))
+    return report
+
+
 def analyze_session(session: Path) -> None:
     meta_path = session / "metadata.json"
     if not meta_path.exists():
@@ -173,38 +294,20 @@ def analyze_session(session: Path) -> None:
     total_energy_uj = float(active_stats["mean"]) * mean_latency_us
     dynamic_energy_uj = dynamic_power_w * mean_latency_us
 
-    required_metadata = {
-        "board_revision": metadata.get("board_revision"),
-        "bitstream_sha256": metadata.get("bitstream_sha256"),
-        "latency_instrument": metadata.get("latency_instrument"),
-        "power_instrument": metadata.get("power_instrument"),
-        "power_method": metadata.get("power_method"),
-        "measurement_point": metadata.get("measurement_point"),
-    }
-    bit_hash = required_metadata["bitstream_sha256"]
-    hash_ok = isinstance(bit_hash, str) and len(bit_hash) == 64
     observed = metadata.get("observed_class")
     functional_pass = bool(metadata.get("functional_pass")) and observed == metadata.get(
         "expected_class"
     )
-    metadata_complete = all(
-        value
-        for key, value in required_metadata.items()
-        if key != "bitstream_sha256"
-    )
-    evidence_complete = bool(
-        len(latency) >= 100
-        and functional_pass
-        and metadata.get("programming_success")
-        and hash_ok
-        and metadata_complete
-    )
+    checks = _completion_checks(session, metadata, latency, idle_power, active_power)
+    evidence_complete = all(checks.values())
 
     result = {
         "evidence_id": "KRN-HW-001",
         "target": metadata.get("target", TARGET),
         "clock_mhz": metadata.get("clock_mhz", CLOCK_MHZ),
         "bitstream_sha256": metadata.get("bitstream_sha256", ""),
+        "reference_bitstream_sha256": REFERENCE_BITSTREAM_SHA256,
+        "reference_workflow_run": REFERENCE_WORKFLOW_RUN,
         "functional": {
             "expected_class": metadata.get("expected_class"),
             "observed_class": observed,
@@ -219,13 +322,7 @@ def analyze_session(session: Path) -> None:
             "dynamic_increment_estimate": dynamic_energy_uj,
         },
         "evidence_complete": evidence_complete,
-        "completion_requirements": {
-            "latency_trials_at_least_100": len(latency) >= 100,
-            "functional_pass": functional_pass,
-            "programming_success": bool(metadata.get("programming_success")),
-            "bitstream_sha256_recorded": hash_ok,
-            "measurement_metadata_complete": metadata_complete,
-        },
+        "completion_requirements": checks,
         "claim_boundary": (
             "physical ULX3S board-level measurement; not ASIC performance, "
             "production power efficiency, or customer validation"
@@ -240,6 +337,7 @@ def analyze_session(session: Path) -> None:
         f"**Evidence status:** {status}",
         "",
         f"**Bitstream SHA-256:** {result['bitstream_sha256'] or 'not recorded'}",
+        f"**Reference bitstream match:** {'YES' if checks['reference_bitstream_sha256_match'] else 'NO'}",
         "",
         "## Functional result",
         "",
@@ -267,6 +365,13 @@ def analyze_session(session: Path) -> None:
         f"- Total board estimate: **{total_energy_uj:.3f} µJ/inference**",
         f"- Dynamic increment estimate: **{dynamic_energy_uj:.3f} µJ/inference**",
         "",
+        "## Completion gate",
+        "",
+        *[
+            f"- {'PASS' if passed else 'FAIL'} — `{name}`"
+            for name, passed in checks.items()
+        ],
+        "",
         "## Claim boundary",
         "",
         result["claim_boundary"] + ".",
@@ -290,6 +395,15 @@ def main() -> None:
     analyze_p = sub.add_parser("analyze", help="analyze populated measurement CSV files")
     analyze_p.add_argument("session", type=Path)
 
+    doctor_p = sub.add_parser("doctor", help="report the evidence-completion checklist")
+    doctor_p.add_argument("session", type=Path)
+
+    functional_p = sub.add_parser(
+        "record-functional", help="record the observed class and pass/fail result"
+    )
+    functional_p.add_argument("session", type=Path)
+    functional_p.add_argument("observed_class", type=int)
+
     hash_p = sub.add_parser("hash", help="print SHA-256 of a bitstream")
     hash_p.add_argument("bitstream", type=Path)
 
@@ -298,6 +412,10 @@ def main() -> None:
         init_session(args.out, args.bitstream)
     elif args.command == "analyze":
         analyze_session(args.session)
+    elif args.command == "doctor":
+        doctor_session(args.session)
+    elif args.command == "record-functional":
+        record_functional(args.session, args.observed_class)
     elif args.command == "hash":
         print(sha256_file(args.bitstream))
 

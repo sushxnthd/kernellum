@@ -18,6 +18,7 @@
 - `research/FPGA_BRINGUP_PROTOCOL.md`
 - `research/KRN-EXT-001_PROTOCOL.md`
 - `research/KRN-HW-001_PROTOCOL.md`
+- `HARDWARE_RUNBOOK.md`
 - `research/KRN-BENCH-001_PROTOCOL.md`
 - `research/KRN-BENCH-001_RESULT.md`
 - `research/KRN-BENCH-001_RESULT.json`
@@ -30,6 +31,8 @@
 - `research/templates/board_profile_template.yaml`
 - `scripts/krn_hw_001.py` — creates and analyzes physical measurement sessions.
 - `scripts/program_krn_hw_001_ulx3s.sh` — records SRAM programming and bitstream identity.
+- `scripts/package_krn_hw_001_kit.py` — builds and verifies the self-contained, checksummed hardware handoff.
+- [KRN-HW-001 kit prerelease](https://github.com/sushxnthd/kernellum/releases/tag/krn-hw-001-kit-v0.1) — frozen bitstream, tools, protocol and empty measurement session.
 
 ## Repository governance
 

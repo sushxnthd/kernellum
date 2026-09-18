@@ -19,6 +19,8 @@ This page is the shortest route through Kernellum's public evidence.
 - [KRN-BENCH-001 result](research/KRN-BENCH-001_RESULT.md) — completed clean-room multi-shape ULX3S P&R benchmark; three workloads, twelve routed candidates, three selected bitstreams.
 - [KRN-BENCH-001 workflow](https://github.com/sushxnthd/kernellum/actions/runs/35336911649) — successful source run for the permanent benchmark record.
 - [KRN-HW-001 protocol](research/KRN-HW-001_PROTOCOL.md) — frozen physical-board programming, latency, power and energy measurement method; measurements still pending.
+- [KRN-HW-001 runbook](HARDWARE_RUNBOOK.md) — clean-room operator instructions and evidence-completion gate.
+- [KRN-HW-001 kit prerelease](https://github.com/sushxnthd/kernellum/releases/tag/krn-hw-001-kit-v0.1) — integrity-checked frozen bitstream, tools, templates and manifest.
 - [Repository](https://github.com/sushxnthd/kernellum) — source, tests and reproducibility.
 
 ## 3. Product surface
@@ -42,7 +44,7 @@ KRN-EXT-001 is completed external public-model evidence. External customer/desig
 - [KRN-HW-001 tracker](https://github.com/sushxnthd/kernellum/issues/1) — physical ULX3S execution and measurement.
 - [ULX3S hardware-access call](https://github.com/sushxnthd/kernellum/issues/9) — request for compatible board access or a reproducible third-party measurement run.
 
-The programming/capture/analyzer tooling is ready; no physical-board latency, power or energy result is promoted until raw measurement evidence exists.
+The self-contained programming/capture/analyzer kit and public submission form are ready; no physical-board latency, power or energy result is promoted until raw measurement evidence exists.
 
 ## 6. Current evidence boundary
 
