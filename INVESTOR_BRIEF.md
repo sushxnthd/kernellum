@@ -22,23 +22,29 @@ Kernellum is currently research-stage. It does **not** yet claim production ASIC
 
 ## Public technical evidence
 
-The current model-to-RTL prototype demonstrates:
+The current prototype demonstrates a complete model → RTL → reference-board P&R feedback loop:
 
 | Evidence | Public result |
 |---|---:|
 | Float held-out accuracy | 96.22% |
 | INT8 held-out accuracy | 96.44% |
-| Float / INT8 prediction agreement | 99.78% |
-| Cycle-model / vector-INT8 agreement | 450 / 450 |
+| Cycle/reference agreement | 450 / 450 |
 | RTL golden-vector simulation | 32 / 32 PASS |
-| Selected architecture | 4 MAC lanes |
-| Modeled core compute | 680 cycles |
 | Generic Yosys synthesis | PASS, 0 CHECK problems |
-| ECP5 family mapping | 7,977 LUT4; 8 MULT18X18D |
+| Current 4-lane ECP5 family mapping | 7,756 LUT4; 8 MULT18X18D |
+| Named reference target | ULX3S-85F / LFE5U-85F-6BG381C |
+| Physical-feedback sweep | 1 / 2 / 4 / 8 MAC lanes |
+| Selected reference-board architecture | **2 MAC lanes** |
+| Selected post-route Fmax | **29.64 MHz** vs 25 MHz target |
+| Selected post-route TRELLIS_COMB | **5,727 / 83,640** |
+| Selected DSP blocks | **6 / 156 MULT18X18D** |
+| Reference bitstream | generated in clean-room CI |
 
-The modeled 6.8 µs figure assumes a 100 MHz clock. It is **not** a post-route or measured hardware number.
+The important result is not simply that one design routes. **Physical timing changes the architecture decision.** The cycle-only search favors more parallel variants; on the ULX3S-85F target, 4 lanes closes at only 22.12 MHz and 8 lanes at 16.10 MHz, while 2 lanes reaches 29.64 MHz. Kernellum therefore selects 2 lanes for the 25 MHz reference target.
 
-Evidence: [Evidence Explorer](https://sushxnthd.github.io/kernellum/evidence.html) · [TR-001](https://sushxnthd.github.io/kernellum/TR-001.pdf) · [repository](https://github.com/sushxnthd/kernellum)
+This is post-route tool evidence, not measured board performance. Physical board loading, measured latency, power and energy remain the next threshold.
+
+Evidence: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md) · [Evidence Explorer](https://sushxnthd.github.io/kernellum/evidence.html) · [repository](https://github.com/sushxnthd/kernellum)
 
 ## Why this wedge
 
@@ -62,14 +68,14 @@ That narrowness is intentional. Unsupported graphs are rejected rather than sile
 
 ## Next de-risking milestones
 
-### 1. Physical FPGA evidence
-- named ECP5 board;
-- real package/pin/clock constraints;
-- nextpnr place-and-route;
-- achieved Fmax and timing slack;
-- loaded bitstream;
-- measured end-to-end latency;
-- measured board power and energy/inference.
+### 1. Physical board execution
+Already completed: named target, package/pin/clock constraints, multi-architecture nextpnr P&R, post-route Fmax/resource evidence and reference bitstream generation.
+
+Remaining:
+- load the bitstream onto a compatible physical board;
+- verify inference on-device;
+- measure end-to-end latency;
+- measure board power and energy/inference.
 
 ### 2. Multi-workload benchmark
 - multiple model shapes;
