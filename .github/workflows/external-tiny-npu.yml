@@ -10,6 +10,15 @@ on:
       - "scripts/run_external_tiny_npu_pnr.sh"
       - "boards/ulx3s_85f/kernellum_demo.lpf"
       - ".github/workflows/external-tiny-npu.yml"
+  pull_request:
+    paths:
+      - "kernellum/compiler.py"
+      - "kernellum/onnx_frontend.py"
+      - "kernellum/ir.py"
+      - "scripts/build_external_tiny_npu.py"
+      - "scripts/run_external_tiny_npu_pnr.sh"
+      - "boards/ulx3s_85f/kernellum_demo.lpf"
+      - ".github/workflows/external-tiny-npu.yml"
   workflow_dispatch:
 
 concurrency:
