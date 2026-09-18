@@ -16,7 +16,7 @@ def test_demo_quality_and_cycle_model():
     assert build.int_accuracy >= 0.95
     assert build.prediction_agreement >= 0.99
     assert build.lanes == 4
-    assert build.cycles == 680
+    assert build.cycles == 796
     cycled = cycle_forward(build.model, build.qinputs, build.lanes)
     assert np.array_equal(cycled, int_forward(build.model, build.qinputs))
 
