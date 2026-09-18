@@ -82,8 +82,17 @@ FPGA_TARGETS: dict[str, FPGATarget] = {
         device="LFE5U-85F",
         package="CABGA381/BG381-class target profile",
         notes=(
-            "v0.2 alpha uses Yosys synth_ecp5 for family-mapped synthesis. "
-            "Place-and-route, board pin constraints, timing closure and power measurement are not yet claimed."
+            "Family-level target. Place-and-route requires a named board/package/constraint set."
+        ),
+    ),
+    "ulx3s-85f": FPGATarget(
+        name="ulx3s-85f",
+        family="Lattice ECP5",
+        device="LFE5U-85F-6BG381C",
+        package="CABGA381",
+        notes=(
+            "Named ULX3S-85F target: speed grade 6, 25 MHz onboard clock. "
+            "Physical programming and measured board performance remain separate evidence steps."
         ),
     )
 }
