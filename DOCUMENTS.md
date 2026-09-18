@@ -18,6 +18,9 @@
 - `research/FPGA_BRINGUP_PROTOCOL.md`
 - `research/KRN-EXT-001_PROTOCOL.md`
 - `research/KRN-HW-001_PROTOCOL.md`
+- `research/KRN-BENCH-001_PROTOCOL.md`
+- `research/KRN-BENCH-001_RESULT.md`
+- `research/KRN-BENCH-001_RESULT.json`
 - `research/BUILD_LOG_2026-09.md`
 
 ## Machine-readable templates

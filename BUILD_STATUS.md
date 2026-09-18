@@ -51,6 +51,25 @@ Tracking issue: https://github.com/sushxnthd/kernellum/issues/1
 
 Public tracker: https://sushxnthd.github.io/kernellum/hardware.html
 
+
+## KRN-BENCH-001 multi-workload physical-feedback benchmark
+
+**Status: PASS — clean-room multi-shape L5 evidence complete.**
+
+Three deterministic dense-network shapes were compiled and swept across 1/2/4/8 lanes using the same ULX3S-85F / CABGA381 / 25 MHz target and the same physical-feedback selection rule.
+
+| Shape | Selected lanes | Selected Fmax | Modeled cycles | Selected TRELLIS_COMB |
+|---|---:|---:|---:|---:|
+| 32 → 16 → 8 → 4 | 2 | 31.55 MHz | 392 | 3,135 |
+| 64 → 32 → 16 → 10 | 2 | 29.76 MHz | 1,476 | 5,704 |
+| 128 → 64 → 32 → 8 | 2 | 28.10 MHz | 5,456 | 14,739 |
+
+For every workload, 1 and 2 lanes closed 25 MHz while 4 and 8 lanes did not; the fixed rule therefore selected 2 lanes in all three cases. The workflow produced a bitstream and SHA-256 identity for every selected design.
+
+Full record: `research/KRN-BENCH-001_RESULT.md`. Workflow run: [35336911649](https://github.com/sushxnthd/kernellum/actions/runs/35336911649).
+
+These are deterministic synthetic workloads. The result establishes compiler-shape and board-targeted P&R behavior, not application accuracy, customer validation, or physical-board measurements.
+
 ## KRN-EXT-001 external public-model validation
 
 **Status: PASS — clean-room external-model L5 evidence complete.**

@@ -36,6 +36,23 @@ The latency column is still modeled from cycle count and the board clock; it is 
 
 Evidence record: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md).
 
+
+### KRN-BENCH-001 — multi-workload physical-feedback benchmark
+
+The clean-room benchmark applies the same ONNX → hardware IR → INT8 → RTL → ULX3S P&R path to three deterministic dense-network shapes. Each shape is swept across 1/2/4/8 MAC lanes under the same 25 MHz board constraint.
+
+| Shape | Selected lanes | Selected Fmax | Modeled cycles | TRELLIS_COMB | MULT18X18D |
+|---|---:|---:|---:|---:|---:|
+| 32 → 16 → 8 → 4 | 2 | 31.55 MHz | 392 | 3,135 | 6 |
+| 64 → 32 → 16 → 10 | 2 | 29.76 MHz | 1,476 | 5,704 | 6 |
+| 128 → 64 → 32 → 8 | 2 | 28.10 MHz | 5,456 | 14,739 | 6 |
+
+Across all three shapes, 1 and 2 lanes close the 25 MHz target while 4 and 8 lanes fail timing. The fixed rule selects the lowest-cycle timing-feasible candidate, so all three select 2 lanes. This repeated result is evidence that Kernellum's architecture choice is constrained by post-route timing rather than cycle count alone.
+
+The benchmark workloads are deterministic synthetic graphs. They establish multi-shape L5 P&R behavior, not application accuracy, customer validation, or physical-board measurements.
+
+Evidence record: [KRN-BENCH-001](research/KRN-BENCH-001_RESULT.md). Source workflow: [run 35336911649](https://github.com/sushxnthd/kernellum/actions/runs/35336911649).
+
 ### KRN-EXT-001 — pinned third-party public ONNX model
 
 Kernellum also completed a clean-room evaluation of the pinned `tiny-NPU/models/overlap_perf_test.onnx` graph and weights, authored outside the Kernellum repository.
@@ -77,20 +94,16 @@ TR-001 froze the earlier non-pipelined baseline at 4 MAC lanes, 680 modeled cycl
 
 Kernellum will label every benchmark with the highest evidence level it actually reaches.
 
-## Next benchmark pack
+## Benchmark-pack status and next threshold
 
-With named-board P&R now demonstrated, the benchmark suite will expand across multiple supported dense-network shapes. The goal is to publish:
+KRN-BENCH-001 now publishes compiler-selected architectures, post-route utilization, achieved Fmax, modeled cycle counts, reproducible commands, workflow provenance and selected bitstream identities across three supported dense-network shapes.
 
-- compiler-selected architecture;
-- generated RTL size;
-- synthesis / P&R utilization;
-- achieved Fmax;
-- end-to-end latency;
-- throughput;
-- board power;
-- energy per inference;
-- quantization delta;
-- reproducible commands and artifacts.
+The remaining items require either physical hardware or a real application/design-partner workload:
+
+- measured end-to-end latency and throughput;
+- measured board power and energy per inference;
+- application-level accuracy and quantization delta;
+- workload-specific deployment constraints supplied by an outside team.
 
 ## Benchmark contribution
 

@@ -1,0 +1,483 @@
+{
+  "evidence_id": "KRN-BENCH-001",
+  "title": "Multi-workload physical-feedback benchmark",
+  "target": "ULX3S-85F / LFE5U-85F-6BG381C / CABGA381",
+  "clock_target_mhz": 25.0,
+  "workloads": [
+    {
+      "evidence_id": "KRN-BENCH-001",
+      "case": "compact_32x16x8x4",
+      "dims": [
+        32,
+        16,
+        8,
+        4
+      ],
+      "target": "ULX3S-85F / LFE5U-85F-6BG381C / CABGA381",
+      "clock_target_mhz": 25.0,
+      "selection_rule": "minimum modeled core cycles among swept configurations whose post-route Fmax meets the 25 MHz board clock",
+      "selected": {
+        "lanes": 2,
+        "modeled_cycles": 392,
+        "modeled_core_latency_us_at_25mhz": 15.68,
+        "route_success": true,
+        "route_exit_code": 0,
+        "postroute_fmax_mhz": 31.55,
+        "timing_met_25mhz": true,
+        "nextpnr_status": "PASS",
+        "resources": {
+          "TRELLIS_COMB": {
+            "used": 3135,
+            "total": 83640
+          },
+          "TRELLIS_FF": {
+            "used": 330,
+            "total": 83640
+          },
+          "TRELLIS_RAMW": {
+            "used": 18,
+            "total": 10455
+          },
+          "MULT18X18D": {
+            "used": 6,
+            "total": 156
+          }
+        },
+        "bitstream_sha256": "333df9830e7df9d1f35bfbdecccfa4b2c6e31988ca6e2ef8511caeaf241261a7"
+      },
+      "results": [
+        {
+          "lanes": 1,
+          "modeled_cycles": 728,
+          "modeled_core_latency_us_at_25mhz": 29.12,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 36.74,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 2194,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 330,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 10,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 5,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 2,
+          "modeled_cycles": 392,
+          "modeled_core_latency_us_at_25mhz": 15.68,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 31.55,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 3135,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 330,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 18,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 6,
+              "total": 156
+            }
+          },
+          "bitstream_sha256": "333df9830e7df9d1f35bfbdecccfa4b2c6e31988ca6e2ef8511caeaf241261a7"
+        },
+        {
+          "lanes": 4,
+          "modeled_cycles": 224,
+          "modeled_core_latency_us_at_25mhz": 8.96,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 22.49,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 5573,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 330,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 34,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 8,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 8,
+          "modeled_cycles": 140,
+          "modeled_core_latency_us_at_25mhz": 5.6,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 16.09,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 10190,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 394,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 50,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 12,
+              "total": 156
+            }
+          }
+        }
+      ],
+      "evidence_boundary": "post-route reference-board evidence on deterministic synthetic dense graphs; not physical-board measurement and not external workload validation"
+    },
+    {
+      "evidence_id": "KRN-BENCH-001",
+      "case": "reference_64x32x16x10",
+      "dims": [
+        64,
+        32,
+        16,
+        10
+      ],
+      "target": "ULX3S-85F / LFE5U-85F-6BG381C / CABGA381",
+      "clock_target_mhz": 25.0,
+      "selection_rule": "minimum modeled core cycles among swept configurations whose post-route Fmax meets the 25 MHz board clock",
+      "selected": {
+        "lanes": 2,
+        "modeled_cycles": 1476,
+        "modeled_core_latency_us_at_25mhz": 59.04,
+        "route_success": true,
+        "route_exit_code": 0,
+        "postroute_fmax_mhz": 29.76,
+        "timing_met_25mhz": true,
+        "nextpnr_status": "PASS",
+        "resources": {
+          "TRELLIS_COMB": {
+            "used": 5704,
+            "total": 83640
+          },
+          "TRELLIS_FF": {
+            "used": 338,
+            "total": 83640
+          },
+          "TRELLIS_RAMW": {
+            "used": 30,
+            "total": 10455
+          },
+          "MULT18X18D": {
+            "used": 6,
+            "total": 156
+          }
+        },
+        "bitstream_sha256": "04505e9dde10478373efd515b9eb2a96be90814bb21b1543350fed88a1bdd76e"
+      },
+      "results": [
+        {
+          "lanes": 1,
+          "modeled_cycles": 2836,
+          "modeled_core_latency_us_at_25mhz": 113.44,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 35.83,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 3451,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 338,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 16,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 5,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 2,
+          "modeled_cycles": 1476,
+          "modeled_core_latency_us_at_25mhz": 59.04,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 29.76,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 5704,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 338,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 30,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 6,
+              "total": 156
+            }
+          },
+          "bitstream_sha256": "04505e9dde10478373efd515b9eb2a96be90814bb21b1543350fed88a1bdd76e"
+        },
+        {
+          "lanes": 4,
+          "modeled_cycles": 796,
+          "modeled_core_latency_us_at_25mhz": 31.84,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 22.04,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 10330,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 338,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 58,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 8,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 8,
+          "modeled_cycles": 456,
+          "modeled_core_latency_us_at_25mhz": 18.24,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 15.98,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 19947,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 338,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 114,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 12,
+              "total": 156
+            }
+          }
+        }
+      ],
+      "evidence_boundary": "post-route reference-board evidence on deterministic synthetic dense graphs; not physical-board measurement and not external workload validation"
+    },
+    {
+      "evidence_id": "KRN-BENCH-001",
+      "case": "wide_128x64x32x8",
+      "dims": [
+        128,
+        64,
+        32,
+        8
+      ],
+      "target": "ULX3S-85F / LFE5U-85F-6BG381C / CABGA381",
+      "clock_target_mhz": 25.0,
+      "selection_rule": "minimum modeled core cycles among swept configurations whose post-route Fmax meets the 25 MHz board clock",
+      "selected": {
+        "lanes": 2,
+        "modeled_cycles": 5456,
+        "modeled_core_latency_us_at_25mhz": 218.24,
+        "route_success": true,
+        "route_exit_code": 0,
+        "postroute_fmax_mhz": 28.1,
+        "timing_met_25mhz": true,
+        "nextpnr_status": "PASS",
+        "resources": {
+          "TRELLIS_COMB": {
+            "used": 14739,
+            "total": 83640
+          },
+          "TRELLIS_FF": {
+            "used": 335,
+            "total": 83640
+          },
+          "TRELLIS_RAMW": {
+            "used": 58,
+            "total": 10455
+          },
+          "MULT18X18D": {
+            "used": 6,
+            "total": 156
+          }
+        },
+        "bitstream_sha256": "0c21831c71b4b2d085ce926df09a9fab487c8f19dc7284f714add8be631b1f3e"
+      },
+      "results": [
+        {
+          "lanes": 1,
+          "modeled_cycles": 10704,
+          "modeled_core_latency_us_at_25mhz": 428.16,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 34.87,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 7935,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 335,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 30,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 5,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 2,
+          "modeled_cycles": 5456,
+          "modeled_core_latency_us_at_25mhz": 218.24,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 28.1,
+          "timing_met_25mhz": true,
+          "nextpnr_status": "PASS",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 14739,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 335,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 58,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 6,
+              "total": 156
+            }
+          },
+          "bitstream_sha256": "0c21831c71b4b2d085ce926df09a9fab487c8f19dc7284f714add8be631b1f3e"
+        },
+        {
+          "lanes": 4,
+          "modeled_cycles": 2832,
+          "modeled_core_latency_us_at_25mhz": 113.28,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 20.59,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 28394,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 335,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 114,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 8,
+              "total": 156
+            }
+          }
+        },
+        {
+          "lanes": 8,
+          "modeled_cycles": 1520,
+          "modeled_core_latency_us_at_25mhz": 60.8,
+          "route_success": true,
+          "route_exit_code": 0,
+          "postroute_fmax_mhz": 14.84,
+          "timing_met_25mhz": false,
+          "nextpnr_status": "FAIL",
+          "resources": {
+            "TRELLIS_COMB": {
+              "used": 55504,
+              "total": 83640
+            },
+            "TRELLIS_FF": {
+              "used": 335,
+              "total": 83640
+            },
+            "TRELLIS_RAMW": {
+              "used": 226,
+              "total": 10455
+            },
+            "MULT18X18D": {
+              "used": 12,
+              "total": 156
+            }
+          }
+        }
+      ],
+      "evidence_boundary": "post-route reference-board evidence on deterministic synthetic dense graphs; not physical-board measurement and not external workload validation"
+    }
+  ],
+  "claim_boundary": "The workloads are deterministic synthetic dense graphs chosen to test compiler and physical-feedback behavior across shapes. Results establish board-targeted P&R evidence only; they do not establish customer validation or physical-board measurements."
+}

@@ -35,15 +35,32 @@ CI began building a real ONNX model through the compiler path and simulating/syn
 
 The site gained a curated Build Log, claim-to-artifact Evidence Explorer, and FPGA Bring-up Tracker.
 
+## 18 September 2026 — physical-feedback reference implementation
+
+KRN-PNR-001 completed a 1/2/4/8-lane ULX3S-85F place-and-route sweep. Post-route timing rejected the cycle-faster 4- and 8-lane candidates and selected the 2-lane implementation for the 25 MHz board target.
+
+## 18 September 2026 — KRN-BENCH-001 multi-workload P&R
+
+Workflow run: `35336911649` at source commit `435555d738af8511487704b632273beea1521060`.
+
+Three deterministic dense-network shapes completed the same board-targeted 1/2/4/8-lane sweep. All three selected 2 lanes after physical timing feedback, and the workflow generated three selected bitstreams with recorded SHA-256 identities.
+
+Permanent record: `research/KRN-BENCH-001_RESULT.md`.
+
+## 18 September 2026 — KRN-EXT-001 external public-model validation
+
+A pinned third-party tiny-NPU ONNX model completed provenance verification, generated RTL simulation and the ULX3S physical-feedback flow. The clean-room run selected 2 lanes at 28.18 MHz for the 25 MHz target.
+
 ## Current threshold
 
-The next substantive milestone is physical FPGA evidence:
-- named board;
-- real package/constraints;
-- place-and-route;
-- achieved timing;
-- programmed bitstream;
-- measured inference latency;
-- measured power/energy.
+The next substantive evidence threshold is physical FPGA execution and measurement:
+- obtain compatible ULX3S-85F hardware access;
+- program the frozen reference bitstream;
+- verify the expected inference result;
+- collect at least 100 latency trials;
+- measure idle and active board power;
+- compute energy per inference with method notes.
+
+A genuine external design-partner workload remains the parallel commercial-validation milestone.
 
 Tracking issue: https://github.com/sushxnthd/kernellum/issues/1

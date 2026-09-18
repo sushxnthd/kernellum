@@ -16,6 +16,8 @@ This page is the shortest route through Kernellum's public evidence.
 - [Benchmark policy](BENCHMARKS.md) — evidence ladder from model quality to physical measurement.
 - [Build status](BUILD_STATUS.md) — current synthesis / FPGA status.
 - [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md) — ULX3S-85F 1/2/4/8-lane P&R sweep, timing feedback and selected reference configuration.
+- [KRN-BENCH-001 result](research/KRN-BENCH-001_RESULT.md) — completed clean-room multi-shape ULX3S P&R benchmark; three workloads, twelve routed candidates, three selected bitstreams.
+- [KRN-BENCH-001 workflow](https://github.com/sushxnthd/kernellum/actions/runs/35336911649) — successful source run for the permanent benchmark record.
 - [KRN-HW-001 protocol](research/KRN-HW-001_PROTOCOL.md) — frozen physical-board programming, latency, power and energy measurement method; measurements still pending.
 - [Repository](https://github.com/sushxnthd/kernellum) — source, tests and reproducibility.
 
