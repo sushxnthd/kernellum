@@ -18,15 +18,22 @@ for ART in "$BASE"/*; do
   echo "=== KERNELLUM EDA: $name ==="
   cd "$ART"
 
-  iverilog -g2012 -s tb_kernellum_dense3_accel -o simv     kernellum_dense3_accel.sv tb_kernellum_dense3_accel.sv
-  vvp simv | tee rtl_sim.log
+  iverilog -g2012 -s tb_kernellum_dense3_accel -o simv \
+    kernellum_dense3_accel.sv tb_kernellum_dense3_accel.sv
+  vvp simv > rtl_sim.log 2>&1
   grep -q "KERNELLUM_ONNX_RTL_PASS" rtl_sim.log
+  grep "KERNELLUM_ONNX_RTL_PASS" rtl_sim.log | tail -n 1
 
-  yosys -p 'read_verilog -sv kernellum_dense3_accel.sv; synth -top kernellum_dense3_accel; stat; check'     | tee yosys_stat.log
+  yosys -p 'read_verilog -sv kernellum_dense3_accel.sv; synth -top kernellum_dense3_accel; stat; check' \
+    > yosys_stat.log 2>&1
   grep -q "Found and reported 0 problems" yosys_stat.log
+  echo "KERNELLUM_GENERIC_SYNTH_PASS name=$name"
 
-  yosys -p 'read_verilog -sv kernellum_dense3_accel.sv; synth_ecp5 -top kernellum_dense3_accel; stat; check'     | tee yosys_ecp5_stat.log
+  yosys -p 'read_verilog -sv kernellum_dense3_accel.sv; synth_ecp5 -top kernellum_dense3_accel; stat; check' \
+    > yosys_ecp5_stat.log 2>&1
   grep -q "Found and reported 0 problems" yosys_ecp5_stat.log
+  echo "KERNELLUM_ECP5_SYNTH_PASS name=$name"
+  grep -E 'TRELLIS_COMB|TRELLIS_FF|TRELLIS_RAMW|MULT18X18D' yosys_ecp5_stat.log | tail -n 8 || true
 
   echo "KERNELLUM_MULTIWORKLOAD_EDA_PASS name=$name"
   count=$((count + 1))
