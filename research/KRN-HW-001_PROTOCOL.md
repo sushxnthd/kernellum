@@ -57,7 +57,7 @@ Probe:
 - trigger/start channel: `start_btn` signal;
 - completion channel: `done_led`.
 
-Measure elapsed time from the active transition of `start_btn` to the active transition of `done_led`.
+Measure elapsed time from the active transition of `start_btn` to the active transition of `done_led`. For latency trials, release `start_btn` after triggering so each capture contains one inference transaction.
 
 Recommended campaign:
 
@@ -83,7 +83,7 @@ For each state, record voltage, current or direct power, sample period, instrume
 Measure:
 
 - **idle:** programmed board, no inference in progress;
-- **active:** repeated inference execution at the same clock/configuration.
+- **active:** repeated inference execution at the same clock/configuration. Hold `start_btn` active after programming; the current demo wrapper returns to `T_IDLE` after each result and immediately starts another inference while the button remains asserted, creating a sustained inference loop suitable for averaged board-power sampling.
 
 Report both total board power and dynamic increment:
 
