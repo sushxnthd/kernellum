@@ -1,0 +1,72 @@
+name: external-tiny-npu
+
+on:
+  push:
+    paths:
+      - "kernellum/compiler.py"
+      - "kernellum/onnx_frontend.py"
+      - "kernellum/ir.py"
+      - "scripts/build_external_tiny_npu.py"
+      - "scripts/run_external_tiny_npu_pnr.sh"
+      - "boards/ulx3s_85f/kernellum_demo.lpf"
+      - ".github/workflows/external-tiny-npu.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: external-tiny-npu-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ext001:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Kernellum dependencies
+        run: pip install -e '.[test,onnx]'
+
+      - name: Fetch and compile pinned tiny-NPU workload
+        run: python scripts/build_external_tiny_npu.py
+
+      - name: Install open-source EDA toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog yosys nextpnr-ecp5 fpga-trellis
+
+      - name: Verify generated external-workload RTL
+        run: |
+          cd artifacts/external_tiny_npu
+          iverilog -g2012 -s tb_kernellum_dense3_accel -o simv \
+            kernellum_dense3_accel.sv tb_kernellum_dense3_accel.sv
+          vvp simv | tee rtl_sim.log
+          grep -q "KERNELLUM_ONNX_RTL_PASS" rtl_sim.log
+
+      - name: Run KRN-EXT-001 ULX3S physical-feedback sweep
+        run: bash scripts/run_external_tiny_npu_pnr.sh
+
+      - name: Upload KRN-EXT-001 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-krn-ext-001
+          path: |
+            artifacts/external_tiny_npu/manifest.json
+            artifacts/external_tiny_npu/rtl_sim.log
+            artifacts/external_tiny_npu/kernellum_dense3_accel.sv
+            artifacts/external_tiny_npu/kernellum_demo_top.sv
+            artifacts/external_tiny_npu/tb_kernellum_dense3_accel.sv
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/summary.json
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/SUMMARY.md
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/kernellum_demo_top.bit
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/selected.config
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/lanes*/yosys.log
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/lanes*/nextpnr.log
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/lanes*/route_exit_code.txt
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/lanes*/kernellum_demo_top.json
+            artifacts/external_tiny_npu/pnr_ulx3s_85f/lanes*/kernellum_demo_top.config
+          if-no-files-found: warn
