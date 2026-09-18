@@ -21,7 +21,7 @@ jobs:
       - name: Build v0.2 ONNX demo accelerator
         run: python scripts/build_onnx_demo.py
       - name: Install open-source EDA
-        run: sudo apt-get update && sudo apt-get install -y iverilog yosys nextpnr-ecp5 fpga-trellis
+        run: sudo apt-get update && sudo apt-get install -y iverilog yosys
       - name: Run v0.1 RTL simulation and generic synthesis
         run: bash scripts/run_eda.sh
       - name: Run v0.1 ECP5 family-mapped synthesis
