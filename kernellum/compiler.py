@@ -442,7 +442,9 @@ module kernellum_demo_top #(
     input  logic rst,
     input  logic start_btn,
     output logic [3:0] class_led,
-    output logic done_led
+    output logic done_led,
+    output logic core_start_marker,
+    output logic core_done_marker
 );
     localparam logic [2:0] T_IDLE=3'd0, T_LOAD=3'd1, T_START=3'd2, T_WAIT=3'd3, T_SCAN=3'd4, T_DONE=3'd5;
     logic [2:0] tstate;
@@ -464,6 +466,9 @@ module kernellum_demo_top #(
         .clk(clk), .rst(rst), .start(accel_start), .in_we(in_we), .in_addr(in_addr), .in_data(in_data),
         .out_addr(out_addr), .out_data(out_data), .busy(busy), .done(done)
     );
+
+    assign core_start_marker = accel_start;
+    assign core_done_marker = done;
 
     always_comb begin
         in_we = (tstate == T_LOAD);
