@@ -16,6 +16,7 @@ This page is the shortest route through Kernellum's public evidence.
 - [Benchmark policy](BENCHMARKS.md) — evidence ladder from model quality to physical measurement.
 - [Build status](BUILD_STATUS.md) — current synthesis / FPGA status.
 - [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md) — ULX3S-85F 1/2/4/8-lane P&R sweep, timing feedback and selected reference configuration.
+- [KRN-HW-001 protocol](research/KRN-HW-001_PROTOCOL.md) — frozen physical-board programming, latency, power and energy measurement method; measurements still pending.
 - [Repository](https://github.com/sushxnthd/kernellum) — source, tests and reproducibility.
 
 ## 3. Product surface
@@ -31,9 +32,16 @@ This page is the shortest route through Kernellum's public evidence.
 - [Open benchmark call](https://github.com/sushxnthd/kernellum/issues/2)
 - [KRN-EXT-001 protocol](research/KRN-EXT-001_PROTOCOL.md) — pinned third-party public ONNX model evaluation under clean-room validation.
 
-External customer/design-partner evidence remains a milestone; KRN-EXT-001 is a public third-party model evaluation and is not presented as customer validation.
+External customer/design-partner evidence remains a milestone; KRN-EXT-001 is a public third-party model evaluation under clean-room validation and is not presented as customer validation.
 
-## 5. Current evidence boundary
+## 5. Physical validation
+
+- [KRN-HW-001 tracker](https://github.com/sushxnthd/kernellum/issues/1) — physical ULX3S execution and measurement.
+- [ULX3S hardware-access call](https://github.com/sushxnthd/kernellum/issues/9) — request for compatible board access or a reproducible third-party measurement run.
+
+The programming/capture/analyzer tooling is ready; no physical-board latency, power or energy result is promoted until raw measurement evidence exists.
+
+## 6. Current evidence boundary
 
 The project distinguishes:
 - model / quantization accuracy;
@@ -45,7 +53,7 @@ The project distinguishes:
 
 A result is not promoted to the next evidence level until the corresponding artifact exists.
 
-## 6. Founder
+## 7. Founder
 
 **Sushanth Dasari — Founder & Research Lead**
 
