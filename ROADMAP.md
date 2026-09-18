@@ -47,3 +47,30 @@ Longer-term questions:
 - how much of verification can be generated alongside RTL?
 
 TR-002 remains intentionally unassigned until a second substantive technical contribution is complete.
+
+
+## v0.2 implementation-feedback milestone
+
+The active `v0.2-physical-feedback` branch adds:
+
+- named ULX3S-85F board/package/clock constraints;
+- variable-depth sequential dense ONNX lowering;
+- shape-only Flatten/Reshape/Identity handling;
+- per-layer quantization and model-memory reporting;
+- a five-topology benchmark matrix with generated RTL verification;
+- ULX3S nextpnr lane sweeps for 1/2/4/8/16 MAC lanes;
+- feedback-aware architecture search using post-route Fmax/resource estimates;
+- logic-analyzer core markers and a physical latency/power analysis pipeline.
+
+### Evidence boundary
+
+A successful nextpnr run is **post-route implementation evidence**. It is not a physical-board measurement.
+
+The following stay pending until a real ULX3S-85F is programmed and measured:
+
+- observed board execution;
+- measured core and end-to-end latency;
+- measured idle/active power;
+- energy per inference.
+
+TR-002 remains unpublished until those physical measurements can be incorporated.
