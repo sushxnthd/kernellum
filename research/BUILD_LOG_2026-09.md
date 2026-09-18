@@ -27,7 +27,7 @@ TR-001 froze the v0.1 evidence record. v0.2 alpha introduced a deliberately narr
 
 ## 17 September 2026 — ONNX-generated RTL + ECP5 mapping
 
-Commit: `0bf4867c1477b022c1673015d54f06beedd2ccdd0`
+Commit: `0bf4867c1477b04c6b6342241b9a2cf309cbf7f3`
 
 CI began building a real ONNX model through the compiler path and simulating/synthesizing its generated RTL. ECP5 family synthesis evidence was exposed publicly.
 
