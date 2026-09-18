@@ -8,7 +8,7 @@
 
 Given a trained model and deployment constraints, **Kernellum Compiler** lowers the workload into a hardware IR, searches candidate accelerator architectures, emits inspectable SystemVerilog, and generates verification evidence.
 
-The current system is a research-stage prototype—not a production silicon compiler—but the model-to-RTL path is public, reproducible, and being pushed toward physical FPGA validation.
+The current system is a research-stage prototype—not a production silicon compiler—but the model-to-RTL path is public and reproducible. Kernellum now also runs a board-targeted physical-feedback search on a ULX3S-85F reference target: the latest sweep selected a 2-lane accelerator after place-and-route timing rejected faster cycle-only candidates.
 
 ## Explore Kernellum
 
@@ -26,6 +26,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Investor brief:** [`INVESTOR_BRIEF.md`](INVESTOR_BRIEF.md)
 - **Design partner program:** [`DESIGN_PARTNERS.md`](DESIGN_PARTNERS.md)
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
+- **ULX3S P&R evidence:** [`research/ULX3S_PNR_SWEEP_2026-09-18.md`](research/ULX3S_PNR_SWEEP_2026-09-18.md)
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
@@ -45,7 +46,7 @@ The goal is not an LLM that merely writes Verilog. The goal is a compiler-like c
 **Interested in evaluating a real workload?** See the [Design Partner Program](DESIGN_PARTNERS.md).  
 **Evaluating Kernellum as a deep-tech venture?** See the [Investor Brief](INVESTOR_BRIEF.md).
 
-## Kernellum Compiler v0.1
+## Kernellum Compiler v0.1 — frozen baseline
 
 ```text
 trained neural network
@@ -64,6 +65,8 @@ cycle-accurate verification
         ↓
 RTL simulation + Yosys synthesis
 ```
+
+TR-001 freezes the first complete compiler baseline. The numbers below remain historical v0.1 evidence rather than being rewritten after later backend changes.
 
 ### Demonstrated workload
 
@@ -93,9 +96,9 @@ python -m kernellum --out artifacts/digits_int8
 bash scripts/run_eda.sh
 ```
 
-## v0.2 alpha
+## v0.2 alpha — physical feedback enters the loop
 
-The next compiler slice introduces:
+The current compiler slice introduces:
 
 - validated ONNX lowering for a narrow sequential `Gemm/ReLU` subset;
 - an explicit hardware IR;
@@ -103,7 +106,25 @@ The next compiler slice introduces:
 - architecture search from the lowered graph;
 - RTL/golden-vector emission for three-layer dense networks;
 - a named **Lattice ECP5-85F** FPGA target profile for family-mapped synthesis;
-- a **ULX3S-85F reference board target** with real package/clock/pin constraints and a CI P&R/bitstream path.
+- a **ULX3S-85F reference board target** with real package/clock/pin constraints;
+- registered requantization stages reflected in cycle accounting;
+- a board-targeted lane sweep that feeds post-route Fmax back into architecture selection;
+- reproducible bitstream generation for the selected reference-board configuration.
+
+### Physical-feedback result
+
+| MAC lanes | Modeled cycles | Post-route Fmax | 25 MHz target | Modeled core latency @ 25 MHz |
+|---:|---:|---:|:---:|---:|
+| 1 | 2,836 | 35.96 MHz | PASS | 113.44 µs |
+| **2** | **1,476** | **29.64 MHz** | **PASS** | **59.04 µs** |
+| 4 | 796 | 22.12 MHz | FAIL | 31.84 µs |
+| 8 | 456 | 16.10 MHz | FAIL | 18.24 µs |
+
+**Selected for the ULX3S-85F 25 MHz reference target: 2 MAC lanes.** The selection rule chooses the lowest modeled cycle count among configurations whose post-route Fmax meets the board clock.
+
+This is **Level-5 place-and-route evidence**, not a physical-board measurement. A bitstream was generated in CI; board programming, measured latency, power and energy remain unclaimed.
+
+Full record: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md).
 
 This is intentionally a constrained front-end, not a claim of arbitrary ONNX support.
 
@@ -131,7 +152,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** A ULX3S-85F reference target is now committed with board/package/clock constraints and a CI path for nextpnr P&R + bitstream generation. The next evidence thresholds are successful archived post-route timing/resource results, followed by loading a compatible physical board and measuring board-level inference. Physical bring-up remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1).
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow now completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. The next evidence threshold is loading a compatible physical board and measuring end-to-end inference latency, power and energy. Physical bring-up remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1).
 
 ## People
 
