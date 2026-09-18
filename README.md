@@ -101,7 +101,8 @@ The next compiler slice introduces:
 - calibration-driven INT8 conversion;
 - architecture search from the lowered graph;
 - RTL/golden-vector emission for three-layer dense networks;
-- a named **Lattice ECP5-85F** FPGA target profile for family-mapped synthesis.
+- a named **Lattice ECP5-85F** FPGA target profile for family-mapped synthesis;
+- a **ULX3S-85F reference board target** with real package/clock/pin constraints and a CI P&R/bitstream path.
 
 This is intentionally a constrained front-end, not a claim of arbitrary ONNX support.
 
@@ -129,7 +130,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The next major evidence threshold is a named FPGA implementation with place-and-route timing/resource results and measured board-level inference. The physical bring-up is tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), and `scripts/run_pnr_ecp5.sh` now provides a board-explicit nextpnr scaffold that refuses to invent package/clock constraints.
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** A ULX3S-85F reference target is now committed with board/package/clock constraints and a CI path for nextpnr P&R + bitstream generation. The next evidence thresholds are successful archived post-route timing/resource results, followed by loading a compatible physical board and measuring board-level inference. Physical bring-up remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1).
 
 ## People
 
