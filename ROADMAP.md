@@ -17,6 +17,8 @@ Completed:
 - multi-architecture nextpnr sweep at 25 MHz;
 - physical-feedback selection of a timing-feasible 2-lane accelerator;
 - reference-board bitstream generation.
+- KRN-BENCH-001 clean-room P&R across three dense-network shapes;
+- timing-constrained architecture selection and bitstream generation for every benchmark shape.
 
 ## Next — physical board execution
 
@@ -38,6 +40,13 @@ Remaining physical actions:
 
 Tracking: GitHub Issue #1. Hardware-access call: Issue #9.
 
+
+## Completed parallel validation — multi-workload physical feedback
+
+KRN-BENCH-001 is complete. Three deterministic dense-network shapes were compiled and swept across 1/2/4/8 lanes on the same ULX3S-85F / 25 MHz target. The fixed selection rule chose **2 lanes for all three workloads**, with selected post-route Fmax values of **31.55, 29.76 and 28.10 MHz**.
+
+Permanent record: `research/KRN-BENCH-001_RESULT.md`.
+
 ## Parallel validation — external workload
 
 KRN-EXT-001 is complete on a pinned public third-party ONNX model from tiny-NPU. The clean-room run passed provenance checking, supported ONNX lowering, cycle/reference verification, generated RTL simulation and the ULX3S 1/2/4/8-lane physical-feedback sweep. The fixed selection rule chose **2 lanes at 28.18 MHz** for the 25 MHz target.
@@ -50,7 +59,7 @@ A genuine external design-partner/customer workload remains a separate milestone
 
 Candidate directions:
 - broader ONNX operator coverage;
-- multiple dense graph shapes;
+- broader graph families beyond sequential dense networks;
 - memory-aware architecture search;
 - mixed precision;
 - richer area/timing/power feedback from physical design;

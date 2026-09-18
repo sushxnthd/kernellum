@@ -28,6 +28,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
 - **ULX3S P&R evidence:** [`research/ULX3S_PNR_SWEEP_2026-09-18.md`](research/ULX3S_PNR_SWEEP_2026-09-18.md)
 - **KRN-EXT-001 result:** [`research/KRN-EXT-001_RESULT.md`](research/KRN-EXT-001_RESULT.md)
+- **KRN-BENCH-001 result:** [`research/KRN-BENCH-001_RESULT.md`](research/KRN-BENCH-001_RESULT.md)
 - **External workload protocol:** [`research/KRN-EXT-001_PROTOCOL.md`](research/KRN-EXT-001_PROTOCOL.md)
 - **Physical measurement protocol:** [`research/KRN-HW-001_PROTOCOL.md`](research/KRN-HW-001_PROTOCOL.md)
 - **ULX3S hardware-access call:** [Issue #9](https://github.com/sushxnthd/kernellum/issues/9)
@@ -35,6 +36,7 @@ The current system is a research-stage prototype—not a production silicon comp
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
 [![reference-pnr](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/reference-pnr.yml)
+[![benchmark-pnr](https://github.com/sushxnthd/kernellum/actions/workflows/benchmark-pnr.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/benchmark-pnr.yml)
 
 ## Why Kernellum
 
@@ -131,6 +133,18 @@ This is **Level-5 place-and-route evidence**, not a physical-board measurement. 
 
 Full record: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md).
 
+### Multi-workload physical-feedback result
+
+KRN-BENCH-001 repeats the same 1/2/4/8-lane ULX3S-85F search across three deterministic dense-network shapes. The clean-room workflow completed successfully and selected **2 lanes for all three workloads** after the 4- and 8-lane candidates missed the 25 MHz target.
+
+| Shape | Selected lanes | Selected post-route Fmax | Modeled cycles @ 25 MHz |
+|---|---:|---:|---:|
+| 32 → 16 → 8 → 4 | 2 | 31.55 MHz | 392 |
+| 64 → 32 → 16 → 10 | 2 | 29.76 MHz | 1,476 |
+| 128 → 64 → 32 → 8 | 2 | 28.10 MHz | 5,456 |
+
+This establishes multi-shape L5 place-and-route evidence, not customer validation or physical-board measurement. Full record: [KRN-BENCH-001](research/KRN-BENCH-001_RESULT.md).
+
 This is intentionally a constrained front-end, not a claim of arbitrary ONNX support.
 
 ## Repository map
@@ -157,7 +171,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. KRN-EXT-001 has now completed the same clean-room L5 path on a pinned third-party tiny-NPU model, selecting 2 lanes at 28.18 MHz for the 25 MHz target. KRN-HW-001 provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The ULX3S-85F reference flow completes board-targeted place-and-route, physical-feedback architecture selection and bitstream generation in CI. KRN-BENCH-001 now demonstrates that the same timing-constrained selection loop executes across three dense-network shapes, and KRN-EXT-001 completes the clean-room L5 path on a pinned third-party tiny-NPU model. In every completed sweep, physical timing rejects the cycle-faster 4/8-lane candidates and selects 2 lanes for the 25 MHz target. KRN-HW-001 provides the frozen programming, raw-data and analysis path for the next threshold: physical-board correctness, latency, power and energy measurements. Physical execution remains tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), with compatible-board access requested in [Issue #9](https://github.com/sushxnthd/kernellum/issues/9).
 
 ## People
 
