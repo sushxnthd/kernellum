@@ -179,26 +179,73 @@ def search_architecture(
     lane_options: Iterable[int] = (1, 2, 4, 8, 16),
     clock_mhz_assumption: float = 100.0,
     latency_target_us: float = 10.0,
+    implementation_feedback: dict[int, dict] | None = None,
 ):
+    """Search parallel MAC-lane choices under latency and hardware-cost constraints.
+
+    Without implementation feedback, Kernellum uses the declared clock assumption
+    and chooses the smallest feasible lane count (a transparent multiplier-cost proxy).
+
+    When post-route feedback is provided, each matching lane count uses its achieved
+    nextpnr Fmax for latency estimation and its routed slice/DSP counts for cost
+    ordering. These remain implementation estimates, not physical measurements.
+    """
+    dims_list = [int(x) for x in dims]
+    parameter_bytes = sum(a * b for a, b in zip(dims_list[:-1], dims_list[1:]))
+    parameter_bytes += 4 * sum(dims_list[1:])
+    peak_activation_bytes = max(a + b for a, b in zip(dims_list[:-1], dims_list[1:]))
+
+    feedback = implementation_feedback or {}
     candidates = []
     for lanes in lane_options:
-        cycles = compute_cycles(dims, lanes)
-        latency_us = cycles / clock_mhz_assumption
+        lanes = int(lanes)
+        cycles = compute_cycles(dims_list, lanes)
+        point = feedback.get(lanes, {})
+        achieved = point.get("achieved_fmax_mhz")
+        if achieved is not None and float(achieved) > 0:
+            clock_mhz = float(achieved)
+            latency_source = "post_route_fmax"
+        else:
+            clock_mhz = float(clock_mhz_assumption)
+            latency_source = "clock_assumption"
+
+        latency_us = cycles / clock_mhz
         candidates.append(
             {
-                "lanes": int(lanes),
+                "lanes": lanes,
                 "cycles": int(cycles),
+                "clock_mhz_used": clock_mhz,
                 "latency_us": float(latency_us),
-                "multipliers": int(lanes),
+                "latency_source": latency_source,
+                "multipliers": lanes,
+                "parameter_bytes_int8_plus_bias32": int(parameter_bytes),
+                "peak_activation_bytes_proxy": int(peak_activation_bytes),
+                "pnr_slices_used": point.get("slices_used"),
+                "pnr_multipliers_used": point.get("multipliers_used"),
                 "meets_latency": bool(latency_us <= latency_target_us),
             }
         )
-    feasible = [c for c in candidates if c["meets_latency"]]
-    selected = min(feasible, key=lambda c: (c["lanes"], c["latency_us"])) if feasible else min(
-        candidates, key=lambda c: c["latency_us"]
-    )
-    return selected, tuple(candidates)
 
+    feasible = [candidate for candidate in candidates if candidate["meets_latency"]]
+    if feasible:
+        routed = [candidate for candidate in feasible if candidate["pnr_slices_used"] is not None]
+        if routed:
+            selected = min(
+                routed,
+                key=lambda candidate: (
+                    int(candidate["pnr_slices_used"]),
+                    int(candidate["pnr_multipliers_used"])
+                    if candidate["pnr_multipliers_used"] is not None
+                    else int(candidate["lanes"]),
+                    float(candidate["latency_us"]),
+                ),
+            )
+        else:
+            selected = min(feasible, key=lambda candidate: (candidate["lanes"], candidate["latency_us"]))
+    else:
+        selected = min(candidates, key=lambda candidate: candidate["latency_us"])
+
+    return selected, tuple(candidates)
 
 def build_demo() -> DemoBuild:
     X_train, X_test, y_train, y_test = load_demo_data()
