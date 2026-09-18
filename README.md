@@ -2,6 +2,8 @@
 
 **AI-native systems for efficient computing.**
 
+![Kernellum Research](docs/og-card.svg)
+
 Kernellum Research is an independent research initiative exploring automated hardware-software co-design, specialized AI acceleration, and AI-assisted electronic design automation.
 
 Its flagship project is **Kernellum Compiler**, a research prototype for mapping neural workloads and hardware constraints into accelerator architectures, RTL and verification evidence.
@@ -12,6 +14,7 @@ Its flagship project is **Kernellum Compiler**, a research prototype for mapping
 - **Build log:** https://sushxnthd.github.io/kernellum/log.html
 - **Evidence explorer:** https://sushxnthd.github.io/kernellum/evidence.html
 - **FPGA bring-up tracker:** https://sushxnthd.github.io/kernellum/hardware.html
+- **Launch/share copy:** [`LAUNCH.md`](LAUNCH.md)
 - **Technical Report 001:** https://sushxnthd.github.io/kernellum/TR-001.pdf
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
