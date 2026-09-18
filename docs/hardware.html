@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kernellum's physical FPGA evidence tracker: current ECP5 synthesis evidence, the unclaimed steps, and the path to measured hardware results.">
+<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
+<meta property="og:title" content="FPGA Bring-up — Kernellum Research"><meta property="og:description" content="Kernellum's physical FPGA evidence tracker: current ECP5 synthesis evidence, the unclaimed steps, and the path to measured hardware results.">
+<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<title>FPGA Bring-up — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head><body class="interior hardware-page">
+<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<div class="wrap">
+<nav class="nav">
+<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+<div class="labstatus">physical evidence · next</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+<div class="navlinks" id="navLinks">
+<a href="research.html">Research</a>
+<a href="publications.html">Reports</a>
+<a href="compiler.html">Compiler</a>
+<a href="log.html">Log</a>
+<a href="about.html">About</a>
+<a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+</div></nav>
+<header class="interior-hero hardware-hero">
+<div class="interior-copy" data-reveal>
+<div class="eyebrow">Physical FPGA / evidence threshold</div>
+<h1>Make the model touch <em>hardware</em>.</h1>
+<p class="lede">Family-mapped synthesis is done. Physical place-and-route, timing closure, board execution, latency and power are not. This page tracks that boundary explicitly.</p>
+<div class="cta"><a class="btn primary" href="https://github.com/sushxnthd/kernellum/blob/main/scripts/run_pnr_ecp5.sh">P&amp;R scaffold ↗</a><a class="btn" href="evidence.html">Current evidence</a></div>
+</div>
+<div class="interior-stage hardware-stage" data-tilt-stage>
+<div class="hardware-scene" data-tilt-scene>
+<div class="board-plane" data-depth=".12"><div class="board-trace t-a"></div><div class="board-trace t-b"></div><div class="board-trace t-c"></div></div>
+<div class="fpga-package" data-depth=".34"><span>ECP5</span><b>85F</b><small>FAMILY PROFILE</small><i></i><i></i><i></i><i></i></div>
+<div class="board-tag bt1" data-depth=".48"><b>YOSYS</b><span>PASS</span></div>
+<div class="board-tag bt2" data-depth=".56"><b>PNR</b><span>PENDING</span></div>
+<div class="board-tag bt3" data-depth=".64"><b>BOARD</b><span>UNSELECTED</span></div>
+</div>
+<div class="stage-caption"><span>SYNTH</span><i></i><span>P&amp;R</span><i></i><span>BITSTREAM</span><i></i><span>MEASURE</span></div>
+</div>
+</header>
+
+<aside class="field-note note-left" data-reveal aria-label="Founder field note">
+<svg class="note-arrow" viewBox="0 0 96 48" aria-hidden="true"><path d="M92 7C63 9 42 17 23 34M23 34l12-2M23 34l5-11"/></svg>
+<span class="note-kicker">S.D. / HARDWARE RULE</span><p>I’m not picking a board in the copy just to make this page look finished. The exact device/package/constraints need to match hardware I can actually access.</p><small>Sep 2026 · board selection still open</small>
+</aside>
+
+<section class="section bringup-status">
+<div class="section-kicker-row" data-reveal><div><div class="superlabel">01 / Current threshold</div><h2>What exists today.</h2></div><div class="section-index">ECP5 / 85F</div></div>
+<div class="status-grid">
+<article class="status-card done" data-reveal><span>01</span><small>FAMILY PROFILE</small><h3>Lattice ECP5-85F</h3><p>Compiler/EDA flow has an ECP5-85F family target profile.</p><b>READY</b></article>
+<article class="status-card done" data-reveal><span>02</span><small>FAMILY SYNTHESIS</small><h3>Yosys synth_ecp5</h3><p>7,977 LUT4 · 8 MULT18X18D · 58 TRELLIS_DPR16X4 · 145 TRELLIS_FF.</p><b>PASS</b></article>
+<article class="status-card pending" data-reveal><span>03</span><small>NAMED BOARD</small><h3>Board + package</h3><p>No physical board is currently claimed as validated.</p><b>OPEN</b></article>
+<article class="status-card pending" data-reveal><span>04</span><small>PLACE + ROUTE</small><h3>nextpnr-ecp5</h3><p>Requires a real package and board constraint file.</p><b>PENDING</b></article>
+<article class="status-card pending" data-reveal><span>05</span><small>MEASUREMENT</small><h3>Latency + power</h3><p>Must be measured on loaded hardware, not inferred from cycle count.</p><b>PENDING</b></article>
+</div>
+</section>
+
+<section class="section bringup-plan" data-reveal>
+<div><div class="superlabel">02 / Bring-up sequence</div><h2>The shortest honest path to physical evidence.</h2></div>
+<ol class="bringup-steps">
+<li><span>01</span><div><b>Select accessible board</b><p>Record exact FPGA device, package, oscillator frequency and programming path.</p></div></li>
+<li><span>02</span><div><b>Add board constraints</b><p>Clock, reset/button and LED/UART pins in a real LPF file.</p></div></li>
+<li><span>03</span><div><b>Run place-and-route</b><p>Use the committed <code>run_pnr_ecp5.sh</code> scaffold with explicit device/package/LPF inputs.</p></div></li>
+<li><span>04</span><div><b>Close timing</b><p>Report achieved Fmax/slack from nextpnr. Do not reuse the 100 MHz modeling assumption.</p></div></li>
+<li><span>05</span><div><b>Load a bitstream</b><p>Exercise the demo top on the board and verify the predicted digit/result path.</p></div></li>
+<li><span>06</span><div><b>Measure</b><p>Capture end-to-end inference latency, board power and energy per inference with method notes.</p></div></li>
+</ol>
+</section>
+
+<section class="section hardware-measurements" data-reveal>
+<div><div class="superlabel">03 / Measurement record</div><h2>Blank until hardware earns the numbers.</h2></div>
+<div class="measurement-table">
+<div><span>BOARD</span><b>—</b><small>not selected</small></div>
+<div><span>ACHIEVED FMAX</span><b>—</b><small>not measured</small></div>
+<div><span>END-TO-END LATENCY</span><b>—</b><small>not measured</small></div>
+<div><span>BOARD POWER</span><b>—</b><small>not measured</small></div>
+<div><span>ENERGY / INFERENCE</span><b>—</b><small>not measured</small></div>
+</div>
+</section>
+<footer><span>© 2026 Kernellum Research</span><span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
+</div></body></html>
