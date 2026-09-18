@@ -55,7 +55,7 @@ def main() -> None:
         calibration=X_train,
         golden_inputs=X_test[:16],
         out_dir=out,
-        target="ecp5-85f",
+        target="ulx3s-85f",
     )
     print(f"KERNELLUM_ONNX_BUILD dims={result.ir.dims}")
     print(f"architecture={result.lanes} lanes cycles={result.cycles}")
