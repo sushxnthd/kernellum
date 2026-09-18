@@ -6,6 +6,14 @@ Kernellum Research is an independent research initiative exploring automated har
 
 Its flagship project is **Kernellum Compiler**, a research prototype for mapping neural workloads and hardware constraints into accelerator architectures, RTL and verification evidence.
 
+## Explore Kernellum
+
+- **Site:** https://sushxnthd.github.io/kernellum/
+- **Build log:** https://sushxnthd.github.io/kernellum/log.html
+- **Evidence explorer:** https://sushxnthd.github.io/kernellum/evidence.html
+- **FPGA bring-up tracker:** https://sushxnthd.github.io/kernellum/hardware.html
+- **Technical Report 001:** https://sushxnthd.github.io/kernellum/TR-001.pdf
+
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
 
 ## Kernellum Compiler v0.1
@@ -93,7 +101,7 @@ docs/                     GitHub Pages site
 
 ## Status
 
-**Kernellum Compiler is a research prototype, not a production silicon compiler.** The next major evidence threshold is a named FPGA implementation with place-and-route timing/resource results and measured board-level inference.
+**Kernellum Compiler is a research prototype, not a production silicon compiler.** The next major evidence threshold is a named FPGA implementation with place-and-route timing/resource results and measured board-level inference. The physical bring-up is tracked in [Issue #1](https://github.com/sushxnthd/kernellum/issues/1), and `scripts/run_pnr_ecp5.sh` now provides a board-explicit nextpnr scaffold that refuses to invent package/clock constraints.
 
 ## People
 
