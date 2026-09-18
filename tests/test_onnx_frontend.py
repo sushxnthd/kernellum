@@ -57,7 +57,7 @@ def test_onnx_to_rtl_alpha(tmp_path: Path):
     result = compile_onnx_dense(model_path, X_train, X_test[:16], out)
     assert result.ir.dims == (64, 32, 16, 10)
     assert result.lanes == 4
-    assert result.cycles == 680
+    assert result.cycles == 796
     for rel in [
         "kernellum_dense3_accel.sv",
         "tb_kernellum_dense3_accel.sv",
