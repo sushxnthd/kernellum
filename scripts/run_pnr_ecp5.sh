@@ -3,7 +3,10 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ART="$ROOT/artifacts/digits_int8"
-OUT="$ART/pnr_ecp5"
+LANES="${LANES:-}"
+OUT_SUFFIX=""
+if [[ -n "$LANES" ]]; then OUT_SUFFIX="_lanes$LANES"; fi
+OUT="$ART/pnr_ecp5$OUT_SUFFIX"
 mkdir -p "$OUT"
 
 DEVICE="${DEVICE:-85k}"
@@ -39,8 +42,18 @@ fi
 
 cd "$ART"
 
-yosys -p "read_verilog -sv kernellum_mlp_accel.sv kernellum_demo_top.sv; synth_ecp5 -top kernellum_demo_top -json $OUT/kernellum_demo_top.json; stat; check" \
+CHPARAM=""
+if [[ -n "$LANES" ]]; then
+  CHPARAM="chparam -set ACCEL_LANES $LANES kernellum_demo_top;"
+fi
+
+yosys -p "read_verilog -sv kernellum_mlp_accel.sv kernellum_demo_top.sv; $CHPARAM synth_ecp5 -top kernellum_demo_top -json $OUT/kernellum_demo_top.json; stat; check" \
   | tee "$OUT/yosys.log"
+
+TIMING_FLAG=()
+if [[ "${ALLOW_TIMING_FAIL:-0}" == "1" ]]; then
+  TIMING_FLAG+=(--timing-allow-fail)
+fi
 
 nextpnr-ecp5 \
   --"$DEVICE" \
@@ -48,6 +61,7 @@ nextpnr-ecp5 \
   --json "$OUT/kernellum_demo_top.json" \
   --lpf "$LPF" \
   --freq "$FREQ_MHZ" \
+  "${TIMING_FLAG[@]}" \
   --textcfg "$OUT/kernellum_demo_top.config" \
   2>&1 | tee "$OUT/nextpnr.log"
 
