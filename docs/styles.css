@@ -105,3 +105,4 @@ footer{padding:46px 0 68px;border-top:1px solid var(--line);display:flex;justify
   .grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.pub{grid-template-columns:1fr}.step{grid-template-columns:80px 1fr}
 }
 @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}.hero h1{font-size:52px}.pipeline,.metricgrid{grid-template-columns:1fr}.pipe:after{display:none}.labstatus{display:none}}
+.blueprint{display:block;width:100%;margin-top:24px;border:1px solid var(--line);border-radius:10px;background:#090c09}.hero-side{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
