@@ -1,0 +1,22 @@
+schema_version: 1.0
+board:
+  name: null
+  vendor: null
+  fpga_device: null
+  package: null
+  oscillator_mhz: null
+  programming_path: null
+constraints:
+  lpf_path: null
+  clock_pin: null
+  reset_pin: null
+  status_led_pin: null
+pnr:
+  device_selector: 85k
+  target_frequency_mhz: null
+measurement:
+  latency_method: null
+  power_method: null
+notes: >
+  Fill only from a physical board that is actually accessible.
+  Do not infer package, clock, or pin constraints from the generic ECP5 family profile.
