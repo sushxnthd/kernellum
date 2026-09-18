@@ -50,6 +50,7 @@ for case_name in "${CASES[@]}"; do
       yosys -p "read_verilog -sv kernellum_dense3_accel.sv kernellum_demo_top.sv; chparam -set ACCEL_LANES $lanes kernellum_demo_top; synth_ecp5 -top kernellum_demo_top -json $OUT/kernellum_demo_top.json; stat; check" \
         | tee "$OUT/yosys.log"
 
+      set +e
       nextpnr-ecp5 \
         --85k \
         --package CABGA381 \
@@ -59,6 +60,9 @@ for case_name in "${CASES[@]}"; do
         --timing-allow-fail \
         --textcfg "$OUT/kernellum_demo_top.config" \
         2>&1 | tee "$OUT/nextpnr.log"
+      route_rc=${PIPESTATUS[0]}
+      set -e
+      echo "$route_rc" > "$OUT/route_exit_code.txt"
     )
   done
 done
@@ -82,13 +86,13 @@ target_mhz = 25.0
 matrix = json.loads(matrix_path.read_text())
 aggregate = []
 
-def parse_fmax(text: str) -> tuple[float, str]:
+def parse_fmax(text: str):
     matches = re.findall(
         r"Max frequency for clock .*?:\s*([0-9.]+) MHz \((PASS|FAIL) at ([0-9.]+) MHz\)",
         text,
     )
     if not matches:
-        raise ValueError("could not parse nextpnr Fmax")
+        return None, "ROUTE_FAIL"
     fmax, status, _ = matches[-1]
     return float(fmax), status
 
@@ -110,15 +114,19 @@ for case in matrix["cases"]:
         d = out_root / case_name / f"lanes{lanes}"
         nextpnr_text = (d / "nextpnr.log").read_text(errors="replace")
         yosys_text = (d / "yosys.log").read_text(errors="replace")
+        route_exit_code = int((d / "route_exit_code.txt").read_text().strip())
         fmax, status = parse_fmax(nextpnr_text)
         cycles = compute_cycles(dims, lanes)
+        route_success = route_exit_code == 0 and fmax is not None
 
         row = {
             "lanes": lanes,
             "modeled_cycles": cycles,
             "modeled_core_latency_us_at_25mhz": cycles / target_mhz,
+            "route_success": route_success,
+            "route_exit_code": route_exit_code,
             "postroute_fmax_mhz": fmax,
-            "timing_met_25mhz": fmax >= target_mhz,
+            "timing_met_25mhz": bool(route_success and fmax >= target_mhz),
             "nextpnr_status": status,
             "resources": {
                 "TRELLIS_COMB": parse_primitive(nextpnr_text, yosys_text, "TRELLIS_COMB"),
@@ -171,7 +179,8 @@ for case in matrix["cases"]:
         comb = r["resources"]["TRELLIS_COMB"]["used"]
         dsp = r["resources"]["MULT18X18D"]["used"]
         lines.append(
-            f'| {r["lanes"]} | {r["modeled_cycles"]} | {r["postroute_fmax_mhz"]:.2f} MHz | '
+            f'| {r["lanes"]} | {r["modeled_cycles"]} | '
+            f'{(f"{r["postroute_fmax_mhz"]:.2f} MHz" if r["postroute_fmax_mhz"] is not None else "route fail")} | '
             f'{"yes" if r["timing_met_25mhz"] else "no"} | {r["modeled_core_latency_us_at_25mhz"]:.2f} µs | '
             f'{comb if comb is not None else "n/a"} | {dsp if dsp is not None else "n/a"} |'
         )
