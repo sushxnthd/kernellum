@@ -1,11 +1,68 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website"><title>About — Kernellum Research</title><link rel="stylesheet" href="styles.css"></head>
-<body><div class="wrap">
-<nav class="nav"><a class="brand" href="index.html"><span class="brandmark"><i></i></span><span>KERNELLUM</span></a><div class="labstatus">independent research lab</div><div class="navlinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
-<header class="hero"><div class="hero-copy"><div class="eyebrow">About Kernellum</div><h1>A small lab for a <em>large</em> systems question.</h1><p class="lede">Can AI models and deployment constraints become inputs to the hardware-design process itself?</p></div><aside class="hero-side"><div class="label">Position</div><p>Kernellum is an <strong>independent research initiative</strong>. It is not presented as a fabricated semiconductor company, and physical-hardware claims are only made when measured.</p></aside></header>
-<section class="section"><div class="founder"><div class="identity"><div class="initials">SD</div><div class="mono">SUSHANTH DASARI<br>FOUNDER / RESEARCH LEAD</div></div><div class="founder-copy"><div class="superlabel">Founder note</div><h3>Why I built this.</h3><p>Most AI work I encountered treated hardware as a fixed substrate: pick a device, then optimize the model around it. Kernellum starts from the opposite direction. If we know the workload and the constraints, can we search for the compute architecture too?</p><p>The first prototypes are intentionally narrow. I would rather make one model-to-RTL path fully inspectable than claim support for everything. The long-term goal is much broader: a compiler that can reason jointly about model structure, precision, memory, parallelism and hardware cost.</p><div class="signature">Sushanth Dasari · 2026</div></div></div></section>
-<section class="section"><div class="sectionhead"><div><div class="superlabel">Operating principles</div><h2>How the lab works.</h2></div><p>These are design constraints for the research itself, not marketing copy.</p></div>
-<div class="grid"><div class="card"><div class="tag">01 / Evidence</div><h3>Claims follow artifacts.</h3><p>Code, vectors, simulation logs, synthesis results and measured hardware are stronger than adjectives.</p></div><div class="card"><div class="tag">02 / Boundaries</div><h3>Narrow is acceptable.</h3><p>Unsupported graph structures are rejected explicitly. Scope expands when the implementation does.</p></div><div class="card"><div class="tag">03 / Reproducibility</div><h3>Research should rerun.</h3><p>The public repository carries source, generated artifacts, tests and CI rather than only screenshots of results.</p></div></div></section>
-<section class="section"><div class="sectionhead"><div><div class="superlabel">Name</div><h2>Kernellum.</h2></div><p>The name comes from an old architectural word associated with a battlement or pinnacle. That accidental connection fits the lab: architecture, structure, and building from the layer beneath.</p></div></section>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
+<title>About — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head>
+<body class="interior about-page">
+<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<div class="wrap">
+<nav class="nav">
+<a class="brand" href="index.html"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+<div class="labstatus">independent research lab</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+<div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a class="active" href="about.html">About</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
+</nav>
+
+<header class="interior-hero about-hero">
+<div class="interior-copy" data-reveal>
+<div class="eyebrow">About Kernellum / origin</div>
+<h1>A small lab for a <em>large</em> systems question.</h1>
+<p class="lede">Can AI models and deployment constraints become inputs to the hardware-design process itself?</p>
+</div>
+
+<div class="interior-stage tower-stage" data-tilt-stage>
+<div class="tower-scene" data-tilt-scene data-base-x="62" data-base-z="-32">
+<div class="tower-ring tr1" data-depth="0.08"></div><div class="tower-ring tr2" data-depth="0.13"></div>
+<div class="tower-floor tf1" data-depth="0.12"><span>MODEL</span></div>
+<div class="tower-floor tf2" data-depth="0.22"><span>IR</span></div>
+<div class="tower-floor tf3" data-depth="0.32"><span>ARCH</span></div>
+<div class="tower-floor tf4" data-depth="0.42"><span>RTL</span></div>
+<div class="tower-mark" data-depth="0.52"><img src="kernellum-mark.svg" alt=""><small>KERNELLUM</small></div>
+</div>
+<div class="stage-caption"><span>MODEL</span><i></i><span>STRUCTURE</span><i></i><span>MACHINE</span></div>
+</div>
+</header>
+
+<section class="section founder-story">
+<div class="founder-badge" data-reveal data-parallax-y="22"><span>SD</span><small>FOUNDER<br>RESEARCH LEAD</small></div>
+<div class="founder-story-copy" data-reveal>
+<div class="superlabel">01 / Founder note</div><h2>Why I built this.</h2>
+<p class="large-copy">Most AI work I encountered treated hardware as a fixed substrate. Pick a device, then optimize the model around it. Kernellum starts from the opposite direction.</p>
+<p>If the workload and deployment constraints are known, can the compiler search the compute architecture too? The first prototypes are intentionally narrow because I would rather make one model-to-RTL path fully inspectable than claim support for everything.</p>
+<div class="signature">Sushanth Dasari · 2026</div>
+</div>
+</section>
+
+<section class="section principles-v2">
+<div class="section-kicker-row" data-reveal><div><div class="superlabel">02 / Operating principles</div><h2>Constraints on the research itself.</h2></div><div class="section-index">LAB / 001</div></div>
+<div class="principle-grid">
+<article data-reveal><span class="principle-no">01</span><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><h3>Claims follow artifacts.</h3><p>Code, vectors, simulation, synthesis and measured hardware outrank adjectives.</p></article>
+<article data-reveal><span class="principle-no">02</span><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM9 9h6v6H9"/></svg></span><h3>Narrow is acceptable.</h3><p>Unsupported structures are rejected explicitly. Scope grows when the implementation does.</p></article>
+<article data-reveal><span class="principle-no">03</span><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 7h12M4 12h16M4 17h9M18 5l2 2-2 2"/></svg></span><h3>Research should rerun.</h3><p>The repository carries source, generated artifacts, tests and CI rather than screenshots alone.</p></article>
+</div>
+</section>
+
+<section class="section name-origin" data-reveal>
+<div class="name-word">KERNELLUM</div>
+<div class="name-copy"><div class="superlabel">03 / The name</div><h2>Architecture before branding.</h2><p>The name comes from an old architectural word associated with a battlement or pinnacle. The connection was accidental, but it fits: structure, architecture and building from the layer beneath.</p></div>
+</section>
+
+<section class="section lab-position" data-reveal>
+<div class="position-title"><div class="superlabel">04 / Position</div><h2>Independent by design.</h2></div>
+<div class="position-copy"><p>Kernellum is an independent research initiative. It is not presented as a fabricated semiconductor company. The ambition can be large without pretending the implementation is further along than it is.</p><p>That distinction matters because the lab's credibility should come from accumulating technical evidence—not from the title attached to it.</p></div>
+</section>
+
 <footer><span>© 2026 Kernellum Research</span><span><a href="index.html">Home</a> · <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></span></footer>
 </div></body></html>
