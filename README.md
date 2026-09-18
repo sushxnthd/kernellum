@@ -22,6 +22,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Reproducibility Guide v0.2:** https://sushxnthd.github.io/kernellum/Kernellum_Reproducibility_Guide_v0.2.pdf
 - **FPGA Bring-up Protocol v0.1:** https://sushxnthd.github.io/kernellum/Kernellum_FPGA_Bringup_Protocol_v0.1.pdf
 - **Build Log (Sep 2026):** https://sushxnthd.github.io/kernellum/Kernellum_Build_Log_2026-09.pdf
+- **Public diligence index:** [`DILIGENCE.md`](DILIGENCE.md)
 - **Investor brief:** [`INVESTOR_BRIEF.md`](INVESTOR_BRIEF.md)
 - **Design partner program:** [`DESIGN_PARTNERS.md`](DESIGN_PARTNERS.md)
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
