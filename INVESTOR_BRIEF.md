@@ -69,13 +69,15 @@ That narrowness is intentional. Unsupported graphs are rejected rather than sile
 ## Next de-risking milestones
 
 ### 1. Physical board execution
-Already completed: named target, package/pin/clock constraints, multi-architecture nextpnr P&R, post-route Fmax/resource evidence and reference bitstream generation.
+Already completed: named target, package/pin/clock constraints, multi-architecture nextpnr P&R, post-route Fmax/resource evidence, reference bitstream generation, and the KRN-HW-001 programming/measurement/analyzer tooling.
 
-Remaining:
-- load the bitstream onto a compatible physical board;
-- verify inference on-device;
-- measure end-to-end latency;
-- measure board power and energy/inference.
+Remaining physical actions:
+- obtain/access a compatible ULX3S-85F;
+- load the bitstream;
+- verify the fixed reference inference on-device;
+- capture ≥100 end-to-end latency trials;
+- measure idle and active board power;
+- publish measured board-level energy/inference with method notes.
 
 ### 2. Multi-workload benchmark
 - multiple model shapes;
@@ -83,9 +85,13 @@ Remaining:
 - compiler decisions reported per workload;
 - reproducible benchmark harness.
 
-### 3. External design partner
-- a model supplied by an outside team;
+### 3. External validation and design partner
+A pinned public third-party ONNX workload from tiny-NPU is currently under clean-room KRN-EXT-001 validation. This tests external model ingestion/implementation, but it is not presented as a customer relationship or application-accuracy result.
+
+The stronger commercial milestone remains:
+- a workload supplied by an outside team;
 - real deployment constraints;
+- permissioned evaluation evidence;
 - a generated implementation and evaluation record.
 
 ## Commercial direction
