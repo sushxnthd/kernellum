@@ -27,6 +27,7 @@ The current system is a research-stage prototype—not a production silicon comp
 - **Design partner program:** [`DESIGN_PARTNERS.md`](DESIGN_PARTNERS.md)
 - **Benchmark policy:** [`BENCHMARKS.md`](BENCHMARKS.md)
 - **ULX3S P&R evidence:** [`research/ULX3S_PNR_SWEEP_2026-09-18.md`](research/ULX3S_PNR_SWEEP_2026-09-18.md)
+- **External workload protocol:** [`research/KRN-EXT-001_PROTOCOL.md`](research/KRN-EXT-001_PROTOCOL.md)
 - **Document index:** [`DOCUMENTS.md`](DOCUMENTS.md)
 
 [![verify](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml/badge.svg)](https://github.com/sushxnthd/kernellum/actions/workflows/verify.yml)
