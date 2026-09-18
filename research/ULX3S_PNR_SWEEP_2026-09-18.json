@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "KRN-PNR-001",
+  "date": "2026-09-18",
+  "workflow_run": 35321132327,
+  "target": {
+    "board": "ULX3S-85F reference target",
+    "fpga": "LFE5U-85F-6BG381C",
+    "package": "CABGA381",
+    "clock_target_mhz": 25
+  },
+  "selection_rule": "minimum modeled cycles among configurations whose post-route Fmax meets 25 MHz",
+  "selected": {
+    "lanes": 2,
+    "cycles": 1476,
+    "postroute_fmax_mhz": 29.64,
+    "timing_met": true,
+    "modeled_core_latency_us_at_25mhz": 59.04,
+    "trellis_comb": 5727,
+    "mult18x18d": 6
+  },
+  "results": [
+    {
+      "lanes": 1,
+      "cycles": 2836,
+      "postroute_fmax_mhz": 35.96,
+      "timing_met": true,
+      "modeled_core_latency_us_at_25mhz": 113.44,
+      "trellis_comb": 3562,
+      "mult18x18d": 5
+    },
+    {
+      "lanes": 2,
+      "cycles": 1476,
+      "postroute_fmax_mhz": 29.64,
+      "timing_met": true,
+      "modeled_core_latency_us_at_25mhz": 59.04,
+      "trellis_comb": 5727,
+      "mult18x18d": 6
+    },
+    {
+      "lanes": 4,
+      "cycles": 796,
+      "postroute_fmax_mhz": 22.12,
+      "timing_met": false,
+      "modeled_core_latency_us_at_25mhz": 31.84,
+      "trellis_comb": 10561,
+      "mult18x18d": 8
+    },
+    {
+      "lanes": 8,
+      "cycles": 456,
+      "postroute_fmax_mhz": 16.1,
+      "timing_met": false,
+      "modeled_core_latency_us_at_25mhz": 18.24,
+      "trellis_comb": 19652,
+      "mult18x18d": 12
+    }
+  ],
+  "bitstream_sha256": "19c403d3a169b320c8ae9584cb388255fdef784ad7d4651becaab690634be415",
+  "evidence_boundary": "post-route reference-target evidence; not physical-board measurement"
+}
