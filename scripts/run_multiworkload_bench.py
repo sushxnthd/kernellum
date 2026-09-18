@@ -116,9 +116,9 @@ def main() -> None:
     (root / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
 
     rows = "\n".join(
-        "| {name} | {dims} | {parameters:,} | {selected_lanes} | {modeled_cycles:,} | "
+        "| {name} | {dims_str} | {parameters:,} | {selected_lanes} | {modeled_cycles:,} | "
         "{modeled_latency_us_at_100mhz:.2f} | PASS |".format(
-            **r, dims="→".join(str(x) for x in r["dims"])
+            **r, dims_str="→".join(str(x) for x in r["dims"])
         )
         for r in records
     )
