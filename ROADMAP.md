@@ -40,7 +40,9 @@ Tracking: GitHub Issue #1. Hardware-access call: Issue #9.
 
 ## Parallel validation — external workload
 
-KRN-EXT-001 pins a public third-party ONNX model from tiny-NPU and runs it through provenance checking, supported ONNX lowering, cycle/reference verification, RTL simulation and the same ULX3S physical-feedback sweep. Clean-room CI validation is in progress; it is not promoted as completed evidence until that run succeeds.
+KRN-EXT-001 is complete on a pinned public third-party ONNX model from tiny-NPU. The clean-room run passed provenance checking, supported ONNX lowering, cycle/reference verification, generated RTL simulation and the ULX3S 1/2/4/8-lane physical-feedback sweep. The fixed selection rule chose **2 lanes at 28.18 MHz** for the 25 MHz target.
+
+Permanent record: `research/KRN-EXT-001_RESULT.md`.
 
 A genuine external design-partner/customer workload remains a separate milestone from this public third-party-model test.
 
