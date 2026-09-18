@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A curated build log of research-relevant Kernellum milestones, linked to the commits and artifacts that produced them.">
+<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
+<meta property="og:title" content="Build Log — Kernellum Research"><meta property="og:description" content="A curated build log of research-relevant Kernellum milestones, linked to the commits and artifacts that produced them.">
+<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<title>Build Log — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+</head><body class="interior log-page">
+<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<div class="wrap">
+<nav class="nav">
+<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+<div class="labstatus">build log · curated</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+<div class="navlinks" id="navLinks">
+<a href="research.html">Research</a>
+<a href="publications.html">Reports</a>
+<a href="compiler.html">Compiler</a>
+<a class="active" href="log.html">Log</a>
+<a href="about.html">About</a>
+<a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+</div></nav>
+<header class="interior-hero log-hero">
+<div class="interior-copy" data-reveal>
+<div class="eyebrow">Build log / research-relevant commits</div>
+<h1>The lab should leave a <em>trail</em>.</h1>
+<p class="lede">This is a curated history of technical milestones—not every CSS tweak or housekeeping commit. Each entry points back to the repository state that produced it.</p>
+<div class="cta"><a class="btn primary" href="evidence.html">Explore evidence →</a><a class="btn" href="hardware.html">FPGA bring-up</a></div>
+</div>
+<div class="interior-stage log-stage" data-tilt-stage>
+<div class="log-scene" data-tilt-scene>
+<div class="commit-card cc1" data-depth=".14"><small>17 SEP</small><b>v0.1</b><span>MODEL → RTL</span></div>
+<div class="commit-card cc2" data-depth=".24"><small>17 SEP</small><b>TR-001</b><span>FREEZE EVIDENCE</span></div>
+<div class="commit-card cc3" data-depth=".34"><small>17 SEP</small><b>v0.2α</b><span>ONNX → IR</span></div>
+<div class="commit-card cc4" data-depth=".46"><small>18 SEP</small><b>SITE</b><span>AUTHORED RECORD</span></div>
+<div class="log-thread" data-depth=".08"><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="stage-caption"><span>COMMIT</span><i></i><span>ARTIFACT</span><i></i><span>CLAIM</span></div>
+</div>
+</header>
+
+<aside class="field-note note-left" data-reveal aria-label="Founder field note">
+<svg class="note-arrow" viewBox="0 0 96 48" aria-hidden="true"><path d="M92 7C63 9 42 17 23 34M23 34l12-2M23 34l5-11"/></svg>
+<span class="note-kicker">S.D. / LOG RULE</span><p>I’m curating the technical commits here on purpose. A useful lab notebook is not the same thing as a raw git log.</p><small>Sep 2026 · research trail over noise</small>
+</aside>
+
+<section class="section build-log">
+<div class="section-kicker-row" data-reveal><div><div class="superlabel">01 / Technical milestones</div><h2>What changed, and where the evidence lives.</h2></div><div class="section-index">SEP / 2026</div></div>
+<div class="log-list">
+<article class="log-entry" data-reveal>
+<div class="log-date"><time>17 SEP</time><span>17:40 UTC</span></div>
+<div class="log-body"><div class="log-tags"><span>RELEASE</span><span>COMPILER</span></div><h3>Kernellum Compiler v0.1 released.</h3><p>First complete public model-to-RTL path: training, INT8 lowering, architecture search, cycle model, generated RTL and reproducible artifacts.</p><div class="log-links"><a href="https://github.com/sushxnthd/kernellum/commit/63e4a54d4c046862d90a2d7ff98e3791a194160e">commit 63e4a54 ↗</a><a href="evidence.html">evidence →</a></div></div>
+<span class="log-state done">DONE</span>
+</article>
+<article class="log-entry" data-reveal>
+<div class="log-date"><time>17 SEP</time><span>17:53 UTC</span></div>
+<div class="log-body"><div class="log-tags"><span>RTL</span><span>SYNTHESIS</span></div><h3>Generated RTL patched for synthesis safety.</h3><p>Combinational-loop initialization issues were fixed before synthesis evidence was treated as valid.</p><div class="log-links"><a href="https://github.com/sushxnthd/kernellum/commit/7a5913072338988f7bc4382bca5489a32d1ba92e">patch ↗</a><a href="https://github.com/sushxnthd/kernellum/commit/af74d7a9d9ee243df63ac293582d2efd7bf73381">follow-up ↗</a></div></div>
+<span class="log-state done">DONE</span>
+</article>
+<article class="log-entry" data-reveal>
+<div class="log-date"><time>17 SEP</time><span>18:15 UTC</span></div>
+<div class="log-body"><div class="log-tags"><span>REPORT</span><span>v0.2α</span></div><h3>TR-001 published; ONNX lowering begins.</h3><p>The v0.1 evidence was frozen in Technical Report 001 while the next compiler slice introduced an explicit hardware IR and a narrow ONNX front-end.</p><div class="log-links"><a href="https://github.com/sushxnthd/kernellum/commit/b4ce966793a95c5cfbb6bda0ed20eb0fb6e91ffb">commit b4ce966 ↗</a><a href="TR-001.pdf">report →</a></div></div>
+<span class="log-state done">DONE</span>
+</article>
+<article class="log-entry" data-reveal>
+<div class="log-date"><time>17 SEP</time><span>18:19 UTC</span></div>
+<div class="log-body"><div class="log-tags"><span>ONNX</span><span>ECP5</span></div><h3>ONNX-generated RTL verified; ECP5 family mapping exposed.</h3><p>CI gained a real ONNX-generated accelerator path plus ECP5-family synthesis evidence. This is still synthesis, not physical place-and-route.</p><div class="log-links"><a href="https://github.com/sushxnthd/kernellum/commit/0bf4867c1477b04c6b6342241b9a2cf309cbf7f3">commit 0bf4867 ↗</a><a href="hardware.html">physical threshold →</a></div></div>
+<span class="log-state done">DONE</span>
+</article>
+<article class="log-entry current" data-reveal>
+<div class="log-date"><time>18 SEP</time><span>NOW</span></div>
+<div class="log-body"><div class="log-tags"><span>PHYSICAL</span><span>NEXT</span></div><h3>Move from family mapping to a named board.</h3><p>Select an ECP5 board/package, add constraints, run place-and-route, close timing, load a bitstream and measure real latency/power.</p><div class="log-links"><a href="hardware.html">bring-up tracker →</a></div></div>
+<span class="log-state next">NEXT</span>
+</article>
+</div>
+</section>
+
+<section class="section log-policy" data-reveal>
+<div><div class="superlabel">02 / What gets logged</div><h2>Research-relevant changes only.</h2></div>
+<div class="log-policy-grid"><p><b>IN</b><br>Compiler behavior, verification, synthesis, reports, hardware bring-up, measured results.</p><p><b>OUT</b><br>Routine styling tweaks, typo fixes and mechanical commits unless they change the technical record.</p></div>
+</section>
+<footer><span>© 2026 Kernellum Research</span><span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span></footer>
+</div></body></html>
