@@ -1,107 +1,61 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Kernellum Research explores compiler-guided hardware architecture search, efficient inference and AI-assisted EDA.">
-<meta name="theme-color" content="#070807"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
-<link rel="manifest" href="site.webmanifest">
-<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
-<meta property="og:title" content="Research — Kernellum Research">
-<meta property="og:description" content="Compiler-guided architecture search, efficient inference and AI-assisted EDA at Kernellum Research.">
-<meta property="og:url" content="https://sushxnthd.github.io/kernellum/research.html">
-<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<link rel="canonical" href="https://sushxnthd.github.io/kernellum/research.html">
-<title>Research — Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
+<meta name="theme-color" content="#f4f2ea"><link rel="icon" href="kernellum-mark.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website"><meta property="og:title" content="Research | Kernellum Research"><meta property="og:description" content="Compiler-guided architecture search, efficient inference and AI-assisted EDA at Kernellum Research."><meta property="og:url" content="https://sushxnthd.github.io/kernellum/research.html"><meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg"><link rel="canonical" href="https://sushxnthd.github.io/kernellum/research.html">
+<title>Research | Kernellum Research</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-<body class="interior research-page">
-<div class="cursor-grid" aria-hidden="true"></div><div class="scroll-rail" aria-hidden="true"><span></span></div>
+<body>
 <div class="wrap">
-<nav class="nav">
-<a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
-<div class="labstatus">research program</div>
-<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-<div class="navlinks" id="navLinks"><a class="active" href="research.html">Research</a><a href="publications.html">Reports</a><a href="compiler.html">Compiler</a><a href="log.html">Log</a><a href="about.html">About</a><a href="partner.html">Work with us</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
-</nav>
+<nav class="nav"><a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a><div class="labstatus">Research program</div><button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="navlinks" id="navLinks"><a class="active" href="research.html">Research</a><a href="compiler.html">Compiler</a><a href="evidence.html">Evidence</a><a href="publications.html">Reports</a><a href="about.html">About</a><a href="partner.html">Collaborate</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div></nav>
 
-<header class="interior-hero">
-<div class="interior-copy" data-reveal>
-<div class="eyebrow">Research / architecture search</div>
-<h1>Search the <em>machine</em>, not just the model.</h1>
-<p class="lede">Kernellum studies which hardware decisions can move from manual design into compiler-guided search: precision, parallelism, scheduling, memory and physical implementation feedback.</p>
-<div class="cta"><a class="btn primary" href="TR-001.pdf">Read TR-001 →</a><a class="btn" href="compiler.html">Compiler path</a></div>
-</div>
-
-<div class="interior-stage research-stage" data-tilt-stage>
-<div class="research-scene" data-tilt-scene data-base-x="58" data-base-z="-34">
-<div class="search-plane plane-back" data-depth="0.10">
-<div class="axis axis-x"></div><div class="axis axis-y"></div>
-<span class="axis-label ax">PARALLELISM</span><span class="axis-label ay">PRECISION</span>
-</div>
-<div class="search-plane plane-mid" data-depth="0.22">
-<span class="design-point dp1"></span><span class="design-point dp2"></span><span class="design-point dp3"></span><span class="design-point dp4"></span><span class="design-point dp5"></span><span class="design-point dp6 selected"></span>
-</div>
-<div class="search-plane plane-front" data-depth="0.34">
-<div class="constraint-ring r1"></div><div class="constraint-ring r2"></div>
-<div class="selected-chip"><small>SELECTED</small><b>4 × MAC</b><span>INT8 / 680 cyc</span></div>
-</div>
-<div class="float-tag ft-a" data-depth="0.44"><span>≤ 10 μs</span><small>latency target</small></div>
-<div class="float-tag ft-b" data-depth="0.39"><span>INT8</span><small>precision</small></div>
-<div class="scene-satellite sat-a" data-depth="0.60"><b>L</b><span>LAT</span></div>
-<div class="scene-satellite sat-b" data-depth="0.52"><b>M</b><span>MEM</span></div>
-<div class="scene-satellite sat-c" data-depth="0.66"><b>∥</b><span>LANES</span></div>
-</div>
-<div class="stage-caption"><span>MODEL</span><i></i><span>SEARCH</span><i></i><span>ARCH</span></div>
-</div>
+<header class="page-hero">
+  <div class="hero-grid">
+    <div data-reveal><div class="eyebrow">Research / Architecture search</div><h1>Search the <em>machine</em>, not just the model.</h1><p class="lede">Kernellum studies which hardware decisions can move from manual design into compiler-guided search: precision, parallelism, scheduling, memory and physical implementation feedback.</p><div class="cta"><a class="btn primary" href="TR-001.pdf">Read TR-001 →</a><a class="btn" href="compiler.html">Compiler path</a></div></div>
+    <aside class="hero-aside" data-reveal><p>What if deployment constraints were first-class compiler inputs?</p><dl><div><dt>Program</dt><dd>KRN-001</dd></div><div><dt>Stage</dt><dd>Prototype</dd></div><div><dt>Primary target</dt><dd>FPGA</dd></div><div><dt>Next threshold</dt><dd>Board data</dd></div></dl></aside>
+  </div>
 </header>
 
-<section class="section program-grid" data-reveal>
-<article class="program-main" data-parallax-y="-14">
-<div class="superlabel">01 / Automated co-design</div>
-<h2>Turn deployment constraints into architecture decisions.</h2>
-<p class="large-copy">The compiler should not merely translate a model. It should expose and search the hardware decisions that matter for that model.</p>
-<div class="program-diagram">
-<span><b>latency</b><small>deadline</small></span><i></i>
-<span><b>precision</b><small>INT8 / lower</small></span><i></i>
-<span><b>memory</b><small>on-chip budget</small></span><i></i>
-<span><b>parallelism</b><small>lanes / tiles</small></span>
-</div>
-</article>
-<div class="program-side" data-parallax-y="12">
-<article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM9 14h6v6H9zM7 10l3 4M17 10l-3 4"/></svg></span><div><b>Hardware IR</b><p>Represent model structure in a form the hardware search can reason about.</p></div></article>
-<article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-7M22 18V3M2 21h22"/></svg></span><div><b>Efficient inference</b><p>Quantization and specialization for constrained edge deployments.</p></div></article>
-<article class="program-card"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8zM1 9h3M20 15h3M15 1v3M9 20v3"/></svg></span><div><b>AI-assisted EDA</b><p>Graph lowering, RTL generation, verification and physical-design feedback.</p></div></article>
-</div>
+<section class="section" data-reveal>
+  <div class="section-head"><div><div class="superlabel">01 / Research program</div><h2>Three connected problems.</h2></div><div class="section-index">MODEL / COMPILER / SILICON</div></div>
+  <div class="card-grid">
+    <article class="card"><span class="label">01 / Hardware IR</span><h3>Represent model structure for hardware reasoning.</h3><p>Make tensors, operators, shapes and quantization choices explicit before generation.</p></article>
+    <article class="card"><span class="label">02 / Architecture search</span><h3>Turn deployment limits into design decisions.</h3><p>Search precision, parallelism, scheduling and memory under latency and resource constraints.</p></article>
+    <article class="card"><span class="label">03 / Physical feedback</span><h3>Let implementation results change the chosen design.</h3><p>Carry synthesis and place-and-route evidence back into architecture selection.</p></article>
+  </div>
 </section>
 
-<section class="section evidence-ladder-v2">
-<div class="ladder-copy" data-reveal>
-<div class="superlabel">02 / Claim ladder</div><h2>Evidence should get harder as the claim gets stronger.</h2>
-<p>Kernellum keeps model results, cycle behavior, RTL simulation, synthesis and physical measurement separate. The ladder is not decoration; it is the boundary around what the lab is allowed to claim.</p>
+<section class="section tint" data-reveal>
+  <div class="split reverse">
+    <div><div class="superlabel">02 / Working thesis</div><p class="large-copy">A useful model-to-hardware compiler should do more than translate. It should expose, search and justify the hardware decisions that matter for the workload.</p></div>
+    <div class="stack">
+      <article><span>01</span><div><h3>Model constraints</h3><p>Supported topology, operator coverage and quantization behavior.</p></div></article>
+      <article><span>02</span><div><h3>Deployment constraints</h3><p>Latency deadline, precision, memory budget, clock target and device family.</p></div></article>
+      <article><span>03</span><div><h3>Architecture decisions</h3><p>Parallel lanes, buffer structure, scheduling and generated implementation.</p></div></article>
+      <article><span>04</span><div><h3>Evidence</h3><p>Reference behavior, cycle exactness, RTL simulation, synthesis and physical implementation.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-reveal>
+  <div class="section-head"><div><div class="superlabel">03 / Evidence ladder</div><h2>Stronger claims require harder evidence.</h2></div><a class="btn" href="evidence.html">Open the evidence ledger →</a></div>
+  <ol class="status-list">
+    <li><div><b>Model</b><p>Accuracy and quantization evidence.</p></div><span class="state">Complete</span></li>
+    <li><div><b>Cycle model</b><p>450 of 450 held-out cases match the integer reference.</p></div><span class="state">Complete</span></li>
+    <li><div><b>RTL</b><p>32 of 32 golden-vector simulations pass.</p></div><span class="state">Complete</span></li>
+    <li><div><b>Synthesis and place-and-route</b><p>ECP5 mapping, ULX3S-85F timing sweep and reference bitstream.</p></div><span class="state">Complete</span></li>
+    <li class="next"><div><b>Physical board</b><p>Functional validation, latency, power and energy.</p></div><span class="state">Next</span></li>
+  </ol>
+</section>
+
+<section class="section dark" data-reveal>
+  <div class="split"><div><div class="superlabel">04 / Open question</div><h2>Where does compilation end?</h2></div><div><p class="large-copy">How far can the compiler move down the stack before hardware design stops being compilation and starts becoming engineering judgment?</p><p>Kernellum treats that boundary as a research object, not a marketing claim.</p><div class="cta"><a class="btn primary" href="compiler.html">See the current system →</a><a class="btn" href="publications.html">Research record</a></div></div></div>
+</section>
+
+<footer><span>© 2026 Kernellum Research</span><span>Built and maintained by Sushanth Dasari | <a href="https://github.com/sushxnthd/kernellum">Source ↗</a></span></footer>
 </div>
-<div class="ladder-track" data-reveal data-parallax-y="-18">
-<div class="ladder-line"><span></span></div>
-<div class="ladder-item done"><i>01</i><div><b>MODEL</b><small>accuracy + quantization</small></div><em>✓</em></div>
-<div class="ladder-item done"><i>02</i><div><b>CYCLE</b><small>450 / 450 exact</small></div><em>✓</em></div>
-<div class="ladder-item done"><i>03</i><div><b>RTL</b><small>32 / 32 golden</small></div><em>✓</em></div>
-<div class="ladder-item done"><i>04</i><div><b>SYNTH</b><small>Yosys mapping</small></div><em>✓</em></div>
-<div class="ladder-item"><i>05</i><div><b>PLACE + ROUTE</b><small>ULX3S timing + utilization</small></div><em>✓</em></div>
-<div class="ladder-item next"><i>06</i><div><b>PHYSICAL BOARD</b><small>latency + power + energy</small></div><em>○</em></div>
-</div>
-</section>
-
-<section class="section research-question" data-reveal>
-<div class="superlabel">03 / Working question</div>
-<blockquote>How far can the compiler move “down the stack” before hardware design stops being compilation and starts becoming engineering judgment?</blockquote>
-<div class="question-meta"><span>KERNELLUM / OPEN QUESTION 001</span><a href="compiler.html">See the current boundary →</a></div>
-</section>
-
-<section class="section research-output" data-reveal>
-<div><div class="superlabel">04 / Current output</div><h2>TR-001 freezes the first complete prototype.</h2></div>
-<div class="output-actions"><p>Architecture search, integer reference, cycle model, generated RTL, golden-vector simulation, synthesis evidence and ULX3S-85F physical-feedback P&amp;R.</p><div class="cta"><a class="btn primary" href="TR-001.pdf">Open report</a><a class="btn" href="evidence.html">Trace evidence</a><a class="btn" href="hardware.html">Board measurement next →</a></div></div>
-</section>
-
-<footer>
-<span>© 2026 Kernellum Research</span>
-<span>Built &amp; maintained by Sushanth Dasari · <a href="https://github.com/sushxnthd/kernellum">source ↗</a></span>
-</footer>
-</div></body></html>
+</body>
+</html>

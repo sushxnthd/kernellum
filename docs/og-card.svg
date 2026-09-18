@@ -1,19 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<rect width="1200" height="630" fill="#070807"/>
-<g opacity=".18" stroke="#c9ff63"><path d="M0 70h1200M0 140h1200M0 210h1200M0 280h1200M0 350h1200M0 420h1200M0 490h1200M0 560h1200"/><path d="M80 0v630M160 0v630M240 0v630M320 0v630M400 0v630M480 0v630M560 0v630M640 0v630M720 0v630M800 0v630M880 0v630M960 0v630M1040 0v630M1120 0v630"/></g>
-<rect x="72" y="66" width="104" height="104" rx="18" fill="#090c09" stroke="#2e382c"/>
-<g fill="none" stroke="#c9ff63" stroke-width="4" stroke-linecap="square"><path d="M91 94h10l17 18M91 118h20M91 142h10l17-18"/><path d="m130 112 17-18h10M134 118h23M130 124l17 18h10"/></g>
-<path d="m124 104 14 14-14 14-14-14z" fill="#c9ff63"/><path d="m124 111 7 7-7 7-7-7z" fill="#10150c"/>
-<g fill="#85f0c2"><circle cx="89" cy="94" r="3"/><circle cx="89" cy="118" r="3"/><circle cx="89" cy="142" r="3"/><circle cx="159" cy="94" r="3"/><circle cx="159" cy="118" r="3"/><circle cx="159" cy="142" r="3"/></g>
-<text x="72" y="230" fill="#c9ff63" font-family="monospace" font-size="19" letter-spacing="4">KERNELLUM RESEARCH</text>
-<text x="72" y="330" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Models should shape</text>
-<text x="72" y="408" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">the machines that run them.</text>
-<text x="74" y="480" fill="#939d91" font-family="Arial, Helvetica, sans-serif" font-size="27">AI-native systems for efficient computing.</text>
-<g transform="translate(870 180) rotate(-12)">
-<rect width="235" height="170" fill="#0d120c" stroke="#c9ff63"/>
-<rect x="34" y="42" width="167" height="86" fill="#121811" stroke="#43513e"/>
-<g fill="#c9ff63" opacity=".2"><rect x="51" y="59" width="24" height="22"/><rect x="82" y="59" width="24" height="22"/><rect x="113" y="59" width="24" height="22"/><rect x="144" y="59" width="24" height="22"/><rect x="51" y="89" width="24" height="22"/><rect x="82" y="89" width="24" height="22"/><rect x="113" y="89" width="24" height="22"/><rect x="144" y="89" width="24" height="22"/></g>
-<text x="18" y="24" fill="#c9ff63" font-family="monospace" font-size="10">ACCEL / 04</text>
-</g>
-<text x="74" y="566" fill="#626b60" font-family="monospace" font-size="16">MODEL → IR → SEARCH → RTL → PHYSICAL</text>
+  <rect width="1200" height="630" fill="#f4f2ea"/>
+  <g stroke="#c9cbc1" opacity=".45"><path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/><path d="M200 0v630M400 0v630M600 0v630M800 0v630M1000 0v630"/></g>
+  <rect x="66" y="60" width="90" height="90" rx="16" fill="#102018"/>
+  <g fill="none" stroke="#f4f2ea" stroke-width="4" stroke-linecap="square"><path d="M82 83h10l14 17M82 105h19M82 127h10l14-17"/><path d="m116 100 14-17h10M120 105h20M116 110l14 17h10"/></g>
+  <path d="m111 93 12 12-12 12-12-12z" fill="#b8e068"/><path d="m111 99 6 6-6 6-6-6z" fill="#102018"/>
+  <text x="66" y="205" fill="#1d5b46" font-family="monospace" font-size="18" font-weight="700" letter-spacing="4">KERNELLUM RESEARCH</text>
+  <text x="66" y="305" fill="#151815" font-family="Georgia, serif" font-size="72" letter-spacing="-2">Models should shape</text>
+  <text x="66" y="384" fill="#151815" font-family="Georgia, serif" font-size="72" letter-spacing="-2">the machines that run them.</text>
+  <line x1="66" y1="450" x2="1134" y2="450" stroke="#151815"/>
+  <text x="66" y="492" fill="#626862" font-family="Arial, Helvetica, sans-serif" font-size="23">AI-native model-to-hardware systems</text>
+  <text x="66" y="558" fill="#1d5b46" font-family="monospace" font-size="16" letter-spacing="2">MODEL  /  IR  /  SEARCH  /  RTL  /  PHYSICAL EVIDENCE</text>
+  <g transform="translate(880 110)">
+    <rect width="254" height="244" fill="#102018"/>
+    <text x="22" y="32" fill="#b8e068" font-family="monospace" font-size="11" letter-spacing="2">CURRENT THRESHOLD</text>
+    <text x="22" y="100" fill="#f4f2ea" font-family="Georgia, serif" font-size="54">2 lanes</text>
+    <text x="22" y="132" fill="#aebbb2" font-family="Arial, Helvetica, sans-serif" font-size="17">ULX3S-85F selected design</text>
+    <line x1="22" y1="164" x2="232" y2="164" stroke="#557062"/>
+    <text x="22" y="198" fill="#f4f2ea" font-family="Georgia, serif" font-size="35">29.64 MHz</text>
+    <text x="22" y="224" fill="#aebbb2" font-family="Arial, Helvetica, sans-serif" font-size="15">post-route Fmax</text>
+  </g>
 </svg>
