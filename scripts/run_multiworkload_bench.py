@@ -11,11 +11,11 @@ from kernellum.onnx_frontend import compile_onnx_dense
 
 
 WORKLOADS = (
-    ("micro_16x8x4x2", (16, 8, 4, 2), 101),
-    ("compact_48x24x12x6", (48, 24, 12, 6), 202),
-    ("digits_shape_64x32x16x10", (64, 32, 16, 10), 303),
-    ("sensor_96x48x24x8", (96, 48, 24, 8), 404),
-    ("edge_128x64x32x10", (128, 64, 32, 10), 505),
+    ("micro_16x8x4x2", (16, 8, 4, 2), 101, 1),
+    ("compact_48x24x12x6", (48, 24, 12, 6), 202, 2),
+    ("digits_shape_64x32x16x10", (64, 32, 16, 10), 303, 4),
+    ("sensor_96x48x24x8", (96, 48, 24, 8), 404, 8),
+    ("edge_128x64x32x10", (128, 64, 32, 10), 505, 16),
 )
 
 
@@ -65,7 +65,7 @@ def main() -> None:
     root.mkdir(parents=True, exist_ok=True)
     records = []
 
-    for name, dims, seed in WORKLOADS:
+    for name, dims, seed, expected_lanes in WORKLOADS:
         rng = np.random.default_rng(seed)
         out = root / name
         out.mkdir(parents=True, exist_ok=True)
@@ -83,15 +83,22 @@ def main() -> None:
             target="ecp5-85f",
         )
 
+        if result.lanes != expected_lanes:
+            raise AssertionError(
+                f"{name}: expected {expected_lanes} lanes from architecture search, got {result.lanes}"
+            )
+
         record = {
             "name": name,
             "dims": list(dims),
             "parameters": parameter_count(dims),
             "selected_lanes": result.lanes,
+            "expected_lanes": expected_lanes,
             "modeled_cycles": result.cycles,
             "modeled_latency_us_at_100mhz": result.modeled_latency_us,
             "target": result.target,
             "vector_cycle_exact": True,
+            "architecture_selection_regression": True,
             "evidence_level_before_eda": "L2",
         }
         records.append(record)
@@ -137,9 +144,12 @@ Selection uses the current v0.2 architecture-search rule: find the smallest lane
 the 10 µs modeled-latency target at a 100 MHz clock assumption; if none meets the target, choose the
 lowest modeled latency among the available lane counts.
 
-The intentionally varied shapes exercise compiler decisions from low to high parallelism. RTL and
-golden vectors are emitted for every workload. CI then runs Icarus Verilog simulation plus generic
-and ECP5-family Yosys synthesis through `scripts/run_multiworkload_eda.sh`.
+The suite asserts the expected search decision for every workload: **1, 2, 4, 8 and 16 MAC lanes**
+respectively. A future compiler change that alters those decisions fails the benchmark until the
+change is reviewed and the expected evidence is deliberately updated.
+
+RTL and golden vectors are emitted for every workload. CI then runs Icarus Verilog simulation plus
+generic and ECP5-family Yosys synthesis through `scripts/run_multiworkload_eda.sh`.
 
 Evidence boundary: modeled cycles/latency remain modeled. EDA results are simulation/synthesis
 evidence, not place-and-route or physical-board measurements.
