@@ -1,0 +1,57 @@
+name: Design partner interest
+description: Propose a non-confidential workload for a Kernellum evaluation.
+title: "[design-partner] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for considering a Kernellum evaluation.
+
+        **Do not post confidential models, datasets, customer information, API keys, or proprietary implementation details in this public issue.**
+  - type: input
+    id: team
+    attributes:
+      label: Team / organization
+      description: Public name, or a generic description if you prefer.
+      placeholder: "e.g. university robotics team / edge-AI startup"
+    validations:
+      required: true
+  - type: input
+    id: workload
+    attributes:
+      label: Workload
+      description: Non-confidential model or inference category.
+      placeholder: "e.g. compact classifier, anomaly detector, sensor-fusion MLP"
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Target platform
+      description: FPGA / edge device / ASIC exploration / unknown.
+      placeholder: "e.g. ECP5 FPGA"
+    validations:
+      required: true
+  - type: dropdown
+    id: constraint
+    attributes:
+      label: Primary constraint
+      options:
+        - Latency
+        - Throughput
+        - Area / FPGA resources
+        - Power / energy
+        - Memory
+        - Cost
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: What should Kernellum evaluate?
+      description: Keep this public and non-confidential.
+      placeholder: "Describe the deployment objective and what a useful result would look like."
+    validations:
+      required: true
