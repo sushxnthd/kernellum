@@ -5,6 +5,7 @@ import json
 import math
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
@@ -12,8 +13,11 @@ from .compiler import QuantizedModel, cycle_forward, int_forward, search_archite
 from .ir import DenseLayerIR, FPGA_TARGETS, HardwareIR
 
 
+SUPPORTED_SUBSET = "strict sequential Gemm/Relu with shape-only Flatten/Reshape/Identity"
+
+
 class UnsupportedONNXGraph(ValueError):
-    """Raised when the current alpha front-end cannot lower a graph safely."""
+    """Raised when the current front-end cannot lower a graph safely."""
 
 
 @dataclass
@@ -26,6 +30,7 @@ class ONNXCompileResult:
     cycles: int
     modeled_latency_us: float
     target: str
+    architecture_candidates: tuple[dict[str, Any], ...]
 
 
 def _onnx_modules():
@@ -47,80 +52,182 @@ def _attrs(node) -> dict[str, object]:
     return out
 
 
+def _node_error(node_idx: int, node, reason: str) -> UnsupportedONNXGraph:
+    name = node.name or f"node_{node_idx}"
+    return UnsupportedONNXGraph(
+        f"{name} [{node.op_type}] at index {node_idx}: {reason}. "
+        f"Supported subset: {SUPPORTED_SUBSET}."
+    )
+
+
+def _static_input_dim(value_info) -> int:
+    dims: list[int | None] = []
+    for dim in value_info.type.tensor_type.shape.dim:
+        dims.append(int(dim.dim_value) if int(dim.dim_value) > 0 else None)
+
+    if not dims:
+        raise UnsupportedONNXGraph("input tensor must have a declared shape")
+    feature_dims = dims[1:] if len(dims) >= 2 else dims
+    if not feature_dims or any(d is None for d in feature_dims):
+        raise UnsupportedONNXGraph(
+            "all non-batch input dimensions must be statically known"
+        )
+    return int(np.prod([int(d) for d in feature_dims], dtype=np.int64))
+
+
+def _validate_shape_only_reshape(shape: np.ndarray, current_dim: int, node_idx: int, node) -> None:
+    target = [int(v) for v in np.asarray(shape).reshape(-1)]
+    if not target:
+        raise _node_error(node_idx, node, "Reshape target is empty")
+
+    feature = target[1:] if len(target) >= 2 else target
+    if any(v == 0 for v in feature):
+        raise _node_error(
+            node_idx,
+            node,
+            "Reshape with zero-copy feature dimensions is not yet supported",
+        )
+    if sum(v == -1 for v in feature) > 1 or any(v < -1 for v in feature):
+        raise _node_error(node_idx, node, "invalid Reshape target")
+
+    known = 1
+    for value in feature:
+        if value > 0:
+            known *= value
+
+    if -1 in feature:
+        if known <= 0 or current_dim % known != 0:
+            raise _node_error(node_idx, node, "Reshape cannot preserve feature count")
+    elif known != current_dim:
+        raise _node_error(
+            node_idx,
+            node,
+            f"Reshape changes flattened feature count from {current_dim} to {known}",
+        )
+
+
 def lower_onnx_dense(path: str | Path) -> HardwareIR:
-    """Lower a strict sequential Gemm/ReLU ONNX subset into HardwareIR.
+    """Lower a strict sequential dense ONNX subset into HardwareIR.
 
-    Supported graph form:
-        input -> Gemm -> [Relu] -> Gemm -> [Relu] -> ... -> Gemm -> output
-
-    Gemm weights/biases must be constant initializers. transA != 0, non-unit alpha/beta,
-    branching, residuals and unsupported operators are rejected explicitly.
+    Supported forms include variable-depth sequential Gemm/ReLU networks and
+    shape-only Identity/Flatten/Reshape nodes. Branching, residual connections,
+    dynamic feature dimensions and unsupported arithmetic are rejected explicitly.
     """
     onnx, numpy_helper = _onnx_modules()
     model = onnx.load(str(path))
     onnx.checker.check_model(model)
     graph = model.graph
 
-    init = {x.name: numpy_helper.to_array(x).astype(np.float64) for x in graph.initializer}
+    init = {x.name: numpy_helper.to_array(x) for x in graph.initializer}
     real_inputs = [x for x in graph.input if x.name not in init]
     if len(real_inputs) != 1:
-        raise UnsupportedONNXGraph("v0.2 alpha requires exactly one non-initializer input")
+        raise UnsupportedONNXGraph("compiler requires exactly one non-initializer input")
     if len(graph.output) != 1:
-        raise UnsupportedONNXGraph("v0.2 alpha requires exactly one graph output")
+        raise UnsupportedONNXGraph("compiler requires exactly one graph output")
 
-    tensor_type = real_inputs[0].type.tensor_type
-    dims = [d.dim_value for d in tensor_type.shape.dim]
-    if not dims or dims[-1] <= 0:
-        raise UnsupportedONNXGraph("input feature dimension must be statically known")
-    input_dim = int(dims[-1])
+    input_dim = _static_input_dim(real_inputs[0])
     current = real_inputs[0].name
+    current_dim = input_dim
     layers: list[DenseLayerIR] = []
 
     for node_idx, node in enumerate(graph.node):
         if node.op_type == "Gemm":
             if len(node.input) < 3:
-                raise UnsupportedONNXGraph("Gemm must have A, B and C inputs")
+                raise _node_error(node_idx, node, "Gemm must have A, B and C inputs")
             if node.input[0] != current:
-                raise UnsupportedONNXGraph("branching/non-sequential dataflow is not supported")
+                raise _node_error(node_idx, node, "branching/non-sequential dataflow")
             attrs = _attrs(node)
             trans_a = int(attrs.get("transA", 0))
             trans_b = int(attrs.get("transB", 0))
             alpha = float(attrs.get("alpha", 1.0))
             beta = float(attrs.get("beta", 1.0))
             if trans_a != 0 or alpha != 1.0 or beta != 1.0:
-                raise UnsupportedONNXGraph("only transA=0, alpha=1, beta=1 Gemm is supported")
+                raise _node_error(
+                    node_idx,
+                    node,
+                    "only transA=0, alpha=1 and beta=1 Gemm is supported",
+                )
             if node.input[1] not in init or node.input[2] not in init:
-                raise UnsupportedONNXGraph("Gemm weight and bias must be constant initializers")
-            weight = init[node.input[1]]
-            bias = init[node.input[2]]
+                raise _node_error(
+                    node_idx,
+                    node,
+                    "Gemm weight and bias must be constant initializers",
+                )
+            weight = np.asarray(init[node.input[1]], dtype=np.float64)
+            bias = np.asarray(init[node.input[2]], dtype=np.float64)
             if trans_b:
                 weight = weight.T
             if weight.ndim != 2 or bias.ndim != 1:
-                raise UnsupportedONNXGraph("Gemm weight must be rank-2 and bias rank-1")
+                raise _node_error(
+                    node_idx, node, "Gemm weight must be rank-2 and bias rank-1"
+                )
+            if int(weight.shape[0]) != current_dim:
+                raise _node_error(
+                    node_idx,
+                    node,
+                    f"Gemm input width {weight.shape[0]} does not match current width {current_dim}",
+                )
+            if int(weight.shape[1]) != int(bias.shape[0]):
+                raise _node_error(node_idx, node, "Gemm bias/output width mismatch")
+
             layer = DenseLayerIR(
                 name=node.name or f"gemm_{node_idx}",
-                weight=np.asarray(weight, dtype=np.float64),
-                bias=np.asarray(bias, dtype=np.float64),
+                weight=weight,
+                bias=bias,
                 relu=False,
             )
             layers.append(layer)
+            current_dim = layer.output_dim
             current = node.output[0]
+
         elif node.op_type == "Relu":
             if not layers or node.input[0] != current:
-                raise UnsupportedONNXGraph("Relu must directly follow a supported Gemm")
+                raise _node_error(
+                    node_idx, node, "Relu must directly follow the current supported tensor"
+                )
             if layers[-1].relu:
-                raise UnsupportedONNXGraph("duplicate Relu after the same Gemm is not supported")
+                raise _node_error(node_idx, node, "duplicate Relu after the same Gemm")
             layers[-1].relu = True
             current = node.output[0]
+
         elif node.op_type == "Identity":
             if node.input[0] != current:
-                raise UnsupportedONNXGraph("non-sequential Identity is not supported")
+                raise _node_error(node_idx, node, "non-sequential Identity")
             current = node.output[0]
-        else:
-            raise UnsupportedONNXGraph(f"unsupported ONNX operator: {node.op_type}")
 
+        elif node.op_type == "Flatten":
+            if node.input[0] != current:
+                raise _node_error(node_idx, node, "non-sequential Flatten")
+            axis = int(_attrs(node).get("axis", 1))
+            if axis != 1:
+                raise _node_error(
+                    node_idx,
+                    node,
+                    "only batch-preserving Flatten(axis=1) is supported",
+                )
+            current = node.output[0]
+
+        elif node.op_type == "Reshape":
+            if not node.input or node.input[0] != current:
+                raise _node_error(node_idx, node, "non-sequential Reshape")
+            if len(node.input) < 2 or node.input[1] not in init:
+                raise _node_error(
+                    node_idx,
+                    node,
+                    "Reshape target must be a constant initializer",
+                )
+            _validate_shape_only_reshape(init[node.input[1]], current_dim, node_idx, node)
+            current = node.output[0]
+
+        else:
+            raise _node_error(node_idx, node, "unsupported operator")
+
+    if not layers:
+        raise UnsupportedONNXGraph("graph contains no supported Gemm layers")
     if current != graph.output[0].name:
-        raise UnsupportedONNXGraph("graph output is not the terminal sequential tensor")
+        raise UnsupportedONNXGraph(
+            "graph output is not the terminal sequential tensor; branching is not supported"
+        )
 
     ir = HardwareIR(
         input_name=real_inputs[0].name,
@@ -133,7 +240,7 @@ def lower_onnx_dense(path: str | Path) -> HardwareIR:
 
 
 def float_forward_ir(ir: HardwareIR, x: np.ndarray, capture: bool = False):
-    a = np.asarray(x, dtype=np.float64)
+    a = np.asarray(x, dtype=np.float64).reshape(len(x), ir.input_dim)
     activations = [a]
     for layer in ir.layers:
         a = a @ layer.weight + layer.bias
@@ -144,9 +251,7 @@ def float_forward_ir(ir: HardwareIR, x: np.ndarray, capture: bool = False):
 
 
 def quantize_ir(ir: HardwareIR, calibration: np.ndarray, requant_shift: int = 30) -> QuantizedModel:
-    calibration = np.asarray(calibration, dtype=np.float64)
-    if calibration.ndim != 2 or calibration.shape[1] != ir.input_dim:
-        raise ValueError(f"calibration data must have shape [N, {ir.input_dim}]")
+    calibration = np.asarray(calibration, dtype=np.float64).reshape(len(calibration), ir.input_dim)
     acts = float_forward_ir(ir, calibration, capture=True)
     activation_scales: list[float] = []
     for a in acts:
@@ -180,8 +285,57 @@ def quantize_ir(ir: HardwareIR, calibration: np.ndarray, requant_shift: int = 30
     )
 
 
-def quantize_inputs(x: np.ndarray, scale: float) -> np.ndarray:
-    return np.clip(np.rint(np.asarray(x, dtype=np.float64) / scale), -128, 127).astype(np.int8)
+def quantize_inputs(x: np.ndarray, scale: float, input_dim: int | None = None) -> np.ndarray:
+    arr = np.asarray(x, dtype=np.float64)
+    if input_dim is not None:
+        arr = arr.reshape(len(arr), input_dim)
+    return np.clip(np.rint(arr / scale), -128, 127).astype(np.int8)
+
+
+def model_memory_report(model: QuantizedModel) -> dict[str, Any]:
+    layer_rows = []
+    for idx, (qw, qb) in enumerate(zip(model.qweights, model.qbiases), start=1):
+        layer_rows.append(
+            {
+                "layer": idx,
+                "input_dim": int(qw.shape[0]),
+                "output_dim": int(qw.shape[1]),
+                "weight_bytes": int(qw.size * qw.dtype.itemsize),
+                "bias_bytes": int(qb.size * qb.dtype.itemsize),
+            }
+        )
+    weight_bytes = sum(r["weight_bytes"] for r in layer_rows)
+    bias_bytes = sum(r["bias_bytes"] for r in layer_rows)
+    peak_activation_bytes = max(
+        int(a + b) for a, b in zip(model.dims[:-1], model.dims[1:])
+    )
+    return {
+        "layers": layer_rows,
+        "weight_bytes": int(weight_bytes),
+        "bias_bytes": int(bias_bytes),
+        "parameter_bytes": int(weight_bytes + bias_bytes),
+        "peak_activation_bytes_int8_double_buffer_proxy": int(peak_activation_bytes),
+    }
+
+
+def quantization_report(ir: HardwareIR, model: QuantizedModel) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for idx, layer in enumerate(ir.layers):
+        rows.append(
+            {
+                "layer": idx + 1,
+                "name": layer.name,
+                "input_dim": layer.input_dim,
+                "output_dim": layer.output_dim,
+                "relu": bool(layer.relu),
+                "input_activation_scale": float(model.activation_scales[idx]),
+                "output_activation_scale": float(model.activation_scales[idx + 1]),
+                "weight_scale": float(model.weight_scales[idx]),
+                "requant_multiplier": int(model.multipliers[idx]),
+                "requant_shift": int(model.requant_shift),
+            }
+        )
+    return rows
 
 
 def _hex_lines(values: np.ndarray, bits: int) -> str:
@@ -195,18 +349,62 @@ def _addr_width(n: int) -> int:
     return max(1, int(math.ceil(math.log2(n))))
 
 
-def _emit_dense3_rtl(result: ONNXCompileResult, out_dir: Path) -> None:
+def _emit_dense_rtl(result: ONNXCompileResult, out_dir: Path) -> None:
     qmodel = result.model
-    d0, d1, d2, d3 = qmodel.dims
-    if len(qmodel.qweights) != 3:
-        raise UnsupportedONNXGraph("current RTL backend requires exactly three Gemm layers")
-    m1, m2, m3 = qmodel.multipliers
-    shift = qmodel.requant_shift
-    lanes = result.lanes
-    iw, ow = _addr_width(d0), _addr_width(d3)
+    dims = qmodel.dims
+    nlayers = len(qmodel.qweights)
+    if nlayers < 1:
+        raise UnsupportedONNXGraph("RTL backend requires at least one dense layer")
 
-    rtl = f'''`timescale 1ns/1ps
-module kernellum_dense3_accel #(
+    lanes = result.lanes
+    shift = qmodel.requant_shift
+    iw, ow = _addr_width(dims[0]), _addr_width(dims[-1])
+    state_w = max(1, int(math.ceil(math.log2(nlayers + 2))))
+
+    dim_params = ", ".join(f"D{i}={d}" for i, d in enumerate(dims))
+    state_defs = ["S_IDLE=0"] + [f"S_L{i+1}={i+1}" for i in range(nlayers)] + [f"S_DONE={nlayers+1}"]
+    state_param = ", ".join(state_defs)
+
+    activations = "\n".join(
+        f"    logic signed [7:0] a{i} [0:D{i}-1];" for i in range(nlayers + 1)
+    )
+    weights = "\n".join(
+        f"    logic signed [7:0] w{i+1} [0:D{i+1}*D{i}-1];\n"
+        f"    logic signed [31:0] b{i+1} [0:D{i+1}-1];"
+        for i in range(nlayers)
+    )
+    reads = "\n".join(
+        f'        $readmemh("weights/w{i+1}.hex", w{i+1}); '
+        f'$readmemh("weights/b{i+1}.hex", b{i+1});'
+        for i in range(nlayers)
+    )
+    mac_cases = "\n".join(
+        f"""            S_L{i+1}: for (lane = 0; lane < LANES; lane = lane + 1)
+                if (base_idx + lane < D{i})
+                    mac_sum = mac_sum + $signed(a{i}[base_idx+lane]) * $signed(w{i+1}[out_idx*D{i} + base_idx+lane]);"""
+        for i in range(nlayers)
+    )
+
+    ff_cases = []
+    for i in range(nlayers):
+        next_state = f"S_L{i+2}" if i + 1 < nlayers else "S_DONE"
+        relu = "1'b1" if result.ir.layers[i].relu else "1'b0"
+        mult = qmodel.multipliers[i]
+        ff_cases.append(
+            f"""                S_L{i+1}: begin
+                    if (base_idx + LANES >= D{i}) begin
+                        a{i+1}[out_idx] <= rq8(next_acc + b{i+1}[out_idx], 32'sd{mult}, {relu});
+                        acc <= 0; base_idx <= 0;
+                        if (out_idx == D{i+1}-1) begin state <= {next_state}; out_idx <= 0; end
+                        else out_idx <= out_idx + 1;
+                    end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
+                end"""
+        )
+    ff_cases_text = "\n".join(ff_cases)
+
+    tick = chr(96)
+    rtl = f'''{tick}timescale 1ns/1ps
+module kernellum_dense_accel #(
     parameter int LANES = {lanes}
 )(
     input  logic clk,
@@ -220,22 +418,15 @@ module kernellum_dense3_accel #(
     output logic busy,
     output logic done
 );
-    localparam int D0={d0}, D1={d1}, D2={d2}, D3={d3};
+    localparam int {dim_params};
     localparam int SHIFT={shift};
-    localparam logic [2:0] S_IDLE=3'd0, S_L1=3'd1, S_L2=3'd2, S_L3=3'd3, S_DONE=3'd4;
+    localparam int STATE_W={state_w};
+    localparam logic [STATE_W-1:0] {state_param};
 
-    logic signed [7:0] a0 [0:D0-1];
-    logic signed [7:0] a1 [0:D1-1];
-    logic signed [7:0] a2 [0:D2-1];
-    logic signed [7:0] a3 [0:D3-1];
-    logic signed [7:0] w1 [0:D1*D0-1];
-    logic signed [7:0] w2 [0:D2*D1-1];
-    logic signed [7:0] w3 [0:D3*D2-1];
-    logic signed [31:0] b1 [0:D1-1];
-    logic signed [31:0] b2 [0:D2-1];
-    logic signed [31:0] b3 [0:D3-1];
+{activations}
+{weights}
 
-    logic [2:0] state;
+    logic [STATE_W-1:0] state;
     integer out_idx;
     integer base_idx;
     integer lane;
@@ -258,30 +449,20 @@ module kernellum_dense3_accel #(
     endfunction
 
     initial begin
-        $readmemh("weights/w1.hex", w1); $readmemh("weights/b1.hex", b1);
-        $readmemh("weights/w2.hex", w2); $readmemh("weights/b2.hex", b2);
-        $readmemh("weights/w3.hex", w3); $readmemh("weights/b3.hex", b3);
+{reads}
     end
 
     always_comb begin
         mac_sum = 32'sd0;
         lane = 0;
         case (state)
-            S_L1: for (lane = 0; lane < LANES; lane = lane + 1)
-                if (base_idx + lane < D0)
-                    mac_sum = mac_sum + $signed(a0[base_idx+lane]) * $signed(w1[out_idx*D0 + base_idx+lane]);
-            S_L2: for (lane = 0; lane < LANES; lane = lane + 1)
-                if (base_idx + lane < D1)
-                    mac_sum = mac_sum + $signed(a1[base_idx+lane]) * $signed(w2[out_idx*D1 + base_idx+lane]);
-            S_L3: for (lane = 0; lane < LANES; lane = lane + 1)
-                if (base_idx + lane < D2)
-                    mac_sum = mac_sum + $signed(a2[base_idx+lane]) * $signed(w3[out_idx*D2 + base_idx+lane]);
+{mac_cases}
             default: mac_sum = 32'sd0;
         endcase
         next_acc = acc + mac_sum;
     end
 
-    assign out_data = a3[out_addr];
+    assign out_data = a{nlayers}[out_addr];
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -295,30 +476,7 @@ module kernellum_dense3_accel #(
                     busy <= 1'b0;
                     if (start) begin busy <= 1'b1; state <= S_L1; out_idx <= 0; base_idx <= 0; acc <= 0; end
                 end
-                S_L1: begin
-                    if (base_idx + LANES >= D0) begin
-                        a1[out_idx] <= rq8(next_acc + b1[out_idx], 32'sd{m1}, 1'b1);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D1-1) begin state <= S_L2; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
-                    end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
-                end
-                S_L2: begin
-                    if (base_idx + LANES >= D1) begin
-                        a2[out_idx] <= rq8(next_acc + b2[out_idx], 32'sd{m2}, 1'b1);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D2-1) begin state <= S_L3; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
-                    end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
-                end
-                S_L3: begin
-                    if (base_idx + LANES >= D2) begin
-                        a3[out_idx] <= rq8(next_acc + b3[out_idx], 32'sd{m3}, 1'b0);
-                        acc <= 0; base_idx <= 0;
-                        if (out_idx == D3-1) begin state <= S_DONE; out_idx <= 0; end
-                        else out_idx <= out_idx + 1;
-                    end else begin acc <= next_acc; base_idx <= base_idx + LANES; end
-                end
+{ff_cases_text}
                 S_DONE: begin busy <= 1'b0; done <= 1'b1; state <= S_IDLE; end
                 default: state <= S_IDLE;
             endcase
@@ -326,19 +484,19 @@ module kernellum_dense3_accel #(
     end
 endmodule
 '''
-    (out_dir / "kernellum_dense3_accel.sv").write_text(rtl)
+    (out_dir / "kernellum_dense_accel.sv").write_text(rtl)
 
     ns = min(16, len(result.qinputs))
-    tb = f'''`timescale 1ns/1ps
-module tb_kernellum_dense3_accel;
-    localparam int NS={ns}, IN0={d0}, OUT={d3};
+    tb = f'''{tick}timescale 1ns/1ps
+module tb_kernellum_dense_accel;
+    localparam int NS={ns}, IN0={dims[0]}, OUT={dims[-1]};
     logic clk=0; always #5 clk=~clk;
     logic rst,start,in_we; logic [{iw-1}:0] in_addr; logic signed [7:0] in_data;
     logic [{ow-1}:0] out_addr; logic signed [7:0] out_data; logic busy,done;
     logic signed [7:0] golden_inputs [0:NS*IN0-1];
     logic signed [7:0] golden_outputs [0:NS*OUT-1];
     integer s,i,j,errors=0;
-    kernellum_dense3_accel dut(.clk(clk),.rst(rst),.start(start),.in_we(in_we),.in_addr(in_addr),.in_data(in_data),.out_addr(out_addr),.out_data(out_data),.busy(busy),.done(done));
+    kernellum_dense_accel dut(.clk(clk),.rst(rst),.start(start),.in_we(in_we),.in_addr(in_addr),.in_data(in_data),.out_addr(out_addr),.out_data(out_data),.busy(busy),.done(done));
     initial begin
       $readmemh("weights/golden_inputs.hex", golden_inputs); $readmemh("weights/golden_outputs.hex", golden_outputs);
       rst=1; start=0; in_we=0; in_addr=0; in_data=0; out_addr=0; repeat(4) @(posedge clk); rst<=0;
@@ -353,7 +511,7 @@ module tb_kernellum_dense3_accel;
     end
 endmodule
 '''
-    (out_dir / "tb_kernellum_dense3_accel.sv").write_text(tb)
+    (out_dir / "tb_kernellum_dense_accel.sv").write_text(tb)
 
 
 def compile_onnx_dense(
@@ -362,24 +520,22 @@ def compile_onnx_dense(
     golden_inputs: np.ndarray,
     out_dir: str | Path,
     *,
-    target: str = "ecp5-85f",
+    target: str = "ulx3s-85f",
     clock_mhz_assumption: float = 100.0,
     latency_target_us: float = 10.0,
 ) -> ONNXCompileResult:
     if target not in FPGA_TARGETS:
         raise ValueError(f"unknown FPGA target: {target}")
+
     ir = lower_onnx_dense(model_path)
-    if len(ir.layers) != 3 or [layer.relu for layer in ir.layers] != [True, True, False]:
-        raise UnsupportedONNXGraph(
-            "current v0.2 RTL backend supports exactly Gemm→Relu→Gemm→Relu→Gemm"
-        )
     qmodel = quantize_ir(ir, calibration)
     selected, candidates = search_architecture(
         qmodel.dims,
         clock_mhz_assumption=clock_mhz_assumption,
         latency_target_us=latency_target_us,
     )
-    qinputs = quantize_inputs(golden_inputs, qmodel.activation_scales[0])
+
+    qinputs = quantize_inputs(golden_inputs, qmodel.activation_scales[0], ir.input_dim)
     qoutputs = int_forward(qmodel, qinputs)
     cycle = cycle_forward(qmodel, qinputs, int(selected["lanes"]))
     if not np.array_equal(qoutputs, cycle):
@@ -394,47 +550,60 @@ def compile_onnx_dense(
         cycles=int(selected["cycles"]),
         modeled_latency_us=float(selected["latency_us"]),
         target=target,
+        architecture_candidates=tuple(candidates),
     )
+
     out = Path(out_dir)
-    weights = out / "weights"
-    weights.mkdir(parents=True, exist_ok=True)
+    weights_dir = out / "weights"
+    weights_dir.mkdir(parents=True, exist_ok=True)
     for idx, qw in enumerate(qmodel.qweights, 1):
-        (weights / f"w{idx}.hex").write_text(_hex_lines(qw.T, 8))
+        (weights_dir / f"w{idx}.hex").write_text(_hex_lines(qw.T, 8))
     for idx, qb in enumerate(qmodel.qbiases, 1):
-        (weights / f"b{idx}.hex").write_text(_hex_lines(qb, 32))
-    (weights / "golden_inputs.hex").write_text(_hex_lines(qinputs[:16], 8))
-    (weights / "golden_outputs.hex").write_text(_hex_lines(qoutputs[:16], 8))
-    _emit_dense3_rtl(result, out)
+        (weights_dir / f"b{idx}.hex").write_text(_hex_lines(qb, 32))
+    (weights_dir / "golden_inputs.hex").write_text(_hex_lines(qinputs[:16], 8))
+    (weights_dir / "golden_outputs.hex").write_text(_hex_lines(qoutputs[:16], 8))
+
+    _emit_dense_rtl(result, out)
+
     manifest = {
-        "frontend": "onnx-v0.2-alpha",
-        "supported_subset": "sequential Gemm/ReLU; current RTL backend = 3 dense layers",
+        "frontend": "onnx-v0.2",
+        "supported_subset": SUPPORTED_SUBSET,
         "ir": ir.summary(),
         "target": FPGA_TARGETS[target].__dict__,
         "lanes": result.lanes,
         "cycles": result.cycles,
+        "clock_mhz_assumption": float(clock_mhz_assumption),
+        "latency_target_us": float(latency_target_us),
         "modeled_latency_us": result.modeled_latency_us,
         "architecture_candidates": list(candidates),
         "golden_samples": int(min(16, len(qinputs))),
         "cycle_model_exact": True,
+        "memory": model_memory_report(qmodel),
+        "quantization": quantization_report(ir, qmodel),
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     return result
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Kernellum Compiler v0.2 alpha ONNX front-end")
+    parser = argparse.ArgumentParser(description="Kernellum Compiler v0.2 ONNX front-end")
     parser.add_argument("model", help="ONNX model path")
     parser.add_argument("--calibration", required=True, help=".npy calibration matrix")
     parser.add_argument("--golden", required=True, help=".npy golden input matrix")
-    parser.add_argument("--out", default="artifacts/onnx_dense3")
-    parser.add_argument("--target", default="ecp5-85f", choices=sorted(FPGA_TARGETS))
+    parser.add_argument("--out", default="artifacts/onnx_dense")
+    parser.add_argument("--target", default="ulx3s-85f", choices=sorted(FPGA_TARGETS))
+    parser.add_argument("--clock-mhz", type=float, default=100.0)
+    parser.add_argument("--latency-us", type=float, default=10.0)
     args = parser.parse_args()
+
     result = compile_onnx_dense(
         args.model,
         np.load(args.calibration),
         np.load(args.golden),
         args.out,
         target=args.target,
+        clock_mhz_assumption=args.clock_mhz,
+        latency_target_us=args.latency_us,
     )
     print(f"lowered dims: {result.ir.dims}")
     print(f"target: {result.target}")
