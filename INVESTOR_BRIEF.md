@@ -104,7 +104,8 @@ Kernellum is open to conversations with:
 - researchers working on hardware-software co-design;
 - deep-tech investors interested in early technical infrastructure.
 
-For a design-partner evaluation, see [DESIGN_PARTNERS.md](DESIGN_PARTNERS.md).
+For a design-partner evaluation, see [DESIGN_PARTNERS.md](DESIGN_PARTNERS.md).  
+For adjacent approaches and the intended technical wedge, see [LANDSCAPE.md](LANDSCAPE.md).
 
 ## Founder
 
