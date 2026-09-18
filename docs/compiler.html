@@ -30,6 +30,9 @@
 <div class="compiler-slab cs-search" data-depth="0.28"><span>ARCH SEARCH</span><div class="bars"><i></i><i></i><i></i><i></i></div></div>
 <div class="compiler-slab cs-rtl" data-depth="0.38"><span>GENERATED RTL</span><code>always_ff @(posedge clk)</code><code>acc &lt;= acc + x*w;</code></div>
 <div class="compiler-core" data-depth="0.50"><small>SELECTED</small><b>4 × MAC</b><span>INT8 / 680 cyc</span></div>
+<div class="scene-satellite sat-a" data-depth="0.64"><b>O</b><span>ONNX</span></div>
+<div class="scene-satellite sat-b" data-depth="0.56"><b>I</b><span>IR</span></div>
+<div class="scene-satellite sat-c" data-depth="0.70"><b>SV</b><span>RTL</span></div>
 </div>
 <div class="stage-caption"><span>GRAPH</span><i></i><span>IR</span><i></i><span>SEARCH</span><i></i><span>RTL</span></div>
 </div>
@@ -37,7 +40,7 @@
 
 <section class="section compiler-command" data-reveal>
 <div class="command-copy"><div class="superlabel">01 / Desired interface</div><h2>Describe the workload.<br>Describe the constraints.</h2><p>The long-term interface is intentionally simple. The complexity belongs behind the compiler boundary.</p></div>
-<div class="terminal-window">
+<div class="terminal-window" data-parallax-y="-20">
 <div class="terminal-head"><span></span><span></span><span></span><b>kernellum / compile</b></div>
 <pre><code><span class="prompt">$</span> kernellum compile model.onnx   --precision int8   --latency 10us   --target fpga
 
@@ -62,7 +65,7 @@
 
 <section class="section compiler-evidence" data-reveal>
 <div class="compiler-evidence-main"><div class="superlabel">03 / v0.1 evidence</div><h2>The small complete system.</h2><p>A 64→32→16→10 workload is enough to test whether the entire path can be made inspectable from model through synthesis.</p></div>
-<div class="metric-wall">
+<div class="metric-wall" data-parallax-y="14">
 <div><strong>96.44%</strong><span>INT8 accuracy</span></div>
 <div><strong>450/450</strong><span>cycle exactness</span></div>
 <div><strong>32/32</strong><span>RTL vectors</span></div>
@@ -71,9 +74,9 @@
 </section>
 
 <section class="section boundary-section" data-reveal>
-<div class="boundary-good"><div class="kicker">SUPPORTED / CURRENT</div><h3>Dense graph subset → hardware IR → INT8 → search → RTL</h3><p>Enough to test the compiler architecture honestly and reproducibly.</p></div>
+<div class="boundary-good" data-parallax-y="-9"><div class="kicker">SUPPORTED / CURRENT</div><h3>Dense graph subset → hardware IR → INT8 → search → RTL</h3><p>Enough to test the compiler architecture honestly and reproducibly.</p></div>
 <div class="boundary-line"><span>CLAIM BOUNDARY</span></div>
-<div class="boundary-not"><div class="kicker">NOT CLAIMED / YET</div><h3>Arbitrary ONNX · production compiler · ASIC readiness</h3><p>No claim of arbitrary operator coverage, post-route timing closure, measured power or manufacturable silicon.</p></div>
+<div class="boundary-not" data-parallax-y="9"><div class="kicker">NOT CLAIMED / YET</div><h3>Arbitrary ONNX · production compiler · ASIC readiness</h3><p>No claim of arbitrary operator coverage, post-route timing closure, measured power or manufacturable silicon.</p></div>
 </section>
 
 <section class="section reproduce-v2" data-reveal>
