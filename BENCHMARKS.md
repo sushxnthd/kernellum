@@ -4,6 +4,8 @@ Kernellum publishes benchmark results according to an evidence ladder so modeled
 
 ## Current benchmark: digits MLP
 
+Model/functional quality remains:
+
 | Item | Result |
 |---|---:|
 | Network | 64 → 32 → 16 → 10 |
@@ -12,18 +14,31 @@ Kernellum publishes benchmark results according to an evidence ladder so modeled
 | Float accuracy | 96.22% |
 | INT8 accuracy | 96.44% |
 | Float / INT8 agreement | 99.78% |
-| Cycle model agreement | 450 / 450 |
+| Cycle/reference agreement | 450 / 450 |
 | RTL golden vectors | 32 / 32 PASS |
-| Selected parallelism | 4 MAC lanes |
-| Core compute cycles | 680 |
-| Modeled latency @ 100 MHz | 6.8 µs |
 | Generic Yosys synthesis | PASS |
 | ECP5 family synthesis | PASS |
-| Physical FPGA P&R | pending |
-| Measured board latency | pending |
-| Measured board power | pending |
 
-The 6.8 µs number is derived from 680 modeled cycles at an assumed 100 MHz clock. It is not an achieved Fmax or measured latency.
+### ULX3S-85F physical-feedback sweep — L5 evidence
+
+Target: LFE5U-85F-6BG381C / CABGA381 / 25 MHz.
+
+| MAC lanes | Modeled cycles | Post-route Fmax | 25 MHz timing | Modeled core latency @25 MHz | TRELLIS_COMB | MULT18X18D |
+|---:|---:|---:|:---:|---:|---:|---:|
+| 1 | 2,836 | 35.96 MHz | PASS | 113.44 µs | 3,562 | 5 |
+| **2** | **1,476** | **29.64 MHz** | **PASS** | **59.04 µs** | **5,727** | **6** |
+| 4 | 796 | 22.12 MHz | FAIL | 31.84 µs | 10,561 | 8 |
+| 8 | 456 | 16.10 MHz | FAIL | 18.24 µs | 19,652 | 12 |
+
+**Physical-feedback selection:** 2 MAC lanes, because it has the minimum modeled cycle count among swept architectures that close the board's 25 MHz timing target.
+
+The latency column is still modeled from cycle count and the board clock; it is not a physical-board latency measurement. The post-route Fmax and utilization values are nextpnr results for the named reference target.
+
+Evidence record: [KRN-PNR-001](research/ULX3S_PNR_SWEEP_2026-09-18.md).
+
+### Historical v0.1 baseline
+
+TR-001 froze the earlier non-pipelined baseline at 4 MAC lanes, 680 modeled cycles and 6.8 µs at an assumed 100 MHz clock. Those numbers remain part of the historical report; the current backend adds registered requantization stages and physical-feedback selection.
 
 ## Evidence levels
 
@@ -45,7 +60,7 @@ Kernellum will label every benchmark with the highest evidence level it actually
 
 ## Next benchmark pack
 
-After the first physical FPGA bring-up, the benchmark suite will expand across multiple supported dense-network shapes. The goal is to publish:
+With named-board P&R now demonstrated, the benchmark suite will expand across multiple supported dense-network shapes. The goal is to publish:
 
 - compiler-selected architecture;
 - generated RTL size;
