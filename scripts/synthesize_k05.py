@@ -78,14 +78,14 @@ def synth_one(c: dict) -> dict:
         f"read_verilog -sv {RTL}; {params}; hierarchy -top kernellum_mac_array; "
         "proc; memory -nomap; opt; stat"
     )
-    g = run(["yosys", "-q", "-p", generic_cmd])
+    g = run(["yosys", "-p", generic_cmd])
     generic_cells = parse_cells(g.stdout + "\n" + g.stderr)
 
     xilinx_cmd = (
         f"read_verilog -sv {RTL}; {params}; "
         "synth_xilinx -family xc7 -top kernellum_mac_array -flatten -noiopad; stat -tech xilinx"
     )
-    x = run(["yosys", "-q", "-p", xilinx_cmd])
+    x = run(["yosys", "-p", xilinx_cmd])
     xilinx_text = x.stdout + "\n" + x.stderr
     (BUILD / f"{c['name']}.yosys.log").write_text(xilinx_text)
     cells = parse_cells(xilinx_text)
