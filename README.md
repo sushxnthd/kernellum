@@ -1,79 +1,183 @@
-# Kernellum K0
+# Kernellum
 
-Workload-aware accelerator design-space exploration.
+**AI-native computer architecture research for workload-specific accelerator synthesis with physical-design feedback.**
 
-K0 is the first technical proof for Kernellum's reset thesis: given an AI workload and hardware constraints, search a parameterized accelerator space and return strong feasible designs plus a Pareto frontier.
+Kernellum is currently a research-first system, not a production EDA product. The core question is whether an automated search can choose hardware architectures for AI workloads whose predicted advantages survive synthesis, place-and-route, and eventually physical measurement.
 
-Status: analytical research prototype. K0 does not claim FPGA-measured performance. The cost model is deliberately transparent and is intended to be calibrated against synthesis and hardware in K1.
+## Current result: K1
 
-## Current reproducible result
+K1 implements a parameterized INT8 tiled GEMM engine and a closed-loop ECP5 physical-design search.
 
-The benchmark evaluates 12 representative Transformer GEMMs. Each workload has a 24,576-point architecture space. INT8 is fixed and DSP/BRAM constraints are binding.
+The evidence chain is:
 
-At 256 architecture evaluations, evolutionary search averages 0.43% latency regret relative to exhaustive search, versus 3.79% for random search. Across workload/seed trials it exactly reaches the exhaustive optimum 60.0% of the time, versus 8.3% for random search.
+```text
+Transformer workload
+      ↓
+analytical architecture model
+      ↓
+routed-Fmax surrogate
+      ↓
+candidate acquisition
+      ↓
+RTL
+      ↓
+functional simulation
+      ↓
+synthesis
+      ↓
+place-and-route
+      ↓
+physical-design feedback
+      ↺
+```
 
-These are analytical-model results, not hardware measurements.
+### Routed architecture validation
 
-## Quick start
+Nine frozen architectures were synthesized and routed on a Lattice ECP5-85K / CABGA381 target.
 
-Install editable dependencies, then run:
+- **9 / 9** routes completed
+- predicted vs routed workload ranking: **mean Spearman ρ = 0.927**
+- analytically selected winner: **1.00% mean routed regret**
+- DSP prediction: **ρ = 1.000**
+- functional tiled-GEMM RTL simulation: **PASS**
 
-    kernellum search --workload ffn_expand --seq 128 --method evolutionary --budget 256 --max-dsp 512 --max-bram 120 --precision 8
+### Closed-loop physical-design search
 
-Full experiment:
+K1 then expanded to a frozen **172-architecture** design space.
 
-    python experiments/k0_transformer/run.py
+Using only the original nine routed observations:
 
-Tests:
+- Kernellum selected **4** new architectures
+- an equal-budget random arm selected **4**
+- total physical implementations attempted: **17 / 172 = 9.88%**
+- all **8 / 8** new designs routed
+- routed-Fmax surrogate MAPE: **11.95%**
+- active-search final mean best latency: **24.01 ms**
+- random-control final mean best latency: **26.61 ms**
+- active search improved the routed optimum on **12 / 12** Transformer GEMMs
+- random search improved it on **0 / 12**
 
-    pytest -q
+These latency values are derived from the K1 kernel cycle model and **routed Fmax**, not measurements from a physical FPGA board.
 
-## What K0 searches
+See:
 
-- systolic array rows and columns
-- INT4 / INT8 support
-- M/N/K tile sizes
-- on-chip buffer size
-- weight-, output-, and row-stationary dataflow proxies
+- `docs/K1_REPORT.md`
+- `docs/K1_CLOSED_LOOP_REPORT.md`
+- `results/k1_routes.csv`
+- `results/k1_validation.json`
+- `results/k1_closed_loop_routes.csv`
+- `results/k1_closed_loop_validation.json`
 
-## Scientific boundary
+## Evidence ladder
 
-The model uses fixed frequency and bandwidth, proxy DSP packing, approximate memory traffic, and no place-and-route timing closure. K0 is useful for ranking hypotheses, not claiming real hardware speedups.
+### K0
 
-K0.5 must synthesize a stratified sample of candidates and quantify rank correlation and prediction error. K1 proceeds only if the analytical ranking remains useful after calibration.
+Analytical accelerator design-space exploration over 12 Transformer GEMMs.
 
-## K0.5 synthesis-validation gate
+At 256 architecture evaluations:
 
-K0.5 adds a parameterized signed MAC array, block-RAM scratchpad, self-checking matrix-multiplication simulation, and a stratified Xilinx-7 synthesis experiment. The goal is to test whether K0's coarse DSP/BRAM resource ranking survives real RTL synthesis before K1 adds a full tiled accelerator controller.
+- evolutionary search mean regret: **0.431%**
+- random search mean regret: **3.788%**
 
-Run with an OSS CAD Suite environment:
+The K0 values are analytical estimates only.
 
-    scripts/run_rtl_sim.sh
-    PYTHONPATH=. python scripts/synthesize_k05.py
+### K0.5
 
-See `docs/K05_PLAN.md` for the predeclared validation thresholds. No K0.5 synthesis result should be treated as FPGA-measured latency or power.
+The first parameterized MAC-array RTL was checked with Icarus Verilog and synthesized with Yosys.
 
-## K0.5 synthesis result
-
-K0.5 passed its predeclared synthesis-validation gate on 2026-09-19 using Yosys 0.33 and Icarus Verilog 12.0.
-
-Across nine stratified INT8 MAC-array/scratchpad configurations:
+Across nine Xilinx-7 synthesis configurations:
 
 - DSP rank Spearman: **1.000**
 - BRAM rank Spearman: **1.000**
-- mean BRAM relative error: **11.21%**
 - generic multiplier preservation: **100%**
-- mapped DSP / predicted DSP ratio: **1.000**
-- functional RTL simulation: **PASS**
+- mean BRAM prediction error: **11.21%**
 
-The BRAM result exposed a systematic target-specific granularity effect: 64/128/256 KB 32-bit scratchpads synthesized to 32/64/128 BRAM18-equivalents versus K0's idealized 29/57/114. K1 should use the calibrated Xilinx-7 memory model rather than hide that bias.
+K0.5 exposed a target-specific BRAM granularity effect instead of hiding it.
 
-See `docs/K05_REPORT.md` and the machine-readable files in `results/`.
+### K1
 
-## Repository reset
+K1 adds:
 
-This repository intentionally replaces Kernellum's previous product/company prototype. The current project is research-first: evidence before branding.
+- tiled A/B buffers
+- controller-driven execution
+- accumulation across K chunks
+- ECP5 synthesis
+- nextpnr place-and-route
+- routed Fmax extraction
+- target-aware ECP5 DSP/BRAM modelling
+- routed-Fmax surrogate
+- active acquisition
+- equal-budget random control
+- physical-design feedback ingestion
 
-## Licensing
+## Reproduction
 
-No open-source license is attached at the reset point. Future public benchmark code and potentially protectable K1+ implementation/IP will be separated deliberately before licensing decisions are made.
+Python tests:
+
+```bash
+PYTHONPATH=. python -m pytest -q
+```
+
+K0 analytical experiment:
+
+```bash
+python experiments/k0_transformer/run.py
+```
+
+K0.5 functional RTL simulation:
+
+```bash
+bash scripts/run_rtl_sim.sh
+```
+
+K1 tiled-GEMM simulation:
+
+```bash
+bash scripts/run_k1_sim.sh
+```
+
+K1 frozen routing sweep, with Yosys and nextpnr-ecp5 installed:
+
+```bash
+PYTHONPATH=. python scripts/run_k1_pnr.py
+```
+
+K1 closed-loop routed-feedback experiment:
+
+```bash
+PYTHONPATH=. python scripts/run_k1_closed_loop.py
+```
+
+GitHub Actions contains reproducible workflows for the HDL and physical-design experiments.
+
+## Current scientific boundary
+
+Kernellum has **not** yet established:
+
+- physical-board latency
+- power or energy consumption
+- thermal behaviour
+- end-to-end Transformer inference
+- ASIC PPA
+- superiority to commercial EDA systems
+- patentability or commercial licensing value
+
+The next gate is physical FPGA execution.
+
+## Next: K2
+
+K2 should freeze one or more K1-selected architectures on a real FPGA board and measure:
+
+- achieved clock
+- kernel latency
+- power
+- energy per operation / inference kernel
+- prediction error relative to routed estimates
+
+Only after that validation should Kernellum make physical hardware performance claims.
+
+## Licensing and IP
+
+No broad open-source license has been attached to the reset-stage repository yet. Public research infrastructure and potentially protectable architecture/search IP should be separated deliberately before a final licensing decision.
+
+See `docs/IP_BOUNDARY.md`.
