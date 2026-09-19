@@ -7,3 +7,5 @@ No validation thresholds or synthesis logic are changed here.
 Validation trigger: pull-request synchronize event; thresholds unchanged.
 
 Validation trigger: base workflow now self-reports synthesis evidence; thresholds unchanged.
+
+Validation trigger: packaged Yosys/Icarus CI path; thresholds unchanged.
