@@ -109,8 +109,14 @@ module kernellum_k2_board_top #(
     reg response_active;
 
     function automatic [31:0] read_acc_cell(input integer rr, input integer cc);
+        integer ri;
+        integer ci;
         begin
-            read_acc_cell = acc_flat[((rr * COLS + cc) * ACC_WIDTH) +: ACC_WIDTH];
+            read_acc_cell = 32'b0;
+            for (ri = 0; ri < ROWS; ri = ri + 1)
+                for (ci = 0; ci < COLS; ci = ci + 1)
+                    if ((rr == ri) && (cc == ci))
+                        read_acc_cell = acc_flat[(ri*COLS+ci)*ACC_WIDTH +: ACC_WIDTH];
         end
     endfunction
 
