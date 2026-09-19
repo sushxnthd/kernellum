@@ -51,7 +51,7 @@ jobs:
           python -m pip install pytest
           PYTHONPATH=. python -m pytest -q
       - name: RTL functional simulation
-        run: scripts/run_rtl_sim.sh
+        run: bash scripts/run_rtl_sim.sh
       - name: Stratified Xilinx-7 synthesis
         run: PYTHONPATH=. python scripts/synthesize_k05.py
       - name: Publish machine-readable evidence to job summary
