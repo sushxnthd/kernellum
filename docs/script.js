@@ -51,12 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
   animateHeroField();
   initKernelStage();
 
-  if (page === 'index' || page === 'compiler') {
-    createTransformLab(page);
-  } else {
-    createPageInstrument(page);
-  }
-
   function enhanceNavigation() {
     const progress = document.createElement('div');
     progress.className = 'read-progress';
@@ -331,6 +325,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { lanes: 4, cycles: 796, fmax: 22.12, latency: 31.84, logic: 10561, mult: 8 },
     { lanes: 8, cycles: 456, fmax: 16.10, latency: 18.24, logic: 19652, mult: 12 }
   ];
+
+  if (page === 'index' || page === 'compiler') {
+    createTransformLab(page);
+  } else {
+    createPageInstrument(page);
+  }
 
   function makeShell(label, title, intro, body, extraClass = '') {
     const element = document.createElement('section');
