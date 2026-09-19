@@ -15,3 +15,6 @@ kernellum = "kernellum.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["kernellum*"]
+
+[project.optional-dependencies]
+k2 = ["pyserial>=3.5"]
