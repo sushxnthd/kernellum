@@ -26,6 +26,8 @@ module kernellum_k1_pnr_top #(
     reg b_we;
     reg start;
 
+    localparam [K_LEN_W-1:0] FULL_K_LEN = K_TILE;
+
     reg [ROWS*PRECISION-1:0] a_wdata;
     reg [COLS*PRECISION-1:0] b_wdata;
 
@@ -113,7 +115,7 @@ module kernellum_k1_pnr_top #(
         .b_wdata(b_wdata),
         .start(start),
         .clear_before(1'b1),
-        .k_len(K_TILE[K_LEN_W-1:0]),
+        .k_len(FULL_K_LEN),
         .busy(busy),
         .done(done),
         .acc_flat(acc_flat)
