@@ -1,22 +1,19 @@
-(() => {
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('#menuToggle');
+  const links = document.querySelector('#navLinks');
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const open = !navLinks.classList.contains('open');
-      navLinks.classList.toggle('open', open);
-      menuToggle.setAttribute('aria-expanded', String(open));
-    });
+  toggle?.addEventListener('click', () => {
+    const open = links?.classList.toggle('open') || false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
 
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
-  }
+  links?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }));
 
   const reveal = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -24,7 +21,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px' });
     reveal.forEach(element => observer.observe(element));
   } else {
     reveal.forEach(element => element.classList.add('visible'));
@@ -39,4 +36,20 @@
       row.hidden = filter !== 'all' && row.dataset.evidenceKind !== filter;
     });
   }));
-})();
+
+  const stage = document.querySelector('#kernelStage');
+  const precisePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if (stage && precisePointer) {
+    stage.addEventListener('pointermove', event => {
+      const rect = stage.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      stage.style.setProperty('--rx', `${x * 7}deg`);
+      stage.style.setProperty('--ry', `${y * -5}deg`);
+    });
+    stage.addEventListener('pointerleave', () => {
+      stage.style.setProperty('--rx', '0deg');
+      stage.style.setProperty('--ry', '0deg');
+    });
+  }
+});
