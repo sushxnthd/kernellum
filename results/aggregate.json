@@ -1,0 +1,15 @@
+{
+  "workloads": 12,
+  "search_space_per_workload": 24576,
+  "mean_feasible_designs": 8610.0,
+  "primary_budget": 256,
+  "precision_bits": 8,
+  "max_dsp": 512,
+  "max_bram": 120,
+  "evolutionary_mean_latency_regret_pct": 0.4308466704156481,
+  "random_mean_latency_regret_pct": 3.7881859744067214,
+  "evolutionary_exact_optimum_rate": 0.6,
+  "random_exact_optimum_rate": 0.08333333333333333,
+  "mean_evo_vs_fixed_baseline_pct": 58.56013805950417,
+  "warning": "All performance values are analytical K0 estimates, not measured FPGA results."
+}

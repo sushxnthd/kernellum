@@ -1,5 +1,2 @@
-"""Kernellum Compiler research prototype."""
-
-from .compiler import build_demo, generate_demo_artifacts
-
-__all__ = ["build_demo", "generate_demo_artifacts"]
+"""Kernellum K0 research prototype."""
+__version__ = "0.1.0"

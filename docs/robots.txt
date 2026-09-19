@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sushxnthd.github.io/kernellum/sitemap.xml

@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-<title id="title">Kernellum</title>
-<desc id="desc">A minimal K formed from three routed strokes.</desc>
-<path d="M13 8v48M15 32 48 8M15 32l33 24" fill="none" stroke="#baf55d" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
-<rect x="11" y="28" width="8" height="8" fill="#baf55d"/>
-</svg>
