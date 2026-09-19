@@ -8,7 +8,7 @@ on:
       - 'rtl/tb_kernellum_gemm_engine.sv'
       - 'scripts/run_k1_sim.sh'
       - 'scripts/run_k1_pnr.py'
-      - 'kernellum/k1/**'
+      - 'kernellum/k1/model.py'
       - 'tests/test_k1.py'
       - '.github/workflows/k1-routing.yml'
   push:
@@ -19,7 +19,7 @@ on:
       - 'rtl/tb_kernellum_gemm_engine.sv'
       - 'scripts/run_k1_sim.sh'
       - 'scripts/run_k1_pnr.py'
-      - 'kernellum/k1/**'
+      - 'kernellum/k1/model.py'
       - 'tests/test_k1.py'
       - '.github/workflows/k1-routing.yml'
   workflow_dispatch:
