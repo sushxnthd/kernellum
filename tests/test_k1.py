@@ -21,5 +21,5 @@ def test_k_tile_reduces_chunk_control_overhead():
 
 
 def test_spearman_known_cases():
-    assert spearman([1, 2, 3], [10, 20, 30]) == 1.0
-    assert spearman([1, 2, 3], [30, 20, 10]) == -1.0
+    assert abs(spearman([1, 2, 3], [10, 20, 30]) - 1.0) < 1e-12
+    assert abs(spearman([1, 2, 3], [30, 20, 10]) + 1.0) < 1e-12
