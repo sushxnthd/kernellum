@@ -1,0 +1,15 @@
+{
+  "target": "Lattice ECP5-85K / CABGA381",
+  "candidate_count": 9,
+  "route_success_count": 9,
+  "route_success_required": 8,
+  "dsp_rank_spearman": 1.0,
+  "dsp_rank_required": 0.95,
+  "mean_workload_rank_spearman": 0.9273864116451082,
+  "workload_rank_required": 0.8,
+  "mean_predicted_winner_routed_regret_pct": 0.9996041171813149,
+  "winner_regret_required_pct": 15.0,
+  "all_predicted_winners_routed": true,
+  "k1_gate_pass": true,
+  "interpretation": "PASS means fixed-frequency analytical architecture ranking remains useful after ECP5 synthesis and place-and-route for the frozen K1 candidate family. It is not a physical-board latency, power, or energy result."
+}
