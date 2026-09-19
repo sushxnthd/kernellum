@@ -108,8 +108,11 @@ module kernellum_k2_board_top #(
     reg [3:0] response_pos;
     reg response_active;
 
-    wire [31:0] selected_cell =
-        acc_flat[((cell_row * COLS + cell_col) * ACC_WIDTH) +: ACC_WIDTH];
+    function automatic [31:0] read_acc_cell(input integer rr, input integer cc);
+        begin
+            read_acc_cell = acc_flat[((rr * COLS + cc) * ACC_WIDTH) +: ACC_WIDTH];
+        end
+    endfunction
 
     task queue_ack1;
         input [7:0] value;
@@ -288,10 +291,10 @@ module kernellum_k2_board_top #(
                         cell_col <= rx_byte;
                         if (cell_row < ROWS && rx_byte < COLS) begin
                             response[0] <= ACK;
-                            response[1] <= selected_cell[7:0];
-                            response[2] <= selected_cell[15:8];
-                            response[3] <= selected_cell[23:16];
-                            response[4] <= selected_cell[31:24];
+                            response[1] <= read_acc_cell(cell_row, rx_byte)[7:0];
+                            response[2] <= read_acc_cell(cell_row, rx_byte)[15:8];
+                            response[3] <= read_acc_cell(cell_row, rx_byte)[23:16];
+                            response[4] <= read_acc_cell(cell_row, rx_byte)[31:24];
                             response_len <= 5;
                             response_pos <= 0;
                             response_active <= 1;
