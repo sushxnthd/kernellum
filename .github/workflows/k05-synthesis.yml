@@ -19,17 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: YosysHQ/setup-oss-cad-suite@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          version: '2026-09-19'
+      - name: Install open-source HDL toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys iverilog
       - name: Tool versions
         run: |
-          yosys --version
+          yosys -V
           iverilog -V | head -n 2
       - name: Python unit tests
         run: |
