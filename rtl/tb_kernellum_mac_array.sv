@@ -50,11 +50,9 @@ module tb_kernellum_mac_array;
         end
     endtask
 
-    function signed [ACC-1:0] cell;
-        input integer rr;
-        input integer cc;
+    function automatic signed [ACC-1:0] read_cell(input integer rr, input integer cc);
         begin
-            cell = acc_flat[(rr*COLS+cc)*ACC +: ACC];
+            read_cell = acc_flat[(rr*COLS+cc)*ACC +: ACC];
         end
     endfunction
 
@@ -69,9 +67,9 @@ module tb_kernellum_mac_array;
         drive_outer(3, 6, 11, 12);
 
         @(negedge clk);
-        if (cell(0,0) !== 58 || cell(0,1) !== 64 ||
-            cell(1,0) !== 139 || cell(1,1) !== 154) begin
-            $display("FAIL MAC: %0d %0d %0d %0d", cell(0,0), cell(0,1), cell(1,0), cell(1,1));
+        if (read_cell(0,0) !== 58 || read_cell(0,1) !== 64 ||
+            read_cell(1,0) !== 139 || read_cell(1,1) !== 154) begin
+            $display("FAIL MAC: %0d %0d %0d %0d", read_cell(0,0), read_cell(0,1), read_cell(1,0), read_cell(1,1));
             $fatal(1);
         end
 
