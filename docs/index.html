@@ -2,323 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Kernellum Research builds AI-native model-to-hardware systems that turn supported neural workloads and deployment constraints into hardware IR, searched accelerator architectures, verified RTL and physical implementation evidence.">
-<meta name="theme-color" content="#070907">
-<link rel="icon" href="kernellum-mark.svg?v=20260919d" type="image/svg+xml">
-<link rel="manifest" href="site.webmanifest">
-<meta property="og:site_name" content="Kernellum Research">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kernellum Research | Models should shape the machines">
-<meta property="og:description" content="AI-native model-to-hardware systems. Model, constraints, hardware IR, architecture search, verified RTL and physical evidence.">
-<meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
-<title>Kernellum Research | AI-native model-to-hardware systems</title>
-<link rel="stylesheet" href="styles.css?v=20260919d">
-<script src="script.js?v=20260919d" defer></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kernellum Research builds AI-native model-to-hardware systems.">
+<meta name="theme-color" content="#050605">
+<link rel="icon" href="kernellum-mark.svg?v=20260919e" type="image/svg+xml">
+<title>Kernellum Research</title>
+<link rel="stylesheet" href="styles.css?v=20260919e">
+<script src="script.js?v=20260919e" defer></script>
+<script type="module" src="scene.js?v=20260919e"></script>
 </head>
 <body>
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader-top"><span>KERNELLUM / BOOT SEQUENCE</span><span id="loaderCode">MODEL</span></div>
-  <div class="loader-core">
-    <img src="kernellum-mark.svg?v=20260919d" alt="">
-    <div class="loader-word">MODEL <span>TO</span> MACHINE</div>
-  </div>
-  <div class="loader-track"><i id="loaderTrack"></i></div>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-word">KERNELLUM</div>
+  <div class="boot-count" id="bootCount">05</div>
+  <div class="boot-meta"><span>MODEL</span><span>IR</span><span>SEARCH</span><span>RTL</span><span>SILICON</span></div>
 </div>
 
-<div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
+<canvas id="kernelCanvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-state" id="cursorState" aria-hidden="true">OBSERVE</div>
 
-<nav class="nav" id="nav">
+<nav class="nav">
   <a class="brand" href="#top" aria-label="Kernellum home">
-    <img src="kernellum-mark.svg?v=20260919d" alt="">
+    <img src="kernellum-mark.svg?v=20260919e" alt="">
     <span>KERNELLUM</span>
   </a>
-  <div class="nav-meta"><span class="status-dot"></span>RESEARCH PROGRAM / 2026</div>
-  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
-    <span></span><span></span>
-  </button>
-  <div class="navlinks" id="navLinks">
-    <a href="#research">Research</a>
+  <div class="nav-center">MODEL TO MACHINE / RESEARCH PROGRAM</div>
+  <div class="nav-links">
     <a href="#system">System</a>
     <a href="#evidence">Evidence</a>
-    <a href="#record">Record</a>
-    <a href="#collaborate">Collaborate</a>
-    <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <main id="top">
-<section class="hero panel-dark">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow reveal">KRN / AI-NATIVE HARDWARE SYSTEMS</div>
-      <h1 class="reveal">The model is not the endpoint.<br><em>It is the blueprint.</em></h1>
-      <p class="hero-lede reveal">Kernellum is building a compiler-like system that lets an AI workload and its deployment constraints participate in the design of the machine that runs it.</p>
-      <div class="hero-actions reveal">
-        <a class="text-link strong" href="#system">Enter the system <span>↓</span></a>
-        <a class="text-link" href="TR-001.pdf">Technical Report 001 ↗</a>
-      </div>
-    </div>
-
-    <div class="hero-object reveal" id="heroObject" aria-label="Interactive Kernellum compute field">
-      <div class="coordinate c1">KRN.FIELD / 01</div>
-      <div class="coordinate c2">MODEL → SILICON</div>
-      <div class="field-wrap" id="fieldWrap">
-        <div class="field-grid" id="fieldGrid" aria-hidden="true"></div>
-        <div class="field-core">
-          <img src="kernellum-mark.svg?v=20260919d" alt="">
-        </div>
-      </div>
-      <div class="field-orbit o1"></div>
-      <div class="field-orbit o2"></div>
-      <div class="field-callout fc1"><span>01</span> Graph</div>
-      <div class="field-callout fc2"><span>03</span> Search</div>
-      <div class="field-callout fc3"><span>05</span> RTL</div>
-    </div>
+<section class="hero scene-zone" data-scene="0">
+  <div class="hero-state state-block">
+    <span>KRN / 001</span>
+    <span>FIELD STATE: LIVE</span>
+    <span>2026 / GURUGRAM</span>
   </div>
 
-  <div class="hero-rail reveal">
-    <div><span>COMPILER</span><b>v0.2 alpha</b></div>
-    <div><span>INT8 ACCURACY</span><b>96.44%</b></div>
-    <div><span>RTL VECTORS</span><b>32 / 32 pass</b></div>
-    <div><span>SELECTED P&R</span><b>29.64 MHz</b></div>
-    <div><span>PHYSICAL BOARD</span><b>Measurement pending</b></div>
+  <div class="hero-copy">
+    <p class="micro reveal">AI-NATIVE HARDWARE SYSTEMS</p>
+    <h1 class="reveal">Models should<br>shape the <i>machines</i><br>that run them.</h1>
+    <p class="hero-note reveal">Kernellum turns supported neural workloads and deployment constraints into hardware IR, candidate accelerator architectures, verified RTL and physical implementation evidence.</p>
+  </div>
+
+  <div class="hero-scroll reveal">SCROLL TO COMPILE <span>↓</span></div>
+
+  <div class="hero-corner state-block">
+    <span>COMPILER / v0.2 alpha</span>
+    <span>ULX3S-85F / 25 MHz</span>
+    <span>BOARD MEASUREMENT / PENDING</span>
   </div>
 </section>
 
-<section class="statement panel-bone" id="research">
-  <div class="section-code reveal">001 / PREMISE</div>
-  <p class="statement-copy reveal">Most AI deployment begins after the hardware has already been decided. <strong>Kernellum moves that decision upstream.</strong></p>
-  <div class="statement-foot reveal">
-    <p>Model graph, precision, latency target, memory budget and device constraints become inputs to a hardware design process, not merely knobs applied after the fact.</p>
-    <a class="text-link dark-link" href="https://github.com/sushxnthd/kernellum">Inspect the source ↗</a>
+<section class="thesis scene-zone" data-scene="1">
+  <div class="thesis-index">01</div>
+  <div class="thesis-copy">
+    <p class="micro reveal">THE PREMISE</p>
+    <h2 class="reveal">Hardware is usually treated as the thing a model must fit into.</h2>
+    <h2 class="reveal muted-line">Kernellum treats hardware as part of the search space.</h2>
+  </div>
+  <div class="thesis-side reveal">
+    <p>Model graph, precision, latency target, memory budget and target device become inputs to architecture generation.</p>
+    <a href="TR-001.pdf">READ TECHNICAL REPORT 001 ↗</a>
   </div>
 </section>
 
-<section class="system panel-dark" id="system">
-  <div class="section-intro reveal">
-    <div class="section-code light">002 / SYSTEM</div>
-    <h2>A compiler that searches the machine.</h2>
-    <p>The current prototype is deliberately narrow. Supported neural graphs move through a reproducible sequence from model representation to implementation evidence.</p>
-  </div>
-
-  <div class="system-story">
-    <div class="system-sticky">
-      <div class="system-visual" id="systemVisual" aria-hidden="true">
-        <div class="trace trace-a"></div>
-        <div class="trace trace-b"></div>
-        <div class="trace trace-c"></div>
-        <div class="system-node n1" data-node="1"><span>01</span><b>MODEL</b></div>
-        <div class="system-node n2" data-node="2"><span>02</span><b>HARDWARE IR</b></div>
-        <div class="system-node n3" data-node="3"><span>03</span><b>SEARCH</b></div>
-        <div class="system-node n4" data-node="4"><span>04</span><b>RTL</b></div>
-        <div class="system-node n5" data-node="5"><span>05</span><b>PHYSICAL</b></div>
-        <div class="system-readout">
-          <span id="systemReadoutLabel">MODEL GRAPH</span>
-          <strong id="systemReadoutValue">64 → 32 → 16 → 10</strong>
-        </div>
-      </div>
+<section class="system scene-zone" id="system" data-scene="2">
+  <div class="system-sticky">
+    <div class="system-head">
+      <p class="micro">THE COMPILER</p>
+      <div class="system-progress"><span id="stageNumber">01</span><i></i><span>05</span></div>
     </div>
 
-    <div class="system-steps">
-      <article class="system-step active" data-step="1" data-label="MODEL GRAPH" data-value="64 → 32 → 16 → 10">
-        <span>01</span>
-        <h3>Lower the workload.</h3>
-        <p>A supported ONNX Gemm/ReLU subset is validated and lowered into an explicit hardware IR. Unsupported structures are rejected instead of silently approximated.</p>
-      </article>
-      <article class="system-step" data-step="2" data-label="QUANTIZATION" data-value="INT8 / CALIBRATED">
-        <span>02</span>
-        <h3>Make constraints executable.</h3>
-        <p>Calibration-driven INT8 conversion turns precision and numeric range into compiler artifacts that can be checked against the reference path.</p>
-      </article>
-      <article class="system-step" data-step="3" data-label="ARCHITECTURE SEARCH" data-value="1 / 2 / 4 / 8 MAC LANES">
-        <span>03</span>
-        <h3>Search candidate machines.</h3>
-        <p>The compiler evaluates accelerator configurations against modeled cycles and the target implementation boundary, rather than treating parallelism as a fixed constant.</p>
-      </article>
-      <article class="system-step" data-step="4" data-label="VERIFIED RTL" data-value="32 / 32 GOLDEN VECTORS">
-        <span>04</span>
-        <h3>Emit something inspectable.</h3>
-        <p>SystemVerilog, weights and golden vectors are generated together. The output can be simulated, synthesized and traced back to the model-level reference.</p>
-      </article>
-      <article class="system-step" data-step="5" data-label="PHYSICAL FEEDBACK" data-value="2 LANES / 29.64 MHz">
-        <span>05</span>
-        <h3>Let implementation push back.</h3>
-        <p>On the ULX3S-85F reference target, post-route timing rejects cycle-faster candidates that miss the 25 MHz clock. Physical implementation evidence changes the architecture decision.</p>
-      </article>
+    <div class="stage-copy" id="stageCopy">
+      <div class="stage-kicker" id="stageKicker">MODEL</div>
+      <h2 id="stageTitle">Start with the workload.</h2>
+      <p id="stageBody">A supported ONNX graph enters the compiler as a constrained hardware problem, not as a prompt for HDL generation.</p>
+    </div>
+
+    <div class="stage-readout">
+      <span id="stageReadoutA">GRAPH / 64 → 32 → 16 → 10</span>
+      <span id="stageReadoutB">STATE / VALIDATED</span>
+    </div>
+
+    <div class="system-track" aria-hidden="true">
+      <span class="active">MODEL</span>
+      <span>HARDWARE IR</span>
+      <span>SEARCH</span>
+      <span>RTL</span>
+      <span>PHYSICAL</span>
     </div>
   </div>
+
+  <div class="stage-trigger" data-step="0"></div>
+  <div class="stage-trigger" data-step="1"></div>
+  <div class="stage-trigger" data-step="2"></div>
+  <div class="stage-trigger" data-step="3"></div>
+  <div class="stage-trigger" data-step="4"></div>
 </section>
 
-<section class="physics panel-signal" id="hardware">
-  <div class="physics-head reveal">
+<section class="verdict scene-zone" data-scene="3">
+  <div class="verdict-top">
+    <p class="micro reveal">PHYSICAL FEEDBACK / KRN-PNR-001</p>
+    <p class="verdict-caption reveal">The architecture with fewer modeled cycles did not survive timing.</p>
+  </div>
+
+  <div class="verdict-number reveal">
+    <span class="big-two">02</span>
     <div>
-      <div class="section-code dark">003 / PHYSICAL FEEDBACK</div>
-      <h2>The fastest design on paper did not win.</h2>
+      <span>MAC LANES</span>
+      <strong>SELECTED</strong>
     </div>
-    <p>KRN-PNR-001 swept 1, 2, 4 and 8 MAC-lane variants against a 25 MHz ULX3S-85F reference target. Place-and-route timing selected the 2-lane implementation.</p>
   </div>
 
-  <div class="lane-lab reveal" id="laneLab">
-    <div class="lane-axis"><span>0 MHz</span><span>25 MHz target</span><span>40 MHz</span></div>
-    <button class="lane active" data-lane="1">
-      <span class="lane-id">01 LANE</span>
-      <span class="lane-bar"><i style="--w:89.9%"></i><u class="target-line"></u></span>
-      <strong>35.96 MHz</strong>
-      <em>2,836 cycles</em>
-      <small>PASS</small>
-    </button>
-    <button class="lane active selected" data-lane="2">
-      <span class="lane-id">02 LANES</span>
-      <span class="lane-bar"><i style="--w:74.1%"></i><u class="target-line"></u></span>
-      <strong>29.64 MHz</strong>
-      <em>1,476 cycles</em>
-      <small>SELECTED</small>
-    </button>
-    <button class="lane fail" data-lane="4">
-      <span class="lane-id">04 LANES</span>
-      <span class="lane-bar"><i style="--w:55.3%"></i><u class="target-line"></u></span>
-      <strong>22.12 MHz</strong>
-      <em>796 cycles</em>
-      <small>FAIL</small>
-    </button>
-    <button class="lane fail" data-lane="8">
-      <span class="lane-id">08 LANES</span>
-      <span class="lane-bar"><i style="--w:40.3%"></i><u class="target-line"></u></span>
-      <strong>16.10 MHz</strong>
-      <em>456 cycles</em>
-      <small>FAIL</small>
-    </button>
+  <div class="lane-list reveal">
+    <div><span>01</span><b>35.96 MHz</b><em>2,836 cycles</em><i>PASS</i></div>
+    <div class="chosen"><span>02</span><b>29.64 MHz</b><em>1,476 cycles</em><i>SELECTED</i></div>
+    <div><span>04</span><b>22.12 MHz</b><em>796 cycles</em><i>FAIL</i></div>
+    <div><span>08</span><b>16.10 MHz</b><em>456 cycles</em><i>FAIL</i></div>
   </div>
 
-  <div class="physics-note reveal">
-    <span>KRN / DECISION RULE</span>
-    <p>Choose the lowest modeled cycle count among candidates whose post-route Fmax meets the board clock.</p>
-    <a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">Open KRN-PNR-001 ↗</a>
-  </div>
+  <a class="inline-link reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">OPEN THE PHYSICAL FEEDBACK RECORD ↗</a>
 </section>
 
-<section class="evidence panel-bone" id="evidence">
-  <div class="evidence-head reveal">
-    <div class="section-code">004 / EVIDENCE</div>
-    <h2>Do not trust the number.<br><em>Follow it.</em></h2>
-    <p>Every headline claim is tied to a public artifact, workflow, report or generated output. Evidence levels stay separate.</p>
+<section class="evidence scene-zone" id="evidence" data-scene="4">
+  <div class="evidence-intro">
+    <p class="micro reveal">EVIDENCE, NOT DECORATION</p>
+    <h2 class="reveal">Every number has a trail.</h2>
   </div>
 
-  <div class="evidence-grid">
-    <a class="evidence-item reveal" href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json">
-      <span class="evidence-no">01 / MODEL</span>
-      <strong data-count="96.44" data-suffix="%">96.44%</strong>
-      <h3>Held-out INT8 accuracy</h3>
-      <p>450 held-out samples from the sklearn digits workload.</p>
-      <i>Manifest ↗</i>
+  <div class="evidence-run">
+    <a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/manifest.json" class="evidence-stat reveal">
+      <span>MODEL / HELD-OUT INT8 ACCURACY</span>
+      <strong>96.44<sup>%</sup></strong>
+      <em>MANIFEST ↗</em>
     </a>
-    <a class="evidence-item reveal" href="https://github.com/sushxnthd/kernellum/blob/main/tests/test_pipeline.py">
-      <span class="evidence-no">02 / CYCLE</span>
-      <strong>450 / 450</strong>
-      <h3>Cycle-model exactness</h3>
-      <p>The scalar lane-by-lane path matches the vector INT8 reference on every held-out sample.</p>
-      <i>Test ↗</i>
+    <a href="https://github.com/sushxnthd/kernellum/blob/main/tests/test_pipeline.py" class="evidence-stat reveal">
+      <span>CYCLE MODEL / EXACT MATCH</span>
+      <strong>450<sup>/450</sup></strong>
+      <em>TEST ↗</em>
     </a>
-    <a class="evidence-item reveal" href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/tb_kernellum_mlp_accel.sv">
-      <span class="evidence-no">03 / RTL</span>
-      <strong>32 / 32</strong>
-      <h3>Golden-vector RTL cases</h3>
-      <p>All ten output logits are checked against generated golden outputs.</p>
-      <i>Testbench ↗</i>
+    <a href="https://github.com/sushxnthd/kernellum/blob/main/artifacts/digits_int8/tb_kernellum_mlp_accel.sv" class="evidence-stat reveal">
+      <span>RTL / GOLDEN VECTORS</span>
+      <strong>32<sup>/32</sup></strong>
+      <em>TESTBENCH ↗</em>
     </a>
-    <a class="evidence-item reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">
-      <span class="evidence-no">04 / P&R</span>
-      <strong>29.64 MHz</strong>
-      <h3>Selected post-route Fmax</h3>
-      <p>The selected 2-lane implementation clears the 25 MHz reference clock.</p>
-      <i>Sweep ↗</i>
-    </a>
-  </div>
-
-  <div class="boundary reveal">
-    <div><span>MODEL</span><b>Verified</b></div>
-    <div><span>RTL</span><b>Verified</b></div>
-    <div><span>PLACE & ROUTE</span><b>Complete</b></div>
-    <div class="pending"><span>PHYSICAL BOARD</span><b>Measurement pending</b></div>
-  </div>
-</section>
-
-<section class="record panel-dark" id="record">
-  <div class="record-head reveal">
-    <div>
-      <div class="section-code light">005 / RESEARCH RECORD</div>
-      <h2>Build in public.<br>Leave a trail.</h2>
-    </div>
-    <p>Kernellum is presented as research work, not a wall of marketing claims. The record is the interface.</p>
-  </div>
-
-  <div class="record-list">
-    <a class="record-row reveal" href="TR-001.pdf">
-      <span class="record-date">TR-001</span>
-      <div><h3>Constraint-Driven Generation of a Quantized Neural Accelerator</h3><p>First complete model-to-RTL prototype and frozen v0.1 record.</p></div>
-      <span class="record-type">TECHNICAL REPORT ↗</span>
-    </a>
-    <a class="record-row reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md">
-      <span class="record-date">SEP 2026</span>
-      <div><h3>Physical feedback changes the architecture decision</h3><p>ULX3S-85F lane sweep with post-route timing fed back into selection.</p></div>
-      <span class="record-type">KRN-PNR-001 ↗</span>
-    </a>
-    <a class="record-row reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/KRN-BENCH-001_RESULT.md">
-      <span class="record-date">SEP 2026</span>
-      <div><h3>The same search repeats across three workload shapes</h3><p>Multi-shape physical-feedback evidence using the same 1, 2, 4 and 8-lane search.</p></div>
-      <span class="record-type">KRN-BENCH-001 ↗</span>
-    </a>
-    <a class="record-row reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/KRN-EXT-001_RESULT.md">
-      <span class="record-date">SEP 2026</span>
-      <div><h3>External tiny-NPU workload enters the clean-room path</h3><p>A pinned third-party model is carried through the same L5 implementation workflow.</p></div>
-      <span class="record-type">KRN-EXT-001 ↗</span>
-    </a>
-    <a class="record-row next reveal" href="https://github.com/sushxnthd/kernellum/issues/9">
-      <span class="record-date">NEXT</span>
-      <div><h3>Put the reference bitstream on physical hardware</h3><p>Measure on-board correctness, latency, power and energy without promoting modeled values into physical claims.</p></div>
-      <span class="record-type">HARDWARE ACCESS ↗</span>
+    <a href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md" class="evidence-stat reveal">
+      <span>SELECTED POST-ROUTE FMAX</span>
+      <strong>29.64<sup>MHz</sup></strong>
+      <em>KRN-PNR-001 ↗</em>
     </a>
   </div>
 </section>
 
-<section class="manifesto panel-bone" id="about">
-  <div class="manifesto-grid">
-    <div class="section-code reveal">006 / OPERATING PRINCIPLE</div>
-    <div>
-      <p class="manifesto-line reveal">A compiler should not merely write HDL.</p>
-      <p class="manifesto-line reveal">It should <em>reason through constraints</em>, expose its decisions and survive contact with implementation.</p>
-    </div>
-  </div>
-  <div class="manifesto-meta reveal">
-    <div><span>RESEARCH DIRECTION</span><p>Automated hardware-software co-design</p></div>
-    <div><span>OUTPUT</span><p>Inspectable accelerator RTL and evidence</p></div>
-    <div><span>FOUNDER & RESEARCH LEAD</span><p>Sushanth Dasari</p></div>
+<section class="boundary scene-zone" data-scene="5">
+  <div class="boundary-word reveal">BOUNDARY</div>
+  <div class="boundary-copy">
+    <p class="micro reveal">WHAT IS TRUE TODAY</p>
+    <h2 class="reveal">Model verified.<br>RTL verified.<br>Place and route complete.</h2>
+    <h2 class="reveal boundary-pending">Physical board measurement pending.</h2>
+    <p class="reveal">Kernellum does not promote modeled latency into physical latency, or synthesis into silicon evidence. The blank cells stay blank until hardware earns them.</p>
   </div>
 </section>
 
-<section class="collaborate panel-dark" id="collaborate">
-  <div class="collab-mark reveal">
-    <img src="kernellum-mark.svg?v=20260919d" alt="">
+<section class="record scene-zone" data-scene="6">
+  <div class="record-head">
+    <p class="micro reveal">PUBLIC RESEARCH RECORD / SEP 2026</p>
+    <h2 class="reveal">Build in public.<br>Leave the machine readable.</h2>
   </div>
-  <div class="collab-copy reveal">
-    <div class="section-code light">007 / COLLABORATE</div>
-    <h2>Bring a workload.<br>Bring a constraint.</h2>
-    <p>Kernellum is looking for design partners, hardware access and technically serious conversations around model-to-hardware compilation.</p>
-    <div class="collab-actions">
-      <a class="big-link" href="https://github.com/sushxnthd/kernellum/issues/new/choose">Start a conversation <span>↗</span></a>
-      <a class="text-link" href="https://github.com/sushxnthd/kernellum/blob/main/DESIGN_PARTNERS.md">Design partner program ↗</a>
-      <a class="text-link" href="https://github.com/sushxnthd/kernellum/blob/main/INVESTOR_BRIEF.md">Investor brief ↗</a>
-    </div>
+
+  <div class="record-lines">
+    <a class="record-line reveal" href="TR-001.pdf"><span>001</span><b>Constraint-Driven Generation of a Quantized Neural Accelerator</b><i>TR-001 ↗</i></a>
+    <a class="record-line reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/ULX3S_PNR_SWEEP_2026-09-18.md"><span>002</span><b>Physical timing enters architecture selection</b><i>KRN-PNR-001 ↗</i></a>
+    <a class="record-line reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/KRN-BENCH-001_RESULT.md"><span>003</span><b>Physical feedback across three workload shapes</b><i>KRN-BENCH-001 ↗</i></a>
+    <a class="record-line reveal" href="https://github.com/sushxnthd/kernellum/blob/main/research/KRN-EXT-001_RESULT.md"><span>004</span><b>External tiny-NPU workload enters the clean-room path</b><i>KRN-EXT-001 ↗</i></a>
+    <a class="record-line reveal next" href="https://github.com/sushxnthd/kernellum/issues/9"><span>005</span><b>Load the reference bitstream onto physical hardware</b><i>NEXT ↗</i></a>
   </div>
+</section>
+
+<section class="contact scene-zone" id="contact" data-scene="7">
+  <img class="contact-mark reveal" src="kernellum-mark.svg?v=20260919e" alt="">
+  <p class="micro reveal">DESIGN PARTNERS / HARDWARE ACCESS / RESEARCH</p>
+  <h2 class="reveal">Bring a workload.<br>Bring a constraint.</h2>
+  <div class="contact-links reveal">
+    <a href="https://github.com/sushxnthd/kernellum/issues/new/choose">START A CONVERSATION ↗</a>
+    <a href="https://github.com/sushxnthd/kernellum/blob/main/DESIGN_PARTNERS.md">DESIGN PARTNER PROGRAM ↗</a>
+    <a href="https://github.com/sushxnthd/kernellum">GITHUB ↗</a>
+  </div>
+  <footer>
+    <span>© 2026 KERNELLUM RESEARCH</span>
+    <span>FOUNDER & RESEARCH LEAD / SUSHANTH DASARI</span>
+  </footer>
 </section>
 </main>
-
-<footer class="footer panel-dark">
-  <div><span>© 2026 KERNELLUM RESEARCH</span><span>AI-NATIVE MODEL-TO-HARDWARE SYSTEMS</span></div>
-  <div><a href="#top">Back to top ↑</a><a href="https://github.com/sushxnthd/kernellum">Source ↗</a></div>
-</footer>
 </body>
 </html>
