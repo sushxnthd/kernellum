@@ -53,6 +53,23 @@ Run with an OSS CAD Suite environment:
 
 See `docs/K05_PLAN.md` for the predeclared validation thresholds. No K0.5 synthesis result should be treated as FPGA-measured latency or power.
 
+## K0.5 synthesis result
+
+K0.5 passed its predeclared synthesis-validation gate on 2026-09-19 using Yosys 0.33 and Icarus Verilog 12.0.
+
+Across nine stratified INT8 MAC-array/scratchpad configurations:
+
+- DSP rank Spearman: **1.000**
+- BRAM rank Spearman: **1.000**
+- mean BRAM relative error: **11.21%**
+- generic multiplier preservation: **100%**
+- mapped DSP / predicted DSP ratio: **1.000**
+- functional RTL simulation: **PASS**
+
+The BRAM result exposed a systematic target-specific granularity effect: 64/128/256 KB 32-bit scratchpads synthesized to 32/64/128 BRAM18-equivalents versus K0's idealized 29/57/114. K1 should use the calibrated Xilinx-7 memory model rather than hide that bias.
+
+See `docs/K05_REPORT.md` and the machine-readable files in `results/`.
+
 ## Repository reset
 
 This repository intentionally replaces Kernellum's previous product/company prototype. The current project is research-first: evidence before branding.
