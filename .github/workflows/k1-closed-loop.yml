@@ -1,0 +1,55 @@
+name: K1 closed-loop physical-design search
+
+on:
+  pull_request:
+    paths:
+      - 'kernellum/k1/closed_loop.py'
+      - 'scripts/run_k1_closed_loop.py'
+      - 'tests/test_k1_closed_loop.py'
+      - '.github/workflows/k1-closed-loop.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'kernellum/k1/closed_loop.py'
+      - 'scripts/run_k1_closed_loop.py'
+      - 'tests/test_k1_closed_loop.py'
+      - '.github/workflows/k1-closed-loop.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  closed-loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install open-source ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys iverilog nextpnr-ecp5 fpga-trellis
+      - name: Unit tests
+        run: |
+          python -m pip install pytest
+          PYTHONPATH=. python -m pytest -q tests/test_k1_closed_loop.py tests/test_k1.py
+      - name: Execute closed-loop physical-design experiment
+        run: PYTHONPATH=. python scripts/run_k1_closed_loop.py
+      - name: Summary
+        run: |
+          echo '## K1 closed-loop search' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+          cat results/k1_closed_loop_validation.json >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-k1-closed-loop
+          path: |
+            results/k1_closed_loop_proposals.json
+            results/k1_closed_loop_routes.csv
+            results/k1_closed_loop_validation.json
+            build/k1_closed_loop/**/*
