@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "kernellum-k0"
-version = "0.1.0"
-description = "Kernellum K0: reproducible workload-aware accelerator design-space exploration"
+name = "kernellum-research"
+version = "0.2.0"
+description = "Kernellum: workload-specific accelerator search with physical-design feedback"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24", "pandas>=2.0", "matplotlib>=3.7"]
