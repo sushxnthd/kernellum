@@ -140,7 +140,12 @@ def main() -> int:
     multiplier_preservation = sum(r["generic_mul_cells"] == r["rows"]*r["cols"] for r in rows) / len(rows)
     dsp_mapping_ratio = sum(min(1.0, r["synth_dsp"] / max(1, r["pred_dsp"])) for r in rows) / len(rows)
 
+    yosys_version = run(["yosys", "-V"]).stdout.strip()
+    iverilog_version = run(["iverilog", "-V"]).stdout.splitlines()[0].strip()
+
     gate = {
+        "yosys_version": yosys_version,
+        "iverilog_version": iverilog_version,
         "functional_simulation_required": True,
         "candidate_count": len(rows),
         "dsp_rank_spearman": dsp_rho,
