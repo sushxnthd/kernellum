@@ -3,11 +3,16 @@ name: K0.5 RTL and synthesis validation
 on:
   pull_request:
   push:
-    branches: [main]
+    branches:
+      - main
+      - k05-ci-validation
+    paths-ignore:
+      - 'results/k05_synthesis.csv'
+      - 'results/k05_validation.json'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -34,6 +39,16 @@ jobs:
         run: scripts/run_rtl_sim.sh
       - name: Stratified Xilinx-7 synthesis
         run: PYTHONPATH=. python scripts/synthesize_k05.py
+      - name: Persist synthesis evidence on validation branch
+        if: github.ref == 'refs/heads/k05-ci-validation'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/k05_synthesis.csv results/k05_validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record K0.5 synthesis evidence [skip ci]"
+            git push
+          fi
       - name: Upload synthesis evidence
         uses: actions/upload-artifact@v4
         with:
