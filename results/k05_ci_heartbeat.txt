@@ -1,3 +1,0 @@
-run_id=35452292332
-sha=e6207cd52f7280f2b24b6213248ba1a73f620be3
-event=issue_comment
