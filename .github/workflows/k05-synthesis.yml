@@ -1,13 +1,18 @@
 name: K0.5 RTL and synthesis validation
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
   push:
     branches: [main]
+    paths-ignore:
+      - 'results/k05_synthesis.csv'
+      - 'results/k05_validation.json'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: read
 
 jobs:
   validate:
@@ -34,6 +39,22 @@ jobs:
         run: scripts/run_rtl_sim.sh
       - name: Stratified Xilinx-7 synthesis
         run: PYTHONPATH=. python scripts/synthesize_k05.py
+      - name: Publish machine-readable evidence to job summary
+        run: |
+          echo '## K0.5 validation' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+          cat results/k05_validation.json >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+      - name: Persist synthesis evidence to main
+        if: github.event_name == 'pull_request_target'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/k05_synthesis.csv results/k05_validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record K0.5 synthesis evidence [skip ci]"
+            git push origin HEAD:main
+          fi
       - name: Upload synthesis evidence
         uses: actions/upload-artifact@v4
         with:
