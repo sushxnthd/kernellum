@@ -1,22 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f4f2ea"/>
-  <g stroke="#c9cbc1" opacity=".45"><path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/><path d="M200 0v630M400 0v630M600 0v630M800 0v630M1000 0v630"/></g>
-  <rect x="66" y="60" width="90" height="90" rx="16" fill="#102018"/>
-  <g fill="none" stroke="#f4f2ea" stroke-width="4" stroke-linecap="square"><path d="M82 83h10l14 17M82 105h19M82 127h10l14-17"/><path d="m116 100 14-17h10M120 105h20M116 110l14 17h10"/></g>
-  <path d="m111 93 12 12-12 12-12-12z" fill="#b8e068"/><path d="m111 99 6 6-6 6-6-6z" fill="#102018"/>
-  <text x="66" y="205" fill="#1d5b46" font-family="monospace" font-size="18" font-weight="700" letter-spacing="4">KERNELLUM RESEARCH</text>
-  <text x="66" y="305" fill="#151815" font-family="Georgia, serif" font-size="72" letter-spacing="-2">Models should shape</text>
-  <text x="66" y="384" fill="#151815" font-family="Georgia, serif" font-size="72" letter-spacing="-2">the machines that run them.</text>
-  <line x1="66" y1="450" x2="1134" y2="450" stroke="#151815"/>
-  <text x="66" y="492" fill="#626862" font-family="Arial, Helvetica, sans-serif" font-size="23">AI-native model-to-hardware systems</text>
-  <text x="66" y="558" fill="#1d5b46" font-family="monospace" font-size="16" letter-spacing="2">MODEL  /  IR  /  SEARCH  /  RTL  /  PHYSICAL EVIDENCE</text>
-  <g transform="translate(880 110)">
-    <rect width="254" height="244" fill="#102018"/>
-    <text x="22" y="32" fill="#b8e068" font-family="monospace" font-size="11" letter-spacing="2">CURRENT THRESHOLD</text>
-    <text x="22" y="100" fill="#f4f2ea" font-family="Georgia, serif" font-size="54">2 lanes</text>
-    <text x="22" y="132" fill="#aebbb2" font-family="Arial, Helvetica, sans-serif" font-size="17">ULX3S-85F selected design</text>
-    <line x1="22" y1="164" x2="232" y2="164" stroke="#557062"/>
-    <text x="22" y="198" fill="#f4f2ea" font-family="Georgia, serif" font-size="35">29.64 MHz</text>
-    <text x="22" y="224" fill="#aebbb2" font-family="Arial, Helvetica, sans-serif" font-size="15">post-route Fmax</text>
+  <defs>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0V72" fill="none" stroke="#1d241e" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#070907"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="68" y="82" fill="#b9f35d" font-family="monospace" font-size="16" font-weight="700" letter-spacing="4">KERNELLUM RESEARCH / KRN-001</text>
+  <text x="64" y="222" fill="#f2f1eb" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MODELS SHOULD</text>
+  <text x="64" y="310" fill="#f2f1eb" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">SHAPE THE</text>
+  <text x="64" y="398" fill="#b9f35d" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MACHINES.</text>
+  <line x1="68" y1="472" x2="736" y2="472" stroke="#485149"/>
+  <text x="68" y="514" fill="#919b92" font-family="Arial, sans-serif" font-size="20">AI-native model-to-hardware systems</text>
+  <text x="68" y="565" fill="#6f7970" font-family="monospace" font-size="13" letter-spacing="2">MODEL / IR / SEARCH / RTL / PHYSICAL EVIDENCE</text>
+  <g transform="translate(820 112)">
+    <rect width="310" height="310" fill="#0e120f" stroke="#3b443c"/>
+    <g fill="#111612" stroke="#273028">
+      <rect x="18" y="18" width="38" height="38"/><rect x="65" y="18" width="38" height="38"/><rect x="112" y="18" width="38" height="38"/><rect x="159" y="18" width="38" height="38"/><rect x="206" y="18" width="38" height="38"/><rect x="253" y="18" width="38" height="38"/>
+      <rect x="18" y="65" width="38" height="38"/><rect x="65" y="65" width="38" height="38"/><rect x="112" y="65" width="38" height="38"/><rect x="159" y="65" width="38" height="38"/><rect x="206" y="65" width="38" height="38"/><rect x="253" y="65" width="38" height="38"/>
+      <rect x="18" y="112" width="38" height="38"/><rect x="65" y="112" width="38" height="38"/><rect x="112" y="112" width="38" height="38"/><rect x="159" y="112" width="38" height="38"/><rect x="206" y="112" width="38" height="38"/><rect x="253" y="112" width="38" height="38"/>
+      <rect x="18" y="159" width="38" height="38"/><rect x="65" y="159" width="38" height="38"/><rect x="112" y="159" width="38" height="38"/><rect x="159" y="159" width="38" height="38"/><rect x="206" y="159" width="38" height="38"/><rect x="253" y="159" width="38" height="38"/>
+      <rect x="18" y="206" width="38" height="38"/><rect x="65" y="206" width="38" height="38"/><rect x="112" y="206" width="38" height="38"/><rect x="159" y="206" width="38" height="38"/><rect x="206" y="206" width="38" height="38"/><rect x="253" y="206" width="38" height="38"/>
+      <rect x="18" y="253" width="38" height="38"/><rect x="65" y="253" width="38" height="38"/><rect x="112" y="253" width="38" height="38"/><rect x="159" y="253" width="38" height="38"/><rect x="206" y="253" width="38" height="38"/><rect x="253" y="253" width="38" height="38"/>
+    </g>
+    <g fill="none" stroke="#b9f35d" stroke-width="4">
+      <path d="M37 84h47l47 47M37 131h94M37 178h47l47-47M178 131h94M178 131l47-47h47M178 131l47 47h47"/>
+    </g>
+    <path d="m155 105 26 26-26 26-26-26z" fill="#b9f35d"/>
+    <path d="m155 118 13 13-13 13-13-13z" fill="#070907"/>
+    <g fill="#79d8c1"><rect x="33" y="80" width="8" height="8"/><rect x="33" y="127" width="8" height="8"/><rect x="33" y="174" width="8" height="8"/><rect x="268" y="80" width="8" height="8"/><rect x="268" y="127" width="8" height="8"/><rect x="268" y="174" width="8" height="8"/></g>
   </g>
+  <text x="820" y="464" fill="#b9f35d" font-family="monospace" font-size="13" letter-spacing="3">KERNEL MATRIX / 01</text>
 </svg>

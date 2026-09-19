@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Kernellum Research is building an AI-native model-to-hardware compiler for workload-specific accelerator architectures, RTL and verification evidence.">
-<meta name="theme-color" content="#f4f2ea">
-<link rel="icon" href="kernellum-mark.svg" type="image/svg+xml">
+<meta name="theme-color" content="#070907">
+<link rel="icon" href="kernellum-mark.svg?v=20260919a" type="image/svg+xml">
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:site_name" content="Kernellum Research"><meta property="og:type" content="website">
 <meta property="og:title" content="Kernellum Research | AI-native model-to-hardware compiler">
@@ -13,12 +13,12 @@
 <meta property="og:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sushxnthd.github.io/kernellum/og-card.svg">
 <title>Kernellum Research | AI-native model-to-hardware compiler</title>
-<link rel="stylesheet" href="styles.css?v=20260918b"><script src="script.js?v=20260918b" defer></script>
+<link rel="stylesheet" href="styles.css?v=20260919a"><script src="script.js?v=20260919a" defer></script>
 </head>
 <body>
 <div class="wrap">
 <nav class="nav">
-  <a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg" alt=""><span>KERNELLUM</span></a>
+  <a class="brand" href="index.html" aria-label="Kernellum home"><img class="brand-logo" src="kernellum-mark.svg?v=20260919a" alt=""><span>KERNELLUM</span></a>
   <div class="labstatus">Research program | 2026</div>
   <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
   <div class="navlinks" id="navLinks"><a href="research.html">Research</a><a href="compiler.html">Compiler</a><a href="evidence.html">Evidence</a><a href="publications.html">Reports</a><a href="about.html">About</a><a href="partner.html">Collaborate</a><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></div>
@@ -32,12 +32,21 @@
       <p class="lede">Kernellum Compiler turns supported neural workloads and deployment constraints into hardware IR, searched accelerator architectures, generated SystemVerilog and reproducible evidence.</p>
       <div class="cta"><a class="btn primary" href="compiler.html">View the compiler →</a><a class="btn" href="TR-001.pdf">Read TR-001</a><a class="btn" href="evidence.html">Inspect the evidence</a></div>
     </div>
-    <aside class="cover-aside" data-reveal>
-      <span class="label">Current research threshold</span>
-      <p>ULX3S-85F reference implementation</p>
-      <strong>2 MAC lanes</strong>
-      <p>Selected after a physical-feedback place-and-route sweep. The design closes the 25 MHz target at 29.64 MHz. Physical board measurements are still pending.</p>
-      <a class="btn" href="hardware.html">Hardware status →</a>
+    <aside class="kernel-stage" id="kernelStage" data-reveal aria-label="The Kernellum Kernel Matrix, a modular model-to-hardware glyph system">
+      <div class="stage-coordinate top">KRN / COMPUTE FIELD / 01</div>
+      <div class="matrix-shell" aria-hidden="true">
+        <div class="glyph-matrix">
+          <span class="glyph g-l" style="--i:1"></span><span class="glyph g-h" style="--i:2"></span><span class="glyph g-c active" style="--i:3"></span><span class="glyph g-h active" style="--i:4"></span><span class="glyph g-c" style="--i:5"></span><span class="glyph g-l" style="--i:6"></span>
+          <span class="glyph g-v active" style="--i:7"></span><span class="glyph g-c" style="--i:8"></span><span class="glyph g-l active" style="--i:9"></span><span class="glyph g-h" style="--i:10"></span><span class="glyph g-c" style="--i:11"></span><span class="glyph g-v" style="--i:12"></span>
+          <span class="glyph g-c" style="--i:13"></span><span class="glyph g-h active" style="--i:14"></span><span class="glyph g-k active" style="--i:15"></span><span class="glyph g-h active" style="--i:16"></span><span class="glyph g-x cyan active" style="--i:17"></span><span class="glyph g-c" style="--i:18"></span>
+          <span class="glyph g-m" style="--i:19"></span><span class="glyph g-v" style="--i:20"></span><span class="glyph g-x active" style="--i:21"></span><span class="glyph g-c cyan active" style="--i:22"></span><span class="glyph g-h active" style="--i:23"></span><span class="glyph g-l" style="--i:24"></span>
+          <span class="glyph g-c" style="--i:25"></span><span class="glyph g-l" style="--i:26"></span><span class="glyph g-h" style="--i:27"></span><span class="glyph g-c active" style="--i:28"></span><span class="glyph g-v active" style="--i:29"></span><span class="glyph g-c" style="--i:30"></span>
+          <span class="glyph g-l" style="--i:31"></span><span class="glyph g-h" style="--i:32"></span><span class="glyph g-m active" style="--i:33"></span><span class="glyph g-h active" style="--i:34"></span><span class="glyph g-check active" style="--i:35"></span><span class="glyph g-c" style="--i:36"></span>
+        </div>
+      </div>
+      <div class="stage-tag tag-a"><span>01</span><b>Model graph</b></div>
+      <div class="stage-tag tag-b"><span>03</span><b>Architecture search</b></div>
+      <div class="stage-tag tag-c"><span>05</span><b>Verified RTL</b></div>
     </aside>
   </div>
   <div class="cover-footer" data-reveal>
