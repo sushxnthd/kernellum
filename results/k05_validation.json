@@ -1,0 +1,13 @@
+{
+  "yosys_version": "Yosys 0.33 (git sha1 2584903a060)",
+  "iverilog_version": "Icarus Verilog version 12.0 (stable) ()",
+  "functional_simulation_required": true,
+  "candidate_count": 9,
+  "dsp_rank_spearman": 1.0,
+  "bram_rank_spearman": 1.0000000000000002,
+  "mean_bram_pct_error": 11.205216105397593,
+  "generic_multiplier_preservation_rate": 1.0,
+  "mean_dsp_mapping_ratio": 1.0,
+  "resource_model_gate_pass": true,
+  "interpretation": "PASS means the coarse K0 resource ranking survives this Xilinx-7 synthesis sample. It does not validate latency, power, placement, routing, or measured FPGA performance."
+}
