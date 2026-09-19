@@ -1,41 +1,35 @@
 name: K0.5 RTL and synthesis validation
 
 on:
-  issue_comment:
-    types: [created]
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+  pull_request:
+    paths:
+      - 'rtl/**'
+      - 'scripts/synthesize_k05.py'
+      - 'scripts/run_rtl_sim.sh'
+      - 'kernellum/**'
+      - 'tests/**'
+      - '.github/workflows/k05-synthesis.yml'
   push:
     branches: [main]
-    paths-ignore:
-      - 'results/k05_synthesis.csv'
-      - 'results/k05_validation.json'
-      - 'results/k05_ci_heartbeat.txt'
+    paths:
+      - 'rtl/**'
+      - 'scripts/synthesize_k05.py'
+      - 'scripts/run_rtl_sim.sh'
+      - 'kernellum/**'
+      - 'tests/**'
+      - '.github/workflows/k05-synthesis.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: read
+  contents: read
 
 jobs:
   validate:
-    if: github.event_name != 'issue_comment' || (github.event.issue.pull_request && contains(github.event.comment.body, '/k05-run'))
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
-      - name: Record CI heartbeat
-        if: github.event_name == 'issue_comment'
-        run: |
-          mkdir -p results
-          printf 'run_id=%s\nsha=%s\nevent=%s\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" "$GITHUB_EVENT_NAME" > results/k05_ci_heartbeat.txt
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/k05_ci_heartbeat.txt
-          git commit -m "Record K0.5 CI heartbeat [skip ci]"
-          git push origin HEAD:main
-
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install open-source HDL toolchain
@@ -60,16 +54,6 @@ jobs:
           echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
           cat results/k05_validation.json >> "$GITHUB_STEP_SUMMARY"
           echo '~~~' >> "$GITHUB_STEP_SUMMARY"
-      - name: Persist synthesis evidence to main
-        if: github.event_name == 'pull_request_target' || github.event_name == 'issue_comment'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/k05_synthesis.csv results/k05_validation.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Record K0.5 synthesis evidence [skip ci]"
-            git push origin HEAD:main
-          fi
       - name: Upload synthesis evidence
         uses: actions/upload-artifact@v4
         with:
