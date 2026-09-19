@@ -1,34 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
-      <path d="M72 0H0V72" fill="none" stroke="#1d241e" stroke-width="1"/>
-    </pattern>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke="#1d241e" stroke-width="1"/></pattern>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7ff8d"/><stop offset="1" stop-color="#79d8c1"/></linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="#070907"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="#070907"/><rect width="1200" height="630" fill="url(#grid)"/>
   <text x="68" y="82" fill="#b9f35d" font-family="monospace" font-size="16" font-weight="700" letter-spacing="4">KERNELLUM RESEARCH / KRN-001</text>
-  <text x="64" y="222" fill="#f2f1eb" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MODELS SHOULD</text>
-  <text x="64" y="310" fill="#f2f1eb" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">SHAPE THE</text>
-  <text x="64" y="398" fill="#b9f35d" font-family="Arial Narrow, Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MACHINES.</text>
+  <text x="64" y="222" fill="#f2f1eb" font-family="Arial Narrow,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MODELS SHOULD</text>
+  <text x="64" y="310" fill="#f2f1eb" font-family="Arial Narrow,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-5">SHAPE THE</text>
+  <text x="64" y="398" fill="#b9f35d" font-family="Arial Narrow,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-5">MACHINES.</text>
   <line x1="68" y1="472" x2="736" y2="472" stroke="#485149"/>
-  <text x="68" y="514" fill="#919b92" font-family="Arial, sans-serif" font-size="20">AI-native model-to-hardware systems</text>
+  <text x="68" y="514" fill="#919b92" font-family="Arial,sans-serif" font-size="20">AI-native model-to-hardware systems</text>
   <text x="68" y="565" fill="#6f7970" font-family="monospace" font-size="13" letter-spacing="2">MODEL / IR / SEARCH / RTL / PHYSICAL EVIDENCE</text>
-  <g transform="translate(820 112)">
-    <rect width="310" height="310" fill="#0e120f" stroke="#3b443c"/>
-    <g fill="#111612" stroke="#273028">
-      <rect x="18" y="18" width="38" height="38"/><rect x="65" y="18" width="38" height="38"/><rect x="112" y="18" width="38" height="38"/><rect x="159" y="18" width="38" height="38"/><rect x="206" y="18" width="38" height="38"/><rect x="253" y="18" width="38" height="38"/>
-      <rect x="18" y="65" width="38" height="38"/><rect x="65" y="65" width="38" height="38"/><rect x="112" y="65" width="38" height="38"/><rect x="159" y="65" width="38" height="38"/><rect x="206" y="65" width="38" height="38"/><rect x="253" y="65" width="38" height="38"/>
-      <rect x="18" y="112" width="38" height="38"/><rect x="65" y="112" width="38" height="38"/><rect x="112" y="112" width="38" height="38"/><rect x="159" y="112" width="38" height="38"/><rect x="206" y="112" width="38" height="38"/><rect x="253" y="112" width="38" height="38"/>
-      <rect x="18" y="159" width="38" height="38"/><rect x="65" y="159" width="38" height="38"/><rect x="112" y="159" width="38" height="38"/><rect x="159" y="159" width="38" height="38"/><rect x="206" y="159" width="38" height="38"/><rect x="253" y="159" width="38" height="38"/>
-      <rect x="18" y="206" width="38" height="38"/><rect x="65" y="206" width="38" height="38"/><rect x="112" y="206" width="38" height="38"/><rect x="159" y="206" width="38" height="38"/><rect x="206" y="206" width="38" height="38"/><rect x="253" y="206" width="38" height="38"/>
-      <rect x="18" y="253" width="38" height="38"/><rect x="65" y="253" width="38" height="38"/><rect x="112" y="253" width="38" height="38"/><rect x="159" y="253" width="38" height="38"/><rect x="206" y="253" width="38" height="38"/><rect x="253" y="253" width="38" height="38"/>
+  <g transform="translate(824 105)">
+    <rect width="304" height="304" rx="5" fill="#0a0d0a" stroke="#39433a" stroke-width="2"/>
+    <g fill="#0e130f" stroke="#303a32" stroke-width="1.5">
+      <rect x="17" y="17" width="58" height="58"/><rect x="88" y="17" width="58" height="58"/><rect x="159" y="17" width="58" height="58"/><rect x="230" y="17" width="57" height="58"/>
+      <rect x="17" y="88" width="58" height="58"/><rect x="88" y="88" width="58" height="58"/><rect x="159" y="88" width="58" height="58"/><rect x="230" y="88" width="57" height="58"/>
+      <rect x="17" y="159" width="58" height="58"/><rect x="88" y="159" width="58" height="58"/><rect x="159" y="159" width="58" height="58"/><rect x="230" y="159" width="57" height="58"/>
+      <rect x="17" y="230" width="58" height="57"/><rect x="88" y="230" width="58" height="57"/><rect x="159" y="230" width="58" height="57"/><rect x="230" y="230" width="57" height="57"/>
     </g>
-    <g fill="none" stroke="#b9f35d" stroke-width="4">
-      <path d="M37 84h47l47 47M37 131h94M37 178h47l47-47M178 131h94M178 131l47-47h47M178 131l47 47h47"/>
+    <g fill="none" stroke="#b9f35d" stroke-width="7" stroke-linecap="square">
+      <path d="M46 31v30M102 46h30M188 31v30M244 61l29-30M31 117h30M117 102v30M173 117h30M258 102v30M31 188h30M102 203l30-30M173 173l30 30M244 188h29M46 244v29M102 258h30M188 244v29M244 244l29 29"/>
     </g>
-    <path d="m155 105 26 26-26 26-26-26z" fill="#b9f35d"/>
-    <path d="m155 118 13 13-13 13-13-13z" fill="#070907"/>
-    <g fill="#79d8c1"><rect x="33" y="80" width="8" height="8"/><rect x="33" y="127" width="8" height="8"/><rect x="33" y="174" width="8" height="8"/><rect x="268" y="80" width="8" height="8"/><rect x="268" y="127" width="8" height="8"/><rect x="268" y="174" width="8" height="8"/></g>
+    <path d="M117 94l23 23-23 23-23-23zM188 165l23 23-23 23-23-23z" fill="url(#signal)"/>
+    <path d="M46 46v142h71l71-71h70M117 188l71 70h70" fill="none" stroke="url(#signal)" stroke-width="3" opacity=".64"/>
+    <circle cx="258" cy="117" r="14" fill="none" stroke="#79d8c1" stroke-width="5"/>
   </g>
-  <text x="820" y="464" fill="#b9f35d" font-family="monospace" font-size="13" letter-spacing="3">KERNEL MATRIX / 01</text>
+  <text x="824" y="465" fill="#b9f35d" font-family="monospace" font-size="13" letter-spacing="3">GLYPH MATRIX / COMPUTE FIELD</text>
 </svg>

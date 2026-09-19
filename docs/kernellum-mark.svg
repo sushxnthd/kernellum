@@ -1,28 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Kernellum Kernel Matrix mark</title>
-  <desc id="desc">A central hardware kernel routes model inputs through a modular computation matrix.</desc>
+  <title id="title">Kernellum glyph matrix</title>
+  <desc id="desc">Sixteen computational glyphs arranged into a modular matrix that suggests a letter K and a routed accelerator.</desc>
   <defs>
-    <pattern id="matrix" width="20" height="20" patternUnits="userSpaceOnUse">
-      <rect x="1" y="1" width="18" height="18" fill="#0b0f0c" stroke="#202821" stroke-width="1"/>
-    </pattern>
-    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7ff8d"/>
+      <stop offset="1" stop-color="#79d8c1"/>
+    </linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <rect width="128" height="128" fill="#070907"/>
-  <rect x="4" y="4" width="120" height="120" fill="url(#matrix)" stroke="#313a32" stroke-width="2"/>
-  <g fill="none" stroke="#b9f35d" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M22 34h17l18 20M22 64h30M22 94h17l18-20"/>
-    <path d="M71 54l18-20h17M76 64h30M71 74l18 20h17"/>
+  <rect width="128" height="128" rx="5" fill="#070907"/>
+  <g fill="#0d110e" stroke="#2d372f" stroke-width="1.5">
+    <rect x="7" y="7" width="25" height="25"/><rect x="37" y="7" width="25" height="25"/><rect x="67" y="7" width="25" height="25"/><rect x="97" y="7" width="24" height="25"/>
+    <rect x="7" y="37" width="25" height="25"/><rect x="37" y="37" width="25" height="25"/><rect x="67" y="37" width="25" height="25"/><rect x="97" y="37" width="24" height="25"/>
+    <rect x="7" y="67" width="25" height="25"/><rect x="37" y="67" width="25" height="25"/><rect x="67" y="67" width="25" height="25"/><rect x="97" y="67" width="24" height="25"/>
+    <rect x="7" y="97" width="25" height="24"/><rect x="37" y="97" width="25" height="24"/><rect x="67" y="97" width="25" height="24"/><rect x="97" y="97" width="24" height="24"/>
   </g>
-  <g fill="#79d8c1">
-    <rect x="18" y="30" width="8" height="8"/><rect x="18" y="60" width="8" height="8"/><rect x="18" y="90" width="8" height="8"/>
-    <rect x="102" y="30" width="8" height="8"/><rect x="102" y="60" width="8" height="8"/><rect x="102" y="90" width="8" height="8"/>
+  <g fill="none" stroke="#b9f35d" stroke-width="3" stroke-linecap="square">
+    <path d="M19.5 13v13M43 19.5h13M79.5 13v13M103 25l12-12"/>
+    <path d="M13 49.5h13M49.5 43v13M73 49.5h13M109.5 43v13"/>
+    <path d="M13 79.5h13M43 85l13-13M73 73l13 13M103 79.5h12"/>
+    <path d="M19.5 103v12M43 109.5h13M79.5 103v12M103 103l12 12"/>
   </g>
-  <path d="M64 45l19 19-19 19-19-19z" fill="#b9f35d" filter="url(#glow)"/>
-  <path d="M64 55l9 9-9 9-9-9z" fill="#070907"/>
-  <g fill="#4e5b50">
-    <rect x="31" y="19" width="5" height="5"/><rect x="92" y="48" width="5" height="5"/><rect x="31" y="104" width="5" height="5"/>
+  <g fill="#b9f35d">
+    <rect x="16.5" y="46.5" width="6" height="6"/><rect x="46.5" y="16.5" width="6" height="6"/>
+    <rect x="76.5" y="106.5" width="6" height="6"/><rect x="106.5" y="76.5" width="6" height="6"/>
   </g>
+  <g fill="none" stroke="#79d8c1" stroke-width="2.5">
+    <circle cx="109.5" cy="49.5" r="6"/><path d="M15 110l4 4 8-10"/>
+  </g>
+  <path d="M49.5 40l9.5 9.5-9.5 9.5-9.5-9.5z" fill="url(#signal)" filter="url(#glow)"/>
+  <path d="M79.5 70l9.5 9.5-9.5 9.5-9.5-9.5z" fill="url(#signal)" filter="url(#glow)"/>
+  <g fill="#070907"><rect x="47" y="47" width="5" height="5" transform="rotate(45 49.5 49.5)"/><rect x="77" y="77" width="5" height="5" transform="rotate(45 79.5 79.5)"/></g>
+  <path d="M19.5 19.5v60h30l30-30h30M49.5 79.5l30 30h30" fill="none" stroke="url(#signal)" stroke-width="1.5" opacity=".56"/>
 </svg>
