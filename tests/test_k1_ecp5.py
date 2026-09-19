@@ -20,3 +20,4 @@ def test_k1_ecp5_model_matches_routed_evidence():
         assert predicted_mult18x18d(arch) == dsp
         assert predicted_dp16kd(arch) == bram
 
+# CI-only validation marker
