@@ -42,6 +42,17 @@ The model uses fixed frequency and bandwidth, proxy DSP packing, approximate mem
 
 K0.5 must synthesize a stratified sample of candidates and quantify rank correlation and prediction error. K1 proceeds only if the analytical ranking remains useful after calibration.
 
+## K0.5 synthesis-validation gate
+
+K0.5 adds a parameterized signed MAC array, block-RAM scratchpad, self-checking matrix-multiplication simulation, and a stratified Xilinx-7 synthesis experiment. The goal is to test whether K0's coarse DSP/BRAM resource ranking survives real RTL synthesis before K1 adds a full tiled accelerator controller.
+
+Run with an OSS CAD Suite environment:
+
+    scripts/run_rtl_sim.sh
+    PYTHONPATH=. python scripts/synthesize_k05.py
+
+See `docs/K05_PLAN.md` for the predeclared validation thresholds. No K0.5 synthesis result should be treated as FPGA-measured latency or power.
+
 ## Repository reset
 
 This repository intentionally replaces Kernellum's previous product/company prototype. The current project is research-first: evidence before branding.
