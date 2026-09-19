@@ -210,9 +210,9 @@ module kernellum_k2_board_top #(
 
                             CMD_INFO: begin
                                 response[0] <= ACK;
-                                response[1] <= ROWS[7:0];
-                                response[2] <= COLS[7:0];
-                                response[3] <= K_TILE[7:0];
+                                response[1] <= ROWS;
+                                response[2] <= COLS;
+                                response[3] <= K_TILE;
                                 response[4] <= 8'd12;
                                 response_len <= 5;
                                 response_pos <= 0;
@@ -291,10 +291,10 @@ module kernellum_k2_board_top #(
                         cell_col <= rx_byte;
                         if (cell_row < ROWS && rx_byte < COLS) begin
                             response[0] <= ACK;
-                            response[1] <= read_acc_cell(cell_row, rx_byte)[7:0];
-                            response[2] <= read_acc_cell(cell_row, rx_byte)[15:8];
-                            response[3] <= read_acc_cell(cell_row, rx_byte)[23:16];
-                            response[4] <= read_acc_cell(cell_row, rx_byte)[31:24];
+                            response[1] <= read_acc_cell(cell_row, rx_byte);
+                            response[2] <= read_acc_cell(cell_row, rx_byte) >> 8;
+                            response[3] <= read_acc_cell(cell_row, rx_byte) >> 16;
+                            response[4] <= read_acc_cell(cell_row, rx_byte) >> 24;
                             response_len <= 5;
                             response_pos <= 0;
                             response_active <= 1;
