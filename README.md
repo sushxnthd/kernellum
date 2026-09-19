@@ -68,6 +68,24 @@ See:
 - `results/k1_closed_loop_routes.csv`
 - `results/k1_closed_loop_validation.json`
 
+## K2 board-ready
+
+K2 is the current hardware-validation stage.
+
+The repository now includes:
+
+- official ECP5 Evaluation Board pin constraints;
+- 12 MHz board-clock bring-up;
+- synthesizable 115200-baud UART transport;
+- a hardware accelerator busy-cycle counter;
+- host-side randomized signed-INT8 GEMM verification;
+- three frozen board variants;
+- automated Yosys + nextpnr + ecppack bitstream generation.
+
+**No K2 physical measurement is claimed yet.** K2 becomes physically validated only after the generated bitstreams run on the real board and the preregistered 100-trial-per-architecture gate passes.
+
+See `docs/K2_PLAN.md`, `docs/K2_BOARD_SETUP.md`, and `docs/EXPERIMENT_LEDGER.md`.
+
 ## Evidence ladder
 
 ### K0
