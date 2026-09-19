@@ -93,6 +93,8 @@ module kernellum_gemm_engine #(
         end
     end
 
+    localparam integer DUMMY_SCRATCH_ADDR_W = 8;
+
     kernellum_mac_array #(
         .ROWS(ROWS),
         .COLS(COLS),
@@ -109,7 +111,7 @@ module kernellum_gemm_engine #(
         .b_vec(b_vec),
         .acc_flat(acc_flat),
         .scratch_we(1'b0),
-        .scratch_addr({u_mac_array.SCRATCH_ADDR_W{1'b0}}),
+        .scratch_addr({DUMMY_SCRATCH_ADDR_W{1'b0}}),
         .scratch_wdata(32'b0),
         .scratch_rdata()
     );
