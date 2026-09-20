@@ -10,6 +10,7 @@ class K1Architecture:
     rows: int
     cols: int
     k_tile: int
+    transport: str = "broadcast"
 
     @property
     def pe_count(self) -> int:
@@ -38,7 +39,10 @@ def predicted_cycles(m: int, n: int, k: int, arch: K1Architecture) -> int:
     m_tiles = ceil(m / arch.rows)
     n_tiles = ceil(n / arch.cols)
     k_chunks = ceil(k / arch.k_tile)
-    cycles_per_output_tile = 2 * k + 3 * k_chunks + 2
+    if arch.transport not in ("broadcast", "local"):
+        raise ValueError("transport must be 'broadcast' or 'local'")
+    drain_per_chunk = arch.rows + arch.cols - 1 if arch.transport == "local" else 0
+    cycles_per_output_tile = 2 * k + (3 + drain_per_chunk) * k_chunks + 2
     return m_tiles * n_tiles * cycles_per_output_tile
 
 

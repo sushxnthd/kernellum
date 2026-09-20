@@ -4,6 +4,7 @@ module kernellum_k1_pnr_top #(
     parameter integer ROWS = 4,
     parameter integer COLS = 4,
     parameter integer K_TILE = 32,
+    parameter integer TRANSPORT = 0,
     parameter integer PRECISION = 8,
     parameter integer ACC_WIDTH = 32,
     parameter integer K_ADDR_W = (K_TILE <= 1) ? 1 : $clog2(K_TILE),
@@ -103,7 +104,8 @@ module kernellum_k1_pnr_top #(
         .COLS(COLS),
         .PRECISION(PRECISION),
         .ACC_WIDTH(ACC_WIDTH),
-        .K_TILE(K_TILE)
+        .K_TILE(K_TILE),
+        .TRANSPORT(TRANSPORT)
     ) u_engine (
         .clk(clk),
         .rst(rst),
