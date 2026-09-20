@@ -1,0 +1,55 @@
+{
+  "status": "board-ready",
+  "physical_measurement": false,
+  "board": "LFE5UM5G-85F-EVN",
+  "fpga": "LFE5UM5G-85F-8BG381",
+  "clock_mhz": 12,
+  "uart_baud": 115200,
+  "workflow_run_id": 35457193036,
+  "source_commit": "9335e72333a10ce588b315d6140fa520509174ce",
+  "uart_simulation": "PASS",
+  "variants": [
+    {
+      "name": "baseline_r08_c08_k32",
+      "rows": 8,
+      "cols": 8,
+      "k_tile": 32,
+      "dsp_mult18x18d": 64,
+      "bram_dp16kd": 4,
+      "lut4": 8928,
+      "trellis_ff": 2551,
+      "post_route_fmax_mhz": 48.98,
+      "meets_12mhz": true,
+      "bitstream_sha256": "e8c59c3f6772d076d783c271275089a28f077dc5d2d513edb6de691196966fbf",
+      "bitstream_size_bytes": 455852
+    },
+    {
+      "name": "active_r10_c12_k32",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 32,
+      "dsp_mult18x18d": 120,
+      "bram_dp16kd": 6,
+      "lut4": 11898,
+      "trellis_ff": 4439,
+      "post_route_fmax_mhz": 39.93,
+      "meets_12mhz": true,
+      "bitstream_sha256": "9a8609df56802cc2cb4adf3e1e5f92b1f6c27d3709393a7a9061c51ac1cbe05c",
+      "bitstream_size_bytes": 567650
+    },
+    {
+      "name": "active_r08_c14_k64",
+      "rows": 8,
+      "cols": 14,
+      "k_tile": 64,
+      "dsp_mult18x18d": 112,
+      "bram_dp16kd": 6,
+      "lut4": 15055,
+      "trellis_ff": 4188,
+      "post_route_fmax_mhz": 41.72,
+      "meets_12mhz": true,
+      "bitstream_sha256": "807ceec7f918bd254b3882f87a103bc816e267d765720a6e0950eecea0e8a00d",
+      "bitstream_size_bytes": 567633
+    }
+  ]
+}
