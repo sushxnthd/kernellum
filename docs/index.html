@@ -3,267 +3,509 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0a" />
-  <meta name="description" content="Kernellum — computer architecture research. Search the machine." />
+  <meta name="theme-color" content="#0a0a09" />
+  <meta name="description" content="Kernellum is computer architecture research focused on discovering workload-specific machines." />
+  <meta property="og:title" content="Kernellum / Architectures, discovered." />
+  <meta property="og:description" content="Search the machine." />
+  <meta property="og:type" content="website" />
   <title>Kernellum / Architectures, discovered.</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+:root{
+  --ink:#0a0a09;
+  --paper:#f1efe8;
+  --paper-2:#e4e0d6;
+  --oxide:#ff4a2c;
+  --muted:#8f8a80;
+  --line:rgba(10,10,9,.15);
+  --line-dark:rgba(241,239,232,.16);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink);scrollbar-width:thin;scrollbar-color:var(--oxide) var(--ink)}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif;overflow-x:hidden;cursor:none}
+a{color:inherit;text-decoration:none}button{font:inherit}.mono{font-family:"Courier New",Courier,monospace;letter-spacing:.09em}
+::selection{background:var(--oxide);color:#fff}
+.grain{position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.055;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+.cursor{position:fixed;width:34px;height:34px;left:0;top:0;z-index:1100;pointer-events:none;mix-blend-mode:difference;will-change:transform}.cursor i{position:absolute;inset:0;border:1px solid rgba(255,255,255,.72);border-radius:50%;transition:transform .35s var(--ease),background .35s,border-color .35s}.cursor b{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;left:15px;top:15px}.cursor.hot i{transform:scale(1.8);background:rgba(255,255,255,.08);border-color:#fff}
+
+.boot{position:fixed;inset:0;z-index:2000;background:var(--ink);display:grid;place-content:center;justify-items:center;transition:clip-path 1s var(--ease);clip-path:inset(0 0 0 0)}.boot.done{clip-path:inset(0 0 100% 0);pointer-events:none}.boot-mark{width:78px;color:var(--paper);margin-bottom:28px}.boot-mark svg{width:100%;display:block;animation:bootFloat 1.6s ease-in-out infinite alternate}.boot-line{width:190px;height:1px;background:rgba(255,255,255,.16);overflow:hidden}.boot-line span{display:block;height:100%;width:45%;background:var(--oxide);animation:bootLine 1.1s var(--ease) infinite}.boot p{font-size:8px;margin:14px 0 0;opacity:.48}@keyframes bootLine{from{transform:translateX(-120%)}to{transform:translateX(250%)}}@keyframes bootFloat{to{transform:translateY(-4px)}}
+
+.nav{position:fixed;z-index:900;top:0;left:0;right:0;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:background .35s,border-color .35s,color .35s;mix-blend-mode:difference}.nav.scrolled{border-color:rgba(255,255,255,.18);backdrop-filter:blur(15px)}.nav-brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.24em}.nav-brand svg{width:28px;height:28px}.nav-links{display:flex;gap:30px;font-size:10px;text-transform:uppercase;letter-spacing:.15em}.nav-links a{opacity:.52;transition:opacity .2s}.nav-links a:hover{opacity:1}.nav-state{font-size:9px;display:flex;align-items:center;gap:8px;opacity:.72}.nav-state i{width:6px;height:6px;border-radius:50%;background:var(--oxide);box-shadow:0 0 0 5px rgba(255,74,44,.12)}
+
+.journey{height:500vh;background:var(--ink);position:relative}.journey-sticky{position:sticky;top:0;height:100svh;min-height:680px;overflow:hidden;background:var(--ink)}#machineCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}.field-wash{position:absolute;inset:0;background:radial-gradient(circle at 56% 50%,transparent 0 12%,rgba(10,10,9,.08) 35%,rgba(10,10,9,.72) 78%,var(--ink) 100%),linear-gradient(180deg,rgba(10,10,9,.15),rgba(10,10,9,.35));pointer-events:none}.field-grid{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at center,#000 0 28%,transparent 78%)}.field-meta{position:absolute;z-index:6;top:96px;font-size:8px;line-height:1.9;opacity:.5}.field-meta span{display:block}.meta-left{left:28px}.meta-right{right:28px;text-align:right}.field-progress{position:absolute;z-index:7;right:28px;top:50%;width:1px;height:160px;background:rgba(255,255,255,.16);transform:translateY(-50%)}.field-progress i{display:block;width:100%;height:0;background:var(--oxide)}.scroll-note{position:absolute;z-index:7;bottom:24px;left:50%;transform:translateX(-50%);font-size:8px;opacity:.48}.scroll-note span{color:var(--oxide);margin-left:10px}
+
+.stage{position:absolute;inset:0;z-index:5;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .6s var(--ease);transform:translateY(22px)}.stage.active{opacity:1;transform:translateY(0);pointer-events:auto}.stage-no{position:absolute;top:96px;left:50%;transform:translateX(-50%);font-size:8px;opacity:.4}.stage-kicker,.eyebrow{font-size:9px;letter-spacing:.21em}.stage-0{display:flex;align-items:center;justify-content:flex-end;flex-direction:column;text-align:center;padding-bottom:9vh}.stage-0 .stage-kicker{margin-bottom:16px;opacity:.62}.stage-0 h1{font-size:clamp(78px,15vw,240px);letter-spacing:-.09em;line-height:.66;margin:0;font-weight:900;transform:scaleX(.92)}.hero-tag{font-size:clamp(17px,2vw,30px);letter-spacing:.07em;margin:24px 0 0}.hero-tag span,.stage h2 span,.evidence h2 span,.footer h2 span{color:var(--oxide)}.enter{margin-top:28px;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;height:48px;padding-left:18px;gap:24px;font:8px/1 "Courier New",monospace;letter-spacing:.16em;background:rgba(255,255,255,.015)}.enter b{height:38px;width:38px;margin-right:5px;display:grid;place-items:center;background:var(--oxide);font-size:16px;font-weight:400;transition:transform .35s var(--ease)}.enter:hover b{transform:rotate(45deg)}
+
+.stage-copy{position:absolute;max-width:min(820px,74vw)}.stage-copy.left{left:6vw;top:52%;transform:translateY(-50%)}.stage-copy.right{right:6vw;top:49%;transform:translateY(-50%);text-align:right;max-width:min(680px,63vw)}.stage-copy.center{left:50%;top:51%;transform:translate(-50%,-50%);text-align:center;max-width:900px}.stage-copy.huge{left:5vw;bottom:8vh;max-width:none}.stage-copy .stage-kicker{opacity:.55;margin-bottom:22px}.stage h2{font-size:clamp(60px,8vw,132px);line-height:.82;letter-spacing:-.07em;margin:0;font-weight:900}.stage-2 h2{font-size:clamp(90px,15vw,230px);line-height:.63}.stage-copy p:not(.stage-kicker){font-size:clamp(16px,1.4vw,22px);line-height:1.45;max-width:600px;margin:28px 0 0;color:rgba(241,239,232,.62)}.stage-copy.right p:not(.stage-kicker){margin-left:auto}.stage-copy.center p:not(.stage-kicker){margin-left:auto;margin-right:auto}.search-readout{position:absolute;right:5vw;bottom:10vh;width:245px;border:1px solid var(--line-dark);background:rgba(10,10,9,.6);backdrop-filter:blur(10px)}.search-readout div{display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line-dark);font-size:8px}.search-readout div:last-child{border-bottom:0}.search-readout span{opacity:.45}.search-readout b{font-weight:400;color:var(--oxide)}.constraints span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,300px);font-weight:900;letter-spacing:-.08em;opacity:.055;white-space:nowrap}.constraints span:nth-child(1){transform:translate(-70%,-150%) rotate(-8deg)}.constraints span:nth-child(2){transform:translate(-5%,-95%) rotate(7deg)}.constraints span:nth-child(3){transform:translate(-66%,4%) rotate(2deg)}.constraints span:nth-child(4){transform:translate(-5%,35%) rotate(-4deg)}.constraints span:nth-child(5){transform:translate(-48%,110%) rotate(5deg)}.synth-panel{position:absolute;left:5vw;bottom:8vh;width:min(360px,36vw);border:1px solid var(--line-dark);background:rgba(10,10,9,.55);backdrop-filter:blur(12px)}.synth-panel div{display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line-dark);font-size:8px}.synth-panel div:last-child{border-bottom:0}.synth-panel span{opacity:.45}.synth-panel b{font-weight:400;color:var(--oxide)}
+
+.evidence{position:relative;background:var(--paper);color:var(--ink);padding:140px 5vw 120px}.section-index{position:absolute;top:34px;left:5vw;font-size:9px;opacity:.45}.evidence-head{max-width:1100px}.evidence-head .eyebrow{opacity:.56}.evidence h2{font-size:clamp(74px,11vw,170px);line-height:.76;letter-spacing:-.075em;margin:25px 0 38px;font-weight:900}.evidence-lede{max-width:660px;font-size:clamp(18px,1.6vw,25px);line-height:1.45;color:#57534c}.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:70px}.e-card{border:1px solid rgba(10,10,9,.35);background:rgba(255,255,255,.16);min-height:430px;position:relative;overflow:hidden}.card-top{height:44px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 15px;font-size:8px}.source-card{padding-bottom:28px;transition:background .3s,color .3s}.source-card:hover{background:var(--ink);color:var(--paper)}.source-lines{padding:30px 18px 4px}.source-lines i{display:block;height:1px;width:var(--w);background:currentColor;margin:12px 0;opacity:.3}.source-lines i.hot{background:var(--oxide);opacity:1}.source-card h3{font-size:clamp(48px,6vw,94px);letter-spacing:-.07em;line-height:.78;margin:52px 18px 20px}.source-card p{font-size:15px;line-height:1.5;margin:0 18px;max-width:360px;opacity:.58}.trace-card{display:flex;flex-direction:column}.trace{padding:22px 16px;flex:1}.trace p{display:grid;grid-template-columns:36px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);margin:0;font-size:9px}.trace b{font-weight:400;opacity:.42}.trace em{font-style:normal;color:#15744c}.trace em.oxide{color:var(--oxide)}.trace-foot{border-top:1px solid var(--line);padding:15px;font-size:8px;opacity:.48}.plot-card{grid-column:1/-1;min-height:560px}.plot-card svg{display:block;width:100%;height:480px;padding:24px 30px 0}.plot-card .grid path{fill:none;stroke:rgba(10,10,9,.12);stroke-width:1}.plot-card .frontier{fill:none;stroke:var(--oxide);stroke-width:2}.plot-card .axis{fill:#6e6961;font-size:9px}.plot-note{position:absolute;right:18px;bottom:16px;font-size:8px;opacity:.45}
+
+.principle{position:relative;background:var(--paper-2);color:var(--ink);padding:150px 5vw 190px;overflow:hidden}.principle-wrap{max-width:1250px}.principle .eyebrow{opacity:.56;margin-bottom:50px}.principle-line{border-top:1px solid rgba(10,10,9,.38);padding:25px 0 35px;display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:end}.principle-line:last-of-type{border-bottom:1px solid rgba(10,10,9,.38)}.principle-line span{font:9px "Courier New",monospace;letter-spacing:.12em;opacity:.5}.principle-line b{font-size:clamp(52px,7.4vw,118px);font-weight:900;letter-spacing:-.07em;line-height:.82}.principle-line.inverse b{color:var(--oxide)}.ticker{position:absolute;left:0;right:0;bottom:35px;overflow:hidden;border-top:1px solid rgba(10,10,9,.18);border-bottom:1px solid rgba(10,10,9,.18);padding:12px 0}.ticker div{white-space:nowrap;font:9px "Courier New",monospace;letter-spacing:.18em;animation:ticker 28s linear infinite;width:max-content}@keyframes ticker{to{transform:translateX(-50%)}}
+
+.artifact{position:relative;min-height:115svh;background:var(--ink);color:var(--paper);display:grid;place-items:center;overflow:hidden}.artifact-field{position:absolute;inset:0}.artifact-field canvas{width:100%;height:100%;display:block}.artifact:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 0 15%,rgba(10,10,9,.28) 48%,var(--ink) 90%)}.artifact-center{position:relative;z-index:2;text-align:center;width:min(1100px,90vw)}.artifact-mark{width:min(230px,24vw);color:var(--paper);filter:drop-shadow(0 22px 44px rgba(0,0,0,.55));margin-bottom:24px}.artifact-center p{font-size:8px;opacity:.48}.artifact-center h2{font-size:clamp(42px,6.2vw,100px);letter-spacing:-.06em;line-height:.88;margin:26px 0 0;font-weight:900}
+
+.footer{background:var(--ink);color:var(--paper);padding:90px 5vw 30px;border-top:1px solid var(--line-dark)}.footer-top{display:grid;grid-template-columns:1fr 200px;gap:60px;align-items:end}.footer-top>div>p{font-size:8px;opacity:.48}.footer h2{font-size:clamp(80px,14vw,220px);line-height:.68;letter-spacing:-.08em;margin:35px 0 0;font-weight:900}.footer-nav{display:flex;flex-direction:column;gap:14px;font-size:9px}.footer-nav span{opacity:.35;margin-bottom:8px}.footer-nav a{width:max-content;opacity:.7;transition:opacity .2s,color .2s}.footer-nav a:hover{opacity:1;color:var(--oxide)}.footer-bottom{margin-top:100px;padding-top:18px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;font-size:8px;opacity:.45}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.seen{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){body{cursor:auto}.cursor{display:none}.nav{padding:0 18px}.nav-links{display:none}.nav-state{display:none}.journey-sticky{min-height:640px}.field-meta{display:none}.field-progress{right:14px}.stage-no{top:88px}.stage-0 h1{font-size:18vw}.stage-copy.left,.stage-copy.right{left:22px;right:22px;top:auto;bottom:10vh;transform:none;text-align:left;max-width:none}.stage-copy.right p:not(.stage-kicker){margin-left:0}.stage-copy.huge{left:22px;bottom:11vh}.stage h2{font-size:14vw}.stage-2 h2{font-size:22vw}.search-readout{right:22px;top:110px;bottom:auto;width:200px}.synth-panel{left:22px;top:110px;bottom:auto;width:260px}.constraints span{font-size:25vw}.evidence,.principle{padding-left:22px;padding-right:22px}.section-index{left:22px}.evidence-grid{grid-template-columns:1fr}.plot-card{grid-column:auto}.plot-card svg{height:380px;padding:18px 12px 0}.principle-line{grid-template-columns:1fr;gap:14px}.footer{padding-left:22px;padding-right:22px}.footer-top{grid-template-columns:1fr;gap:70px}.footer-bottom{gap:12px;flex-wrap:wrap}}
+@media(max-width:560px){.nav-brand span{font-size:10px}.journey{height:460vh}.stage-0{padding-bottom:13vh}.stage-0 .stage-kicker{font-size:7px}.hero-tag{font-size:13px}.enter{margin-top:22px}.stage-no{left:22px;transform:none}.search-readout{display:none}.synth-panel{display:none}.stage-copy.center{left:22px;right:22px;width:auto;transform:translateY(-50%);text-align:left}.stage-copy.center p:not(.stage-kicker){margin-left:0}.evidence h2{font-size:17vw}.evidence-lede{font-size:17px}.e-card{min-height:360px}.source-card h3{font-size:17vw}.plot-card{min-height:430px}.plot-card svg{height:340px}.principle{padding-top:120px}.principle-line b{font-size:15vw}.artifact-center h2{font-size:12vw}.footer h2{font-size:20vw}.footer-bottom span:nth-child(2){display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.boot{display:none}*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+  </style>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><i></i><b></b></div>
 
-  <header class="topbar" id="topbar">
-    <a class="brand" href="#hero" aria-label="Kernellum home">
-      <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-mark">
+      <svg viewBox="0 0 256 256">
         <g transform="translate(10 8)">
           <g stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
             <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
           </g>
           <circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/>
           <circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/>
-          <circle class="brand-dot" cx="211" cy="116" r="17"/>
+          <circle cx="211" cy="116" r="17" fill="#ff4a2c"/>
+        </g>
+      </svg>
+    </div>
+    <div class="boot-line"><span></span></div>
+    <p class="mono">INITIALISING ARCHITECTURE FIELD</p>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#top" aria-label="Kernellum home">
+      <svg viewBox="0 0 256 256" aria-hidden="true">
+        <g transform="translate(10 8)">
+          <g stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
+          </g>
+          <circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/>
+          <circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/>
+          <circle cx="211" cy="116" r="17" fill="#ff4a2c"/>
         </g>
       </svg>
       <span>KERNELLUM</span>
     </a>
-    <nav aria-label="Primary">
-      <a href="#search">Search</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#field">Field</a>
       <a href="#evidence">Evidence</a>
-      <a href="#artifact">Artifact</a>
+      <a href="#principle">Principle</a>
       <a href="#contact">Contact</a>
     </nav>
-    <span class="status"><i></i> KRN/ONLINE</span>
+    <div class="nav-state mono"><i></i><span id="navState">FIELD / 00</span></div>
   </header>
 
-  <main>
-    <section class="hero dark-section" id="hero" data-chapter="00">
-      <canvas id="field" aria-hidden="true"></canvas>
-      <div class="hero-vignette" aria-hidden="true"></div>
-      <div class="hud top-left mono">
-        <span>KRN / SEARCH SPACE 000</span>
-        <span>OBJECTIVE / UNRESOLVED</span>
-      </div>
-      <div class="hud top-right mono">
-        <span>ARCHITECTURE FIELD</span>
-        <span><b id="candidateCount">0248</b> CANDIDATES</span>
-      </div>
-      <div class="hero-center">
-        <div class="hero-mark-wrap" id="heroMark">
-          <svg class="hero-mark" viewBox="0 0 256 256" aria-label="Kernellum symbol">
-            <defs>
-              <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
-                <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#000" flood-opacity=".45"/>
-              </filter>
-            </defs>
-            <g transform="translate(10 8)" filter="url(#softShadow)">
-              <g stroke="#f3f1ec" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
-              </g>
-              <circle cx="114" cy="116" r="27" fill="#f3f1ec"/>
-              <circle cx="74" cy="60" r="27" fill="#f3f1ec"/>
-              <circle cx="72" cy="174" r="27" fill="#f3f1ec"/>
-              <circle cx="158" cy="116" r="27" fill="#f3f1ec"/>
-              <circle class="objective-dot" cx="211" cy="116" r="17" fill="#ff4b2b"/>
-            </g>
-          </svg>
-        </div>
-        <p class="eyebrow mono">COMPUTER ARCHITECTURE RESEARCH</p>
-        <h1>KERNELLUM</h1>
-        <p class="hero-line">ARCHITECTURES, <em>DISCOVERED.</em></p>
-        <button class="enter" data-scroll="#workload"><span>ENTER THE SEARCH</span><b>↘</b></button>
-      </div>
-      <div class="scroll-cue mono">SCROLL TO ALTER STATE <span>↓</span></div>
-    </section>
+  <main id="top">
+    <section class="journey" id="field">
+      <div class="journey-sticky">
+        <canvas id="machineCanvas" aria-hidden="true"></canvas>
+        <div class="field-wash" aria-hidden="true"></div>
+        <div class="field-grid" aria-hidden="true"></div>
 
-    <section class="chapter light-section workload" id="workload" data-chapter="01">
-      <div class="chapter-index mono">01 / WORKLOAD</div>
-      <div class="chapter-grid">
-        <div class="copy">
-          <p class="kicker mono">INPUT / COMPUTATION GRAPH</p>
-          <h2>EVERY WORKLOAD<br><span>IMPLIES A MACHINE.</span></h2>
-          <p class="lede">A model is more than software. It is a description of movement, reuse, arithmetic, memory pressure, and constraints. Kernellum starts there.</p>
+        <div class="field-meta mono meta-left">
+          <span>KRN / ARCHITECTURE FIELD</span>
+          <span id="metaMode">STATE / ORIGIN</span>
         </div>
-        <div class="workload-graph instrument" aria-label="Stylized workload graph">
-          <div class="instrument-head mono"><span>WORKLOAD / KRN-W017</span><span>LIVE TRACE</span></div>
-          <svg viewBox="0 0 680 440" role="img" aria-label="Computation graph">
-            <g class="edges" stroke="currentColor" stroke-width="1.2" fill="none" opacity=".45">
-              <path d="M76 220 C145 220 140 95 215 95"/><path d="M76 220 C145 220 140 350 215 350"/>
-              <path d="M275 95 C355 95 330 178 410 178"/><path d="M275 350 C355 350 330 260 410 260"/>
-              <path d="M470 178 C520 178 520 220 580 220"/><path d="M470 260 C520 260 520 220 580 220"/>
-            </g>
-            <g class="nodes">
-              <g transform="translate(30 194)"><rect width="92" height="52" rx="2"/><text x="46" y="31">INPUT</text></g>
-              <g transform="translate(190 69)"><rect width="110" height="52" rx="2"/><text x="55" y="31">MATMUL</text></g>
-              <g transform="translate(190 324)"><rect width="110" height="52" rx="2"/><text x="55" y="31">ATTN</text></g>
-              <g transform="translate(385 152)"><rect width="110" height="52" rx="2"/><text x="55" y="31">BUFFER</text></g>
-              <g transform="translate(385 234)"><rect width="110" height="52" rx="2"/><text x="55" y="31">NORM</text></g>
-              <g class="hot" transform="translate(555 194)"><rect width="92" height="52" rx="2"/><text x="46" y="31">OUT</text></g>
-            </g>
-          </svg>
-          <div class="instrument-foot mono">
-            <span>TRACE / ILLUSTRATIVE</span><span>SHAPE / VARIABLE</span><span>BW / CONSTRAINT</span><span>SEQ / INPUT</span>
+        <div class="field-meta mono meta-right">
+          <span>PUBLIC BUILD / 2026.09</span>
+          <span id="metaReadout">CANDIDATES / UNRESOLVED</span>
+        </div>
+
+        <article class="stage stage-0 active" data-stage="0">
+          <div class="stage-kicker mono">COMPUTER ARCHITECTURE RESEARCH</div>
+          <h1>KERNELLUM</h1>
+          <p class="hero-tag">ARCHITECTURES, <span>DISCOVERED.</span></p>
+          <a class="enter magnetic" href="#evidence"><span>ENTER THE FIELD</span><b>↘</b></a>
+        </article>
+
+        <article class="stage stage-1" data-stage="1">
+          <div class="stage-no mono">01 / WORKLOAD</div>
+          <div class="stage-copy left">
+            <p class="stage-kicker mono">THE SPECIFICATION IS COMPUTATION</p>
+            <h2>EVERY WORKLOAD<br><span>IMPLIES A MACHINE.</span></h2>
+            <p>Kernellum starts with computation itself: data movement, reuse, arithmetic, memory pressure and hard deployment constraints.</p>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section class="chapter dark-section search" id="search" data-chapter="02">
-      <div class="chapter-index mono">02 / SEARCH</div>
-      <div class="search-copy">
-        <p class="kicker mono">ARCHITECTURE SPACE / NON-CONVEX / CONSTRAINED</p>
-        <h2>SEARCH<br>THE<br><span>MACHINE.</span></h2>
-      </div>
-      <div class="candidate-cloud" id="candidateCloud" aria-hidden="true"></div>
-      <aside class="candidate-inspector mono" id="inspector">
-        <div class="inspector-top"><span>CANDIDATE</span><b id="candidateId">KRN-1842</b></div>
-        <dl>
-          <div><dt>AREA</dt><dd id="mArea">0.61</dd></div>
-          <div><dt>ENERGY</dt><dd id="mEnergy">0.44</dd></div>
-          <div><dt>LATENCY</dt><dd id="mLatency">0.28</dd></div>
-          <div><dt>MEMORY</dt><dd id="mMemory">0.53</dd></div>
-        </dl>
-        <div class="status-line"><span>STATUS</span><strong id="mStatus">NON-DOMINATED</strong></div>
-      </aside>
-      <div class="search-caption mono">MOVE POINTER THROUGH FIELD / SELECT CANDIDATE</div>
-    </section>
-
-    <section class="chapter pressure" id="pressure" data-chapter="03">
-      <div class="pressure-grid" aria-hidden="true"></div>
-      <div class="chapter-index mono">03 / PRESSURE</div>
-      <div class="pressure-words" aria-hidden="true">
-        <span style="--i:0">POWER</span><span style="--i:1">AREA</span><span style="--i:2">MEMORY</span>
-        <span style="--i:3">TIMING</span><span style="--i:4">BANDWIDTH</span>
-      </div>
-      <div class="pressure-center">
-        <p class="kicker mono">CONSTRAINTS / APPLY SELECTION PRESSURE</p>
-        <h2>THE SPACE<br><span>COLLAPSES.</span></h2>
-        <div class="pareto-mini">
-          <span class="mono">CANDIDATE FIELD</span><i></i><span class="mono accent">PARETO SURVIVOR</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter synthesis light-section" id="synthesis" data-chapter="04">
-      <div class="chapter-index mono">04 / SYNTHESIS</div>
-      <div class="synthesis-layout">
-        <div class="chip-stage instrument">
-          <div class="instrument-head mono"><span>CONCEPT ARTIFACT / KRN-001</span><span>INTERFACE PROTOTYPE</span></div>
-          <svg class="floorplan" viewBox="0 0 700 540" role="img" aria-label="Stylized accelerator floorplan">
-            <rect class="die" x="40" y="40" width="620" height="460" rx="2"/>
-            <g class="blocks">
-              <rect x="78" y="78" width="165" height="125"/><rect x="260" y="78" width="198" height="125"/>
-              <rect x="475" y="78" width="147" height="125"/><rect x="78" y="220" width="245" height="110"/>
-              <rect x="340" y="220" width="282" height="110"/><rect x="78" y="347" width="120" height="115"/>
-              <rect x="215" y="347" width="205" height="115"/><rect x="437" y="347" width="185" height="115"/>
-            </g>
-            <g class="routes" fill="none" stroke-width="2">
-              <path d="M243 140H260M458 140H475M323 275H340M198 404H215M420 404H437"/>
-              <path d="M160 203V220M360 203V220M545 203V220M150 330V347M300 330V347M520 330V347"/>
-              <path d="M110 110H210V285H500V430H590"/>
-              <path d="M580 118H400V390H250"/>
-            </g>
-            <g class="labels mono">
-              <text x="96" y="104">PE ARRAY / 16×16</text><text x="278" y="104">SRAM / BANK 0–7</text>
-              <text x="493" y="104">DMA</text><text x="96" y="246">INTERCONNECT</text>
-              <text x="358" y="246">VECTOR / REDUCE</text><text x="96" y="374">CTRL</text>
-              <text x="233" y="374">ACCUM</text><text x="455" y="374">IO / HOST</text>
-            </g>
-          </svg>
-          <div class="instrument-foot mono"><span>RTL / TARGET</span><span>STA / MEASURE</span><span>DRC / MEASURE</span></div>
-        </div>
-        <div class="synthesis-copy">
-          <p class="kicker mono">FROM POSSIBILITY / TO HARD GEOMETRY</p>
-          <h2>DISCOVERY<br>BECOMES<br><span>RTL.</span></h2>
-          <div class="metric-stack mono">
-            <div><span>LUT</span><strong>MEASURE</strong><i style="--w:78%"></i></div>
-            <div><span>FF</span><strong>MEASURE</strong><i style="--w:62%"></i></div>
-            <div><span>BRAM</span><strong>MEASURE</strong><i style="--w:48%"></i></div>
-            <div><span>FMAX</span><strong>MEASURE</strong><i style="--w:86%"></i></div>
+        <article class="stage stage-2" data-stage="2">
+          <div class="stage-no mono">02 / SEARCH</div>
+          <div class="stage-copy huge">
+            <p class="stage-kicker mono">DESIGN SPACE / CONSTRAINED / NON-CONVEX</p>
+            <h2>SEARCH<br>THE<br><span>MACHINE.</span></h2>
           </div>
-        </div>
+          <div class="search-readout mono" id="searchReadout">
+            <div><span>CANDIDATES</span><b>0248</b></div>
+            <div><span>SURVIVING</span><b>0041</b></div>
+            <div><span>OBJECTIVE</span><b>MULTI</b></div>
+          </div>
+        </article>
+
+        <article class="stage stage-3" data-stage="3">
+          <div class="stage-no mono">03 / PRESSURE</div>
+          <div class="constraints" aria-hidden="true">
+            <span>POWER</span><span>AREA</span><span>MEMORY</span><span>TIMING</span><span>BANDWIDTH</span>
+          </div>
+          <div class="stage-copy center">
+            <p class="stage-kicker mono">SELECTION PRESSURE</p>
+            <h2>THE SPACE<br><span>COLLAPSES.</span></h2>
+            <p>Constraints remove possibilities until only useful architectures remain.</p>
+          </div>
+        </article>
+
+        <article class="stage stage-4" data-stage="4">
+          <div class="stage-no mono">04 / SYNTHESIS</div>
+          <div class="stage-copy right">
+            <p class="stage-kicker mono">FROM POSSIBILITY TO HARD GEOMETRY</p>
+            <h2>DISCOVERY<br>BECOMES<br><span>RTL.</span></h2>
+            <p>Candidate architectures must survive implementation, verification and measurement. The website visuals are illustrative until connected to real experiment output.</p>
+          </div>
+          <div class="synth-panel mono">
+            <div><span>ELABORATION</span><b>READY</b></div>
+            <div><span>REGRESSION</span><b>READY</b></div>
+            <div><span>SYNTHESIS</span><b>READY</b></div>
+            <div><span>METRICS</span><b>REAL RUNS ONLY</b></div>
+          </div>
+        </article>
+
+        <div class="field-progress" aria-hidden="true"><i id="fieldProgress"></i></div>
+        <div class="scroll-note mono">SCROLL / ALTER STATE <span>↓</span></div>
       </div>
     </section>
 
-    <section class="chapter evidence" id="evidence" data-chapter="05">
-      <div class="chapter-index mono">05 / EVIDENCE</div>
-      <div class="evidence-head">
-        <p class="kicker mono">PUBLIC ARTIFACTS / REPRODUCIBLE OUTPUTS</p>
-        <h2>NO CLAIM<br>WITHOUT<br><span>EVIDENCE.</span></h2>
-      </div>
+    <section class="evidence" id="evidence">
+      <div class="section-index mono">05 / EVIDENCE</div>
+      <header class="evidence-head reveal">
+        <p class="eyebrow mono">PUBLIC SOURCE / REPRODUCIBLE WORK</p>
+        <h2>NO CLAIM<br>WITHOUT <span>EVIDENCE.</span></h2>
+        <p class="evidence-lede">Kernellum is being built in public. Research notes, source code and experiment artifacts live beside the claims they support.</p>
+      </header>
+
       <div class="evidence-grid">
-        <article class="e-card plot-card">
-          <div class="card-meta mono"><span>FIG / 001</span><span>PARETO FRONT</span></div>
-          <svg viewBox="0 0 520 300" aria-label="Pareto plot">
-            <g class="plot-grid"><path d="M50 20V260H500M50 60H500M50 110H500M50 160H500M50 210H500"/></g>
-            <g class="dots"></g>
-            <path class="front" d="M92 226 C165 195 210 164 276 122 C338 84 410 65 468 49"/>
-            <g class="axis mono"><text x="42" y="282">LATENCY →</text><text x="-190" y="20" transform="rotate(-90)">ENERGY →</text></g>
-          </svg>
-        </article>
-        <article class="e-card terminal-card">
-          <div class="card-meta mono"><span>TRACE / PROTOTYPE</span><span>ILLUSTRATIVE</span></div>
-          <pre class="mono"><code><b>$</b> kernellum verify artifact/KRN-001
-
-[01] workload trace ............ <em>RUN</em>
-[02] rtl elaboration ........... <em>RUN</em>
-[03] regression ................ <em>RUN</em>
-[04] synthesis ................. <em>RUN</em>
-[05] timing .................... <em>RUN</em>
-
-metrics        <strong>FROM REAL RUNS</strong>
-prototype      <strong>interface only</strong></code></pre>
-        </article>
-        <article class="e-card commit-card">
-          <div class="card-meta mono"><span>TRACE / SOURCE</span><span>REPOSITORY</span></div>
-          <div class="commit-list mono">
-            <div><i></i><span><b>LIVE</b> experiment reports</span><time>DOCS</time></div>
-            <div><i></i><span><b>LIVE</b> reproducible results</span><time>RESULTS</time></div>
-            <div><i></i><span><b>LIVE</b> architecture source</span><time>RTL</time></div>
-            <div><i></i><span><b>LIVE</b> commit history</span><time>GIT</time></div>
+        <a class="e-card source-card reveal magnetic" href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer">
+          <div class="card-top mono"><span>01 / SOURCE</span><span>PUBLIC ↗</span></div>
+          <div class="source-lines" aria-hidden="true">
+            <i style="--w:92%"></i><i style="--w:66%"></i><i class="hot" style="--w:81%"></i><i style="--w:48%"></i><i style="--w:73%"></i>
           </div>
-          <a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer" class="text-link">OPEN RESEARCH LOG ↗</a>
+          <h3>OPEN<br>RESEARCH LOG.</h3>
+          <p>Code, decisions and revisions remain inspectable.</p>
+        </a>
+
+        <article class="e-card trace-card reveal">
+          <div class="card-top mono"><span>02 / TRACE</span><span>PROTOTYPE</span></div>
+          <div class="trace mono">
+            <p><b>01</b><span>workload ingest</span><em>READY</em></p>
+            <p><b>02</b><span>architecture search</span><em>READY</em></p>
+            <p><b>03</b><span>rtl generation</span><em>READY</em></p>
+            <p><b>04</b><span>verification</span><em>READY</em></p>
+            <p><b>05</b><span>ppa measurement</span><em class="oxide">REQUIRED</em></p>
+          </div>
+          <div class="trace-foot mono">INTERFACE / ILLUSTRATIVE&nbsp;&nbsp;&nbsp; RESULTS / VERIFIED ONLY</div>
+        </article>
+
+        <article class="e-card plot-card reveal">
+          <div class="card-top mono"><span>03 / DESIGN SPACE</span><span>INTERACTIVE MODEL</span></div>
+          <svg viewBox="0 0 700 420" role="img" aria-label="Illustrative design-space plot">
+            <g class="grid"><path d="M70 30V355H660M70 95H660M70 160H660M70 225H660M70 290H660"/></g>
+            <g class="plot-dots" id="plotDots"></g>
+            <path class="frontier" d="M118 318 C190 286 255 244 318 198 C390 145 468 104 614 66"/>
+            <g class="axis mono"><text x="70" y="389">LATENCY / RELATIVE →</text><text x="-280" y="23" transform="rotate(-90)">ENERGY / RELATIVE →</text></g>
+          </svg>
+          <p class="plot-note mono">VISUAL MODEL / NOT A REPORTED BENCHMARK</p>
         </article>
       </div>
     </section>
 
-    <section class="chapter artifact dark-section" id="artifact" data-chapter="06">
-      <div class="chapter-index mono">06 / ARTIFACT</div>
-      <div class="artifact-orbit" aria-hidden="true">
-        <span class="orbit one"></span><span class="orbit two"></span><span class="orbit three"></span>
+    <section class="principle" id="principle">
+      <div class="section-index mono">06 / PRINCIPLE</div>
+      <div class="principle-wrap">
+        <p class="eyebrow mono reveal">THE KERNELLUM THESIS</p>
+        <div class="principle-line reveal"><span>GENERAL-PURPOSE HARDWARE</span><b>ASKS WORKLOADS TO ADAPT.</b></div>
+        <div class="principle-line reveal inverse"><span>KERNELLUM INVESTIGATES</span><b>THE REVERSE.</b></div>
       </div>
-      <div class="artifact-logo">
-        <svg viewBox="0 0 256 256" aria-hidden="true">
+      <div class="ticker" aria-hidden="true">
+        <div>WORKLOAD / SEARCH / VERIFY / SYNTHESIZE / MEASURE / DISCOVER / WORKLOAD / SEARCH / VERIFY / SYNTHESIZE / MEASURE / DISCOVER /</div>
+      </div>
+    </section>
+
+    <section class="artifact" id="artifact">
+      <div class="section-index mono">07 / ARTIFACT</div>
+      <div class="artifact-field" aria-hidden="true"><canvas id="artifactCanvas"></canvas></div>
+      <div class="artifact-center reveal">
+        <svg class="artifact-mark" viewBox="0 0 256 256" aria-hidden="true">
           <g transform="translate(10 8)">
-            <g stroke="#f3f1ec" stroke-width="40" stroke-linecap="round"><path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/></g>
-            <circle cx="114" cy="116" r="27" fill="#f3f1ec"/><circle cx="74" cy="60" r="27" fill="#f3f1ec"/>
-            <circle cx="72" cy="174" r="27" fill="#f3f1ec"/><circle cx="158" cy="116" r="27" fill="#f3f1ec"/>
-            <line class="final-link" x1="185" y1="116" x2="194" y2="116" stroke="#ff4b2b" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="211" cy="116" r="17" fill="#ff4b2b"/>
+            <g stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
+            </g>
+            <circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/>
+            <circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/>
+            <circle class="artifact-dot" cx="211" cy="116" r="17" fill="#ff4a2c"/>
           </g>
         </svg>
-      </div>
-      <div class="artifact-copy">
-        <p class="kicker mono">CONCEPT ARTIFACT / KRN-001 / BRAND PROTOTYPE</p>
+        <p class="mono">KRN / CONTINUOUS DISCOVERY</p>
         <h2>RESEARCH BECOMES ARCHITECTURE.<br><span>ARCHITECTURE BECOMES IP.</span></h2>
       </div>
     </section>
-
-    <footer id="contact" class="footer dark-section">
-      <div class="footer-main">
-        <svg class="footer-mark" viewBox="0 0 256 256" aria-hidden="true">
-          <g transform="translate(10 8)"><g stroke="currentColor" stroke-width="40" stroke-linecap="round"><path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/></g><circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/><circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/><circle cx="211" cy="116" r="17" fill="#ff4b2b"/></g>
-        </svg>
-        <h2>KERNELLUM</h2>
-        <p>SEARCH THE MACHINE.</p>
-      </div>
-      <div class="footer-links mono">
-        <div><span>EXPLORE</span><a href="#evidence">RESEARCH</a><a href="#synthesis">ARCHITECTURE</a><a href="#hero">TOP</a></div>
-        <div><span>CONNECT</span><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="https://github.com/sushxnthd/kernellum/tree/main/docs" target="_blank" rel="noreferrer">RESEARCH ↗</a></div>
-      </div>
-      <div class="footer-bottom mono"><span>KERNELLUM / 2026</span><span>COMPUTER ARCHITECTURE RESEARCH</span><span>PUBLIC BUILD / MAIN</span></div>
-    </footer>
   </main>
-  <script src="script.js"></script>
+
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div>
+        <p class="mono">KERNELLUM / COMPUTER ARCHITECTURE RESEARCH</p>
+        <h2>SEARCH<br>THE <span>MACHINE.</span></h2>
+      </div>
+      <div class="footer-nav mono">
+        <span>EXPLORE</span>
+        <a href="#field">FIELD</a>
+        <a href="#evidence">EVIDENCE</a>
+        <a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer">GITHUB ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>KERNELLUM / 2026</span>
+      <span>ARCHITECTURES, DISCOVERED.</span>
+      <span>PUBLIC BUILD / MAIN</span>
+    </div>
+  </footer>
+
+  <script>
+(() => {
+  const $ = (s, p=document) => p.querySelector(s);
+  const $$ = (s, p=document) => [...p.querySelectorAll(s)];
+  const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+  const lerp = (a,b,t) => a+(b-a)*t;
+  const ease = t => t*t*(3-2*t);
+
+  // Boot
+  const boot = $('#boot');
+  addEventListener('load', () => setTimeout(() => boot?.classList.add('done'), 550));
+  setTimeout(() => boot?.classList.add('done'), 1800);
+
+  // Custom cursor and magnetic links
+  const cursor = $('.cursor');
+  let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+  function cursorLoop(){
+    cx += (mx-cx)*.17; cy += (my-cy)*.17;
+    if(cursor) cursor.style.transform=`translate3d(${cx-17}px,${cy-17}px,0)`;
+    requestAnimationFrame(cursorLoop);
+  } cursorLoop();
+  $$('a,.magnetic').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cursor?.classList.add('hot'));
+    el.addEventListener('mouseleave',()=>{cursor?.classList.remove('hot');el.style.transform=''});
+    el.addEventListener('pointermove',e=>{
+      if(innerWidth<900) return;
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)*.12, y=(e.clientY-r.top-r.height/2)*.12;
+      el.style.transform=`translate(${x}px,${y}px)`;
+    });
+  });
+
+  // Nav
+  const nav=$('#nav');
+  addEventListener('scroll',()=>nav?.classList.toggle('scrolled',scrollY>32),{passive:true});
+
+  // ----- Architecture field -----
+  const canvas=$('#machineCanvas'), ctx=canvas?.getContext('2d');
+  const journey=$('.journey');
+  const fieldProgress=$('#fieldProgress');
+  const metaMode=$('#metaMode'), metaReadout=$('#metaReadout'), navState=$('#navState');
+  let W=1,H=1,DPR=Math.min(devicePixelRatio||1,2),fieldP=0;
+  const POINTS=154;
+
+  function rand(seed){
+    const x=Math.sin(seed*999.91)*43758.5453;
+    return x-Math.floor(x);
+  }
+  function circlePoint(cx,cy,r,seed){
+    const a=rand(seed*2.1)*Math.PI*2;
+    const rr=Math.sqrt(rand(seed*4.3))*r;
+    return {x:cx+Math.cos(a)*rr,y:cy+Math.sin(a)*rr};
+  }
+  function capsulePoint(ax,ay,bx,by,r,seed){
+    const t=rand(seed*1.7), px=lerp(ax,bx,t), py=lerp(ay,by,t);
+    const ang=Math.atan2(by-ay,bx-ax)+Math.PI/2;
+    const d=(rand(seed*3.3)-.5)*2*r;
+    return {x:px+Math.cos(ang)*d,y:py+Math.sin(ang)*d};
+  }
+  function logoTarget(i){
+    const k=i%7;
+    if(k<4){
+      const centers=[[.48,.49],[.37,.33],[.36,.67],[.60,.49]];
+      return circlePoint(...centers[k],.045,i+2);
+    }
+    if(k===4) return capsulePoint(.48,.49,.37,.33,.027,i+9);
+    if(k===5) return capsulePoint(.48,.49,.36,.67,.027,i+11);
+    return capsulePoint(.48,.49,.60,.49,.027,i+13);
+  }
+  function workloadTarget(i){
+    const clusters=[[.18,.52],[.37,.30],[.37,.70],[.57,.42],[.57,.62],[.78,.52]];
+    const c=clusters[i%clusters.length];
+    return circlePoint(c[0],c[1],.04+(i%3)*.008,i+20);
+  }
+  function searchTarget(i){
+    return {x:.08+rand(i+42)*.84,y:.12+rand(i+84)*.74};
+  }
+  function pressureTarget(i){
+    const survivor=i%8===0 || i%13===0;
+    if(survivor){
+      const a=(i/POINTS)*Math.PI*2;
+      return {x:.5+Math.cos(a)*(.1+rand(i+3)*.15),y:.5+Math.sin(a)*(.08+rand(i+5)*.16)};
+    }
+    const a=rand(i+5)*Math.PI*2;
+    return {x:.5+Math.cos(a)*(.35+rand(i+7)*.6),y:.5+Math.sin(a)*(.30+rand(i+9)*.6)};
+  }
+  function chipTarget(i){
+    const cols=14, rows=11;
+    const c=i%cols, r=Math.floor(i/cols)%rows;
+    return {x:.31+c/(cols-1)*.38,y:.29+r/(rows-1)*.42};
+  }
+
+  const pts=Array.from({length:POINTS},(_,i)=>({
+    a:logoTarget(i), b:workloadTarget(i), c:searchTarget(i), d:pressureTarget(i), e:chipTarget(i),
+    hot:i%17===0, survivor:i%8===0||i%13===0, phase:rand(i+93)*Math.PI*2, size:.7+rand(i+7)*1.7
+  }));
+
+  function resize(){
+    if(!canvas) return;
+    W=canvas.clientWidth;H=canvas.clientHeight;
+    canvas.width=W*DPR;canvas.height=H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  addEventListener('resize',resize);resize();
+
+  let pmx=0,pmy=0;
+  $('.journey-sticky')?.addEventListener('pointermove',e=>{
+    pmx=(e.clientX/W-.5);pmy=(e.clientY/H-.5);
+  });
+
+  function between(p,a,b){return clamp((p-a)/(b-a),0,1)}
+  function pointAt(pt,p){
+    let A,B,t;
+    if(p<.22){A=pt.a;B=pt.b;t=ease(between(p,.08,.22));}
+    else if(p<.48){A=pt.b;B=pt.c;t=ease(between(p,.22,.48));}
+    else if(p<.72){A=pt.c;B=pt.d;t=ease(between(p,.48,.72));}
+    else {A=pt.d;B=pt.e;t=ease(between(p,.72,.94));}
+    return {x:lerp(A.x,B.x,t),y:lerp(A.y,B.y,t)};
+  }
+
+  function stageFor(p){
+    if(p<.13) return 0;
+    if(p<.34) return 1;
+    if(p<.57) return 2;
+    if(p<.79) return 3;
+    return 4;
+  }
+  const stageMeta=[
+    ['STATE / ORIGIN','CANDIDATES / UNRESOLVED','FIELD / 00'],
+    ['STATE / WORKLOAD','GRAPH / INGEST','WORKLOAD / 01'],
+    ['STATE / SEARCH','FIELD / 0248','SEARCH / 02'],
+    ['STATE / PRESSURE','SURVIVORS / SELECT','PRESSURE / 03'],
+    ['STATE / SYNTHESIS','ARTIFACT / PROTOTYPE','SYNTHESIS / 04']
+  ];
+
+  function updateFieldProgress(){
+    if(!journey) return;
+    const r=journey.getBoundingClientRect();
+    const travel=journey.offsetHeight-innerHeight;
+    fieldP=clamp((-r.top)/Math.max(1,travel),0,1);
+    if(fieldProgress) fieldProgress.style.height=`${fieldP*100}%`;
+    const s=stageFor(fieldP);
+    $$('.stage').forEach((el,i)=>el.classList.toggle('active',i===s));
+    if(metaMode) metaMode.textContent=stageMeta[s][0];
+    if(metaReadout) metaReadout.textContent=stageMeta[s][1];
+    if(navState) navState.textContent=stageMeta[s][2];
+  }
+  addEventListener('scroll',updateFieldProgress,{passive:true});updateFieldProgress();
+
+  let tt=0;
+  function renderField(){
+    if(!ctx){return;}
+    tt+=.008;
+    ctx.clearRect(0,0,W,H);
+    const scale=Math.min(W,H);
+    const positions=[];
+    for(let i=0;i<pts.length;i++){
+      const pt=pts[i], q=pointAt(pt,fieldP);
+      const breathe=fieldP<.9 ? Math.sin(tt+pt.phase)*.0025 : Math.sin(tt+pt.phase)*.0006;
+      const x=(q.x+breathe+pmx*.007*(1-fieldP))*W;
+      const y=(q.y+breathe+pmy*.006*(1-fieldP))*H;
+      const offscreen=fieldP>.55&&fieldP<.82&&!pt.survivor;
+      const alpha=offscreen?clamp(1-between(fieldP,.58,.76)*.88,.05,1):1;
+      positions.push({x,y,pt,alpha});
+    }
+
+    // Links change character with state
+    ctx.lineWidth=.65;
+    if(fieldP<.5){
+      for(let i=0;i<positions.length;i+=5){
+        const a=positions[i]; let best=null,bd=1e9;
+        for(let j=0;j<positions.length;j+=7){if(i===j)continue;const b=positions[j];const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<bd&&d<scale*.22){bd=d;best=b}}
+        if(best){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(best.x,best.y);ctx.strokeStyle=`rgba(241,239,232,${.07*a.alpha})`;ctx.stroke()}
+      }
+    }else if(fieldP>.82){
+      const cols=14;
+      for(let i=0;i<positions.length;i++){
+        const a=positions[i];
+        if(i%cols!==cols-1 && i+1<positions.length){const b=positions[i+1];ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle='rgba(255,74,44,.13)';ctx.stroke()}
+        if(i+cols<positions.length){const b=positions[i+cols];ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle='rgba(241,239,232,.05)';ctx.stroke()}
+      }
+    }
+
+    for(const {x,y,pt,alpha} of positions){
+      const pressure=between(fieldP,.56,.78);
+      const chip=between(fieldP,.82,.98);
+      const r=pt.size*(1.7+2.4*(1-chip));
+      ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+      const hot=(pt.hot&&fieldP>.32&&fieldP<.68)||(pt.survivor&&pressure>.25)||(chip>.75&&pt.hot);
+      ctx.fillStyle=hot?`rgba(255,74,44,${.9*alpha})`:`rgba(241,239,232,${(.34+.4*(1-fieldP))*alpha})`;
+      ctx.fill();
+      if(hot&&r>2){ctx.beginPath();ctx.arc(x,y,r*3.3,0,Math.PI*2);ctx.strokeStyle=`rgba(255,74,44,${.10*alpha})`;ctx.stroke()}
+    }
+
+    // Orange objective, independent of cloud
+    const objectiveX=lerp(.68,.73,between(fieldP,0,.2))*W;
+    const objectiveY=.49*H;
+    if(fieldP<.2){ctx.beginPath();ctx.arc(objectiveX,objectiveY,7+Math.sin(tt*2)*.7,0,Math.PI*2);ctx.fillStyle='#ff4a2c';ctx.fill();}
+    requestAnimationFrame(renderField);
+  } renderField();
+
+  // Evidence plot dots, deterministic
+  const plot=$('#plotDots');
+  if(plot){
+    for(let i=0;i<54;i++){
+      const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      const x=105+rand(i+10)*515;
+      const frontier=330-(x-105)*.50;
+      const y=clamp(frontier+26+rand(i+45)*110,50,336);
+      const hot=i%11===0;
+      c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',hot?4.4:2.6);
+      c.setAttribute('fill',hot?'#ff4a2c':'#0a0a09');c.setAttribute('opacity',hot?'1':'.42');
+      plot.appendChild(c);
+    }
+  }
+
+  // Artifact ambient field
+  const ac=$('#artifactCanvas'), actx=ac?.getContext('2d');
+  let AW=1,AH=1,adpr=Math.min(devicePixelRatio||1,2);
+  const ap=Array.from({length:85},(_,i)=>({a:rand(i+2)*Math.PI*2,r:.08+rand(i+6)*.42,s:.6+rand(i+4)*1.5,v:.00025+rand(i+8)*.0007,hot:i%19===0}));
+  function aresize(){if(!ac)return;AW=ac.clientWidth;AH=ac.clientHeight;ac.width=AW*adpr;ac.height=AH*adpr;actx.setTransform(adpr,0,0,adpr,0,0)}
+  addEventListener('resize',aresize);aresize();
+  function renderArtifact(){
+    if(!actx)return;
+    actx.clearRect(0,0,AW,AH);const sc=Math.min(AW,AH);
+    for(const p of ap){p.a+=p.v;const x=AW/2+Math.cos(p.a)*p.r*sc,y=AH/2+Math.sin(p.a*1.13)*p.r*sc*.72;actx.beginPath();actx.arc(x,y,p.s,0,Math.PI*2);actx.fillStyle=p.hot?'rgba(255,74,44,.54)':'rgba(241,239,232,.18)';actx.fill()}
+    requestAnimationFrame(renderArtifact);
+  } renderArtifact();
+
+  // Reveals
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('seen')}),{threshold:.14});
+  $$('.reveal').forEach(el=>io.observe(el));
+})();
+
+  </script>
 </body>
 </html>
