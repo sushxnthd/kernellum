@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0a" />
+  <meta name="description" content="Kernellum — computer architecture research. Search the machine." />
+  <title>Kernellum / Architectures, discovered.</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#hero" aria-label="Kernellum home">
+      <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+        <g transform="translate(10 8)">
+          <g stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
+          </g>
+          <circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/>
+          <circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/>
+          <circle class="brand-dot" cx="211" cy="116" r="17"/>
+        </g>
+      </svg>
+      <span>KERNELLUM</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#search">Search</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#artifact">Artifact</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="status"><i></i> KRN/ONLINE</span>
+  </header>
+
+  <main>
+    <section class="hero dark-section" id="hero" data-chapter="00">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hud top-left mono">
+        <span>KRN / SEARCH SPACE 000</span>
+        <span>OBJECTIVE / UNRESOLVED</span>
+      </div>
+      <div class="hud top-right mono">
+        <span>ARCHITECTURE FIELD</span>
+        <span><b id="candidateCount">0248</b> CANDIDATES</span>
+      </div>
+      <div class="hero-center">
+        <div class="hero-mark-wrap" id="heroMark">
+          <svg class="hero-mark" viewBox="0 0 256 256" aria-label="Kernellum symbol">
+            <defs>
+              <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#000" flood-opacity=".45"/>
+              </filter>
+            </defs>
+            <g transform="translate(10 8)" filter="url(#softShadow)">
+              <g stroke="#f3f1ec" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/>
+              </g>
+              <circle cx="114" cy="116" r="27" fill="#f3f1ec"/>
+              <circle cx="74" cy="60" r="27" fill="#f3f1ec"/>
+              <circle cx="72" cy="174" r="27" fill="#f3f1ec"/>
+              <circle cx="158" cy="116" r="27" fill="#f3f1ec"/>
+              <circle class="objective-dot" cx="211" cy="116" r="17" fill="#ff4b2b"/>
+            </g>
+          </svg>
+        </div>
+        <p class="eyebrow mono">COMPUTER ARCHITECTURE RESEARCH</p>
+        <h1>KERNELLUM</h1>
+        <p class="hero-line">ARCHITECTURES, <em>DISCOVERED.</em></p>
+        <button class="enter" data-scroll="#workload"><span>ENTER THE SEARCH</span><b>↘</b></button>
+      </div>
+      <div class="scroll-cue mono">SCROLL TO ALTER STATE <span>↓</span></div>
+    </section>
+
+    <section class="chapter light-section workload" id="workload" data-chapter="01">
+      <div class="chapter-index mono">01 / WORKLOAD</div>
+      <div class="chapter-grid">
+        <div class="copy">
+          <p class="kicker mono">INPUT / COMPUTATION GRAPH</p>
+          <h2>EVERY WORKLOAD<br><span>IMPLIES A MACHINE.</span></h2>
+          <p class="lede">A model is more than software. It is a description of movement, reuse, arithmetic, memory pressure, and constraints. Kernellum starts there.</p>
+        </div>
+        <div class="workload-graph instrument" aria-label="Stylized workload graph">
+          <div class="instrument-head mono"><span>WORKLOAD / KRN-W017</span><span>LIVE TRACE</span></div>
+          <svg viewBox="0 0 680 440" role="img" aria-label="Computation graph">
+            <g class="edges" stroke="currentColor" stroke-width="1.2" fill="none" opacity=".45">
+              <path d="M76 220 C145 220 140 95 215 95"/><path d="M76 220 C145 220 140 350 215 350"/>
+              <path d="M275 95 C355 95 330 178 410 178"/><path d="M275 350 C355 350 330 260 410 260"/>
+              <path d="M470 178 C520 178 520 220 580 220"/><path d="M470 260 C520 260 520 220 580 220"/>
+            </g>
+            <g class="nodes">
+              <g transform="translate(30 194)"><rect width="92" height="52" rx="2"/><text x="46" y="31">INPUT</text></g>
+              <g transform="translate(190 69)"><rect width="110" height="52" rx="2"/><text x="55" y="31">MATMUL</text></g>
+              <g transform="translate(190 324)"><rect width="110" height="52" rx="2"/><text x="55" y="31">ATTN</text></g>
+              <g transform="translate(385 152)"><rect width="110" height="52" rx="2"/><text x="55" y="31">BUFFER</text></g>
+              <g transform="translate(385 234)"><rect width="110" height="52" rx="2"/><text x="55" y="31">NORM</text></g>
+              <g class="hot" transform="translate(555 194)"><rect width="92" height="52" rx="2"/><text x="46" y="31">OUT</text></g>
+            </g>
+          </svg>
+          <div class="instrument-foot mono">
+            <span>TRACE / ILLUSTRATIVE</span><span>SHAPE / VARIABLE</span><span>BW / CONSTRAINT</span><span>SEQ / INPUT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter dark-section search" id="search" data-chapter="02">
+      <div class="chapter-index mono">02 / SEARCH</div>
+      <div class="search-copy">
+        <p class="kicker mono">ARCHITECTURE SPACE / NON-CONVEX / CONSTRAINED</p>
+        <h2>SEARCH<br>THE<br><span>MACHINE.</span></h2>
+      </div>
+      <div class="candidate-cloud" id="candidateCloud" aria-hidden="true"></div>
+      <aside class="candidate-inspector mono" id="inspector">
+        <div class="inspector-top"><span>CANDIDATE</span><b id="candidateId">KRN-1842</b></div>
+        <dl>
+          <div><dt>AREA</dt><dd id="mArea">0.61</dd></div>
+          <div><dt>ENERGY</dt><dd id="mEnergy">0.44</dd></div>
+          <div><dt>LATENCY</dt><dd id="mLatency">0.28</dd></div>
+          <div><dt>MEMORY</dt><dd id="mMemory">0.53</dd></div>
+        </dl>
+        <div class="status-line"><span>STATUS</span><strong id="mStatus">NON-DOMINATED</strong></div>
+      </aside>
+      <div class="search-caption mono">MOVE POINTER THROUGH FIELD / SELECT CANDIDATE</div>
+    </section>
+
+    <section class="chapter pressure" id="pressure" data-chapter="03">
+      <div class="pressure-grid" aria-hidden="true"></div>
+      <div class="chapter-index mono">03 / PRESSURE</div>
+      <div class="pressure-words" aria-hidden="true">
+        <span style="--i:0">POWER</span><span style="--i:1">AREA</span><span style="--i:2">MEMORY</span>
+        <span style="--i:3">TIMING</span><span style="--i:4">BANDWIDTH</span>
+      </div>
+      <div class="pressure-center">
+        <p class="kicker mono">CONSTRAINTS / APPLY SELECTION PRESSURE</p>
+        <h2>THE SPACE<br><span>COLLAPSES.</span></h2>
+        <div class="pareto-mini">
+          <span class="mono">CANDIDATE FIELD</span><i></i><span class="mono accent">PARETO SURVIVOR</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter synthesis light-section" id="synthesis" data-chapter="04">
+      <div class="chapter-index mono">04 / SYNTHESIS</div>
+      <div class="synthesis-layout">
+        <div class="chip-stage instrument">
+          <div class="instrument-head mono"><span>CONCEPT ARTIFACT / KRN-001</span><span>INTERFACE PROTOTYPE</span></div>
+          <svg class="floorplan" viewBox="0 0 700 540" role="img" aria-label="Stylized accelerator floorplan">
+            <rect class="die" x="40" y="40" width="620" height="460" rx="2"/>
+            <g class="blocks">
+              <rect x="78" y="78" width="165" height="125"/><rect x="260" y="78" width="198" height="125"/>
+              <rect x="475" y="78" width="147" height="125"/><rect x="78" y="220" width="245" height="110"/>
+              <rect x="340" y="220" width="282" height="110"/><rect x="78" y="347" width="120" height="115"/>
+              <rect x="215" y="347" width="205" height="115"/><rect x="437" y="347" width="185" height="115"/>
+            </g>
+            <g class="routes" fill="none" stroke-width="2">
+              <path d="M243 140H260M458 140H475M323 275H340M198 404H215M420 404H437"/>
+              <path d="M160 203V220M360 203V220M545 203V220M150 330V347M300 330V347M520 330V347"/>
+              <path d="M110 110H210V285H500V430H590"/>
+              <path d="M580 118H400V390H250"/>
+            </g>
+            <g class="labels mono">
+              <text x="96" y="104">PE ARRAY / 16×16</text><text x="278" y="104">SRAM / BANK 0–7</text>
+              <text x="493" y="104">DMA</text><text x="96" y="246">INTERCONNECT</text>
+              <text x="358" y="246">VECTOR / REDUCE</text><text x="96" y="374">CTRL</text>
+              <text x="233" y="374">ACCUM</text><text x="455" y="374">IO / HOST</text>
+            </g>
+          </svg>
+          <div class="instrument-foot mono"><span>RTL / TARGET</span><span>STA / MEASURE</span><span>DRC / MEASURE</span></div>
+        </div>
+        <div class="synthesis-copy">
+          <p class="kicker mono">FROM POSSIBILITY / TO HARD GEOMETRY</p>
+          <h2>DISCOVERY<br>BECOMES<br><span>RTL.</span></h2>
+          <div class="metric-stack mono">
+            <div><span>LUT</span><strong>MEASURE</strong><i style="--w:78%"></i></div>
+            <div><span>FF</span><strong>MEASURE</strong><i style="--w:62%"></i></div>
+            <div><span>BRAM</span><strong>MEASURE</strong><i style="--w:48%"></i></div>
+            <div><span>FMAX</span><strong>MEASURE</strong><i style="--w:86%"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter evidence" id="evidence" data-chapter="05">
+      <div class="chapter-index mono">05 / EVIDENCE</div>
+      <div class="evidence-head">
+        <p class="kicker mono">PUBLIC ARTIFACTS / REPRODUCIBLE OUTPUTS</p>
+        <h2>NO CLAIM<br>WITHOUT<br><span>EVIDENCE.</span></h2>
+      </div>
+      <div class="evidence-grid">
+        <article class="e-card plot-card">
+          <div class="card-meta mono"><span>FIG / 001</span><span>PARETO FRONT</span></div>
+          <svg viewBox="0 0 520 300" aria-label="Pareto plot">
+            <g class="plot-grid"><path d="M50 20V260H500M50 60H500M50 110H500M50 160H500M50 210H500"/></g>
+            <g class="dots"></g>
+            <path class="front" d="M92 226 C165 195 210 164 276 122 C338 84 410 65 468 49"/>
+            <g class="axis mono"><text x="42" y="282">LATENCY →</text><text x="-190" y="20" transform="rotate(-90)">ENERGY →</text></g>
+          </svg>
+        </article>
+        <article class="e-card terminal-card">
+          <div class="card-meta mono"><span>TRACE / PROTOTYPE</span><span>ILLUSTRATIVE</span></div>
+          <pre class="mono"><code><b>$</b> kernellum verify artifact/KRN-001
+
+[01] workload trace ............ <em>RUN</em>
+[02] rtl elaboration ........... <em>RUN</em>
+[03] regression ................ <em>RUN</em>
+[04] synthesis ................. <em>RUN</em>
+[05] timing .................... <em>RUN</em>
+
+metrics        <strong>FROM REAL RUNS</strong>
+prototype      <strong>interface only</strong></code></pre>
+        </article>
+        <article class="e-card commit-card">
+          <div class="card-meta mono"><span>TRACE / SOURCE</span><span>REPOSITORY</span></div>
+          <div class="commit-list mono">
+            <div><i></i><span><b>LIVE</b> experiment reports</span><time>DOCS</time></div>
+            <div><i></i><span><b>LIVE</b> reproducible results</span><time>RESULTS</time></div>
+            <div><i></i><span><b>LIVE</b> architecture source</span><time>RTL</time></div>
+            <div><i></i><span><b>LIVE</b> commit history</span><time>GIT</time></div>
+          </div>
+          <a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer" class="text-link">OPEN RESEARCH LOG ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter artifact dark-section" id="artifact" data-chapter="06">
+      <div class="chapter-index mono">06 / ARTIFACT</div>
+      <div class="artifact-orbit" aria-hidden="true">
+        <span class="orbit one"></span><span class="orbit two"></span><span class="orbit three"></span>
+      </div>
+      <div class="artifact-logo">
+        <svg viewBox="0 0 256 256" aria-hidden="true">
+          <g transform="translate(10 8)">
+            <g stroke="#f3f1ec" stroke-width="40" stroke-linecap="round"><path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/></g>
+            <circle cx="114" cy="116" r="27" fill="#f3f1ec"/><circle cx="74" cy="60" r="27" fill="#f3f1ec"/>
+            <circle cx="72" cy="174" r="27" fill="#f3f1ec"/><circle cx="158" cy="116" r="27" fill="#f3f1ec"/>
+            <line class="final-link" x1="185" y1="116" x2="194" y2="116" stroke="#ff4b2b" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="211" cy="116" r="17" fill="#ff4b2b"/>
+          </g>
+        </svg>
+      </div>
+      <div class="artifact-copy">
+        <p class="kicker mono">CONCEPT ARTIFACT / KRN-001 / BRAND PROTOTYPE</p>
+        <h2>RESEARCH BECOMES ARCHITECTURE.<br><span>ARCHITECTURE BECOMES IP.</span></h2>
+      </div>
+    </section>
+
+    <footer id="contact" class="footer dark-section">
+      <div class="footer-main">
+        <svg class="footer-mark" viewBox="0 0 256 256" aria-hidden="true">
+          <g transform="translate(10 8)"><g stroke="currentColor" stroke-width="40" stroke-linecap="round"><path d="M114 116 L74 60"/><path d="M114 116 L72 174"/><path d="M114 116 L158 116"/></g><circle cx="114" cy="116" r="27" fill="currentColor"/><circle cx="74" cy="60" r="27" fill="currentColor"/><circle cx="72" cy="174" r="27" fill="currentColor"/><circle cx="158" cy="116" r="27" fill="currentColor"/><circle cx="211" cy="116" r="17" fill="#ff4b2b"/></g>
+        </svg>
+        <h2>KERNELLUM</h2>
+        <p>SEARCH THE MACHINE.</p>
+      </div>
+      <div class="footer-links mono">
+        <div><span>EXPLORE</span><a href="#evidence">RESEARCH</a><a href="#synthesis">ARCHITECTURE</a><a href="#hero">TOP</a></div>
+        <div><span>CONNECT</span><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="https://github.com/sushxnthd/kernellum/tree/main/docs" target="_blank" rel="noreferrer">RESEARCH ↗</a></div>
+      </div>
+      <div class="footer-bottom mono"><span>KERNELLUM / 2026</span><span>COMPUTER ARCHITECTURE RESEARCH</span><span>PUBLIC BUILD / MAIN</span></div>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
