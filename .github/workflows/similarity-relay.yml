@@ -1,0 +1,65 @@
+name: SIMILARITY registered relay hierarchy
+
+on:
+  pull_request:
+    paths:
+      - 'docs/SIMILARITY_RELAY_HIERARCHY_PLAN.md'
+      - 'rtl/similarity_relay_fabric.sv'
+      - 'scripts/similarity_relay_route.py'
+      - 'scripts/similarity_relay_validate.py'
+      - 'tests/test_similarity_relay.py'
+      - '.github/workflows/similarity-relay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        n: [6,8,10]
+        seed: [10,11,12]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route relay hierarchy matrix
+        run: |
+          PYTHONPATH=. python scripts/similarity_relay_route.py             --n ${{ matrix.n }}             --seed ${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relay-n${{ matrix.n }}-s${{ matrix.seed }}
+          path: results/similarity_relay_n${{ matrix.n }}_s${{ matrix.seed }}.csv
+
+  validate:
+    needs: route
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: relay-*
+          path: results/similarity_relay_download
+          merge-multiple: true
+      - name: Evaluate preregistered relay gate
+        run: |
+          python -m pip install numpy
+          PYTHONPATH=. python scripts/similarity_relay_validate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-relay-summary
+          path: |
+            results/similarity_relay_summary.json
+            results/similarity_relay_combined.csv
