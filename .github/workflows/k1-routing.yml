@@ -8,8 +8,10 @@ on:
       - 'rtl/tb_kernellum_gemm_engine.sv'
       - 'scripts/run_k1_sim.sh'
       - 'scripts/run_k1_pnr.py'
+      - 'kernellum/k1/routed_timing.py'
       - 'kernellum/k1/model.py'
       - 'tests/test_k1.py'
+      - 'tests/test_k1_routed_timing.py'
       - '.github/workflows/k1-routing.yml'
   push:
     branches: [main]
@@ -19,8 +21,10 @@ on:
       - 'rtl/tb_kernellum_gemm_engine.sv'
       - 'scripts/run_k1_sim.sh'
       - 'scripts/run_k1_pnr.py'
+      - 'kernellum/k1/routed_timing.py'
       - 'kernellum/k1/model.py'
       - 'tests/test_k1.py'
+      - 'tests/test_k1_routed_timing.py'
       - '.github/workflows/k1-routing.yml'
   workflow_dispatch:
 
@@ -48,7 +52,7 @@ jobs:
       - name: Python tests
         run: |
           python -m pip install pytest
-          PYTHONPATH=. python -m pytest -q tests/test_k1.py tests/test_cost.py tests/test_search.py
+          PYTHONPATH=. python -m pytest -q tests/test_k1.py tests/test_k1_routed_timing.py tests/test_cost.py tests/test_search.py
       - name: K1 functional RTL simulation
         run: bash scripts/run_k1_sim.sh
       - name: K1 synthesis and place-and-route sweep
