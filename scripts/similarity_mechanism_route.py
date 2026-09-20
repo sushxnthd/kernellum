@@ -103,15 +103,22 @@ def route_one(device: str, topology: str, n: int, seed: int) -> dict:
         return row
 
     row["synth_ok"] = True
-    p = run([
-        "nextpnr-ecp5",
-        *DEVICE_ARGS[device],
-        "--json", str(design_json),
-        "--textcfg", str(cfg),
-        "--freq", "25",
-        "--seed", str(seed),
-        "--timing-allow-fail",
-    ])
+    try:
+        p = run([
+            "nextpnr-ecp5",
+            *DEVICE_ARGS[device],
+            "--json", str(design_json),
+            "--textcfg", str(cfg),
+            "--freq", "25",
+            "--seed", str(seed),
+            "--timing-allow-fail",
+        ])
+    except subprocess.TimeoutExpired:
+        row["elapsed_sec"] = time.time() - started
+        row["error_stage"] = "nextpnr_timeout"
+        row["returncode"] = ""
+        return row
+
     ptext = p.stdout + "\n" + p.stderr
     (work / "nextpnr.log").write_text(ptext)
     fmax = parse_fmax(ptext)
