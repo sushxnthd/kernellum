@@ -113,7 +113,19 @@ Project SIMILARITY is considered a genuine positive scientific result only if at
 4. held-out-device Spearman rank correlation >= 0.90;
 5. the law substantially outperforms a raw linear model using ROWS, COLS, K_TILE;
 6. residual analysis shows no large unexplained orientation/device phase;
-7. a workload-level regime rule derived from the law predicts the optimal architecture family on held-out workload shapes significantly better than chance and simple largest-array heuristics.
+7. a workload-level regime rule derived from the law predicts the optimal architecture family on held-out workload shapes materially better than simple fixed-clock and largest-array heuristics.
+
+For criterion 7, architecture family is frozen as:
+
+- PE regime: low <=32, medium 33-64, high 65-96, very-high >96;
+- K_TILE regime: one of {8,16,32,64}.
+
+The combined family label is (PE regime, K_TILE). On held-out workloads, the frozen-law selector must achieve >=70% family accuracy and at least 15 percentage points higher family accuracy than the better of:
+
+1. a fixed-100-MHz analytical cycle selector;
+2. a largest-PE selector with K_TILE=32 when available.
+
+In addition, the frozen-law selector's mean actual routed-latency regret must be <=5%.
 
 If these fail, the universal-law hypothesis is rejected or revised. Results are not relabeled post hoc as a breakthrough.
 
