@@ -1,0 +1,88 @@
+name: SIMILARITY corrected routed causal law
+
+on:
+  pull_request:
+    paths:
+      - 'docs/SIMILARITY_ROUTED_LAW_PLAN.md'
+      - 'scripts/similarity_routed_route.py'
+      - 'scripts/similarity_routed_validate.py'
+      - 'tests/test_similarity_routed_law.py'
+      - '.github/workflows/similarity-routed-law.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [25k,45k,85k]
+        topology: [broadcast,local]
+        seed: [17,18,19]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route discovery corpus
+        run: |
+          PYTHONPATH=. python scripts/similarity_routed_route.py             --split discovery --device ${{ matrix.device }}             --topology ${{ matrix.topology }} --seed ${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routed-discovery-${{ matrix.device }}-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: results/similarity_routed_discovery_${{ matrix.device }}_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+
+  holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [25k,45k,85k]
+        topology: [broadcast,local]
+        seed: [20,21,22]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route held-out corpus
+        run: |
+          PYTHONPATH=. python scripts/similarity_routed_route.py             --split holdout --device ${{ matrix.device }}             --topology ${{ matrix.topology }} --seed ${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routed-holdout-${{ matrix.device }}-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: results/similarity_routed_holdout_${{ matrix.device }}_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+
+  validate:
+    needs: [discovery,holdout]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: routed-*
+          path: results/similarity_routed_download
+          merge-multiple: true
+      - name: Evaluate corrected routed-law gate
+        run: |
+          python -m pip install numpy
+          PYTHONPATH=. python scripts/similarity_routed_validate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-routed-law-summary
+          path: |
+            results/similarity_routed_law_summary.json
+            results/similarity_routed_law_combined.csv
