@@ -1,0 +1,23 @@
+{
+  "attempted_routes": 60,
+  "successful_routes": 59,
+  "all_successful_dsp_exact": true,
+  "model": {
+    "broadcast_slope_ns_per_sqrt_pe": 1.0788631181033024,
+    "local_slope_ns_per_sqrt_pe": 0.2766190018447845,
+    "interaction_delta_slope_ns_per_sqrt_pe": -0.8022441162585179,
+    "rmse_ns": 0.41078819169130665
+  },
+  "slope_suppression_pct": 74.3601,
+  "median_seed_cv_pct": {
+    "broadcast": 2.8073055488807346,
+    "local": 4.020839511020547
+  },
+  "ecp5_85k_11x11": {
+    "broadcast_period_ns": 18.188207243859388,
+    "local_period_ns": 11.406410402646287,
+    "local_period_improvement_pct": 37.2867801113424
+  },
+  "mechanism_gate_pass": true,
+  "claim_boundary": "Supports nonlocal operand distribution as a major mediator of the sqrt(PE) timing penalty in this controlled ECP5 INT8 MAC family; does not establish raw logical diameter or fanout alone as the sufficient invariant."
+}
