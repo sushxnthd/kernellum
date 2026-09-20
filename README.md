@@ -68,6 +68,25 @@ See:
 - `results/k1_closed_loop_routes.csv`
 - `results/k1_closed_loop_validation.json`
 
+## Project SIMILARITY: corrected routed-timing result
+
+Kernellum also isolated a physical-design effect that the architecture search should model explicitly: operand-distribution topology changes routed timing scaling.
+
+A preregistered correction study used only nextpnr post-route JSON timing on 96 ECP5 implementations. Square arrays and seeds 17 to 19 formed the discovery set; unseen rectangular arrays and seeds 20 to 22 formed the held-out set.
+
+- **96 / 96** routes completed with exact one-DSP-per-PE mapping
+- broadcast critical-period slope: **0.4503 ns / sqrt(PE)**
+- registered local-transport slope: **0.1493 ns / sqrt(PE)**
+- held-out tax MAE: **0.3039 ns**
+- held-out tax RMSE: **0.3815 ns**
+- held-out predicted-versus-observed correlation: **0.8921**
+- positive broadcast tax: **6 / 6** unseen device/geometry pairs
+- all **13 / 13** frozen criteria passed
+
+The supported claim is limited to this ECP5 INT8 MAC-fabric family. It is a final-routed timing result, not a physical-board, power, energy or vendor-independent result.
+
+See `docs/SIMILARITY_ROUTED_LAW_REPORT.md` and `results/similarity_routed_law_summary.json`.
+
 ## K2 board-ready
 
 K2 is the current hardware-validation stage.
@@ -168,6 +187,12 @@ PYTHONPATH=. python scripts/run_k1_closed_loop.py
 
 GitHub Actions contains reproducible workflows for the HDL and physical-design experiments.
 
+Corrected SIMILARITY routed-law validation:
+
+```bash
+PYTHONPATH=. python scripts/similarity_routed_validate.py
+```
+
 ## Current scientific boundary
 
 Kernellum has **not** yet established:
@@ -178,6 +203,7 @@ Kernellum has **not** yet established:
 - end-to-end Transformer inference
 - ASIC PPA
 - superiority to commercial EDA systems
+- universality of the SIMILARITY timing relation across vendors or RTL families
 - patentability or commercial licensing value
 
 The next gate is physical FPGA execution.

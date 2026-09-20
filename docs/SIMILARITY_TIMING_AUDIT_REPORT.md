@@ -51,3 +51,9 @@ But all previously reported numerical equations and slope magnitudes were derive
 All final SIMILARITY timing claims must henceforth use nextpnr `--report` and read the post-route `fmax` object directly.
 
 The causal topology experiment and its independent confirmation must be rerun under this corrected measurement definition before any final discovery claim is made.
+
+## Resolution
+
+The required correction was completed in GitHub Actions run `35498260194` using 96 implementations, square-only discovery, unseen rectangular holdout geometries and disjoint seeds. All 13 preregistered criteria passed.
+
+The authoritative corrected result is `docs/SIMILARITY_ROUTED_LAW_REPORT.md`. Its raw data and machine-readable summary are stored in `results/similarity_routed_law_combined.csv` and `results/similarity_routed_law_summary.json`.

@@ -2,6 +2,8 @@
 
 Date: 2026-09-20
 
+> **Timing-metric status:** this report records the historical worst-implementation-stage experiment. Its causal direction remains part of the audit trail, but its numerical equation is superseded for final-routed timing claims by `SIMILARITY_ROUTED_LAW_REPORT.md`.
+
 ## Result
 
 The preregistered independent confirmation **PASSED every frozen criterion**.
