@@ -2,16 +2,68 @@
   "pool_size": 172,
   "initial_observations": 9,
   "active": [
-    {"name":"r10_c12_k64","rows":10,"cols":12,"k_tile":64,"predicted_fmax_mhz":34.40205141696035,"uncertainty":0.38098663686958706,"acquisition_score":0.7679994360731306},
-    {"name":"r10_c12_k32","rows":10,"cols":12,"k_tile":32,"predicted_fmax_mhz":35.39306492022595,"uncertainty":0.3425974893302939,"acquisition_score":0.7699650194179659},
-    {"name":"r08_c14_k64","rows":8,"cols":14,"k_tile":64,"predicted_fmax_mhz":35.1097414652363,"uncertainty":0.33973829323282034,"acquisition_score":0.7941786863560555},
-    {"name":"r10_c12_k16","rows":10,"cols":12,"k_tile":16,"predicted_fmax_mhz":35.57239758065784,"uncertainty":0.38098663686958706,"acquisition_score":0.796158977221111}
+    {
+      "name": "r10_c12_k64",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 64,
+      "predicted_fmax_mhz": 47.232993678207876,
+      "uncertainty": 0.38098663686958706,
+      "acquisition_score": 0.7804746065410398
+    },
+    {
+      "name": "r10_c12_k32",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 32,
+      "predicted_fmax_mhz": 47.84180769048306,
+      "uncertainty": 0.3425974893302939,
+      "acquisition_score": 0.7926374599845554
+    },
+    {
+      "name": "r12_c10_k64",
+      "rows": 12,
+      "cols": 10,
+      "k_tile": 64,
+      "predicted_fmax_mhz": 47.13840327522853,
+      "uncertainty": 0.38098663686958706,
+      "acquisition_score": 0.8085451810529638
+    },
+    {
+      "name": "r08_c14_k64",
+      "rows": 8,
+      "cols": 14,
+      "k_tile": 64,
+      "predicted_fmax_mhz": 47.763075176659406,
+      "uncertainty": 0.33973829323282034,
+      "acquisition_score": 0.8124025467596376
+    }
   ],
   "random_seed": 20260919,
   "random": [
-    {"name":"r02_c14_k16","rows":2,"cols":14,"k_tile":16},
-    {"name":"r08_c06_k08","rows":8,"cols":6,"k_tile":8},
-    {"name":"r04_c06_k08","rows":4,"cols":6,"k_tile":8},
-    {"name":"r08_c04_k08","rows":8,"cols":4,"k_tile":8}
+    {
+      "name": "r02_c14_k16",
+      "rows": 2,
+      "cols": 14,
+      "k_tile": 16
+    },
+    {
+      "name": "r08_c06_k08",
+      "rows": 8,
+      "cols": 6,
+      "k_tile": 8
+    },
+    {
+      "name": "r04_c06_k08",
+      "rows": 4,
+      "cols": 6,
+      "k_tile": 8
+    },
+    {
+      "name": "r08_c04_k08",
+      "rows": 8,
+      "cols": 4,
+      "k_tile": 8
+    }
   ]
 }

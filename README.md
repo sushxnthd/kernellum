@@ -15,7 +15,7 @@ Transformer workload
       ↓
 analytical architecture model
       ↓
-routed-Fmax surrogate
+final-route-Fmax surrogate
       ↓
 candidate acquisition
       ↓
@@ -36,8 +36,8 @@ physical-design feedback
 Nine frozen architectures were synthesized and routed on a Lattice ECP5-85K / CABGA381 target.
 
 - **9 / 9** routes completed
-- predicted vs routed workload ranking: **mean Spearman ρ = 0.927**
-- analytically selected winner: **1.00% mean routed regret**
+- predicted vs final-routed workload ranking: **mean Spearman ρ = 0.944**
+- analytically selected winner: **0.583% mean final-routed regret**
 - DSP prediction: **ρ = 1.000**
 - functional tiled-GEMM RTL simulation: **PASS**
 
@@ -51,13 +51,13 @@ Using only the original nine routed observations:
 - an equal-budget random arm selected **4**
 - total physical implementations attempted: **17 / 172 = 9.88%**
 - all **8 / 8** new designs routed
-- routed-Fmax surrogate MAPE: **11.95%**
-- active-search final mean best latency: **24.01 ms**
-- random-control final mean best latency: **26.61 ms**
+- final-route-Fmax surrogate MAPE: **6.475%**
+- active-search final mean best latency: **16.74 ms**
+- random-control final mean best latency: **19.44 ms**
 - active search improved the routed optimum on **12 / 12** Transformer GEMMs
 - random search improved it on **0 / 12**
 
-These latency values are derived from the K1 kernel cycle model and **routed Fmax**, not measurements from a physical FPGA board.
+These latency values are derived from the K1 kernel cycle model and **final-routed Fmax**, not measurements from a physical FPGA board.
 
 See:
 
@@ -67,6 +67,7 @@ See:
 - `results/k1_validation.json`
 - `results/k1_closed_loop_routes.csv`
 - `results/k1_closed_loop_validation.json`
+- `docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md`
 
 ## Project SIMILARITY: corrected routed-timing result
 
@@ -140,9 +141,9 @@ K1 adds:
 - accumulation across K chunks
 - ECP5 synthesis
 - nextpnr place-and-route
-- routed Fmax extraction
+- final-routed Fmax extraction from nextpnr report JSON
 - target-aware ECP5 DSP/BRAM modelling
-- routed-Fmax surrogate
+- final-route-Fmax surrogate
 - active acquisition
 - equal-budget random control
 - physical-design feedback ingestion
@@ -185,7 +186,7 @@ K1 closed-loop routed-feedback experiment:
 PYTHONPATH=. python scripts/run_k1_closed_loop.py
 ```
 
-GitHub Actions contains reproducible workflows for the HDL and physical-design experiments.
+GitHub Actions contains reproducible workflows for the HDL and physical-design experiments. K1 timing is read only from nextpnr's final post-route report JSON.
 
 Corrected SIMILARITY routed-law validation:
 

@@ -7,27 +7,87 @@
   "total_architectures_physically_attempted": 17,
   "observed_fraction": 0.09883720930232558,
   "observed_fraction_limit": 0.1,
-  "surrogate_fmax_mape_pct": 11.95073781485548,
+  "surrogate_fmax_mape_pct": 6.4749988742993505,
   "surrogate_fmax_mape_limit_pct": 20.0,
-  "active_mean_final_best_ms": 24.013590482932717,
-  "random_mean_final_best_ms": 26.60553154087088,
+  "active_mean_final_best_ms": 16.739829936980474,
+  "random_mean_final_best_ms": 19.442801602520614,
   "active_no_worse_than_random": true,
   "active_improved_workloads": 12,
   "random_improved_workloads": 0,
   "active_improvement_count_no_worse": true,
   "per_workload": [
-    {"workload":"s64_qkv","initial_best_ms":12.153919239904988,"active_final_best_ms":10.529451425068954,"random_final_best_ms":12.153919239904988},
-    {"workload":"s64_attn_out","initial_best_ms":4.0513064133016625,"active_final_best_ms":3.614587802635611,"random_final_best_ms":4.0513064133016625},
-    {"workload":"s64_ffn_expand","initial_best_ms":15.581947743467934,"active_final_best_ms":13.515415262028807,"random_final_best_ms":15.581947743467934},
-    {"workload":"s64_ffn_contract","initial_best_ms":15.538242280285036,"active_final_best_ms":13.866258044744098,"random_final_best_ms":15.538242280285036},
-    {"workload":"s128_qkv","initial_best_ms":23.108446238108964,"active_final_best_ms":21.05890285013791,"random_final_best_ms":23.108446238108964},
-    {"workload":"s128_attn_out","initial_best_ms":7.866705102334967,"active_final_best_ms":7.056906429026098,"random_final_best_ms":7.866705102334967},
-    {"workload":"s128_ffn_expand","initial_best_ms":29.500144133756127,"active_final_best_ms":27.030830524057613,"random_final_best_ms":29.500144133756127},
-    {"workload":"s128_ffn_contract","initial_best_ms":30.171692130296915,"active_final_best_ms":27.065817950350095,"random_final_best_ms":30.171692130296915},
-    {"workload":"s256_qkv","initial_best_ms":46.21689247621793,"active_final_best_ms":42.11780570027582,"random_final_best_ms":46.21689247621793},
-    {"workload":"s256_attn_out","initial_best_ms":15.733410204669934,"active_final_best_ms":14.113812858052196,"random_final_best_ms":15.733410204669934},
-    {"workload":"s256_ffn_expand","initial_best_ms":59.00028826751225,"active_final_best_ms":54.061661048115226,"random_final_best_ms":59.00028826751225},
-    {"workload":"s256_ffn_contract","initial_best_ms":60.34338426059383,"active_final_best_ms":54.13163590070019,"random_final_best_ms":60.34338426059383}
+    {
+      "workload": "s64_qkv",
+      "initial_best_ms": 8.78984317725414,
+      "active_final_best_ms": 7.506448031993236,
+      "random_final_best_ms": 8.78984317725414
+    },
+    {
+      "workload": "s64_attn_out",
+      "initial_best_ms": 2.9299477257513797,
+      "active_final_best_ms": 2.576840369191708,
+      "random_final_best_ms": 2.9299477257513797
+    },
+    {
+      "workload": "s64_ffn_expand",
+      "initial_best_ms": 11.269029714428383,
+      "active_final_best_ms": 9.63514225002117,
+      "random_final_best_ms": 11.269029714428383
+    },
+    {
+      "workload": "s64_ffn_contract",
+      "initial_best_ms": 11.237421460351328,
+      "active_final_best_ms": 9.885258140159767,
+      "random_final_best_ms": 11.237421460351328
+    },
+    {
+      "workload": "s128_qkv",
+      "initial_best_ms": 16.917642358900846,
+      "active_final_best_ms": 14.661985328428683,
+      "random_final_best_ms": 16.917642358900846
+    },
+    {
+      "workload": "s128_attn_out",
+      "initial_best_ms": 5.759197398774757,
+      "active_final_best_ms": 4.887328442809562,
+      "random_final_best_ms": 5.759197398774757
+    },
+    {
+      "workload": "s128_ffn_expand",
+      "initial_best_ms": 21.596990245405337,
+      "active_final_best_ms": 18.79741708772908,
+      "random_final_best_ms": 21.596990245405337
+    },
+    {
+      "workload": "s128_ffn_contract",
+      "initial_best_ms": 22.08862904773977,
+      "active_final_best_ms": 18.74469262516594,
+      "random_final_best_ms": 22.08862904773977
+    },
+    {
+      "workload": "s256_qkv",
+      "initial_best_ms": 33.83528471780169,
+      "active_final_best_ms": 29.323970656857366,
+      "random_final_best_ms": 33.83528471780169
+    },
+    {
+      "workload": "s256_attn_out",
+      "initial_best_ms": 11.518394797549513,
+      "active_final_best_ms": 9.774656885619123,
+      "random_final_best_ms": 11.518394797549513
+    },
+    {
+      "workload": "s256_ffn_expand",
+      "initial_best_ms": 43.193980490810674,
+      "active_final_best_ms": 37.59483417545816,
+      "random_final_best_ms": 43.193980490810674
+    },
+    {
+      "workload": "s256_ffn_contract",
+      "initial_best_ms": 44.17725809547954,
+      "active_final_best_ms": 37.48938525033188,
+      "random_final_best_ms": 44.17725809547954
+    }
   ],
   "closed_loop_gate_pass": true,
   "interpretation": "PASS means the routed-observation-driven selector used its equal physical-design budget at least as effectively as the frozen random control in this ECP5 candidate space."
