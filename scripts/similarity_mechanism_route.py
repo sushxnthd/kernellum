@@ -36,7 +36,7 @@ CELL_RE = re.compile(r"^\s+([A-Za-z_$][A-Za-z0-9_$]*)\s+(\d+)\s*$")
 FMAX_RE = re.compile(r"Max frequency[^:]*:\s*([0-9.]+)\s*MHz", re.I)
 
 
-def run(cmd: list[str], timeout: int = 900) -> subprocess.CompletedProcess[str]:
+def run(cmd: list[str], timeout: int = 1800) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=timeout)
 
 
