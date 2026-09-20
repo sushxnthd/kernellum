@@ -1,0 +1,13 @@
+workload,selected_arch,selected_topology,selection_predicted_ms
+s64_qkv,r13_c10_k320,local,5.697115609861326
+s64_attn_out,r13_c10_k320,local,1.9394436118676854
+s64_ffn_expand,r13_c10_k320,local,7.27291354450382
+s64_ffn_contract,r13_c10_k320,local,7.4538984898509195
+s128_qkv,r13_c10_k320,local,11.394231219722652
+s128_attn_out,r13_c10_k320,local,3.878887223735371
+s128_ffn_expand,r13_c10_k320,local,14.54582708900764
+s128_ffn_contract,r10_c13_k448,local,14.8149203720714
+s256_qkv,r13_c10_k320,local,22.788462439445304
+s256_attn_out,r13_c10_k320,local,7.757774447470742
+s256_ffn_expand,r13_c10_k320,local,29.09165417801528
+s256_ffn_contract,r10_c13_k448,local,29.6298407441428
