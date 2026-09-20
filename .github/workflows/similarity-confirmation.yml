@@ -1,0 +1,78 @@
+name: SIMILARITY square-root confirmation
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_confirm_route_shard.py'
+      - 'scripts/similarity_confirm_validate.py'
+      - 'tests/test_similarity_confirmation.py'
+      - '.github/workflows/similarity-confirmation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [25k, 45k, 85k]
+        shard: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route independent confirmation shard
+        run: |
+          PYTHONPATH=. python scripts/similarity_confirm_route_shard.py \
+            --device ${{ matrix.device }} \
+            --shard ${{ matrix.shard }} \
+            --shards 6
+      - uses: actions/upload-artifact@v4
+        with:
+          name: simconfirm-${{ matrix.device }}-${{ matrix.shard }}
+          path: results/similarity_confirm_${{ matrix.device }}_shard_${{ matrix.shard }}.csv
+
+  validate:
+    needs: route
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: simconfirm-25k-*
+          path: results/similarity_confirm_25k
+          merge-multiple: true
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: simconfirm-45k-*
+          path: results/similarity_confirm_45k
+          merge-multiple: true
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: simconfirm-85k-*
+          path: results/similarity_confirm_85k
+          merge-multiple: true
+      - name: Evaluate frozen laws without refitting
+        run: |
+          python -m pip install numpy
+          PYTHONPATH=. python scripts/similarity_confirm_validate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-confirmation-validation
+          path: |
+            results/similarity_confirmation_validation.json
+            results/similarity_confirm_25k_combined.csv
+            results/similarity_confirm_45k_combined.csv
+            results/similarity_confirm_85k_combined.csv

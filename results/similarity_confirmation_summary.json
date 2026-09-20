@@ -1,0 +1,24 @@
+{
+  "attempted_routes": 135,
+  "successful_routes": 135,
+  "frozen_sqrt_law": "period_ns = 14.104151375868376 + 1.722605870482421*sqrt(PE)",
+  "devices": {
+    "25k": {"mape_pct": 4.310950520679845, "signed_bias_pct": 1.848919245004437, "within_10pct_fraction": 1.0},
+    "45k": {"mape_pct": 3.3843588364576815, "signed_bias_pct": -0.9554954570767181, "within_10pct_fraction": 0.9777777777777777},
+    "85k": {"mape_pct": 3.4598519279104107, "signed_bias_pct": 1.2583632454824119, "within_10pct_fraction": 0.9583333333333334}
+  },
+  "pooled": {
+    "sqrt_mape_pct": 3.548167376462092,
+    "linear_pe_mape_pct": 4.2167870431280265,
+    "perimeter_mape_pct": 4.4945126515342055,
+    "within_10pct_fraction": 0.9703703703703703,
+    "signed_bias_pct": 0.5991511445656386,
+    "orientation_pairs": 30,
+    "orientation_median_abs_period_difference_pct": 2.4656879651966226,
+    "exploratory_best_exponent": 0.57,
+    "exploratory_best_exponent_mape_pct": 3.467347749183784
+  },
+  "all_preregistered_confirmation_flags": true,
+  "square_root_law_confirmed": true,
+  "claim_boundary": "Confirmed only for this regular INT8 tiled systolic RTL family under the ECP5/Yosys/nextpnr flow; not yet a universal FPGA law."
+}
