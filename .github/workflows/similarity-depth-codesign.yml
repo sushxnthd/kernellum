@@ -1,0 +1,94 @@
+name: SIMILARITY depth codesign
+
+on:
+  pull_request:
+    paths:
+      - 'docs/SIMILARITY_DEPTH_CODESIGN_PLAN.md'
+      - 'scripts/similarity_depth_route.py'
+      - 'scripts/similarity_depth_validate.py'
+      - 'tests/test_similarity_depth_codesign.py'
+      - '.github/workflows/similarity-depth-codesign.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  functional:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Install simulation toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+      - name: Python tests
+        run: |
+          python -m pip install pytest numpy
+          PYTHONPATH=. python -m pytest -q \
+            tests/test_k1.py \
+            tests/test_similarity_functional_transfer.py \
+            tests/test_similarity_depth_codesign.py
+      - name: Exact-output transport simulations
+        run: bash scripts/run_k1_sim.sh
+      - name: Record functional gate
+        run: touch results/similarity_depth_simulation_passed
+      - uses: actions/upload-artifact@v4
+        with:
+          name: depth-functional-simulation
+          path: results/similarity_depth_simulation_passed
+
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        topology: [broadcast, local]
+        seed: [29, 30, 31]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route frozen depth corpus
+        run: |
+          PYTHONPATH=. python scripts/similarity_depth_route.py \
+            --topology ${{ matrix.topology }} --seed ${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: depth-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: results/similarity_depth_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+
+  validate:
+    needs: [functional, route]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: depth-*
+          path: results/similarity_depth_download
+          merge-multiple: true
+      - name: Evaluate frozen depth-codesign gate
+        run: |
+          python -m pip install numpy
+          PYTHONPATH=. python scripts/similarity_depth_validate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-depth-codesign-summary
+          path: |
+            results/similarity_depth_summary.json
+            results/similarity_depth_combined.csv
+            results/similarity_depth_points.csv
+            results/similarity_depth_pairs.csv
+            results/similarity_depth_policy.csv
+            results/similarity_depth_workloads.csv
+            results/similarity_depth_comparison.csv
