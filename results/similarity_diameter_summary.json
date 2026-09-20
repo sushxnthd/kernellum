@@ -1,0 +1,29 @@
+{
+  "attempted_routes": 66,
+  "successful_routes": 66,
+  "all_successful_dsp_exact": true,
+  "model": {
+    "broadcast_span_slope_ns_per_D": 0.034055830826265066,
+    "local_span_slope_ns_per_D": 0.009304782817919133,
+    "interaction_delta_slope_ns_per_D": -0.024751048008345933,
+    "rmse_ns": 0.47398027292452777
+  },
+  "broadcast_spearman_period_vs_D": {
+    "P64": 0.8651809126974002,
+    "P96": 0.06063390625908325
+  },
+  "broadcast_elongation_penalty_pct": {
+    "P64": 11.018957345971558,
+    "P96": -1.3733905579399242
+  },
+  "local_elongation_penalty_pct": {
+    "P64": -1.1387379857918822,
+    "P96": 7.938861640241823
+  },
+  "median_seed_cv_pct": {
+    "broadcast": 1.8481607835006786,
+    "local": 3.81941327159918
+  },
+  "diameter_gate_pass": false,
+  "scientific_interpretation": "The simple max(ROWS,COLS) communication-diameter mechanism is falsified; the confirmed square-root timing law requires a different physical explanation."
+}
