@@ -1,0 +1,19 @@
+# Lattice ECP5 Evaluation Board, LFE5UM5G-85F-8BG381
+# 12 MHz FTDI-derived clock. JP2 must be installed.
+LOCATE COMP "clk12" SITE "A10";
+IOBUF PORT "clk12" IO_TYPE=LVCMOS33;
+
+# Default K2 host link uses J31 PMOD/GPIO and an external 3.3 V USB-UART.
+# J31 pin 1 -> C6 -> FPGA RX
+# J31 pin 2 -> C7 -> FPGA TX
+# J31 pin 5 -> GND
+LOCATE COMP "uart_rx" SITE "C6";
+IOBUF PORT "uart_rx" IO_TYPE=LVCMOS33;
+LOCATE COMP "uart_tx" SITE "C7";
+IOBUF PORT "uart_tx" IO_TYPE=LVCMOS33;
+
+# Status LEDs from the upstream prjtrellis ECP5 EVN example.
+LOCATE COMP "led_ready" SITE "A13";
+IOBUF PORT "led_ready" IO_TYPE=LVCMOS25;
+LOCATE COMP "led_busy" SITE "A12";
+IOBUF PORT "led_busy" IO_TYPE=LVCMOS25;

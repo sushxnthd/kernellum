@@ -1,0 +1,67 @@
+name: K2 board-ready validation
+
+on:
+  pull_request:
+    paths:
+      - 'rtl/kernellum_uart_rx.sv'
+      - 'rtl/kernellum_uart_tx.sv'
+      - 'rtl/kernellum_k2_board_top.sv'
+      - 'rtl/tb_kernellum_k2_uart.sv'
+      - 'boards/ecp5_evn/**'
+      - 'kernellum/k2/**'
+      - 'scripts/run_k2_sim.sh'
+      - 'scripts/build_k2_evn.py'
+      - 'scripts/k2_benchmark.py'
+      - 'tests/test_k2_host.py'
+      - '.github/workflows/k2-board-ready.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'rtl/kernellum_uart_rx.sv'
+      - 'rtl/kernellum_uart_tx.sv'
+      - 'rtl/kernellum_k2_board_top.sv'
+      - 'rtl/tb_kernellum_k2_uart.sv'
+      - 'boards/ecp5_evn/**'
+      - 'kernellum/k2/**'
+      - 'scripts/run_k2_sim.sh'
+      - 'scripts/build_k2_evn.py'
+      - 'scripts/k2_benchmark.py'
+      - 'tests/test_k2_host.py'
+      - '.github/workflows/k2-board-ready.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys iverilog nextpnr-ecp5 fpga-trellis
+      - name: Python tests
+        run: |
+          python -m pip install pytest
+          PYTHONPATH=. python -m pytest -q tests/test_k2_host.py tests/test_k1.py tests/test_k1_ecp5.py
+      - name: UART protocol simulation
+        run: bash scripts/run_k2_sim.sh
+      - name: Build three ECP5 EVN bitstreams
+        run: PYTHONPATH=. python scripts/build_k2_evn.py
+      - name: Upload K2 board package
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernellum-k2-board-ready
+          path: |
+            build/k2/uart_simulation.log
+            build/k2_evn/manifest.json
+            build/k2_evn/**/*.bit
+            build/k2_evn/**/yosys.log
+            build/k2_evn/**/nextpnr.log
+            build/k2_evn/**/ecppack.log
