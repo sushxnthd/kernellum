@@ -4,9 +4,8 @@ from __future__ import annotations
 import csv
 import json
 from collections import defaultdict
+from math import sqrt
 from pathlib import Path
-
-import numpy as np
 
 from kernellum.k1.model import K1Architecture, predicted_cycles
 from kernellum.workload import tiny_transformer_suite
@@ -21,7 +20,7 @@ LAW_SLOPE = 0.3009146881520305
 
 
 def law_tax_ns(pe_count: int) -> float:
-    return LAW_INTERCEPT + LAW_SLOPE * float(np.sqrt(pe_count))
+    return LAW_INTERCEPT + LAW_SLOPE * sqrt(pe_count)
 
 
 def latency_ms(m: int, n: int, k: int, name: str, rows: int, cols: int, k_tile: int,
@@ -31,6 +30,8 @@ def latency_ms(m: int, n: int, k: int, name: str, rows: int, cols: int, k_tile: 
 
 
 def main() -> int:
+    import numpy as np
+
     functional_simulation_passed = (
         IN / "similarity_functional_simulation_passed"
     ).exists()
