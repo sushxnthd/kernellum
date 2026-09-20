@@ -1,0 +1,30 @@
+{
+  "response": "critical_period_ns",
+  "equation_form": "period_ns = intercept + sum(coefficient_i * term_i)",
+  "selected_model": "sqrtpe_logtile_aniso",
+  "terms": ["sqrt_pe", "log2_k_tile", "anisotropy"],
+  "coefficients": [
+    14.329300365033749,
+    1.7217240113705,
+    -0.04517745779855687,
+    -0.018825081321532575
+  ],
+  "selection_rule": "lowest leave-one-out MAPE with a simplicity preference for the fewest terms within 0.50 percentage points of the minimum",
+  "discovery_device": "45k",
+  "successful_discovery_routes": 128,
+  "attempted_discovery_routes": 172,
+  "discovery_loocv_period_mape_pct": 3.9814453218994625,
+  "discovery_in_sample_period_mape_pct": 3.861478894602287,
+  "discovery_in_sample_period_r2": 0.8779983753128977,
+  "discovery_in_sample_period_spearman": 0.9334915845473661,
+  "raw_baseline": {
+    "terms": ["rows", "cols", "k_tile"],
+    "coefficients": [
+      14.525352171147443,
+      0.7315769239140253,
+      0.7230470031823137,
+      -0.0022889221719830386
+    ]
+  },
+  "freeze_note": "Frozen from the complete 45K discovery corpus before the complete 85K held-out corpus finished. Do not refit from held-out-device results."
+}

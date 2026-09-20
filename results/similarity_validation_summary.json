@@ -1,0 +1,29 @@
+{
+  "broad_similarity_breakthrough_gate_pass": false,
+  "45k_discovery_loocv_period_mape_pct": 3.981445321899456,
+  "85k_heldout": {
+    "period_mape_pct": 4.307309696777022,
+    "fmax_mape_pct": 4.142858350726188,
+    "fmax_r2": 0.9095132208459866,
+    "fmax_spearman": 0.9608542754437708
+  },
+  "25k_heldout": {
+    "period_mape_pct": 5.369731805939053,
+    "fmax_mape_pct": 5.032013563842794,
+    "fmax_r2": 0.1519866725968031,
+    "fmax_spearman": 0.8182932678187921
+  },
+  "workload_validation": {
+    "heldout_workloads": 144,
+    "law_family_accuracy": 0.16666666666666666,
+    "largest_array_family_accuracy": 0.8333333333333334,
+    "law_mean_routed_regret_pct": 5.323317752590171
+  },
+  "emergent_reduced_relation": {
+    "status": "diagnostic_only_not_yet_confirmed",
+    "equation": "period_ns = 14.10415138 + 1.72260587*sqrt(PE)",
+    "45k_mape_pct": 3.874,
+    "85k_mape_pct": 4.309,
+    "25k_mape_pct": 5.362
+  }
+}
