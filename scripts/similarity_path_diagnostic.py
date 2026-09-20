@@ -34,12 +34,28 @@ def parse_cells(text:str)->dict[str,int]:
     return out
 
 def critical_block(text:str)->str:
-    starts=[m.start() for m in re.finditer(r"Critical path report",text,re.I)]
+    # Select an interior same-clock critical-path report, not the later
+    # cross-domain/asynchronous digest report. The selected block must end
+    # at its associated Max frequency line.
+    starts=[m.start() for m in re.finditer(r"Critical path report for clock",text,re.I)]
     if not starts:
+        starts=[m.start() for m in re.finditer(r"Critical path report",text,re.I)]
+    candidates=[]
+    for start in starts:
+        end_m=re.search(r"Max frequency[^\n]*",text[start:],re.I)
+        if end_m is None:
+            continue
+        end=start+end_m.end()
+        block=text[start:end]
+        summaries=list(SUMMARY_RE.finditer(block))
+        fvals=[float(m.group(1)) for m in FMAX_RE.finditer(block)]
+        if summaries and fvals:
+            candidates.append((min(fvals),block))
+    if not candidates:
         return ""
-    # The final printed critical-path report corresponds to the timing summary
-    # used by the single-clock design.
-    return text[starts[-1]:]
+    # If multiple clocks ever appear, use the block with the lowest achieved
+    # frequency, which is the global Fmax limiter.
+    return min(candidates,key=lambda x:x[0])[1]
 
 def classify(block:str)->str:
     low=block.lower()
@@ -75,7 +91,7 @@ def route_one(n:int,seed:int)->dict:
         "n":n,"seed":seed,"pe_count":n*n,"synth_dsp":cells.get("MULT18X18D",0),
         "synth_lut4":cells.get("LUT4",0),"synth_ff":cells.get("TRELLIS_FF",0),
         "route_ok":False,"fmax_mhz":"","period_ns":"","logic_ns":"","routing_ns":"",
-        "routing_fraction":"","critical_net_arcs":"","max_manhattan_span":"",
+        "routing_fraction":"","timing_sum_error_ns":"","critical_net_arcs":"","max_manhattan_span":"",
         "sum_manhattan_span":"","max_reported_net_delay_ns":"",
         "critical_path_class":"","has_operand":False,"has_accumulator":False,
         "has_counter":False,"elapsed_sec":"","error_stage":""
@@ -111,6 +127,7 @@ def route_one(n:int,seed:int)->dict:
             "route_ok":True,"fmax_mhz":fmax,"period_ns":1000.0/fmax,
             "logic_ns":logic,"routing_ns":routing,
             "routing_fraction":routing/(logic+routing) if logic+routing else 0.0,
+            "timing_sum_error_ns":abs((logic+routing)-(1000.0/fmax)),
             "critical_net_arcs":len(coords),
             "max_manhattan_span":max(spans) if spans else 0,
             "sum_manhattan_span":sum(spans),
@@ -138,7 +155,8 @@ def main()->int:
         print(
             f"[pathdiag] ok={r['route_ok']} fmax={r['fmax_mhz']} "
             f"logic={r['logic_ns']} routing={r['routing_ns']} "
-            f"class={r['critical_path_class']} span={r['max_manhattan_span']}",
+            f"sumerr={r['timing_sum_error_ns']} class={r['critical_path_class']} "
+            f"span={r['max_manhattan_span']}",
             flush=True,
         )
     path=OUT/f"similarity_path_diagnostic_s{args.seed}.csv"
