@@ -1,0 +1,39 @@
+name: SIMILARITY physical-span pilot
+
+on:
+  pull_request:
+    paths:
+      - 'docs/SIMILARITY_SPAN_PILOT.md'
+      - 'scripts/similarity_span_constraints.py'
+      - 'scripts/similarity_span_pilot.py'
+      - 'tests/test_similarity_span_pilot.py'
+      - '.github/workflows/similarity-span-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        topology: [broadcast, local]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Run compact/elongated placement pilot
+        run: |
+          PYTHONPATH=. python scripts/similarity_span_pilot.py --topology ${{ matrix.topology }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: span-pilot-${{ matrix.topology }}
+          path: results/similarity_span_pilot_${{ matrix.topology }}.csv
