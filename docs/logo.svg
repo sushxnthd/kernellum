@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10 8)">
+    <!-- Clean vectorized Kernellum mark. Built from capsules + circles, not raster tracing. -->
+    <g stroke="#F2F0EA" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M114 116 L74 60"/>
+      <path d="M114 116 L72 174"/>
+      <path d="M114 116 L158 116"/>
+    </g>
+    <circle cx="114" cy="116" r="27" fill="#F2F0EA"/>
+    <circle cx="74" cy="60" r="27" fill="#F2F0EA"/>
+    <circle cx="72" cy="174" r="27" fill="#F2F0EA"/>
+    <circle cx="158" cy="116" r="27" fill="#F2F0EA"/>
+    <circle cx="211" cy="116" r="17" fill="#FF4B2B"/>
+  </g>
+</svg>
