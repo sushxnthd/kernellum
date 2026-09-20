@@ -6,6 +6,8 @@ Date: 2026-09-19
 
 **PASS** against the criteria frozen in `docs/K1_CLOSED_LOOP_PLAN.md` before the eight new routes were executed.
 
+Timing status: corrected on 2026-09-20 after rebuilding the nine-route baseline from nextpnr final post-route report JSON. The values below supersede the historical worst-implementation-stage timing results. See `docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md`.
+
 Kernellum used only the original nine routed K1 observations to choose four new architectures. A fixed-seed random arm received the same four-route budget.
 
 ## Budget
@@ -25,8 +27,8 @@ The routed-feedback selector chose:
 
 - 10x12, K_TILE=64
 - 10x12, K_TILE=32
+- 12x10, K_TILE=64
 - 8x14, K_TILE=64
-- 10x12, K_TILE=16
 
 All four synthesized and routed successfully.
 
@@ -47,8 +49,8 @@ All four synthesized and routed successfully.
 | --- | ---: | ---: |
 | New routes successful | >= 7 / 8 | **8 / 8** |
 | Physically attempted fraction | <= 10% | **9.88%** |
-| Surrogate Fmax MAPE | <= 20% | **11.95%** |
-| Active final mean latency vs random | <= random | **24.01 ms vs 26.61 ms** |
+| Surrogate Fmax MAPE | <= 20% | **6.475%** |
+| Active final mean latency vs random | <= random | **16.74 ms vs 19.44 ms** |
 | Active workload improvements | >= random | **12 vs 0** |
 
 **Closed-loop gate: PASS.**
@@ -63,27 +65,26 @@ Examples:
 
 | Workload | Initial best | Active final best | Improvement |
 | --- | ---: | ---: | ---: |
-| s64 qkv | 12.154 ms | 10.529 ms | 13.4% |
-| s128 qkv | 23.108 ms | 21.059 ms | 8.9% |
-| s256 qkv | 46.217 ms | 42.118 ms | 8.9% |
-| s128 FFN expand | 29.500 ms | 27.031 ms | 8.4% |
-| s256 FFN contract | 60.343 ms | 54.132 ms | 10.3% |
+| s64 qkv | 8.790 ms | 7.506 ms | 14.6% |
+| s128 qkv | 16.918 ms | 14.662 ms | 13.3% |
+| s256 qkv | 33.835 ms | 29.324 ms | 13.3% |
+| s128 FFN expand | 21.597 ms | 18.797 ms | 13.0% |
+| s256 FFN contract | 44.177 ms | 37.489 ms | 15.1% |
 
-These are routed-cycle/Fmax estimates from the same K1 kernel model, not physical-board measurements.
+These are cycle/final-route-Fmax estimates from the same K1 kernel model, not physical-board measurements.
 
 ## Physical feedback mattered
 
 The active candidates were not simply "largest array wins."
 
-The 10x12 designs used 120 DSPs, but K_TILE changed routed timing substantially:
+The 10x12 designs used 120 DSPs, but K_TILE changed final-routed timing substantially:
 
-- K_TILE 16: 29.95 MHz
-- K_TILE 32: 31.42 MHz
-- K_TILE 64: 28.80 MHz
+- K_TILE 32: 45.37 MHz
+- K_TILE 64: 41.95 MHz
 
-The 8x14 K_TILE=64 design reached 32.63 MHz with 112 DSPs.
+Orientation also mattered at identical PE count and buffer depth: 10x12 K_TILE=64 reached 41.95 MHz, while 12x10 K_TILE=64 reached 44.80 MHz. The 8x14 K_TILE=64 design reached 45.77 MHz with 112 DSPs.
 
-The surrogate's new-candidate Fmax MAPE was 11.95%, good enough to guide the acquisition but clearly imperfect. That uncertainty is precisely why Kernellum keeps routing selected designs and feeding the results back.
+The surrogate's new-candidate final-route-Fmax MAPE was 6.475%, good enough to guide the acquisition but still imperfect. That uncertainty is precisely why Kernellum keeps routing selected designs and feeding the results back.
 
 ## What K1 now is
 
@@ -91,7 +92,7 @@ K1 is no longer only an analytical design-space search.
 
 It now implements this loop:
 
-`workload -> analytical candidates -> routed-Fmax surrogate -> acquisition -> RTL -> synthesis -> place-and-route -> measured physical-design feedback -> updated search`
+`workload -> analytical candidates -> final-route-Fmax surrogate -> acquisition -> RTL -> synthesis -> place-and-route -> measured physical-design feedback -> updated search`
 
 That loop is the core technical asset of the current Kernellum direction.
 

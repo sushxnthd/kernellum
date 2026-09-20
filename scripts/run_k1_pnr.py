@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 from kernellum.k1 import candidate_set, predicted_cycles, spearman
+from kernellum.k1.routed_timing import post_route_fmax_mhz
 from kernellum.workload import tiny_transformer_suite
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,10 +21,6 @@ BUILD.mkdir(parents=True, exist_ok=True)
 OUT.mkdir(exist_ok=True)
 
 CELL_RE = re.compile(r"^\s+([A-Za-z_$][A-Za-z0-9_$]*)\s+(\d+)\s*$")
-FMAX_PATTERNS = (
-    re.compile(r"Max frequency for clock ['\"][^'\"]+['\"]:\s*([0-9.]+)\s*MHz", re.I),
-    re.compile(r"Max frequency[^:]*:\s*([0-9.]+)\s*MHz", re.I),
-)
 
 def run(cmd: list[str], *, timeout: int = 900) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
@@ -42,18 +39,12 @@ def parse_cells(text: str) -> dict[str, int]:
             cells[m.group(1)] = int(m.group(2))
     return cells
 
-def parse_fmax(text: str) -> float | None:
-    matches: list[float] = []
-    for pattern in FMAX_PATTERNS:
-        for m in pattern.finditer(text):
-            matches.append(float(m.group(1)))
-    return min(matches) if matches else None
-
 def synth_and_route(arch) -> dict:
     d = BUILD / arch.name
     d.mkdir(parents=True, exist_ok=True)
     json_path = d / "design.json"
     cfg_path = d / "design.config"
+    report_path = d / "report.json"
 
     params = (
         f"chparam -set ROWS {arch.rows} -set COLS {arch.cols} "
@@ -84,6 +75,7 @@ def synth_and_route(arch) -> dict:
             "synth_ok": False,
             "route_ok": False,
             "fmax_mhz": "",
+            "timing_metric": "post_route_report_json",
             "synth_dsp": 0,
             "synth_bram": 0,
             "synth_lut4": 0,
@@ -97,14 +89,20 @@ def synth_and_route(arch) -> dict:
         "--package", "CABGA381",
         "--json", str(json_path),
         "--textcfg", str(cfg_path),
+        "--report", str(report_path),
         "--freq", "25",
         "--seed", "1",
         "--timing-allow-fail",
     ])
     pnr_text = p.stdout + "\n" + p.stderr
     (d / "nextpnr.log").write_text(pnr_text)
-    fmax = parse_fmax(pnr_text)
-    route_ok = p.returncode == 0 and cfg_path.exists() and fmax is not None
+    fmax = None
+    if p.returncode == 0 and cfg_path.exists() and report_path.exists():
+        try:
+            fmax = post_route_fmax_mhz(report_path)
+        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+            fmax = None
+    route_ok = fmax is not None
 
     return {
         "name": arch.name,
@@ -116,6 +114,7 @@ def synth_and_route(arch) -> dict:
         "synth_ok": True,
         "route_ok": route_ok,
         "fmax_mhz": fmax if fmax is not None else "",
+        "timing_metric": "post_route_report_json",
         "synth_dsp": cells.get("MULT18X18D", 0),
         "synth_bram": cells.get("DP16KD", 0),
         "synth_lut4": cells.get("LUT4", 0),

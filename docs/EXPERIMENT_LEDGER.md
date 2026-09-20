@@ -48,7 +48,7 @@ Evidence:
 - `results/k1_validation.json`
 - `docs/K1_REPORT.md`
 
-Result: 9/9 routed, mean predicted-versus-routed workload rank Spearman 0.927, mean predicted-winner routed regret 1.00%.
+Result: after the final-route timing correction, 9/9 routed, mean predicted-versus-final-routed workload rank Spearman 0.9441, and mean predicted-winner regret 0.5828%.
 
 ## K1 closed loop
 
@@ -63,9 +63,17 @@ Evidence:
 - `results/k1_closed_loop_validation.json`
 - `docs/K1_CLOSED_LOOP_REPORT.md`
 
-Result: 8/8 new routes succeeded; 17/172 designs physically attempted; active search improved 12/12 workloads versus 0/12 for the fixed-seed random arm.
+Result: after rebuilding the baseline from final-route timing, 8/8 new routes succeeded; 17/172 designs were physically attempted; surrogate Fmax MAPE was 6.4750%; active mean final-best latency was 16.7398 ms versus 19.4428 ms for random; active improved 12/12 workloads versus 0/12 for the fixed-seed random arm.
 
 Boundary: routed timing, not physical-board measurement.
+
+Correction evidence:
+
+- `docs/K1_FINAL_ROUTE_CORRECTION_PLAN.md`
+- `docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md`
+- GitHub Actions runs `35508660108` and `35508660102`
+
+Historical K1 timing values used a worst-implementation-stage console parser and are superseded by the corrected result files.
 
 ## Project SIMILARITY: corrected final-route causal law
 
