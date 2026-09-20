@@ -1,0 +1,66 @@
+name: SIMILARITY orthogonal fanout law
+
+on:
+  pull_request:
+    paths:
+      - 'docs/SIMILARITY_FANOUT_PLAN.md'
+      - 'rtl/similarity_segmented_broadcast.sv'
+      - 'scripts/similarity_fanout_route.py'
+      - 'scripts/similarity_fanout_validate.py'
+      - 'tests/test_similarity_fanout.py'
+      - '.github/workflows/similarity-fanout.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        n: [6, 8, 10]
+        seed: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install ECP5 toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yosys nextpnr-ecp5 fpga-trellis
+      - name: Route segmented fanout matrix
+        run: |
+          PYTHONPATH=. python scripts/similarity_fanout_route.py             --n ${{ matrix.n }}             --seed ${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fanout-n${{ matrix.n }}-s${{ matrix.seed }}
+          path: results/similarity_fanout_n${{ matrix.n }}_s${{ matrix.seed }}.csv
+
+  validate:
+    needs: route
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: fanout-*
+          path: results/similarity_fanout_download
+          merge-multiple: true
+      - name: Analyze frozen cross-fanout gate
+        run: |
+          python -m pip install numpy
+          PYTHONPATH=. python scripts/similarity_fanout_validate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-fanout-validation
+          path: |
+            results/similarity_fanout_validation.json
+            results/similarity_fanout_combined.csv
+            results/similarity_fanout_points.csv
