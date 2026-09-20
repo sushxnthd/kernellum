@@ -1,0 +1,51 @@
+{
+  "functional_simulation_passed": true,
+  "attempted_routes": 72,
+  "successful_routes": 72,
+  "selection_local_count": 12,
+  "selection_k448_count": 2,
+  "selection_k448_contract_count": 2,
+  "positive_tax_pairs": 8,
+  "deployment_mean_improvement_pct": 21.539960499539497,
+  "deployment_mean_oracle_regret_pct": 3.8964246933650455,
+  "seed_summaries": [
+    {
+      "seed": 38,
+      "workload_count": 12,
+      "nonworse_count": 12,
+      "mean_improvement_pct": 14.737741009269444,
+      "mean_oracle_regret_pct": 8.17705854513761
+    },
+    {
+      "seed": 39,
+      "workload_count": 12,
+      "nonworse_count": 12,
+      "mean_improvement_pct": 25.019588237756476,
+      "mean_oracle_regret_pct": 2.9174624279687422
+    },
+    {
+      "seed": 40,
+      "workload_count": 12,
+      "nonworse_count": 12,
+      "mean_improvement_pct": 24.862552251592565,
+      "mean_oracle_regret_pct": 0.5947531069887843
+    }
+  ],
+  "mean_local_ff_overhead_pct": 69.5147788852444,
+  "mean_local_bram_overhead_pct": 0.0,
+  "flags": {
+    "functional_simulation": true,
+    "route_success": true,
+    "dsp_exact": true,
+    "selection_local": true,
+    "positive_tax": true,
+    "per_seed_nonworse": true,
+    "per_seed_improvement": true,
+    "overall_improvement": true,
+    "per_seed_oracle_regret": false,
+    "overall_oracle_regret": true,
+    "deep_selection": false,
+    "resource_reporting": true
+  },
+  "deployment_confirmation_gate_pass": false
+}
