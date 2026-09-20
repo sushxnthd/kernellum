@@ -1,0 +1,19 @@
+{
+  "attempted_routes": 54,
+  "successful_routes": 54,
+  "gate_pass": false,
+  "failure_reason": "LUT median seed CV 7.4007584344687505% exceeded preregistered 6% limit",
+  "dsp": {
+    "heldout_sqrt_mape_pct": 4.36268862066063,
+    "heldout_linear_mape_pct": 6.111472516047104,
+    "median_seed_cv_pct": 2.6333617670420004,
+    "exploratory_exponent": 0.29
+  },
+  "lut": {
+    "heldout_sqrt_mape_pct": 4.537241413999632,
+    "heldout_linear_mape_pct": 5.455224732895732,
+    "median_seed_cv_pct": 7.4007584344687505,
+    "exploratory_exponent": 0.28
+  },
+  "interpretation": "The sqrt model class transfers usefully, but the exponent is not established as universal across arithmetic backends."
+}
