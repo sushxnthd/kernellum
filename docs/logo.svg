@@ -1,11 +1,11 @@
-<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kernellum mark">
-  <title>Kernellum</title>
-  <!-- Geometric construction: equal terminal radii, constant-width tangent arms, fixed objective gap. -->
-  <g fill="#F3F0E8" stroke="#F3F0E8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M55 60 L34 26 M55 60 L34 94 M55 60 L72 60" fill="none" stroke-width="20"/>
-    <circle cx="34" cy="26" r="15" stroke="none"/>
-    <circle cx="34" cy="94" r="15" stroke="none"/>
-    <circle cx="72" cy="60" r="15" stroke="none"/>
-  </g>
-  <circle cx="102" cy="60" r="8" fill="#FF4A2C"/>
+<svg viewBox="0 0 115 119" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kernellum mark">
+  <defs>
+    <linearGradient id="pearl" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset=".55" stop-color="#f2efe8"/>
+      <stop offset="1" stop-color="#d9d4ca"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#pearl)" d="M 35.50 17.50 Q 32.00 17.00 27.50 20.00 Q 23.00 23.00 22.00 25.50 Q 21.00 28.00 21.50 32.00 Q 22.00 36.00 25.50 39.00 Q 29.00 42.00 36.50 43.50 Q 44.00 45.00 47.50 49.50 Q 51.00 54.00 51.00 60.00 Q 51.00 66.00 47.00 71.00 Q 43.00 76.00 35.50 77.00 Q 28.00 78.00 25.50 80.00 Q 23.00 82.00 22.00 84.50 Q 21.00 87.00 22.00 92.00 Q 23.00 97.00 25.00 99.00 Q 27.00 101.00 31.00 102.00 Q 35.00 103.00 40.00 100.00 Q 45.00 97.00 45.50 91.00 Q 46.00 85.00 48.50 80.50 Q 51.00 76.00 53.50 74.50 Q 56.00 73.00 62.00 72.50 Q 68.00 72.00 71.00 70.00 Q 74.00 68.00 75.00 62.00 Q 76.00 56.00 72.00 52.00 Q 68.00 48.00 61.00 47.00 Q 54.00 46.00 50.50 42.00 Q 47.00 38.00 45.50 30.00 Q 44.00 22.00 41.50 20.00 Q 39.00 18.00 35.50 17.50 Z"/>
+  <circle cx="95.8" cy="60" r="7.6" fill="#ff4828"/>
 </svg>
