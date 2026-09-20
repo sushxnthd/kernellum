@@ -1,0 +1,19 @@
+{
+  "attempted_routes": 36,
+  "successful_routes": 36,
+  "frozen_tax_equation": "delta_T_ns = -1.7762324290813414 + 0.8022441162585179*sqrt(PE)",
+  "tax_mae_ns": 0.5952346880654433,
+  "tax_rmse_ns": 0.7342655380905273,
+  "tax_correlation": 0.9003779963457452,
+  "pairs_within_1p75ns": 6,
+  "median_seed_cv_pct": {
+    "broadcast": 2.5121991951608047,
+    "local": 4.206315019557357
+  },
+  "largest_85k_7x11": {
+    "observed_tax_ns": 5.400524756283453,
+    "predicted_tax_ns": 5.263431121082019,
+    "local_period_improvement_pct": 31.67947822035873
+  },
+  "confirmation_gate_pass": true
+}
