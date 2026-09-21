@@ -13,8 +13,8 @@ The NanGate45 canary proved that the pinned open flow can carry both diagnostic 
 - OpenROAD Flow Scripts: `3a964e13f11a4e435aac01ffa14db0a7d2853720`
 - container: `openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6`
 - platform: `asap7`
-- library corner: `TC` (typical case)
-- clock constraint: 10.0 ns
+- library corner: `BC` (the ASAP7 platform default)
+- clock constraint: 1,000 ps
 - core utilization: 35%
 - placement density: 0.50
 - geometry: fixed 3x3 broadcast and registered-local canaries
@@ -36,3 +36,15 @@ The platform qualifies only if both topologies:
 Any timing, area, wirelength or power difference is inadmissible as scientific evidence. Power is additionally inadmissible because no switching-activity model is supplied.
 
 Passing this gate authorizes preregistration, not execution, of the cross-technology experiment.
+
+## Corrective rerun
+
+The first attempt used the NanGate45 canary's numeric `10.0` clock value and
+forced the non-default `TC` library corner. ASAP7 reference constraints use
+picosecond-scale values (typically 300--1,000); the resulting accidental 10 ps
+target generated severe setup pressure and the `TC` CTS process terminated
+before routing. No scientific geometry or admissible result was opened.
+
+The rerun uses a platform-specific SDC, the platform-default `BC` corner and a
+relaxed 1,000 ps clock. These choices are frozen before a successful ASAP7
+route and remain qualification settings only.

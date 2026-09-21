@@ -58,7 +58,8 @@ jobs:
             printf 'orfs_commit=%s\n' "$ORFS_COMMIT"
             printf 'orfs_image=%s\n' "$ORFS_IMAGE"
             printf 'platform=asap7\n'
-            printf 'corner=TC\n'
+            printf 'corner=BC\n'
+            printf 'clock_period_ps=1000\n'
             docker run --rm "$ORFS_IMAGE" \
               bash -lc 'source /OpenROAD-flow-scripts/env.sh && openroad -version && yosys -V && klayout -v'
           } > build/asic_asap7_canary/toolchain.txt
@@ -75,8 +76,8 @@ jobs:
               "$ORFS_IMAGE" \
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 cd /OpenROAD-flow-scripts/flow && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top PLATFORM=asap7 CORNER=TC clean_all && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top PLATFORM=asap7 CORNER=TC"
+                make DESIGN_CONFIG=/work/asic/canary/config_asap7.mk DESIGN_NAME=$top clean_all && \
+                make DESIGN_CONFIG=/work/asic/canary/config_asap7.mk DESIGN_NAME=$top"
           done
 
       - name: Verify and collect final artifacts
