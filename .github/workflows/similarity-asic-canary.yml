@@ -77,7 +77,9 @@ jobs:
                 cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top clean_all && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top route && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top do-6_1_fill"
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top do-6_1_fill && \
+                cp results/nangate45/$top/base/5_route.sdc \
+                  results/nangate45/$top/base/6_1_fill.sdc"
             docker run --rm \
               -v "$repo_root:/work:ro" \
               -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
