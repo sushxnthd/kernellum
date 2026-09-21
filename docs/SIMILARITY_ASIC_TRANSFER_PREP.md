@@ -39,7 +39,9 @@ The preparation uses OpenROAD Flow Scripts because the official flow integrates:
 - KLayout finishing and public-platform checks;
 - machine-readable quality-of-results metrics.
 
-The first canary uses the bundled NanGate45 platform. A later independent transfer gate should use a second bundled open platform such as ASAP7 if the canary establishes a deterministic and auditable flow.
+The first canary uses the bundled NanGate45 platform. The independent transfer
+gate uses Sky130HD. ASAP7 was attempted and excluded after a reproducible
+final-output serialization failure on public runners.
 
 No fabricated chip, commercial PDK, paid EDA license, cloud credit or external hardware is required.
 

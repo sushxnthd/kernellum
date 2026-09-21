@@ -1,4 +1,4 @@
-name: SIMILARITY ASIC flow canary
+name: SIMILARITY Sky130HD flow canary
 
 env:
   ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
@@ -12,16 +12,15 @@ on:
       - 'rtl/similarity_local_fabric.sv'
       - 'scripts/similarity_asic_canary_validate.py'
       - 'scripts/openroad_qemu_wrapper.sh'
-      - 'docs/SIMILARITY_ASIC_TRANSFER_PREP.md'
-      - 'docs/SIMILARITY_ASIC_CANARY_REPORT.md'
-      - '.github/workflows/similarity-asic-canary.yml'
+      - 'docs/SIMILARITY_ASIC_SKY130HD_CANARY_PLAN.md'
+      - '.github/workflows/similarity-asic-sky130hd-canary.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  rtl-to-gds-canary:
+  rtl-to-gds-sky130hd-canary:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -53,16 +52,17 @@ jobs:
 
       - name: Record pinned toolchain
         run: |
-          mkdir -p build/asic_canary
+          mkdir -p build/asic_sky130hd_canary
           {
             printf 'flow_source=bundled_with_image\n'
             printf 'orfs_image=%s\n' "$ORFS_IMAGE"
-            printf 'platform=nangate45\n'
+            printf 'platform=sky130hd\n'
+            printf 'library=sky130_fd_sc_hd__tt_025C_1v80\n'
             printf 'clock_period_ns=10.0\n'
             docker run --rm "$ORFS_IMAGE" \
               bash -lc 'source /OpenROAD-flow-scripts/env.sh && openroad -version && yosys -V && klayout -v'
-          } > build/asic_canary/toolchain.txt
-          cat build/asic_canary/toolchain.txt
+          } > build/asic_sky130hd_canary/toolchain.txt
+          cat build/asic_sky130hd_canary/toolchain.txt
 
       - name: Route both canary topologies to GDS
         run: |
@@ -75,11 +75,11 @@ jobs:
               "$ORFS_IMAGE" \
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 cd /OpenROAD-flow-scripts/flow && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top clean_all && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top route && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top do-6_1_fill && \
-                cp results/nangate45/$top/base/5_route.sdc \
-                  results/nangate45/$top/base/6_1_fill.sdc"
+                make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top clean_all && \
+                make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top route && \
+                make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top do-6_1_fill && \
+                cp results/sky130hd/$top/base/5_route.sdc \
+                  results/sky130hd/$top/base/6_1_fill.sdc"
             docker run --rm \
               -v "$repo_root:/work:ro" \
               -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
@@ -88,7 +88,7 @@ jobs:
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 /work/scripts/openroad_qemu_wrapper.sh -version && \
                 cd /OpenROAD-flow-scripts/flow && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top \
+                make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top \
                   OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh \
                   do-6_report"
             docker run --rm \
@@ -97,33 +97,33 @@ jobs:
               "$ORFS_IMAGE" \
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 cd /OpenROAD-flow-scripts/flow && \
-                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top"
+                make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top"
           done
 
       - name: Verify and collect final artifacts
         run: |
           flow_root="$RUNNER_TEMP/orfs/flow"
-          test -n "$(find "$flow_root/results/nangate45" \
+          test -n "$(find "$flow_root/results/sky130hd" \
             -path '*similarity_asic_broadcast_canary*' -name '*.gds' -print -quit)"
-          test -n "$(find "$flow_root/results/nangate45" \
+          test -n "$(find "$flow_root/results/sky130hd" \
             -path '*similarity_asic_local_canary*' -name '*.gds' -print -quit)"
-          mkdir -p build/asic_canary
-          cp -R "$flow_root/results/nangate45/similarity_asic_broadcast_canary" \
-            build/asic_canary/
-          cp -R "$flow_root/results/nangate45/similarity_asic_local_canary" \
-            build/asic_canary/
-          cp -R "$flow_root/reports/nangate45/similarity_asic_broadcast_canary" \
-            build/asic_canary/broadcast-reports
-          cp -R "$flow_root/reports/nangate45/similarity_asic_local_canary" \
-            build/asic_canary/local-reports
+          cp -R "$flow_root/results/sky130hd/similarity_asic_broadcast_canary" \
+            build/asic_sky130hd_canary/
+          cp -R "$flow_root/results/sky130hd/similarity_asic_local_canary" \
+            build/asic_sky130hd_canary/
+          cp -R "$flow_root/reports/sky130hd/similarity_asic_broadcast_canary" \
+            build/asic_sky130hd_canary/broadcast-reports
+          cp -R "$flow_root/reports/sky130hd/similarity_asic_local_canary" \
+            build/asic_sky130hd_canary/local-reports
           python3 scripts/similarity_asic_canary_validate.py \
-            --artifact-root build/asic_canary \
-            --output build/asic_canary/canary_validation.json
-          find build/asic_canary -type f -printf '%p %s bytes\n' | sort
+            --artifact-root build/asic_sky130hd_canary \
+            --platform sky130hd \
+            --output build/asic_sky130hd_canary/canary_validation.json
+          find build/asic_sky130hd_canary -type f -printf '%p %s bytes\n' | sort
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: similarity-asic-canary
-          path: build/asic_canary
+          name: similarity-asic-sky130hd-canary
+          path: build/asic_sky130hd_canary
           retention-days: 30
