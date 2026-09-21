@@ -10,4 +10,5 @@ if [[ ! -x "$kepler_elf" ]]; then
   exit 127
 fi
 
-exec /usr/local/bin/qemu-x86_64-static -L / -cpu max "$kepler_elf" "$@"
+echo "Kernellum QEMU Kepler: $kepler_elf" >&2
+exec /usr/local/bin/qemu-x86_64-static -strace -L / -cpu max "$kepler_elf" "$@"
