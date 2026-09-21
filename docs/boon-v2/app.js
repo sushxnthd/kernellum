@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(()=>docum
 if(document.fonts){
   Promise.allSettled([
     document.fonts.load('500 32px MSCHN'),
-    document.fonts.load('450 16px "Suisse Int\\'l"')
+    document.fonts.load("450 16px \"Suisse Int'l\"")
   ]).then(()=>{
-    const ok=document.fonts.check('500 32px MSCHN')&&document.fonts.check('450 16px "Suisse Int\\'l"');
+    const ok=document.fonts.check('500 32px MSCHN')&&document.fonts.check("450 16px \"Suisse Int'l\"");
     document.documentElement.classList.toggle('font-fallback',!ok);
   }).catch(()=>document.documentElement.classList.add('font-fallback'));
 }else document.documentElement.classList.add('font-fallback');
