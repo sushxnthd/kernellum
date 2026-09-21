@@ -1,0 +1,106 @@
+name: SIMILARITY ASIC flow canary
+
+env:
+  ORFS_COMMIT: 3a964e13f11a4e435aac01ffa14db0a7d2853720
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'asic/canary/**'
+      - 'rtl/similarity_asic_canary.sv'
+      - 'rtl/similarity_broadcast_fabric.sv'
+      - 'rtl/similarity_local_fabric.sv'
+      - 'scripts/similarity_asic_canary_validate.py'
+      - 'docs/SIMILARITY_ASIC_TRANSFER_PREP.md'
+      - 'docs/SIMILARITY_ASIC_CANARY_REPORT.md'
+      - '.github/workflows/similarity-asic-canary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rtl-to-gds-canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check canary elaboration
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          iverilog -g2012 -s similarity_asic_broadcast_canary \
+            -o /tmp/asic-broadcast-canary.vvp \
+            rtl/similarity_broadcast_fabric.sv \
+            rtl/similarity_local_fabric.sv \
+            rtl/similarity_asic_canary.sv
+          iverilog -g2012 -s similarity_asic_local_canary \
+            -o /tmp/asic-local-canary.vvp \
+            rtl/similarity_broadcast_fabric.sv \
+            rtl/similarity_local_fabric.sv \
+            rtl/similarity_asic_canary.sv
+
+      - name: Prepare official OpenROAD flow
+        run: |
+          git init "$RUNNER_TEMP/orfs"
+          git -C "$RUNNER_TEMP/orfs" remote add origin \
+            https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts.git
+          git -C "$RUNNER_TEMP/orfs" fetch --depth 1 origin "$ORFS_COMMIT"
+          git -C "$RUNNER_TEMP/orfs" checkout --detach FETCH_HEAD
+          test "$(git -C "$RUNNER_TEMP/orfs" rev-parse HEAD)" = "$ORFS_COMMIT"
+          docker pull "$ORFS_IMAGE"
+
+      - name: Record pinned toolchain
+        run: |
+          mkdir -p build/asic_canary
+          {
+            printf 'orfs_commit=%s\n' "$ORFS_COMMIT"
+            printf 'orfs_image=%s\n' "$ORFS_IMAGE"
+            docker run --rm "$ORFS_IMAGE" \
+              bash -lc 'source /OpenROAD-flow-scripts/env.sh && openroad -version && yosys -V && klayout -v'
+          } > build/asic_canary/toolchain.txt
+          cat build/asic_canary/toolchain.txt
+
+      - name: Route both canary topologies to GDS
+        run: |
+          repo_root="$PWD"
+          orfs_root="$RUNNER_TEMP/orfs"
+          for top in similarity_asic_broadcast_canary similarity_asic_local_canary; do
+            docker run --rm \
+              -v "$repo_root:/work:ro" \
+              -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
+              "$ORFS_IMAGE" \
+              bash -lc "source /OpenROAD-flow-scripts/env.sh && \
+                cd /OpenROAD-flow-scripts/flow && \
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top clean_all && \
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top"
+          done
+
+      - name: Verify and collect final artifacts
+        run: |
+          flow_root="$RUNNER_TEMP/orfs/flow"
+          test -n "$(find "$flow_root/results/nangate45" \
+            -path '*similarity_asic_broadcast_canary*' -name '*.gds' -print -quit)"
+          test -n "$(find "$flow_root/results/nangate45" \
+            -path '*similarity_asic_local_canary*' -name '*.gds' -print -quit)"
+          mkdir -p build/asic_canary
+          cp -R "$flow_root/results/nangate45/similarity_asic_broadcast_canary" \
+            build/asic_canary/
+          cp -R "$flow_root/results/nangate45/similarity_asic_local_canary" \
+            build/asic_canary/
+          cp -R "$flow_root/reports/nangate45/similarity_asic_broadcast_canary" \
+            build/asic_canary/broadcast-reports
+          cp -R "$flow_root/reports/nangate45/similarity_asic_local_canary" \
+            build/asic_canary/local-reports
+          python3 scripts/similarity_asic_canary_validate.py \
+            --artifact-root build/asic_canary \
+            --output build/asic_canary/canary_validation.json
+          find build/asic_canary -type f -printf '%p %s bytes\n' | sort
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: similarity-asic-canary
+          path: build/asic_canary
+          retention-days: 30
