@@ -2,7 +2,7 @@ name: SIMILARITY ASAP7 flow canary
 
 env:
   ORFS_COMMIT: 3a964e13f11a4e435aac01ffa14db0a7d2853720
-  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+  ORFS_IMAGE: ghcr.io/the-openroad-project/openroad-flow-scripts/ubuntu22.04:latest
 
 on:
   pull_request:
@@ -57,6 +57,8 @@ jobs:
           {
             printf 'orfs_commit=%s\n' "$ORFS_COMMIT"
             printf 'orfs_image=%s\n' "$ORFS_IMAGE"
+            printf 'orfs_resolved_image=%s\n' \
+              "$(docker image inspect --format '{{index .RepoDigests 0}}' "$ORFS_IMAGE")"
             printf 'platform=asap7\n'
             printf 'corner=BC\n'
             printf 'clock_period_ps=1000\n'

@@ -11,7 +11,10 @@ The NanGate45 canary proved that the pinned open flow can carry both diagnostic 
 ## Frozen configuration
 
 - OpenROAD Flow Scripts: `3a964e13f11a4e435aac01ffa14db0a7d2853720`
-- container: `openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6`
+- container bootstrap: the ORFS repository's official
+  `ghcr.io/the-openroad-project/openroad-flow-scripts/ubuntu22.04:latest`
+  publication; its resolved digest must be recorded and pinned before the
+  qualification run can be accepted
 - platform: `asap7`
 - library corner: `BC` (the ASAP7 platform default)
 - clock constraint: 1,000 ps
@@ -56,3 +59,10 @@ exploration and CI. The next rerun freezes that switch while retaining the
 requirements for parseable final-route timing, zero final timing violations
 and zero detailed-route DRC. This is a disclosed toolchain workaround, not a
 scientific result.
+
+That rerun completed detailed routing with zero detailed-route violations and
+then the Docker Hub binary (`OpenROAD unknown`) terminated while writing final
+outputs. The checked-out ORFS revision publishes its current Ubuntu 22.04
+builder at GHCR rather than Docker Hub. A bootstrap run therefore resolves and
+records that official image's immutable digest. A subsequent run pinned to the
+recorded digest is required before the platform qualifies.
