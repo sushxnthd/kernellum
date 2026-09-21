@@ -17,6 +17,7 @@ The NanGate45 canary proved that the pinned open flow can carry both diagnostic 
 - clock constraint: 1,000 ps
 - core utilization: 35%
 - placement density: 0.50
+- post-CTS repair timing: skipped with the documented ORFS architectural-exploration/CI switch
 - geometry: fixed 3x3 broadcast and registered-local canaries
 
 The 3x3 geometry was already opened during NanGate45 plumbing. It remains permanently excluded from discovery, transfer fitting, confirmation, effect-size estimation and publicity on every platform.
@@ -45,6 +46,13 @@ picosecond-scale values (typically 300--1,000); the resulting accidental 10 ps
 target generated severe setup pressure and the `TC` CTS process terminated
 before routing. No scientific geometry or admissible result was opened.
 
-The rerun uses a platform-specific SDC, the platform-default `BC` corner and a
-relaxed 1,000 ps clock. These choices are frozen before a successful ASAP7
-route and remain qualification settings only.
+The first corrective rerun used a platform-specific SDC, the platform-default
+`BC` corner and a relaxed 1,000 ps clock. CTS completed and reported no setup
+or hold violations, but the pinned OpenROAD binary again terminated with an
+illegal instruction in the post-CTS repair/legalization block.
+
+ORFS documents `SKIP_CTS_REPAIR_TIMING=1` as useful for architectural
+exploration and CI. The next rerun freezes that switch while retaining the
+requirements for parseable final-route timing, zero final timing violations
+and zero detailed-route DRC. This is a disclosed toolchain workaround, not a
+scientific result.

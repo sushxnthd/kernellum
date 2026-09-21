@@ -11,3 +11,8 @@ export CORNER = BC
 export CORE_UTILIZATION = 35
 export PLACE_DENSITY = 0.50
 export SKIP_LAST_GASP = 1
+
+# The pinned image terminates with SIGILL in ASAP7's post-CTS
+# repair/legalization block. ORFS documents this switch for architectural
+# exploration and CI; final-route timing and DRC remain mandatory.
+export SKIP_CTS_REPAIR_TIMING = 1
