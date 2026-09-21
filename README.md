@@ -88,6 +88,24 @@ The supported claim is limited to this ECP5 INT8 MAC-fabric family. It is a fina
 
 See `docs/SIMILARITY_ROUTED_LAW_REPORT.md` and `results/similarity_routed_law_summary.json`.
 
+## Project SIMILARITY: route-aware portfolio confirmation
+
+The latest preregistered study addresses placement-and-routing variability directly. Broadcast-only characterization on three selection seeds constructed a two-candidate local-architecture portfolio for each Transformer workload. On three disjoint deployment seeds, the compiler inspected final-route timing for only those two candidates before choosing one.
+
+- **72 / 72** new final-route implementations completed
+- all **13 / 13** frozen confirmation criteria passed
+- portfolio choices beat the best broadcast-only implementation in **36 / 36** unseen deployment cases
+- mean workload-latency improvement: **23.56%**
+- mean regret versus the full routed oracle: **1.44%**
+- maximum per-seed mean oracle regret: **3.58%**
+- second-ranked candidate selected in **21 / 36** cases
+- regret reduction versus rank-1 alone: **2.15 percentage points**
+- mean sequential-logic cost: **70.57% more flip-flops**, with **0.00% additional block RAM**
+
+This confirms a bounded physical-feedback protocol within the functional ECP5 INT8 GEMM family. It remains a final-route result, not board-measured latency, power, energy or vendor-independent evidence.
+
+See `docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md` and `results/similarity_portfolio_summary.json`.
+
 ## K2 board-ready
 
 K2 is the current hardware-validation stage.

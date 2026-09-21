@@ -1,0 +1,63 @@
+{
+  "functional_simulation_passed": true,
+  "attempted_routes": 72,
+  "successful_routes": 72,
+  "portfolio_size": 2,
+  "positive_tax_pairs": 8,
+  "rank2_choice_count": 21,
+  "portfolio_mean_improvement_pct": 23.56466224501244,
+  "portfolio_mean_oracle_regret_pct": 1.437125177630429,
+  "rank1_mean_improvement_pct": 21.11843568503914,
+  "rank1_mean_oracle_regret_pct": 3.5846752534813096,
+  "portfolio_regret_reduction_pp": 2.1475500758508805,
+  "seed_summaries": [
+    {
+      "seed": 44,
+      "workload_count": 12,
+      "portfolio_nonworse_count": 12,
+      "portfolio_mean_improvement_pct": 19.99553854755911,
+      "portfolio_mean_oracle_regret_pct": 3.5809589721627937,
+      "rank1_mean_improvement_pct": 19.25803756551902,
+      "rank1_mean_oracle_regret_pct": 4.2443887575721275,
+      "rank2_choice_count": 3
+    },
+    {
+      "seed": 45,
+      "workload_count": 12,
+      "portfolio_nonworse_count": 12,
+      "portfolio_mean_improvement_pct": 20.158594536254228,
+      "portfolio_mean_oracle_regret_pct": 0.4288499271850858,
+      "rank1_mean_improvement_pct": 16.761239598791562,
+      "rank1_mean_oracle_regret_pct": 3.5145876698302607,
+      "rank2_choice_count": 9
+    },
+    {
+      "seed": 46,
+      "workload_count": 12,
+      "portfolio_nonworse_count": 12,
+      "portfolio_mean_improvement_pct": 30.539853651223975,
+      "portfolio_mean_oracle_regret_pct": 0.3015666335434079,
+      "rank1_mean_improvement_pct": 27.33602989080683,
+      "rank1_mean_oracle_regret_pct": 2.9950493330415404,
+      "rank2_choice_count": 9
+    }
+  ],
+  "mean_local_ff_overhead_pct": 70.56762815491822,
+  "mean_local_bram_overhead_pct": 0.0,
+  "flags": {
+    "functional_simulation": true,
+    "route_success": true,
+    "dsp_exact": true,
+    "portfolio_integrity": true,
+    "positive_tax": true,
+    "per_seed_nonworse": true,
+    "per_seed_improvement": true,
+    "overall_improvement": true,
+    "per_seed_oracle_regret": true,
+    "overall_oracle_regret": true,
+    "rank2_used": true,
+    "regret_reduction": true,
+    "resource_reporting": true
+  },
+  "portfolio_confirmation_gate_pass": true
+}
