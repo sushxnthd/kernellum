@@ -6,11 +6,10 @@ from __future__ import annotations
 import csv
 import json
 import math
+import statistics
 from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
-
-import numpy as np
 
 from scripts.similarity_asic_transfer_route import (
     DISCOVERY_GEOMETRIES,
@@ -45,16 +44,18 @@ def expected_keys() -> set[tuple[str, str, int, int, int]]:
     return keys
 
 
-def rankdata(values: Iterable[float]) -> np.ndarray:
-    array = np.asarray(tuple(values), dtype=float)
-    order = np.argsort(array, kind="mergesort")
-    ranks = np.empty(len(array), dtype=float)
+def rankdata(values: Iterable[float]) -> list[float]:
+    array = [float(value) for value in values]
+    order = sorted(range(len(array)), key=array.__getitem__)
+    ranks = [0.0] * len(array)
     index = 0
     while index < len(array):
         end = index + 1
         while end < len(array) and array[order[end]] == array[order[index]]:
             end += 1
-        ranks[order[index:end]] = (index + end - 1) / 2.0 + 1.0
+        rank = (index + end - 1) / 2.0 + 1.0
+        for position in order[index:end]:
+            ranks[position] = rank
         index = end
     return ranks
 
@@ -62,9 +63,39 @@ def rankdata(values: Iterable[float]) -> np.ndarray:
 def spearman(left: Iterable[float], right: Iterable[float]) -> float:
     left_rank = rankdata(left)
     right_rank = rankdata(right)
-    if len(left_rank) < 2 or np.std(left_rank) == 0 or np.std(right_rank) == 0:
+    if len(left_rank) < 2 or len(left_rank) != len(right_rank):
         return float("nan")
-    return float(np.corrcoef(left_rank, right_rank)[0, 1])
+    left_mean = statistics.mean(left_rank)
+    right_mean = statistics.mean(right_rank)
+    left_centered = [value - left_mean for value in left_rank]
+    right_centered = [value - right_mean for value in right_rank]
+    denominator = math.sqrt(
+        sum(value * value for value in left_centered) *
+        sum(value * value for value in right_centered)
+    )
+    if denominator == 0:
+        return float("nan")
+    return sum(
+        left_value * right_value
+        for left_value, right_value in zip(left_centered, right_centered)
+    ) / denominator
+
+
+def linear_fit(x_values: Iterable[float], y_values: Iterable[float]) -> tuple[float, float]:
+    x = [float(value) for value in x_values]
+    y = [float(value) for value in y_values]
+    if len(x) < 2 or len(x) != len(y):
+        return float("nan"), float("nan")
+    x_mean = statistics.mean(x)
+    y_mean = statistics.mean(y)
+    denominator = sum((value - x_mean) ** 2 for value in x)
+    if denominator == 0:
+        return float("nan"), float("nan")
+    slope = sum(
+        (x_value - x_mean) * (y_value - y_mean)
+        for x_value, y_value in zip(x, y)
+    ) / denominator
+    return y_mean - slope * x_mean, slope
 
 
 def as_bool(value: object) -> bool:
@@ -96,14 +127,17 @@ def normalize(row: dict[str, object]) -> dict[str, object]:
 
 
 def median(values: Iterable[float]) -> float:
-    return float(np.median(np.asarray(tuple(values), dtype=float)))
+    return float(statistics.median(values))
 
 
 def cv_pct(values: Iterable[float]) -> float:
-    array = np.asarray(tuple(values), dtype=float)
+    array = [float(value) for value in values]
     if len(array) < 2:
         return float("nan")
-    return float(np.std(array, ddof=1) / np.mean(array) * 100.0)
+    mean = statistics.mean(array)
+    if mean == 0:
+        return float("nan")
+    return statistics.stdev(array) / mean * 100.0
 
 
 def evaluate(raw_rows: list[dict[str, object]], functional_passed: bool) -> dict[str, object]:
@@ -202,9 +236,10 @@ def evaluate(raw_rows: list[dict[str, object]], functional_passed: bool) -> dict
     discovery_complete = all(point is not None for point in discovery)
     alpha = beta = float("nan")
     if discovery_complete:
-        matrix = np.asarray([[1.0, float(point["sqrt_pe"])] for point in discovery], dtype=float)
-        target = np.asarray([float(point["median_q"]) for point in discovery], dtype=float)
-        alpha, beta = (float(value) for value in np.linalg.lstsq(matrix, target, rcond=None)[0])
+        alpha, beta = linear_fit(
+            (float(point["sqrt_pe"]) for point in discovery),
+            (float(point["median_q"]) for point in discovery),
+        )
 
     bridge = [point_lookup.get(("sky130hd", r, c)) for r, c in DISCOVERY_GEOMETRIES]
     bridge_complete = all(point is not None for point in bridge)
@@ -215,14 +250,9 @@ def evaluate(raw_rows: list[dict[str, object]], functional_passed: bool) -> dict
         bridge_predictions = [alpha + beta * float(point["sqrt_pe"]) for point in bridge]
         bridge_observations = [float(point["median_q"]) for point in bridge]
         bridge_spearman = spearman(bridge_predictions, bridge_observations)
-        calibration_matrix = np.asarray([[1.0, value] for value in bridge_predictions], dtype=float)
-        calibration_intercept, calibration_slope = (
-            float(value)
-            for value in np.linalg.lstsq(
-                calibration_matrix,
-                np.asarray(bridge_observations, dtype=float),
-                rcond=None,
-            )[0]
+        calibration_intercept, calibration_slope = linear_fit(
+            bridge_predictions,
+            bridge_observations,
         )
 
     holdout_results: list[dict[str, object]] = []
@@ -244,7 +274,7 @@ def evaluate(raw_rows: list[dict[str, object]], functional_passed: bool) -> dict
             })
 
     holdout_errors = [float(row["absolute_error"]) for row in holdout_results]
-    holdout_mae = float(np.mean(holdout_errors)) if holdout_errors else float("inf")
+    holdout_mae = statistics.mean(holdout_errors) if holdout_errors else float("inf")
     median_cv = median(value for value in cvs.values() if math.isfinite(value)) if cvs else float("inf")
     structural_pairs_ok = bool(paired_seed_rows) and all(
         int(row["local_dff_cells"]) > int(row["broadcast_dff_cells"])
