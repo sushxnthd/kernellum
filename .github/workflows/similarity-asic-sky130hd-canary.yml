@@ -12,6 +12,7 @@ on:
       - 'rtl/similarity_local_fabric.sv'
       - 'scripts/similarity_asic_canary_validate.py'
       - 'scripts/openroad_qemu_wrapper.sh'
+      - 'scripts/kepler_formal_qemu_wrapper.sh'
       - 'docs/SIMILARITY_ASIC_SKY130HD_CANARY_PLAN.md'
       - '.github/workflows/similarity-asic-sky130hd-canary.yml'
   workflow_dispatch:
@@ -89,7 +90,9 @@ jobs:
                 /work/scripts/openroad_qemu_wrapper.sh -version && \
                 cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config_sky130hd.mk DESIGN_NAME=$top \
-                  OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh do-6_report"
+                  OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh \
+                  KEPLER_FORMAL_EXE=/work/scripts/kepler_formal_qemu_wrapper.sh \
+                  do-6_report"
             docker run --rm \
               -v "$repo_root:/work:ro" \
               -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
