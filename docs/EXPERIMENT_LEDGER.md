@@ -95,6 +95,27 @@ Boundary: the result is limited to the tested ECP5 INT8 MAC-fabric family and fi
 
 Correction note: numerical routed-law coefficients in earlier SIMILARITY reports used a historical worst-implementation-stage parser. They remain part of the audit trail but are superseded by `SIMILARITY_ROUTED_LAW_REPORT.md` for final-routed timing claims.
 
+## Project SIMILARITY: cross-technology ASIC transfer
+
+Question: can a dimensionless operand-transport timing law discovered in
+NanGate45 predict unopened Sky130HD geometries after a frozen six-geometry
+calibration?
+
+Status: preregistered; no eligible route result exists at freeze time.
+
+Frozen evidence definition:
+
+- `docs/SIMILARITY_ASIC_TRANSFER_PREREGISTRATION.md`
+- `rtl/similarity_asic_transfer_top.sv`
+- `rtl/tb_similarity_asic_transport_equivalence.sv`
+- `scripts/similarity_asic_transfer_route.py`
+- `scripts/similarity_asic_transfer_validate.py`
+- `.github/workflows/similarity-asic-transfer.yml`
+
+Boundary: two open/academic standard-cell platforms in one pinned ORFS
+toolchain; post-route timing and implementation costs only. No fabricated
+silicon, commercial signoff, power, energy or end-to-end workload claim.
+
 ## K2: physical FPGA validation
 
 Status: board-ready infrastructure under development; no physical result may be recorded until a real ECP5 Evaluation Board is programmed and measured.
