@@ -1,5 +1,33 @@
 
-const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu'),menuLabel=document.getElementById('menuLabel');menuBtn.onclick=()=>{const o=menu.classList.toggle('open');menuLabel.textContent=o?'CLOSE':'MENU'};menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');menuLabel.textContent='MENU'});
-const hands=document.querySelector('.hands'),l1=document.querySelector('.line1'),l2=document.querySelector('.line2'),hero=document.querySelector('.hero');let py=.5,px=.5;addEventListener('pointermove',e=>{px=e.clientX/innerWidth;py=e.clientY/innerHeight},{passive:true});let sy=0;function tick(){sy+=(scrollY-sy)*.08;const hp=Math.max(0,Math.min(1,sy/innerHeight));hands.style.transform=\`translate3d(\${(px-.5)*12}px,\${(py-.5)*9+hp*10}px,0) scale(\${1+hp*.025})\`;if(innerWidth>900){l1.style.transform=\`translateX(\${-34*hp}vw)\`;l2.style.transform=\`translateX(\${34*hp}vw)\`}document.querySelectorAll('.photo-bg').forEach((bg,i)=>{const r=bg.parentElement.getBoundingClientRect(),p=(innerHeight-r.top)/(innerHeight+r.height);bg.style.transform=\`translate3d(\${(px-.5)*8}px,\${(p-.5)*-42}px,0) scale(1.08) rotate(\${i%2?2:-2}deg)\`});requestAnimationFrame(tick)}tick();
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.18});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
-document.querySelectorAll('.pill').forEach(p=>p.onclick=()=>{p.classList.toggle('active');p.style.background=p.classList.contains('active')?'#f2d49b':'rgba(234,228,208,.82)';p.querySelector('b').textContent=p.classList.contains('active')?'×':'+'});
+const menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu'),menuLabel=document.getElementById('menuLabel');
+menuBtn.onclick=()=>{const o=menu.classList.toggle('open');menuLabel.textContent=o?'CLOSE':'MENU'};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');menuLabel.textContent='MENU'});
+const hands=document.querySelector('.hands'),l1=document.querySelector('.line1'),l2=document.querySelector('.line2');
+let py=.5,px=.5;
+addEventListener('pointermove',e=>{px=e.clientX/innerWidth;py=e.clientY/innerHeight},{passive:true});
+let sy=0;
+function tick(){
+  sy+=(scrollY-sy)*.08;
+  const hp=Math.max(0,Math.min(1,sy/innerHeight));
+  hands.style.transform='translate3d('+((px-.5)*12)+'px,'+((py-.5)*9+hp*10)+'px,0) scale('+(1+hp*.025)+')';
+  if(innerWidth>900){
+    l1.style.transform='translateX('+(-34*hp)+'vw)';
+    l2.style.transform='translateX('+(34*hp)+'vw)';
+  }else{
+    l1.style.transform='none';
+    l2.style.transform='none';
+  }
+  document.querySelectorAll('.photo-bg').forEach((bg,i)=>{
+    const r=bg.parentElement.getBoundingClientRect(),p=(innerHeight-r.top)/(innerHeight+r.height);
+    bg.style.transform='translate3d('+((px-.5)*8)+'px,'+((p-.5)*-42)+'px,0) scale(1.08) rotate('+(i%2?2:-2)+'deg)';
+  });
+  requestAnimationFrame(tick);
+}
+tick();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+document.querySelectorAll('.pill').forEach(p=>p.onclick=()=>{
+  p.classList.toggle('active');
+  p.style.background=p.classList.contains('active')?'#f2d49b':'rgba(234,228,208,.82)';
+  p.querySelector('b').textContent=p.classList.contains('active')?'×':'+';
+});
