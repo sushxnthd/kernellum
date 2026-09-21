@@ -4,143 +4,138 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#010001">
+<meta name="description" content="Kernellum researches workload-native computer architecture with physical-design feedback.">
 <title>Kernellum — Close the Loop</title>
-<style>
-@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:500;src:url("https://www.boonglobal.io/fonts/mschn-medium.woff2") format("woff2")}
-@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:600;src:url("https://www.boonglobal.io/fonts/mschn-semibold.woff2") format("woff2")}
-@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:450;src:url("https://www.boonglobal.io/fonts/suisse-book.woff2") format("woff2")}
-@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:500;src:url("https://www.boonglobal.io/fonts/suisse-medium.woff2") format("woff2")}
-:root{
-  --clr-jet-black-800:#010001;--clr-jet-black-600:#161210;--clr-moss-khaki-80:#312c21;--clr-moss-khaki-60:#5e594a;--clr-moss-khaki-40:#959180;--clr-moss-khaki-20:#bbb8ab;--clr-mint:#cdc9b5;--clr-sand:#eeeadc;--clr-sol:#ff9d00;--clr-orange:#e34608;--clr-white:#fff;
-  --bp-mobile:58.75rem;--grid-cols:16;--gutter:clamp(.5rem,.751174vw + .323944rem,1rem);--margin:clamp(1.5rem,9.01409vw - .612676rem,7.5rem);
-  --display:MSCHN,"Arial Narrow","Helvetica Neue",Arial,sans-serif;--sans:"Suisse Int'l","Helvetica Neue",Arial,sans-serif;
-}
-@media(max-width:58.749rem){:root{--grid-cols:8}}
-*{box-sizing:border-box}html{background:var(--clr-jet-black-800);scroll-behavior:auto}body{margin:0;background:var(--clr-jet-black-800);color:var(--clr-sand);font-family:var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selection{background:var(--clr-sand);color:var(--clr-jet-black-800)}
-.noise,.scan{position:fixed;inset:0;pointer-events:none;z-index:9999}.noise{opacity:.18;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E")}.scan{opacity:.05;background:repeating-linear-gradient(0deg,rgba(255,255,255,.5) 0 1px,transparent 1px 4px)}
-.header{top:1.5rem;z-index:100;display:flex;position:fixed;inset-inline:0;justify-content:center;align-items:center;transition:transform .5s cubic-bezier(.5,.1,0,1),top .5s cubic-bezier(.5,.1,0,1)}.header.compact{top:.75rem}.nav-bar{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;gap:.5rem;justify-content:center;position:relative}.logo,.expand,.expand-menu{backdrop-filter:blur(16px);background:color-mix(in srgb,var(--clr-jet-black-800) 40%,transparent);border-radius:.5rem;padding:1rem 1.5rem;position:relative;overflow:clip;border:1px solid rgba(238,234,220,.08)}.logo{display:flex;align-items:center;justify-content:center;min-width:150px}.logo span{font-family:var(--display);font-size:1rem;font-weight:500;letter-spacing:.04em;position:relative}.logo span:after{content:"";position:absolute;left:4px;right:4px;top:51%;height:1px;background:rgba(238,234,220,.55);transform:scaleX(.54)}.expand{cursor:pointer;align-items:center;gap:1rem;display:inline-flex}.expand p{margin:0;text-transform:uppercase;width:3rem;font-size:.75rem;font-weight:600;line-height:90%}.dot-grid{display:grid;grid-template-columns:repeat(3,2px);gap:3px}.dot-grid i{width:2px;height:2px;background:currentColor;border-radius:50%}.expand-menu{max-height:0;padding:0;grid-column:span 2;width:100%;position:absolute;top:100%;overflow:hidden;transition:max-height .4s cubic-bezier(.5,.1,0,1),padding .4s cubic-bezier(.5,.1,0,1)}.expand-menu.open{max-height:340px;padding:1rem 1.5rem}.expand-menu a{text-align:center;text-transform:uppercase;width:100%;padding-block:.5rem;font-size:.75rem;font-weight:600;display:block}.expand-menu a:hover{color:var(--clr-sol)}
-.h1{font-family:var(--display);font-size:clamp(3.5rem,10.1408vw + 1.12324rem,10.25rem);font-weight:500;line-height:90%;letter-spacing:clamp(-.3075rem,.0136268rem - .356808vw,-.07rem);text-transform:uppercase}.h2{font-family:var(--display);font-size:clamp(2.5rem,6.38498vw + 1.00352rem,6.75rem);font-weight:500;line-height:90%;letter-spacing:clamp(-.2025rem,-.191549vw - .0301056rem,-.075rem);text-transform:uppercase}.body{font-size:clamp(.75rem,.28169vw + .683979rem,.9375rem);font-weight:450;line-height:clamp(1.05rem,.535211vw + .92456rem,1.40625rem);letter-spacing:clamp(-.00938rem,.0134437rem - .0253596vw,.0075rem)}.body-lg{font-size:clamp(.875rem,.375587vw + .786972rem,1.125rem);font-weight:500;line-height:clamp(1.225rem,.458216vw + 1.11761rem,1.53rem);letter-spacing:clamp(-.01125rem,-.00375587vw - .00786972rem,-.00875rem)}
-.page-header{height:100svh;display:grid;overflow:clip;background:#010001}.hero-images,.hero-content{grid-area:1/1}.hero-images{z-index:0;display:grid;grid-template-rows:repeat(6,minmax(0,1fr));min-height:0}.hero-layer{grid-column:1;overflow:hidden;position:relative;will-change:transform}.hero-layer .art{position:absolute;inset:-12%;will-change:transform}.layer-1{z-index:1;grid-row:1/span 4}.layer-2{z-index:3;grid-row:5/span 2;width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*10 + var(--gutter)*9 + var(--margin))}.layer-3{z-index:2;grid-row:4/span 2;width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*7 + var(--gutter)*6 + var(--margin))}.layer-4{z-index:4;grid-row:5/span 2;margin-left:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*7 + var(--gutter)*6 + var(--margin));width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*9 + var(--gutter)*9 + var(--margin))}
-.art-a{background:radial-gradient(44vw 54vw at 18% 88%,#ff6b00 0 14%,#941006 36%,transparent 58%),radial-gradient(34vw 45vw at 75% 10%,#ff9d00 0 7%,#4a0a05 34%,transparent 57%),linear-gradient(130deg,#030303,#140403 52%,#010001)}.art-a:after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 42% 48%,rgba(255,157,0,.48) 0 1px,transparent 1px 8px);mask-image:linear-gradient(110deg,#000,transparent 76%);opacity:.6}.art-b{background:radial-gradient(circle at 48% 45%,#ff9d00 0 3%,#b82c06 12%,#2b0502 32%,#010001 65%)}.art-b:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(12deg,transparent 0 18px,rgba(255,103,0,.4) 19px 20px,transparent 21px 34px);opacity:.32}.art-c{background:radial-gradient(circle at 75% 38%,#ff9d00 0 4%,#8c0f07 18%,#060403 51%,#010001 74%)}.art-c:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(238,234,220,.65) 1px,transparent 1.4px);background-size:12px 12px;mask-image:radial-gradient(circle at 65% 50%,#000,transparent 64%);opacity:.42}.art-d{background:linear-gradient(125deg,#ff7b00,#441006 45%,#050303 74%)}.art-d:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 4px)}
-.hero-content{padding:2rem var(--margin);display:grid;grid-template-rows:1fr auto 1fr;position:relative;z-index:5}.hero-title{grid-row-start:2;white-space:pre-wrap;margin:0}.hero-title .line{display:block;will-change:transform}.hero-title .line:nth-child(1){text-align:left}.hero-title .line:nth-child(2){text-align:center;text-indent:20vw}.hero-bottom{grid-row-start:3;display:flex;justify-content:space-between;align-items:end}.subtitle{width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*5 + var(--gutter)*4);max-width:34rem;will-change:transform,opacity}.scroll-more{display:flex;align-items:center;gap:1rem;position:relative;text-transform:uppercase;font-size:.75rem;font-weight:500;line-height:90%;will-change:transform,opacity}.scroll-icon{display:grid;grid-template-columns:repeat(5,2px);grid-template-rows:repeat(6,2px);gap:3px}.scroll-icon i{width:2px;height:2px;background:currentColor;border-radius:50%}.scroll-icon i:nth-child(1){grid-area:1/3}.scroll-icon i:nth-child(2){grid-area:2/3}.scroll-icon i:nth-child(3){grid-area:3/3}.scroll-icon i:nth-child(4){grid-area:4/3}.scroll-icon i:nth-child(5){grid-area:4/1}.scroll-icon i:nth-child(6){grid-area:4/5}.scroll-icon i:nth-child(7){grid-area:5/3}.scroll-icon i:nth-child(8){grid-area:5/2}.scroll-icon i:nth-child(9){grid-area:5/4}.scroll-icon i:nth-child(10){grid-area:6/3}
-.insights-wrap{min-height:100svh;position:relative;overflow:hidden;padding:clamp(3rem,2.25352vw + 2.47183rem,4.5rem) var(--margin);background:radial-gradient(52vw 45vw at 12% 76%,rgba(255,109,0,.88),transparent 55%),radial-gradient(52vw 44vw at 84% 22%,rgba(156,16,8,.76),transparent 60%),#0b0302}.insights-slab{background:#010001;min-height:78svh;padding:2.5rem clamp(1.5rem,5vw,5rem);display:flex;flex-direction:column}.insights-title{margin:auto 0 4rem;text-align:center}.filters{display:flex;gap:1.5rem;margin-bottom:1.5rem}.filters button{background:none;border:0;color:var(--clr-moss-khaki-40);padding:0;font-family:var(--sans);font-size:.875rem}.filters button.active{color:var(--clr-sand)}.insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.insight-card{border:1px solid rgba(238,234,220,.12);border-radius:.5rem;min-height:170px;background:linear-gradient(145deg,#1c1814,#12100f);padding:1.4rem;display:flex;flex-direction:column;justify-content:space-between;transform:translateY(100px);opacity:0;will-change:transform,opacity}.insight-card strong{font-size:1rem;line-height:1.12;font-weight:500}.insight-card span{color:var(--clr-moss-khaki-40);font-size:.75rem}
-.centered-text{height:300dvh;position:relative;background:var(--clr-jet-black-800)}.centered-sticky{height:100dvh;position:sticky;top:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:clamp(1.5rem,1.50235vw + 1.14789rem,2.5rem);overflow:hidden}.centered-copy{font-family:var(--sans);font-size:clamp(1.375rem,.938967vw + 1.15493rem,2rem);font-weight:500;line-height:120%;letter-spacing:clamp(-.04rem,-.0187793vw - .0230986rem,-.0275rem);text-align:center;width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*9 + var(--gutter)*8 - .2em)}.line-mask{display:block;overflow:hidden}.line-inner{display:block;transform:translateY(101%);will-change:transform}.rolodex{color:var(--clr-sol);display:inline-grid;min-width:13em;overflow:hidden;vertical-align:bottom}.rolodex span{grid-area:1/1;opacity:0;transform:translateY(100%);transition:transform .5s cubic-bezier(.5,.1,0,1),opacity .4s}.rolodex span.active{opacity:1;transform:translateY(0)}
-.card-grid{min-height:100svh;padding:clamp(3rem,2.25352vw + 2.47183rem,4.5rem) calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols) + var(--gutter) + var(--margin));display:grid;grid-template-rows:auto 1fr;background:var(--clr-jet-black-800)}.card-grid-head{text-align:center;margin:clamp(2.5rem,1.50235vw + 2.14789rem,3.5rem) 0}.card-grid-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;place-content:center}.feature-card{border:1px solid rgba(238,234,220,.12);border-radius:.5rem;background:linear-gradient(145deg,#221913,#12100e);padding:1.6rem;min-height:390px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transform:translateY(120px);opacity:0;will-change:transform,opacity}.feature-card .orb{position:absolute;left:1.5rem;top:1.5rem;width:54px;height:54px;border:1px solid var(--clr-sol);border-radius:50%}.feature-card .orb:after{content:"";position:absolute;inset:11px;border:1px dotted var(--clr-sol);border-radius:50%}.feature-card h3{font-size:1.4rem;margin:0 0 .75rem;font-weight:500}.feature-card p{margin:0;color:var(--clr-moss-khaki-40);line-height:1.45}.feature-card:before{content:"";position:absolute;left:0;right:0;top:0;height:45%;background-image:radial-gradient(circle,#e34608 1.4px,transparent 1.8px);background-size:17px 17px;mask-image:radial-gradient(ellipse at center,#000,transparent 75%);opacity:.48}
-.large-text{height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--clr-sand);color:var(--clr-jet-black-800);padding:var(--margin);overflow:hidden}.large-text h2{width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*14 + var(--gutter)*13);text-align:center;margin:0}.large-text .line-mask{display:block}.large-text .line-inner{transform:translateY(100%)}.large-text mark{background:none;color:var(--clr-orange)}
-.sock{height:100dvh;display:grid;overflow:clip;background:var(--clr-jet-black-800)}.sock-images,.sock-content{grid-area:1/1}.sock-images{z-index:0;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));grid-template-columns:repeat(8,minmax(0,1fr));min-height:0}.sock-art{overflow:hidden;position:relative;will-change:transform}.sock-art:before{content:"";position:absolute;inset:-8%;will-change:transform}.sock-art:nth-child(1){grid-area:1/1/span 3/span 8}.sock-art:nth-child(1):before{background:radial-gradient(44vw 40vw at 25% 40%,#ff7d00 0 4%,#7f0d06 26%,#020202 64%),linear-gradient(140deg,#070202,#010001)}.sock-art:nth-child(2){grid-area:2/1/span 1/span 6}.sock-art:nth-child(2):before{background:linear-gradient(90deg,#ff8d00,#8d0e07 30%,#090302 74%)}.sock-art:nth-child(3){grid-area:3/1/span 1/span 2}.sock-art:nth-child(3):before{background:radial-gradient(circle at 65% 44%,#ff9d00 0 5%,#a92306 22%,#050202 67%)}.sock-art:nth-child(4){grid-area:1/7/span 1/span 2}.sock-art:nth-child(4):before{background:radial-gradient(circle at 35% 65%,#ff9d00 0 4%,#6f0d05 28%,#040202 68%)}.sock-content{z-index:2;display:flex;align-items:center;justify-content:center;padding:var(--margin)}.sock-content .copy{max-width:600px;text-align:center;font-size:clamp(1.375rem,.938967vw + 1.15493rem,2rem);font-weight:500;line-height:120%;transform:translateY(100%);opacity:0;will-change:transform,opacity}
-.footer{padding:5rem var(--margin);background:var(--clr-jet-black-800);display:flex;justify-content:space-between;color:var(--clr-moss-khaki-40);font-size:.75rem}
-@media(max-width:58.749rem){
-  .header{top:1rem}.logo,.expand{padding:.8rem 1rem}.logo{min-width:126px}.logo span{font-size:.9rem}
-  .page-header{height:100svh}.hero-content{padding:1rem var(--margin)}.hero-title .line:nth-child(1),.hero-title .line:nth-child(2){text-align:center;text-indent:0}.hero-bottom{display:grid;grid-template-rows:1fr auto 1fr;justify-content:center}.subtitle{text-align:center;text-wrap:balance;width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*6 + var(--gutter)*5);grid-row-start:2}.scroll-more{grid-row-start:3;place-self:flex-end center}.layer-2{width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*5 + var(--gutter)*4 + var(--margin))}.layer-3{width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*3 + var(--gutter)*2 + var(--margin))}.layer-4{margin-left:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*3 + var(--gutter)*2 + var(--margin));width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*5 + var(--gutter)*5 + var(--margin))}
-  .insights-wrap{padding:1rem var(--margin)}.insights-slab{min-height:88svh;padding:1.5rem}.insights-title{margin:auto 0 3rem}.insight-cards{grid-template-columns:1fr}.insight-card{min-height:110px}.insight-card:nth-child(3){display:none}
-  .centered-copy{max-width:28rem;width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*8 + var(--gutter)*7 - .2em);padding-inline:1rem}.rolodex{display:block;min-width:0}
-  .card-grid{padding-inline:var(--margin)}.card-grid-list{grid-template-columns:1fr}.feature-card{min-height:270px}
-  .large-text h2{width:calc((100vw - var(--gutter)*(var(--grid-cols) - 1) - var(--margin)*2)/var(--grid-cols)*8 + var(--gutter)*7)}
-  .sock-images .sock-art:nth-child(3){grid-column:1/span 4}.sock-images .sock-art:nth-child(4){grid-column:6/span 3}
-  .footer{flex-direction:column;gap:.6rem}
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="noise"></div><div class="scan"></div>
-<header class="header" id="header"><div class="nav-bar"><a class="logo" href="#home"><span>KERNELLUM</span></a><button class="expand" id="menuBtn"><p id="menuWord">MENU</p><b class="dot-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></button><div class="expand-menu" id="menu"><a href="#home">HOME</a><a href="#insights">INSIGHTS</a><a href="#difference">THE DIFFERENCE</a><a href="#evidence">EVIDENCE</a><a href="https://github.com/sushxnthd/kernellum">GITHUB ↗</a></div></div></header>
-<main>
-<section class="page-header" id="home">
-  <div class="hero-images">
-    <div class="hero-layer layer-1"><div class="art art-a"></div></div>
-    <div class="hero-layer layer-2"><div class="art art-b"></div></div>
-    <div class="hero-layer layer-3"><div class="art art-c"></div></div>
-    <div class="hero-layer layer-4"><div class="art art-d"></div></div>
-  </div>
-  <div class="hero-content">
-    <h1 class="hero-title h1"><span class="line">CLOSE THE</span><span class="line">LOOP</span></h1>
-    <div class="hero-bottom">
-      <p class="subtitle body-lg">Kernellum closes architecture search with final-route feedback, causal topology experiments, and bounded physical intervention.</p>
-      <div class="scroll-more"><span>Scroll for More</span><div class="scroll-icon"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<div id="fx-noise" aria-hidden="true"></div>
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<header id="header" data-visible="true">
+  <div class="nav-bar">
+    <a class="nav-bar__logo glow-target" href="#hero" aria-label="Kernellum home"><span>KERNELLUM</span></a>
+    <button class="nav-bar__toggle glow-target" id="menu-toggle" aria-expanded="false" aria-controls="nav-panel">
+      <p id="menu-label">MENU</p>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5.5h12"/><path d="M2 10.5h12"/></svg>
+    </button>
+    <div class="nav-panel glow-target" id="nav-panel">
+      <nav aria-label="Main navigation">
+        <a href="#difference">What we do</a>
+        <a href="#evidence">Research</a>
+        <a href="#insights">Insights</a>
+        <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+      </nav>
     </div>
   </div>
-</section>
+</header>
 
-<section class="insights-wrap" id="insights"><div class="insights-slab"><h2 class="insights-title h1">INSIGHTS</h2><div class="filters"><button class="active">All</button><button>Architecture</button><button>Physical Design</button></div><div class="insight-cards"><a class="insight-card" href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"><strong>Two-candidate physical feedback turns CAD variability into a bounded search signal.</strong><span>21/09/2026 · 6 min read</span></a><a class="insight-card" href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md"><strong>A causal routing law predicts the timing tax of global broadcast on unseen geometries.</strong><span>20/09/2026 · 5 min read</span></a><a class="insight-card" href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"><strong>Closed-loop physical design improves the routed optimum on 12 / 12 Transformer GEMMs.</strong><span>SEP 2026 · 4 min read</span></a></div></div></section>
+<main>
+  <section id="hero" class="page-header theme-dark" data-theme="dark" data-particles="none">
+    <div class="page-header__media parallax-media" data-media-progress>
+      <div class="parallax-media__layer hero-media hero-media--1" data-rate="-12"></div>
+      <div class="parallax-media__layer hero-media hero-media--2" data-rate="10"></div>
+      <div class="parallax-media__layer hero-media hero-media--3" data-rate="-7"></div>
+      <div class="parallax-media__layer hero-media hero-media--4" data-rate="14"></div>
+    </div>
+    <div class="page-header__content grid-bleed">
+      <h1 class="page-header__title display-h1" data-hero-title>CLOSE THE LOOP</h1>
+      <div class="page-header__meta">
+        <p class="page-header__subtitle">Architecture search closed by physical design. Kernellum models routing effects, intervenes on topology, and selects under bounded feedback.</p>
+        <span class="page-header__cue">Scroll
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg>
+        </span>
+      </div>
+    </div>
+  </section>
 
-<section class="centered-text" id="difference"><div class="centered-sticky"><div class="centered-copy" id="centerCopy"><span class="line-mask"><span class="line-inner">Kernellum treats final-route timing as a first-class signal.</span></span><span class="line-mask"><span class="line-inner">The system can <span class="rolodex"><span class="active">model the routing tax</span><span>intervene on topology</span><span>build route-aware portfolios</span><span>select under bounded feedback</span><span>separate claims from evidence</span></span>.</span></span></div></div></section>
+  <section class="centered-text centered-text--long" data-theme="dark" data-particles="grid">
+    <div class="centered-text__sticky">
+      <div class="centered-text__content grid-bleed">
+        <p class="center-copy text-xl" data-text-reveal>Physical design should not validate architecture after the decision. It should participate in the decision.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="card-grid" id="evidence"><div class="card-grid-head"><p class="body">THE KERNELLUM DIFFERENCE</p></div><div class="card-grid-list"><article class="feature-card"><div class="orb"></div><h3>Physical feedback, not post-hoc reporting</h3><p>Final-route Fmax feeds back into architecture selection instead of merely validating a decision made earlier.</p></article><article class="feature-card"><div class="orb"></div><h3>Controlled causal interventions</h3><p>Matched arithmetic fabrics isolate topology effects while keeping the compute population fixed.</p></article><article class="feature-card"><div class="orb"></div><h3>Bounded adaptation to CAD variance</h3><p>A two-member candidate portfolio reaches 1.44% mean routed-oracle regret across unseen deployment cases.</p></article></div></section>
+  <section id="difference" class="centered-text centered-text--short centered-text--overlap" data-theme="dark" data-particles="image" data-image="chip">
+    <div class="centered-text__sticky">
+      <div class="centered-text__content grid-bleed">
+        <p class="center-copy text-lg" data-highlight>
+          Kernellum turns <mark>route timing</mark> into a search signal, uses <mark>causal topology interventions</mark> to isolate mechanism, then uses a <mark>two-candidate portfolio</mark> to absorb CAD variability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section class="large-text" id="statement"><h2 class="h2"><span class="line-mask"><span class="line-inner">PHYSICAL REALITY IS PART OF THE SEARCH,</span></span><span class="line-mask"><span class="line-inner"><mark>NOT THE FOOTNOTE.</mark></span></span></h2></section>
+  <section id="evidence" class="card-grid card-grid--cols-3 grid-bleed" data-theme="dark" data-particles="rings-horizontal">
+    <header class="card-grid__heading">
+      <p class="eyebrow">THE KERNELLUM DIFFERENCE</p>
+      <h2 class="display-h3">Research that survives routing.</h2>
+    </header>
+    <div class="card-grid__list">
+      <article class="card surface glow-target" data-reveal>
+        <div class="card__mark">01</div>
+        <div class="card__text"><h3>Physical feedback</h3><p>Final-route Fmax feeds back into architecture selection rather than being reported after the fact.</p></div>
+      </article>
+      <article class="card surface glow-target" data-reveal>
+        <div class="card__mark">02</div>
+        <div class="card__text"><h3>Causal topology tests</h3><p>Matched compute fabrics isolate the timing effect of operand-distribution structure.</p></div>
+      </article>
+      <article class="card surface glow-target" data-reveal>
+        <div class="card__mark">03</div>
+        <div class="card__text"><h3>Bounded adaptation</h3><p>A two-member portfolio reaches 1.44% mean regret to the full routed oracle on unseen deployments.</p></div>
+      </article>
+    </div>
+  </section>
 
-<section class="sock" id="sock"><div class="sock-images"><div class="sock-art"></div><div class="sock-art"></div><div class="sock-art"></div><div class="sock-art"></div></div><div class="sock-content"><div class="copy">36 / 36 unseen deployments beat the best broadcast-only baseline. Board-measured latency, power, and energy remain deliberately outside the current claim boundary.</div></div></section>
+  <section class="large-text grid-bleed" data-theme="light" data-particles="rings-vertical">
+    <div class="large-text__block">
+      <h2 class="display-h2" data-text-reveal>Physical reality is part of the search, <span>not the footnote.</span></h2>
+      <a class="btn btn--outline glow-target" href="https://github.com/sushxnthd/kernellum"><span class="btn__bg"></span><span>Inspect the research</span><b>↗</b></a>
+    </div>
+  </section>
+
+  <section id="insights" class="insights grid-bleed" data-theme="dark" data-particles="grid">
+    <header class="insights__head">
+      <p class="eyebrow">INSIGHTS</p>
+      <h2 class="display-h3">Recent research notes</h2>
+    </header>
+    <div class="insights__grid">
+      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md">
+        <strong>Two-candidate physical feedback turns CAD variability into a bounded search signal.</strong><span>SIMILARITY / Portfolio confirmation</span>
+      </a>
+      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md">
+        <strong>A causal routing law predicts the timing tax of global broadcast on unseen geometries.</strong><span>SIMILARITY / Routed law</span>
+      </a>
+      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md">
+        <strong>Closed-loop physical design improves the routed optimum across Transformer GEMMs.</strong><span>K1 / Closed loop</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sock" data-theme="light" data-particles="none">
+    <div class="sock__images">
+      <div class="sock__cell sock__cell--0"><div class="sock-art sock-art--0"></div></div>
+      <div class="sock__cell sock__cell--1"><div class="sock-art sock-art--1"></div></div>
+      <div class="sock__cell sock__cell--2"><div class="sock-art sock-art--2"></div></div>
+      <div class="sock__cell sock__cell--3"><div class="sock-art sock-art--3"></div></div>
+    </div>
+    <div class="sock__content grid-bleed">
+      <h2 class="display-h2">36 / 36 unseen deployment wins.</h2>
+      <p>23.56% lower mean routed latency versus the best broadcast-only baseline. K2 board measurements remain explicitly pending.</p>
+      <a class="btn btn--filled" href="https://github.com/sushxnthd/kernellum"><span>Open Kernellum</span><b>↗</b></a>
+    </div>
+  </section>
 </main>
-<footer class="footer"><span>© 2026 KERNELLUM</span><span>WORKLOAD-NATIVE COMPUTER ARCHITECTURE RESEARCH</span></footer>
-<script>
-const header=document.getElementById('header'),menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu'),menuWord=document.getElementById('menuWord');
-menuBtn.onclick=()=>{const o=menu.classList.toggle('open');menuWord.textContent=o?'CLOSE':'MENU'};
-menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');menuWord.textContent='MENU'});
 
-const prefersReduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
-let rawY=scrollY,smoothY=scrollY,raf;
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
-function outCubic(t){return 1-Math.pow(1-t,3)}
-function sectionProgress(el,enterFrac=1,leaveFrac=0){const r=el.getBoundingClientRect(),vh=innerHeight;return clamp((vh*enterFrac-r.top)/(vh*enterFrac + r.height - vh*leaveFrac),0,1)}
-const hero=document.getElementById('home'),layers=[...document.querySelectorAll('.hero-layer')],arts=[...document.querySelectorAll('.hero-layer .art')],lines=[...document.querySelectorAll('.hero-title .line')],subtitle=document.querySelector('.subtitle'),scrollMore=document.querySelector('.scroll-more');
-const insights=document.getElementById('insights'),insightCards=[...document.querySelectorAll('.insight-card')],center=document.getElementById('difference'),centerLines=[...document.querySelectorAll('#centerCopy > .line-mask > .line-inner')],rolo=[...document.querySelectorAll('.rolodex span')],cards=[...document.querySelectorAll('.feature-card')],cardGrid=document.getElementById('evidence'),statement=document.getElementById('statement'),statementLines=[...document.querySelectorAll('#statement .line-inner')],sock=document.getElementById('sock'),sockArts=[...document.querySelectorAll('.sock-art')],sockCopy=document.querySelector('.sock-content .copy');
-let ri=0,roloTimer=null,centerComplete=false;
+<footer id="footer">
+  <div class="footer__frame surface">
+    <nav class="footer__nav"><a href="#difference">What we do</a><a href="#evidence">Research</a><a href="#insights">Insights</a></nav>
+    <a class="footer__cta btn btn--text" href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+    <div class="footer__logo">KERNELLUM</div>
+  </div>
+</footer>
 
-function setRolodexActive(idx){rolo.forEach((e,i)=>e.classList.toggle('active',i===idx))}
-function runRolodex(active){if(active&&!roloTimer){roloTimer=setInterval(()=>{ri=(ri+1)%rolo.length;setRolodexActive(ri)},2000)}else if(!active&&roloTimer){clearInterval(roloTimer);roloTimer=null}}
-
-function animate(){
-  rawY=scrollY;
-  smoothY += (rawY-smoothY)*.14;
-  const delta=smoothY;
-  header.classList.toggle('compact',rawY>innerHeight*.25);
-
-  const hp=clamp(delta/innerHeight,0,1);
-  layers[1].style.transform=`translateY(${25*hp}%)`;
-  arts[1].style.transform=`translateY(${-12.5*hp}%)`;
-  layers[2].style.transform=`translateX(${-25*hp}%)`;
-  arts[2].style.transform=`translateX(${12.5*hp}%)`;
-  layers[3].style.transform=`translateX(${25*hp}%)`;
-  arts[3].style.transform=`translateX(${-12.5*hp}%)`;
-  arts[0].style.transform=`scale(${1+.15*hp})`;
-  if(matchMedia('(min-width:58.75rem)').matches){
-    lines[0].style.transform=`translateX(${-50*hp}vw)`;
-    lines[1].style.transform=`translateX(${50*hp}vw)`;
-    subtitle.style.transform=`translateX(${-5*hp}vw)`;
-    scrollMore.style.transform=`translateX(${5*hp}vw)`;
-  }else{
-    lines[0].style.transform=lines[1].style.transform=subtitle.style.transform=scrollMore.style.transform='none';
-  }
-  subtitle.style.opacity=1-.5*hp;scrollMore.style.opacity=1-.5*hp;
-
-  const ip=sectionProgress(insights,.94,.55);
-  insightCards.forEach((c,i)=>{const p=clamp((ip-i*.09)/.55,0,1),e=outCubic(p);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`;c.style.opacity=e});
-
-  const cr=center.getBoundingClientRect();
-  const cp=clamp((-cr.top)/(innerHeight*.5),0,1);
-  centerLines.forEach(l=>l.style.transform=`translateY(${101*(1-cp)}%)`);
-  centerComplete=cp>=.995;runRolodex(centerComplete);
-
-  const gp=sectionProgress(cardGrid,.95,.52);
-  cards.forEach((c,i)=>{const p=clamp((gp-i*.08)/.58,0,1),e=outCubic(p);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`;c.style.opacity=e});
-
-  const sr=statement.getBoundingClientRect();
-  const sp=clamp((innerHeight*.5-sr.top)/(Math.max(1,sr.height-innerHeight*.5)),0,1);
-  statementLines.forEach(l=>l.style.transform=`translateY(${100*(1-sp)}%)`);
-
-  const kr=sock.getBoundingClientRect(),kp=clamp((innerHeight-kr.top)/(innerHeight+kr.height),0,1);
-  sockArts[0].style.transform=`scale(${1.15-.15*kp})`;
-  sockArts[1].style.transform=`translateX(${-10*(1-kp)}%)`;
-  sockArts[1].style.setProperty('--innerX',`${5*(1-kp)}%`);
-  sockArts[2].style.transform=`translateY(${50*(1-kp)}%)`;
-  sockArts[3].style.transform=`translateY(${-50*(1-kp)}%)`;
-  sockArts[2].style.setProperty('--innerY',`${-25*(1-kp)}%`);
-  sockArts[3].style.setProperty('--innerY',`${25*(1-kp)}%`);
-  const kt=clamp((kp-.4)/.5,0,1);sockCopy.style.transform=`translateY(${50*(1-kt)}%)`;sockCopy.style.opacity=kt;
-
-  raf=requestAnimationFrame(animate);
-}
-if(!prefersReduced)raf=requestAnimationFrame(animate);else{document.querySelectorAll('[style]').forEach(()=>{});cards.concat(insightCards).forEach(c=>{c.style.transform='none';c.style.opacity=1});centerLines.concat(statementLines).forEach(l=>l.style.transform='none');sockCopy.style.transform='none';sockCopy.style.opacity=1}
-</script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
