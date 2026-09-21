@@ -2,7 +2,7 @@
 
 Date frozen: 2026-09-21
 
-Status: non-scientific platform qualification; no ASAP7 result is claimed.
+Status: qualification failed; no ASAP7 result is claimed.
 
 ## Purpose
 
@@ -65,6 +65,13 @@ a zero-credential reproducibility anchor. Docker Hub's `latest` tag resolved to
 the same older digest.
 
 The failed attempts mounted the 2026-09 ORFS flow tree over the older image's
-tools, which did not establish source/binary compatibility. The next rerun uses
-the flow tree bundled inside the pinned image itself. The single immutable image
-digest now anchors the flow source, platform files and executables together.
+tools, which did not establish source/binary compatibility. The final rerun
+used the flow tree bundled inside the pinned image itself, so the single
+immutable image digest anchored the flow source, platform files and executables
+together.
+
+The source/binary-matched rerun again reached detailed routing with zero
+detailed-route violations, then terminated with the same illegal instruction
+during final-output serialization. ASAP7 therefore does not qualify on the
+public runner and is excluded from the confirmation study. No partial-route
+metric is promoted to evidence.
