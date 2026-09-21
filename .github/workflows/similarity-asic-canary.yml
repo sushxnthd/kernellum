@@ -76,6 +76,7 @@ jobs:
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top clean_all && \
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top route && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top do-6_1_fill"
             docker run --rm \
               -v "$repo_root:/work:ro" \
