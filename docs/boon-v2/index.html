@@ -64,6 +64,133 @@
   .story{min-height:720px}.diff{min-height:900px}.cream-stage{height:840px}.colhero,.metrics{min-height:620px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.hero-canvas,.orbit-canvas,.live-grid canvas,.fabric-canvas,.wave-canvas{display:none}}
+
+/* v6: literal composition pass from the seven BOON reference screens */
+main{display:flex;flex-direction:column}
+#home{order:1}
+#insights{order:2}
+#menu-scene{order:3}
+#difference{order:4}
+#evidence{order:5}
+.results{order:6}
+.finale{order:7}
+#research{display:none!important}
+
+/* global proportions from reference boards */
+:root{--stage:min(84vw,1180px)}
+.ember{min-height:112svh}
+.ember .stage{width:var(--stage);top:19vh;height:66vh;min-height:640px}
+.ember-bg{inset:-8%;filter:saturate(1.14) contrast(1.04)}
+.ember-bg:after{opacity:.85}
+
+/* Hero reference: 84% bordered black stage, dotted field, oversized centered type */
+.hero{min-height:112svh}
+.hero-frame{top:20vh;width:var(--stage);height:88vh;border:2px solid rgba(123,117,97,.6);border-radius:12px;background:rgba(8,8,6,.78)}
+.hero-copy{top:35vh;width:var(--stage)}
+.hero-copy h1{font-family:"Helvetica Neue","Arial Nova",Arial,sans-serif;font-size:clamp(92px,11.7vw,165px);font-weight:300;letter-spacing:-.06em;line-height:.76;transform:none}
+.hero-copy h1 span{display:block}
+.hero-status{left:calc(50% - var(--stage)/2 + 28px);top:calc(20vh + 22px);font-size:8px;letter-spacing:.12em}
+
+/* INSIGHTS reference: giant word centered in a flat inset black slab, filter row/cards anchored low */
+#insights{padding:0}
+#insights .ember-bg{transform:rotate(-2deg) scale(1.06)}
+#insights .stage{top:19vh;height:64vh;min-height:650px}
+#insights .insights{padding:0 6vw 3.5vh}
+#insights .insights h2{font-family:"Helvetica Neue","Arial Nova",Arial,sans-serif;font-size:clamp(92px,10.8vw,148px);font-weight:300;letter-spacing:-.055em;line-height:.82;margin:auto 0 7vh}
+#insights .tabs{gap:22px;margin-bottom:25px}
+#insights .list{grid-template-columns:repeat(3,1fr);gap:12px}
+#insights .list a{min-height:160px;border-radius:7px;padding:24px 20px;background:linear-gradient(155deg,#1c1814,#11100e)}
+#insights .list strong{font-size:14px;font-weight:500;line-height:1.12}
+#insights .list span{font-size:10px}
+
+/* full-screen menu reference */
+.menu-scene{position:relative;min-height:100svh;overflow:hidden;background:#090201}
+.menu-scene-bg{position:absolute;inset:-4%;background:
+  radial-gradient(38vw 55vw at 39% 46%,#070505 0 39%,transparent 43%),
+  radial-gradient(62vw 58vw at 2% 79%,rgba(255,88,0,.95),transparent 58%),
+  radial-gradient(55vw 45vw at 78% 29%,rgba(160,14,8,.8),transparent 56%),
+  linear-gradient(126deg,#420604,#0b0302 68%,#030303)}
+.menu-scene-bg:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,150,73,.06) 0 1px,transparent 1px 4px)}
+.menu-demo{position:absolute;left:50%;top:26%;transform:translateX(-50%);z-index:4;width:380px}
+.menu-demo-top{display:grid;grid-template-columns:1fr .9fr;gap:4px}
+.menu-demo-top>div{height:72px;border:1px solid rgba(238,231,212,.13);border-radius:8px;background:rgba(20,17,14,.93);display:flex;align-items:center;justify-content:center}
+.menu-demo-logo{position:relative;font-size:25px;letter-spacing:.08em;font-weight:300}
+.menu-demo-logo:after{content:"";position:absolute;left:19px;right:19px;top:50%;height:1px;background:rgba(238,231,212,.5)}
+.menu-demo-control{font-size:12px;font-weight:600}
+.menu-demo-panel{margin-top:7px;border:1px solid rgba(238,231,212,.14);border-radius:8px;background:radial-gradient(circle at 28% 20%,rgba(151,28,20,.46),transparent 58%),rgba(23,17,14,.96);padding:42px 40px}
+.menu-demo-panel a{display:block;text-align:center;padding:12px 0;text-transform:uppercase;font-size:15px;font-weight:600}
+.menu-demo-panel a.hot{color:#ff9800}
+
+/* BOON Difference reference: centered label, broad dotted ellipsoid and staggered cards */
+#difference .stage{top:19vh;height:66vh;min-height:660px;padding:42px 4vw}
+#difference .stage>.eyebrow{text-align:center;margin:0;font-size:10px}
+#difference .orbit-canvas{opacity:.92}
+#difference .card{width:24%;min-width:245px;min-height:250px;border-radius:8px;padding:25px 24px}
+#difference .ca{left:13%;top:36%}
+#difference .cb{left:39%;top:44%}
+#difference .cc{right:13%;top:52%}
+#difference .card h3{margin:38px 0 12px;font-size:16px}
+#difference .card p{font-size:13px}
+
+/* cream dotted-figure reference */
+#evidence{padding:0}
+#evidence .cream-stage{top:15vh;width:min(86vw,1220px);height:72vh;min-height:700px}
+#evidence .cream-head{left:9%;top:14%}
+#evidence .cream-head h2{max-width:460px;font-size:clamp(34px,3.3vw,50px)}
+#evidence .fabric-canvas{left:31%;top:27%;width:53%;height:59%}
+#evidence .pill{height:58px;min-width:270px;border-radius:8px;font-size:13px}
+#evidence .pa{left:20%;top:43%}
+#evidence .pb{right:16%;top:50%}
+#evidence .pc{left:28%;top:65%}
+#evidence .pd{right:24%;top:76%}
+
+/* three cinematic tall panels reference */
+.results{min-height:118svh;padding:0}
+.results .triptych{top:17vh;width:min(77vw,1120px);grid-template-columns:1fr .94fr 1fr;gap:28px}
+.results .col{height:68vh;min-height:650px;border-radius:22px}
+.results .mini{top:22px;left:22px;right:22px;height:42px}
+.results .colhero h2{top:31%;font-family:"Helvetica Neue","Arial Nova",Arial,sans-serif;font-size:clamp(48px,5vw,74px);font-weight:300;line-height:.78;letter-spacing:-.05em}
+.results .metric{width:158px}
+.results .stack{padding:50px 19px 16px}
+
+/* Mobile is a separate composition, not shrunk desktop */
+@media(max-width:900px){
+  :root{--stage:calc(100vw - 24px)}
+  .nav,.nav.compact{top:calc(12px + env(safe-area-inset-top))}
+  .hero{height:100dvh;min-height:620px}
+  .hero-frame{top:calc(68px + env(safe-area-inset-top));width:calc(100vw - 24px);height:calc(100dvh - 92px - env(safe-area-inset-top))}
+  .hero-copy{top:33dvh;width:calc(100vw - 34px)}
+  .hero-copy h1{font-size:clamp(58px,18vw,80px);line-height:.82}
+  .hero-status{left:24px;top:calc(79px + env(safe-area-inset-top));font-size:7px}
+  #insights{padding:72px 12px 32px}
+  #insights .stage{position:relative;left:auto;top:auto;transform:none;width:100%;height:auto;min-height:760px}
+  #insights .insights{padding:0 18px 20px}
+  #insights .insights h2{font-size:clamp(72px,20vw,94px);margin:auto 0 56px}
+  #insights .list{grid-template-columns:1fr}
+  #insights .list a{min-height:110px;padding:17px 15px}
+  #insights .list a:nth-child(n+3){display:none}
+  .menu-demo{top:20%;width:calc(100vw - 48px)}
+  .menu-demo-top>div{height:58px}
+  .menu-demo-logo{font-size:21px}
+  .menu-demo-panel{padding:32px 24px}
+  .menu-demo-panel a{font-size:14px}
+  #difference{padding:72px 12px 32px}
+  #difference .stage{position:relative;left:auto;top:auto;transform:none;width:100%;height:auto;min-height:970px;padding:34px 18px}
+  #difference .orbit-canvas{inset:80px -34% 0;width:168%;height:58%}
+  #difference .card,#difference .ca,#difference .cb,#difference .cc{position:relative;left:auto;right:auto;top:auto;width:100%;min-width:0;min-height:0;margin:0 0 12px;padding:19px;transform:none!important}
+  #evidence{padding:72px 12px 32px}
+  #evidence .cream-stage{position:relative;left:auto;top:auto;transform:none;width:100%;height:880px;min-height:0}
+  #evidence .cream-head{left:22px;right:22px;top:48px}
+  #evidence .cream-head h2{font-size:clamp(31px,9vw,41px);max-width:95%}
+  #evidence .fabric-canvas{left:3%;top:25%;width:94%;height:50%}
+  #evidence .pill{width:calc(100% - 48px);left:24px!important;right:auto!important;min-width:0;height:54px;font-size:11px}
+  #evidence .pa{top:40%}#evidence .pb{top:51%}#evidence .pc{top:62%}#evidence .pd{top:73%}
+  .results{padding:72px 12px 32px;min-height:0}
+  .results .triptych{position:relative;left:auto;top:auto;transform:none;width:100%;display:block}
+  .results .col{height:auto;min-height:640px;margin-bottom:14px;border-radius:18px}
+  .results .colhero h2{font-size:clamp(52px,17vw,70px)}
+}
+
 </style>
 </head>
 <body>
@@ -72,6 +199,24 @@
 <main>
 <section class="section hero" id="home"><canvas class="hero-canvas" id="heroCanvas"></canvas><div class="hero-frame"></div><div class="hero-status">physical-design feedback / live</div><div class="hero-copy"><h1><span>CLOSE THE</span><span>LOOP</span></h1><div class="scroll-cue"><span>SCROLL FOR MORE</span><b>✣</b></div></div></section>
 <section class="section ember" id="research"><div class="ember-bg"><i class="dark-mass a"></i><i class="dark-mass b"></i><i class="dark-mass c"></i></div><div class="stage story"><p class="eyebrow">WORKLOAD-NATIVE ARCHITECTURE</p><div class="story-copy reveal"><h2>Reason with physical reality.</h2><p>Kernellum treats routing as part of architecture search, not an afterthought. Model the fabric. Route it. Learn from it. Search again.</p></div><div class="live-grid"><canvas id="gridCanvas"></canvas></div><div class="ticker"><strong>96 / 96</strong><span>corrected routes</span><strong>0.3039 ns</strong><span>held-out law MAE</span><strong>36 / 36</strong><span>deployment wins</span></div></div></section>
+
+<section class="section menu-scene" id="menu-scene">
+  <div class="menu-scene-bg" aria-hidden="true"></div>
+  <div class="menu-demo">
+    <div class="menu-demo-top">
+      <div class="menu-demo-logo">KERNELLUM</div>
+      <div class="menu-demo-control">MENU&nbsp;&nbsp;⠿</div>
+    </div>
+    <div class="menu-demo-panel">
+      <a href="#home">HOME</a>
+      <a class="hot" href="#difference">WHAT WE DO</a>
+      <a href="#evidence">WHO WE ARE</a>
+      <a href="#insights">INSIGHTS</a>
+      <a href="https://github.com/sushxnthd/kernellum">CONTACT US</a>
+    </div>
+  </div>
+</section>
+
 <section class="section ember" id="difference"><div class="ember-bg"><i class="dark-mass a"></i><i class="dark-mass b"></i><i class="dark-mass c"></i></div><div class="stage diff"><p class="eyebrow">THE KERNELLUM DIFFERENCE</p><canvas class="orbit-canvas" id="orbitCanvas"></canvas><article class="card ca reveal"><div class="ring r1"></div><h3>Model the physical effect</h3><p>Final-route timing closes the architecture loop instead of being treated as a postscript.</p></article><article class="card cb reveal"><div class="ring r2"></div><h3>Intervene on topology</h3><p>Matched arithmetic fabrics isolate the timing effect of operand-distribution structure.</p></article><article class="card cc reveal"><div class="ring r3"></div><h3>Adapt with bounded feedback</h3><p>A two-member portfolio absorbs route-seed variance without evaluating the full design space.</p></article></div></section>
 <section class="section ember" id="evidence"><div class="ember-bg"><i class="dark-mass a"></i><i class="dark-mass b"></i><i class="dark-mass c"></i></div><div class="cream-stage"><div class="cream-head reveal"><p class="eyebrow">WHAT SETS KERNELLUM APART</p><h2>Research that survives contact with routing.</h2></div><canvas class="fabric-canvas" id="fabricCanvas"></canvas><button class="pill pa" data-detail="96 / 96 final-route implementations completed in the corrected causal study."><span>Controlled routing experiments</span><b>+</b></button><button class="pill pb" data-detail="0.3039 ns held-out MAE for the frozen differential timing law."><span>Predictive causal law</span><b>+</b></button><button class="pill pc" data-detail="36 / 36 unseen portfolio deployments beat the best broadcast-only baseline."><span>Deployment confirmation</span><b>+</b></button><button class="pill pd" data-detail="Board-measured latency, power and energy remain explicitly pending."><span>Hard evidence boundary</span><b>+</b></button></div></section>
 <section class="section ember" id="insights"><div class="ember-bg"><i class="dark-mass a"></i><i class="dark-mass b"></i><i class="dark-mass c"></i></div><div class="stage insights"><h2>INSIGHTS</h2><div class="insight-bottom"><div class="tabs"><button class="active">All</button><button>Architecture</button><button>Physical Design</button></div><div class="list"><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"><strong>Two-candidate physical feedback converts CAD variability into a bounded search signal.</strong><span>21/09/2026&nbsp;&nbsp;◉&nbsp;&nbsp;6 min read</span></a><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md"><strong>A causal routing law predicts the timing tax of global broadcast on unseen geometries.</strong><span>20/09/2026&nbsp;&nbsp;◉&nbsp;&nbsp;5 min read</span></a><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"><strong>Closed-loop physical design improves the routed optimum on 12 / 12 Transformer GEMMs.</strong><span>SEP 2026&nbsp;&nbsp;◉&nbsp;&nbsp;4 min read</span></a></div></div></div></section>
