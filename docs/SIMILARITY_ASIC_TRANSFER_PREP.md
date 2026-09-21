@@ -2,7 +2,7 @@
 
 Date: 2026-09-21
 
-Status: toolchain preparation only; no ASIC scientific result is claimed.
+Status: stage-0 toolchain canary passed; no ASIC scientific result is claimed.
 
 ## Why this is the next breakthrough target
 
@@ -79,3 +79,9 @@ The cross-technology study is not opened if:
 - the chosen open platforms cannot produce comparable normalized metrics.
 
 Passing the canary authorizes experiment design, not a positive scientific claim.
+
+## Stage-0 outcome
+
+The audited canary completed on 2026-09-21. Both fixed 3x3 designs reached final GDS and passed the artifact, final-timing, detailed-route DRC and structural-retention gates. The decision record is in `docs/SIMILARITY_ASIC_CANARY_REPORT.md`.
+
+The workflow is now pinned to an OpenROAD Flow Scripts commit and container digest, and `scripts/similarity_asic_canary_validate.py` emits a machine-readable audit record. All 3x3 measurements remain excluded from science.
