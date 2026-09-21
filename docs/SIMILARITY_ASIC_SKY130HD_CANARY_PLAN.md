@@ -26,6 +26,9 @@ confirmation study rather than weakened into a partial-route claim.
 - clock constraint: 10.0 ns
 - core utilization: 35%
 - placement density: 0.50
+- post-CTS repair timing: skipped with the documented ORFS CI switch because
+  the pinned binary's repair/legalization block is not portable across the
+  heterogeneous public-runner CPU pool
 - geometry: fixed 3x3 broadcast and registered-local canaries
 
 The 3x3 geometry was opened only for plumbing. It remains permanently excluded
@@ -48,3 +51,6 @@ Any timing, area, wirelength or power difference is inadmissible as scientific
 evidence. Power is additionally inadmissible because no switching-activity
 model is supplied. Passing this gate authorizes preregistration, not execution,
 of the cross-technology experiment.
+
+The workaround cannot convert a timing failure into a pass: the validator
+still rejects any nonzero final setup, hold, slew, fanout or capacitance count.
