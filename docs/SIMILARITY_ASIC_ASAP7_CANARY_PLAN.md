@@ -10,10 +10,8 @@ The NanGate45 canary proved that the pinned open flow can carry both diagnostic 
 
 ## Frozen configuration
 
-- OpenROAD Flow Scripts: `3a964e13f11a4e435aac01ffa14db0a7d2853720`
-- container bootstrap: the refreshed official `openroad/orfs:latest`
-  publication; its resolved digest must be recorded and pinned before the
-  qualification run can be accepted
+- flow source and tools: the bundled contents of
+  `openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6`
 - platform: `asap7`
 - library corner: `BC` (the ASAP7 platform default)
 - clock constraint: 1,000 ps
@@ -60,10 +58,13 @@ and zero detailed-route DRC. This is a disclosed toolchain workaround, not a
 scientific result.
 
 That rerun completed detailed routing with zero detailed-route violations and
-then the older Docker Hub binary (`OpenROAD unknown`) terminated while writing
-final outputs. The checked-out ORFS revision also publishes an Ubuntu 22.04
-builder at GHCR, but that package denied anonymous access and therefore cannot
-serve as a zero-credential reproducibility anchor. Docker Hub's official image
-was subsequently refreshed. A bootstrap run resolves and records the refreshed
-image's immutable digest; a subsequent run pinned to that digest is required
-before the platform qualifies.
+then the Docker Hub binary (`OpenROAD unknown`) terminated while writing final
+outputs. The checked-out ORFS revision also publishes an Ubuntu 22.04 builder
+at GHCR, but that package denied anonymous access and therefore cannot serve as
+a zero-credential reproducibility anchor. Docker Hub's `latest` tag resolved to
+the same older digest.
+
+The failed attempts mounted the 2026-09 ORFS flow tree over the older image's
+tools, which did not establish source/binary compatibility. The next rerun uses
+the flow tree bundled inside the pinned image itself. The single immutable image
+digest now anchors the flow source, platform files and executables together.

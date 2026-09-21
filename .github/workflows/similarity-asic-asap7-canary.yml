@@ -1,8 +1,7 @@
 name: SIMILARITY ASAP7 flow canary
 
 env:
-  ORFS_COMMIT: 3a964e13f11a4e435aac01ffa14db0a7d2853720
-  ORFS_IMAGE: openroad/orfs:latest
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
 
 on:
   pull_request:
@@ -43,19 +42,18 @@ jobs:
 
       - name: Prepare pinned OpenROAD flow
         run: |
-          git init "$RUNNER_TEMP/orfs"
-          git -C "$RUNNER_TEMP/orfs" remote add origin \
-            https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts.git
-          git -C "$RUNNER_TEMP/orfs" fetch --depth 1 origin "$ORFS_COMMIT"
-          git -C "$RUNNER_TEMP/orfs" checkout --detach FETCH_HEAD
-          test "$(git -C "$RUNNER_TEMP/orfs" rev-parse HEAD)" = "$ORFS_COMMIT"
           docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
 
       - name: Record pinned toolchain
         run: |
           mkdir -p build/asic_asap7_canary
           {
-            printf 'orfs_commit=%s\n' "$ORFS_COMMIT"
+            printf 'flow_source=bundled_with_image\n'
             printf 'orfs_image=%s\n' "$ORFS_IMAGE"
             printf 'orfs_resolved_image=%s\n' \
               "$(docker image inspect --format '{{index .RepoDigests 0}}' "$ORFS_IMAGE")"
