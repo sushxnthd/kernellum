@@ -12,14 +12,15 @@ The 3x3 canary is permanently excluded from discovery, confirmation, effect-size
 
 ## Audited run
 
-- GitHub Actions run: `35548256714`
-- job: `106178049206`
-- source head: `a3b1fe8797ab00422a0c1ad6fd07fc963eddcb7b`
-- artifact: `similarity-asic-canary`, ID `10617446290`
-- artifact ZIP SHA-256: `686d2f75bff3f84663e7cadaffc042f3fde82817614b8ba1188d4b080c7dcf02`
+- GitHub Actions run: `35548878352`
+- job: `106179789287`
+- source head: `c034fade10dfbb2fa9ac7619e90167418fc9d0b9`
+- artifact: `similarity-asic-canary`, ID `10617343435`
+- artifact ZIP SHA-256: `4e64cdddc0e0f6988c340ad3d14dd7779245ffc1d3335990a269b7610164d67c`
+- OpenROAD Flow Scripts commit: `3a964e13f11a4e435aac01ffa14db0a7d2853720`
 - OpenROAD container digest: `sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6`
 
-The rerunnable workflow additionally pins the OpenROAD Flow Scripts source commit and emits tool versions into `toolchain.txt`.
+The audited run used those pins and emitted Yosys `0.68+post` and KLayout `0.30.12` into `toolchain.txt`. The container's OpenROAD binary reported an unknown build string, so the immutable container digest is the executable provenance anchor.
 
 ## Gates
 
