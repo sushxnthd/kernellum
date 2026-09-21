@@ -37,6 +37,12 @@ runner-CPU-dependent illegal-instruction fault in post-CTS repair. This does
 not weaken the acceptance gate: final-route setup, hold, slew, fanout and
 capacitance counts must all be zero.
 
+Subsequent CI qualification runs execute only the pinned binary's final timing
+report through QEMU's deterministic `max` x86-64 CPU model. Synthesis,
+floorplanning, placement, CTS and routing remain native. This isolates a
+public-runner instruction-set portability fault without changing the routed
+database or the executable whose timing report is accepted.
+
 ## Gates
 
 | Gate | Result |

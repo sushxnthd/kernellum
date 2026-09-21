@@ -29,6 +29,9 @@ confirmation study rather than weakened into a partial-route claim.
 - post-CTS repair timing: skipped with the documented ORFS CI switch because
   the pinned binary's repair/legalization block is not portable across the
   heterogeneous public-runner CPU pool
+- final timing report: the same pinned OpenROAD executable runs through QEMU's
+  deterministic `max` x86-64 CPU model; all physical-design stages remain
+  native, and the final report remains the mandatory acceptance endpoint
 - geometry: fixed 3x3 broadcast and registered-local canaries
 
 The 3x3 geometry was opened only for plumbing. It remains permanently excluded

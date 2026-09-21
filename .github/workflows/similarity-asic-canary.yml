@@ -11,6 +11,7 @@ on:
       - 'rtl/similarity_broadcast_fabric.sv'
       - 'rtl/similarity_local_fabric.sv'
       - 'scripts/similarity_asic_canary_validate.py'
+      - 'scripts/openroad_qemu_wrapper.sh'
       - 'docs/SIMILARITY_ASIC_TRANSFER_PREP.md'
       - 'docs/SIMILARITY_ASIC_CANARY_REPORT.md'
       - '.github/workflows/similarity-asic-canary.yml'
@@ -29,7 +30,7 @@ jobs:
       - name: Check canary elaboration
         run: |
           sudo apt-get update
-          sudo apt-get install -y iverilog
+          sudo apt-get install -y iverilog qemu-user-static
           iverilog -g2012 -s similarity_asic_broadcast_canary \
             -o /tmp/asic-broadcast-canary.vvp \
             rtl/similarity_broadcast_fabric.sv \
@@ -75,6 +76,22 @@ jobs:
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
                 cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top clean_all && \
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top do-6_1_fill"
+            docker run --rm \
+              -v "$repo_root:/work:ro" \
+              -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
+              -v "/usr/bin/qemu-x86_64-static:/usr/local/bin/qemu-x86_64-static:ro" \
+              "$ORFS_IMAGE" \
+              bash -lc "source /OpenROAD-flow-scripts/env.sh && \
+                cd /OpenROAD-flow-scripts/flow && \
+                make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top \
+                  OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh do-6_report"
+            docker run --rm \
+              -v "$repo_root:/work:ro" \
+              -v "$orfs_root/flow:/OpenROAD-flow-scripts/flow" \
+              "$ORFS_IMAGE" \
+              bash -lc "source /OpenROAD-flow-scripts/env.sh && \
+                cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top"
           done
 
