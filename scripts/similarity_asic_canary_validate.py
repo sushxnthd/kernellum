@@ -141,7 +141,7 @@ def validate_topology(root: Path, topology: str) -> dict[str, object]:
     }
 
 
-def validate(root: Path) -> dict[str, object]:
+def validate(root: Path, platform: str) -> dict[str, object]:
     designs = {topology: validate_topology(root, topology) for topology in TOPOLOGIES}
     broadcast_dffs = int(designs["broadcast"]["synthesis"]["dff_cells"])
     local_dffs = int(designs["local"]["synthesis"]["dff_cells"])
@@ -163,7 +163,7 @@ def validate(root: Path) -> dict[str, object]:
         "scientific_result": False,
         "excluded_from_discovery_and_confirmation": True,
         "exclusion_reason": "3x3 canary opened before the ASIC hypothesis and thresholds were frozen",
-        "platform": "nangate45",
+        "platform": platform,
         "checks": {
             "complete_rtl_to_gds": True,
             "post_route_reports_parseable": True,
@@ -178,10 +178,11 @@ def validate(root: Path) -> dict[str, object]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifact-root", type=Path, required=True)
+    parser.add_argument("--platform", default="nangate45")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
 
-    report = validate(args.artifact_root)
+    report = validate(args.artifact_root, args.platform)
     rendered = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)
