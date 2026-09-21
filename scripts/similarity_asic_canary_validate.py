@@ -57,13 +57,15 @@ def parse_synthesis(path: Path, expected_top: str) -> dict[str, int | float | st
             "synthesized chip area",
         ).group(1)
     )
+    cell_rows = re.finditer(
+        r"^\s*(\d+)\s+\S+\s+\d+\s+\S+\s+(\S+)\s*$",
+        text,
+        re.MULTILINE,
+    )
     dff_cells = sum(
         int(match.group(1))
-        for match in re.finditer(
-            r"^\s*(\d+)\s+\S+\s+\d+\s+\S+\s+(?:S?DFF\S*)\s*$",
-            text,
-            re.MULTILINE,
-        )
+        for match in cell_rows
+        if re.search(r"(?:^|__)(?:s?dff|df|dl)", match.group(2), re.IGNORECASE)
     )
     if total_cells <= 0 or chip_area_um2 <= 0 or dff_cells <= 0:
         raise ValueError("synthesis did not retain nonzero logic, area, and sequential cells")
