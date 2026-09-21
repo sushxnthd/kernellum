@@ -6,133 +6,129 @@
 <meta name="theme-color" content="#010001">
 <meta name="description" content="Kernellum researches workload-native computer architecture with physical-design feedback.">
 <title>Kernellum — Close the Loop</title>
+<link rel="preload" as="image" href="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=1920&q=80&auto=format">
+<link rel="preload" as="image" href="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1920&q=80&auto=format">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="fx-noise" aria-hidden="true"></div>
-<canvas id="particle-canvas" aria-hidden="true"></canvas>
+<div id="noise" aria-hidden="true"></div>
+<div id="particle-wrap" aria-hidden="true"><canvas id="particle-canvas"></canvas></div>
 
-<header id="header" data-visible="true">
+<header id="header" class="visible">
   <div class="nav-bar">
-    <a class="nav-bar__logo glow-target" href="#hero" aria-label="Kernellum home"><span>KERNELLUM</span></a>
-    <button class="nav-bar__toggle glow-target" id="menu-toggle" aria-expanded="false" aria-controls="nav-panel">
+    <a class="logo glow-target" href="#home"><span>KERNELLUM</span></a>
+    <button class="expand-btn glow-target" id="menu-toggle" aria-expanded="false">
       <p id="menu-label">MENU</p>
-      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5.5h12"/><path d="M2 10.5h12"/></svg>
+      <div class="dot-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </button>
-    <div class="nav-panel glow-target" id="nav-panel">
-      <nav aria-label="Main navigation">
-        <a href="#difference">What we do</a>
-        <a href="#evidence">Research</a>
-        <a href="#insights">Insights</a>
-        <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+    <div class="expand-menu glow-target" id="expand-menu">
+      <nav>
+        <ul>
+          <li><a href="#capabilities">What We Do</a></li>
+          <li><a href="#mechanism">Research</a></li>
+          <li><a href="#evidence">Evidence</a></li>
+          <li><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></li>
+        </ul>
       </nav>
     </div>
   </div>
 </header>
 
+<div class="page-wrapper">
 <main>
-  <section id="hero" class="page-header theme-dark" data-theme="dark" data-particles="none">
-    <div class="page-header__media parallax-media" data-media-progress>
-      <div class="parallax-media__layer hero-media hero-media--1" data-rate="-12"></div>
-      <div class="parallax-media__layer hero-media hero-media--2" data-rate="10"></div>
-      <div class="parallax-media__layer hero-media hero-media--3" data-rate="-7"></div>
-      <div class="parallax-media__layer hero-media hero-media--4" data-rate="14"></div>
+<section class="page-header home" id="home" data-theme="dark" data-particles="none">
+  <div class="images">
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/0cd1b737f485d70df84c6fc1f95e3585f7e5db6d-1232x928.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/5801762dd7fa3dc8bee609598fcda57777814cff-1232x928.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+  </div>
+  <div class="content">
+    <h1 class="title">Close the
+Loop</h1>
+    <div class="bottom">
+      <p class="subtitle lg">Kernellum closes architecture search with final-route feedback, causal topology experiments, and bounded physical intervention.</p>
+      <div class="scroll"><span class="text">Scroll for More</span><div class="scroll-dot" aria-hidden="true">✣</div></div>
     </div>
-    <div class="page-header__content grid-bleed">
-      <h1 class="page-header__title display-h1" data-hero-title>CLOSE THE LOOP</h1>
-      <div class="page-header__meta">
-        <p class="page-header__subtitle">Architecture search closed by physical design. Kernellum models routing effects, intervenes on topology, and selects under bounded feedback.</p>
-        <span class="page-header__cue">Scroll
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6"/></svg>
-        </span>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="centered-text centered-text--long" data-theme="dark" data-particles="grid">
-    <div class="centered-text__sticky">
-      <div class="centered-text__content grid-bleed">
-        <p class="center-copy text-xl" data-text-reveal>Physical design should not validate architecture after the decision. It should participate in the decision.</p>
-      </div>
-    </div>
-  </section>
+<section class="centered-text centered-text-one" style="height:300dvh" data-theme="dark" data-particles="grid">
+  <div class="content">
+    <h2 class="text"><span class="main-text">Reason with physical reality.
+Own what happens next.</span></h2>
+  </div>
+  <div class="card-container">
+    <article class="float-card glass"><p>Routing is not a postscript. It changes which architecture is actually best.</p></article>
+    <article class="float-card glass"><p>A causal law turns topology into something the search loop can reason about.</p></article>
+  </div>
+</section>
 
-  <section id="difference" class="centered-text centered-text--short centered-text--overlap" data-theme="dark" data-particles="image" data-image="chip">
-    <div class="centered-text__sticky">
-      <div class="centered-text__content grid-bleed">
-        <p class="center-copy text-lg" data-highlight>
-          Kernellum turns <mark>route timing</mark> into a search signal, uses <mark>causal topology interventions</mark> to isolate mechanism, then uses a <mark>two-candidate portfolio</mark> to absorb CAD variability.
-        </p>
-      </div>
-    </div>
-  </section>
+<section class="centered-text centered-text-two" id="mechanism" style="height:200dvh" data-theme="dark" data-particles="image" data-image="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=900&q=70&auto=format">
+  <div class="content">
+    <h2 class="text"><span class="main-text">Our route-aware compiler can</span><span class="rolodex-text">
+      <span class="rolodex-entry active">model the timing tax</span>
+      <span class="rolodex-entry">intervene on topology</span>
+      <span class="rolodex-entry">predict unseen layouts</span>
+      <span class="rolodex-entry">select bounded candidates</span>
+      <span class="rolodex-entry">close the physical loop</span>
+    </span></h2>
+  </div>
+</section>
 
-  <section id="evidence" class="card-grid card-grid--cols-3 grid-bleed" data-theme="dark" data-particles="rings-horizontal">
-    <header class="card-grid__heading">
-      <p class="eyebrow">THE KERNELLUM DIFFERENCE</p>
-      <h2 class="display-h3">Research that survives routing.</h2>
-    </header>
-    <div class="card-grid__list">
-      <article class="card surface glow-target" data-reveal>
-        <div class="card__mark">01</div>
-        <div class="card__text"><h3>Physical feedback</h3><p>Final-route Fmax feeds back into architecture selection rather than being reported after the fact.</p></div>
-      </article>
-      <article class="card surface glow-target" data-reveal>
-        <div class="card__mark">02</div>
-        <div class="card__text"><h3>Causal topology tests</h3><p>Matched compute fabrics isolate the timing effect of operand-distribution structure.</p></div>
-      </article>
-      <article class="card surface glow-target" data-reveal>
-        <div class="card__mark">03</div>
-        <div class="card__text"><h3>Bounded adaptation</h3><p>A two-member portfolio reaches 1.44% mean regret to the full routed oracle on unseen deployments.</p></div>
-      </article>
-    </div>
-  </section>
+<section class="card-grid three-wide" id="capabilities" data-theme="dark" data-particles="rings-horizontal">
+  <div class="block-text header"><div class="col"><p class="text-label">THE KERNELLUM DIFFERENCE</p></div></div>
+  <ul class="cards pre-anim">
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-a"></div></div>
+      <div class="card-body"><h5>Physical feedback, not post-hoc reporting</h5><p>Final-route Fmax feeds back into architecture selection rather than merely validating a decision made earlier.</p></div>
+    </li>
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-b"></div></div>
+      <div class="card-body"><h5>Controlled causal interventions</h5><p>Matched arithmetic fabrics isolate the timing effect of operand-distribution topology.</p></div>
+    </li>
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-c"></div></div>
+      <div class="card-body"><h5>Bounded adaptation to CAD variance</h5><p>A two-member portfolio reaches 1.44% mean routed-oracle regret across unseen deployment cases.</p></div>
+    </li>
+  </ul>
+</section>
 
-  <section class="large-text grid-bleed" data-theme="light" data-particles="rings-vertical">
-    <div class="large-text__block">
-      <h2 class="display-h2" data-text-reveal>Physical reality is part of the search, <span>not the footnote.</span></h2>
-      <a class="btn btn--outline glow-target" href="https://github.com/sushxnthd/kernellum"><span class="btn__bg"></span><span>Inspect the research</span><b>↗</b></a>
-    </div>
-  </section>
+<section class="large-text" id="evidence" data-theme="light" data-particles="rings-vertical">
+  <div class="block-text centered">
+    <div class="col"><h2>Physical reality is part of the search, <mark>not the footnote.</mark></h2></div>
+  </div>
+</section>
 
-  <section id="insights" class="insights grid-bleed" data-theme="dark" data-particles="grid">
-    <header class="insights__head">
-      <p class="eyebrow">INSIGHTS</p>
-      <h2 class="display-h3">Recent research notes</h2>
-    </header>
-    <div class="insights__grid">
-      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md">
-        <strong>Two-candidate physical feedback turns CAD variability into a bounded search signal.</strong><span>SIMILARITY / Portfolio confirmation</span>
-      </a>
-      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md">
-        <strong>A causal routing law predicts the timing tax of global broadcast on unseen geometries.</strong><span>SIMILARITY / Routed law</span>
-      </a>
-      <a class="news-card surface glow-target" data-reveal href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md">
-        <strong>Closed-loop physical design improves the routed optimum across Transformer GEMMs.</strong><span>K1 / Closed loop</span>
-      </a>
-    </div>
-  </section>
+<section class="centered-text result-text" style="height:200dvh" data-theme="dark" data-particles="grid">
+  <div class="content">
+    <h2 class="text"><span class="main-text">36 / 36 unseen deployments beat the broadcast-only baseline.
+23.56% lower mean routed latency.</span></h2>
+  </div>
+</section>
 
-  <section class="sock" data-theme="light" data-particles="none">
-    <div class="sock__images">
-      <div class="sock__cell sock__cell--0"><div class="sock-art sock-art--0"></div></div>
-      <div class="sock__cell sock__cell--1"><div class="sock-art sock-art--1"></div></div>
-      <div class="sock__cell sock__cell--2"><div class="sock-art sock-art--2"></div></div>
-      <div class="sock__cell sock__cell--3"><div class="sock-art sock-art--3"></div></div>
-    </div>
-    <div class="sock__content grid-bleed">
-      <h2 class="display-h2">36 / 36 unseen deployment wins.</h2>
-      <p>23.56% lower mean routed latency versus the best broadcast-only baseline. K2 board measurements remain explicitly pending.</p>
-      <a class="btn btn--filled" href="https://github.com/sushxnthd/kernellum"><span>Open Kernellum</span><b>↗</b></a>
-    </div>
-  </section>
+<section class="sock" data-theme="dark" data-particles="none">
+  <div class="images">
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/be4c39906759d893e768c4a568249eb5d45d9f2d-1344x896.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/5801762dd7fa3dc8bee609598fcda57777814cff-1232x928.png?w=1536&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/901002228d737f8cef110aab22ad5d49bd3bf3cf-5567x3542.jpg?w=1200&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1200&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+  </div>
+  <div class="content">
+    <div class="block-text centered"><div class="col">
+      <h2>Workloads should shape the machines that run them.</h2>
+      <div class="btn-wrapper"><a class="btn outline glow-target" href="https://github.com/sushxnthd/kernellum"><div class="bg inactive"></div><div class="bg active"></div><span class="text">Inspect the Research</span><span>↗</span></a></div>
+    </div></div>
+  </div>
+</section>
 </main>
+</div>
 
 <footer id="footer">
-  <div class="footer__frame surface">
-    <nav class="footer__nav"><a href="#difference">What we do</a><a href="#evidence">Research</a><a href="#insights">Insights</a></nav>
-    <a class="footer__cta btn btn--text" href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
-    <div class="footer__logo">KERNELLUM</div>
+  <div class="footer-frame glass">
+    <nav><a href="#capabilities">What We Do</a><a href="#mechanism">Research</a><a href="#evidence">Evidence</a></nav>
+    <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+    <div class="footer-logo">KERNELLUM</div>
   </div>
 </footer>
 
