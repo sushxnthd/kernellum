@@ -16,11 +16,11 @@ and publicity.
 
 ## Audited run
 
-- GitHub Actions run: `35551836837`
-- job: `106187884516`
-- source head: `ef8d902776a5fea9d8e5156453385e96a96a6e05`
-- artifact: `similarity-asic-sky130hd-canary`, ID `10618338684`
-- artifact ZIP SHA-256: `dc79689c6afd0bf9340f942e3526b428eb973d1e309a409a6f3ea8c21366a355`
+- GitHub Actions run: `35589951055`
+- job: `106301845139`
+- source head: `911ae449ab3800fe822cb0a9374400ac0dd0e04a`
+- artifact: `similarity-asic-sky130hd-canary`, ID `10634895066`
+- artifact ZIP SHA-256: `ccc57cf9b7db646bc8c82ee84d07b467bda6a95296e0051c7e6661862acf3c46`
 - OpenROAD container: `openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6`
 - platform: `sky130hd`
 - library corner: `sky130_fd_sc_hd__tt_025C_1v80`
@@ -82,9 +82,9 @@ No power result is admissible because no switching-activity model was supplied.
 
 | Artifact | Broadcast SHA-256 | Registered-local SHA-256 |
 |---|---|---|
-| `6_final.gds` | `3910a7e9755e85ea1ff8b2bb8aa9bbdb5d3c0e9d20c1f5350c35655ecb791efa` | `c0b2ecef2f72aac1b6818e627a04b649b056b0cb2f9f4a6326fdb45fc9951b01` |
+| `6_final.gds` | `3e4f2358fb7ec3800c6b341578c127731b96227f831039b5267bd0f7656b61f5` | `d7df1946189f433de7ec5e14f70992716abecc8d9185e841a406ed856f76da26` |
 | `6_final.odb` | `c6d5a47a056b2a1aed9ece96766850774193aea2952e6fece9c0d43f91b80b2d` | `275d1a2f3cf4f0a1218a2e20864e4b96c8c46fb54abbffd84561c1ac6eed3a79` |
-| `6_final.spef` | `0eba9a24186b4c9b8a5299bd12c9bfb0735908114aa3250e8b9249f236fe7f02` | `2274de9efbe46f5fcaae08c3e4e18fac78a488bbdc41d814ef0d420f583158ea` |
+| `6_final.spef` | `9b86c46b8365cc77827cd3a60f87bc9032d962dc94992f1a510e0c7167335b95` | `0d70728e147b3d1efa215fd480ae3a95804c31a95ba599b1083ce70fcbed84ba` |
 | `6_final.v` | `9335d513fef25fb1dcddf0a5f959c60e19fbe90c320481e43d37b43727edf213` | `3dbc65057a6ab22157c1a3349f9e38a20da90586f3090f700b20bf414e330f1d` |
 
 ## Reproducible validation
