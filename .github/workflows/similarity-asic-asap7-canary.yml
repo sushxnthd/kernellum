@@ -2,7 +2,7 @@ name: SIMILARITY ASAP7 flow canary
 
 env:
   ORFS_COMMIT: 3a964e13f11a4e435aac01ffa14db0a7d2853720
-  ORFS_IMAGE: ghcr.io/the-openroad-project/openroad-flow-scripts/ubuntu22.04:latest
+  ORFS_IMAGE: openroad/orfs:latest
 
 on:
   pull_request:
