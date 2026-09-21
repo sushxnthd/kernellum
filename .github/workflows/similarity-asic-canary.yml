@@ -84,6 +84,7 @@ jobs:
               -v "/usr/bin/qemu-x86_64-static:/usr/local/bin/qemu-x86_64-static:ro" \
               "$ORFS_IMAGE" \
               bash -lc "source /OpenROAD-flow-scripts/env.sh && \
+                /work/scripts/openroad_qemu_wrapper.sh -version && \
                 cd /OpenROAD-flow-scripts/flow && \
                 make DESIGN_CONFIG=/work/asic/canary/config.mk DESIGN_NAME=$top \
                   OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh do-6_report"
