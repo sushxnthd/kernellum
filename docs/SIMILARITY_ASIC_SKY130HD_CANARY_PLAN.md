@@ -32,6 +32,9 @@ confirmation study rather than weakened into a partial-route claim.
 - final timing report: the same pinned OpenROAD executable runs through QEMU's
   deterministic `max` x86-64 CPU model; all physical-design stages remain
   native, and the final report remains the mandatory acceptance endpoint
+- auxiliary Kepler LEC: disabled in portable reruns because the pinned
+  Kepler/Naja binary raises SIGILL across part of the public-runner CPU pool,
+  including under QEMU 8.2; the frozen RTL equivalence check remains mandatory
 - geometry: fixed 3x3 broadcast and registered-local canaries
 
 The 3x3 geometry was opened only for plumbing. It remains permanently excluded

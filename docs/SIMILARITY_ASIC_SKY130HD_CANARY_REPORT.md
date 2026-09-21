@@ -43,6 +43,12 @@ floorplanning, placement, CTS and routing remain native. This isolates a
 public-runner instruction-set portability fault without changing the routed
 database or the executable whose timing report is accepted.
 
+The originally audited pass also completed ORFS's auxiliary Kepler LEC. The
+portable rerun configuration disables that duplicate check because the pinned
+Kepler/Naja binary raises SIGILL on part of the public-runner CPU pool even
+under QEMU 8.2. RTL equivalence, structural-retention, final timing, DRC and
+complete-artifact gates remain mandatory.
+
 ## Gates
 
 | Gate | Result |
