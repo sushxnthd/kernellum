@@ -1,5 +1,5 @@
 name: Visual QA live mirror
-# rerun after asset-path fix
+# metrics pass
 
 on:
   workflow_dispatch:
@@ -60,15 +60,31 @@ jobs:
             await page.waitForTimeout(1800);
             await page.screenshot({path:`qa/${name}-scroll2.png`,fullPage:false});
 
-            const info = await page.evaluate(() => ({
-              title: document.title,
-              bodyText: document.body.innerText.slice(0,400),
-              height: document.documentElement.scrollHeight,
-              canvases: document.querySelectorAll('canvas').length,
-              links: document.querySelectorAll('a').length,
-              loader: !!document.querySelector('#loader'),
-              header: !!document.querySelector('header')
-            }));
+            const info = await page.evaluate(() => {
+              const rect = el => {
+                if(!el) return null;
+                const r=el.getBoundingClientRect(), cs=getComputedStyle(el);
+                return {x:r.x,y:r.y,w:r.width,h:r.height,font:cs.fontFamily,fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,textAlign:cs.textAlign,transform:cs.transform,opacity:cs.opacity};
+              };
+              const title=document.querySelector('.page-header.home .title');
+              const titleKids=title ? [...title.children].map(rect) : [];
+              return {
+                title: document.title,
+                bodyText: document.body.innerText.slice(0,400),
+                height: document.documentElement.scrollHeight,
+                canvases: document.querySelectorAll('canvas').length,
+                links: document.querySelectorAll('a').length,
+                loader: !!document.querySelector('#loader'),
+                header: rect(document.querySelector('#header')),
+                nav: rect(document.querySelector('#header .nav-bar')),
+                heroTitle: rect(title),
+                heroTitleKids:titleKids,
+                subtitle:rect(document.querySelector('.page-header.home .subtitle')),
+                scrollCue:rect(document.querySelector('.page-header.home .scroll')),
+                heroImages:[...document.querySelectorAll('.page-header.home .image-wrapper')].map(rect),
+                centered2:rect(document.querySelectorAll('.centered-text')[1]?.querySelector('.text'))
+              };
+            });
             fs.writeFileSync(`qa/${name}.json`,JSON.stringify(info,null,2));
             await context.close();
           }
