@@ -66,16 +66,9 @@ const heroScroll=hero?$('.scroll',hero):null;
 if(heroTitle){
   const lines=heroTitle.textContent.trim().split(/\n+/).map(s=>s.trim()).filter(Boolean);
   heroTitle.innerHTML=lines.map(s=>`<span class="k-line"><span>${s}</span></span>`).join('');
-  if(!reduce.matches){
-    $$('.k-line>span',heroTitle).forEach((l,i)=>{l.style.opacity='0';l.style.transform='translateY(.6em)';l.style.transition=`opacity .9s cubic-bezier(.65,0,.35,1) ${180+i*80}ms,transform .9s cubic-bezier(.65,0,.35,1) ${180+i*80}ms`});
-    heroImgs.forEach((im,i)=>{im.style.opacity='0';im.style.transition=`opacity .9s cubic-bezier(.5,.1,0,1) ${100+i*65}ms`});
-    [heroSubtitle,heroScroll].filter(Boolean).forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition=`opacity .6s ease ${1100+i*100}ms,transform .6s cubic-bezier(.5,.1,0,1) ${1100+i*100}ms`});
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      $$('.k-line>span',heroTitle).forEach(l=>{l.style.opacity='1';l.style.transform='translateY(0)'});
-      heroImgs.forEach(im=>im.style.opacity='1');
-      [heroSubtitle,heroScroll].filter(Boolean).forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)'});
-    }));
-  }else heroImgs.forEach(im=>im.style.opacity='1');
+  const heroLines=$('.k-line>span',heroTitle);
+  if(heroLines[1])heroLines[1].style.textIndent='20vw';
+  heroImgs.forEach(im=>im.style.opacity='1');
 }
 
 const centered=$$('section.centered-text');
@@ -100,7 +93,7 @@ const cardGrid=$('section.card-grid.three-wide'); if(cardGrid) cardGrid.id='rese
 const cardList=cardGrid?$('ul.cards',cardGrid):null;
 if(cardList)cardList.classList.remove('pre-anim');
 const cards=cardGrid?$$('ul.cards>li.card',cardGrid):[];
-cards.forEach((c,i)=>{if(!reduce.matches){c.style.opacity='0';c.style.transform=`translateY(${100+i*50}px)`}});
+cards.forEach((c,i)=>{if(!reduce.matches)c.style.transform=`translateY(${100+i*50}px)`;});
 
 /* draw BOON-like animated orange marks into the existing lottie canvases */
 $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
@@ -351,6 +344,16 @@ function setTheme(){
   if(particles)particles.theme='dark';
 }
 const large=$('section.large-text');
+let largeLines=[];
+if(large){
+  const h2=$('h2',large);
+  if(h2){
+    const txt=h2.textContent.trim();
+    h2.innerHTML=`<span class="k-line"><span>${txt}</span></span>`;
+    largeLines=$('.k-line>span',h2);
+    if(!reduce.matches)largeLines.forEach(l=>l.style.transform='translateY(100%)');
+  }
+}
 const focus=[
   [hero,'dark','none'],
   [centered[0],'dark','grid'],
@@ -379,10 +382,11 @@ function frame(now){
     if(heroWrappers[3])heroWrappers[3].style.transform=`translateX(${25*hp}%)`;if(heroImgs[3])heroImgs[3].style.transform=`translateX(${-12.5*hp}%)`;
     if(heroImgs[0])heroImgs[0].style.transform=`scale(${1+.15*hp})`;
     if(!mobile.matches){const ls=$$('.title>.k-line',hero);if(ls[0])ls[0].style.transform=`translateX(${-50*hp}vw)`;if(ls[1])ls[1].style.transform=`translateX(${50*hp}vw)`;if(heroSubtitle)heroSubtitle.style.transform=`translateX(${-5*hp}vw)`;if(heroScroll)heroScroll.style.transform=`translateX(${5*hp}vw)`}
-    if(heroSubtitle)heroSubtitle.style.opacity=String(hp>.64?0:clamp(1-hp/.56));if(heroScroll)heroScroll.style.opacity=String(hp>.64?0:clamp(1-hp/.56));
+    if(heroSubtitle)heroSubtitle.style.opacity=String(Math.max(0,1-1.5*hp));if(heroScroll)heroScroll.style.opacity=String(Math.max(0,1-1.5*hp));
   }
-  centered.forEach(sec=>{const r=sec.getBoundingClientRect(),p=clamp(-r.top/(vh*.34));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=.96)});
-  if(cardGrid&&!reduce.matches){const r=cardGrid.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height*.5));cards.forEach((c,i)=>{const lp=clamp((p-i*.06)/.7),e=out(lp);c.style.opacity=String(e);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
+  centered.forEach(sec=>{const r=sec.getBoundingClientRect(),p=clamp(-r.top/(vh*.5));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=1)});
+  if(cardGrid&&!reduce.matches){const r=cardGrid.getBoundingClientRect(),p=clamp((vh-r.top)/(vh*.65));cards.forEach((c,i)=>{const lp=clamp((p-i*(150/800)*.35)/(1-i*.035)),e=out(lp);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
+  if(large&&!reduce.matches){const r=large.getBoundingClientRect(),p=clamp((vh-r.bottom)/(vh*.5));largeLines.forEach(l=>l.style.transform=`translateY(${100*(1-p)}%)`)}
   if(sock&&!reduce.matches){const r=sock.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height)),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const line=$('.k-line>span',sock);if(line)line.style.transform='translateY(0)'}
   chooseFocus();if(particles)particles.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
