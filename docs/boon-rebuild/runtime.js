@@ -186,9 +186,9 @@ function chooseFocus(){
 let smoothY=scrollY,lastY=scrollY,lastToggle=0,lastTime=performance.now();
 function frame(now){
   const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;
-  const y=scrollY,dir=Math.sign(y-lastY);smoothY=lerp(smoothY,y,1-Math.exp(-8*dt));
+  const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;smoothY=lerp(smoothY,y,1-Math.exp(-8*dt));
   if(header){if(y<=vh*1.05){header.classList.add('visible');lastToggle=y}else if(Math.abs(y-lastToggle)>80){header.classList.toggle('visible',dir<0);lastToggle=y}}
-  const vh=innerHeight,hp=clamp(smoothY/vh);
+  const hp=clamp(smoothY/vh);
   if(hero&&!reduce.matches){
     if(heroWrappers[1])heroWrappers[1].style.transform=`translateY(${25*hp}%)`;if(heroImgs[1])heroImgs[1].style.transform=`translateY(${-12.5*hp}%)`;
     if(heroWrappers[2])heroWrappers[2].style.transform=`translateX(${-25*hp}%)`;if(heroImgs[2])heroImgs[2].style.transform=`translateX(${12.5*hp}%)`;
