@@ -114,3 +114,30 @@ body,
   .page-header.home .title>.k-line:first-child>span{scale:.875 1}
   .page-header.home .title>.k-line:nth-child(2)>span{scale:.858 1}
 }
+
+/* Critical fidelity fix: the current BOON homepage stays on the dark theme for
+   hero, both centered-text modules, card-grid, large-text and sock. */
+:root{
+  --clr-base-100:#010001!important;
+  --clr-base-200:#161210!important;
+  --clr-base-300:#312c21!important;
+  --clr-base-400:#010001!important;
+  --clr-content-100:#eeeadc!important;
+  --clr-content-200:#cdc9b5!important;
+  --clr-content-300:#959180!important;
+  --clr-border:#312c21!important;
+  --clr-border-card:#312c21!important;
+  --clr-primary:#ff9d00!important;
+  --clr-secondary:#e34608!important;
+}
+html,body,.page-wrapper,main,section.card-grid,section.large-text,section.sock{background-color:#010001!important;color:#eeeadc!important}
+#header{color:#eeeadc!important}
+#header .k-logo,#header .k-menu-btn,#header .k-menu-panel{
+  background:color-mix(in srgb,#010001 52%,transparent)!important;
+  border-color:rgba(238,234,220,.055)!important;
+}
+section.card-grid .card{color:#eeeadc!important}
+section.card-grid .card p{color:#bbb8ab!important}
+section.large-text h2{color:#eeeadc!important}
+section.large-text mark{color:#ff9d00!important}
+section.sock .content,section.sock h2,section.sock p,section.sock .btn{color:#eeeadc!important}
