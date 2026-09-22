@@ -1,0 +1,29 @@
+name: Materialize BOON rebuild visual assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/materialize-boon-rebuild-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact public BOON visual references used by the homepage
+        run: |
+          set -euo pipefail
+          mkdir -p docs/boon-rebuild/assets
+          curl -fL --retry 3 'https://cdn.sanity.io/images/cktal3h7/production/6e6c3150c4aee4b572782ae46c37e742f19fb173-1600x1066.png?w=1600&q=90&auto=format' -o docs/boon-rebuild/assets/particle-image.png
+      - name: Commit assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/boon-rebuild/assets
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add BOON particle-image reference for rebuild"
+          git push
