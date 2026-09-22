@@ -1,8 +1,137 @@
-<!DOCTYPE html>
-<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Condensed:wght@400;500;600&display=swap" rel="stylesheet"/><link href="styles.css" rel="stylesheet"/></head><body><div class="noise"></div><nav class="nav"><a href="#hero">KERNELLUM</a><button id="menuBtn"><span id="menuLabel">MENU</span><span class="nav-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button><div class="menu" id="menu"><a href="#hero">Home</a><a href="#insights">Insights</a><a href="#difference">Research</a><a href="#evidence">Evidence</a><a href="#results">Results</a></div></nav>
-<section class="scene hero" id="hero"><div class="dotfield"></div><div class="hero-frame"></div><svg class="hands" preserveaspectratio="xMidYMid slice" viewbox="0 0 1600 1050"><defs><pattern height="7" id="od" patternunits="userSpaceOnUse" width="7"><circle cx="2.3" cy="2.3" fill="#ff9900" r="1.7"></circle></pattern><pattern height="7" id="cd" patternunits="userSpaceOnUse" width="7"><circle cx="2.3" cy="2.3" fill="#e8e0c8" r="1.55"></circle></pattern><filter id="rough"><feturbulence basefrequency=".009" numoctaves="2" result="n" seed="8" type="fractalNoise"></feturbulence><fedisplacementmap in="SourceGraphic" in2="n" scale="7"></fedisplacementmap></filter><mask id="lh"><rect fill="#000" height="1050" width="1600"></rect><g fill="#fff" filter="url(#rough)" stroke="#fff" stroke-linecap="round"><path d="M-160 1020 C40 900 170 812 300 750 C376 714 455 712 502 745 C545 776 559 817 546 857 C530 905 484 926 418 908 C337 886 289 855 224 851 C141 846 58 892 -30 950 Z" stroke="none"></path><ellipse cx="388" cy="790" rx="108" ry="84" stroke="none"></ellipse><path d="M410 750 C465 686 523 626 600 566" stroke-width="43"></path><path d="M433 786 C500 744 568 704 650 677" stroke-width="40"></path><path d="M439 821 C517 799 589 778 670 770" stroke-width="38"></path><path d="M418 850 C489 851 551 858 618 882" stroke-width="35"></path><path d="M333 761 C337 699 348 653 377 610" stroke-width="45"></path></g></mask><mask id="rh"><rect fill="#000" height="1050" width="1600"></rect><g fill="#fff" filter="url(#rough)" stroke="#fff" stroke-linecap="round"><path d="M1760 -90 C1568 -10 1434 72 1337 133 C1262 180 1199 213 1139 206 C1080 199 1041 158 1047 115 C1055 68 1104 38 1169 31 C1256 22 1320 48 1390 31 C1471 12 1551 -37 1647 -87 Z" stroke="none"></path><ellipse cx="1092" cy="248" rx="109" ry="85" stroke="none"></ellipse><path d="M1082 263 C1018 313 952 350 861 371" stroke-width="43"></path><path d="M1113 291 C1042 342 990 392 922 428" stroke-width="39"></path><path d="M1139 322 C1085 369 1045 414 1006 465" stroke-width="36"></path><path d="M1071 221 C1009 213 953 218 896 243" stroke-width="42"></path><path d="M1165 226 C1160 175 1151 139 1128 104" stroke-width="48"></path></g></mask></defs><rect fill="url(#od)" height="1050" mask="url(#lh)" width="1600"></rect><rect fill="url(#cd)" height="1050" mask="url(#rh)" opacity=".9" width="1600"></rect></svg><div class="hero-copy"><h1><span class="line1">CLOSE THE</span><span class="line2">LOOP</span></h1><div class="cue">SCROLL FOR MORE&nbsp;&nbsp;✣</div></div></section>
-<section class="scene ember" id="insights"><div class="photo-bg" style="background-image:url('https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=1800&amp;q=85&amp;auto=format')"></div><div class="panel insights-panel"><h2>INSIGHTS</h2><div><div class="filters"><span class="active">All</span><span>Architecture</span><span>Physical Design</span></div><div class="cards3"><article class="news reveal"><strong>Two-candidate physical feedback turns CAD variability into a bounded search signal.</strong><small>21/09/2026 · 6 MIN READ</small></article><article class="news reveal"><strong>A causal routing law predicts the timing tax of global broadcast on unseen geometries.</strong><small>20/09/2026 · 5 MIN READ</small></article><article class="news reveal"><strong>Closed-loop physical design improves the routed optimum across Transformer GEMMs.</strong><small>SEP 2026 · 4 MIN READ</small></article></div></div></div></section>
-<section class="scene ember" id="difference"><div class="photo-bg" style="background-image:url('https://cdn.sanity.io/images/cktal3h7/production/0cd1b737f485d70df84c6fc1f95e3585f7e5db6d-1232x928.png?w=1800&amp;q=85&amp;auto=format')"></div><div class="panel difference-panel"><p class="eyebrow">THE KERNELLUM DIFFERENCE</p><div class="orbit"></div><article class="feature reveal"><div class="icon"></div><h3>Physical feedback, not post-hoc reporting</h3><p>Final-route timing participates in architecture selection instead of validating a decision made earlier.</p></article><article class="feature reveal"><div class="icon"></div><h3>Controlled causal intervention</h3><p>Matched fabrics isolate the timing effect of operand-distribution topology.</p></article><article class="feature reveal"><div class="icon"></div><h3>Bounded adaptation</h3><p>A two-member portfolio absorbs route variance without searching the full design space.</p></article></div></section>
-<section class="scene ember cream-wrap" id="evidence"><div class="cream"><div class="cream-copy"><p>WHAT SETS KERNELLUM APART</p><h2>Research that survives contact with routing.</h2></div><div class="cpu-dots"></div><button class="pill p1"><span>Controlled routing experiments</span><b>+</b></button><button class="pill p2"><span>Predictive causal law</span><b>+</b></button><button class="pill p3"><span>Deployment confirmation</span><b>+</b></button><button class="pill p4"><span>Hard evidence boundary</span><b>+</b></button></div></section>
-<section class="scene results" id="results"><div class="triptych"><article class="col col1"><div class="mini-nav"><span>KERNELLUM</span><span>MENU&nbsp;⠿</span></div><h2>CLOSE THE<br/>LOOP</h2><p>Architecture search closed by physical design.</p></article><article class="col col2"><div class="matrix"></div><div class="stat top"><strong>23.56%</strong><span>lower routed latency</span></div><h3>Move from predicting timing to <em>controlling architecture through targeted intervention.</em></h3><div class="stat bottom"><strong>1.44%</strong><span>mean regret to routed oracle</span></div></article><article class="col col3"><p class="eyebrow">THE KERNELLUM DIFFERENCE</p><div class="smallcard"><div class="icon"></div><h4>36 / 36 unseen cases</h4><p>Every deployment case beats the broadcast-only baseline.</p></div><div class="smallcard"><div class="icon"></div><h4>21 / 36 rank-two choices</h4><p>The second portfolio member actively absorbs route variation.</p></div><div class="smallcard"><div class="icon"></div><h4>K2 remains pending</h4><p>Board latency, power and energy stay outside the current claim boundary.</p></div></article></div></section>
-<section class="scene footer"><div><p>KERNELLUM / 2026</p><h2>Workloads should shape the machines that run them.</h2></div></section><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#010001">
+<meta name="description" content="Kernellum researches workload-native computer architecture with physical-design feedback.">
+<title>Kernellum — Close the Loop</title>
+<link rel="preload" as="image" href="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=1920&q=80&auto=format">
+<link rel="preload" as="image" href="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1920&q=80&auto=format">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="noise" aria-hidden="true"></div>
+<div id="particle-wrap" aria-hidden="true"><canvas id="particle-canvas"></canvas></div>
+
+<header id="header" class="visible">
+  <div class="nav-bar">
+    <a class="logo glow-target" href="#home"><span>KERNELLUM</span></a>
+    <button class="expand-btn glow-target" id="menu-toggle" aria-expanded="false">
+      <p id="menu-label">MENU</p>
+      <div class="dot-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </button>
+    <div class="expand-menu glow-target" id="expand-menu">
+      <nav>
+        <ul>
+          <li><a href="#capabilities">What We Do</a></li>
+          <li><a href="#mechanism">Research</a></li>
+          <li><a href="#evidence">Evidence</a></li>
+          <li><a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrapper">
+<main>
+<section class="page-header home" id="home" data-theme="dark" data-particles="none">
+  <div class="images">
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/0cd1b737f485d70df84c6fc1f95e3585f7e5db6d-1232x928.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+    <div class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/5801762dd7fa3dc8bee609598fcda57777814cff-1232x928.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></div>
+  </div>
+  <div class="content">
+    <h1 class="title">Close the
+Loop</h1>
+    <div class="bottom">
+      <p class="subtitle lg">Kernellum closes architecture search with final-route feedback, causal topology experiments, and bounded physical intervention.</p>
+      <div class="scroll"><span class="text">Scroll for More</span><div class="scroll-dot" aria-hidden="true">✣</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="centered-text centered-text-one" style="height:300dvh" data-theme="dark" data-particles="grid">
+  <div class="content">
+    <h2 class="text"><span class="main-text">Reason with physical reality.
+Own what happens next.</span></h2>
+  </div>
+  <div class="card-container">
+    <article class="float-card glass"><p>Routing is not a postscript. It changes which architecture is actually best.</p></article>
+    <article class="float-card glass"><p>A causal law turns topology into something the search loop can reason about.</p></article>
+  </div>
+</section>
+
+<section class="centered-text centered-text-two" id="mechanism" style="height:200dvh" data-theme="dark" data-particles="image" data-image="https://cdn.sanity.io/images/cktal3h7/production/85c40205974bd5520e0f87ee0e49f694c59a40c9-1344x896.png?w=900&q=70&auto=format">
+  <div class="content">
+    <h2 class="text"><span class="main-text">Our route-aware compiler can</span><span class="rolodex-text">
+      <span class="rolodex-entry active">model the timing tax</span>
+      <span class="rolodex-entry">intervene on topology</span>
+      <span class="rolodex-entry">predict unseen layouts</span>
+      <span class="rolodex-entry">select bounded candidates</span>
+      <span class="rolodex-entry">close the physical loop</span>
+    </span></h2>
+  </div>
+</section>
+
+<section class="card-grid three-wide" id="capabilities" data-theme="dark" data-particles="rings-horizontal">
+  <div class="block-text header"><div class="col"><p class="text-label">THE KERNELLUM DIFFERENCE</p></div></div>
+  <ul class="cards pre-anim">
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-a"></div></div>
+      <div class="card-body"><h5>Physical feedback, not post-hoc reporting</h5><p>Final-route Fmax feeds back into architecture selection rather than merely validating a decision made earlier.</p></div>
+    </li>
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-b"></div></div>
+      <div class="card-body"><h5>Controlled causal interventions</h5><p>Matched arithmetic fabrics isolate the timing effect of operand-distribution topology.</p></div>
+    </li>
+    <li class="card glow-target">
+      <div class="media-wrapper glyph"><div class="ring ring-c"></div></div>
+      <div class="card-body"><h5>Bounded adaptation to CAD variance</h5><p>A two-member portfolio reaches 1.44% mean routed-oracle regret across unseen deployment cases.</p></div>
+    </li>
+  </ul>
+</section>
+
+<section class="large-text" id="evidence" data-theme="light" data-particles="rings-vertical">
+  <div class="block-text centered">
+    <div class="col"><h2>Physical reality is part of the search, <mark>not the footnote.</mark></h2></div>
+  </div>
+</section>
+
+<section class="centered-text result-text" style="height:200dvh" data-theme="dark" data-particles="grid">
+  <div class="content">
+    <h2 class="text"><span class="main-text">36 / 36 unseen deployments beat the broadcast-only baseline.
+23.56% lower mean routed latency.</span></h2>
+  </div>
+</section>
+
+<section class="sock" data-theme="dark" data-particles="none">
+  <div class="images">
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/be4c39906759d893e768c4a568249eb5d45d9f2d-1344x896.png?w=1920&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/5801762dd7fa3dc8bee609598fcda57777814cff-1232x928.png?w=1536&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/901002228d737f8cef110aab22ad5d49bd3bf3cf-5567x3542.jpg?w=1200&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+    <figure class="image-wrapper"><img src="https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1200&q=80&auto=format" alt="" crossorigin="anonymous"></figure>
+  </div>
+  <div class="content">
+    <div class="block-text centered"><div class="col">
+      <h2>Workloads should shape the machines that run them.</h2>
+      <div class="btn-wrapper"><a class="btn outline glow-target" href="https://github.com/sushxnthd/kernellum"><div class="bg inactive"></div><div class="bg active"></div><span class="text">Inspect the Research</span><span>↗</span></a></div>
+    </div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer id="footer">
+  <div class="footer-frame glass">
+    <nav><a href="#capabilities">What We Do</a><a href="#mechanism">Research</a><a href="#evidence">Evidence</a></nav>
+    <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+    <div class="footer-logo">KERNELLUM</div>
+  </div>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
