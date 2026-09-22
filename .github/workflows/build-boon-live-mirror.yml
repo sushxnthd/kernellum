@@ -1,0 +1,102 @@
+name: Build live BOON mirror preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch current BOON homepage
+        run: |
+          set -euo pipefail
+          rm -rf docs/boon-live
+          mkdir -p docs/boon-live
+          curl -fL --retry 3 --retry-delay 2 https://www.boonglobal.io/ -o docs/boon-live/index.html
+
+      - name: Rewrite asset/runtime URLs and apply Kernellum branding
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path("docs/boon-live/index.html")
+          s = p.read_text(encoding="utf-8")
+
+          ORIGIN = "https://www.boonglobal.io"
+
+          # Keep the live site's own production assets/runtime intact.
+          # Make every root-relative resource resolve back to BOON's live origin.
+          attrs = ("href", "src", "data-src", "poster")
+          for attr in attrs:
+              s = re.sub(
+                  rf'({attr}=["\'])/(?!/)',
+                  rf'\1{ORIGIN}/',
+                  s
+              )
+
+          # url(...) strings embedded directly in SSR HTML/styles.
+          s = re.sub(r'url\((["\']?)/(?!/)', rf'url(\1{ORIGIN}/', s)
+
+          # Nuxt runtime config / serialized route assets.
+          s = s.replace('"buildAssetsDir":"/_nuxt/"', '"buildAssetsDir":"https://www.boonglobal.io/_nuxt/"')
+          s = s.replace('"baseURL":"/"', '"baseURL":"https://www.boonglobal.io/"')
+          s = s.replace("'/_nuxt/", "'https://www.boonglobal.io/_nuxt/")
+          s = s.replace('"/_nuxt/', '"https://www.boonglobal.io/_nuxt/')
+          s = s.replace("'/_payload.json", "'https://www.boonglobal.io/_payload.json")
+          s = s.replace('"/_payload.json', '"https://www.boonglobal.io/_payload.json')
+
+          # Title only; visible logo is overlaid so hydration can keep its exact DOM.
+          s = re.sub(r'<title>.*?</title>', '<title>Kernellum</title>', s, count=1, flags=re.I|re.S)
+
+          patch = r'''
+          <style id="kernellum-live-brand">
+            a.logo{position:relative!important}
+            a.logo>svg{opacity:0!important}
+            a.logo:after{
+              content:"KERNELLUM";
+              position:absolute;inset:0;
+              display:flex;align-items:center;justify-content:center;
+              font-family:MSCHN, sans-serif;
+              font-weight:500;
+              font-size:clamp(.9rem,.3vw + .82rem,1.05rem);
+              letter-spacing:.02em;
+              color:currentColor;
+              pointer-events:none;
+              white-space:nowrap
+            }
+          </style>
+          <script>
+          (() => {
+            // Keep visible branding changed after Nuxt hydrates/re-renders.
+            const brand = () => {
+              document.title = "Kernellum";
+              document.querySelectorAll('[aria-label="Boon"],[aria-label="BOON"]').forEach(el => el.setAttribute('aria-label','Kernellum'));
+            };
+            brand();
+            new MutationObserver(brand).observe(document.documentElement,{subtree:true,childList:true});
+          })();
+          </script>
+          '''
+          s = s.replace("</head>", patch + "</head>", 1)
+          p.write_text(s, encoding="utf-8")
+          Path("docs/boon-live/.nojekyll").write_text("", encoding="utf-8")
+          PY
+
+      - name: Commit mirror preview
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/boon-live
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Build live BOON mirror preview for Kernellum"
+          git push
