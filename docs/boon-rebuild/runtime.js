@@ -83,7 +83,7 @@ function runRolodex(on){
 const cardGrid=$('section.card-grid.three-wide'); if(cardGrid) cardGrid.id='research';
 const cardList=cardGrid?$('ul.cards',cardGrid):null;
 if(cardList)cardList.classList.remove('pre-anim');
-const cards=cardGrid?$('ul.cards>li.card',cardGrid):[];
+const cards=cardGrid?$$('ul.cards>li.card',cardGrid):[];
 cards.forEach((c,i)=>{if(!reduce.matches){c.style.opacity='0';c.style.transform=`translateY(${100+i*50}px)`}});
 
 /* draw BOON-like animated orange marks into the existing lottie canvases */
