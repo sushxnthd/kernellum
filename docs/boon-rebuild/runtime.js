@@ -88,14 +88,86 @@ if(heroTitle){
 }
 
 const centered=$$('section.centered-text');
-centered.forEach((sec,i)=>{
-  if(i===1)sec.id='difference';
-  const main=$('.main-text',sec);if(!main)return;
-  const lines=main.textContent.trim().split(/\n+/).map(s=>s.trim()).filter(Boolean);
-  main.innerHTML=lines.map(s=>`<span class="line k-line"><span>${s}</span></span>`).join('');
-  sec._kLines=$$('.k-line>span',main);
-  if(!reduce.matches)sec._kLines.forEach(l=>l.style.transform='translateY(101%)');
-});
+const lineOriginals=new WeakMap();
+function groupRenderedWords(root){
+  const words=$$('.k-measure-word',root);
+  const groups=[];
+  let top=null,current=null;
+  words.forEach(w=>{
+    const y=Math.round(w.offsetTop*2)/2;
+    if(top===null||Math.abs(y-top)>1){top=y;current=[];groups.push(current)}
+    current.push(w);
+  });
+  return groups;
+}
+function tokeniseForMeasure(root){
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    const frag=document.createDocumentFragment();
+    const pieces=(node.nodeValue||'').split(/(\s+)/);
+    pieces.forEach(piece=>{
+      if(!piece)return;
+      if(/^\s+$/.test(piece)){
+        const nl=(piece.match(/\n/g)||[]).length;
+        if(nl){
+          for(let i=0;i<nl;i++)frag.appendChild(document.createElement('br'));
+        }else frag.appendChild(document.createTextNode(' '));
+      }else{
+        const w=document.createElement('span');
+        w.className='k-measure-word';
+        w.style.display='inline-block';
+        w.style.whiteSpace='nowrap';
+        w.textContent=piece;
+        frag.appendChild(w);
+      }
+    });
+    node.replaceWith(frag);
+  });
+}
+function splitPlainRenderedLines(el,transform='101%'){
+  if(!el)return[];
+  if(!lineOriginals.has(el))lineOriginals.set(el,{type:'text',value:el.textContent.trim()});
+  const original=lineOriginals.get(el).value;
+  el.textContent=original;
+  tokeniseForMeasure(el);
+  const groups=groupRenderedWords(el);
+  const html=groups.map(g=>'<span class="line k-line"><span>'+g.map(w=>w.textContent).join(' ')+'</span></span>').join('');
+  el.innerHTML=html;
+  const lines=$$('.k-line>span',el);
+  if(!reduce.matches)lines.forEach(l=>l.style.transform='translateY('+transform+')');
+  return lines;
+}
+function splitRichRenderedLines(el,transform='100%'){
+  if(!el)return[];
+  if(!lineOriginals.has(el))lineOriginals.set(el,{type:'html',value:el.innerHTML});
+  const original=lineOriginals.get(el).value;
+  el.innerHTML=original;
+  tokeniseForMeasure(el);
+  const groups=groupRenderedWords(el);
+  const out=groups.map(g=>{
+    const content=g.map((w,i)=>{
+      const word=w.textContent;
+      const marked=!!w.closest('mark');
+      const token=marked?'<mark>'+word+'</mark>':word;
+      return (i?' ':'')+token;
+    }).join('');
+    return '<span class="line k-line"><span>'+content+'</span></span>';
+  }).join('');
+  el.innerHTML=out;
+  const lines=$$('.k-line>span',el);
+  if(!reduce.matches)lines.forEach(l=>l.style.transform='translateY('+transform+')');
+  return lines;
+}
+function prepareCenteredLines(){
+  centered.forEach((sec,i)=>{
+    if(i===1)sec.id='difference';
+    const main=$('.main-text',sec);if(!main)return;
+    sec._kLines=splitPlainRenderedLines(main,'101%');
+  });
+}
+prepareCenteredLines();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(prepareCenteredLines);
 const roloSec=centered[1],roloEntries=roloSec?$$('.rolodex-entry',roloSec):[];
 roloEntries.forEach((e,i)=>e.classList.toggle('k-active',i===0));
 let roloIndex=0,roloTimer=0;
@@ -347,15 +419,13 @@ function setTheme(){
 }
 const large=$('section.large-text');
 let largeLines=[];
-if(large){
+function prepareLargeLines(){
+  if(!large)return;
   const h2=$('h2',large);
-  if(h2){
-    const html=h2.innerHTML;
-    h2.innerHTML=`<span class="line k-line"><span>${html}</span></span>`;
-    largeLines=$$('.k-line>span',h2);
-    if(!reduce.matches)largeLines.forEach(l=>l.style.transform='translateY(100%)');
-  }
+  if(h2)largeLines=splitRichRenderedLines(h2,'100%');
 }
+prepareLargeLines();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(prepareLargeLines);
 const focus=[
   [hero,'dark','none'],
   [centered[0],'dark','grid'],
@@ -403,5 +473,10 @@ setTheme();
 requestAnimationFrame(frame);
 
 addEventListener('load',()=>setTimeout(()=>{const l=$('#loader');if(l)l.classList.add('kernellum-loaded')},180),{once:true});
+let splitResizeTimer=0;
+addEventListener('resize',()=>{
+  clearTimeout(splitResizeTimer);
+  splitResizeTimer=setTimeout(()=>{prepareCenteredLines();prepareLargeLines()},180);
+},{passive:true});
 setTimeout(()=>{const l=$('#loader');if(l)l.classList.add('kernellum-loaded')},1200);
 })();
