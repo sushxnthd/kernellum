@@ -2,6 +2,9 @@ name: Build live BOON mirror preview
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-boon-live-mirror.yml'
 
 permissions:
   contents: write
