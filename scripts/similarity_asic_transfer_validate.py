@@ -42,7 +42,7 @@ def route_csv_paths(root: Path) -> list[Path]:
                 paths.extend(root.rglob(
                     f"similarity_asic_transfer_{platform}_{topology}_s{seed}.csv"
                 ))
-    return sorted(paths)
+    return sorted(paths, key=lambda path: (path.name, str(path)))
 
 
 def functional_marker_exists(root: Path) -> bool:
@@ -378,7 +378,7 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
         path.write_text("", encoding="utf-8")
         return
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
