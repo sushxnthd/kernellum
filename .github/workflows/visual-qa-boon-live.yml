@@ -1,5 +1,5 @@
 name: Visual QA live mirror
-# targeted section QA pass
+# targeted section QA pass 2
 
 on:
   workflow_dispatch:
