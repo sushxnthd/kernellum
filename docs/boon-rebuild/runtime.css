@@ -164,3 +164,25 @@ section.card-grid,
 section.large-text{background-color:transparent!important}
 section.page-header{background-color:#010001!important}
 section.sock{background-color:#010001!important}
+
+/* Measured against the current live homepage screenshots. */
+.page-header.home .title>.k-line:first-child>span,
+.page-header.home .title>.k-line:nth-child(2)>span{
+  scale:1.10 1!important;
+  font-weight:400!important;
+}
+.page-header.home .title>.k-line:first-child>span{transform-origin:left center!important}
+.page-header.home .title>.k-line:nth-child(2)>span{transform-origin:right center!important}
+@media(min-width:58.75rem){
+  .page-header.home .subtitle{width:23vw!important;max-width:21rem!important}
+}
+#header:not(.k-expanded) .k-menu-panel{
+  border-color:transparent!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.sock .k-line>span{transform:none!important}
+@media(max-width:58.749rem){
+  #header .k-logo,#header .k-menu-btn{min-height:3.125rem!important}
+}
