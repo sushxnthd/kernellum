@@ -11,8 +11,8 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 /* ---------- source-geometry header reconstruction ---------- */
 const header=$('#header');
 if(header){
-  const dot9='<div class="dot-icon" aria-hidden="true" style="--v812fb6d2:var(--clr-content-100);--v1c2e9760:1">'+
-    Array.from({length:9},(_,i)=>'<div class="dot" style="grid-column-start:'+((i%3)+1)+';grid-row-start:'+(((i/3)|0)+1)+'"></div>').join('')+
+  const dot9='<div class="dot-icon" aria-hidden="true" style="display:grid;grid-template-columns:repeat(3,2px);grid-template-rows:repeat(3,2px);gap:2px;width:max-content">'+
+    Array.from({length:9},(_,i)=>'<div class="dot" style="grid-column-start:'+((i%3)+1)+';grid-row-start:'+(((i/3)|0)+1)+';width:2px;height:2px;border-radius:999px;background:currentColor"></div>').join('')+
     '</div>';
   header.innerHTML=`
     <div class="nav-bar">
