@@ -1,5 +1,5 @@
 name: Visual QA live mirror
-# targeted section QA pass 6
+# targeted section QA pass 5 - verified runtime
 
 on:
   workflow_dispatch:
