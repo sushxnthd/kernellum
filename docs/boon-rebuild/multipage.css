@@ -55,3 +55,15 @@ h6,.h6{letter-spacing:-.0225rem;font-family:"Suisse Int'l",sans-serif;font-size:
 .boon-line{display:block;will-change:transform,opacity}
 .boon-char{display:inline-block;will-change:opacity,transform}
 .boon-page-enter{transform-origin:center center;will-change:clip-path,transform,filter}
+
+/* BOON menu DotGrid: 4×3 static, 10-dot hover, 6-dot close. */
+.dotgrid{display:grid;grid-template-columns:repeat(4,2px);grid-template-rows:repeat(3,2px);gap:2px;width:max-content}
+.dotgrid i{width:2px;height:2px;border-radius:99px;background:currentColor;display:block}
+.expand-btn:not([aria-expanded="true"]):hover .dotgrid i:nth-child(6),
+.expand-btn:not([aria-expanded="true"]):hover .dotgrid i:nth-child(7){opacity:0}
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(2),
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(3),
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(5),
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(8),
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(10),
+.expand-btn[aria-expanded="true"] .dotgrid i:nth-child(11){opacity:0}
