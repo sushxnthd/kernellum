@@ -81,7 +81,9 @@ function runRolodex(on){
 }
 
 const cardGrid=$('section.card-grid.three-wide'); if(cardGrid) cardGrid.id='research';
-const cards=cardGrid?$$('ul.cards>li.card',cardGrid):[];
+const cardList=cardGrid?$('ul.cards',cardGrid):null;
+if(cardList)cardList.classList.remove('pre-anim');
+const cards=cardGrid?$('ul.cards>li.card',cardGrid):[];
 cards.forEach((c,i)=>{if(!reduce.matches){c.style.opacity='0';c.style.transform=`translateY(${100+i*50}px)`}});
 
 /* draw BOON-like animated orange marks into the existing lottie canvases */
@@ -112,7 +114,7 @@ const sockUrls=[
 ];
 sockImgs.forEach((im,i)=>{if(sockUrls[i]){im.src=sockUrls[i];im.style.opacity='1'}});
 const sockH=sock?$('h2',sock):null;
-if(sockH){sockH.innerHTML=`<span class="k-line"><span>${sockH.textContent.trim()}</span></span>`;if(!reduce.matches)$('.k-line>span',sockH).style.transform='translateY(101%)'}
+if(sockH){sockH.innerHTML=`<span class="k-line"><span>${sockH.textContent.trim()}</span></span>`}
 
 /* minimal visible brand substitutions, no geometry changes */
 document.title='Kernellum';
@@ -197,7 +199,7 @@ function frame(now){
   }
   centered.forEach(sec=>{const r=sec.getBoundingClientRect(),p=clamp(-r.top/(vh*.5));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=.995)});
   if(cardGrid&&!reduce.matches){const r=cardGrid.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height*.5));cards.forEach((c,i)=>{const lp=clamp((p-i*.06)/.7),e=out(lp);c.style.opacity=String(e);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
-  if(sock&&!reduce.matches){const r=sock.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height)),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const line=$('.k-line>span',sock);if(line)line.style.transform=`translateY(${101*(1-clamp((p-.38)/.55))}%)`}
+  if(sock&&!reduce.matches){const r=sock.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height)),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const line=$('.k-line>span',sock);if(line)line.style.transform='translateY(0)'}
   chooseFocus();if(particles)particles.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
 setTheme();
