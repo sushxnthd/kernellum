@@ -63,3 +63,19 @@ html,body,.page-wrapper,#header,#footer{transition:background-color .75s cubic-b
   .centered-text .main-text .k-line>span,.sock .k-line>span{transform:none!important}
   .card-grid .cards .card{opacity:1!important;transform:none!important}
 }
+/* Live-QA corrections: measured against BOON at 1440x1000. */
+#header .k-logo,#header .k-menu-btn{
+  border-color:rgba(238,234,220,.055)!important;
+  background:rgba(1,0,1,.20)!important;
+}
+#header .k-menu-panel{border-color:transparent!important}
+#header.k-expanded .k-menu-panel{border-color:rgba(238,234,220,.055)!important}
+.page-header.home .title .k-line:nth-child(2){text-indent:0!important}
+.page-header.home .title .k-line:nth-child(2)>span{
+  display:block;
+  padding-left:20vw;
+}
+.centered-text .content .text{font-weight:600!important}
+@media(max-width:58.749rem){
+  .page-header.home .title .k-line:nth-child(2)>span{padding-left:0}
+}
