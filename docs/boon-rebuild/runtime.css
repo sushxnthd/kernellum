@@ -190,3 +190,9 @@ section.sock{background-color:#010001!important}
 @keyframes k-loader-failsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
 #loader{animation:k-loader-failsafe .001s linear 1.6s forwards}
 body.ready #loader,#loader.kernellum-loaded{animation:none!important}
+
+/* final live-QA refinement */
+#header .k-logo,#header .k-menu-btn{border-color:transparent!important}
+#header .k-menu-panel{border-color:transparent!important}
+.large-text h2{transform:scaleX(1.065);transform-origin:center}
+.centered-text .text{font-weight:500!important}
