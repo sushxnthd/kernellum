@@ -285,6 +285,22 @@ const hrefMap=new Map([
   ['https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum']
 ]);
 $$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h)){a.setAttribute('href',hrefMap.get(h));if(a.getAttribute('href').startsWith('https://github.com/')){a.target='_blank';a.rel='noopener noreferrer'}}});
+const footer=$('footer#footer');
+if(footer){
+  const exactText=(from,to)=>$$('a,span',footer).forEach(el=>{if(el.children.length===0&&el.textContent.trim()===from)el.textContent=to});
+  exactText('LinkedIn','GitHub');
+  exactText('Privacy Policy','Repository');
+  exactText('ISO/IEC 27001 Cert.','Public Evidence');
+  exactText('Join Us','Research');
+  $$('a',footer).forEach(a=>{
+    const label=a.textContent.trim();
+    if(label==='GitHub'||label==='Repository'||label==='Public Evidence'||label==='Research'){
+      a.href='https://github.com/sushxnthd/kernellum';
+      a.target='_blank';
+      a.rel='noopener noreferrer';
+    }
+  });
+}
 
 /* ---------- persistent BOON-style particle field ---------- */
 class ParticleField{
