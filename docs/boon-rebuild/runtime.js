@@ -200,6 +200,44 @@ $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
   };requestAnimationFrame(draw)
 });
 
+
+const exactLottieUrls=[
+  'https://cdn.sanity.io/files/cktal3h7/production/8c6d2bdb077f25621f328aeffb5d2235b630f9f0.lottie',
+  'https://cdn.sanity.io/files/cktal3h7/production/53a1122c1d1e399d9ee0e4a974042d78f46f1554.lottie',
+  'https://cdn.sanity.io/files/cktal3h7/production/8ab65ac9685605238e4fb22c01d3f8bed7b37171.lottie'
+];
+let exactLottiesRequested=false;
+function mountExactLotties(){
+  if(exactLottiesRequested||!cardGrid)return;
+  exactLottiesRequested=true;
+  const script=document.createElement('script');
+  script.type='module';
+  script.src='https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.17/dist/dotlottie-wc.js';
+  script.onload=async()=>{
+    try{
+      await customElements.whenDefined('dotlottie-wc');
+      $$('.card-grid .lottie-canvas').slice(0,3).forEach((host,i)=>{
+        const url=exactLottieUrls[i];if(!url)return;
+        const player=document.createElement('dotlottie-wc');
+        player.setAttribute('src',url);
+        player.setAttribute('autoplay','');
+        player.setAttribute('loop','');
+        player.style.cssText='display:block;width:100%;height:100%;background:transparent';
+        player.addEventListener('load',()=>{
+          try{player.dotLottie?.setTheme?.('darkBG')}catch{}
+        },{once:true});
+        host.replaceChildren(player);
+      });
+    }catch{}
+  };
+  document.head.appendChild(script);
+}
+if(cardGrid){
+  const lottieObserver=new IntersectionObserver(entries=>{
+    if(entries.some(e=>e.isIntersecting)){lottieObserver.disconnect();mountExactLotties()}
+  },{rootMargin:'1200px 0px'});
+  lottieObserver.observe(cardGrid);
+}
 /* sock images are client-populated on BOON; restore the same production assets */
 const sock=$('section.sock'); if(sock)sock.id='insights';
 const sockImgs=sock?$$('.images .image-wrapper img',sock):[];
