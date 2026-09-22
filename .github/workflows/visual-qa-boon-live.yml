@@ -51,6 +51,25 @@ jobs:
             await page.goto(url,{waitUntil:'domcontentloaded',timeout:90000});
             await page.waitForTimeout(5000);
             await page.screenshot({path:`qa/${name}-top.png`,fullPage:false});
+            const topInfo = await page.evaluate(() => {
+              const rect = el => {
+                if(!el) return null;
+                const r=el.getBoundingClientRect(), cs=getComputedStyle(el);
+                return {x:r.x,y:r.y,w:r.width,h:r.height,font:cs.fontFamily,fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,textAlign:cs.textAlign,transform:cs.transform,opacity:cs.opacity};
+              };
+              const title=document.querySelector('.page-header.home .title');
+              return {
+                header:rect(document.querySelector('#header')),
+                nav:rect(document.querySelector('#header .nav-bar')),
+                heroTitle:rect(title),
+                heroKids:title ? [...title.children].map(rect) : [],
+                subtitle:rect(document.querySelector('.page-header.home .subtitle')),
+                scrollCue:rect(document.querySelector('.page-header.home .scroll')),
+                center1:rect(document.querySelectorAll('.centered-text')[0]?.querySelector('.text')),
+                center2:rect(document.querySelectorAll('.centered-text')[1]?.querySelector('.text'))
+              };
+            });
+            fs.writeFileSync(`qa/${name}-top-metrics.json`,JSON.stringify(topInfo,null,2));
 
             await page.evaluate(()=>scrollTo(0,innerHeight*.85));
             await page.waitForTimeout(1800);
@@ -91,10 +110,8 @@ jobs:
 
           fs.mkdirSync('qa',{recursive:true});
           await capture('boon-desktop','https://www.boonglobal.io/',{width:1440,height:1000});
-          await capture('mirror-desktop','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:1440,height:1000});
           await capture('rebuild-desktop','https://sushxnthd.github.io/kernellum/boon-rebuild/?qa=1',{width:1440,height:1000});
           await capture('boon-mobile','https://www.boonglobal.io/',{width:390,height:844});
-          await capture('mirror-mobile','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:390,height:844});
           await capture('rebuild-mobile','https://sushxnthd.github.io/kernellum/boon-rebuild/?qa=1',{width:390,height:844});
           fs.writeFileSync('qa/errors.txt',errors.join('\n'));
           await browser.close();
@@ -103,9 +120,7 @@ jobs:
           echo "---- QA ERRORS ----"
           cat qa/errors.txt || true
           echo "---- MIRROR INFO ----"
-          cat qa/mirror-desktop.json
           cat qa/rebuild-desktop.json
-          cat qa/mirror-mobile.json
           cat qa/rebuild-mobile.json
 
       - uses: actions/upload-artifact@v4
