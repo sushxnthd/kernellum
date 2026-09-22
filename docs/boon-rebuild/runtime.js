@@ -66,7 +66,7 @@ const heroScroll=hero?$('.scroll',hero):null;
 if(heroTitle){
   const lines=heroTitle.textContent.trim().split(/\n+/).map(s=>s.trim()).filter(Boolean);
   heroTitle.innerHTML=lines.map(s=>`<span class="k-line"><span>${s}</span></span>`).join('');
-  const heroLines=$('.k-line>span',heroTitle);
+  const heroLines=$$('.k-line>span',heroTitle);
   if(heroLines[1])heroLines[1].style.textIndent='20vw';
   heroImgs.forEach(im=>im.style.opacity='1');
 }
@@ -350,7 +350,7 @@ if(large){
   if(h2){
     const txt=h2.textContent.trim();
     h2.innerHTML=`<span class="k-line"><span>${txt}</span></span>`;
-    largeLines=$('.k-line>span',h2);
+    largeLines=$$('.k-line>span',h2);
     if(!reduce.matches)largeLines.forEach(l=>l.style.transform='translateY(100%)');
   }
 }
