@@ -158,11 +158,11 @@ const particles=bgCanvas?new ParticleField(bgCanvas):null;
 
 const themeDark={base:'#010001',base2:'#161210',base3:'#312c21',content:'#eeeadc',content2:'#cdc9b5',muted:'#959180',border:'#312c21',primary:'#ff9d00',secondary:'#e34608'};
 const themeLight={base:'#cdc9b5',base2:'#eeeadc',base3:'#cdc9b5',content:'#010001',content2:'#010001',muted:'#5e594a',border:'#959180',primary:'#e34608',secondary:'#ff9d00'};
-function setTheme(name){
-  const t=name==='light'?themeLight:themeDark,r=document.documentElement.style;
+function setTheme(){
+  const t=themeDark,r=document.documentElement.style;
   r.setProperty('--clr-base-100',t.base);r.setProperty('--clr-base-200',t.base2);r.setProperty('--clr-base-300',t.base3);r.setProperty('--clr-base-400',t.base);
   r.setProperty('--clr-content-100',t.content);r.setProperty('--clr-content-200',t.content2);r.setProperty('--clr-content-300',t.muted);r.setProperty('--clr-border',t.border);r.setProperty('--clr-border-card',t.border);r.setProperty('--clr-primary',t.primary);r.setProperty('--clr-secondary',t.secondary);
-  if(particles)particles.theme=name;
+  if(particles)particles.theme='dark';
 }
 const large=$('section.large-text');
 const focus=[
@@ -170,14 +170,14 @@ const focus=[
   [centered[0],'dark','grid'],
   [centered[1],'dark','image'],
   [cardGrid,'dark','rings-horizontal'],
-  [large,'light','rings-vertical'],
+  [large,'dark','rings-vertical'],
   [sock,'dark','none']
 ].filter(x=>x[0]);
 let focusEl=null;
 function chooseFocus(){
   const vh=innerHeight,line=vh*(scrollY>lastY?.4:scrollY<lastY?.6:.5);let best=null,score=-1;
   focus.forEach(item=>{const r=item[0].getBoundingClientRect(),vis=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));if(vis<vh*.05)return;const ratio=vis/Math.min(vh,r.height),d=(r.top<=line&&r.bottom>=line)?0:Math.min(Math.abs(r.top-line),Math.abs(r.bottom-line)),center=1-Math.min(1,d/vh),s=ratio*.6+center*.4;if(s>score){score=s;best=item}});
-  if(best&&best[0]!==focusEl){focusEl=best[0];setTheme(best[1]);if(particles)particles.set(best[2])}
+  if(best&&best[0]!==focusEl){focusEl=best[0];setTheme();if(particles)particles.set(best[2])}
 }
 
 /* ---------- scroll choreography ---------- */
@@ -200,6 +200,7 @@ function frame(now){
   if(sock&&!reduce.matches){const r=sock.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height)),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const line=$('.k-line>span',sock);if(line)line.style.transform=`translateY(${101*(1-clamp((p-.38)/.55))}%)`}
   chooseFocus();if(particles)particles.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
+setTheme();
 requestAnimationFrame(frame);
 
 addEventListener('load',()=>setTimeout(()=>{const l=$('#loader');if(l)l.classList.add('kernellum-loaded')},180),{once:true});
