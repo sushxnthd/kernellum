@@ -204,14 +204,14 @@ if(cardList)cardList.classList.remove('pre-anim');
 const cards=cardGrid?$$('ul.cards>li.card',cardGrid):[];
 cards.forEach((c,i)=>{if(!reduce.matches)c.style.transform=`translateY(${100+i*50}px)`;});
 
-/* draw BOON-like animated orange marks into the existing lottie canvases */
+/* draw Kernellum signal-green animated research marks into the existing lottie canvases */
 $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
   const ctx=cv.getContext('2d');let start=performance.now();
   const draw=now=>{if(!cv.isConnected)return;
     const r=cv.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2),w=Math.max(1,Math.round(r.width*dpr)),h=Math.max(1,Math.round(r.height*dpr));
     if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,r.width,r.height);
     const cx=r.width/2,cy=r.height/2,R=Math.min(r.width,r.height)*.36,t=(now-start)*.001;
-    ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--clr-primary').trim()||'#ff9d00';ctx.lineWidth=1;
+    ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--clr-primary').trim()||'#b9f35d';ctx.lineWidth=1;
     ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();
     ctx.setLineDash([1.5,4]);
     ctx.beginPath();ctx.arc(cx,cy,R*(idx===0?.58:idx===1?.7:.8),t*(idx+1)*.35,t*(idx+1)*.35+Math.PI*1.7);ctx.stroke();ctx.setLineDash([]);
@@ -222,43 +222,7 @@ $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
 });
 
 
-const exactLottieUrls=[
-  'https://cdn.sanity.io/files/cktal3h7/production/8c6d2bdb077f25621f328aeffb5d2235b630f9f0.lottie',
-  'https://cdn.sanity.io/files/cktal3h7/production/53a1122c1d1e399d9ee0e4a974042d78f46f1554.lottie',
-  'https://cdn.sanity.io/files/cktal3h7/production/8ab65ac9685605238e4fb22c01d3f8bed7b37171.lottie'
-];
-let exactLottiesRequested=false;
-function mountExactLotties(){
-  if(exactLottiesRequested||!cardGrid)return;
-  exactLottiesRequested=true;
-  const script=document.createElement('script');
-  script.type='module';
-  script.src='https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.17/dist/dotlottie-wc.js';
-  script.onload=async()=>{
-    try{
-      await customElements.whenDefined('dotlottie-wc');
-      $$('.card-grid .lottie-canvas').slice(0,3).forEach((host,i)=>{
-        const url=exactLottieUrls[i];if(!url)return;
-        const player=document.createElement('dotlottie-wc');
-        player.setAttribute('src',url);
-        player.setAttribute('autoplay','');
-        player.setAttribute('loop','');
-        player.style.cssText='display:block;width:100%;height:100%;background:transparent';
-        player.addEventListener('load',()=>{
-          try{player.dotLottie?.setTheme?.('darkBG')}catch{}
-        },{once:true});
-        host.replaceChildren(player);
-      });
-    }catch{}
-  };
-  document.head.appendChild(script);
-}
-if(cardGrid){
-  const lottieObserver=new IntersectionObserver(entries=>{
-    if(entries.some(e=>e.isIntersecting)){lottieObserver.disconnect();mountExactLotties()}
-  },{rootMargin:'1200px 0px'});
-  lottieObserver.observe(cardGrid);
-}
+/* Kernellum card motion stays local so all animated accents inherit --clr-primary. */
 /* sock images are client-populated on BOON; restore the same production assets */
 const sock=$('section.sock'); if(sock)sock.id='insights';
 const sockImgs=sock?$$('.images .image-wrapper img',sock):[];
@@ -312,6 +276,22 @@ if(footer){
   });
 }
 
+/* ---------- Kernellum microinteractions ---------- */
+$$('footer#footer .dot-icon').forEach(icon=>{
+  const dots=$$('.dot',icon);
+  dots.forEach((d,i)=>{d.style.opacity=i%3===0?'1':'.38';d.style.transition='opacity .18s ease,transform .32s cubic-bezier(.16,1,.3,1),background-color .18s ease'});
+  const pulse=on=>dots.forEach((d,i)=>{
+    d.style.opacity=on?'1':(i%3===0?'1':'.38');
+    d.style.transform=on?'translateX('+(i%2?2:0)+'px) scale(1.15)':'translateX(0) scale(1)';
+  });
+  const link=icon.closest('a');
+  link?.addEventListener('pointerenter',()=>pulse(true));
+  link?.addEventListener('pointerleave',()=>pulse(false));
+});
+$$('div.btn-wrapper .btn').forEach(btn=>{
+  btn.addEventListener('pointerenter',()=>btn.classList.add('k-hover'));
+  btn.addEventListener('pointerleave',()=>btn.classList.remove('k-hover'));
+});
 /* ---------- persistent BOON-style particle field ---------- */
 class ParticleField{
   constructor(canvas){
@@ -379,7 +359,7 @@ class ParticleField{
     };
     this.buffers={pos:g.createBuffer(),target:g.createBuffer(),scale:g.createBuffer(),targetScale:g.createBuffer(),random:g.createBuffer()};
     g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.disable(g.DEPTH_TEST);
-    g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,49/255,44/255,33/255);g.uniform3f(this.loc.highlight,227/255,70/255,8/255);
+    g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,36/255,107/255,73/255);g.uniform3f(this.loc.highlight,185/255,243/255,93/255);
   }
   bindBuffer(name,data,size){
     if(this.disabled)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
@@ -460,8 +440,8 @@ if(bgCanvas){
 }
 const particles=bgCanvas?new ParticleField(bgCanvas):null;
 
-const themeDark={base:'#010001',base2:'#161210',base3:'#312c21',content:'#eeeadc',content2:'#cdc9b5',muted:'#959180',border:'#312c21',primary:'#ff9d00',secondary:'#e34608'};
-const themeLight={base:'#cdc9b5',base2:'#eeeadc',base3:'#cdc9b5',content:'#010001',content2:'#010001',muted:'#5e594a',border:'#959180',primary:'#e34608',secondary:'#ff9d00'};
+const themeDark={base:'#070907',base2:'#0e120f',base3:'#303831',content:'#f2f1eb',content2:'#e4e6df',muted:'#626a63',border:'#303831',primary:'#b9f35d',secondary:'#246b49'};
+const themeLight={base:'#e4e6df',base2:'#f2f1eb',base3:'#e4e6df',content:'#070907',content2:'#070907',muted:'#626a63',border:'#626a63',primary:'#246b49',secondary:'#b9f35d'};
 function setTheme(){
   const t=themeDark,r=document.documentElement.style;
   r.setProperty('--clr-base-100',t.base);r.setProperty('--clr-base-200',t.base2);r.setProperty('--clr-base-300',t.base3);r.setProperty('--clr-base-400',t.base);
