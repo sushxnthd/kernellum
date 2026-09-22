@@ -27,7 +27,7 @@ jobs:
 
       - name: Capture original and mirror
         run: |
-          cat > /tmp/qa.mjs <<'JS'
+          cat > qa.mjs <<'JS'
           import { chromium } from 'playwright';
           import fs from 'node:fs';
 
@@ -80,7 +80,7 @@ jobs:
           fs.writeFileSync('qa/errors.txt',errors.join('\n'));
           await browser.close();
           JS
-          node /tmp/qa.mjs
+          node qa.mjs
           echo "---- QA ERRORS ----"
           cat qa/errors.txt || true
           echo "---- MIRROR INFO ----"
