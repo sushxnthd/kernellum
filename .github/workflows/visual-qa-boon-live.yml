@@ -1,0 +1,94 @@
+name: Visual QA live mirror
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/visual-qa-boon-live.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Capture original and mirror
+        run: |
+          cat > /tmp/qa.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+
+          const browser = await chromium.launch({headless:true});
+          const errors = [];
+
+          async function capture(name,url,viewport){
+            const context = await browser.newContext({
+              viewport,
+              deviceScaleFactor: 1,
+              colorScheme: 'dark'
+            });
+            const page = await context.newPage();
+            page.on('console', msg => {
+              if(msg.type()==='error') errors.push(`${name} console: ${msg.text()}`);
+            });
+            page.on('pageerror', err => errors.push(`${name} pageerror: ${err.message}`));
+            page.on('requestfailed', req => errors.push(`${name} requestfailed: ${req.url()} :: ${req.failure()?.errorText}`));
+
+            await page.goto(url,{waitUntil:'domcontentloaded',timeout:90000});
+            await page.waitForTimeout(5000);
+            await page.screenshot({path:`qa/${name}-top.png`,fullPage:false});
+
+            await page.evaluate(()=>scrollTo(0,innerHeight*.85));
+            await page.waitForTimeout(1800);
+            await page.screenshot({path:`qa/${name}-scroll1.png`,fullPage:false});
+
+            await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight*.45));
+            await page.waitForTimeout(1800);
+            await page.screenshot({path:`qa/${name}-scroll2.png`,fullPage:false});
+
+            const info = await page.evaluate(() => ({
+              title: document.title,
+              bodyText: document.body.innerText.slice(0,400),
+              height: document.documentElement.scrollHeight,
+              canvases: document.querySelectorAll('canvas').length,
+              links: document.querySelectorAll('a').length,
+              loader: !!document.querySelector('#loader'),
+              header: !!document.querySelector('header')
+            }));
+            fs.writeFileSync(`qa/${name}.json`,JSON.stringify(info,null,2));
+            await context.close();
+          }
+
+          fs.mkdirSync('qa',{recursive:true});
+          await capture('boon-desktop','https://www.boonglobal.io/',{width:1440,height:1000});
+          await capture('mirror-desktop','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:1440,height:1000});
+          await capture('boon-mobile','https://www.boonglobal.io/',{width:390,height:844});
+          await capture('mirror-mobile','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:390,height:844});
+          fs.writeFileSync('qa/errors.txt',errors.join('\n'));
+          await browser.close();
+          JS
+          node /tmp/qa.mjs
+          echo "---- QA ERRORS ----"
+          cat qa/errors.txt || true
+          echo "---- MIRROR INFO ----"
+          cat qa/mirror-desktop.json
+          cat qa/mirror-mobile.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boon-live-visual-qa
+          path: qa/
+          retention-days: 3
