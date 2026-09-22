@@ -17,8 +17,8 @@ if(header){
   header.innerHTML=`
     <div class="nav-bar">
       <a class="logo" href="#home" aria-label="Kernellum">
-        <svg viewBox="0 0 142 24" role="img" aria-label="Kernellum">
-          <text x="0" y="18" fill="currentColor" font-family="Suisse Int'l, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".8">KERNELLUM</text>
+        <svg viewBox="0 0 89 24" role="img" aria-label="Kernellum">
+          <text x="44.5" y="16.8" text-anchor="middle" fill="currentColor" font-family="MSCHN, sans-serif" font-size="11.4" font-weight="600" letter-spacing=".35">KERNELLUM</text>
         </svg>
       </a>
       <button class="expand-btn" type="button" aria-expanded="false">
@@ -76,7 +76,7 @@ centered.forEach((sec,i)=>{
   if(i===1)sec.id='difference';
   const main=$('.main-text',sec);if(!main)return;
   const lines=main.textContent.trim().split(/\n+/).map(s=>s.trim()).filter(Boolean);
-  main.innerHTML=lines.map(s=>`<span class="k-line"><span>${s}</span></span>`).join('');
+  main.innerHTML=lines.map(s=>`<span class="line k-line"><span>${s}</span></span>`).join('');
   sec._kLines=$$('.k-line>span',main);
   if(!reduce.matches)sec._kLines.forEach(l=>l.style.transform='translateY(101%)');
 });
@@ -123,7 +123,7 @@ const sockUrls=[
 ];
 sockImgs.forEach((im,i)=>{if(sockUrls[i]){im.src=sockUrls[i];im.style.opacity='1'}});
 const sockH=sock?$('h2',sock):null;
-if(sockH){sockH.innerHTML=`<span class="k-line"><span>${sockH.textContent.trim()}</span></span>`}
+if(sockH){sockH.innerHTML=`<span class="line k-line"><span>${sockH.textContent.trim()}</span></span>`}
 
 /* minimal visible brand substitutions, no geometry changes */
 document.title='Kernellum';
@@ -137,7 +137,7 @@ const footerLogo=$('footer#footer a.logo');
 if(footerLogo){
   footerLogo.setAttribute('aria-label','Kernellum');
   footerLogo.href='/kernellum/boon-rebuild/';
-  footerLogo.innerHTML='<svg viewBox="0 0 142 24" role="img" aria-label="Kernellum"><text x="0" y="18" fill="currentColor" font-family="Suisse Int\'l, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".8">KERNELLUM</text></svg>';
+  footerLogo.innerHTML='<svg viewBox="0 0 89 24" role="img" aria-label="Kernellum"><text x="44.5" y="16.8" text-anchor="middle" fill="currentColor" font-family="MSCHN, sans-serif" font-size="11.4" font-weight="600" letter-spacing=".35">KERNELLUM</text></svg>';
 }
 const hrefMap=new Map([
   ['/what-we-do/','/kernellum/boon-rebuild/what-we-do/'],
@@ -349,7 +349,7 @@ if(large){
   const h2=$('h2',large);
   if(h2){
     const txt=h2.textContent.trim();
-    h2.innerHTML=`<span class="k-line"><span>${txt}</span></span>`;
+    h2.innerHTML=`<span class="line k-line"><span>${txt}</span></span>`;
     largeLines=$$('.k-line>span',h2);
     if(!reduce.matches)largeLines.forEach(l=>l.style.transform='translateY(100%)');
   }
