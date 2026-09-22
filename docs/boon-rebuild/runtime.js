@@ -156,6 +156,12 @@ class ParticleField{
   }
 }
 const bgCanvas=$('.three-canvas');
+if(bgCanvas){
+  const stage=bgCanvas.closest('.three-canvas-container')?.parentElement;
+  if(stage){stage.style.zIndex='0';stage.style.pointerEvents='none'}
+  const wrapper=$('.page-wrapper');
+  if(wrapper){wrapper.style.position='relative';wrapper.style.zIndex='1'}
+}
 const particles=bgCanvas?new ParticleField(bgCanvas):null;
 
 const themeDark={base:'#010001',base2:'#161210',base3:'#312c21',content:'#eeeadc',content2:'#cdc9b5',muted:'#959180',border:'#312c21',primary:'#ff9d00',secondary:'#e34608'};
