@@ -291,7 +291,7 @@ class ParticleField{
       const rr=Math.round(lerp(base[0],hi[0],h)),gg=Math.round(lerp(base[1],hi[1],h)),bb=Math.round(lerp(base[2],hi[2],h));
       const pulse=.5+.5*Math.sin(now*.0018+r*6.283);
       const rad=(.55+3.9*pulse)*Math.pow(Math.min(s,1.2),1.12)*(.55+.72*r);
-      c.fillStyle=\`rgba(\${rr},\${gg},\${bb},\${Math.min(.94,.28+.62*Math.min(s,1))})\`;
+      c.fillStyle='rgba('+rr+','+gg+','+bb+','+Math.min(.94,.28+.62*Math.min(s,1))+')';
       c.beginPath();c.arc(x,y,Math.max(.45,rad),0,Math.PI*2);c.fill();
     }
     if(this.morphing&&p>=1){this.cur.set(this.to);this.shape=this.target;this.morphing=false}
