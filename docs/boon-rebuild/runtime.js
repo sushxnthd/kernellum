@@ -348,8 +348,8 @@ let largeLines=[];
 if(large){
   const h2=$('h2',large);
   if(h2){
-    const txt=h2.textContent.trim();
-    h2.innerHTML=`<span class="line k-line"><span>${txt}</span></span>`;
+    const html=h2.innerHTML;
+    h2.innerHTML=`<span class="line k-line"><span>${html}</span></span>`;
     largeLines=$$('.k-line>span',h2);
     if(!reduce.matches)largeLines.forEach(l=>l.style.transform='translateY(100%)');
   }
