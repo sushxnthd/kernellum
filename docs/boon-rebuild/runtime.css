@@ -78,3 +78,54 @@
     opacity:1!important;
   }
 }
+
+/* Kernellum brand personalization */
+:root{
+  --krn-void:#070907;
+  --krn-void-soft:#0e120f;
+  --krn-void-raised:#151a16;
+  --krn-bone:#f2f1eb;
+  --krn-bone-deep:#e4e6df;
+  --krn-signal:#b9f35d;
+  --krn-signal-deep:#246b49;
+  --krn-signal-cyan:#79d8c1;
+}
+html,body{background:var(--krn-void)!important}
+::selection{background:var(--krn-signal);color:var(--krn-void)}
+#header .logo svg{transition:transform .35s cubic-bezier(.16,1,.3,1),filter .35s ease}
+#header .logo:hover svg{transform:scale(1.035);filter:drop-shadow(0 0 12px rgba(185,243,93,.26))}
+#header .expand-btn{transition:color .22s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+#header .expand-btn:hover{color:var(--krn-signal);transform:translateY(-1px)}
+#header .expand-menu a{transition:color .2s ease,transform .32s cubic-bezier(.16,1,.3,1)}
+#header .expand-menu a:hover{color:var(--krn-signal);transform:translateX(.22rem)}
+
+div.btn-wrapper .btn{transition:color .22s ease,transform .32s cubic-bezier(.16,1,.3,1)}
+div.btn-wrapper .btn div.bg{transition:clip-path .48s cubic-bezier(.16,1,.3,1),transform .48s cubic-bezier(.16,1,.3,1),background-color .22s ease}
+div.btn-wrapper .btn.outline div.bg.active{background:var(--krn-signal)!important}
+div.btn-wrapper .btn.filled div.bg.inactive{background:var(--krn-signal-deep)!important}
+div.btn-wrapper .btn.text-link div.underline div.fill,
+div.btn-wrapper .btn.text-load div.underline div.fill{background:var(--krn-signal)!important}
+div.btn-wrapper .btn div.icon.arrow{transition:transform .42s cubic-bezier(.16,1,.3,1)}
+div.btn-wrapper .btn span.text{transition:transform .36s cubic-bezier(.16,1,.3,1),color .22s ease}
+div.btn-wrapper .btn:hover,
+div.btn-wrapper .btn.k-hover{transform:translateY(-2px)}
+div.btn-wrapper .btn:hover div.bg.active,
+div.btn-wrapper .btn.k-hover div.bg.active{clip-path:inset(0 0 0)!important}
+div.btn-wrapper .btn:hover div.icon.arrow.one,
+div.btn-wrapper .btn.k-hover div.icon.arrow.one{transform:translateX(115%)}
+div.btn-wrapper .btn:hover div.icon.arrow.two,
+div.btn-wrapper .btn.k-hover div.icon.arrow.two{transform:translateX(115%)}
+div.btn-wrapper .btn:hover span.text,
+div.btn-wrapper .btn.k-hover span.text{transform:translateX(.12em)}
+div.btn-wrapper .btn.outline:hover,
+div.btn-wrapper .btn.outline.k-hover{color:var(--krn-void)}
+
+footer#footer nav a{transition:color .2s ease,transform .32s cubic-bezier(.16,1,.3,1)}
+footer#footer nav a:hover{color:var(--krn-signal);transform:translateX(.18rem)}
+footer#footer nav.primary .dot-icon .dot{opacity:.38!important}
+footer#footer nav.primary li:nth-child(odd) .dot-icon .dot:nth-child(3n+1){opacity:1!important}
+footer#footer nav.primary a:hover .dot-icon .dot{opacity:1!important;background-color:var(--krn-signal)!important}
+
+.card-grid li.card{transition:translate .4s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
+.card-grid li.card:hover{translate:0 -5px;box-shadow:inset 0 0 0 1px rgba(185,243,93,.25),0 18px 55px rgba(0,0,0,.14)}
+.large-text mark,.rolodex-entry{color:var(--krn-signal)!important}
