@@ -177,7 +177,7 @@ class ParticleField{
     };
   }
   resize(){
-    const dpr=Math.min(devicePixelRatio||1,1.25);
+    const dpr=Math.min(devicePixelRatio||1,2);
     this.w=innerWidth;this.h=innerHeight;
     this.canvas.width=Math.floor(this.w*dpr);this.canvas.height=Math.floor(this.h*dpr);
     this.canvas.style.width=this.w+'px';this.canvas.style.height=this.h+'px';
@@ -195,27 +195,17 @@ class ParticleField{
     for(let i=0;i<this.n;i++)this.rand[i]=Math.random();
     this.build(this.shape,this.cur);this.to.set(this.cur);
   }
-  write(a,i,x,y,s){const j=i*3;a[j]=x;a[j+1]=y;a[j+2]=s}
+  write(a,i,x,y,sc){const j=i*3;a[j]=x;a[j+1]=y;a[j+2]=sc}
   cell(i){
     const c=i%this.cols,r=(i/this.cols)|0;
     return [this.x0+c*this.gap,this.y0+r*this.gap,c,r];
   }
-  heavy(i){
-    const q=this.rand[(i*7+3)%this.n];
-    return .10+Math.pow(q,2.8)*.98;
-  }
-  capsule(px,py,ax,ay,bx,by,r){
-    const abx=bx-ax,aby=by-ay,apx=px-ax,apy=py-ay;
-    const t=clamp((apx*abx+apy*aby)/(abx*abx+aby*aby||1));
-    const dx=px-(ax+abx*t),dy=py-(ay+aby*t);
-    return clamp(1-Math.hypot(dx,dy)/r);
-  }
+  fract(v){return v-Math.floor(v)}
   build(shape,a){
     if(shape==='none'||shape==='grid'){
       for(let i=0;i<this.n;i++){
         const [x,y]=this.cell(i);
-        let sc=0;
-        if(shape==='grid'&&this.rand[i]>.34)sc=this.heavy(i);
+        const sc=shape==='grid'?(this.rand[i]<.5?0:this.rand[(i*7+3)%this.n]):0;
         this.write(a,i,x,y,sc);
       }
       return;
@@ -227,32 +217,27 @@ class ParticleField{
         const oc=document.createElement('canvas');
         oc.width=this.cols;oc.height=this.rows;
         const ox=oc.getContext('2d',{willReadFrequently:true});
-        const sc=Math.max(this.cols/this.image.width,this.rows/this.image.height);
-        const dw=this.image.width*sc,dh=this.image.height*sc;
+        const cover=Math.max(this.cols/this.image.width,this.rows/this.image.height);
+        const dw=this.image.width*cover,dh=this.image.height*cover;
         ox.clearRect(0,0,this.cols,this.rows);
         ox.drawImage(this.image,(this.cols-dw)/2,(this.rows-dh)/2,dw,dh);
         data=ox.getImageData(0,0,this.cols,this.rows).data;
       }
       for(let i=0;i<this.n;i++){
         const [x,y,c,r]=this.cell(i);
-        const bg=this.rand[i]>.52 ? (.035+Math.pow(this.rand[(i*11+5)%this.n],3)*.20) : 0;
-        let sc=bg;
+        let sc=0;
         if(data){
           const p=(r*this.cols+c)*4;
-          const lum=(.2126*data[p]+.7152*data[p+1]+.0722*data[p+2])/255;
-          const alpha=data[p+3]/255;
-          const m=clamp((lum-.035)/.68)*alpha;
-          if(m>.035)sc=Math.max(sc,.12+Math.pow(m,.82)*1.04);
+          if(data[p+3]>128){
+            const lum=(.299*data[p]+.587*data[p+1]+.114*data[p+2])/255;
+            const darkness=1-lum;
+            if(darkness>.33)sc=(darkness-.33)/.67;
+          }
         }else{
-          // Fallback silhouette derived from the live point-cloud composition.
           const nx=(x-this.w*.5)/this.w,ny=(y-this.h*.5)/this.h;
           const torso=clamp(1-(nx*nx/(.115*.115)+(ny+.08)*(ny+.08)/(.30*.30)));
           const head=clamp(1-(nx-.035)*(nx-.035)/(.09*.09)-(ny+.31)*(ny+.31)/(.13*.13));
-          const left=this.capsule(nx,ny,-.02,-.03,-.36,.18,.075);
-          const right=this.capsule(nx,ny,.05,-.15,.36,.02,.075);
-          const lower=this.capsule(nx,ny,.015,.13,-.05,.43,.09);
-          const m=Math.max(torso,head,left,right,lower);
-          if(m>.02)sc=Math.max(sc,.12+m*.98);
+          sc=Math.max(torso,head);
         }
         this.write(a,i,x,y,sc);
       }
@@ -260,17 +245,16 @@ class ParticleField{
     }
 
     if(shape==='rings-horizontal'){
-      const rings=9,cx=this.w/2,cy=this.h*.50;
-      const outerX=Math.min(this.w*.414,596),outerY=Math.min(this.h*.255,255);
+      const rings=10,cx=this.w*.5,cy=this.h*.5;
+      const radius=Math.max(Math.min(this.w,this.h)*.25,150);
+      const spacing=radius*.3,start=-((rings-1)*spacing)/2;
+      const pts=Math.max(1,Math.floor(2*Math.PI*radius/this.gap));
       let idx=0;
       for(let ring=0;ring<rings;ring++){
-        const rx=outerX*(1-ring*.068),ry=outerY*(1-ring*.075);
-        const circ=2*Math.PI*Math.sqrt((rx*rx+ry*ry)/2);
-        const pts=Math.max(50,Math.floor(circ/13.5));
+        const ox=start+ring*spacing;
         for(let k=0;k<pts&&idx<this.n;k++,idx++){
           const t=k/pts*Math.PI*2;
-          const jitter=(this.rand[idx]-.5)*2.2;
-          this.write(a,idx,cx+Math.cos(t)*(rx+jitter),cy+Math.sin(t)*(ry+jitter),this.heavy(idx)*1.02);
+          this.write(a,idx,cx+ox+Math.cos(t)*radius,cy+Math.sin(t)*radius,1);
         }
       }
       for(;idx<this.n;idx++)this.write(a,idx,cx,cy,0);
@@ -278,21 +262,18 @@ class ParticleField{
     }
 
     if(shape==='rings-vertical'){
-      const rings=8,cx=this.w/2,cy=this.h*.50;
-      const outerX=Math.min(this.w*.225,325),outerY=Math.min(this.h*.355,355);
+      const rings=6,cx=this.w*.5,cy=this.h*.5;
+      const radius=Math.max(Math.min(this.w,this.h)*.35,250);
       let idx=0;
       for(let ring=0;ring<rings;ring++){
-        const rx=outerX*(1-ring*.10),ry=outerY*(1-ring*.095);
-        const circ=2*Math.PI*Math.sqrt((rx*rx+ry*ry)/2);
-        const pts=Math.max(48,Math.floor(circ/13.5));
+        const rr=Math.max(this.gap,radius-ring*40);
+        const pts=Math.max(1,Math.floor(2*Math.PI*rr/this.gap));
         for(let k=0;k<pts&&idx<this.n;k++,idx++){
           const t=k/pts*Math.PI*2;
-          const jitter=(this.rand[idx]-.5)*2;
-          this.write(a,idx,cx+Math.cos(t)*(rx+jitter),cy+Math.sin(t)*(ry+jitter),this.heavy(idx)*1.05);
+          this.write(a,idx,cx+Math.cos(t)*rr,cy+Math.sin(t)*rr,1);
         }
       }
       for(;idx<this.n;idx++)this.write(a,idx,cx,cy,0);
-      return;
     }
   }
   set(shape,instant=false){
@@ -305,27 +286,32 @@ class ParticleField{
     const c=this.ctx;c.clearRect(0,0,this.w,this.h);
     this.mx=lerp(this.mx,this.tx,1-Math.exp(-6*dt));
     this.my=lerp(this.my,this.ty,1-Math.exp(-6*dt));
-    const p=this.morphing?clamp((now-this.start)/this.duration):1,e=ease(p),arc=Math.sin(p*Math.PI);
-    const base=[62,58,44],hi=[227,70,8];
+    const p=this.morphing?clamp((now-this.start)/this.duration):1;
+    const e=ease(p),arc=Math.sin(p*Math.PI);
+    const base=[49,44,33],hi=[227,70,8];
+    const cursorRadius=Math.min(this.w,this.h)*.65;
     for(let i=0;i<this.n;i++){
-      const j=i*3,r=this.rand[i],r2=this.rand[(i*23+9)%this.n];
+      const j=i*3,r=this.rand[i],r2=this.fract(r*123.456);
       let x=this.morphing?lerp(this.from[j],this.to[j],e):this.cur[j];
       let y=this.morphing?lerp(this.from[j+1],this.to[j+1],e):this.cur[j+1];
-      let s=this.morphing?lerp(this.from[j+2],this.to[j+2],e):this.cur[j+2];
-      if(this.morphing){x+=(r-.5)*230*arc;y+=(r2-.5)*230*arc}
-      if(s<.018)continue;
+      const sc=this.morphing?lerp(this.from[j+2],this.to[j+2],e):this.cur[j+2];
+      if(this.morphing){x+=(r-.5)*250*arc;y+=(r2-.5)*250*arc}
+      if(sc<=.001)continue;
       const d=Math.hypot(x-this.mx,y-this.my);
-      const h=Math.pow(clamp(1-d/(Math.min(this.w,this.h)*.72)),1.7);
-      const rr=Math.round(lerp(base[0],hi[0],h)),gg=Math.round(lerp(base[1],hi[1],h)),bb=Math.round(lerp(base[2],hi[2],h));
-      const pulse=.5+.5*Math.sin(now*.0018+r*6.283);
-      const rad=(.55+3.9*pulse)*Math.pow(Math.min(s,1.2),1.12)*(.55+.72*r);
-      c.fillStyle='rgba('+rr+','+gg+','+bb+','+Math.min(.94,.28+.62*Math.min(s,1))+')';
-      c.beginPath();c.arc(x,y,Math.max(.45,rad),0,Math.PI*2);c.fill();
+      const q=clamp(d/cursorRadius);
+      const smooth=q*q*(3-2*q),h=1-smooth;
+      const rr=Math.round(lerp(base[0],hi[0],h));
+      const gg=Math.round(lerp(base[1],hi[1],h));
+      const bb=Math.round(lerp(base[2],hi[2],h));
+      const pulse=.5+.5*Math.sin(now*.002+r*Math.PI*2);
+      const oscillation=.35+(.9-.35)*pulse;
+      const rad=Math.max(.35,(18*oscillation*sc)*.5);
+      c.fillStyle='rgb('+rr+','+gg+','+bb+')';
+      c.beginPath();c.arc(x,y,rad,0,Math.PI*2);c.fill();
     }
     if(this.morphing&&p>=1){this.cur.set(this.to);this.shape=this.target;this.morphing=false}
   }
 }
-
 const bgCanvas=$('.three-canvas');
 if(bgCanvas){
   const stage=bgCanvas.closest('.three-canvas-container')?.parentElement;
