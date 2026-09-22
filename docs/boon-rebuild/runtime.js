@@ -22,8 +22,13 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 /* ---------- source-geometry header reconstruction ---------- */
 const header=$('#header');
 if(header){
-  const dot9='<div class="dot-icon" aria-hidden="true" style="display:grid;grid-template-columns:repeat(3,2px);grid-template-rows:repeat(3,2px);gap:2px;width:max-content">'+
-    Array.from({length:9},(_,i)=>'<div class="dot" style="grid-column-start:'+((i%3)+1)+';grid-row-start:'+(((i/3)|0)+1)+';width:2px;height:2px;border-radius:999px;background:currentColor"></div>').join('')+
+  const menuDotPatterns={
+    static:[[1,1],[2,1],[3,1],[4,1],[1,2],[2,2],[3,2],[4,2],[1,3],[2,3],[3,3],[4,3]],
+    hover:[[1,1],[2,1],[3,1],[4,1],[1,2],[4,2],[1,3],[2,3],[3,3],[4,3]],
+    close:[[1,1],[4,1],[2,2],[3,2],[1,3],[4,3]]
+  };
+  const dotGrid=pattern=>'<div class="dot-grid" data-v-c777a272 aria-hidden="true">'+
+    menuDotPatterns[pattern].map(([c,r])=>'<div class="dot" data-v-c777a272 style="grid-column-start:'+c+';grid-row-start:'+r+'"></div>').join('')+
     '</div>';
   header.innerHTML=`
     <div class="nav-bar">
@@ -33,7 +38,7 @@ if(header){
         </svg>
       </a>
       <button class="expand-btn" type="button" aria-expanded="false">
-        <p>MENU</p>${dot9}
+        <p>MENU</p><span class="k-menu-grid">${dotGrid('static')}</span>
       </button>
       <div class="expand-menu" aria-hidden="true">
         <nav aria-label="Primary">
@@ -48,6 +53,8 @@ if(header){
       </div>
     </div>`;
   const btn=$('.expand-btn',header),label=$('p',btn),panel=$('.expand-menu',header),navBar=$('.nav-bar',header);
+  const menuGridHost=$('.k-menu-grid',header);
+  const setMenuGrid=pattern=>{if(menuGridHost)menuGridHost.innerHTML=dotGrid(pattern)};
   header.classList.add('visible');
   if(navBar&&!reduce.matches){
     navBar.animate(
@@ -74,9 +81,12 @@ if(header){
       {duration:500,easing:'cubic-bezier(.5,.1,0,1)',fill:'forwards'}
     );
     a.onfinish=()=>{panel.style.maxHeight=to+'px';a.cancel()};
+    setMenuGrid(open?'close':'static');
     scramble(open?'CLOSE':'MENU');
   };
   btn.addEventListener('click',()=>setOpen(!header.classList.contains('k-expanded')));
+  btn.addEventListener('pointerenter',()=>{if(!header.classList.contains('k-expanded'))setMenuGrid('hover')});
+  btn.addEventListener('pointerleave',()=>{if(!header.classList.contains('k-expanded'))setMenuGrid('static')});
   $$('.expand-menu a',header).forEach(a=>a.addEventListener('click',()=>setOpen(false)));
   document.addEventListener('pointerdown',e=>{if(header.classList.contains('k-expanded')&&!header.contains(e.target))setOpen(false)});
   addEventListener('resize',()=>{if(header.classList.contains('k-expanded'))panel.style.maxHeight=(panel.scrollHeight+32)+'px'},{passive:true});
@@ -197,7 +207,7 @@ cards.forEach((c,i)=>{if(!reduce.matches)c.style.transform=`translateY(${100+i*5
 /* draw BOON-like animated orange marks into the existing lottie canvases */
 $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
   const ctx=cv.getContext('2d');let start=performance.now();
-  const draw=now=>{
+  const draw=now=>{if(!cv.isConnected)return;
     const r=cv.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2),w=Math.max(1,Math.round(r.width*dpr)),h=Math.max(1,Math.round(r.height*dpr));
     if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,r.width,r.height);
     const cx=r.width/2,cy=r.height/2,R=Math.min(r.width,r.height)*.36,t=(now-start)*.001;
