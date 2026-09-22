@@ -196,3 +196,12 @@ body.ready #loader,#loader.kernellum-loaded{animation:none!important}
 #header .k-menu-panel{border-color:transparent!important}
 .large-text h2{transform:scaleX(1.065);transform-origin:center}
 .centered-text .text{font-weight:500!important}
+
+/* Live comparison pass: persistent nav, correct line box, subtler glass. */
+.centered-text .main-text{display:block!important;width:100%!important}
+#header{transform:none!important}
+#header .k-logo,#header .k-menu-btn,#header .k-menu-panel{
+  border-color:transparent!important;
+  background:rgba(1,0,1,.44)!important;
+}
+@media(min-width:58.75rem){#header .k-logo{min-width:9rem!important}}
