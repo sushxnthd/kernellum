@@ -74,9 +74,9 @@ jobs:
 
           fs.mkdirSync('qa',{recursive:true});
           await capture('boon-desktop','https://www.boonglobal.io/',{width:1440,height:1000});
-          await capture('mirror-desktop','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:1440,height:1000});
+          await capture('rebuild-desktop','https://sushxnthd.github.io/kernellum/boon-rebuild/?qa=1',{width:1440,height:1000});
           await capture('boon-mobile','https://www.boonglobal.io/',{width:390,height:844});
-          await capture('mirror-mobile','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:390,height:844});
+          await capture('rebuild-mobile','https://sushxnthd.github.io/kernellum/boon-live/?qa=1',{width:390,height:844});
           fs.writeFileSync('qa/errors.txt',errors.join('\n'));
           await browser.close();
           JS
@@ -84,10 +84,11 @@ jobs:
           echo "---- QA ERRORS ----"
           cat qa/errors.txt || true
           echo "---- MIRROR INFO ----"
-          cat qa/mirror-desktop.json
-          cat qa/mirror-mobile.json
+          cat qa/rebuild-desktop.json
+          cat qa/rebuild-mobile.json
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: boon-live-visual-qa
           path: qa/
