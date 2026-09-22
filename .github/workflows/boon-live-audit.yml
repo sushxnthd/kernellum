@@ -1,0 +1,186 @@
+name: BOON live frontend audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/boon-live-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Audit live BOON frontend
+        shell: bash
+        run: |
+          mkdir -p docs/boon-live-audit/screens
+          cat > /tmp/audit.mjs <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+
+          const browser = await chromium.launch({headless:true});
+          const targets = [
+            {name:'desktop', width:1440, height:1000, dpr:1},
+            {name:'mobile', width:390, height:844, dpr:1}
+          ];
+
+          const report = {
+            url:'https://www.boonglobal.io/',
+            captured_at:new Date().toISOString(),
+            targets:{}
+          };
+
+          for (const t of targets) {
+            const context = await browser.newContext({
+              viewport:{width:t.width,height:t.height},
+              deviceScaleFactor:t.dpr,
+              reducedMotion:'no-preference'
+            });
+            const page = await context.newPage();
+            const requests = [];
+            page.on('requestfinished', req => {
+              const r = req.resourceType();
+              if(['document','stylesheet','script','image','font','xhr','fetch'].includes(r)) {
+                requests.push({type:r,url:req.url()});
+              }
+            });
+
+            await page.goto('https://www.boonglobal.io/', {waitUntil:'networkidle',timeout:90000});
+            await page.waitForTimeout(2500);
+
+            const base = await page.evaluate(() => {
+              const rect = el => {
+                const r = el.getBoundingClientRect();
+                return {x:r.x,y:r.y,width:r.width,height:r.height,top:r.top,left:r.left,right:r.right,bottom:r.bottom};
+              };
+              const cs = el => {
+                const s=getComputedStyle(el);
+                return {
+                  display:s.display,position:s.position,zIndex:s.zIndex,
+                  color:s.color,background:s.background,backgroundColor:s.backgroundColor,
+                  fontFamily:s.fontFamily,fontSize:s.fontSize,fontWeight:s.fontWeight,lineHeight:s.lineHeight,
+                  letterSpacing:s.letterSpacing,textTransform:s.textTransform,
+                  transform:s.transform,opacity:s.opacity,filter:s.filter,backdropFilter:s.backdropFilter,
+                  borderRadius:s.borderRadius,padding:s.padding,margin:s.margin,gap:s.gap
+                };
+              };
+              const headings=[...document.querySelectorAll('h1,h2,h3,h4,h5')].map((el,i)=>({
+                i,tag:el.tagName,text:el.textContent.trim().replace(/\s+/g,' ').slice(0,240),
+                className:el.className,rect:rect(el),style:cs(el)
+              }));
+              const sections=[...document.querySelectorAll('main section, main > div, section')].map((el,i)=>({
+                i,tag:el.tagName,className:el.className,id:el.id,rect:rect(el),
+                text:el.innerText?.trim().replace(/\s+/g,' ').slice(0,180)||''
+              })).filter(x=>x.rect.height>80);
+              const fonts=[...document.fonts].map(f=>({family:f.family,style:f.style,weight:f.weight,status:f.status}));
+              const stylesheets=[...document.styleSheets].map(s=>s.href).filter(Boolean);
+              const scripts=[...document.scripts].map(s=>s.src).filter(Boolean);
+              const root=getComputedStyle(document.documentElement);
+              const vars={};
+              for(let i=0;i<root.length;i++){
+                const k=root[i];
+                if(k.startsWith('--')) {
+                  const v=root.getPropertyValue(k).trim();
+                  if(v) vars[k]=v;
+                }
+              }
+              const navCandidates=[...document.querySelectorAll('header,nav,[class*="nav"],[class*="header"]')].slice(0,40).map(el=>({
+                tag:el.tagName,className:el.className,rect:rect(el),style:cs(el),
+                text:el.textContent.trim().replace(/\s+/g,' ').slice(0,160)
+              }));
+              return {
+                title:document.title,
+                bodyClass:document.body.className,
+                htmlClass:document.documentElement.className,
+                scrollHeight:document.documentElement.scrollHeight,
+                headings,sections,fonts,stylesheets,scripts,vars,navCandidates,
+                links:[...document.querySelectorAll('a')].map(a=>({text:a.textContent.trim().replace(/\s+/g,' ').slice(0,120),href:a.href,className:a.className})).slice(0,200)
+              };
+            });
+
+            await page.screenshot({path:`docs/boon-live-audit/screens/${t.name}-top.png`,fullPage:false});
+            const steps = 8;
+            const scrollStates = [];
+            for (let i=0;i<=steps;i++) {
+              const y = Math.round((base.scrollHeight-t.height) * i/steps);
+              await page.evaluate(y=>window.scrollTo(0,y), y);
+              await page.waitForTimeout(450);
+              const state = await page.evaluate(() => {
+                const rect=el=>{const r=el.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height,top:r.top,bottom:r.bottom}};
+                const visible=[...document.querySelectorAll('h1,h2,h3,[class*="card"],[class*="image"],[class*="text"]')]
+                  .filter(el=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight&&r.width>0&&r.height>0})
+                  .slice(0,35)
+                  .map(el=>{const s=getComputedStyle(el);return{tag:el.tagName,className:el.className,text:el.textContent.trim().replace(/\s+/g,' ').slice(0,100),rect:rect(el),transform:s.transform,opacity:s.opacity,filter:s.filter}});
+                return {scrollY,visible};
+              });
+              scrollStates.push(state);
+              await page.screenshot({path:`docs/boon-live-audit/screens/${t.name}-${String(i).padStart(2,'0')}.png`,fullPage:false});
+            }
+
+            const resources = await page.evaluate(() => performance.getEntriesByType('resource').map(e=>({name:e.name,initiatorType:e.initiatorType,duration:e.duration,transferSize:e.transferSize})));
+            const uniq = [...new Map(requests.map(x=>[x.type+'|'+x.url,x])).values()];
+            report.targets[t.name] = {viewport:t,base,requests:uniq,resources,scrollStates};
+            await context.close();
+          }
+          await browser.close();
+
+          fs.writeFileSync('docs/boon-live-audit/report.json', JSON.stringify(report,null,2));
+          const d=report.targets.desktop, m=report.targets.mobile;
+          const md = [
+            '# BOON live frontend audit',
+            '',
+            `Captured: ${report.captured_at}`,
+            '',
+            '## Runtime inventory',
+            `- Desktop document height: ${d.base.scrollHeight}px`,
+            `- Mobile document height: ${m.base.scrollHeight}px`,
+            `- Desktop stylesheets: ${d.base.stylesheets.length}`,
+            `- Desktop scripts: ${d.base.scripts.length}`,
+            `- Desktop network requests recorded: ${d.requests.length}`,
+            `- Loaded fonts: ${[...new Set(d.base.fonts.map(x=>x.family+' '+x.weight))].join(', ')}`,
+            '',
+            '## Section geometry',
+            ...d.base.sections.slice(0,24).map(s=>`- ${s.i}: \`${s.className||s.id||s.tag}\` — y=${Math.round(s.rect.y)} h=${Math.round(s.rect.height)} — ${s.text.slice(0,90)}`),
+            '',
+            '## Headings',
+            ...d.base.headings.map(h=>`- ${h.tag} ${JSON.stringify(h.text)} — ${h.style.fontFamily} / ${h.style.fontSize} / lh ${h.style.lineHeight} / tracking ${h.style.letterSpacing}`)
+          ].join('\n');
+          fs.writeFileSync('docs/boon-live-audit/README.md', md);
+          NODE
+          node /tmp/audit.mjs
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: boon-live-audit-screens
+          path: docs/boon-live-audit/screens
+          retention-days: 7
+
+      - name: Commit audit report
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/boon-live-audit/report.json docs/boon-live-audit/README.md
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Audit live BOON frontend runtime"
+            git push
+          fi
