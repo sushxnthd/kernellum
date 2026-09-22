@@ -186,3 +186,7 @@ section.sock{background-color:#010001!important}
 @media(max-width:58.749rem){
   #header .k-logo,#header .k-menu-btn{min-height:3.125rem!important}
 }
+
+@keyframes k-loader-failsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+#loader{animation:k-loader-failsafe .001s linear 1.6s forwards}
+body.ready #loader,#loader.kernellum-loaded{animation:none!important}
