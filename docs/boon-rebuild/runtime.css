@@ -141,3 +141,16 @@ section.card-grid .card p{color:#bbb8ab!important}
 section.large-text h2{color:#eeeadc!important}
 section.large-text mark{color:#ff9d00!important}
 section.sock .content,section.sock h2,section.sock p,section.sock .btn{color:#eeeadc!important}
+
+/* Let each CMS text row wrap naturally at BOON's responsive text width.
+   The previous max-content wrapper caused the mobile/desktop line clipping. */
+.centered-text .main-text .k-line{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin-inline:0!important;
+  overflow:hidden!important;
+  background:#010001!important;
+  white-space:normal!important;
+}
+.centered-text .main-text .k-line>span{display:block!important;white-space:normal!important}
