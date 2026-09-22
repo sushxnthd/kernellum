@@ -8,35 +8,51 @@ const out=t=>1-Math.pow(1-t,3);
 const mobile=matchMedia('(max-width:58.749rem)');
 const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 
-/* ---------- exact client-only header shape ---------- */
+/* ---------- source-geometry header reconstruction ---------- */
 const header=$('#header');
 if(header){
+  const dot9='<div class="dot-icon" aria-hidden="true" style="--v812fb6d2:var(--clr-content-100);--v1c2e9760:1">'+
+    Array.from({length:9},(_,i)=>'<div class="dot" style="grid-column-start:'+((i%3)+1)+';grid-row-start:'+(((i/3)|0)+1)+'"></div>').join('')+
+    '</div>';
   header.innerHTML=`
     <div class="nav-bar">
-      <a class="k-logo" href="#home" aria-label="Kernellum"><span>KERNELLUM</span></a>
-      <button class="k-menu-btn" type="button" aria-expanded="false">
-        <p>MENU</p>
-        <b class="k-dot9" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b>
+      <a class="logo" href="#home" aria-label="Kernellum">
+        <svg viewBox="0 0 142 24" role="img" aria-label="Kernellum">
+          <text x="0" y="18" fill="currentColor" font-family="Suisse Int'l, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".8">KERNELLUM</text>
+        </svg>
+      </a>
+      <button class="expand-btn" type="button" aria-expanded="false">
+        <p>MENU</p>${dot9}
       </button>
-      <div class="k-menu-panel">
-        <a href="#home">Home</a>
-        <a href="#difference">What We Do</a>
-        <a href="#research">Research</a>
-        <a href="#insights">Insights</a>
-        <a href="https://github.com/sushxnthd/kernellum">GitHub ↗</a>
+      <div class="expand-menu" aria-hidden="true">
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#difference">What We Do</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+          </ul>
+        </nav>
       </div>
     </div>`;
-  const btn=$('.k-menu-btn',header),label=$('p',btn);
+  const btn=$('.expand-btn',header),label=$('p',btn),panel=$('.expand-menu',header);
   const scramble=text=>{
     if(reduce.matches){label.textContent=text;return}
     const chars='░▒▓■□',start=performance.now(),dur=300;
     const f=now=>{const p=clamp((now-start)/dur),fixed=Math.floor(text.length*p);label.textContent=[...text].map((c,i)=>i<fixed?c:chars[(Math.random()*chars.length)|0]).join('');if(p<1)requestAnimationFrame(f);else label.textContent=text};requestAnimationFrame(f)
   };
-  btn.addEventListener('click',()=>{
-    const open=!header.classList.contains('k-expanded');
-    header.classList.toggle('k-expanded',open);btn.setAttribute('aria-expanded',String(open));scramble(open?'CLOSE':'MENU');
-  });
-  document.addEventListener('pointerdown',e=>{if(header.classList.contains('k-expanded')&&!header.contains(e.target)){header.classList.remove('k-expanded');btn.setAttribute('aria-expanded','false');scramble('MENU')}});
+  const setOpen=open=>{
+    header.classList.toggle('k-expanded',open);
+    btn.setAttribute('aria-expanded',String(open));
+    panel.setAttribute('aria-hidden',String(!open));
+    panel.style.maxHeight=open?(panel.scrollHeight+32)+'px':'0px';
+    scramble(open?'CLOSE':'MENU');
+  };
+  btn.addEventListener('click',()=>setOpen(!header.classList.contains('k-expanded')));
+  $$('.expand-menu a',header).forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('pointerdown',e=>{if(header.classList.contains('k-expanded')&&!header.contains(e.target))setOpen(false)});
+  addEventListener('resize',()=>{if(header.classList.contains('k-expanded'))panel.style.maxHeight=(panel.scrollHeight+32)+'px'},{passive:true});
 }
 
 /* ---------- source-faithful content preparation ---------- */
