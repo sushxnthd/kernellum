@@ -154,3 +154,13 @@ section.sock .content,section.sock h2,section.sock p,section.sock .btn{color:#ee
   white-space:normal!important;
 }
 .centered-text .main-text .k-line>span{display:block!important;white-space:normal!important}
+
+/* The Three field is intentionally z-index:-1 in BOON. Content modules that use
+   particles must remain transparent so the fixed canvas can show through. */
+html,body{background:#010001!important}
+.page-wrapper,main,
+section.centered-text,
+section.card-grid,
+section.large-text{background-color:transparent!important}
+section.page-header{background-color:#010001!important}
+section.sock{background-color:#010001!important}
