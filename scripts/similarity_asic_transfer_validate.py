@@ -33,6 +33,23 @@ VIOLATION_FIELDS = (
 COST_FIELDS = ("total_cells", "dff_cells", "cell_area_um2", "wire_length_um")
 
 
+def route_csv_paths(root: Path) -> list[Path]:
+    """Find only frozen route shards, including artifact subdirectories."""
+    paths: list[Path] = []
+    for platform in ("nangate45", "sky130hd"):
+        for topology in ("broadcast", "local"):
+            for seed in SEEDS:
+                paths.extend(root.rglob(
+                    f"similarity_asic_transfer_{platform}_{topology}_s{seed}.csv"
+                ))
+    return sorted(paths)
+
+
+def functional_marker_exists(root: Path) -> bool:
+    """Accept the marker at the root or inside a downloaded artifact tree."""
+    return any(root.rglob("similarity_asic_transfer_functional_passed"))
+
+
 def expected_keys() -> set[tuple[str, str, int, int, int]]:
     keys: set[tuple[str, str, int, int, int]] = set()
     for topology in ("broadcast", "local"):
@@ -378,12 +395,12 @@ def json_safe(value: object) -> object:
 
 def main() -> int:
     raw_rows: list[dict[str, object]] = []
-    for path in sorted(INPUT.glob("similarity_asic_transfer_*.csv")):
+    for path in route_csv_paths(INPUT):
         with path.open(encoding="utf-8") as handle:
             raw_rows.extend(csv.DictReader(handle))
     if not raw_rows:
         raise RuntimeError("no ASIC transfer route rows")
-    functional_passed = (INPUT / "similarity_asic_transfer_functional_passed").exists()
+    functional_passed = functional_marker_exists(INPUT)
     result = evaluate(raw_rows, functional_passed)
     safe_result = json_safe(result)
     OUTPUT.mkdir(exist_ok=True)

@@ -1,3 +1,4 @@
+import csv
 import subprocess
 from pathlib import Path
 from unittest.mock import patch
@@ -13,7 +14,12 @@ from scripts.similarity_asic_transfer_route import (
     parse_wire_length,
     run_stage,
 )
-from scripts.similarity_asic_transfer_validate import evaluate, expected_keys
+from scripts.similarity_asic_transfer_validate import (
+    evaluate,
+    expected_keys,
+    functional_marker_exists,
+    route_csv_paths,
+)
 
 
 def make_row(platform, split, topology, seed, rows, cols, period, dffs):
@@ -97,6 +103,25 @@ def test_functional_failure_cannot_be_rescued_by_physical_results():
     result = evaluate(passing_rows(), functional_passed=False)
     assert not result["gates"]["functional_equivalence"]
     assert not result["claim_supported"]
+
+
+def test_downloaded_artifact_subdirectories_are_discovered(tmp_path: Path):
+    route_directory = tmp_path / "route-artifact" / "results"
+    route_directory.mkdir(parents=True)
+    route_csv = route_directory / "similarity_asic_transfer_nangate45_broadcast_s11.csv"
+    with route_csv.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=FIELDS)
+        writer.writeheader()
+        writer.writerow(make_row(
+            "nangate45", "discovery", "broadcast", 11, 2, 4, 8.0, 108,
+        ))
+
+    marker = tmp_path / "functional-artifact" / "results"
+    marker.mkdir(parents=True)
+    (marker / "similarity_asic_transfer_functional_passed").touch()
+
+    assert route_csv_paths(tmp_path) == [route_csv]
+    assert functional_marker_exists(tmp_path)
 
 
 def test_report_parsers_use_final_route_endpoints(tmp_path: Path):

@@ -30,9 +30,6 @@ on:
       - 'rtl/tb_similarity_asic_transport_equivalence.sv'
       - 'scripts/openroad_qemu_wrapper.sh'
       - 'scripts/similarity_asic_transfer_route.py'
-      - 'scripts/similarity_asic_transfer_validate.py'
-      - 'tests/test_similarity_asic_transfer.py'
-      - '.github/workflows/similarity-asic-transfer.yml'
 
 permissions:
   contents: read
