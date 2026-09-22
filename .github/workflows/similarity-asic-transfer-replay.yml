@@ -1,0 +1,54 @@
+name: SIMILARITY ASIC transfer evaluator replay
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_asic_transfer_validate.py'
+      - '.github/workflows/similarity-asic-transfer-replay.yml'
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Completed study run whose frozen artifacts should be evaluated
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        if: github.event_name == 'push'
+        with:
+          github-token: ${{ github.token }}
+          run-id: 35617268111
+          pattern: similarity-asic-transfer-*
+          path: results/similarity_asic_transfer_download
+          merge-multiple: true
+      - uses: actions/download-artifact@v5
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.source_run_id }}
+          pattern: similarity-asic-transfer-*
+          path: results/similarity_asic_transfer_download
+          merge-multiple: true
+      - name: Evaluate the unchanged frozen gates
+        run: PYTHONPATH=. python scripts/similarity_asic_transfer_validate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-asic-transfer-replay-${{ github.run_id }}
+          path: |
+            results/similarity_asic_transfer_summary.json
+            results/similarity_asic_transfer_combined.csv
+            results/similarity_asic_transfer_pairs.csv
+            results/similarity_asic_transfer_points.csv
+          retention-days: 30
