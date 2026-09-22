@@ -185,7 +185,7 @@ let smoothY=scrollY,lastY=scrollY,lastToggle=0,lastTime=performance.now();
 function frame(now){
   const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;
   const y=scrollY,dir=Math.sign(y-lastY);smoothY=lerp(smoothY,y,1-Math.exp(-8*dt));
-  if(header){if(y<=header.offsetHeight){header.classList.add('visible');lastToggle=y}else if(Math.abs(y-lastToggle)>50){header.classList.toggle('visible',dir<0);lastToggle=y}}
+  if(header){if(y<=vh*1.05){header.classList.add('visible');lastToggle=y}else if(Math.abs(y-lastToggle)>80){header.classList.toggle('visible',dir<0);lastToggle=y}}
   const vh=innerHeight,hp=clamp(smoothY/vh);
   if(hero&&!reduce.matches){
     if(heroWrappers[1])heroWrappers[1].style.transform=`translateY(${25*hp}%)`;if(heroImgs[1])heroImgs[1].style.transform=`translateY(${-12.5*hp}%)`;
@@ -193,7 +193,7 @@ function frame(now){
     if(heroWrappers[3])heroWrappers[3].style.transform=`translateX(${25*hp}%)`;if(heroImgs[3])heroImgs[3].style.transform=`translateX(${-12.5*hp}%)`;
     if(heroImgs[0])heroImgs[0].style.transform=`scale(${1+.15*hp})`;
     if(!mobile.matches){const ls=$$('.title>.k-line',hero);if(ls[0])ls[0].style.transform=`translateX(${-50*hp}vw)`;if(ls[1])ls[1].style.transform=`translateX(${50*hp}vw)`;if(heroSubtitle)heroSubtitle.style.transform=`translateX(${-5*hp}vw)`;if(heroScroll)heroScroll.style.transform=`translateX(${5*hp}vw)`}
-    if(heroSubtitle)heroSubtitle.style.opacity=String(clamp(1-.5*hp));if(heroScroll)heroScroll.style.opacity=String(clamp(1-.5*hp));
+    if(heroSubtitle)heroSubtitle.style.opacity=String(clamp(1-hp/.68));if(heroScroll)heroScroll.style.opacity=String(clamp(1-hp/.68));
   }
   centered.forEach(sec=>{const r=sec.getBoundingClientRect(),p=clamp(-r.top/(vh*.5));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=.995)});
   if(cardGrid&&!reduce.matches){const r=cardGrid.getBoundingClientRect(),p=clamp((vh-r.top)/(vh+r.height*.5));cards.forEach((c,i)=>{const lp=clamp((p-i*.06)/.7),e=out(lp);c.style.opacity=String(e);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
