@@ -79,16 +79,16 @@ const header=`<header id="header"><div class="nav-bar">
 
 const footer=`<footer><div class="footer-shell">
 <nav class="footer-nav">
-<a href="${base}what-we-do/"><span>What We Do</span><span>↗</span></a>
-<a href="${base}who-we-are/"><span>Who We Are</span><span>↗</span></a>
-<a href="${base}contact/"><span>Contact</span><span>↗</span></a>
-<a href="${base}careers/"><span>Careers</span><span>↗</span></a>
+<a href="${base}what-we-do/"><span>What We Do</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
+<a href="${base}who-we-are/"><span>Who We Are</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
+<a href="${base}contact/"><span>Contact</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
+<a href="${base}careers/"><span>Careers</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
 </nav>
 <a class="footer-brand" href="${base}">KERNELLUM</a>
 <nav class="footer-legal"><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">GitHub</a><span>Research-first</span><span>Public evidence</span></nav>
 </div></footer>`;
 
-const arrow=(label,href)=>`<a class="arrow-link" href="${href}">${label}</a>`;
+const arrow=(label,href)=>`<a class="arrow-link" href="${href}"><span>${label}</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>`;
 const hero=`<section class="hero"><div class="hero-grid">
 <div class="eyebrow reveal">${data.heroLabel}</div>
 <h1 class="reveal">${data.hero}</h1>
@@ -178,12 +178,12 @@ let last=performance.now();
 function draw(now){
  const dt=Math.min(.05,(now-last)/1000);last=now;mx+=(tx-mx)*(1-Math.exp(-5*dt));my+=(ty-my)*(1-Math.exp(-5*dt));ctx.clearRect(0,0,w,h);
  const sy=scrollY*.035;
- for(const p of pts){if(!p.a)continue;const y=((p.y-sy)%h+h)%h;const d=Math.hypot(p.x-mx,y-my),hot=Math.pow(Math.max(0,1-d/(Math.min(w,h)*.75)),1.8);const pulse=.45+.55*Math.sin(now*.0016+p.r*6.28);const rad=.4+2.6*pulse*p.a;const rr=Math.round(62+(227-62)*hot),gg=Math.round(58+(70-58)*hot),bb=Math.round(44+(8-44)*hot);ctx.fillStyle='rgba('+rr+','+gg+','+bb+','+(0.18+p.a*.62)+')';ctx.beginPath();ctx.arc(p.x,y,rad,0,Math.PI*2);ctx.fill()}
+ for(const p of pts){if(!p.a)continue;const y=((p.y-sy)%h+h)%h;const d=Math.hypot(p.x-mx,y-my),hot=Math.pow(Math.max(0,1-d/(Math.min(w,h)*.75)),1.8);const pulse=.45+.55*Math.sin(now*.0016+p.r*6.28);const rad=.4+2.6*pulse*p.a;const rr=Math.round(36+(185-36)*hot),gg=Math.round(107+(243-107)*hot),bb=Math.round(73+(93-73)*hot);ctx.fillStyle='rgba('+rr+','+gg+','+bb+','+(0.18+p.a*.62)+')';ctx.beginPath();ctx.arc(p.x,y,rad,0,Math.PI*2);ctx.fill()}
  requestAnimationFrame(draw)
 }
 requestAnimationFrame(draw);
 
-/* === BOON SOURCE-MATCH MOTION === */
+/* === KERNELLUM SOURCE-MATCH MOTION === */
 const boonReduce=matchMedia('(prefers-reduced-motion: reduce)');
 const boonClamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const boonOutCubic=t=>1-Math.pow(1-t,3);
