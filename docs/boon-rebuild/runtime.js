@@ -27,11 +27,11 @@ if(header){
       <div class="expand-menu" aria-hidden="true">
         <nav aria-label="Primary">
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#difference">What We Do</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#insights">Insights</a></li>
-            <li><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li><a href="/kernellum/boon-rebuild/">Home</a></li>
+            <li><a href="/kernellum/boon-rebuild/what-we-do/">What We Do</a></li>
+            <li><a href="/kernellum/boon-rebuild/who-we-are/">Who We Are</a></li>
+            <li><a href="/kernellum/boon-rebuild/careers/">Careers</a></li>
+            <li><a href="/kernellum/boon-rebuild/contact/">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -143,14 +143,14 @@ $$('p,h1,h2,h3,h4,h5,span,a').forEach(el=>{
 const footerLogo=$('footer#footer a.logo');
 if(footerLogo){
   footerLogo.setAttribute('aria-label','Kernellum');
-  footerLogo.href='#home';
+  footerLogo.href='/kernellum/boon-rebuild/';
   footerLogo.innerHTML='<svg viewBox="0 0 142 24" role="img" aria-label="Kernellum"><text x="0" y="18" fill="currentColor" font-family="Suisse Int\'l, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".8">KERNELLUM</text></svg>';
 }
 const hrefMap=new Map([
-  ['/what-we-do/','#difference'],
-  ['/who-we-are/','#research'],
-  ['/contact/','https://github.com/sushxnthd/kernellum'],
-  ['/careers/','https://github.com/sushxnthd/kernellum'],
+  ['/what-we-do/','/kernellum/boon-rebuild/what-we-do/'],
+  ['/who-we-are/','/kernellum/boon-rebuild/who-we-are/'],
+  ['/contact/','/kernellum/boon-rebuild/contact/'],
+  ['/careers/','/kernellum/boon-rebuild/careers/'],
   ['/legal/privacy-policy/','https://github.com/sushxnthd/kernellum'],
   ['https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum']
 ]);
