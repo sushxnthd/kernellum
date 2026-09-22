@@ -36,7 +36,14 @@ if(header){
         </nav>
       </div>
     </div>`;
-  const btn=$('.expand-btn',header),label=$('p',btn),panel=$('.expand-menu',header);
+  const btn=$('.expand-btn',header),label=$('p',btn),panel=$('.expand-menu',header),navBar=$('.nav-bar',header);
+  header.classList.add('visible');
+  if(navBar&&!reduce.matches){
+    navBar.animate(
+      [{transform:'translateY(-100%)',opacity:0},{transform:'translateY(0)',opacity:1}],
+      {duration:850,easing:'cubic-bezier(.215,.61,.355,1)',fill:'both'}
+    );
+  }
   const scramble=text=>{
     if(reduce.matches){label.textContent=text;return}
     const chars='░▒▓■□',start=performance.now(),dur=300;
@@ -44,9 +51,18 @@ if(header){
   };
   const setOpen=open=>{
     header.classList.toggle('k-expanded',open);
+    header.classList.toggle('menu-expanded',open);
+    btn.classList.toggle('open',open);
     btn.setAttribute('aria-expanded',String(open));
     panel.setAttribute('aria-hidden',String(!open));
-    panel.style.maxHeight=open?(panel.scrollHeight+32)+'px':'0px';
+    const from=panel.getBoundingClientRect().height;
+    const to=open?panel.scrollHeight:0;
+    panel.getAnimations().forEach(a=>a.cancel());
+    const a=panel.animate(
+      [{maxHeight:from+'px'},{maxHeight:to+'px'}],
+      {duration:500,easing:'cubic-bezier(.5,.1,0,1)',fill:'forwards'}
+    );
+    a.onfinish=()=>{panel.style.maxHeight=to+'px';a.cancel()};
     scramble(open?'CLOSE':'MENU');
   };
   btn.addEventListener('click',()=>setOpen(!header.classList.contains('k-expanded')));
@@ -360,7 +376,14 @@ let smoothY=scrollY,lastY=scrollY,lastToggle=0,lastTime=performance.now();
 function frame(now){
   const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;
   const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;smoothY=lerp(smoothY,y,1-Math.exp(-8*dt));
-  if(header)header.classList.add('visible')
+  if(header){
+    let visible=header.classList.contains('visible');
+    const hh=header.offsetHeight;
+    if(y<hh)visible=true;
+    else if(Math.abs(y-lastToggle)>=50){visible=dir<0;lastToggle=y}
+    header.classList.toggle('visible',visible);
+    header.style.transform=visible?'translateY(0)':'translateY(-150%)';
+  }
   const hp=clamp(smoothY/vh);
   if(hero&&!reduce.matches){
     if(heroWrappers[1])heroWrappers[1].style.transform=`translateY(${25*hp}%)`;if(heroImgs[1])heroImgs[1].style.transform=`translateY(${-12.5*hp}%)`;
