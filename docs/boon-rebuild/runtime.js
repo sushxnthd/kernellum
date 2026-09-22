@@ -5,6 +5,17 @@ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const lerp=(a,b,t)=>a+(b-a)*t;
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const out=t=>1-Math.pow(1-t,3);
+const boonEase=t=>{
+  // cubic-bezier(.5,.1,0,1): invert x(s) with Newton + bisection, return y(s)
+  const x1=.5,y1=.1,x2=0,y2=1;
+  const sample=(u,a1,a2)=>3*(1-u)*(1-u)*u*a1+3*(1-u)*u*u*a2+u*u*u;
+  const deriv=(u,a1,a2)=>3*(1-u)*(1-u)*a1+6*(1-u)*u*(a2-a1)+3*u*u*(1-a2);
+  let u=t;
+  for(let i=0;i<6;i++){const d=deriv(u,x1,x2);if(Math.abs(d)<1e-6)break;u=clamp(u-(sample(u,x1,x2)-t)/d)}
+  let lo=0,hi=1;
+  for(let i=0;i<8;i++){const x=sample(u,x1,x2);if(Math.abs(x-t)<1e-6)break;if(x<t)lo=u;else hi=u;u=(lo+hi)/2}
+  return sample(u,y1,y2);
+};
 const mobile=matchMedia('(max-width:58.749rem)');
 const reduce=matchMedia('(prefers-reduced-motion:reduce)');
 
@@ -396,7 +407,7 @@ class ParticleField{
     for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
   build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();return this.makeNone()}
-  transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return 1-(1-raw)*(1-raw)}
+  transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
   bake(now=performance.now()){
     if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
     for(let i=0;i<this.count;i++){const j=i*3,r=this.random[i],r2=(r*123.456)%1;this.positions[j]=lerp(this.positions[j],this.targetPositions[j],t)+(r-.5)*250*arc;this.positions[j+1]=lerp(this.positions[j+1],this.targetPositions[j+1],t)+(r2-.5)*250*arc;this.positions[j+2]=lerp(this.positions[j+2],this.targetPositions[j+2],t);this.scales[i]=lerp(this.scales[i],this.targetScales[i],t)}
