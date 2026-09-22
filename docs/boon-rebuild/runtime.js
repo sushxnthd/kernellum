@@ -135,7 +135,26 @@ if(sockH){sockH.innerHTML=`<span class="k-line"><span>${sockH.textContent.trim()
 /* minimal visible brand substitutions, no geometry changes */
 document.title='Kernellum';
 $$('.text-label').forEach(el=>{if(/boon difference/i.test(el.textContent))el.textContent='The Kernellum Difference'});
-$$('p,h1,h2,h3,h4,h5,span').forEach(el=>{if(el.children.length===0&&/\bBOON\b/.test(el.textContent))el.textContent=el.textContent.replace(/\bBOON\b/g,'KERNELLUM')});
+$$('p,h1,h2,h3,h4,h5,span,a').forEach(el=>{
+  if(el.children.length===0){
+    el.textContent=el.textContent.replace(/\bBOON\b/g,'KERNELLUM').replace(/\bBoon\b/g,'Kernellum');
+  }
+});
+const footerLogo=$('footer#footer a.logo');
+if(footerLogo){
+  footerLogo.setAttribute('aria-label','Kernellum');
+  footerLogo.href='#home';
+  footerLogo.innerHTML='<svg viewBox="0 0 142 24" role="img" aria-label="Kernellum"><text x="0" y="18" fill="currentColor" font-family="Suisse Int\'l, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".8">KERNELLUM</text></svg>';
+}
+const hrefMap=new Map([
+  ['/what-we-do/','#difference'],
+  ['/who-we-are/','#research'],
+  ['/contact/','https://github.com/sushxnthd/kernellum'],
+  ['/careers/','https://github.com/sushxnthd/kernellum'],
+  ['/legal/privacy-policy/','https://github.com/sushxnthd/kernellum'],
+  ['https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum']
+]);
+$$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h)){a.setAttribute('href',hrefMap.get(h));if(a.getAttribute('href').startsWith('https://github.com/')){a.target='_blank';a.rel='noopener noreferrer'}}});
 
 /* ---------- persistent BOON-style particle field ---------- */
 class ParticleField{
