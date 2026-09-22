@@ -100,9 +100,9 @@ body,
 }
 .page-header.home .title>.k-line{display:block!important;text-align:left!important;text-indent:0!important}
 .page-header.home .title>.k-line>span{display:inline-block;position:relative;top:-2px}
-.page-header.home .title>.k-line:first-child>span{transform-origin:left center;scale:.87 1}
+.page-header.home .title>.k-line:first-child>span{transform-origin:left center;scale:1.10 1}
 .page-header.home .title>.k-line:nth-child(2){text-align:right!important;padding-right:7.35vw}
-.page-header.home .title>.k-line:nth-child(2)>span{transform-origin:right center;scale:.856 1}
+.page-header.home .title>.k-line:nth-child(2)>span{transform-origin:right center;scale:1.12 1}
 .centered-text .text{font-family:"Inter Tight","Suisse Int'l",sans-serif!important;letter-spacing:-.025em!important}
 
 @media(max-width:58.749rem){
@@ -111,8 +111,8 @@ body,
   #header .k-logo{min-width:8.5rem!important}
   .page-header.home .title>.k-line:first-child{text-align:left!important}
   .page-header.home .title>.k-line:nth-child(2){text-align:right!important;padding-right:0}
-  .page-header.home .title>.k-line:first-child>span{scale:.875 1}
-  .page-header.home .title>.k-line:nth-child(2)>span{scale:.858 1}
+  .page-header.home .title>.k-line:first-child>span{scale:1.10 1}
+  .page-header.home .title>.k-line:nth-child(2)>span{scale:1.12 1}
 }
 
 /* Critical fidelity fix: the current BOON homepage stays on the dark theme for
