@@ -279,163 +279,139 @@ $$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h)){a.se
 class ParticleField{
   constructor(canvas){
     this.canvas=canvas;
-    this.ctx=canvas.getContext('2d',{alpha:true});
-    this.shape='none';this.target='none';this.theme='dark';
-    this.start=0;this.duration=1500;this.morphing=false;
-    this.mx=innerWidth/2;this.my=innerHeight/2;this.tx=this.mx;this.ty=this.my;
-    this.image=null;this.imageReady=false;
-    addEventListener('pointermove',e=>{this.tx=e.clientX;this.ty=e.clientY},{passive:true});
+    this.gl=canvas.getContext('webgl2',{alpha:true,antialias:true,premultipliedAlpha:true});
+    this.shape='none';this.target='none';this.duration=1500;this.morphing=false;this.transition=0;
+    this.parallax=0;this.parallaxFrom=0;this.parallaxTo=0;this.start=0;
+    this.mouseX=0;this.mouseY=0;this.targetMouseX=0;this.targetMouseY=0;
+    this.image=null;this.imageReady=false;this.count=0;
+    if(!this.gl){this.disabled=true;return}
+    this.initGL();
+    addEventListener('mousemove',e=>{this.targetMouseX=e.clientX/innerWidth*2-1;this.targetMouseY=-(e.clientY/innerHeight)*2+1},{passive:true});
+    addEventListener('mouseleave',()=>{this.targetMouseX=0;this.targetMouseY=0},{passive:true});
     addEventListener('resize',()=>this.resize(),{passive:true});
     this.loadImage();this.resize();this.set('none',true);
     window.__kernellumParticles=this;
   }
-  loadImage(){
-    const im=new Image();
-    im.src='/kernellum/boon-rebuild/assets/particle-image.png?v=2';
-    im.onload=()=>{
-      this.image=im;this.imageReady=true;
-      if(this.target==='image'){
-        this.from.set(this.cur);
-        this.build('image',this.to);
-        this.start=performance.now();
-        this.morphing=!reduce.matches;
-      }
+  shader(type,src){
+    const g=this.gl,sh=g.createShader(type);g.shaderSource(sh,src);g.compileShader(sh);
+    if(!g.getShaderParameter(sh,g.COMPILE_STATUS)){console.warn(g.getShaderInfoLog(sh));g.deleteShader(sh);return null}
+    return sh;
+  }
+  initGL(){
+    const g=this.gl;
+    const vsSrc=[
+      '#version 300 es','precision highp float;',
+      'uniform float uBaseSize;','uniform float uTime;','uniform vec2 uViewport;','uniform vec2 uMouse;',
+      'uniform float uParallaxStrength;','uniform float uTransition;',
+      'in vec3 aPosition;','in vec3 aTargetPosition;','in float aScale;','in float aTargetScale;','in float aRandom;',
+      'out float vScale;','out float vIntensity;',
+      'void main(){',
+      'vec3 finalPos=mix(aPosition,aTargetPosition,uTransition);',
+      'float pathArc=sin(uTransition*3.141592653589793);',
+      'float rand1=aRandom;','float rand2=fract(aRandom*123.456);',
+      'finalPos.x+=(rand1-0.5)*250.0*pathArc;','finalPos.y+=(rand2-0.5)*250.0*pathArc;',
+      'finalPos.xy+=uMouse*finalPos.z*4.0*uParallaxStrength;',
+      'gl_Position=vec4(finalPos.x/(uViewport.x*0.5),finalPos.y/(uViewport.y*0.5),0.0,1.0);',
+      'float finalScale=mix(aScale,aTargetScale,uTransition);','vScale=finalScale;',
+      'float pulse=sin(uTime*2.0+(rand1*6.283185307179586))*0.5+0.5;',
+      'float oscillationScale=mix(0.35,0.9,pulse);','gl_PointSize=uBaseSize*oscillationScale*finalScale;',
+      'vec2 mouseWorld=uMouse*uViewport*0.5;','float distToMouse=distance(finalPos.xy,mouseWorld);',
+      'float screenMin=min(uViewport.x,uViewport.y);','float outerRadius=screenMin*0.65;',
+      'vIntensity=smoothstep(outerRadius,0.0,distToMouse);','}'
+    ].join('\n');
+    const fsSrc=[
+      '#version 300 es','precision highp float;','uniform vec3 uBaseColor;','uniform vec3 uHighlightColor;',
+      'in float vScale;','in float vIntensity;','out vec4 outColor;','void main(){',
+      'if(vScale<0.001)discard;','vec2 p=gl_PointCoord-0.5;','float dist=length(p);','float aa=fwidth(dist);',
+      'if(dist>0.5+aa)discard;','float alpha=1.0-smoothstep(0.5-aa,0.5+aa,dist);',
+      'vec3 finalColor=mix(uBaseColor,uHighlightColor,vIntensity);','outColor=vec4(finalColor,alpha);','}'
+    ].join('\n');
+    const vs=this.shader(g.VERTEX_SHADER,vsSrc),fs=this.shader(g.FRAGMENT_SHADER,fsSrc);
+    if(!vs||!fs){this.disabled=true;return}
+    const p=g.createProgram();g.attachShader(p,vs);g.attachShader(p,fs);g.linkProgram(p);
+    if(!g.getProgramParameter(p,g.LINK_STATUS)){console.warn(g.getProgramInfoLog(p));this.disabled=true;return}
+    g.deleteShader(vs);g.deleteShader(fs);this.program=p;g.useProgram(p);
+    this.loc={
+      pos:g.getAttribLocation(p,'aPosition'),target:g.getAttribLocation(p,'aTargetPosition'),
+      scale:g.getAttribLocation(p,'aScale'),targetScale:g.getAttribLocation(p,'aTargetScale'),
+      random:g.getAttribLocation(p,'aRandom'),baseSize:g.getUniformLocation(p,'uBaseSize'),
+      time:g.getUniformLocation(p,'uTime'),viewport:g.getUniformLocation(p,'uViewport'),
+      mouse:g.getUniformLocation(p,'uMouse'),parallax:g.getUniformLocation(p,'uParallaxStrength'),
+      transition:g.getUniformLocation(p,'uTransition'),baseColor:g.getUniformLocation(p,'uBaseColor'),
+      highlight:g.getUniformLocation(p,'uHighlightColor')
     };
+    this.buffers={pos:g.createBuffer(),target:g.createBuffer(),scale:g.createBuffer(),targetScale:g.createBuffer(),random:g.createBuffer()};
+    g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.disable(g.DEPTH_TEST);
+    g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,49/255,44/255,33/255);g.uniform3f(this.loc.highlight,227/255,70/255,8/255);
+  }
+  bindBuffer(name,data,size){
+    if(this.disabled)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
+    g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,data,g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc);g.vertexAttribPointer(loc,size,g.FLOAT,false,0,0);
+  }
+  uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
+  loadImage(){
+    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/boon-rebuild/assets/particle-image.png?v=2';
+    im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
   }
   resize(){
-    const dpr=Math.min(devicePixelRatio||1,2);
-    this.w=innerWidth;this.h=innerHeight;
-    this.canvas.width=Math.floor(this.w*dpr);this.canvas.height=Math.floor(this.h*dpr);
-    this.canvas.style.width=this.w+'px';this.canvas.style.height=this.h+'px';
-    this.ctx.setTransform(dpr,0,0,dpr,0,0);
-    this.gap=13.5;
-    this.cols=Math.ceil(this.w/this.gap)+1;
-    this.rows=Math.ceil(this.h/this.gap)+1;
-    this.n=this.cols*this.rows;
-    this.x0=(this.w-(this.cols-1)*this.gap)/2;
-    this.y0=(this.h-(this.rows-1)*this.gap)/2;
-    this.cur=new Float32Array(this.n*3);
-    this.from=new Float32Array(this.n*3);
-    this.to=new Float32Array(this.n*3);
-    this.rand=new Float32Array(this.n);
-    for(let i=0;i<this.n;i++)this.rand[i]=Math.random();
-    this.build(this.shape,this.cur);this.to.set(this.cur);
+    if(this.disabled)return;
+    const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight,g=this.gl;this.w=w;this.h=h;this.dpr=dpr;
+    this.canvas.width=Math.floor(w*dpr);this.canvas.height=Math.floor(h*dpr);this.canvas.style.width=w+'px';this.canvas.style.height=h+'px';g.viewport(0,0,this.canvas.width,this.canvas.height);
+    this.gap=13.5;this.cols=Math.ceil(w/this.gap)+1;this.rows=Math.ceil(h/this.gap)+1;this.count=this.cols*this.rows;
+    this.startX=this.cols*this.gap/-2+this.gap/2;this.startY=this.rows*this.gap/-2+this.gap/2;
+    const base=this.makeNone();this.positions=base.positions;this.scales=base.scales;this.targetPositions=new Float32Array(this.positions);this.targetScales=new Float32Array(this.scales);
+    this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.uploadAll();
+    if(this.target!=='none')this.set(this.target,true,true);
   }
-  write(a,i,x,y,sc){const j=i*3;a[j]=x;a[j+1]=y;a[j+2]=sc}
-  cell(i){
-    const c=i%this.cols,r=(i/this.cols)|0;
-    return [this.x0+c*this.gap,this.y0+r*this.gap,c,r];
+  empty(){return{positions:new Float32Array(this.count*3),scales:new Float32Array(this.count)}}
+  shuffle(){const a=Array.from({length:this.count},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;const t=a[i];a[i]=a[j];a[j]=t}return a}
+  fallback(out,scales,index,prior){
+    const j=index*3;if(prior&&Number.isFinite(prior[j])){out[j]=prior[j];out[j+1]=prior[j+1];out[j+2]=prior[j+2]}
+    else{const c=index%this.cols,r=(index/this.cols)|0;out[j]=this.startX+c*this.gap;out[j+1]=this.startY+r*this.gap;out[j+2]=0}scales[index]=0;
   }
-  fract(v){return v-Math.floor(v)}
-  build(shape,a){
-    if(shape==='none'||shape==='grid'){
-      for(let i=0;i<this.n;i++){
-        const [x,y]=this.cell(i);
-        const sc=shape==='grid'?(this.rand[i]<.5?0:this.rand[(i*7+3)%this.n]):0;
-        this.write(a,i,x,y,sc);
-      }
-      return;
-    }
-
-    if(shape==='image'){
-      let data=null;
-      if(this.imageReady&&this.image){
-        const oc=document.createElement('canvas');
-        oc.width=this.cols;oc.height=this.rows;
-        const ox=oc.getContext('2d',{willReadFrequently:true});
-        const cover=Math.max(this.cols/this.image.width,this.rows/this.image.height);
-        const dw=this.image.width*cover,dh=this.image.height*cover;
-        ox.clearRect(0,0,this.cols,this.rows);
-        ox.drawImage(this.image,(this.cols-dw)/2,(this.rows-dh)/2,dw,dh);
-        data=ox.getImageData(0,0,this.cols,this.rows).data;
-      }
-      for(let i=0;i<this.n;i++){
-        const [x,y,c,r]=this.cell(i);
-        let sc=0;
-        if(data){
-          const p=(r*this.cols+c)*4;
-          if(data[p+3]>128){
-            const lum=(.299*data[p]+.587*data[p+1]+.114*data[p+2])/255;
-            const darkness=1-lum;
-            if(darkness>.33)sc=(darkness-.33)/.67;
-          }
-        }else{
-          const nx=(x-this.w*.5)/this.w,ny=(y-this.h*.5)/this.h;
-          const torso=clamp(1-(nx*nx/(.115*.115)+(ny+.08)*(ny+.08)/(.30*.30)));
-          const head=clamp(1-(nx-.035)*(nx-.035)/(.09*.09)-(ny+.31)*(ny+.31)/(.13*.13));
-          sc=Math.max(torso,head);
-        }
-        this.write(a,i,x,y,sc);
-      }
-      return;
-    }
-
-    if(shape==='rings-horizontal'){
-      const rings=10,cx=this.w*.5,cy=this.h*.5;
-      const radius=Math.max(Math.min(this.w,this.h)*.25,150);
-      const spacing=radius*.3,start=-((rings-1)*spacing)/2;
-      const pts=Math.max(1,Math.floor(2*Math.PI*radius/this.gap));
-      let idx=0;
-      for(let ring=0;ring<rings;ring++){
-        const ox=start+ring*spacing;
-        for(let k=0;k<pts&&idx<this.n;k++,idx++){
-          const t=k/pts*Math.PI*2;
-          this.write(a,idx,cx+ox+Math.cos(t)*radius,cy+Math.sin(t)*radius,1);
-        }
-      }
-      for(;idx<this.n;idx++)this.write(a,idx,cx,cy,0);
-      return;
-    }
-
-    if(shape==='rings-vertical'){
-      const rings=6,cx=this.w*.5,cy=this.h*.5;
-      const radius=Math.max(Math.min(this.w,this.h)*.35,250);
-      let idx=0;
-      for(let ring=0;ring<rings;ring++){
-        const rr=Math.max(this.gap,radius-ring*40);
-        const pts=Math.max(1,Math.floor(2*Math.PI*rr/this.gap));
-        for(let k=0;k<pts&&idx<this.n;k++,idx++){
-          const t=k/pts*Math.PI*2;
-          this.write(a,idx,cx+Math.cos(t)*rr,cy+Math.sin(t)*rr,1);
-        }
-      }
-      for(;idx<this.n;idx++)this.write(a,idx,cx,cy,0);
-    }
+  makeNone(){
+    const o=this.empty();let a=0;for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){o.positions[a*3]=this.startX+c*this.gap;o.positions[a*3+1]=this.startY+r*this.gap;o.positions[a*3+2]=0;o.scales[a]=0;a++}return o;
   }
-  set(shape,instant=false){
-    if(shape===this.target&&!instant)return;
-    this.target=shape;this.from.set(this.cur);this.build(shape,this.to);
-    this.start=performance.now();this.morphing=!instant&&!reduce.matches;
-    if(instant||reduce.matches){this.cur.set(this.to);this.shape=shape;this.morphing=false}
+  makeGrid(){
+    const o=this.empty(),order=this.shuffle();let n=0;
+    for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){const i=order[n++],x=this.startX+c*this.gap,y=this.startY+r*this.gap;o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=(x*x+y*y)/400000;o.scales[i]=Math.random()<.5?0:Math.random()}return o;
+  }
+  makeHorizontal(){
+    const o=this.empty(),prior=this.positions,ringCount=10,radius=Math.max(Math.min(this.w,this.h)*.25,150),spacing=radius*.3,start=-((ringCount-1)*spacing)/2,order=this.shuffle();
+    let ring=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
+    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount){const t=point/per*Math.PI*2,x=start+ring*spacing;o.positions[i*3]=x+Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=(ring-ringCount/2)*-5;o.scales[i]=1;if(++point>=per){ring++;point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  makeVertical(){
+    const o=this.empty(),prior=this.positions,ringCount=6,order=this.shuffle();let ring=0,radius=Math.max(Math.min(this.w,this.h)*.35,250),z=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
+    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount&&radius>0){const t=point/per*Math.PI*2;o.positions[i*3]=Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=z;o.scales[i]=1;if(++point>=per){ring++;radius-=40;z-=15;per=Math.floor(2*Math.PI*radius/this.gap);point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  makeImage(){
+    if(!this.imageReady||!this.image)return this.makeNone();
+    const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
+    const ratio=this.image.width/this.image.height,target=w/h;let dw,dh,ox,oy;
+    if(ratio>target){dh=h;dw=this.image.width*(h/this.image.height);ox=(w-dw)/2;oy=0}else{dw=w;dh=this.image.height*(w/this.image.width);ox=0;oy=(h-dh)/2}
+    ctx.drawImage(this.image,ox,oy,dw,dh);const data=ctx.getImageData(0,0,w,h).data,pixels=[];
+    for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=(y*w+x)*4;if(data[p+3]>128){const darkness=1-(.299*data[p]+.587*data[p+1]+.114*data[p+2])/255,th=.33;pixels.push({x:x,y:y,scale:darkness<=th?0:(darkness-th)/(1-th)})}}
+    const o=this.empty(),prior=this.positions,order=this.shuffle();
+    for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();return this.makeNone()}
+  transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return 1-(1-raw)*(1-raw)}
+  bake(now=performance.now()){
+    if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
+    for(let i=0;i<this.count;i++){const j=i*3,r=this.random[i],r2=(r*123.456)%1;this.positions[j]=lerp(this.positions[j],this.targetPositions[j],t)+(r-.5)*250*arc;this.positions[j+1]=lerp(this.positions[j+1],this.targetPositions[j+1],t)+(r2-.5)*250*arc;this.positions[j+2]=lerp(this.positions[j+2],this.targetPositions[j+2],t);this.scales[i]=lerp(this.scales[i],this.targetScales[i],t)}
+    this.transition=0;this.morphing=false;this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);
+  }
+  set(shape,instant=false,force=false){
+    if(this.disabled)return;if(shape===this.target&&!force)return;if(this.morphing)this.bake();this.target=shape;const next=this.build(shape);
+    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
+    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
   }
   draw(now,dt){
-    const c=this.ctx;c.clearRect(0,0,this.w,this.h);
-    this.mx=lerp(this.mx,this.tx,1-Math.exp(-6*dt));
-    this.my=lerp(this.my,this.ty,1-Math.exp(-6*dt));
-    const p=this.morphing?clamp((now-this.start)/this.duration):1;
-    const e=ease(p),arc=Math.sin(p*Math.PI);
-    const base=[49,44,33],hi=[227,70,8];
-    const cursorRadius=Math.min(this.w,this.h)*.65;
-    for(let i=0;i<this.n;i++){
-      const j=i*3,r=this.rand[i],r2=this.fract(r*123.456);
-      let x=this.morphing?lerp(this.from[j],this.to[j],e):this.cur[j];
-      let y=this.morphing?lerp(this.from[j+1],this.to[j+1],e):this.cur[j+1];
-      const sc=this.morphing?lerp(this.from[j+2],this.to[j+2],e):this.cur[j+2];
-      if(this.morphing){x+=(r-.5)*250*arc;y+=(r2-.5)*250*arc}
-      if(sc<=.001)continue;
-      const d=Math.hypot(x-this.mx,y-this.my);
-      const q=clamp(d/cursorRadius);
-      const smooth=q*q*(3-2*q),h=1-smooth;
-      const rr=Math.round(lerp(base[0],hi[0],h));
-      const gg=Math.round(lerp(base[1],hi[1],h));
-      const bb=Math.round(lerp(base[2],hi[2],h));
-      const pulse=.5+.5*Math.sin(now*.002+r*Math.PI*2);
-      const oscillation=.35+(.9-.35)*pulse;
-      const rad=Math.max(.35,(18*oscillation*sc)*.5);
-      c.fillStyle='rgb('+rr+','+gg+','+bb+')';
-      c.beginPath();c.arc(x,y,rad,0,Math.PI*2);c.fill();
-    }
-    if(this.morphing&&p>=1){this.cur.set(this.to);this.shape=this.target;this.morphing=false}
+    if(this.disabled)return;const g=this.gl;g.useProgram(this.program);this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
+    let t=this.morphing?this.transitionValue(now):this.transition;
+    if(this.morphing){const raw=clamp((now-this.start)/this.duration);this.parallax=lerp(this.parallaxFrom,this.parallaxTo,t);if(raw>=1){this.positions=new Float32Array(this.targetPositions);this.scales=new Float32Array(this.targetScales);this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);this.transition=0;t=0;this.morphing=false;this.parallax=this.parallaxTo}}
+    g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
   }
 }
 const bgCanvas=$('.three-canvas');
