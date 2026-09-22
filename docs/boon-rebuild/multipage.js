@@ -68,7 +68,7 @@ document.title=data.title;
 
 const header=`<header id="header"><div class="nav-bar">
 <a class="logo" href="${base}" aria-label="Kernellum"><span class="wordmark">KERNELLUM</span></a>
-<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p><b class="dot9" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></button>
+<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p><b class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></button>
 <div class="expand-menu" aria-hidden="true"><nav><ul>
 <li><a href="${base}">Home</a></li>
 <li><a href="${base}what-we-do/" ${route==='what-we-do'?'aria-current="page"':''}>What We Do</a></li>
