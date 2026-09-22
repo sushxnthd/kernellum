@@ -106,7 +106,7 @@ def test_functional_failure_cannot_be_rescued_by_physical_results():
 
 
 def test_downloaded_artifact_subdirectories_are_discovered(tmp_path: Path):
-    route_directory = tmp_path / "route-artifact" / "results"
+    route_directory = tmp_path / "z-route-artifact" / "results"
     route_directory.mkdir(parents=True)
     route_csv = route_directory / "similarity_asic_transfer_nangate45_broadcast_s11.csv"
     with route_csv.open("w", newline="", encoding="utf-8") as handle:
@@ -116,11 +116,19 @@ def test_downloaded_artifact_subdirectories_are_discovered(tmp_path: Path):
             "nangate45", "discovery", "broadcast", 11, 2, 4, 8.0, 108,
         ))
 
+    later_route_directory = tmp_path / "a-route-artifact" / "results"
+    later_route_directory.mkdir(parents=True)
+    later_route_csv = (
+        later_route_directory /
+        "similarity_asic_transfer_nangate45_broadcast_s29.csv"
+    )
+    later_route_csv.touch()
+
     marker = tmp_path / "functional-artifact" / "results"
     marker.mkdir(parents=True)
     (marker / "similarity_asic_transfer_functional_passed").touch()
 
-    assert route_csv_paths(tmp_path) == [route_csv]
+    assert route_csv_paths(tmp_path) == [route_csv, later_route_csv]
     assert functional_marker_exists(tmp_path)
 
 

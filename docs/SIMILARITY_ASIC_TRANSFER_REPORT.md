@@ -144,9 +144,9 @@ The committed evaluator outputs are:
 | File | SHA-256 |
 |---|---|
 | `similarity_asic_transfer_summary.json` | `730320130729bfcc91c75f838678d97dd50540ebb18e284da5ab37f466471faf` |
-| `similarity_asic_transfer_combined.csv` | `aae7f13b63eeaa22ac0bb4ecbef0ba264633bd26b9def070e29b7dd8f2db4833` |
-| `similarity_asic_transfer_pairs.csv` | `2915d6d5377ed8601c5884e8e372207622327f953d8a64fdadd3ff524e906ae5` |
-| `similarity_asic_transfer_points.csv` | `2d5a731acf14d8b6ba5a1a070071c7bdae078a4e9c2baa75cb02382a6d70fba7` |
+| `similarity_asic_transfer_combined.csv` | `ba6394b79eea892ff6eea60c97694a953307b781b599ca60370b9676b3b81a05` |
+| `similarity_asic_transfer_pairs.csv` | `e55b631412cbe093a312c7c47b1055d847e5257946558b401ceb9b5c7aa50226` |
+| `similarity_asic_transfer_points.csv` | `e807e53e165dc56138c4155f494ced65e8a699ad5e0b477067c9b2976fdd62ed` |
 
 ## Claim boundary
 
