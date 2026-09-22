@@ -1,336 +1,191 @@
-(() => {
-'use strict';
+(()=>{'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
+const reduce=matchMedia('(prefers-reduced-motion:reduce)'),mobile=matchMedia('(max-width:58.749rem)');
+const boonEase=t=>{const x1=.5,y1=.1,x2=0,y2=1,sample=(u,a1,a2)=>3*(1-u)*(1-u)*u*a1+3*(1-u)*u*u*a2+u*u*u,deriv=(u,a1,a2)=>3*(1-u)*(1-u)*a1+6*(1-u)*u*(a2-a1)+3*u*u*(1-a2);let u=t;for(let i=0;i<6;i++){const d=deriv(u,x1,x2);if(Math.abs(d)<1e-6)break;u=clamp(u-(sample(u,x1,x2)-t)/d)}let lo=0,hi=1;for(let i=0;i<8;i++){const x=sample(u,x1,x2);if(Math.abs(x-t)<1e-6)break;if(x<t)lo=u;else hi=u;u=(lo+hi)/2}return sample(u,y1,y2)};
+class ParticleField{
+  constructor(canvas){
+    this.canvas=canvas;
+    this.gl=canvas.getContext('webgl2',{alpha:true,antialias:true,premultipliedAlpha:true});
+    this.shape='none';this.target='none';this.duration=1500;this.morphing=false;this.transition=0;
+    this.parallax=0;this.parallaxFrom=0;this.parallaxTo=0;this.start=0;
+    this.mouseX=0;this.mouseY=0;this.targetMouseX=0;this.targetMouseY=0;
+    this.image=null;this.imageReady=false;this.count=0;
+    if(!this.gl){this.disabled=true;return}
+    this.initGL();
+    addEventListener('mousemove',e=>{this.targetMouseX=e.clientX/innerWidth*2-1;this.targetMouseY=-(e.clientY/innerHeight)*2+1},{passive:true});
+    addEventListener('mouseleave',()=>{this.targetMouseX=0;this.targetMouseY=0},{passive:true});
+    addEventListener('resize',()=>this.resize(),{passive:true});
+    this.loadImage();this.resize();this.set('none',true);
+    window.__kernellumParticles=this;
+  }
+  shader(type,src){
+    const g=this.gl,sh=g.createShader(type);g.shaderSource(sh,src);g.compileShader(sh);
+    if(!g.getShaderParameter(sh,g.COMPILE_STATUS)){console.warn(g.getShaderInfoLog(sh));g.deleteShader(sh);return null}
+    return sh;
+  }
+  initGL(){
+    const g=this.gl;
+    const vsSrc=[
+      '#version 300 es','precision highp float;',
+      'uniform float uBaseSize;','uniform float uTime;','uniform vec2 uViewport;','uniform vec2 uMouse;',
+      'uniform float uParallaxStrength;','uniform float uTransition;',
+      'in vec3 aPosition;','in vec3 aTargetPosition;','in float aScale;','in float aTargetScale;','in float aRandom;',
+      'out float vScale;','out float vIntensity;',
+      'void main(){',
+      'vec3 finalPos=mix(aPosition,aTargetPosition,uTransition);',
+      'float pathArc=sin(uTransition*3.141592653589793);',
+      'float rand1=aRandom;','float rand2=fract(aRandom*123.456);',
+      'finalPos.x+=(rand1-0.5)*250.0*pathArc;','finalPos.y+=(rand2-0.5)*250.0*pathArc;',
+      'finalPos.xy+=uMouse*finalPos.z*4.0*uParallaxStrength;',
+      'gl_Position=vec4(finalPos.x/(uViewport.x*0.5),finalPos.y/(uViewport.y*0.5),0.0,1.0);',
+      'float finalScale=mix(aScale,aTargetScale,uTransition);','vScale=finalScale;',
+      'float pulse=sin(uTime*2.0+(rand1*6.283185307179586))*0.5+0.5;',
+      'float oscillationScale=mix(0.35,0.9,pulse);','gl_PointSize=uBaseSize*oscillationScale*finalScale;',
+      'vec2 mouseWorld=uMouse*uViewport*0.5;','float distToMouse=distance(finalPos.xy,mouseWorld);',
+      'float screenMin=min(uViewport.x,uViewport.y);','float outerRadius=screenMin*0.65;',
+      'vIntensity=smoothstep(outerRadius,0.0,distToMouse);','}'
+    ].join('\n');
+    const fsSrc=[
+      '#version 300 es','precision highp float;','uniform vec3 uBaseColor;','uniform vec3 uHighlightColor;',
+      'in float vScale;','in float vIntensity;','out vec4 outColor;','void main(){',
+      'if(vScale<0.001)discard;','vec2 p=gl_PointCoord-0.5;','float dist=length(p);','float aa=fwidth(dist);',
+      'if(dist>0.5+aa)discard;','float alpha=1.0-smoothstep(0.5-aa,0.5+aa,dist);',
+      'vec3 finalColor=mix(uBaseColor,uHighlightColor,vIntensity);','outColor=vec4(finalColor,alpha);','}'
+    ].join('\n');
+    const vs=this.shader(g.VERTEX_SHADER,vsSrc),fs=this.shader(g.FRAGMENT_SHADER,fsSrc);
+    if(!vs||!fs){this.disabled=true;return}
+    const p=g.createProgram();g.attachShader(p,vs);g.attachShader(p,fs);g.linkProgram(p);
+    if(!g.getProgramParameter(p,g.LINK_STATUS)){console.warn(g.getProgramInfoLog(p));this.disabled=true;return}
+    g.deleteShader(vs);g.deleteShader(fs);this.program=p;g.useProgram(p);
+    this.loc={
+      pos:g.getAttribLocation(p,'aPosition'),target:g.getAttribLocation(p,'aTargetPosition'),
+      scale:g.getAttribLocation(p,'aScale'),targetScale:g.getAttribLocation(p,'aTargetScale'),
+      random:g.getAttribLocation(p,'aRandom'),baseSize:g.getUniformLocation(p,'uBaseSize'),
+      time:g.getUniformLocation(p,'uTime'),viewport:g.getUniformLocation(p,'uViewport'),
+      mouse:g.getUniformLocation(p,'uMouse'),parallax:g.getUniformLocation(p,'uParallaxStrength'),
+      transition:g.getUniformLocation(p,'uTransition'),baseColor:g.getUniformLocation(p,'uBaseColor'),
+      highlight:g.getUniformLocation(p,'uHighlightColor')
+    };
+    this.buffers={pos:g.createBuffer(),target:g.createBuffer(),scale:g.createBuffer(),targetScale:g.createBuffer(),random:g.createBuffer()};
+    g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.disable(g.DEPTH_TEST);
+    g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,49/255,44/255,33/255);g.uniform3f(this.loc.highlight,227/255,70/255,8/255);
+  }
+  bindBuffer(name,data,size){
+    if(this.disabled)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
+    g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,data,g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc);g.vertexAttribPointer(loc,size,g.FLOAT,false,0,0);
+  }
+  uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
+  loadImage(){
+    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/boon-rebuild/assets/particle-image.png?v=2';
+    im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
+  }
+  resize(){
+    if(this.disabled)return;
+    const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight,g=this.gl;this.w=w;this.h=h;this.dpr=dpr;
+    this.canvas.width=Math.floor(w*dpr);this.canvas.height=Math.floor(h*dpr);this.canvas.style.width=w+'px';this.canvas.style.height=h+'px';g.viewport(0,0,this.canvas.width,this.canvas.height);
+    this.gap=13.5;this.cols=Math.ceil(w/this.gap)+1;this.rows=Math.ceil(h/this.gap)+1;this.count=this.cols*this.rows;
+    this.startX=this.cols*this.gap/-2+this.gap/2;this.startY=this.rows*this.gap/-2+this.gap/2;
+    const base=this.makeNone();this.positions=base.positions;this.scales=base.scales;this.targetPositions=new Float32Array(this.positions);this.targetScales=new Float32Array(this.scales);
+    this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.uploadAll();
+    if(this.target!=='none')this.set(this.target,true,true);
+  }
+  empty(){return{positions:new Float32Array(this.count*3),scales:new Float32Array(this.count)}}
+  shuffle(){const a=Array.from({length:this.count},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;const t=a[i];a[i]=a[j];a[j]=t}return a}
+  fallback(out,scales,index,prior){
+    const j=index*3;if(prior&&Number.isFinite(prior[j])){out[j]=prior[j];out[j+1]=prior[j+1];out[j+2]=prior[j+2]}
+    else{const c=index%this.cols,r=(index/this.cols)|0;out[j]=this.startX+c*this.gap;out[j+1]=this.startY+r*this.gap;out[j+2]=0}scales[index]=0;
+  }
+  makeNone(){
+    const o=this.empty();let a=0;for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){o.positions[a*3]=this.startX+c*this.gap;o.positions[a*3+1]=this.startY+r*this.gap;o.positions[a*3+2]=0;o.scales[a]=0;a++}return o;
+  }
+  makeGrid(){
+    const o=this.empty(),order=this.shuffle();let n=0;
+    for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){const i=order[n++],x=this.startX+c*this.gap,y=this.startY+r*this.gap;o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=(x*x+y*y)/400000;o.scales[i]=Math.random()<.5?0:Math.random()}return o;
+  }
+  makeHorizontal(){
+    const o=this.empty(),prior=this.positions,ringCount=10,radius=Math.max(Math.min(this.w,this.h)*.25,150),spacing=radius*.3,start=-((ringCount-1)*spacing)/2,order=this.shuffle();
+    let ring=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
+    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount){const t=point/per*Math.PI*2,x=start+ring*spacing;o.positions[i*3]=x+Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=(ring-ringCount/2)*-5;o.scales[i]=1;if(++point>=per){ring++;point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  makeVertical(){
+    const o=this.empty(),prior=this.positions,ringCount=6,order=this.shuffle();let ring=0,radius=Math.max(Math.min(this.w,this.h)*.35,250),z=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
+    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount&&radius>0){const t=point/per*Math.PI*2;o.positions[i*3]=Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=z;o.scales[i]=1;if(++point>=per){ring++;radius-=40;z-=15;per=Math.floor(2*Math.PI*radius/this.gap);point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  makeImage(){
+    if(!this.imageReady||!this.image)return this.makeNone();
+    const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
+    const ratio=this.image.width/this.image.height,target=w/h;let dw,dh,ox,oy;
+    if(ratio>target){dh=h;dw=this.image.width*(h/this.image.height);ox=(w-dw)/2;oy=0}else{dw=w;dh=this.image.height*(w/this.image.width);ox=0;oy=(h-dh)/2}
+    ctx.drawImage(this.image,ox,oy,dw,dh);const data=ctx.getImageData(0,0,w,h).data,pixels=[];
+    for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=(y*w+x)*4;if(data[p+3]>128){const darkness=1-(.299*data[p]+.587*data[p+1]+.114*data[p+2])/255,th=.33;pixels.push({x:x,y:y,scale:darkness<=th?0:(darkness-th)/(1-th)})}}
+    const o=this.empty(),prior=this.positions,order=this.shuffle();
+    for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
+  }
+  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();return this.makeNone()}
+  transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
+  bake(now=performance.now()){
+    if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
+    for(let i=0;i<this.count;i++){const j=i*3,r=this.random[i],r2=(r*123.456)%1;this.positions[j]=lerp(this.positions[j],this.targetPositions[j],t)+(r-.5)*250*arc;this.positions[j+1]=lerp(this.positions[j+1],this.targetPositions[j+1],t)+(r2-.5)*250*arc;this.positions[j+2]=lerp(this.positions[j+2],this.targetPositions[j+2],t);this.scales[i]=lerp(this.scales[i],this.targetScales[i],t)}
+    this.transition=0;this.morphing=false;this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);
+  }
+  set(shape,instant=false,force=false){
+    if(this.disabled)return;if(shape===this.target&&!force)return;if(this.morphing)this.bake();this.target=shape;const next=this.build(shape);
+    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
+    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
+  }
+  draw(now,dt){
+    if(this.disabled)return;const g=this.gl;g.useProgram(this.program);this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
+    let t=this.morphing?this.transitionValue(now):this.transition;
+    if(this.morphing){const raw=clamp((now-this.start)/this.duration);this.parallax=lerp(this.parallaxFrom,this.parallaxTo,t);if(raw>=1){this.positions=new Float32Array(this.targetPositions);this.scales=new Float32Array(this.targetScales);this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);this.transition=0;t=0;this.morphing=false;this.parallax=this.parallaxTo}}
+    g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
+  }
+}
+
 const base='/kernellum/boon-rebuild/';
-const route=location.pathname.replace(base,'').replace(/\/+$/,'')||'home';
-const pages={
-'what-we-do':{
- title:'What We Do • Kernellum',
- heroLabel:'What We Do',
- hero:'A New Hardware Design Paradigm',
- intro:'Kernellum explores AI-native hardware/software co-design: choosing accelerator architectures for real workloads, generating implementations, and feeding physical-design results back into the search.',
- blocks:[
-  ['The Kernellum Difference','Architectures are not judged only by analytical estimates. The research loop is built to test whether predicted advantages survive synthesis and place-and-route.'],
-  ['Closed-loop physical feedback','K1 routes candidate architectures on ECP5, learns from final-routed timing, and uses that evidence to guide the next acquisition rather than treating physical design as a final afterthought.'],
-  ['Workload-specific search','The current system evaluates tiled INT8 GEMM architectures against Transformer workloads and deployment constraints, with explicit controls and frozen validation sets.']
- ],
- features:[
-  ['01','Model the workload','Translate workload shapes and constraints into architecture-level objectives and predicted latency.'],
-  ['02','Search architecture space','Explore parameterized accelerator candidates instead of hand-picking a single design.'],
-  ['03','Generate and verify RTL','Produce synthesizable implementations and test functional behavior before physical evaluation.'],
-  ['04','Synthesize and route','Use Yosys and nextpnr to obtain final-routed implementation evidence on the target family.'],
-  ['05','Learn from physical feedback','Update the timing surrogate from routed observations and acquire the next candidates.'],
-  ['06','Preserve scientific boundaries','Keep analytical, routed, and future board-measured claims separate rather than collapsing them into one headline metric.']
- ],
- closing:'Design the architecture. Route the evidence. Close the loop.'
-},
-'who-we-are':{
- title:'Who We Are • Kernellum',
- heroLabel:'Who We Are',
- hero:'Built for architectures that survive reality.',
- intro:'Kernellum is a research-first effort around one question: can automated systems design AI accelerators whose predicted advantages persist through physical implementation?',
- vision:'The long-term direction is an AI-native co-design system that moves from model and deployment constraints to workload-specific accelerator architecture, RTL, verification, FPGA implementation, and eventually licensable silicon IP.',
- values:[
-  ['01','Scientific discipline','Claims are separated by evidence level: analytical estimates, synthesis, routed timing, and future board measurements.'],
-  ['02','Physical feedback','Implementation effects are treated as part of the search problem, not noise to hide after architecture selection.'],
-  ['03','Reproducibility','Experiments, scripts, frozen result files, and reports live alongside the code in the public repository.'],
-  ['04','Iteration','Negative results and target-specific effects are used to improve the model and the next experiment.']
- ],
- closing:'Research, architecture, RTL, and physical design in one loop.'
-},
-'careers':{
- title:'Careers • Kernellum',
- heroLabel:'Careers',
- hero:'Build systems that shape real hardware outcomes.',
- intro:'Kernellum is currently research-first. The work spans architecture search, hardware generation, verification, FPGA tooling, physical-design modelling, and rigorous experimental evaluation.',
- blocks:[
-  ['Research that touches implementation','The interesting problems sit between machine learning, computer architecture, EDA, and experimental science.'],
-  ['Small systems, high ownership','Contributions can cut across modelling, RTL, tooling, experiments, documentation, and reproducibility rather than living inside narrow silos.'],
-  ['Evidence over demos','The standard is not whether a concept looks convincing in a notebook. It is whether the result survives independent checks and increasingly physical validation.']
- ],
- features:[
-  ['01','Architecture + ML','Search, surrogate modelling, workload characterization, acquisition strategies.'],
-  ['02','RTL + verification','Parameterized datapaths, controllers, functional simulation, regression testing.'],
-  ['03','Physical design','Synthesis, place-and-route, timing analysis, constraints, target-aware modelling.'],
-  ['04','Research engineering','Experiment automation, data integrity, reproducibility, reports, visualization.']
- ],
- closing:'Interested in contributing? Start with the repository.'
-},
-'contact':{
- title:'Contact • Kernellum',
- heroLabel:'Contact',
- hero:'Get in touch with Kernellum.',
- intro:'For research discussion, collaboration, reproducibility questions, or technical feedback, use the public repository so the conversation can stay connected to the work.',
- closing:'The fastest route into the work is through the evidence.'
-}};
-const data=pages[route]||pages['what-we-do'];
-document.title=data.title;
+const header=$('#header'),btn=$('.expand-btn',header),panel=$('.expand-menu',header),label=$('.expand-btn p',header),navBar=$('.nav-bar',header);
+if(navBar){navBar.style.opacity='1';if(!reduce.matches)navBar.animate([{transform:'translateY(-100%)',opacity:0},{transform:'translateY(0)',opacity:1}],{duration:850,easing:'cubic-bezier(.215,.61,.355,1)',fill:'both'})}
+function scramble(text){if(!label)return;const chars='░▒▓■□',start=performance.now();function f(now){const p=clamp((now-start)/300),fixed=Math.floor(text.length*p);label.textContent=[...text].map((c,i)=>i<fixed?c:chars[(Math.random()*chars.length)|0]).join('');if(p<1)requestAnimationFrame(f);else label.textContent=text}requestAnimationFrame(f)}
+function setMenu(open){if(!panel||!btn)return;btn.classList.toggle('open',open);header?.classList.toggle('menu-expanded',open);btn.setAttribute('aria-expanded',String(open));panel.setAttribute('aria-hidden',String(!open));const from=panel.getBoundingClientRect().height,to=open?panel.scrollHeight:0;panel.getAnimations().forEach(a=>a.cancel());const a=panel.animate([{maxHeight:from+'px'},{maxHeight:to+'px'}],{duration:500,easing:'cubic-bezier(.5,.1,0,1)',fill:'forwards'});a.onfinish=()=>{panel.style.maxHeight=to+'px';a.cancel()};scramble(open?'Close':'Menu')}
+btn?.addEventListener('click',()=>setMenu(btn.getAttribute('aria-expanded')!=='true'));
+document.addEventListener('pointerdown',e=>{if(header&&header.classList.contains('menu-expanded')&&!header.contains(e.target))setMenu(false)});
 
-const header=`<header id="header"><div class="nav-bar">
-<a class="logo" href="${base}" aria-label="Kernellum"><span class="wordmark">KERNELLUM</span></a>
-<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p><b class="dot9" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></button>
-<div class="expand-menu" aria-hidden="true"><nav><ul>
-<li><a href="${base}">Home</a></li>
-<li><a href="${base}what-we-do/" ${route==='what-we-do'?'aria-current="page"':''}>What We Do</a></li>
-<li><a href="${base}who-we-are/" ${route==='who-we-are'?'aria-current="page"':''}>Who We Are</a></li>
-<li><a href="${base}careers/" ${route==='careers'?'aria-current="page"':''}>Careers</a></li>
-<li><a href="${base}contact/" ${route==='contact'?'aria-current="page"':''}>Contact</a></li>
-</ul></nav></div></div></header>`;
+const hrefMap=new Map([['/','/kernellum/boon-rebuild/'],['/what-we-do/','/kernellum/boon-rebuild/what-we-do/'],['/who-we-are/','/kernellum/boon-rebuild/who-we-are/'],['/contact/','/kernellum/boon-rebuild/contact/'],['/careers/','/kernellum/boon-rebuild/careers/'],['/legal/privacy-policy/','https://github.com/sushxnthd/kernellum'],['https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum']]);
+$$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h))a.setAttribute('href',hrefMap.get(h))});
+const footerLogo=$('#footer a.logo');if(footerLogo){footerLogo.href=base;footerLogo.setAttribute('aria-label','Kernellum');footerLogo.innerHTML='<svg viewBox="0 0 89 24" role="img"><text x="44.5" y="16.8" text-anchor="middle" fill="currentColor" font-family="MSCHN,sans-serif" font-size="11.4" font-weight="600" letter-spacing=".35">KERNELLUM</text></svg>'}
 
-const footer=`<footer><div class="footer-shell">
-<nav class="footer-nav">
-<a href="${base}what-we-do/"><span>What We Do</span><span>↗</span></a>
-<a href="${base}who-we-are/"><span>Who We Are</span><span>↗</span></a>
-<a href="${base}contact/"><span>Contact</span><span>↗</span></a>
-<a href="${base}careers/"><span>Careers</span><span>↗</span></a>
-</nav>
-<a class="footer-brand" href="${base}">KERNELLUM</a>
-<nav class="footer-legal"><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">GitHub</a><span>Research-first</span><span>Public evidence</span></nav>
-</div></footer>`;
-
-const arrow=(label,href)=>`<a class="arrow-link" href="${href}">${label}</a>`;
-const hero=`<section class="hero"><div class="hero-grid">
-<div class="eyebrow reveal">${data.heroLabel}</div>
-<h1 class="reveal">${data.hero}</h1>
-<p class="hero-copy reveal">${data.intro}</p>
-<div class="hero-cta reveal">${arrow(route==='contact'?'Open GitHub':'Explore the work', route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div>
-</div></section>`;
-
-function blockCards(){
- if(!data.blocks)return '';
- return `<section class="section" id="content"><div>
- <div class="section-label reveal">The Kernellum Difference</div>
- <h2 class="display wide reveal">${data.blocks[0][1]}</h2>
- <div class="cards">${data.blocks.map((b,i)=>`<article class="card reveal"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
- </div></section>`;
+function splitLines(el){
+ if(!el||el.dataset.split)return[];el.dataset.split='1';
+ const text=el.textContent.trim(),words=text.split(/\s+/);el.textContent='';
+ const probes=[];words.forEach((word,i)=>{const w=document.createElement('span');w.textContent=word;w.style.cssText='display:inline-block;white-space:nowrap';el.appendChild(w);probes.push(w);if(i<words.length-1)el.append(' ')});
+ const rows=[];let top=null,row=[];probes.forEach(w=>{const y=Math.round(w.offsetTop);if(top===null||Math.abs(y-top)<=1)row.push(w.textContent);else{rows.push(row);row=[w.textContent]}top=y});if(row.length)rows.push(row);
+ el.innerHTML=rows.map(r=>'<span class="line k-line"><span>'+r.join(' ')+'</span></span>').join('');return $$('.k-line>span',el)
 }
-function features(){
- if(!data.features)return '';
- return `<section class="section compact"><div>
- <div class="section-label reveal">${route==='careers'?'Where the work lives':'The Loop'}</div>
- <h2 class="display reveal">${route==='careers'?'Work across disciplines.':'From workload to routed evidence.'}</h2>
- <div class="feature-list">${data.features.map(f=>`<div class="feature reveal"><span class="n">${f[0]}</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join('')}</div>
- </div></section>`;
-}
-function who(){
- return `<section class="section" id="content"><div class="split">
- <div class="left"><div class="section-label reveal">Our Vision</div><h2 class="display reveal">Design with physical reality in the loop.</h2></div>
- <div class="right body-copy reveal"><p class="lede">${data.vision}</p><div class="rule"></div><p>Kernellum's current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition. Physical-board latency, power, and energy remain future validation stages rather than assumed results.</p></div>
- </div></section>
- <section class="section compact"><div><div class="section-label reveal">Our Values</div><h2 class="display wide reveal">Stay true to the evidence and the mission.</h2>
- <div class="values">${data.values.map(v=>`<article class="value reveal"><span class="num">${v[0]}</span><div><h3>${v[1]}</h3><p>${v[2]}</p></div></article>`).join('')}</div></div></section>`;
-}
-function contact(){
- return `<section class="section" id="content"><div>
- <div class="section-label reveal">Contact</div><h2 class="display reveal">Research should be inspectable.</h2>
- <div class="contact-grid">
- <div class="contact-info reveal">
-  <div class="contact-row"><small>Repository</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">github.com/sushxnthd/kernellum ↗</a></div>
-  <div class="contact-row"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues ↗</a></div>
-  <div class="contact-row"><small>Current stage</small><span>K2 board-ready; physical measurements not yet claimed</span></div>
- </div>
- <form class="contact-form form-stack reveal" id="contact-form">
-  <div class="field"><input name="name" placeholder="Name *" required><input name="org" placeholder="Organisation"></div>
-  <div class="field"><input name="email" type="email" placeholder="Email *" required><select name="reason"><option>Reason for contact</option><option>Research collaboration</option><option>Reproduction question</option><option>Technical feedback</option><option>Other</option></select></div>
-  <div class="field full"><textarea name="message" placeholder="Message *" required></textarea></div>
-  <button class="submit" type="submit">Continue via GitHub</button>
- </form>
- </div></div></section>`;
-}
-const closing=`<section class="closing"><div><div class="section-label reveal">Kernellum</div><h2 class="display reveal">${data.closing}</h2><div class="reveal">${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
+const headerSec=$('.page-header'),headerTitle=$('.page-header .title'),headerLines=splitLines(headerTitle),headerWraps=$$('.page-header .images>.image-wrapper'),headerImgs=$$('.page-header .images>.image-wrapper img'),subtitle=$('.page-header .subtitle'),headerCta=$('.page-header .scroll');
+const headerType=headerSec?.dataset.headerType||'center';
 
-let content='';
-if(route==='who-we-are')content=who();
-else if(route==='contact')content=contact();
-else content=blockCards()+features();
+const largeSections=$$('.large-text');largeSections.forEach(sec=>{const h=$('h2',sec);if(h){const html=h.innerHTML;h.textContent=h.textContent;const lines=splitLines(h);sec._lines=lines;if(html.includes('<mark>')){const phrase=(html.match(/<mark>(.*?)<\/mark>/)||[])[1];if(phrase){lines.forEach(line=>{if(line.textContent.includes(phrase.split(' ')[0]))line.innerHTML=line.innerHTML.replace(phrase,'<mark>'+phrase+'</mark>')})}}if(!reduce.matches)lines.forEach(l=>l.style.transform='translateY(100%)')}});
 
-document.body.innerHTML=`<div id="particle-stage"><canvas></canvas></div><div class="site">${header}<main>${hero}${content}${closing}</main>${footer}</div>`;
+const cards=$$('.card-grid .cards');cards.forEach(list=>{const cs=$$('li.card',list);cs.forEach((c,i)=>{if(!reduce.matches)c.style.transform='translateY('+(100+i*50)+'px)'});list._cards=cs;list.classList.remove('pre-anim')});
 
-const btn=$('.expand-btn'),menu=$('.expand-menu'),label=$('.expand-btn p');
-function menuOpen(open){btn.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-hidden',String(!open));menu.style.maxHeight=open?(menu.scrollHeight+32)+'px':'0px';label.textContent=open?'CLOSE':'MENU'}
-btn.addEventListener('click',()=>menuOpen(btn.getAttribute('aria-expanded')!=='true'));
-document.addEventListener('pointerdown',e=>{if(!$('#header').contains(e.target))menuOpen(false)});
+$$('.accordion-row').forEach(row=>{const tab=$('.tab',row),drawer=$('.drawer',row);tab?.addEventListener('click',()=>{const open=!row.classList.contains('open');$$('.accordion-row.open').forEach(other=>{if(other!==row){other.classList.remove('open');const d=$('.drawer',other);if(d)d.style.maxHeight='0px';$('.tab',other)?.setAttribute('aria-expanded','false')}});row.classList.toggle('open',open);tab.setAttribute('aria-expanded',String(open));drawer.inert=!open;const to=open?drawer.scrollHeight:0;drawer.animate([{maxHeight:drawer.getBoundingClientRect().height+'px'},{maxHeight:to+'px'}],{duration:500,easing:'cubic-bezier(.5,.1,0,1)',fill:'forwards'}).onfinish=()=>drawer.style.maxHeight=open?'none':'0px'})});
 
-if(route==='contact'){
- const form=$('#contact-form');
- form.addEventListener('submit',e=>{
-  e.preventDefault();
-  const fd=new FormData(form);
-  const title='Kernellum contact: '+(fd.get('reason')||'Research discussion');
-  const body=['Name: '+fd.get('name'),'Organisation: '+(fd.get('org')||''),'Email: '+fd.get('email'),'','Message:',''+fd.get('message')].join('\n');
-  location.href='https://github.com/sushxnthd/kernellum/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body);
- });
+const form=$('#kernellum-contact');form?.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form),title='Kernellum contact: '+(fd.get('reason')||'Research discussion'),body=['Name: '+fd.get('name'),'Email: '+fd.get('email'),'','Message:',fd.get('message')].join('\n');location.href='https://github.com/sushxnthd/kernellum/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)});
+
+const revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting||e.target.dataset.revealed)return;e.target.dataset.revealed='1';e.target.animate([{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],{duration:850,easing:'cubic-bezier(.165,.84,.44,1)',fill:'both'})}),{rootMargin:'0px 0px -20% 0px',threshold:.01});
+$$('.text-intro p,.text-media .block-text>* ,.form-block .section-header>* ,.testimonial-block blockquote,.testimonial-block cite').forEach(el=>revealIO.observe(el));
+
+const canvas=$('.three-canvas'),particles=canvas?new ParticleField(canvas):null;
+const focus=$$('[data-particles]').map(el=>[el,el.dataset.particles]).filter(x=>x[1]);
+let focusEl=null,lastY=scrollY,lastToggle=scrollY,lastTime=performance.now(),smoothY=scrollY;
+function chooseFocus(){if(!particles)return;const vh=innerHeight,line=vh*(scrollY>lastY?.4:scrollY<lastY?.6:.5);let best=null,score=-1;focus.forEach(([el,shape])=>{const r=el.getBoundingClientRect(),vis=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));if(vis<vh*.05)return;const ratio=vis/Math.min(vh,r.height),d=(r.top<=line&&r.bottom>=line)?0:Math.min(Math.abs(r.top-line),Math.abs(r.bottom-line)),center=1-Math.min(1,d/vh),s=ratio*.6+center*.4;if(s>score){score=s;best=[el,shape]}});if(best&&best[0]!==focusEl){focusEl=best[0];particles.set(best[1])}}
+function frame(now){
+ const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;smoothY=lerp(smoothY,y,1-Math.exp(-8*dt));
+ if(header){let visible=header.classList.contains('visible'),hh=header.offsetHeight;if(y<hh)visible=true;else if(Math.abs(y-lastToggle)>=50){visible=dir<0;lastToggle=y}header.classList.toggle('visible',visible);header.style.transform=visible?'translateY(0)':'translateY(-150%)'}
+ if(headerSec&&!reduce.matches){const p=clamp(smoothY/vh);if(headerType==='left'){if(headerWraps[1])headerWraps[1].style.transform='translateX('+(-25*p)+'%)';if(headerImgs[1])headerImgs[1].style.transform='translateX('+(12.5*p)+'%)';if(headerWraps[2])headerWraps[2].style.transform='translateX('+(-25*p)+'%)';if(headerImgs[2])headerImgs[2].style.transform='translateX('+(12.5*p)+'%)'}else{if(headerWraps[1])headerWraps[1].style.transform='translateX('+(-25*p)+'%)';if(headerImgs[1])headerImgs[1].style.transform='translateX('+(12.5*p)+'%)';if(headerWraps[2])headerWraps[2].style.transform='translateX('+(25*p)+'%)';if(headerImgs[2])headerImgs[2].style.transform='translateX('+(-12.5*p)+'%)'}headerLines.forEach(l=>l.style.transform='translateY('+(-250*p)+'%)');if(headerImgs[0])headerImgs[0].style.transform='scale('+(1+.15*p)+')';if(subtitle){subtitle.style.opacity=String(Math.max(0,1-1.5*p));if(!mobile.matches)subtitle.style.transform='translateX('+(-5*p)+'vw)'}if(headerCta){headerCta.style.opacity=String(Math.max(0,1-1.5*p));if(!mobile.matches)headerCta.style.transform='translateX('+(5*p)+'vw)'}}
+ cards.forEach(list=>{const r=list.getBoundingClientRect(),p=clamp((vh-r.top)/(vh*.65));(list._cards||[]).forEach((c,i)=>{const lp=clamp((p-i*(150/800)*.35)/(1-i*.035)),e=1-Math.pow(1-lp,3);c.style.transform='translateY('+((100+i*50)*(1-e))+'px)'})});
+ largeSections.forEach(sec=>{const r=sec.getBoundingClientRect(),p=clamp((vh-r.bottom)/(vh*.5));(sec._lines||[]).forEach(l=>l.style.transform='translateY('+(100*(1-p))+'%)')});
+ chooseFocus();particles?.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
-
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
-$$('.reveal').forEach(el=>io.observe(el));
-
-const cv=$('#particle-stage canvas'),ctx=cv.getContext('2d');
-let w=0,h=0,dpr=1,pts=[],mx=innerWidth/2,my=innerHeight/2,tx=mx,ty=my;
-function resize(){
- dpr=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
- pts=[];const gap=w<700?18:14;const cols=Math.ceil(w/gap)+1,rows=Math.ceil(h/gap)+1;
- const x0=(w-(cols-1)*gap)/2,y0=(h-(rows-1)*gap)/2;
- for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){const r=Math.random();pts.push({x:x0+x*gap,y:y0+y*gap,a:r>.48?(.08+Math.pow(r,3)*.6):0,r:Math.random()})}
-}
-addEventListener('resize',resize,{passive:true});addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});resize();
-let last=performance.now();
-function draw(now){
- const dt=Math.min(.05,(now-last)/1000);last=now;mx+=(tx-mx)*(1-Math.exp(-5*dt));my+=(ty-my)*(1-Math.exp(-5*dt));ctx.clearRect(0,0,w,h);
- const sy=scrollY*.035;
- for(const p of pts){if(!p.a)continue;const y=((p.y-sy)%h+h)%h;const d=Math.hypot(p.x-mx,y-my),hot=Math.pow(Math.max(0,1-d/(Math.min(w,h)*.75)),1.8);const pulse=.45+.55*Math.sin(now*.0016+p.r*6.28);const rad=.4+2.6*pulse*p.a;const rr=Math.round(62+(227-62)*hot),gg=Math.round(58+(70-58)*hot),bb=Math.round(44+(8-44)*hot);ctx.fillStyle='rgba('+rr+','+gg+','+bb+','+(0.18+p.a*.62)+')';ctx.beginPath();ctx.arc(p.x,y,rad,0,Math.PI*2);ctx.fill()}
- requestAnimationFrame(draw)
-}
-requestAnimationFrame(draw);
-
-/* === BOON SOURCE-MATCH MOTION === */
-const boonReduce=matchMedia('(prefers-reduced-motion: reduce)');
-const boonClamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-const boonOutCubic=t=>1-Math.pow(1-t,3);
-
-function boonSplitHeading(el){
-  if(!el||el.dataset.boonSplit||el.children.length)return [];
-  el.dataset.boonSplit='chars';
-  const words=el.textContent.trim().split(/\s+/);
-  el.textContent='';
-  const chars=[];
-  words.forEach((word,wi)=>{
-    const ws=document.createElement('span');
-    ws.style.display='inline-block';
-    ws.style.whiteSpace='nowrap';
-    [...word].forEach(ch=>{
-      const c=document.createElement('span');
-      c.className='boon-char';
-      c.textContent=ch;
-      ws.appendChild(c); chars.push(c);
-    });
-    el.appendChild(ws);
-    if(wi<words.length-1)el.appendChild(document.createTextNode(' '));
-  });
-  return chars;
-}
-function boonSplitLines(el){
-  if(!el||el.dataset.boonSplit||el.children.length)return [];
-  el.dataset.boonSplit='lines';
-  const words=el.textContent.trim().split(/\s+/);
-  el.textContent='';
-  const probes=[];
-  words.forEach((word,wi)=>{
-    const w=document.createElement('span');
-    w.textContent=word;
-    w.style.whiteSpace='nowrap';
-    el.appendChild(w); probes.push(w);
-    if(wi<words.length-1)el.appendChild(document.createTextNode(' '));
-  });
-  const rows=[]; let lastTop=null,current=[];
-  probes.forEach(w=>{
-    const top=Math.round(w.offsetTop);
-    if(lastTop===null||Math.abs(top-lastTop)<=1){current.push(w.textContent)}
-    else{rows.push(current);current=[w.textContent]}
-    lastTop=top;
-  });
-  if(current.length)rows.push(current);
-  el.textContent='';
-  const lines=rows.map(wordsInLine=>{
-    const clip=document.createElement('span');clip.className='boon-line-clip';
-    const line=document.createElement('span');line.className='boon-line';line.textContent=wordsInLine.join(' ');
-    clip.appendChild(line);el.appendChild(clip);return line;
-  });
-  return lines;
-}
-function boonRevealScope(scope){
-  if(!scope||scope.dataset.boonReveal)return;
-  scope.dataset.boonReveal='1';
-  const headings=$$('h1,h2,h3,h4,h5,h6',scope);
-  const paragraphs=$$('p',scope).filter(p=>!p.closest('form'));
-  const labels=$$('.section-label,.eyebrow,.card-index,.n,.num',scope);
-  const chars=headings.flatMap(boonSplitHeading);
-  const lines=paragraphs.flatMap(boonSplitLines);
-  if(boonReduce.matches)return;
-  chars.forEach(c=>{c.style.opacity='0'});
-  lines.forEach(l=>{l.style.opacity='0';l.style.transform='translateY(50%)'});
-  labels.forEach(l=>{l.style.opacity='0';l.style.transform='translateY(20px)'});
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(!entry.isIntersecting)return;
-      io.disconnect();
-      let lineDelay=0;
-      lines.forEach(line=>{
-        line.animate([{opacity:0,transform:'translateY(50%)'},{opacity:1,transform:'translateY(0%)'}],
-          {duration:850,delay:(lineDelay+=25),easing:'cubic-bezier(.165,.84,.44,1)',fill:'forwards'});
-      });
-      chars.forEach((char,i)=>char.animate([{opacity:0},{opacity:1}],
-        {duration:650,delay:i*10,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'forwards'}));
-      labels.forEach((label,i)=>label.animate([{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0px)'}],
-        {duration:850,delay:50+i*25,easing:'cubic-bezier(.645,.045,.355,1)',fill:'forwards'}));
-    });
-  },{root:null,rootMargin:'0px 0px -20% 0px',threshold:0});
-  io.observe(scope);
-}
-
-function boonPageEnter(){
-  if(boonReduce.matches)return;
-  const main=$('main');
-  if(!main)return;
-  main.classList.add('boon-page-enter');
-  const anim=main.animate([
-    {clipPath:'inset(50% 25% 50% 25%)',transform:'scale(.5)',filter:'blur(8px)'},
-    {clipPath:'inset(0% 0% 0% 0%)',transform:'scale(1)',filter:'blur(0px)'}
-  ],{duration:1000,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'both'});
-  anim.finished.finally(()=>{main.style.clipPath='';main.style.transform='';main.style.filter=''});
-}
-boonPageEnter();
-$$('.hero,.section,.closing').forEach(boonRevealScope);
-
-const boonCards=$$('.cards>.card');
-if(boonCards.length&&!boonReduce.matches){
-  boonCards.forEach((card,i)=>{card.style.transform=`translateY(${100+i*50}px)`});
-  const updateBoonCards=()=>{
-    const wrap=$('.cards'); if(!wrap)return;
-    const r=wrap.getBoundingClientRect();
-    const p=boonClamp((innerHeight-r.top)/(innerHeight*.65));
-    boonCards.forEach((card,i)=>{
-      const delayed=boonClamp((p-i*(150/800)*.35)/(1-i*.035));
-      const e=boonOutCubic(delayed);
-      card.style.transform=`translateY(${(100+i*50)*(1-e)}px)`;
-    });
-  };
-  addEventListener('scroll',updateBoonCards,{passive:true});addEventListener('resize',updateBoonCards,{passive:true});updateBoonCards();
-}
-
-/* Lenis-equivalent source settings: root, syncTouch=true, touchMultiplier=1.5, default lerp≈0.1 */
-if(!boonReduce.matches){
-  let boonTarget=scrollY,boonCurrent=scrollY,boonDriving=false,boonTouchY=0;
-  const maxScroll=()=>Math.max(0,document.documentElement.scrollHeight-innerHeight);
-  addEventListener('wheel',e=>{
-    if(e.ctrlKey||e.metaKey)return;
-    const target=e.target;
-    if(target instanceof Element&&target.closest('input,textarea,select,[contenteditable="true"]'))return;
-    e.preventDefault();boonDriving=true;boonTarget=boonClamp(boonTarget+e.deltaY,0,maxScroll());
-  },{passive:false});
-  addEventListener('touchstart',e=>{if(e.touches[0])boonTouchY=e.touches[0].clientY},{passive:true});
-  addEventListener('touchmove',e=>{
-    if(!e.touches[0])return;
-    const y=e.touches[0].clientY,dy=(boonTouchY-y)*1.5;boonTouchY=y;
-    boonDriving=true;boonTarget=boonClamp(boonTarget+dy,0,maxScroll());
-  },{passive:true});
-  addEventListener('keydown',e=>{
-    const amount=e.key==='PageDown'?innerHeight*.9:e.key==='PageUp'?-innerHeight*.9:e.key==='ArrowDown'?40:e.key==='ArrowUp'?-40:0;
-    if(amount){e.preventDefault();boonDriving=true;boonTarget=boonClamp(boonTarget+amount,0,maxScroll())}
-  });
-  const boonLenisRaf=()=>{
-    if(boonDriving){
-      boonCurrent+=(boonTarget-boonCurrent)*.1;
-      if(Math.abs(boonTarget-boonCurrent)<.2){boonCurrent=boonTarget;boonDriving=false}
-      scrollTo(0,boonCurrent);
-    }else{boonCurrent=scrollY;boonTarget=scrollY}
-    requestAnimationFrame(boonLenisRaf);
-  };
-  requestAnimationFrame(boonLenisRaf);
-  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href');const target=id&&$(id);if(!target)return;e.preventDefault();
-    boonTarget=boonClamp(scrollY+target.getBoundingClientRect().top,0,maxScroll());boonCurrent=scrollY;boonDriving=true;
-  }));
-}
-
+requestAnimationFrame(frame);
 })();
