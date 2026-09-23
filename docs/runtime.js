@@ -160,7 +160,7 @@ if(heroTitle){
 }
 if(hero){
   const note=document.createElement('span');
-  note.className='k-editorial-note';note.textContent='Concept imagery';
+  note.className='k-editorial-note';note.textContent='KERNELLUM / RESEARCH';
   hero.appendChild(note);
 }
 
@@ -283,9 +283,9 @@ $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
 const sock=$('section.sock'); if(sock)sock.id='insights';
 const sockImgs=sock?$$('.images .image-wrapper img',sock):[];
 const sockUrls=[
- '/kernellum/assets/route-topology.svg',
- '/kernellum/assets/timing-field.svg',
- '/kernellum/assets/measurement-array.svg',
+ '/kernellum/assets/study-researcher.webp',
+ '/kernellum/assets/study-wafer.webp',
+ '/kernellum/assets/study-die.webp',
  '/kernellum/assets/architecture-die.svg'
 ];
 sockImgs.forEach((im,i)=>{if(sockUrls[i]){im.src=sockUrls[i];im.style.opacity='1'}});
@@ -305,12 +305,6 @@ $$('p,h1,h2,h3,h4,h5,span,a').forEach(el=>{
     el.textContent=el.textContent.replace(/\bBOON\b/g,'KERNELLUM').replace(/\bBoon\b/g,'Kernellum');
   }
 });
-const footerLogo=$('footer#footer a.logo');
-if(footerLogo){
-  footerLogo.setAttribute('aria-label','Kernellum');
-  footerLogo.href='/kernellum/';
-  footerLogo.innerHTML='<svg viewBox="0 0 89 24" role="img" aria-label="Kernellum"><text x="44.5" y="16.8" text-anchor="middle" fill="currentColor" font-family="MSCHN, sans-serif" font-size="11.4" font-weight="600" letter-spacing=".35">KERNELLUM</text></svg>';
-}
 const hrefMap=new Map([
   ['/what-we-do/','/kernellum/what-we-do/'],
   ['/who-we-are/','/kernellum/who-we-are/'],
@@ -321,60 +315,9 @@ const hrefMap=new Map([
 ]);
 $$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h)){a.setAttribute('href',hrefMap.get(h));if(a.getAttribute('href').startsWith('https://github.com/')){a.target='_blank';a.rel='noopener noreferrer'}}});
 const footer=$('footer#footer');
-if(footer){
-  const exactText=(from,to)=>$$('a,span',footer).forEach(el=>{
-    [...el.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim()===from).forEach(n=>n.textContent=' '+to+' ');
-  });
-  exactText('LinkedIn','GitHub');
-  exactText('Privacy Policy','Experiment Ledger');
-  exactText('Repository','Experiment Ledger');
-  exactText('ISO/IEC 27001 Cert.','Contribute');
-  exactText('Public Evidence','Contribute');
-  exactText('Join Us','Research');
-  exactText('Careers','Collaborate');
-  $$('a',footer).forEach(a=>{
-    const label=a.textContent.trim();
-    const href=label==='GitHub'||label==='Research'?'https://github.com/sushxnthd/kernellum':
-      label==='Experiment Ledger'?'https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md':
-      label==='Contribute'?'/kernellum/careers/':label==='Collaborate'?'/kernellum/contact/':null;
-    if(!href)return;
-    a.href=href;
-    if(href.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer'}
-    else{a.removeAttribute('target');a.removeAttribute('rel')}
-  });
-}
+if(footer)footer.outerHTML=window.KernellumFooter();
 
 /* ---------- Kernellum microinteractions ---------- */
-const animateFooterDotIcon=(icon,show)=>{
-  const dots=$$('.dot',icon);if(!dots.length)return;
-  const order=dots.map((_,i)=>i);
-  dots.forEach((dot,i)=>{
-    dot.getAnimations().forEach(a=>a.cancel());
-    const delay=order[i]*25;
-    if(show){
-      dot.animate(
-        [{opacity:0},{opacity:1},{opacity:0},{opacity:1},{opacity:.5},{opacity:1}],
-        {duration:375,delay,easing:'steps(2,end)',fill:'forwards'}
-      );
-    }else{
-      dot.animate([{opacity:getComputedStyle(dot).opacity},{opacity:0}],
-        {duration:220,delay:(dots.length-1-i)*8,easing:'steps(2,end)',fill:'forwards'});
-    }
-  });
-};
-$$('footer#footer nav a').forEach(link=>{
-  const icons=$$('.dot-icon',link);
-  icons.forEach(icon=>$$('.dot',icon).forEach(d=>d.style.opacity='0'));
-  link.addEventListener('pointerenter',()=>icons.forEach(icon=>animateFooterDotIcon(icon,true)));
-  link.addEventListener('pointerleave',()=>icons.forEach(icon=>animateFooterDotIcon(icon,false)));
-});
-$$('footer#footer nav,footer#footer .cta,footer#footer .logo').forEach(surface=>{
-  surface.addEventListener('pointermove',e=>{
-    const r=surface.getBoundingClientRect();
-    surface.style.setProperty('--krn-glow-x',((e.clientX-r.left)/r.width*100)+'%');
-    surface.style.setProperty('--krn-glow-y',((e.clientY-r.top)/r.height*100)+'%');
-  },{passive:true});
-});
 $$('div.btn-wrapper .btn').forEach(btn=>{
   btn.addEventListener('pointerenter',()=>btn.classList.add('k-hover'));
   btn.addEventListener('pointerleave',()=>btn.classList.remove('k-hover'));

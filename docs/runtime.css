@@ -252,3 +252,11 @@ footer#footer nav,footer#footer .cta,footer#footer .logo{
 #header a:focus-visible,#header button:focus-visible,footer#footer a:focus-visible{
   outline:2px solid var(--krn-signal);outline-offset:3px;
 }
+
+/* Shared print-like art direction and readable glass over the hero image. */
+.page-header.home .images>.image-wrapper img{filter:brightness(.64) saturate(.4) contrast(1.18)!important}
+.page-header.home .images>.image-wrapper:not(:first-child){border-color:rgba(242,241,235,.32);box-shadow:0 20px 65px rgba(0,0,0,.55)}
+.page-header.home .title{text-shadow:0 3px 28px #070907,0 1px 65px #070907}
+.page-header.home .subtitle{background:rgba(5,10,7,.84)!important;-webkit-backdrop-filter:blur(32px) saturate(105%);backdrop-filter:blur(32px) saturate(105%);border:1px solid rgba(242,241,235,.18);line-height:1.45}
+.card-grid .cards .card{background:rgba(5,11,8,.84)!important;-webkit-backdrop-filter:blur(30px) saturate(110%);backdrop-filter:blur(30px) saturate(110%)}
+.k-editorial-note{display:none!important}

@@ -74,10 +74,6 @@ const arrowSvg='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d=
 const arrow=(label,href)=>'<a class="arrow-link" href="'+href+'"><span>'+label+'</span><span class="btn-arrow-stack" aria-hidden="true"><span class="arr one">'+arrowSvg+'</span><span class="arr two">'+arrowSvg+'</span></span></a>';
 const navPips=()=>'<span class="k-nav-pips" aria-hidden="true"><i></i><i></i></span>';
 const menuDots=()=>'<b class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b>';
-const footerArrowDots=()=>'<span class="footer-dot-icon arrow" aria-hidden="true">'+[[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[4,1],[4,5],[5,2],[5,4]].map(([c,r])=>'<i style="grid-column:'+c+';grid-row:'+r+'"></i>').join('')+'</span>';
-const footerPips=()=>'<span class="footer-dot-icon pips" aria-hidden="true"><i></i><i></i></span>';
-const footerCorner=()=>'<span class="footer-corner" aria-hidden="true">'+Array.from({length:9},()=>'<i></i>').join('')+'</span>';
-
 const header=`<header id="header" class="visible"><div class="nav-bar">
 <a class="logo" href="${base}" aria-label="Kernellum"><span class="wordmark">KERNELLUM</span></a>
 <button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p>${menuDots()}</button>
@@ -89,29 +85,13 @@ const header=`<header id="header" class="visible"><div class="nav-bar">
 <li><a href="${base}contact/" ${route==='contact'?'aria-current="page"':''}>${navPips()}<span>Contact</span>${navPips()}</a></li>
 </ul></nav></div></div></header>`;
 
-const footer=`<footer class="k-footer">
-<div class="footer-dot-wrapper">${footerCorner()}${footerCorner()}${footerCorner()}${footerCorner()}</div>
-<div class="k-footer-container">
-<nav class="k-footer-primary" aria-label="Primary Footer Nav">
-<a href="${base}what-we-do/"><span>What We Do</span>${footerArrowDots()}</a>
-<a href="${base}who-we-are/"><span>Who We Are</span>${footerArrowDots()}</a>
-<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener"><span>Research</span>${footerArrowDots()}</a>
-<a href="${base}contact/"><span>Collaborate</span>${footerArrowDots()}</a>
-</nav>
-<div class="k-footer-cta">${arrow('Contact',base+'contact/')}</div>
-<nav class="k-footer-secondary" aria-label="Secondary Footer Nav">
-<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>GitHub</span>${footerPips()}</a>
-<a href="https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md" target="_blank" rel="noopener">${footerPips()}<span>Experiment Ledger</span>${footerPips()}</a>
-<a href="${base}careers/">${footerPips()}<span>Contribute</span>${footerPips()}</a>
-</nav>
-<a class="k-footer-brand" href="${base}">KERNELLUM</a>
-</div></footer>`;
+const footer=window.KernellumFooter();
 
 const particlePlans={
-  'what-we-do':{hero:'circuit',statement:'rings-horizontal',cards:'circuit',features:'matrix',closing:'rings-horizontal'},
-  'who-we-are':{hero:'rings-vertical',intro:'image',values:'rings-horizontal',closing:'rings-vertical'},
-  'careers':{hero:'matrix',statement:'grid',cards:'matrix',features:'grid',closing:'matrix'},
-  'contact':{hero:'image',contact:'rings-vertical',closing:'image'}
+  'what-we-do':{hero:'traces',statement:'traces',cards:'circuit',features:'matrix',closing:'traces'},
+  'who-we-are':{hero:'image',intro:'image',values:'rings-vertical',closing:'image'},
+  'careers':{hero:'constellation',statement:'grid',cards:'constellation',features:'matrix',closing:'constellation'},
+  'contact':{hero:'focus',contact:'focus',closing:'focus'}
 };
 const particlePlan=particlePlans[route]||{hero:'none',closing:'rings-vertical'};
 const heroType=route==='what-we-do'?'left':'center';
@@ -122,7 +102,7 @@ const hero=`<section class="route-page-header ${heroType} route-${route}" data-p
   <figure class="route-image"><div class="route-viz viz-b"></div></figure>
 </div>
 <div class="route-content">
-  <span class="k-editorial-note">Concept imagery</span>
+
   <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
   <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Open GitHub':'Explore the work',route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div></div>
 </div>
@@ -133,6 +113,12 @@ function blockCards(){
  return `<section class="section card-section" id="content" data-particles="${particlePlan.cards}"><div>
  <div class="section-label">${route==='careers'?'Open research':'The opportunity'}</div>
  <h2 class="display wide">${route==='careers'?'Work across the whole stack.':'From estimate to evidence.'}</h2>
+ ${route==='what-we-do'?`<div class="evidence-ledger" aria-label="K1 research results">
+  <div><strong>12 / 12</strong><span>Transformer GEMMs improved over the initial routed optimum in the K1 active search</span></div>
+  <div><strong>9.88%</strong><span>of the frozen design space physically implemented in the controlled experiment</span></div>
+  <div><strong>6.475%</strong><span>final-route Fmax surrogate error on newly selected candidates</span></div>
+  <p>Routed estimates on ECP5, not board-measured latency or power. <a href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md" target="_blank" rel="noopener noreferrer">Read the K1 report ↗</a></p>
+ </div>`:''}
  <div class="cards">${data.blocks.map((b,i)=>`<article class="card"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
  </div></section>`;
 }
@@ -266,21 +252,6 @@ $$('.expand-menu a').forEach(a=>{
   a.addEventListener('pointerleave',()=>$$('.k-nav-pips',a).forEach(x=>blinkSequence($$('i',x),false,false)));
 });
 
-/* Footer: source-style dot icon pulse and lightweight ThreeView-like glow. */
-$$('.k-footer nav a').forEach(a=>{
-  const icons=$$('.footer-dot-icon',a);
-  icons.forEach(icon=>$$('i',icon).forEach(d=>d.style.opacity='0'));
-  a.addEventListener('pointerenter',()=>icons.forEach(icon=>blinkSequence($$('i',icon),true,false)));
-  a.addEventListener('pointerleave',()=>icons.forEach(icon=>blinkSequence($$('i',icon),false,false)));
-});
-$$('.k-footer-primary,.k-footer-secondary,.k-footer-cta,.k-footer-brand').forEach(surface=>{
-  surface.addEventListener('pointermove',e=>{
-    const r=surface.getBoundingClientRect();
-    surface.style.setProperty('--gx',((e.clientX-r.left)/r.width*100)+'%');
-    surface.style.setProperty('--gy',((e.clientY-r.top)/r.height*100)+'%');
-  },{passive:true});
-});
-
 class ParticleField{
   constructor(canvas){
     this.canvas=canvas;
@@ -319,17 +290,19 @@ class ParticleField{
       'finalPos.x+=(rand1-0.5)*250.0*pathArc;','finalPos.y+=(rand2-0.5)*250.0*pathArc;',
       'finalPos.xy+=uMouse*finalPos.z*4.0*uParallaxStrength;',
       'if(uMotionMode<1.5){',
-      'finalPos.x+=sin(uTime*2.2+finalPos.y*.022+rand1*6.28)*12.0;',
+      'finalPos.y+=sin(finalPos.x*.008-uTime*1.4+rand1)*2.0;',
       '}else if(uMotionMode<2.5){',
-      'float a=uTime*.035;finalPos.xy=mat2(cos(a),-sin(a),sin(a),cos(a))*finalPos.xy;',
-      'finalPos.xy*=1.0+.015*sin(uTime*.8);',
+      'finalPos.xy*=1.0+.018*sin(uTime*.8);finalPos.x+=sin(finalPos.y*.009+uTime*.5)*4.0;',
       '}else if(uMotionMode<3.5){',
-      'finalPos.y+=sin(uTime*1.4+finalPos.x*.015+rand1*2.0)*9.0;',
+      'finalPos.xy+=vec2(sin(uTime*.9+rand1*25.0),cos(uTime*.72+rand1*31.0))*8.0;',
       '}else{',
-      'float r=length(finalPos.xy);finalPos.xy+=normalize(finalPos.xy+vec2(.001))*(sin(r*.018-uTime*1.8)*13.0);',
+      'float r=length(finalPos.xy);float a=.025*sin(uTime*.7+r*.008);finalPos.xy=mat2(cos(a),-sin(a),sin(a),cos(a))*finalPos.xy;finalPos.xy+=normalize(finalPos.xy+vec2(.001))*sin(r*.015-uTime*1.7)*10.0;',
       '}',
       'gl_Position=vec4(finalPos.x/(uViewport.x*0.5),finalPos.y/(uViewport.y*0.5),0.0,1.0);',
-      'float finalScale=mix(aScale,aTargetScale,uTransition);','vScale=finalScale;',
+      'float finalScale=mix(aScale,aTargetScale,uTransition);',
+      'if(uMotionMode<1.5){float pulse=pow(max(0.0,sin(finalPos.x*.018-uTime*2.7+rand1*.4)),10.0);finalScale*=.35+1.35*pulse;}',
+      'if(uMotionMode>3.5){float pulse=pow(max(0.0,sin(length(finalPos.xy)*.02-uTime*2.0)),6.0);finalScale*=.35+1.1*pulse;}',
+      'vScale=finalScale;',
       'float pulse=sin(uTime*2.0+(rand1*6.283185307179586))*0.5+0.5;',
       'float oscillationScale=mix(0.35,0.9,pulse);','gl_PointSize=uBaseSize*oscillationScale*finalScale;',
       'vec2 mouseWorld=uMouse*uViewport*0.5;','float distToMouse=distance(finalPos.xy,mouseWorld);',
@@ -367,7 +340,7 @@ class ParticleField{
   }
   uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
   loadImage(){
-    const im=new Image();im.src='/kernellum/assets/particle-mask.svg';
+    const im=new Image();im.src='/kernellum/assets/study-researcher.webp';
     im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
   }
   resize(){
@@ -427,6 +400,31 @@ class ParticleField{
       o.scales[i]=(col%7===0||row%7===0||((col+row)%11===0))?.95:.15;
     }return o;
   }
+  makeTraces(){
+    const o=this.empty(),order=this.shuffle(),prior=this.positions,lanes=21,points=Math.max(12,Math.floor(this.w/12));
+    for(let n=0;n<this.count;n++){const i=order[n];if(n>=lanes*points){this.fallback(o.positions,o.scales,i,prior);continue}
+      const lane=n%lanes,step=Math.floor(n/lanes),x=(step/(points-1)-.5)*this.w*1.1;
+      const route=(lane-10)*this.h/29+Math.sign(x)*Math.min(90,Math.abs(x)*.25)*(lane%4===0?1:lane%4===1?-1:0);
+      o.positions[i*3]=x;o.positions[i*3+1]=route;o.positions[i*3+2]=lane*.5;
+      o.scales[i]=(step%17===0||step===points-1)?1.3:.72;
+    }return o;
+  }
+  makeConstellation(){
+    const o=this.empty(),order=this.shuffle(),prior=this.positions,centers=[[-.31,-.22],[.25,-.27],[-.08,.22],[.34,.23]],n=Math.min(this.count,Math.floor(this.w*this.h/235));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,prior);continue}
+      const cluster=centers[k%4],a=k*2.39996,r=Math.sqrt((k/4)%Math.max(1,n/4))*this.gap*.72;
+      o.positions[i*3]=cluster[0]*this.w+Math.cos(a)*r;o.positions[i*3+1]=cluster[1]*this.h+Math.sin(a)*r;o.positions[i*3+2]=(k%9)*2;
+      o.scales[i]=(k%13===0)?1.5:.25+(k%5)*.13;
+    }return o;
+  }
+  makeFocus(){
+    const o=this.empty(),order=this.shuffle(),prior=this.positions,rings=15,per=Math.max(24,Math.floor(Math.PI*Math.min(this.w,this.h)/this.gap));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=rings*per){this.fallback(o.positions,o.scales,i,prior);continue}
+      const ring=Math.floor(k/per),a=k%per/per*Math.PI*2,r=(ring+1)*Math.min(this.w,this.h)/39;
+      o.positions[i*3]=Math.cos(a)*r*1.3;o.positions[i*3+1]=Math.sin(a)*r*.82;o.positions[i*3+2]=-ring*1.5;
+      o.scales[i]=(k%31===0)?1.3:.5;
+    }return o;
+  }
   makeImage(){
     if(!this.imageReady||!this.image)return this.makeNone();
     const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
@@ -437,7 +435,7 @@ class ParticleField{
     const o=this.empty(),prior=this.positions,order=this.shuffle();
     for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
-  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();if(shape==='circuit')return this.makeCircuit();if(shape==='wave')return this.makeWave();if(shape==='matrix')return this.makeMatrix();return this.makeNone()}
+  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();if(shape==='circuit')return this.makeCircuit();if(shape==='wave')return this.makeWave();if(shape==='matrix')return this.makeMatrix();if(shape==='traces')return this.makeTraces();if(shape==='constellation')return this.makeConstellation();if(shape==='focus')return this.makeFocus();return this.makeNone()}
   transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
   bake(now=performance.now()){
     if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
@@ -461,15 +459,16 @@ class ParticleField{
         let px=lerp(this.positions[j],this.targetPositions[j],t)+this.mouseX*z*4*this.parallax;
         let py=lerp(this.positions[j+1],this.targetPositions[j+1],t)+this.mouseY*z*4*this.parallax;
         const seconds=now*.001;
-        if(this.motionMode===1)px+=Math.sin(seconds*2.2+py*.022+this.random[i]*6.28)*12;
-        else if(this.motionMode===2){const a=seconds*.035,s=1+.015*Math.sin(seconds*.8),ox=px;px=(ox*Math.cos(a)-py*Math.sin(a))*s;py=(ox*Math.sin(a)+py*Math.cos(a))*s}
-        else if(this.motionMode===3)py+=Math.sin(seconds*1.4+px*.015+this.random[i]*2)*9;
-        else if(this.motionMode===4){const d=Math.hypot(px,py)||1,shift=Math.sin(d*.018-seconds*1.8)*13;px+=px/d*shift;py+=py/d*shift}
+        if(this.motionMode===1)py+=Math.sin(px*.008-seconds*1.4+this.random[i])*2;
+        else if(this.motionMode===2){const s=1+.018*Math.sin(seconds*.8);px=px*s+Math.sin(py*.009+seconds*.5)*4;py*=s}
+        else if(this.motionMode===3){px+=Math.sin(seconds*.9+this.random[i]*25)*8;py+=Math.cos(seconds*.72+this.random[i]*31)*8}
+        else if(this.motionMode===4){const d=Math.hypot(px,py)||1,a=.025*Math.sin(seconds*.7+d*.008),ox=px;px=(ox*Math.cos(a)-py*Math.sin(a))+ox/d*Math.sin(d*.015-seconds*1.7)*10;py=(ox*Math.sin(a)+py*Math.cos(a))+py/d*Math.sin(d*.015-seconds*1.7)*10}
         const x=px+this.w/2,y=this.h/2-py;
         if(x<0||x>this.w||y<0||y>this.h)continue;
         const pulse=.68+.32*Math.sin(now*.002+this.random[i]*6.28);
-        c.globalAlpha=Math.min(.75,(.25+.35*(1-Math.hypot(x-this.w/2,y-this.h/2)/Math.max(this.w,this.h)))*scale);
-        c.beginPath();c.arc(x,y,Math.max(.5,2.1*scale*pulse),0,Math.PI*2);c.fill();
+        const travel=this.motionMode===1?.35+1.35*Math.pow(Math.max(0,Math.sin(px*.018-seconds*2.7+this.random[i]*.4)),10):this.motionMode===4?.35+1.1*Math.pow(Math.max(0,Math.sin(Math.hypot(px,py)*.02-seconds*2)),6):1;
+        c.globalAlpha=Math.min(.75,(.25+.35*(1-Math.hypot(x-this.w/2,y-this.h/2)/Math.max(this.w,this.h)))*scale*travel);
+        c.beginPath();c.arc(x,y,Math.max(.5,2.1*scale*pulse*travel),0,Math.PI*2);c.fill();
       }
       c.globalAlpha=1;return;
     }
