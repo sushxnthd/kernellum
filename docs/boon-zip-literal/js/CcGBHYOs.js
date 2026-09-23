@@ -1,1 +1,0 @@
-class r{#s;#e;#t=new Map;constructor(s){this.#e=s}#i(){return this.#s||(this.#s=new IntersectionObserver(s=>{s.forEach(t=>{this.#t.get(t.target)?.(t.isIntersecting)})},this.#e)),this.#s}observe(s,t){s&&(this.#t.set(s,t),this.#i().observe(s))}unobserve(s){s&&(this.#t.delete(s),this.#s?.unobserve(s),this.#t.size||(this.#s?.disconnect(),this.#s=void 0))}}export{r as I};

@@ -1,1 +1,0 @@
-This path intentionally uses only the CSS/JS chunk filenames present in the user's saveweb2zip capture. Any requests to /__missing_from_zip__/ identify assets absent from the ZIP.

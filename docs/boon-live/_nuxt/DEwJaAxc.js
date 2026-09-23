@@ -1,1 +1,0 @@
-import{d as e,h as t,o,_ as a}from"./BWg2ILet.js";import"./DTVziQxs.js";import"./BSgwrZLn.js";import"./CpJfINCX.js";import"./CV1CKauh.js";const s={class:"example"},p=e({__name:"Example",setup(_){return(c,m)=>(o(),t("section",s))}}),d=Object.assign(a(p,[["__scopeId","data-v-f7638304"]]),{__name:"Example"});export{d as default};

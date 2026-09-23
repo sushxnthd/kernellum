@@ -43,11 +43,11 @@ if(header){
       <div class="expand-menu" aria-hidden="true">
         <nav aria-label="Primary">
           <ul>
-            <li><a href="/kernellum/boon-rebuild/">Home</a></li>
-            <li><a href="/kernellum/boon-rebuild/what-we-do/">What We Do</a></li>
-            <li><a href="/kernellum/boon-rebuild/who-we-are/">Who We Are</a></li>
-            <li><a href="/kernellum/boon-rebuild/careers/">Careers</a></li>
-            <li><a href="/kernellum/boon-rebuild/contact/">Contact</a></li>
+            <li><a href="/kernellum/">Home</a></li>
+            <li><a href="/kernellum/what-we-do/">What We Do</a></li>
+            <li><a href="/kernellum/who-we-are/">Who We Are</a></li>
+            <li><a href="/kernellum/careers/">Careers</a></li>
+            <li><a href="/kernellum/contact/">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -247,14 +247,14 @@ $$('p,h1,h2,h3,h4,h5,span,a').forEach(el=>{
 const footerLogo=$('footer#footer a.logo');
 if(footerLogo){
   footerLogo.setAttribute('aria-label','Kernellum');
-  footerLogo.href='/kernellum/boon-rebuild/';
+  footerLogo.href='/kernellum/';
   footerLogo.innerHTML='<svg viewBox="0 0 89 24" role="img" aria-label="Kernellum"><text x="44.5" y="16.8" text-anchor="middle" fill="currentColor" font-family="MSCHN, sans-serif" font-size="11.4" font-weight="600" letter-spacing=".35">KERNELLUM</text></svg>';
 }
 const hrefMap=new Map([
-  ['/what-we-do/','/kernellum/boon-rebuild/what-we-do/'],
-  ['/who-we-are/','/kernellum/boon-rebuild/who-we-are/'],
-  ['/contact/','/kernellum/boon-rebuild/contact/'],
-  ['/careers/','/kernellum/boon-rebuild/careers/'],
+  ['/what-we-do/','/kernellum/what-we-do/'],
+  ['/who-we-are/','/kernellum/who-we-are/'],
+  ['/contact/','/kernellum/contact/'],
+  ['/careers/','/kernellum/careers/'],
   ['/legal/privacy-policy/','https://github.com/sushxnthd/kernellum'],
   ['https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum']
 ]);
@@ -367,7 +367,7 @@ class ParticleField{
   }
   uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
   loadImage(){
-    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/boon-rebuild/assets/particle-image.png?v=2';
+    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/assets/particle-image.png?v=2';
     im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
   }
   resize(){

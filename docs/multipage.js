@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const base='/kernellum/boon-rebuild/';
+const base='/kernellum/';
 const route=location.pathname.replace(base,'').replace(/\/+$/,'')||'home';
 const pages={
 'what-we-do':{
