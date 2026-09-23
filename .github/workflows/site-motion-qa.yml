@@ -28,7 +28,7 @@ jobs:
           mkdir -p /tmp/site/kernellum qa-screens
           cp -a docs/. /tmp/site/kernellum/
           python3 -m http.server 4173 -d /tmp/site >/tmp/kernellum-http.log 2>&1 &
-          cat > /tmp/qa.mjs <<'NODE'
+          cat > qa.mjs <<'NODE'
           import { chromium } from 'playwright';
           const browser=await chromium.launch({headless:true});
           const pages=['','what-we-do/','who-we-are/','careers/','contact/'];
@@ -96,7 +96,7 @@ jobs:
           await browser.close();
           if(failed)process.exit(1);
           NODE
-          node /tmp/qa.mjs
+          node qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
