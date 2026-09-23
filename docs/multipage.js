@@ -616,9 +616,9 @@ function scrubReveals(vh){
 
 /* Scroll-scrubbed PageHeader / LargeText / CardGrid */
 const heroEl=$('.route-page-header'),heroTitle=$('.route-title'),heroLines=splitLines(heroTitle);
-const heroImages=$$('.route-image'),heroViz=$$('.route-viz'),heroSub=$('.route-subtitle'),heroCta=$('.route-cta');
-const statement=$('.large-statement'),statementLines=statement?splitLines($('h2',statement)):[];
-if(!reduce.matches)statementLines.forEach(l=>l.style.transform='translateY(100%)');
+const heroImages=$('.route-image'),heroViz=$('.route-image img'),heroSub=$('.route-subtitle'),heroCta=$('.route-cta');
+const statements=$('.large-statement').map(function(el){return {el:el,lines:splitLines($('h2',el))};});
+if(!reduce.matches)statements.forEach(function(st){st.lines.forEach(function(l){l.style.transform='translateY(100%)';});});
 const cards=$$('.cards>.card');
 if(!reduce.matches)cards.forEach((c,i)=>c.style.transform='translateY('+(100+i*50)+'px)');
 
@@ -693,9 +693,8 @@ function frame(now){
       c.style.transform='translateY('+((100+i*50)*(1-e))+'px)';
     });
   }
-  if(statement&&!reduce.matches){
-    const r=smoothRect(statement),p=clamp((vh*.9-r.top)/(vh*.85));
-    statementLines.forEach(l=>l.style.transform='translateY('+(100*(1-p))+'%)');
+  if(statements.length&&!reduce.matches){
+    statements.forEach(function(st){const r=smoothRect(st.el),p=clamp((vh*.9-r.top)/(vh*.85));st.lines.forEach(function(l){l.style.transform='translateY('+(100*(1-p))+'%)';});});
   }
   scrubReveals(vh);chooseFocus();particles?.draw(now,dt);lastY=y;requestAnimationFrame(frame);
 }
