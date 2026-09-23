@@ -84,3 +84,14 @@ a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit;c
   .k-footer-container{grid-template-columns:1fr;grid-template-areas:"logo""nav""cta""legal";margin-inline:0}.k-footer-secondary{flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.boon-line,.boon-char{transform:none!important;opacity:1!important}}
+
+/* BOON-style two-arrow CTA swap, translated to Kernellum green. */
+.btn-arrow-stack{width:.9rem;height:.9rem;position:relative;overflow:hidden;display:inline-block;flex:none}
+.btn-arrow-stack .arr{position:absolute;inset:0;display:grid;place-items:center;transition:transform .42s cubic-bezier(.16,1,.3,1)}
+.btn-arrow-stack .arr.two{transform:translateX(-100%)}
+.btn-arrow-stack svg{width:100%;height:100%;display:block;color:var(--signal)}
+.arrow-link:hover .btn-arrow-stack .arr.one{transform:translateX(100%)}
+.arrow-link:hover .btn-arrow-stack .arr.two{transform:translateX(0)}
+.arrow-link{transition:color .2s ease}.arrow-link:hover{color:var(--signal)}
+.wordmark,.route-title,.display,.large-statement h2,.k-footer-brand,.expand-btn,.expand-menu a,.submit,.arrow-link{font-family:var(--display)!important}
+body,p,.route-subtitle,.lede,.body-copy,.card,.feature,.value,.section-label,.route-label{font-family:var(--body)!important}
