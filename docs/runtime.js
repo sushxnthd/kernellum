@@ -377,8 +377,9 @@ class ParticleField{
     this.parallax=0;this.parallaxFrom=0;this.parallaxTo=0;this.start=0;
     this.mouseX=0;this.mouseY=0;this.targetMouseX=0;this.targetMouseY=0;
     this.image=null;this.imageReady=false;this.count=0;
-    if(!this.gl){this.disabled=true;return}
-    this.initGL();
+    if(this.gl)this.initGL();
+    else this.ctx=canvas.getContext('2d',{alpha:true});
+    if(!this.gl&&!this.ctx){this.disabled=true;return}
     addEventListener('mousemove',e=>{this.targetMouseX=e.clientX/innerWidth*2-1;this.targetMouseY=-(e.clientY/innerHeight)*2+1},{passive:true});
     addEventListener('mouseleave',()=>{this.targetMouseX=0;this.targetMouseY=0},{passive:true});
     addEventListener('resize',()=>this.resize(),{passive:true});
@@ -438,7 +439,7 @@ class ParticleField{
     g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,36/255,107/255,73/255);g.uniform3f(this.loc.highlight,185/255,243/255,93/255);
   }
   bindBuffer(name,data,size){
-    if(this.disabled)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
+    if(this.disabled||!this.gl)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
     g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,data,g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc);g.vertexAttribPointer(loc,size,g.FLOAT,false,0,0);
   }
   uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
@@ -449,8 +450,8 @@ class ParticleField{
   resize(){
     if(this.disabled)return;
     const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight,g=this.gl;this.w=w;this.h=h;this.dpr=dpr;
-    this.canvas.width=Math.floor(w*dpr);this.canvas.height=Math.floor(h*dpr);this.canvas.style.width=w+'px';this.canvas.style.height=h+'px';g.viewport(0,0,this.canvas.width,this.canvas.height);
-    this.gap=13.5;this.cols=Math.ceil(w/this.gap)+1;this.rows=Math.ceil(h/this.gap)+1;this.count=this.cols*this.rows;
+    this.canvas.width=Math.floor(w*dpr);this.canvas.height=Math.floor(h*dpr);this.canvas.style.width=w+'px';this.canvas.style.height=h+'px';if(g)g.viewport(0,0,this.canvas.width,this.canvas.height);
+    this.gap=g?13.5:22;this.cols=Math.ceil(w/this.gap)+1;this.rows=Math.ceil(h/this.gap)+1;this.count=this.cols*this.rows;
     this.startX=this.cols*this.gap/-2+this.gap/2;this.startY=this.rows*this.gap/-2+this.gap/2;
     const base=this.makeNone();this.positions=base.positions;this.scales=base.scales;this.targetPositions=new Float32Array(this.positions);this.targetScales=new Float32Array(this.scales);
     this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.uploadAll();
@@ -526,9 +527,24 @@ class ParticleField{
     this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=shape==='none'||shape==='image'?0:1;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
   }
   draw(now,dt){
-    if(this.disabled)return;const g=this.gl;g.useProgram(this.program);this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
+    if(this.disabled)return;this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
     let t=this.morphing?this.transitionValue(now):this.transition;
     if(this.morphing){const raw=clamp((now-this.start)/this.duration);this.parallax=lerp(this.parallaxFrom,this.parallaxTo,t);if(raw>=1){this.positions=new Float32Array(this.targetPositions);this.scales=new Float32Array(this.targetScales);this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);this.transition=0;t=0;this.morphing=false;this.parallax=this.parallaxTo}}
+    if(this.ctx){
+      const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);c.clearRect(0,0,this.w,this.h);c.fillStyle='#b9f35d';
+      for(let i=0;i<this.count;i++){
+        const j=i*3,scale=lerp(this.scales[i],this.targetScales[i],t);if(scale<.08)continue;
+        const z=lerp(this.positions[j+2],this.targetPositions[j+2],t);
+        const x=lerp(this.positions[j],this.targetPositions[j],t)+this.mouseX*z*4*this.parallax+this.w/2;
+        const y=this.h/2-lerp(this.positions[j+1],this.targetPositions[j+1],t)-this.mouseY*z*4*this.parallax;
+        if(x<0||x>this.w||y<0||y>this.h)continue;
+        const pulse=.68+.32*Math.sin(now*.002+this.random[i]*6.28);
+        c.globalAlpha=Math.min(.75,(.25+.35*(1-Math.hypot(x-this.w/2,y-this.h/2)/Math.max(this.w,this.h)))*scale);
+        c.beginPath();c.arc(x,y,Math.max(.5,2.1*scale*pulse),0,Math.PI*2);c.fill();
+      }
+      c.globalAlpha=1;return;
+    }
+    const g=this.gl;g.useProgram(this.program);
     g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
   }
 }
