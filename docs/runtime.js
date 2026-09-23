@@ -319,16 +319,19 @@ const footer=$('footer#footer');
 if(footer){
   const exactText=(from,to)=>$$('a,span',footer).forEach(el=>{if(el.children.length===0&&el.textContent.trim()===from)el.textContent=to});
   exactText('LinkedIn','GitHub');
-  exactText('Privacy Policy','Repository');
-  exactText('ISO/IEC 27001 Cert.','Public Evidence');
+  exactText('Privacy Policy','Experiment Ledger');
+  exactText('ISO/IEC 27001 Cert.','Contribute');
   exactText('Join Us','Research');
+  exactText('Careers','Collaborate');
   $$('a',footer).forEach(a=>{
     const label=a.textContent.trim();
-    if(label==='GitHub'||label==='Repository'||label==='Public Evidence'||label==='Research'){
-      a.href='https://github.com/sushxnthd/kernellum';
-      a.target='_blank';
-      a.rel='noopener noreferrer';
-    }
+    const href=label==='GitHub'||label==='Research'?'https://github.com/sushxnthd/kernellum':
+      label==='Experiment Ledger'?'https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md':
+      label==='Contribute'?'/kernellum/careers/':label==='Collaborate'?'/kernellum/contact/':null;
+    if(!href)return;
+    a.href=href;
+    if(href.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer'}
+    else{a.removeAttribute('target');a.removeAttribute('rel')}
   });
 }
 

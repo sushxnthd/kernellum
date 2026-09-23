@@ -140,6 +140,42 @@ h1,h2,h3{font-weight:500!important}
 #header .logo text,footer#footer .logo text{font-weight:600!important;letter-spacing:.02em!important}
 footer#footer a.logo svg{width:89px!important;height:24px!important;flex:none}
 
+/* Editorial hardware photographs anchor the home hero; diagrams remain in the research section. */
+.page-header.home .images>.image-wrapper img{filter:brightness(.88) saturate(.74) contrast(1.1)!important}
+.page-header.home .images>.image-wrapper:first-child img{object-position:center 60%}
+.page-header.home .subtitle{
+  color:var(--krn-bone)!important;
+  background:rgba(7,12,8,.72);
+  -webkit-backdrop-filter:blur(22px) saturate(120%);
+  backdrop-filter:blur(22px) saturate(120%);
+  padding:1rem 1.2rem;
+  border-radius:.5rem;
+  box-shadow:inset 0 0 0 1px rgba(220,242,218,.14);
+}
+.page-header.home .title{text-shadow:0 2px 35px rgba(0,0,0,.6)}
+
+/* Shared opaque glass material for consistent readability on every route. */
+#header .logo,#header .expand-btn,#header .expand-menu,
+footer#footer nav,footer#footer .cta,footer#footer .logo{
+  background-color:rgba(8,16,11,.76)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(125%)!important;
+  backdrop-filter:blur(26px) saturate(125%)!important;
+  box-shadow:inset 0 0 0 1px rgba(220,242,218,.17),0 18px 45px rgba(0,0,0,.24)!important;
+}
+footer#footer nav,footer#footer .cta,footer#footer .logo{
+  background-image:radial-gradient(180px circle at var(--krn-glow-x,50%) var(--krn-glow-y,50%),rgba(185,243,93,.075),transparent 72%)!important;
+}
+footer#footer::after{
+  background:rgba(7,9,7,.32)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+  backdrop-filter:blur(12px)!important;
+}
+.card-grid .cards .card{
+  background-color:rgba(8,16,11,.72)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(120%);
+  backdrop-filter:blur(22px) saturate(120%);
+}
+
 /* BOON interaction is mostly state change, not floating/lifting. */
 #header .logo:hover svg,#header .expand-btn:hover,
 #header .expand-menu a:hover,footer#footer nav a:hover{
@@ -151,7 +187,7 @@ footer#footer a.logo svg{width:89px!important;height:24px!important;flex:none}
 #header .nav-bar>.k-hover-surface{
   background:
     radial-gradient(120px circle at var(--krn-hover-x,50%) var(--krn-hover-y,50%),rgba(185,243,93,.11),transparent 70%),
-    color-mix(in srgb,var(--clr-base-100) 40%,transparent)!important;
+    rgba(8,16,11,.76)!important;
 }
 .k-nav-pips{display:grid;grid-template-columns:repeat(2,.125rem);gap:.125rem;width:fit-content}
 .k-nav-pips i{width:.125rem;height:.125rem;border-radius:999px;background:currentColor;opacity:0}

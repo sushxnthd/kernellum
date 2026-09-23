@@ -11,12 +11,12 @@ const pages={
 'what-we-do':{
  title:'What We Do • Kernellum',
  heroLabel:'What We Do',
- hero:'A New Hardware Design Paradigm',
- intro:'Kernellum explores AI-native hardware/software co-design: choosing accelerator architectures for real workloads, generating implementations, and feeding physical-design results back into the search.',
+ hero:'Design for the workload.',
+ intro:'Kernellum is building a design loop that moves from an AI workload to accelerator architecture, verified RTL, and routed evidence. Physical results inform the next candidate.',
  blocks:[
-  ['The Kernellum Difference','Architectures are not judged only by analytical estimates. The research loop is built to test whether predicted advantages survive synthesis and place-and-route.'],
-  ['Closed-loop physical feedback','K1 routes candidate architectures on ECP5, learns from final-routed timing, and uses that evidence to guide the next acquisition rather than treating physical design as a final afterthought.'],
-  ['Workload-specific search','The current system evaluates tiled INT8 GEMM architectures against Transformer workloads and deployment constraints, with explicit controls and frozen validation sets.']
+  ['The design gap','AI workloads evolve faster than fixed accelerator designs. Architecture decisions made from fast estimates can change once the design is placed and routed.'],
+  ['The research wedge','K1 closes part of that gap: it routes candidate architectures on ECP5 and uses final-routed timing to guide the next search step.'],
+  ['The path forward','The current system tests tiled INT8 GEMM candidates against Transformer workloads. Board measurements and wider targets are the next validation stages.']
  ],
  features:[
   ['01','Model the workload','Translate workload shapes and constraints into architecture-level objectives and predicted latency.'],
@@ -31,8 +31,8 @@ const pages={
 'who-we-are':{
  title:'Who We Are • Kernellum',
  heroLabel:'Who We Are',
- hero:'Built for architectures that survive reality.',
- intro:'Kernellum is a research-first effort around one question: can automated systems design AI accelerators whose predicted advantages persist through physical implementation?',
+ hero:'Build for physical reality.',
+ intro:'Kernellum is a research-stage effort to automate the path from AI workload to implementable accelerator design. Every claim is tied to the evidence that supports it.',
  vision:'The long-term direction is an AI-native co-design system that moves from model and deployment constraints to workload-specific accelerator architecture, RTL, verification, FPGA implementation, and eventually licensable silicon IP.',
  values:[
   ['01','Scientific discipline','Claims are separated by evidence level: analytical estimates, synthesis, routed timing, and future board measurements.'],
@@ -45,8 +45,8 @@ const pages={
 'careers':{
  title:'Careers • Kernellum',
  heroLabel:'Careers',
- hero:'Build systems that shape real hardware outcomes.',
- intro:'Kernellum is currently research-first. The work spans architecture search, hardware generation, verification, FPGA tooling, physical-design modelling, and rigorous experimental evaluation.',
+ hero:'Build the next design loop.',
+ intro:'The work crosses architecture search, RTL, verification, FPGA tooling, and physical design. Explore the open research and the problems still to solve.',
  blocks:[
   ['Research that touches implementation','The interesting problems sit between machine learning, computer architecture, EDA, and experimental science.'],
   ['Small systems, high ownership','Contributions can cut across modelling, RTL, tooling, experiments, documentation, and reproducibility rather than living inside narrow silos.'],
@@ -63,8 +63,8 @@ const pages={
 'contact':{
  title:'Contact • Kernellum',
  heroLabel:'Contact',
- hero:'Get in touch with Kernellum.',
- intro:'For research discussion, collaboration, reproducibility questions, or technical feedback, use the public repository so the conversation can stay connected to the work.',
+ hero:'Shape the next experiment.',
+ intro:'Investors, research collaborators, and hardware builders can start with the public evidence, then open a focused discussion around what should be tested next.',
  closing:'The fastest route into the work is through the evidence.'
 }};
 const data=pages[route]||pages['what-we-do'];
@@ -96,22 +96,22 @@ const footer=`<footer class="k-footer">
 <a href="${base}what-we-do/"><span>What We Do</span>${footerArrowDots()}</a>
 <a href="${base}who-we-are/"><span>Who We Are</span>${footerArrowDots()}</a>
 <a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener"><span>Research</span>${footerArrowDots()}</a>
-<a href="${base}careers/"><span>Careers</span>${footerArrowDots()}</a>
+<a href="${base}contact/"><span>Collaborate</span>${footerArrowDots()}</a>
 </nav>
 <div class="k-footer-cta">${arrow('Contact',base+'contact/')}</div>
 <nav class="k-footer-secondary" aria-label="Secondary Footer Nav">
 <a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>GitHub</span>${footerPips()}</a>
-<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>Repository</span>${footerPips()}</a>
-<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>Public Evidence</span>${footerPips()}</a>
+<a href="https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md" target="_blank" rel="noopener">${footerPips()}<span>Experiment Ledger</span>${footerPips()}</a>
+<a href="${base}careers/">${footerPips()}<span>Contribute</span>${footerPips()}</a>
 </nav>
 <a class="k-footer-brand" href="${base}">KERNELLUM</a>
 </div></footer>`;
 
 const particlePlans={
-  'what-we-do':{hero:'circuit',statement:'rings-horizontal',cards:'image',features:'matrix',closing:'wave'},
-  'who-we-are':{hero:'wave',intro:'image',values:'matrix',closing:'rings-horizontal'},
-  'careers':{hero:'matrix',statement:'wave',cards:'circuit',features:'grid',closing:'none'},
-  'contact':{hero:'image',contact:'circuit',closing:'matrix'}
+  'what-we-do':{hero:'circuit',statement:'rings-horizontal',cards:'circuit',features:'matrix',closing:'rings-horizontal'},
+  'who-we-are':{hero:'rings-vertical',intro:'image',values:'rings-horizontal',closing:'rings-vertical'},
+  'careers':{hero:'matrix',statement:'grid',cards:'matrix',features:'grid',closing:'matrix'},
+  'contact':{hero:'image',contact:'rings-vertical',closing:'image'}
 };
 const particlePlan=particlePlans[route]||{hero:'none',closing:'rings-vertical'};
 const heroType=route==='what-we-do'?'left':'center';
@@ -130,8 +130,8 @@ const hero=`<section class="route-page-header ${heroType} route-${route}" data-p
 function blockCards(){
  if(!data.blocks)return '';
  return `<section class="section card-section" id="content" data-particles="${particlePlan.cards}"><div>
- <div class="section-label">The Kernellum Difference</div>
- <h2 class="display wide">${data.blocks[0][1]}</h2>
+ <div class="section-label">${route==='careers'?'Open research':'The opportunity'}</div>
+ <h2 class="display wide">${route==='careers'?'Work across the whole stack.':'From estimate to evidence.'}</h2>
  <div class="cards">${data.blocks.map((b,i)=>`<article class="card"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
  </div></section>`;
 }
@@ -283,6 +283,7 @@ $$('.k-footer-primary,.k-footer-secondary,.k-footer-cta,.k-footer-brand').forEac
 class ParticleField{
   constructor(canvas){
     this.canvas=canvas;
+    this.motionMode=({'what-we-do':1,'who-we-are':2,'careers':3,'contact':4})[route]||0;
     this.gl=canvas.getContext('webgl2',{alpha:true,antialias:true,premultipliedAlpha:true});
     this.shape='none';this.target='none';this.duration=1500;this.morphing=false;this.transition=0;
     this.parallax=0;this.parallaxFrom=0;this.parallaxTo=0;this.start=0;
@@ -306,7 +307,7 @@ class ParticleField{
     const g=this.gl;
     const vsSrc=[
       '#version 300 es','precision highp float;',
-      'uniform float uBaseSize;','uniform float uTime;','uniform vec2 uViewport;','uniform vec2 uMouse;',
+      'uniform float uBaseSize;','uniform float uTime;','uniform float uMotionMode;','uniform vec2 uViewport;','uniform vec2 uMouse;',
       'uniform float uParallaxStrength;','uniform float uTransition;',
       'in vec3 aPosition;','in vec3 aTargetPosition;','in float aScale;','in float aTargetScale;','in float aRandom;',
       'out float vScale;','out float vIntensity;',
@@ -316,6 +317,16 @@ class ParticleField{
       'float rand1=aRandom;','float rand2=fract(aRandom*123.456);',
       'finalPos.x+=(rand1-0.5)*250.0*pathArc;','finalPos.y+=(rand2-0.5)*250.0*pathArc;',
       'finalPos.xy+=uMouse*finalPos.z*4.0*uParallaxStrength;',
+      'if(uMotionMode<1.5){',
+      'finalPos.x+=sin(uTime*2.2+finalPos.y*.022+rand1*6.28)*12.0;',
+      '}else if(uMotionMode<2.5){',
+      'float a=uTime*.035;finalPos.xy=mat2(cos(a),-sin(a),sin(a),cos(a))*finalPos.xy;',
+      'finalPos.xy*=1.0+.015*sin(uTime*.8);',
+      '}else if(uMotionMode<3.5){',
+      'finalPos.y+=sin(uTime*1.4+finalPos.x*.015+rand1*2.0)*9.0;',
+      '}else{',
+      'float r=length(finalPos.xy);finalPos.xy+=normalize(finalPos.xy+vec2(.001))*(sin(r*.018-uTime*1.8)*13.0);',
+      '}',
       'gl_Position=vec4(finalPos.x/(uViewport.x*0.5),finalPos.y/(uViewport.y*0.5),0.0,1.0);',
       'float finalScale=mix(aScale,aTargetScale,uTransition);','vScale=finalScale;',
       'float pulse=sin(uTime*2.0+(rand1*6.283185307179586))*0.5+0.5;',
@@ -340,7 +351,7 @@ class ParticleField{
       pos:g.getAttribLocation(p,'aPosition'),target:g.getAttribLocation(p,'aTargetPosition'),
       scale:g.getAttribLocation(p,'aScale'),targetScale:g.getAttribLocation(p,'aTargetScale'),
       random:g.getAttribLocation(p,'aRandom'),baseSize:g.getUniformLocation(p,'uBaseSize'),
-      time:g.getUniformLocation(p,'uTime'),viewport:g.getUniformLocation(p,'uViewport'),
+      time:g.getUniformLocation(p,'uTime'),motionMode:g.getUniformLocation(p,'uMotionMode'),viewport:g.getUniformLocation(p,'uViewport'),
       mouse:g.getUniformLocation(p,'uMouse'),parallax:g.getUniformLocation(p,'uParallaxStrength'),
       transition:g.getUniformLocation(p,'uTransition'),baseColor:g.getUniformLocation(p,'uBaseColor'),
       highlight:g.getUniformLocation(p,'uHighlightColor')
@@ -446,8 +457,14 @@ class ParticleField{
       for(let i=0;i<this.count;i++){
         const j=i*3,scale=lerp(this.scales[i],this.targetScales[i],t);if(scale<.08)continue;
         const z=lerp(this.positions[j+2],this.targetPositions[j+2],t);
-        const x=lerp(this.positions[j],this.targetPositions[j],t)+this.mouseX*z*4*this.parallax+this.w/2;
-        const y=this.h/2-lerp(this.positions[j+1],this.targetPositions[j+1],t)-this.mouseY*z*4*this.parallax;
+        let px=lerp(this.positions[j],this.targetPositions[j],t)+this.mouseX*z*4*this.parallax;
+        let py=lerp(this.positions[j+1],this.targetPositions[j+1],t)+this.mouseY*z*4*this.parallax;
+        const seconds=now*.001;
+        if(this.motionMode===1)px+=Math.sin(seconds*2.2+py*.022+this.random[i]*6.28)*12;
+        else if(this.motionMode===2){const a=seconds*.035,s=1+.015*Math.sin(seconds*.8),ox=px;px=(ox*Math.cos(a)-py*Math.sin(a))*s;py=(ox*Math.sin(a)+py*Math.cos(a))*s}
+        else if(this.motionMode===3)py+=Math.sin(seconds*1.4+px*.015+this.random[i]*2)*9;
+        else if(this.motionMode===4){const d=Math.hypot(px,py)||1,shift=Math.sin(d*.018-seconds*1.8)*13;px+=px/d*shift;py+=py/d*shift}
+        const x=px+this.w/2,y=this.h/2-py;
         if(x<0||x>this.w||y<0||y>this.h)continue;
         const pulse=.68+.32*Math.sin(now*.002+this.random[i]*6.28);
         c.globalAlpha=Math.min(.75,(.25+.35*(1-Math.hypot(x-this.w/2,y-this.h/2)/Math.max(this.w,this.h)))*scale);
@@ -456,7 +473,7 @@ class ParticleField{
       c.globalAlpha=1;return;
     }
     const g=this.gl;g.useProgram(this.program);
-    g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
+    g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform1f(this.loc.motionMode,this.motionMode);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
   }
 }
 const canvas=$('#particle-stage canvas'),particles=canvas?new ParticleField(canvas):null;
