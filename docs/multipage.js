@@ -1,654 +1,159 @@
 (() => {
 'use strict';
-const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-const lerp=(a,b,t)=>a+(b-a)*t;
-const reduce=matchMedia('(prefers-reduced-motion:reduce)');
-const mobile=matchMedia('(max-width:58.749rem)');
-const base='/kernellum/';
-const route=location.pathname.replace(base,'').replace(/\/+$/,'')||'home';
+const BASE='/kernellum/';
+const raw=location.pathname.replace(BASE,'').replace(/^\/+|\/+$/g,'');
+const route=raw||'home';
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const pages={
-'what-we-do':{
- title:'What We Do • Kernellum',
- heroLabel:'What We Do',
- hero:'Design for the workload.',
- intro:'Kernellum is building a design loop that moves from an AI workload to accelerator architecture, verified RTL, and routed evidence. Physical results inform the next candidate.',
- blocks:[
-  ['The design gap','AI workloads evolve faster than fixed accelerator designs. Architecture decisions made from fast estimates can change once the design is placed and routed.'],
-  ['The research wedge','K1 closes part of that gap: it routes candidate architectures on ECP5 and uses final-routed timing to guide the next search step.'],
-  ['The path forward','The current system tests tiled INT8 GEMM candidates against Transformer workloads. Board measurements and wider targets are the next validation stages.']
- ],
- features:[
-  ['01','Model the workload','Translate workload shapes and constraints into architecture-level objectives and predicted latency.'],
-  ['02','Search architecture space','Explore parameterized accelerator candidates instead of hand-picking a single design.'],
-  ['03','Generate and verify RTL','Produce synthesizable implementations and test functional behavior before physical evaluation.'],
-  ['04','Synthesize and route','Use Yosys and nextpnr to obtain final-routed implementation evidence on the target family.'],
-  ['05','Learn from physical feedback','Update the timing surrogate from routed observations and acquire the next candidates.'],
-  ['06','Preserve scientific boundaries','Keep analytical, routed, and future board-measured claims separate rather than collapsing them into one headline metric.']
- ],
- closing:'Design the architecture. Route the evidence. Close the loop.'
-},
-'who-we-are':{
- title:'Who We Are • Kernellum',
- heroLabel:'Who We Are',
- hero:'Build for physical reality.',
- intro:'Kernellum is a research-stage effort to automate the path from AI workload to implementable accelerator design. Every claim is tied to the evidence that supports it.',
- vision:'The long-term direction is an AI-native co-design system that moves from model and deployment constraints to workload-specific accelerator architecture, RTL, verification, FPGA implementation, and eventually licensable silicon IP.',
- values:[
-  ['01','Scientific discipline','Claims are separated by evidence level: analytical estimates, synthesis, routed timing, and future board measurements.'],
-  ['02','Physical feedback','Implementation effects are treated as part of the search problem, not noise to hide after architecture selection.'],
-  ['03','Reproducibility','Experiments, scripts, frozen result files, and reports live alongside the code in the public repository.'],
-  ['04','Iteration','Negative results and target-specific effects are used to improve the model and the next experiment.']
- ],
- closing:'Research, architecture, RTL, and physical design in one loop.'
-},
-'careers':{
- title:'Careers • Kernellum',
- heroLabel:'Careers',
- hero:'Build the next design loop.',
- intro:'The work crosses architecture search, RTL, verification, FPGA tooling, and physical design. Explore the open research and the problems still to solve.',
- blocks:[
-  ['Research that touches implementation','The interesting problems sit between machine learning, computer architecture, EDA, and experimental science.'],
-  ['Small systems, high ownership','Contributions can cut across modelling, RTL, tooling, experiments, documentation, and reproducibility rather than living inside narrow silos.'],
-  ['Evidence over demos','The standard is not whether a concept looks convincing in a notebook. It is whether the result survives independent checks and increasingly physical validation.']
- ],
- features:[
-  ['01','Architecture + ML','Search, surrogate modelling, workload characterization, acquisition strategies.'],
-  ['02','RTL + verification','Parameterized datapaths, controllers, functional simulation, regression testing.'],
-  ['03','Physical design','Synthesis, place-and-route, timing analysis, constraints, target-aware modelling.'],
-  ['04','Research engineering','Experiment automation, data integrity, reproducibility, reports, visualization.']
- ],
- closing:'Interested in contributing? Start with the repository.'
-},
-'contact':{
- title:'Contact • Kernellum',
- heroLabel:'Contact',
- hero:'Shape the next experiment.',
- intro:'Investors, research collaborators, and hardware builders can start with the public evidence, then open a focused discussion around what should be tested next.',
- closing:'The fastest route into the work is through the evidence.'
-}};
-const data=pages[route]||pages['what-we-do'];
-document.title=data.title;
-
-const arrowSvg='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg>';
-const arrow=(label,href)=>'<a class="arrow-link" href="'+href+'"><span>'+label+'</span><span class="btn-arrow-stack" aria-hidden="true"><span class="arr one">'+arrowSvg+'</span><span class="arr two">'+arrowSvg+'</span></span></a>';
-const navPips=()=>'<span class="k-nav-pips" aria-hidden="true"><i></i><i></i></span>';
-const menuDots=()=>'<b class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b>';
-const header=`<header id="header" class="visible"><div class="nav-bar">
-<a class="logo" href="${base}" aria-label="Kernellum"><span class="wordmark">KERNELLUM</span></a>
-<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p>${menuDots()}</button>
-<div class="expand-menu" aria-hidden="true"><nav aria-label="Main Navigation"><ul>
-<li><a href="${base}">${navPips()}<span>Home</span>${navPips()}</a></li>
-<li><a href="${base}what-we-do/" ${route==='what-we-do'?'aria-current="page"':''}>${navPips()}<span>What We Do</span>${navPips()}</a></li>
-<li><a href="${base}who-we-are/" ${route==='who-we-are'?'aria-current="page"':''}>${navPips()}<span>Who We Are</span>${navPips()}</a></li>
-<li><a href="${base}careers/" ${route==='careers'?'aria-current="page"':''}>${navPips()}<span>Careers</span>${navPips()}</a></li>
-<li><a href="${base}contact/" ${route==='contact'?'aria-current="page"':''}>${navPips()}<span>Contact</span>${navPips()}</a></li>
-</ul></nav></div></div></header>`;
-
-const footer=window.KernellumFooter();
-
-const particlePlans={
-  'what-we-do':{hero:'traces',statement:'traces',cards:'circuit',features:'matrix',closing:'traces'},
-  'who-we-are':{hero:'image',intro:'image',values:'rings-vertical',closing:'image'},
-  'careers':{hero:'constellation',statement:'grid',cards:'constellation',features:'matrix',closing:'constellation'},
-  'contact':{hero:'focus',contact:'focus',closing:'focus'}
+home:{title:'Kernellum | Architecture search grounded in physical evidence',kicker:'Architecture Search / Physical Design',hero:'Search the Machine',intro:'From workload to architecture, RTL, and routed evidence. A design loop that learns what physical implementation changes.'},
+'what-we-do':{title:'What We Do | Kernellum',kicker:'What We Do',hero:'Design for the Workload',intro:'Kernellum is building a loop from AI workload to accelerator architecture, verified RTL, and routed evidence. Physical results inform the next candidate.'},
+'who-we-are':{title:'Who We Are | Kernellum',kicker:'Who We Are',hero:'Build for Physical Reality',intro:'Kernellum is a research-stage effort to automate the path from AI workload to implementable accelerator design. Every claim is tied to the evidence that supports it.'},
+careers:{title:'Careers | Kernellum',kicker:'Careers / Contribute',hero:'Build the Next Design Loop',intro:'The work crosses architecture search, RTL, verification, FPGA tooling, and physical design. Explore the open research and the problems still to solve.'},
+contact:{title:'Contact | Kernellum',kicker:'Contact',hero:'Shape the Next Experiment',intro:'Investors, research collaborators, and hardware builders can start with the public evidence, then open a focused discussion around what should be tested next.'}
 };
-const particlePlan=particlePlans[route]||{hero:'none',closing:'rings-vertical'};
-const heroType=route==='what-we-do'?'left':'center';
-const hero=`<section class="route-page-header ${heroType} route-${route}" data-particles="${particlePlan.hero}">
-<div class="route-images" aria-hidden="true">
-  <figure class="route-image"><div class="route-viz viz-base"></div></figure>
-  <figure class="route-image"><div class="route-viz viz-a"></div></figure>
-  <figure class="route-image"><div class="route-viz viz-b"></div></figure>
-</div>
-<div class="route-content">
-
-  <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
-  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Discuss the work':'Explore the work','#content')}</div></div>
-</div>
-</section>`;
-
-function blockCards(){
- if(!data.blocks)return '';
- return `<section class="section card-section" id="content" data-particles="${particlePlan.cards}"><div>
- <div class="section-label">${route==='careers'?'Open research':'The opportunity'}</div>
- <h2 class="display wide">${route==='careers'?'Work across the whole stack.':'From estimate to evidence.'}</h2>
- ${route==='what-we-do'?`<div class="evidence-ledger" aria-label="K1 research results">
-  <div><strong>12 / 12</strong><span>Transformer GEMMs improved over the initial routed optimum in the K1 active search</span></div>
-  <div><strong>9.88%</strong><span>of the frozen design space physically implemented in the controlled experiment</span></div>
-  <div><strong>6.475%</strong><span>final-route Fmax surrogate error on newly selected candidates</span></div>
-  <p>Routed estimates on ECP5, not board-measured latency or power. <a href="https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md" target="_blank" rel="noopener noreferrer">Read the K1 report ↗</a></p>
- </div>`:''}
- <div class="cards">${data.blocks.map((b,i)=>`<article class="card"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
- </div></section>`;
+const data=pages[route]||pages.home;
+document.title=data.title;
+const nav=[['Home',BASE,'home'],['What We Do',BASE+'what-we-do/','what-we-do'],['Who We Are',BASE+'who-we-are/','who-we-are'],['Careers',BASE+'careers/','careers'],['Contact',BASE+'contact/','contact']];
+const pip='<span class="pips" aria-hidden="true"></span>';
+const menuDots='<span class="menu-icon" aria-hidden="true">'+('<i></i>'.repeat(12))+'</span>';
+const header='<header class="site-header" aria-label="Site header">'+
+'<a class="brand glass-card" href="'+BASE+'" aria-label="Kernellum home">KERNELLUM</a>'+
+'<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu"><span>Menu</span>'+menuDots+'</button>'+
+'<div class="menu-panel glass-card" id="site-menu"><nav aria-label="Main navigation">'+
+nav.map(function(n){return '<a href="'+n[1]+'" '+(route===n[2]?'aria-current="page"':'')+'>'+pip+'<span>'+n[0]+'</span>'+pip+'</a>';}).join('')+
+'</nav></div></header>';
+const imageSet={
+home:['study-die.webp','study-wafer.webp','study-researcher.webp','study-wafer.webp'],
+'what-we-do':['study-researcher.webp','study-die.webp','study-wafer.webp','architecture-die.svg'],
+'who-we-are':['study-researcher.webp','study-researcher.webp','study-researcher.webp','route-topology.svg'],
+careers:['study-researcher.webp','study-wafer.webp','study-die.webp','study-researcher.webp']
+};
+function heroVisual(){
+if(route==='contact')return '<div class="hero-visual" aria-hidden="true"><div class="contact-field"></div><div class="contact-grid-lines"></div><div class="contact-orbit"></div><div class="contact-scan"></div></div>';
+const imgs=imageSet[route]||imageSet.home;
+return '<div class="hero-visual" aria-hidden="true">'+imgs.map(function(img,i){return '<div class="hero-slice slice-'+(i+1)+' '+(i===3?'blur-clone':'')+'"><img src="'+BASE+'assets/'+img+'" alt=""></div>';}).join('')+'</div>';
 }
-function features(){
- if(!data.features)return '';
- return `<section class="section compact feature-section" data-particles="${particlePlan.features}"><div>
- <div class="section-label">${route==='careers'?'Where the work lives':'The Loop'}</div>
- <h2 class="display">${route==='careers'?'Work across disciplines.':'From workload to routed evidence.'}</h2>
- <div class="feature-list">${data.features.map(f=>`<div class="feature"><span class="n">${f[0]}</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join('')}</div>
- </div></section>`;
+function hero(){
+const cls=route==='what-we-do'?'what':route;
+return '<section class="hero '+cls+'">'+heroVisual()+'<div class="hero-copy"><div class="hero-center" data-reveal><div class="hero-kicker">'+data.kicker+'</div><h1>'+data.hero+'</h1></div><div class="hero-bottom" data-reveal data-reveal-delay="1"><p class="hero-subtitle">'+data.intro+'</p><div class="scroll-cue">Scroll for more</div></div></div></section>';
 }
-function who(){
- return `<section class="section intro-section" id="content" data-particles="${particlePlan.intro}"><div class="split">
- <div class="left"><div class="section-label">Our Vision</div><h2 class="display">Design with physical reality in the loop.</h2></div>
- <div class="right body-copy"><p class="lede">${data.vision}</p><div class="rule"></div><p>Kernellum's current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition. Physical-board latency, power, and energy remain future validation stages rather than assumed results.</p></div>
- </div></section>
- <section class="section compact values-section" data-particles="${particlePlan.values}"><div><div class="section-label">Our Values</div><h2 class="display wide">Stay true to the evidence and the mission.</h2>
- <div class="values">${data.values.map(v=>`<article class="value"><span class="num">${v[0]}</span><div><h3>${v[1]}</h3><p>${v[2]}</p></div></article>`).join('')}</div></div></section>`;
+function button(label,href,secondary){
+return '<a class="button '+(secondary?'secondary':'')+'" href="'+href+'" '+(href.indexOf('http')===0?'target="_blank" rel="noopener noreferrer"':'')+'><span>'+label+'</span><span aria-hidden="true">↗</span></a>';
+}
+function metrics(){
+return '<div class="metric-strip"><div class="metrics" data-reveal>'+
+'<div class="metric"><strong>9 / 9</strong><span>Held-out K1 architectures routed successfully in the reported campaign.</span></div>'+
+'<div class="metric"><strong>0.944</strong><span>Mean Spearman correlation for final-routed ordering in the K1 evaluation.</span></div>'+
+'<div class="metric"><strong>0.583%</strong><span>Gap between the selected K1 architecture and the final-routed oracle.</span></div>'+
+'</div><p class="metric-note">Routed implementation evidence, not board-measured latency, power, or energy. See the public experiment ledger and K1 reports for scope and methods.</p></div>';
+}
+function home(){
+return '<section class="section intro-statement green-wash"><div class="section-inner centered">'+
+'<div class="eyebrow" data-reveal>Closed-loop architecture search</div>'+
+'<h2 class="display" data-reveal data-reveal-delay="1">Search continuously, route the candidates, and let <mark>physical evidence</mark> reshape what gets built next.</h2>'+
+'<p class="support" data-reveal data-reveal-delay="2">Kernellum connects architecture search, verifiable RTL, and implementation feedback instead of treating physical design as an afterthought.</p>'+
+'</div></section>'+metrics()+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>The Kernellum Difference</div><h2 class="display small" data-reveal>From fast search to routed truth.</h2><div class="cards">'+
+'<article class="card" data-reveal><span class="card-index">01</span><h3>Physical feedback</h3><p>K1 uses final-routed timing as part of the search loop, so implementation effects can change what the system chooses next.</p></article>'+
+'<article class="card" data-reveal data-reveal-delay="1"><span class="card-index">02</span><h3>Closed-loop search</h3><p>The active campaign reached 6.475% final-route-Fmax surrogate MAPE and found 16.74 ms best latency versus 19.44 ms for the random baseline.</p></article>'+
+'<article class="card" data-reveal data-reveal-delay="2"><span class="card-index">03</span><h3>Implementation-aware scaling</h3><p>Across 96 routed designs, the corrected interconnect model reached 0.3039 ns held-out tax MAE with 0.8921 correlation.</p></article>'+
+'</div></div></section>'+
+'<section class="large-quote"><h2 data-reveal>A breakthrough is only real <em>when its evidence survives</em> physical implementation.</h2></section>'+
+'<section class="visual-band"><div class="band-image"><img src="'+BASE+'assets/route-topology.svg" alt="Routed interconnect study"></div><div class="band-fragments"></div><div class="band-copy"><h2 class="display" data-reveal>Follow the evidence.</h2><div data-reveal data-reveal-delay="1"><p>Plans, scripts, frozen result files, routed reports, and the experiment ledger live alongside the code.</p><div class="cta-row">'+button('What We Do',BASE+'what-we-do/',false)+button('Public Repository','https://github.com/sushxnthd/kernellum',true)+'</div></div></div></section>';
+}
+function whatWeDo(){
+const f=[
+['01','Model the workload','Translate workload shapes and constraints into architecture-level objectives and predicted latency.'],
+['02','Search architecture space','Explore parameterized accelerator candidates instead of hand-picking a single design.'],
+['03','Generate and verify RTL','Produce synthesizable implementations and test functional behavior before physical evaluation.'],
+['04','Synthesize and route','Use synthesis and place-and-route to obtain implementation evidence on the target family.'],
+['05','Learn from physical feedback','Update the timing surrogate from routed observations and acquire the next candidates.'],
+['06','Preserve scientific boundaries','Keep analytical, routed, and future board-measured claims separate.']
+];
+return '<section class="section green-wash"><div class="section-inner split"><div><div class="eyebrow" data-reveal>The design gap</div><h2 class="display small" data-reveal data-reveal-delay="1">Fast estimates can change once a design is routed.</h2></div><div class="split-copy" data-reveal data-reveal-delay="2"><p>AI workloads evolve faster than fixed accelerator designs. Kernellum treats implementation effects as part of the search problem instead of hiding them after architecture selection.</p><div class="hairline"></div><p class="muted">The current research wedge evaluates tiled INT8 GEMM candidates against Transformer workloads and uses routed timing on ECP5 to guide the next search step.</p></div></div></section>'+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>The Loop</div><h2 class="display small" data-reveal>From workload to routed evidence.</h2><div class="feature-list">'+
+f.map(function(x,i){return '<div class="feature" data-reveal data-reveal-delay="'+Math.min(i,3)+'"><span class="n">'+x[0]+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>';}).join('')+
+'</div></div></section>'+metrics()+
+'<section class="large-quote"><h2 data-reveal>Architecture search matters only if its advantages <em>survive implementation.</em></h2></section>'+
+'<section class="visual-band"><div class="band-image"><img src="'+BASE+'assets/study-die.webp" alt="Semiconductor die study"></div><div class="band-fragments"></div><div class="band-copy"><h2 class="display" data-reveal>Route. Measure. Search again.</h2><div data-reveal data-reveal-delay="1"><p>The next validation stage moves toward physical-board measurements without promoting modeled or routed estimates into claims they do not support.</p><div class="cta-row">'+button('Read K1 Report','https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md',false)+button('Experiment Ledger','https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md',true)+'</div></div></div></section>';
+}
+function whoWeAre(){
+const v=[
+['01','Scientific discipline','Claims are separated by evidence level: analytical estimates, synthesis, routed timing, and future board measurements.'],
+['02','Physical feedback','Implementation effects are treated as part of the search problem, not noise to hide after architecture selection.'],
+['03','Reproducibility','Experiments, scripts, frozen result files, and reports live alongside the code in the public repository.'],
+['04','Iteration','Negative results and target-specific effects are used to improve the model and the next experiment.']
+];
+return '<section class="section green-wash"><div class="section-inner split"><div><div class="eyebrow" data-reveal>Our direction</div><h2 class="display small" data-reveal data-reveal-delay="1">Design with physical reality in the loop.</h2></div><div class="split-copy" data-reveal data-reveal-delay="2"><p>The long-term direction is an AI-native co-design system that moves from model and deployment constraints to workload-specific accelerator architecture, RTL, verification, FPGA implementation, and eventually licensable silicon IP.</p><div class="hairline"></div><p class="muted">The current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition.</p></div></div></section>'+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>Research principles</div><h2 class="display small" data-reveal>Evidence before narrative.</h2><div class="values">'+
+v.map(function(x,i){return '<article class="value-row" data-reveal data-reveal-delay="'+Math.min(i,3)+'"><span class="num">'+x[0]+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></article>';}).join('')+
+'</div></div></section>'+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>The evidence ladder</div><h2 class="display small" data-reveal>Know what each result means.</h2><div class="evidence-ladder">'+
+'<div class="evidence-step" data-reveal><span>01</span><strong>Analytical</strong><p>Architecture-level estimates and search objectives.</p></div>'+
+'<div class="evidence-step" data-reveal data-reveal-delay="1"><span>02</span><strong>RTL</strong><p>Functional implementation and regression evidence.</p></div>'+
+'<div class="evidence-step" data-reveal data-reveal-delay="2"><span>03</span><strong>Routed</strong><p>Target-aware synthesis, placement, routing, and timing.</p></div>'+
+'<div class="evidence-step" data-reveal data-reveal-delay="3"><span>04</span><strong>Physical</strong><p>Board measurements are the next validation stage, not an assumed result.</p></div>'+
+'</div></div></section>'+
+'<section class="visual-band"><div class="band-image"><img src="'+BASE+'assets/study-researcher.webp" alt="Researcher and semiconductor study"></div><div class="band-fragments"></div><div class="band-copy"><h2 class="display" data-reveal>Research, architecture, RTL, and physical design in one loop.</h2><div class="cta-row" data-reveal data-reveal-delay="1">'+button('View Repository','https://github.com/sushxnthd/kernellum',false)+button('What We Do',BASE+'what-we-do/',true)+'</div></div></section>';
+}
+function careers(){
+const a=[
+['01','Architecture + ML','Search, surrogate modelling, workload characterization, and acquisition strategies.'],
+['02','RTL + verification','Parameterized datapaths, controllers, functional simulation, and regression testing.'],
+['03','Physical design','Synthesis, place-and-route, timing analysis, constraints, and target-aware modelling.'],
+['04','Research engineering','Experiment automation, data integrity, reproducibility, reports, and visualization.']
+];
+return '<section class="section green-wash"><div class="section-inner"><div class="eyebrow" data-reveal>Open research</div><h2 class="display small" data-reveal>Work across the whole stack.</h2><div class="cards">'+
+'<article class="card" data-reveal><span class="card-index">01</span><h3>Implementation matters</h3><p>The interesting problems sit between machine learning, computer architecture, EDA, and experimental science.</p></article>'+
+'<article class="card" data-reveal data-reveal-delay="1"><span class="card-index">02</span><h3>High ownership</h3><p>Contributions can cut across modelling, RTL, tooling, experiments, documentation, and reproducibility.</p></article>'+
+'<article class="card" data-reveal data-reveal-delay="2"><span class="card-index">03</span><h3>Evidence over demos</h3><p>The standard is whether a result survives independent checks and increasingly physical validation.</p></article>'+
+'</div></div></section>'+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>Where the work lives</div><h2 class="display small" data-reveal>Work across disciplines.</h2><div class="feature-list">'+
+a.map(function(x,i){return '<div class="feature" data-reveal data-reveal-delay="'+Math.min(i,3)+'"><span class="n">'+x[0]+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>';}).join('')+
+'</div></div></section>'+
+'<section class="large-quote"><h2 data-reveal>The hardware does not respect <em>org charts.</em></h2></section>'+
+'<section class="visual-band"><div class="band-image"><img src="'+BASE+'assets/study-wafer.webp" alt="Wafer study"></div><div class="band-fragments"></div><div class="band-copy"><h2 class="display" data-reveal>Interested in contributing?</h2><div data-reveal data-reveal-delay="1"><p>Start with the repository, reproduce a result, open an issue, or propose a focused experiment that makes the evidence stronger.</p><div class="cta-row">'+button('View Repository','https://github.com/sushxnthd/kernellum',false)+button('Open Issues','https://github.com/sushxnthd/kernellum/issues',true)+'</div></div></div></section>';
 }
 function contact(){
- return `<section class="section contact-section" id="content" data-particles="${particlePlan.contact}"><div>
- <div class="section-label">Contact</div><h2 class="display">Research should be inspectable.</h2>
- <div class="contact-grid">
- <div class="contact-info">
-  <div class="contact-row"><small>Repository</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">github.com/sushxnthd/kernellum <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
-  <div class="contact-row"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
-  <div class="contact-row"><small>Current stage</small><span>K2 board-ready; physical measurements not yet claimed</span></div>
- </div>
- <div class="contact-form contact-panel"><span class="section-label">Start a conversation</span><p class="lede">The research is public. Raise a reproduction question, propose a collaboration, or point out a result that needs a closer look.</p><div class="rule"></div>${arrow('Open a GitHub issue','https://github.com/sushxnthd/kernellum/issues/new')}</div>
- </div></div></section>`;
+return '<section class="section green-wash"><div class="section-inner split"><div><div class="eyebrow" data-reveal>Start with the evidence</div><h2 class="display small" data-reveal data-reveal-delay="1">Research should be inspectable.</h2></div><div class="split-copy" data-reveal data-reveal-delay="2"><p>The public repository is the fastest route into the work. Reproduce a result, challenge a claim, propose an experiment, or open a focused discussion around collaboration.</p><div class="hairline"></div><p class="muted">Kernellum is currently at a routed, board-ready research stage. Board-measured latency, power, and energy are not yet claimed.</p></div></div></section>'+
+'<section class="section"><div class="section-inner"><div class="eyebrow" data-reveal>Contact routes</div><h2 class="display small" data-reveal>Pick the shortest path.</h2><div class="contact-list">'+
+'<div class="contact-item" data-reveal><small>Repository</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener noreferrer">github.com/sushxnthd/kernellum</a><span class="arrow">↗</span></div>'+
+'<div class="contact-item" data-reveal data-reveal-delay="1"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a><span class="arrow">↗</span></div>'+
+'<div class="contact-item" data-reveal data-reveal-delay="2"><small>Experiment ledger</small><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md" target="_blank" rel="noopener noreferrer">Public evidence record</a><span class="arrow">↗</span></div>'+
+'<div class="contact-item" data-reveal data-reveal-delay="3"><small>Current stage</small><span>K2 board-ready, physical measurements next</span><span></span></div>'+
+'</div></div></section>'+
+'<section class="large-quote"><h2 data-reveal>Make the next claim <em>harder to break.</em></h2></section>';
 }
-const statementMap={
-  'what-we-do':'Architecture search matters only if its advantages survive implementation.',
-  'careers':'The hardware does not respect org charts.'
-};
-function largeStatement(){
-  const text=statementMap[route];if(!text)return '';
-  return `<section class="large-statement" data-particles="${particlePlan.statement}"><h2>${text}</h2></section>`;
+function footer(){
+return '<footer class="site-footer"><div class="footer-inner"><div class="footer-top">'+
+'<h2 data-reveal>Build what <span>survives</span> the route.</h2>'+
+'<div class="footer-nav" data-reveal data-reveal-delay="1"><div class="footer-col"><span>Explore</span><a href="'+BASE+'what-we-do/">What We Do</a><a href="'+BASE+'who-we-are/">Who We Are</a><a href="'+BASE+'careers/">Careers</a><a href="'+BASE+'contact/">Contact</a></div>'+
+'<div class="footer-col"><span>Evidence</span><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md" target="_blank" rel="noopener noreferrer">Experiment Ledger ↗</a><a href="https://github.com/sushxnthd/kernellum/blob/main/docs/K2_BOARD_READY_REPORT.md" target="_blank" rel="noopener noreferrer">Current Stage ↗</a></div></div></div>'+
+'<div class="footer-wordmark">KERNELLUM</div><div class="footer-meta"><span>Research / Architecture / Physical Design</span><span>Public evidence, current to 2026</span></div></div></footer>';
 }
-const closing=`<section class="closing" data-particles="${particlePlan.closing}"><div><div class="section-label">Kernellum</div><h2 class="display">${data.closing}</h2><div>${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
+const builders={home:home,'what-we-do':whatWeDo,'who-we-are':whoWeAre,careers:careers,contact:contact};
+document.body.innerHTML='<div class="noise" aria-hidden="true"></div>'+header+'<main>'+hero()+(builders[route]||home)()+'</main>'+footer();
 
-let content='';
-if(route==='who-we-are')content=who();
-else if(route==='contact')content=contact();
-else content=largeStatement()+blockCards()+features();
+const menuButton=$('.menu-button'),panel=$('.menu-panel');
+if(menuButton&&panel){
+menuButton.addEventListener('click',function(){const open=!panel.classList.contains('open');panel.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));document.body.classList.toggle('menu-open',open);});
+panel.addEventListener('click',function(e){if(e.target.closest('a')){panel.classList.remove('open');menuButton.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');}});
+addEventListener('keydown',function(e){if(e.key==='Escape'){panel.classList.remove('open');menuButton.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');}});
+}
+const reveal=$$('[data-reveal]');
+if('IntersectionObserver' in window){
+const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+reveal.forEach(function(el){observer.observe(el);});
+}else reveal.forEach(function(el){el.classList.add('is-visible');});
 
-document.body.innerHTML=`<div id="particle-stage"><canvas></canvas></div><div class="site">${header}<main>${hero}${content}${closing}</main>${footer}</div>`;
-
-
-const boonEase=t=>{
-  const x1=.5,y1=.1,x2=0,y2=1;
-  const sample=(u,a1,a2)=>3*(1-u)*(1-u)*u*a1+3*(1-u)*u*u*a2+u*u*u;
-  const deriv=(u,a1,a2)=>3*(1-u)*(1-u)*a1+6*(1-u)*u*(a2-a1)+3*u*u*(1-a2);
-  let u=t;
-  for(let i=0;i<6;i++){const d=deriv(u,x1,x2);if(Math.abs(d)<1e-6)break;u=clamp(u-(sample(u,x1,x2)-t)/d)}
-  let lo=0,hi=1;
-  for(let i=0;i<8;i++){const x=sample(u,x1,x2);if(Math.abs(x-t)<1e-6)break;if(x<t)lo=u;else hi=u;u=(lo+hi)/2}
-  return sample(u,y1,y2);
-};
-
-/* Header: source-style DotGrid, scramble, menu expansion and scroll visibility. */
-const headerEl=$('#header'),btn=$('.expand-btn'),menu=$('.expand-menu'),menuLabel=$('.expand-btn p'),grid=$('.dotgrid');
-const gridPatterns={
-  static:[[1,1],[2,1],[3,1],[4,1],[1,2],[2,2],[3,2],[4,2],[1,3],[2,3],[3,3],[4,3]],
-  hover:[[1,1],[2,1],[3,1],[4,1],[1,2],[4,2],[1,3],[2,3],[3,3],[4,3]],
-  close:[[1,1],[4,1],[2,2],[3,2],[1,3],[4,3]]
-};
-let gridToken=0;
-function renderGrid(pattern){
-  if(!grid)return;
-  grid.innerHTML=gridPatterns[pattern].map(p=>'<i style="grid-column:'+p[0]+';grid-row:'+p[1]+'"></i>').join('');
+const visual=$('.hero-visual');
+if(visual&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+let tx=0,ty=0,x=0,y=0;
+addEventListener('pointermove',function(e){tx=(e.clientX/innerWidth-.5)*14;ty=(e.clientY/innerHeight-.5)*10;},{passive:true});
+(function loop(){x+=(tx-x)*.045;y+=(ty-y)*.045;visual.style.setProperty('--px',x.toFixed(2));visual.style.setProperty('--py',y.toFixed(2));const sy=scrollY;$$('.hero-slice',visual).forEach(function(el,i){const shift=Math.min(innerHeight,sy)*(i+1)*.018;el.style.transform='translate3d(0,'+shift.toFixed(2)+'px,0)';});requestAnimationFrame(loop);})();
 }
-function blinkSequence(dots,show,randomOrder){
-  if(!dots.length)return;
-  const order=dots.map((_,i)=>i);
-  if(randomOrder)order.sort(()=>Math.random()-.5);
-  dots.forEach((d,i)=>{
-    d.getAnimations().forEach(a=>a.cancel());
-    const rank=order.indexOf(i);
-    if(show)d.animate(
-      [{opacity:0},{opacity:1},{opacity:0},{opacity:1},{opacity:.5},{opacity:1}],
-      {duration:375,delay:rank*25,easing:'steps(2,end)',fill:'forwards'}
-    );
-    else d.animate(
-      [{opacity:getComputedStyle(d).opacity},{opacity:0}],
-      {duration:190,delay:(dots.length-1-rank)*8,easing:'steps(2,end)',fill:'forwards'}
-    );
-  });
-}
-function transitionGrid(pattern,instant){
-  if(!grid)return;
-  if(instant||reduce.matches){renderGrid(pattern);return}
-  const token=++gridToken,dots=$$('i',grid),order=dots.map((_,i)=>i).sort(()=>Math.random()-.5);
-  dots.forEach((d,i)=>d.animate(
-    [{opacity:1},{opacity:0},{opacity:1},{opacity:.5},{opacity:0}],
-    {duration:300,delay:order.indexOf(i)*25,easing:'steps(2,end)',fill:'forwards'}
-  ));
-  setTimeout(()=>{
-    if(token!==gridToken)return;
-    renderGrid(pattern);
-    blinkSequence($$('i',grid),true,true);
-  },150);
-}
-renderGrid('static');
-function scramble(text){
-  if(reduce.matches){menuLabel.textContent=text;return}
-  const chars='░▒▓■□',start=performance.now();
-  const tick=now=>{
-    const p=clamp((now-start)/300),fixed=Math.floor(text.length*p);
-    menuLabel.textContent=[...text].map((c,i)=>i<fixed?c:chars[(Math.random()*chars.length)|0]).join('');
-    if(p<1)requestAnimationFrame(tick);else menuLabel.textContent=text;
-  };
-  requestAnimationFrame(tick);
-}
-function menuOpen(open){
-  headerEl.classList.toggle('menu-expanded',open);
-  btn.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-hidden',String(!open));
-  const from=menu.getBoundingClientRect().height,to=open?menu.scrollHeight:0;
-  menu.getAnimations().forEach(a=>a.cancel());
-  const a=menu.animate([{maxHeight:from+'px'},{maxHeight:to+'px'}],{duration:500,easing:'cubic-bezier(.5,.1,0,1)',fill:'forwards'});
-  a.onfinish=()=>{menu.style.maxHeight=to+'px';a.cancel()};
-  transitionGrid(open?'close':'static',false);scramble(open?'CLOSE':'MENU');
-}
-btn?.addEventListener('click',()=>menuOpen(btn.getAttribute('aria-expanded')!=='true'));
-btn?.addEventListener('pointerenter',()=>{if(btn.getAttribute('aria-expanded')!=='true')transitionGrid('hover',false)});
-btn?.addEventListener('pointerleave',()=>{if(btn.getAttribute('aria-expanded')!=='true')transitionGrid('static',false)});
-document.addEventListener('pointerdown',e=>{if(headerEl?.classList.contains('menu-expanded')&&!headerEl.contains(e.target))menuOpen(false)});
-$$('.expand-menu a').forEach(a=>{
-  a.addEventListener('click',()=>menuOpen(false));
-  a.addEventListener('pointerenter',()=>$$('.k-nav-pips',a).forEach(x=>blinkSequence($$('i',x),true,false)));
-  a.addEventListener('pointerleave',()=>$$('.k-nav-pips',a).forEach(x=>blinkSequence($$('i',x),false,false)));
-});
-
-class ParticleField{
-  constructor(canvas){
-    this.canvas=canvas;
-    this.motionMode=({'what-we-do':1,'who-we-are':2,'careers':3,'contact':4})[route]||0;
-    this.gl=canvas.getContext('webgl2',{alpha:true,antialias:true,premultipliedAlpha:true});
-    this.shape='none';this.target='none';this.duration=1500;this.morphing=false;this.transition=0;
-    this.parallax=0;this.parallaxFrom=0;this.parallaxTo=0;this.start=0;
-    this.mouseX=0;this.mouseY=0;this.targetMouseX=0;this.targetMouseY=0;
-    this.image=null;this.imageReady=false;this.count=0;
-    if(this.gl)this.initGL();
-    else this.ctx=canvas.getContext('2d',{alpha:true});
-    if(!this.gl&&!this.ctx){this.disabled=true;return}
-    addEventListener('mousemove',e=>{this.targetMouseX=e.clientX/innerWidth*2-1;this.targetMouseY=-(e.clientY/innerHeight)*2+1},{passive:true});
-    addEventListener('mouseleave',()=>{this.targetMouseX=0;this.targetMouseY=0},{passive:true});
-    addEventListener('resize',()=>this.resize(),{passive:true});
-    this.loadImage();this.resize();this.set('none',true);
-    window.__kernellumParticles=this;
-  }
-  shader(type,src){
-    const g=this.gl,sh=g.createShader(type);g.shaderSource(sh,src);g.compileShader(sh);
-    if(!g.getShaderParameter(sh,g.COMPILE_STATUS)){console.warn(g.getShaderInfoLog(sh));g.deleteShader(sh);return null}
-    return sh;
-  }
-  initGL(){
-    const g=this.gl;
-    const vsSrc=[
-      '#version 300 es','precision highp float;',
-      'uniform float uBaseSize;','uniform float uTime;','uniform float uMotionMode;','uniform vec2 uViewport;','uniform vec2 uMouse;',
-      'uniform float uParallaxStrength;','uniform float uTransition;',
-      'in vec3 aPosition;','in vec3 aTargetPosition;','in float aScale;','in float aTargetScale;','in float aRandom;',
-      'out float vScale;','out float vIntensity;',
-      'void main(){',
-      'vec3 finalPos=mix(aPosition,aTargetPosition,uTransition);',
-      'float pathArc=sin(uTransition*3.141592653589793);',
-      'float rand1=aRandom;','float rand2=fract(aRandom*123.456);',
-      'finalPos.x+=(rand1-0.5)*250.0*pathArc;','finalPos.y+=(rand2-0.5)*250.0*pathArc;',
-      'finalPos.xy+=uMouse*finalPos.z*4.0*uParallaxStrength;',
-      'if(uMotionMode<1.5){',
-      'finalPos.y+=sin(finalPos.x*.008-uTime*1.4+rand1)*2.0;',
-      '}else if(uMotionMode<2.5){',
-      'finalPos.xy*=1.0+.018*sin(uTime*.8);finalPos.x+=sin(finalPos.y*.009+uTime*.5)*4.0;',
-      '}else if(uMotionMode<3.5){',
-      'finalPos.xy+=vec2(sin(uTime*.9+rand1*25.0),cos(uTime*.72+rand1*31.0))*8.0;',
-      '}else{',
-      'float r=length(finalPos.xy);float a=.025*sin(uTime*.7+r*.008);finalPos.xy=mat2(cos(a),-sin(a),sin(a),cos(a))*finalPos.xy;finalPos.xy+=normalize(finalPos.xy+vec2(.001))*sin(r*.015-uTime*1.7)*10.0;',
-      '}',
-      'gl_Position=vec4(finalPos.x/(uViewport.x*0.5),finalPos.y/(uViewport.y*0.5),0.0,1.0);',
-      'float finalScale=mix(aScale,aTargetScale,uTransition);',
-      'if(uMotionMode<1.5){float pulse=pow(max(0.0,sin(finalPos.x*.018-uTime*2.7+rand1*.4)),10.0);finalScale*=.35+1.35*pulse;}',
-      'if(uMotionMode>3.5){float pulse=pow(max(0.0,sin(length(finalPos.xy)*.02-uTime*2.0)),6.0);finalScale*=.35+1.1*pulse;}',
-      'vScale=finalScale;',
-      'float pulse=sin(uTime*2.0+(rand1*6.283185307179586))*0.5+0.5;',
-      'float oscillationScale=mix(0.35,0.9,pulse);','gl_PointSize=uBaseSize*oscillationScale*finalScale;',
-      'vec2 mouseWorld=uMouse*uViewport*0.5;','float distToMouse=distance(finalPos.xy,mouseWorld);',
-      'float screenMin=min(uViewport.x,uViewport.y);','float outerRadius=screenMin*0.65;',
-      'vIntensity=smoothstep(outerRadius,0.0,distToMouse);','}'
-    ].join('\n');
-    const fsSrc=[
-      '#version 300 es','precision highp float;','uniform vec3 uBaseColor;','uniform vec3 uHighlightColor;',
-      'in float vScale;','in float vIntensity;','out vec4 outColor;','void main(){',
-      'if(vScale<0.001)discard;','vec2 p=gl_PointCoord-0.5;','float dist=length(p);','float aa=fwidth(dist);',
-      'if(dist>0.5+aa)discard;','float alpha=1.0-smoothstep(0.5-aa,0.5+aa,dist);',
-      'vec3 finalColor=mix(uBaseColor,uHighlightColor,vIntensity);','outColor=vec4(finalColor,alpha);','}'
-    ].join('\n');
-    const vs=this.shader(g.VERTEX_SHADER,vsSrc),fs=this.shader(g.FRAGMENT_SHADER,fsSrc);
-    if(!vs||!fs){this.disabled=true;return}
-    const p=g.createProgram();g.attachShader(p,vs);g.attachShader(p,fs);g.linkProgram(p);
-    if(!g.getProgramParameter(p,g.LINK_STATUS)){console.warn(g.getProgramInfoLog(p));this.disabled=true;return}
-    g.deleteShader(vs);g.deleteShader(fs);this.program=p;g.useProgram(p);
-    this.loc={
-      pos:g.getAttribLocation(p,'aPosition'),target:g.getAttribLocation(p,'aTargetPosition'),
-      scale:g.getAttribLocation(p,'aScale'),targetScale:g.getAttribLocation(p,'aTargetScale'),
-      random:g.getAttribLocation(p,'aRandom'),baseSize:g.getUniformLocation(p,'uBaseSize'),
-      time:g.getUniformLocation(p,'uTime'),motionMode:g.getUniformLocation(p,'uMotionMode'),viewport:g.getUniformLocation(p,'uViewport'),
-      mouse:g.getUniformLocation(p,'uMouse'),parallax:g.getUniformLocation(p,'uParallaxStrength'),
-      transition:g.getUniformLocation(p,'uTransition'),baseColor:g.getUniformLocation(p,'uBaseColor'),
-      highlight:g.getUniformLocation(p,'uHighlightColor')
-    };
-    this.buffers={pos:g.createBuffer(),target:g.createBuffer(),scale:g.createBuffer(),targetScale:g.createBuffer(),random:g.createBuffer()};
-    g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.disable(g.DEPTH_TEST);
-    g.uniform1f(this.loc.baseSize,18);g.uniform3f(this.loc.baseColor,36/255,107/255,73/255);g.uniform3f(this.loc.highlight,185/255,243/255,93/255);
-  }
-  bindBuffer(name,data,size){
-    if(this.disabled||!this.gl)return;const g=this.gl,b=this.buffers[name],loc=this.loc[name];
-    g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,data,g.DYNAMIC_DRAW);g.enableVertexAttribArray(loc);g.vertexAttribPointer(loc,size,g.FLOAT,false,0,0);
-  }
-  uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
-  loadImage(){
-    const im=new Image();im.src='/kernellum/assets/study-researcher.webp';
-    im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
-  }
-  resize(){
-    if(this.disabled)return;
-    const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight,g=this.gl;this.w=w;this.h=h;this.dpr=dpr;
-    this.canvas.width=Math.floor(w*dpr);this.canvas.height=Math.floor(h*dpr);this.canvas.style.width=w+'px';this.canvas.style.height=h+'px';if(g)g.viewport(0,0,this.canvas.width,this.canvas.height);
-    this.gap=g?13.5:22;this.cols=Math.ceil(w/this.gap)+1;this.rows=Math.ceil(h/this.gap)+1;this.count=this.cols*this.rows;
-    this.startX=this.cols*this.gap/-2+this.gap/2;this.startY=this.rows*this.gap/-2+this.gap/2;
-    const base=this.makeNone();this.positions=base.positions;this.scales=base.scales;this.targetPositions=new Float32Array(this.positions);this.targetScales=new Float32Array(this.scales);
-    this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.uploadAll();
-    if(this.target!=='none')this.set(this.target,true,true);
-  }
-  empty(){return{positions:new Float32Array(this.count*3),scales:new Float32Array(this.count)}}
-  shuffle(){const a=Array.from({length:this.count},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;const t=a[i];a[i]=a[j];a[j]=t}return a}
-  fallback(out,scales,index,prior){
-    const j=index*3;if(prior&&Number.isFinite(prior[j])){out[j]=prior[j];out[j+1]=prior[j+1];out[j+2]=prior[j+2]}
-    else{const c=index%this.cols,r=(index/this.cols)|0;out[j]=this.startX+c*this.gap;out[j+1]=this.startY+r*this.gap;out[j+2]=0}scales[index]=0;
-  }
-  makeNone(){
-    const o=this.empty();let a=0;for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){o.positions[a*3]=this.startX+c*this.gap;o.positions[a*3+1]=this.startY+r*this.gap;o.positions[a*3+2]=0;o.scales[a]=0;a++}return o;
-  }
-  makeGrid(){
-    const o=this.empty(),order=this.shuffle();let n=0;
-    for(let r=0;r<this.rows;r++)for(let c=0;c<this.cols;c++){const i=order[n++],x=this.startX+c*this.gap,y=this.startY+r*this.gap;o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=(x*x+y*y)/400000;o.scales[i]=Math.random()<.5?0:Math.random()}return o;
-  }
-  makeHorizontal(){
-    const o=this.empty(),prior=this.positions,ringCount=10,radius=Math.max(Math.min(this.w,this.h)*.25,150),spacing=radius*.3,start=-((ringCount-1)*spacing)/2,order=this.shuffle();
-    let ring=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
-    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount){const t=point/per*Math.PI*2,x=start+ring*spacing;o.positions[i*3]=x+Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=(ring-ringCount/2)*-5;o.scales[i]=1;if(++point>=per){ring++;point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
-  }
-  makeVertical(){
-    const o=this.empty(),prior=this.positions,ringCount=6,order=this.shuffle();let ring=0,radius=Math.max(Math.min(this.w,this.h)*.35,250),z=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
-    for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount&&radius>0){const t=point/per*Math.PI*2;o.positions[i*3]=Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=z;o.scales[i]=1;if(++point>=per){ring++;radius-=40;z-=15;per=Math.floor(2*Math.PI*radius/this.gap);point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
-  }
-  makeCircuit(){
-    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/250));
-    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
-      const lane=k%15,step=Math.floor(k/15),x=(step%Math.ceil(this.w/12))*12-this.w/2;
-      const branch=lane%3===0?Math.max(-90,Math.min(90,x*.34)):0;
-      o.positions[i*3]=x;o.positions[i*3+1]=(lane-7)*this.h/22+branch;o.positions[i*3+2]=lane*2;
-      o.scales[i]=(step%19===0)?1.45:.45;
-    }return o;
-  }
-  makeWave(){
-    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/220));
-    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
-      const band=k%9,x=((Math.floor(k/9)*11)%Math.max(1,this.w))-this.w/2;
-      o.positions[i*3]=x;o.positions[i*3+1]=(band-4)*this.h/13+Math.sin(x/95+band*.46)*this.h*.10;
-      o.positions[i*3+2]=band*4;o.scales[i]=.45+(band%3===0?.45:0);
-    }return o;
-  }
-  makeMatrix(){
-    const o=this.empty(),order=this.shuffle(),cols=Math.max(12,Math.floor(this.w/22)),rows=Math.max(9,Math.floor(this.h/22));
-    for(let k=0;k<this.count;k++){const i=order[k];if(k>=cols*rows){this.fallback(o.positions,o.scales,i,this.positions);continue}
-      const col=k%cols,row=Math.floor(k/cols),x=(col-(cols-1)/2)*20,y=(row-(rows-1)/2)*20;
-      o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=0;
-      o.scales[i]=(col%7===0||row%7===0||((col+row)%11===0))?.95:.15;
-    }return o;
-  }
-  makeTraces(){
-    const o=this.empty(),order=this.shuffle(),prior=this.positions,lanes=21,points=Math.max(12,Math.floor(this.w/12));
-    for(let n=0;n<this.count;n++){const i=order[n];if(n>=lanes*points){this.fallback(o.positions,o.scales,i,prior);continue}
-      const lane=n%lanes,step=Math.floor(n/lanes),x=(step/(points-1)-.5)*this.w*1.1;
-      const route=(lane-10)*this.h/29+Math.sign(x)*Math.min(90,Math.abs(x)*.25)*(lane%4===0?1:lane%4===1?-1:0);
-      o.positions[i*3]=x;o.positions[i*3+1]=route;o.positions[i*3+2]=lane*.5;
-      o.scales[i]=(step%17===0||step===points-1)?1.3:.72;
-    }return o;
-  }
-  makeConstellation(){
-    const o=this.empty(),order=this.shuffle(),prior=this.positions,centers=[[-.31,-.22],[.25,-.27],[-.08,.22],[.34,.23]],n=Math.min(this.count,Math.floor(this.w*this.h/235));
-    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,prior);continue}
-      const cluster=centers[k%4],a=k*2.39996,r=Math.sqrt((k/4)%Math.max(1,n/4))*this.gap*.72;
-      o.positions[i*3]=cluster[0]*this.w+Math.cos(a)*r;o.positions[i*3+1]=cluster[1]*this.h+Math.sin(a)*r;o.positions[i*3+2]=(k%9)*2;
-      o.scales[i]=(k%13===0)?1.5:.25+(k%5)*.13;
-    }return o;
-  }
-  makeFocus(){
-    const o=this.empty(),order=this.shuffle(),prior=this.positions,rings=15,per=Math.max(24,Math.floor(Math.PI*Math.min(this.w,this.h)/this.gap));
-    for(let k=0;k<this.count;k++){const i=order[k];if(k>=rings*per){this.fallback(o.positions,o.scales,i,prior);continue}
-      const ring=Math.floor(k/per),a=k%per/per*Math.PI*2,r=(ring+1)*Math.min(this.w,this.h)/39;
-      o.positions[i*3]=Math.cos(a)*r*1.3;o.positions[i*3+1]=Math.sin(a)*r*.82;o.positions[i*3+2]=-ring*1.5;
-      o.scales[i]=(k%31===0)?1.3:.5;
-    }return o;
-  }
-  makeImage(){
-    if(!this.imageReady||!this.image)return this.makeNone();
-    const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
-    const ratio=this.image.width/this.image.height,target=w/h;let dw,dh,ox,oy;
-    if(ratio>target){dh=h;dw=this.image.width*(h/this.image.height);ox=(w-dw)/2;oy=0}else{dw=w;dh=this.image.height*(w/this.image.width);ox=0;oy=(h-dh)/2}
-    ctx.drawImage(this.image,ox,oy,dw,dh);const data=ctx.getImageData(0,0,w,h).data,pixels=[];
-    for(let y=0;y<h;y++)for(let x=0;x<w;x++){const p=(y*w+x)*4;if(data[p+3]>128){const darkness=1-(.299*data[p]+.587*data[p+1]+.114*data[p+2])/255,th=.33;pixels.push({x:x,y:y,scale:darkness<=th?0:(darkness-th)/(1-th)})}}
-    const o=this.empty(),prior=this.positions,order=this.shuffle();
-    for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
-  }
-  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();if(shape==='circuit')return this.makeCircuit();if(shape==='wave')return this.makeWave();if(shape==='matrix')return this.makeMatrix();if(shape==='traces')return this.makeTraces();if(shape==='constellation')return this.makeConstellation();if(shape==='focus')return this.makeFocus();return this.makeNone()}
-  transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
-  bake(now=performance.now()){
-    if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
-    for(let i=0;i<this.count;i++){const j=i*3,r=this.random[i],r2=(r*123.456)%1;this.positions[j]=lerp(this.positions[j],this.targetPositions[j],t)+(r-.5)*250*arc;this.positions[j+1]=lerp(this.positions[j+1],this.targetPositions[j+1],t)+(r2-.5)*250*arc;this.positions[j+2]=lerp(this.positions[j+2],this.targetPositions[j+2],t);this.scales[i]=lerp(this.scales[i],this.targetScales[i],t)}
-    this.transition=0;this.morphing=false;this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);
-  }
-  set(shape,instant=false,force=false){
-    if(this.disabled)return;if(shape===this.target&&!force)return;if(this.morphing)this.bake();this.target=shape;const next=this.build(shape);
-    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=shape==='none'||shape==='image'?0:1;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
-    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=shape==='none'||shape==='image'?0:1;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
-  }
-  draw(now,dt){
-    if(this.disabled)return;this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
-    let t=this.morphing?this.transitionValue(now):this.transition;
-    if(this.morphing){const raw=clamp((now-this.start)/this.duration);this.parallax=lerp(this.parallaxFrom,this.parallaxTo,t);if(raw>=1){this.positions=new Float32Array(this.targetPositions);this.scales=new Float32Array(this.targetScales);this.bindBuffer('pos',this.positions,3);this.bindBuffer('scale',this.scales,1);this.transition=0;t=0;this.morphing=false;this.parallax=this.parallaxTo}}
-    if(this.ctx){
-      const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);c.clearRect(0,0,this.w,this.h);c.fillStyle='#b9f35d';
-      for(let i=0;i<this.count;i++){
-        const j=i*3,scale=lerp(this.scales[i],this.targetScales[i],t);if(scale<.08)continue;
-        const z=lerp(this.positions[j+2],this.targetPositions[j+2],t);
-        let px=lerp(this.positions[j],this.targetPositions[j],t)+this.mouseX*z*4*this.parallax;
-        let py=lerp(this.positions[j+1],this.targetPositions[j+1],t)+this.mouseY*z*4*this.parallax;
-        const seconds=now*.001;
-        if(this.motionMode===1)py+=Math.sin(px*.008-seconds*1.4+this.random[i])*2;
-        else if(this.motionMode===2){const s=1+.018*Math.sin(seconds*.8);px=px*s+Math.sin(py*.009+seconds*.5)*4;py*=s}
-        else if(this.motionMode===3){px+=Math.sin(seconds*.9+this.random[i]*25)*8;py+=Math.cos(seconds*.72+this.random[i]*31)*8}
-        else if(this.motionMode===4){const d=Math.hypot(px,py)||1,a=.025*Math.sin(seconds*.7+d*.008),ox=px;px=(ox*Math.cos(a)-py*Math.sin(a))+ox/d*Math.sin(d*.015-seconds*1.7)*10;py=(ox*Math.sin(a)+py*Math.cos(a))+py/d*Math.sin(d*.015-seconds*1.7)*10}
-        const x=px+this.w/2,y=this.h/2-py;
-        if(x<0||x>this.w||y<0||y>this.h)continue;
-        const pulse=.68+.32*Math.sin(now*.002+this.random[i]*6.28);
-        const travel=this.motionMode===1?.35+1.35*Math.pow(Math.max(0,Math.sin(px*.018-seconds*2.7+this.random[i]*.4)),10):this.motionMode===4?.35+1.1*Math.pow(Math.max(0,Math.sin(Math.hypot(px,py)*.02-seconds*2)),6):1;
-        c.globalAlpha=Math.min(.75,(.25+.35*(1-Math.hypot(x-this.w/2,y-this.h/2)/Math.max(this.w,this.h)))*scale*travel);
-        c.beginPath();c.arc(x,y,Math.max(.5,2.1*scale*pulse*travel),0,Math.PI*2);c.fill();
-      }
-      c.globalAlpha=1;return;
-    }
-    const g=this.gl;g.useProgram(this.program);
-    g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT);g.uniform1f(this.loc.time,now*.001);g.uniform1f(this.loc.motionMode,this.motionMode);g.uniform2f(this.loc.viewport,this.w,this.h);g.uniform2f(this.loc.mouse,this.mouseX,this.mouseY);g.uniform1f(this.loc.parallax,this.parallax);g.uniform1f(this.loc.transition,t);g.drawArrays(g.POINTS,0,this.count);
-  }
-}
-const canvas=$('#particle-stage canvas'),particles=canvas?new ParticleField(canvas):null;
-
-/* Text and particles share the same scroll coordinate. */
-function splitHeadingChars(el){
-  if(!el||el.dataset.revealSplit)return[];
-  el.dataset.revealSplit='chars';
-  const words=el.textContent.trim().split(/\s+/);el.textContent='';const chars=[];
-  words.forEach((word,wi)=>{
-    const ws=document.createElement('span');ws.style.display='inline-block';ws.style.whiteSpace='nowrap';
-    [...word].forEach(ch=>{const c=document.createElement('span');c.className='boon-char';c.textContent=ch;ws.appendChild(c);chars.push(c)});
-    el.appendChild(ws);if(wi<words.length-1)el.append(' ');
-  });
-  return chars;
-}
-function splitLines(el){
-  if(!el||el.dataset.revealSplit)return[];
-  el.dataset.revealSplit='lines';
-  const words=el.textContent.trim().split(/\s+/);el.textContent='';const probes=[];
-  words.forEach((word,wi)=>{
-    const w=document.createElement('span');w.textContent=word;w.style.cssText='display:inline-block;white-space:nowrap';
-    el.appendChild(w);probes.push(w);if(wi<words.length-1)el.append(' ');
-  });
-  const rows=[];let top=null,row=[];
-  probes.forEach(w=>{const y=Math.round(w.offsetTop);if(top===null||Math.abs(y-top)<=1)row.push(w.textContent);else{rows.push(row);row=[w.textContent]}top=y});
-  if(row.length)rows.push(row);
-  el.innerHTML=rows.map(r=>'<span class="boon-line-clip"><span class="boon-line">'+r.join(' ')+'</span></span>').join('');
-  return $$('.boon-line',el);
-}
-const revealGroups=[];
-function revealScope(scope){
-  if(!scope||scope.dataset.revealReady)return;
-  scope.dataset.revealReady='1';
-  const headings=$$('h2,h3,h4,h5,h6',scope).filter(h=>!h.closest('.large-statement'));
-  const paragraphs=$$('p',scope).filter(p=>!p.closest('form'));
-  const labels=$$('.section-label,.card-index,.n,.num',scope);
-  headings.forEach(el=>revealGroups.push({el,nodes:splitHeadingChars(el),kind:'chars'}));
-  paragraphs.forEach(el=>revealGroups.push({el,nodes:splitLines(el),kind:'lines'}));
-  labels.forEach(el=>revealGroups.push({el,nodes:[el],kind:'labels'}));
-  if(reduce.matches)return;
-  revealGroups.forEach(group=>{
-    group.nodes.forEach(node=>{
-      node.style.opacity='0';
-      if(group.kind!=='chars')node.style.transform=group.kind==='labels'?'translateY(20px)':'translateY(50%)';
-    });
-  });
-}
-$$('.section,.closing').forEach(revealScope);
-function scrubReveals(vh){
-  if(reduce.matches)return;
-  revealGroups.forEach(group=>{
-    const r=group.el.getBoundingClientRect();
-    if(r.top>vh*1.05||r.bottom<-vh*.1)return;
-    const progress=clamp((vh*.89-r.top)/(vh*.51));
-    const n=group.nodes.length;
-    group.nodes.forEach((node,i)=>{
-      const stagger=group.kind==='chars'?(i/Math.max(1,n-1))*.32:i*.055;
-      const local=clamp((progress-stagger)/.58),eased=1-Math.pow(1-local,3);
-      node.style.opacity=String(eased);
-      if(group.kind!=='chars')node.style.transform=`translateY(${(group.kind==='labels'?20:50)*(1-eased)}${group.kind==='labels'?'px':'%'})`;
-    });
-  });
-}
-
-/* Scroll-scrubbed PageHeader / LargeText / CardGrid */
-const heroEl=$('.route-page-header'),heroTitle=$('.route-title'),heroLines=splitLines(heroTitle);
-const heroImages=$$('.route-image'),heroViz=$$('.route-viz'),heroSub=$('.route-subtitle'),heroCta=$('.route-cta');
-const statement=$('.large-statement'),statementLines=statement?splitLines($('h2',statement)):[];
-if(!reduce.matches)statementLines.forEach(l=>l.style.transform='translateY(100%)');
-const cards=$$('.cards>.card');
-if(!reduce.matches)cards.forEach((c,i)=>c.style.transform='translateY('+(100+i*50)+'px)');
-
-/* Page transition */
-if(!reduce.matches){
-  const main=$('main');
-  const entrance={
-    'what-we-do':{clipPath:'inset(0 9% 0 0)',transform:'scale(.98)',filter:'blur(2px)'},
-    'who-we-are':{clipPath:'inset(6% 6% 6% 6%)',transform:'scale(.96)',filter:'blur(2px)'},
-    'careers':{clipPath:'inset(10% 0 0 0)',transform:'translateY(12px)',filter:'blur(2px)'},
-    'contact':{clipPath:'inset(0 0 10% 0)',transform:'scale(1.02)',filter:'blur(2px)'}
-  }[route];
-  const a=main.animate(
-    [entrance,
-     {clipPath:'inset(0 0 0 0)',transform:'scale(1)',filter:'blur(0px)'}],
-    {duration:700,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'both'}
-  );
-  a.finished.finally(()=>{main.style.clipPath='';main.style.transform='';main.style.filter=''});
-}
-
-/* Section / particle focus follows the same smoothed coordinate as text. */
-const focus=$$('[data-particles]').map(el=>[el,el.dataset.particles]).filter(x=>x[1]);
-let focusEl=null,smoothY=scrollY,lastY=scrollY,lastToggle=scrollY,lastTime=performance.now();
-function smoothRect(el){
-  const raw=el.getBoundingClientRect();
-  return{top:raw.top,bottom:raw.bottom,height:raw.height};
-}
-function chooseFocus(){
-  if(!particles)return;
-  const vh=innerHeight,line=vh*(scrollY>lastY?.4:scrollY<lastY?.6:.5);let best=null,score=-1;
-  focus.forEach(item=>{
-    const r=smoothRect(item[0]),vis=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));
-    if(vis<vh*.05)return;
-    const ratio=vis/Math.min(vh,r.height),d=(r.top<=line&&r.bottom>=line)?0:Math.min(Math.abs(r.top-line),Math.abs(r.bottom-line));
-    const center=1-Math.min(1,d/vh),sc=ratio*.6+center*.4;
-    if(sc>score){score=sc;best=item}
-  });
-  if(best&&best[0]!==focusEl){focusEl=best[0];particles.set(best[1])}
-}
-function frame(now){
-  const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;
-  const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;
-  smoothY=y;
-  if(headerEl){
-    let visible=headerEl.classList.contains('visible'),hh=headerEl.offsetHeight;
-    if(y<hh)visible=true;else if(Math.abs(y-lastToggle)>=50){visible=dir<0;lastToggle=y}
-    headerEl.classList.toggle('visible',visible);headerEl.style.transform=visible?'translateY(0)':'translateY(-150%)';
-  }
-  if(heroEl&&!reduce.matches){
-    const p=clamp(smoothY/vh);
-    if(heroType==='left'){
-      if(heroImages[1])heroImages[1].style.transform='translateX('+(-25*p)+'%)';
-      if(heroViz[1])heroViz[1].style.transform='translateX('+(12.5*p)+'%)';
-      if(heroImages[2])heroImages[2].style.transform='translateX('+(-25*p)+'%)';
-      if(heroViz[2])heroViz[2].style.transform='translateX('+(12.5*p)+'%)';
-    }else{
-      if(heroImages[1])heroImages[1].style.transform='translateX('+(-25*p)+'%)';
-      if(heroViz[1])heroViz[1].style.transform='translateX('+(12.5*p)+'%)';
-      if(heroImages[2])heroImages[2].style.transform='translateX('+(25*p)+'%)';
-      if(heroViz[2])heroViz[2].style.transform='translateX('+(-12.5*p)+'%)';
-    }
-    heroLines.forEach(l=>l.style.transform='translateY('+(-250*p)+'%)');
-    if(heroViz[0])heroViz[0].style.transform='scale('+(1+.15*p)+')';
-    if(heroSub){heroSub.style.opacity=String(Math.max(0,1-1.5*p));if(!mobile.matches)heroSub.style.transform='translateX('+(-5*p)+'vw)'}
-    if(heroCta){heroCta.style.opacity=String(Math.max(0,1-1.5*p));if(!mobile.matches)heroCta.style.transform='translateX('+(5*p)+'vw)'}
-  }
-  const cardWrap=$('.cards');
-  if(cardWrap&&!reduce.matches){
-    const r=smoothRect(cardWrap),p=clamp((vh-r.top)/(vh*.65));
-    cards.forEach((c,i)=>{
-      const lp=clamp((p-i*(150/800)*.35)/(1-i*.035)),e=1-Math.pow(1-lp,3);
-      c.style.transform='translateY('+((100+i*50)*(1-e))+'px)';
-    });
-  }
-  if(statement&&!reduce.matches){
-    const r=smoothRect(statement),p=clamp((vh*.9-r.top)/(vh*.85));
-    statementLines.forEach(l=>l.style.transform='translateY('+(100*(1-p))+'%)');
-  }
-  scrubReveals(vh);chooseFocus();particles?.draw(now,dt);lastY=y;requestAnimationFrame(frame);
-}
-requestAnimationFrame(frame);
-
-/* Lenis-equivalent desktop interpolation. */
-if(!reduce.matches&&matchMedia('(hover:hover) and (pointer:fine)').matches){
-  let target=scrollY,current=scrollY,driving=false;
-  const max=()=>Math.max(0,document.documentElement.scrollHeight-innerHeight);
-  addEventListener('wheel',e=>{
-    if(e.ctrlKey||e.metaKey)return;
-    const t=e.target;if(t instanceof Element&&t.closest('input,textarea,select,[contenteditable="true"]'))return;
-    e.preventDefault();driving=true;current=scrollY;target=clamp(target+e.deltaY,0,max());
-  },{passive:false});
-  addEventListener('keydown',e=>{
-    const amt=e.key==='PageDown'?innerHeight*.9:e.key==='PageUp'?-innerHeight*.9:e.key==='ArrowDown'?40:e.key==='ArrowUp'?-40:0;
-    if(!amt)return;e.preventDefault();driving=true;current=scrollY;target=clamp(target+amt,0,max());
-  });
-  const scrollRaf=()=>{
-    if(driving){current+=(target-current)*.1;if(Math.abs(target-current)<.2){current=target;driving=false}scrollTo(0,current)}
-    else{current=scrollY;target=scrollY}
-    requestAnimationFrame(scrollRaf);
-  };
-  requestAnimationFrame(scrollRaf);
-  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href'),el=id&&$(id);if(!el)return;
-    e.preventDefault();target=clamp(scrollY+el.getBoundingClientRect().top,0,max());current=scrollY;driving=true;
-  }));
-}
-
+let lastY=scrollY,ticking=false;
+const headerEl=$('.site-header');
+addEventListener('scroll',function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){const y=scrollY;if(headerEl){const hide=y>lastY&&y>180&&!(panel&&panel.classList.contains('open'));headerEl.style.transform=hide?'translate(-50%,-150%)':'translate(-50%,0)';headerEl.style.transition='transform .55s cubic-bezier(.5,.1,0,1)';}lastY=y;ticking=false;});},{passive:true});
 })();
