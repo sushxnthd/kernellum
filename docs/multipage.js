@@ -122,6 +122,7 @@ const hero=`<section class="route-page-header ${heroType} route-${route}" data-p
   <figure class="route-image"><div class="route-viz viz-b"></div></figure>
 </div>
 <div class="route-content">
+  <span class="k-editorial-note">Concept imagery</span>
   <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
   <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Open GitHub':'Explore the work',route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div></div>
 </div>

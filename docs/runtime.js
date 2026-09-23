@@ -158,6 +158,11 @@ if(heroTitle){
   if(heroLines[1])heroLines[1].style.textIndent='20vw';
   heroImgs.forEach(im=>im.style.opacity='1');
 }
+if(hero){
+  const note=document.createElement('span');
+  note.className='k-editorial-note';note.textContent='Concept imagery';
+  hero.appendChild(note);
+}
 
 const centered=$$('section.centered-text');
 const lineOriginals=new WeakMap();
@@ -317,7 +322,9 @@ const hrefMap=new Map([
 $$('a[href]').forEach(a=>{const h=a.getAttribute('href');if(hrefMap.has(h)){a.setAttribute('href',hrefMap.get(h));if(a.getAttribute('href').startsWith('https://github.com/')){a.target='_blank';a.rel='noopener noreferrer'}}});
 const footer=$('footer#footer');
 if(footer){
-  const exactText=(from,to)=>$$('a,span',footer).forEach(el=>{if(el.children.length===0&&el.textContent.trim()===from)el.textContent=to});
+  const exactText=(from,to)=>$$('a,span',footer).forEach(el=>{
+    [...el.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim()===from).forEach(n=>n.textContent=' '+to+' ');
+  });
   exactText('LinkedIn','GitHub');
   exactText('Privacy Policy','Experiment Ledger');
   exactText('ISO/IEC 27001 Cert.','Contribute');

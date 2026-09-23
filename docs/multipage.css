@@ -173,6 +173,12 @@ body,p,.route-subtitle,.lede,.body-copy,.card,.feature,.value,.section-label,.ro
 }
 .route-subtitle{background:rgba(7,12,8,.7);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);padding:1rem 1.2rem;border-radius:.5rem;box-shadow:inset 0 0 0 1px rgba(220,242,218,.14)}
 .route-title{text-shadow:0 2px 35px rgba(0,0,0,.6)}
+.route-content .k-editorial-note{
+  position:absolute;top:7.4rem;right:var(--pad);padding:.45rem .6rem;
+  border:1px solid rgba(220,242,218,.2);border-radius:.25rem;background:rgba(7,12,8,.72);
+  color:var(--ink);font:500 .7rem/1 "IBM Plex Mono",monospace;letter-spacing:.06em;
+  text-transform:uppercase;pointer-events:none;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+}
 .card p,.feature p,.value p,.body-copy p,.contact-panel p{font-size:1rem;line-height:1.5}
 .k-footer-primary a:hover,.k-footer-secondary a:hover{color:var(--signal)}
-@media(max-width:58.75rem){.route-subtitle{width:min(91vw,34rem)}.route-page-header .route-image:nth-child(2){filter:brightness(.75)}}
+@media(max-width:58.75rem){.route-subtitle{width:min(91vw,34rem)}.route-page-header .route-image:nth-child(2){filter:brightness(.75)}.route-content .k-editorial-note{right:1.5rem;top:6rem}}
