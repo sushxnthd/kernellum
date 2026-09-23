@@ -138,6 +138,7 @@ div.btn-wrapper .btn,#header .expand-btn,#header .expand-menu a,
 #header .logo text,footer#footer .logo text{font-family:var(--krn-display)!important}
 h1,h2,h3{font-weight:500!important}
 #header .logo text,footer#footer .logo text{font-weight:600!important;letter-spacing:.02em!important}
+footer#footer a.logo svg{width:89px!important;height:24px!important;flex:none}
 
 /* BOON interaction is mostly state change, not floating/lifting. */
 #header .logo:hover svg,#header .expand-btn:hover,
