@@ -11,7 +11,7 @@ const pages={
 'what-we-do':{
  title:'What We Do • Kernellum',
  heroLabel:'What We Do',
- hero:'Design for the workload.',
+ hero:'A new design paradigm.',
  intro:'Kernellum is building a design loop that moves from an AI workload to accelerator architecture, verified RTL, and routed evidence. Physical results inform the next candidate.',
  blocks:[
   ['The design gap','AI workloads evolve faster than fixed accelerator designs. Architecture decisions made from fast estimates can change once the design is placed and routed.'],
@@ -31,7 +31,7 @@ const pages={
 'who-we-are':{
  title:'Who We Are • Kernellum',
  heroLabel:'Who We Are',
- hero:'Build for physical reality.',
+ hero:'Built for systems that shape what comes next.',
  intro:'Kernellum is a research-stage effort to automate the path from AI workload to implementable accelerator design. Every claim is tied to the evidence that supports it.',
  vision:'The long-term direction is an AI-native co-design system that moves from model and deployment constraints to workload-specific accelerator architecture, RTL, verification, FPGA implementation, and eventually licensable silicon IP.',
  values:[
@@ -45,7 +45,7 @@ const pages={
 'careers':{
  title:'Careers • Kernellum',
  heroLabel:'Careers',
- hero:'Build the next design loop.',
+ hero:'Build systems that shape real-world outcomes.',
  intro:'The work crosses architecture search, RTL, verification, FPGA tooling, and physical design. Explore the open research and the problems still to solve.',
  blocks:[
   ['Research that touches implementation','The interesting problems sit between machine learning, computer architecture, EDA, and experimental science.'],
