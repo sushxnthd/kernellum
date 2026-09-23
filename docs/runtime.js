@@ -285,7 +285,12 @@ const sockUrls=[
 ];
 sockImgs.forEach((im,i)=>{if(sockUrls[i]){im.src=sockUrls[i];im.style.opacity='1'}});
 const sockH=sock?$('h2',sock):null;
-if(sockH){sockH.innerHTML=`<span class="line k-line"><span>${sockH.textContent.trim()}</span></span>`}
+function prepareSockLines(){
+  if(!sockH)return;
+  sock._kLines=splitRichRenderedLines(sockH,'100%');
+}
+prepareSockLines();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(prepareSockLines);
 
 /* minimal visible brand substitutions, no geometry changes */
 document.title='Kernellum';
@@ -538,8 +543,8 @@ const focus=[
 ].filter(x=>x[0]);
 let focusEl=null;
 function smoothRect(el){
-  const raw=el.getBoundingClientRect(),docTop=raw.top+scrollY,top=docTop-smoothY;
-  return{top,bottom:top+raw.height,height:raw.height};
+  const raw=el.getBoundingClientRect();
+  return{top:raw.top,bottom:raw.bottom,height:raw.height};
 }
 function chooseFocus(){
   const vh=innerHeight,line=vh*(scrollY>lastY?.4:scrollY<lastY?.6:.5);let best=null,score=-1;
@@ -551,7 +556,7 @@ function chooseFocus(){
 let smoothY=scrollY,lastY=scrollY,lastToggle=0,lastTime=performance.now();
 function frame(now){
   const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;
-  const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;smoothY=lerp(smoothY,y,1-Math.exp(-6.5*dt));
+  const y=scrollY,dir=Math.sign(y-lastY),vh=innerHeight;smoothY=y;
   if(header){
     let visible=header.classList.contains('visible');
     const hh=header.offsetHeight;
@@ -572,7 +577,7 @@ function frame(now){
   centered.forEach(sec=>{const r=smoothRect(sec),p=clamp(-r.top/(vh*.5));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=1)});
   if(cardGrid&&!reduce.matches){const r=smoothRect(cardGrid),p=clamp((vh-r.top)/(vh*.65));cards.forEach((c,i)=>{const lp=clamp((p-i*(150/800)*.35)/(1-i*.035)),e=out(lp);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
   if(large&&!reduce.matches){const r=smoothRect(large),p=clamp((vh-r.bottom)/(vh*.5));largeLines.forEach(l=>l.style.transform=`translateY(${100*(1-p)}%)`)}
-  if(sock&&!reduce.matches){const r=smoothRect(sock),p=clamp((vh-r.bottom)/vh),wrap=$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const line=$('.k-line>span',sock),lp=clamp((p-.4)/.6);if(line)line.style.transform=`translateY(${100*(1-lp)}%)`;const btn=$('.btn',sock),bp=clamp((p-.5)/.5);if(btn){btn.style.opacity=String(bp);btn.style.transform=`translateY(${50*(1-bp)}%)`}}
+  if(sock&&!reduce.matches){const r=smoothRect(sock),p=clamp((vh-r.bottom)/vh),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const lp=clamp((p-.4)/.6);(sock._kLines||[]).forEach(line=>line.style.transform=`translateY(${100*(1-lp)}%)`);const btn=$('.btn',sock),bp=clamp((p-.5)/.5);if(btn){btn.style.opacity=String(bp);btn.style.transform=`translateY(${50*(1-bp)}%)`}}
   chooseFocus();if(particles)particles.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
 /* Lenis-equivalent desktop smoothing: same root/sync intent without shipping another framework. */
