@@ -95,7 +95,7 @@ const footer=`<footer class="k-footer">
 <nav class="k-footer-primary" aria-label="Primary Footer Nav">
 <a href="${base}what-we-do/"><span>What We Do</span>${footerArrowDots()}</a>
 <a href="${base}who-we-are/"><span>Who We Are</span>${footerArrowDots()}</a>
-<a href="${base}contact/"><span>Research</span>${footerArrowDots()}</a>
+<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener"><span>Research</span>${footerArrowDots()}</a>
 <a href="${base}careers/"><span>Careers</span>${footerArrowDots()}</a>
 </nav>
 <div class="k-footer-cta">${arrow('Contact',base+'contact/')}</div>
@@ -108,14 +108,14 @@ const footer=`<footer class="k-footer">
 </div></footer>`;
 
 const particlePlans={
-  'what-we-do':{hero:'grid',statement:'rings-horizontal',cards:'image',features:'rings-vertical',closing:'grid'},
-  'who-we-are':{hero:'image',intro:'rings-vertical',values:'grid',closing:'rings-horizontal'},
-  'careers':{hero:'rings-horizontal',statement:'image',cards:'rings-vertical',features:'grid',closing:'none'},
-  'contact':{hero:'rings-vertical',contact:'image',closing:'grid'}
+  'what-we-do':{hero:'circuit',statement:'rings-horizontal',cards:'image',features:'matrix',closing:'wave'},
+  'who-we-are':{hero:'wave',intro:'image',values:'matrix',closing:'rings-horizontal'},
+  'careers':{hero:'matrix',statement:'wave',cards:'circuit',features:'grid',closing:'none'},
+  'contact':{hero:'image',contact:'circuit',closing:'matrix'}
 };
 const particlePlan=particlePlans[route]||{hero:'none',closing:'rings-vertical'};
 const heroType=route==='what-we-do'?'left':'center';
-const hero=`<section class="route-page-header ${heroType}" data-particles="${particlePlan.hero}">
+const hero=`<section class="route-page-header ${heroType} route-${route}" data-particles="${particlePlan.hero}">
 <div class="route-images" aria-hidden="true">
   <figure class="route-image"><div class="route-viz viz-base"></div></figure>
   <figure class="route-image"><div class="route-viz viz-a"></div></figure>
@@ -160,12 +160,7 @@ function contact(){
   <div class="contact-row"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
   <div class="contact-row"><small>Current stage</small><span>K2 board-ready; physical measurements not yet claimed</span></div>
  </div>
- <form class="contact-form form-stack" id="contact-form">
-  <div class="field"><input name="name" placeholder="Name *" required><input name="org" placeholder="Organisation"></div>
-  <div class="field"><input name="email" type="email" placeholder="Email *" required><select name="reason"><option>Reason for contact</option><option>Research collaboration</option><option>Reproduction question</option><option>Technical feedback</option><option>Other</option></select></div>
-  <div class="field full"><textarea name="message" placeholder="Message *" required></textarea></div>
-  <button class="submit" type="submit">Continue via GitHub</button>
- </form>
+ <div class="contact-form contact-panel"><span class="section-label">Start a conversation</span><p class="lede">The research is public. Raise a reproduction question, propose a collaboration, or point out a result that needs a closer look.</p><div class="rule"></div>${arrow('Open a GitHub issue','https://github.com/sushxnthd/kernellum/issues/new')}</div>
  </div></div></section>`;
 }
 const statementMap={
@@ -270,17 +265,6 @@ $$('.expand-menu a').forEach(a=>{
   a.addEventListener('pointerleave',()=>$$('.k-nav-pips',a).forEach(x=>blinkSequence($$('i',x),false,false)));
 });
 
-/* Contact action */
-if(route==='contact'){
-  const form=$('#contact-form');
-  form?.addEventListener('submit',e=>{
-    e.preventDefault();const fd=new FormData(form);
-    const title='Kernellum contact: '+(fd.get('reason')||'Research discussion');
-    const body=['Name: '+fd.get('name'),'Organisation: '+(fd.get('org')||''),'Email: '+fd.get('email'),'','Message:',''+fd.get('message')].join('\n');
-    location.href='https://github.com/sushxnthd/kernellum/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body);
-  });
-}
-
 /* Footer: source-style dot icon pulse and lightweight ThreeView-like glow. */
 $$('.k-footer nav a').forEach(a=>{
   const icons=$$('.footer-dot-icon',a);
@@ -370,7 +354,7 @@ class ParticleField{
   }
   uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
   loadImage(){
-    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/assets/particle-image.png?v=2';
+    const im=new Image();im.src='/kernellum/assets/particle-mask.svg';
     im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
   }
   resize(){
@@ -405,6 +389,31 @@ class ParticleField{
     const o=this.empty(),prior=this.positions,ringCount=6,order=this.shuffle();let ring=0,radius=Math.max(Math.min(this.w,this.h)*.35,250),z=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
     for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount&&radius>0){const t=point/per*Math.PI*2;o.positions[i*3]=Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=z;o.scales[i]=1;if(++point>=per){ring++;radius-=40;z-=15;per=Math.floor(2*Math.PI*radius/this.gap);point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
+  makeCircuit(){
+    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/250));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const lane=k%15,step=Math.floor(k/15),x=(step%Math.ceil(this.w/12))*12-this.w/2;
+      const branch=lane%3===0?Math.max(-90,Math.min(90,x*.34)):0;
+      o.positions[i*3]=x;o.positions[i*3+1]=(lane-7)*this.h/22+branch;o.positions[i*3+2]=lane*2;
+      o.scales[i]=(step%19===0)?1.45:.45;
+    }return o;
+  }
+  makeWave(){
+    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/220));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const band=k%9,x=((Math.floor(k/9)*11)%Math.max(1,this.w))-this.w/2;
+      o.positions[i*3]=x;o.positions[i*3+1]=(band-4)*this.h/13+Math.sin(x/95+band*.46)*this.h*.10;
+      o.positions[i*3+2]=band*4;o.scales[i]=.45+(band%3===0?.45:0);
+    }return o;
+  }
+  makeMatrix(){
+    const o=this.empty(),order=this.shuffle(),cols=Math.max(12,Math.floor(this.w/22)),rows=Math.max(9,Math.floor(this.h/22));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=cols*rows){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const col=k%cols,row=Math.floor(k/cols),x=(col-(cols-1)/2)*20,y=(row-(rows-1)/2)*20;
+      o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=0;
+      o.scales[i]=(col%7===0||row%7===0||((col+row)%11===0))?.95:.15;
+    }return o;
+  }
   makeImage(){
     if(!this.imageReady||!this.image)return this.makeNone();
     const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
@@ -415,7 +424,7 @@ class ParticleField{
     const o=this.empty(),prior=this.positions,order=this.shuffle();
     for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
-  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();return this.makeNone()}
+  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();if(shape==='circuit')return this.makeCircuit();if(shape==='wave')return this.makeWave();if(shape==='matrix')return this.makeMatrix();return this.makeNone()}
   transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
   bake(now=performance.now()){
     if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
@@ -424,8 +433,8 @@ class ParticleField{
   }
   set(shape,instant=false,force=false){
     if(this.disabled)return;if(shape===this.target&&!force)return;if(this.morphing)this.bake();this.target=shape;const next=this.build(shape);
-    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
-    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
+    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=shape==='none'||shape==='image'?0:1;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
+    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=shape==='none'||shape==='image'?0:1;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
   }
   draw(now,dt){
     if(this.disabled)return;const g=this.gl;g.useProgram(this.program);this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
@@ -436,7 +445,7 @@ class ParticleField{
 }
 const canvas=$('#particle-stage canvas'),particles=canvas?new ParticleField(canvas):null;
 
-/* Text reveal utilities: BOON timing with Kernellum typography. */
+/* Text and particles share the same scroll coordinate. */
 function splitHeadingChars(el){
   if(!el||el.dataset.revealSplit)return[];
   el.dataset.revealSplit='chars';
@@ -462,32 +471,40 @@ function splitLines(el){
   el.innerHTML=rows.map(r=>'<span class="boon-line-clip"><span class="boon-line">'+r.join(' ')+'</span></span>').join('');
   return $$('.boon-line',el);
 }
+const revealGroups=[];
 function revealScope(scope){
   if(!scope||scope.dataset.revealReady)return;
   scope.dataset.revealReady='1';
   const headings=$$('h2,h3,h4,h5,h6',scope).filter(h=>!h.closest('.large-statement'));
   const paragraphs=$$('p',scope).filter(p=>!p.closest('form'));
   const labels=$$('.section-label,.card-index,.n,.num',scope);
-  const chars=headings.flatMap(splitHeadingChars),lines=paragraphs.flatMap(splitLines);
+  headings.forEach(el=>revealGroups.push({el,nodes:splitHeadingChars(el),kind:'chars'}));
+  paragraphs.forEach(el=>revealGroups.push({el,nodes:splitLines(el),kind:'lines'}));
+  labels.forEach(el=>revealGroups.push({el,nodes:[el],kind:'labels'}));
   if(reduce.matches)return;
-  chars.forEach(c=>c.style.opacity='0');
-  lines.forEach(l=>{l.style.opacity='0';l.style.transform='translateY(50%)'});
-  labels.forEach(l=>{l.style.opacity='0';l.style.transform='translateY(20px)'});
-  const io=new IntersectionObserver(entries=>{
-    if(!entries.some(e=>e.isIntersecting))return;io.disconnect();
-    lines.forEach((line,i)=>line.animate(
-      [{opacity:0,transform:'translateY(50%)'},{opacity:1,transform:'translateY(0)'}],
-      {duration:850,delay:i*25,easing:'cubic-bezier(.165,.84,.44,1)',fill:'forwards'}
-    ));
-    chars.forEach((char,i)=>char.animate([{opacity:0},{opacity:1}],
-      {duration:650,delay:i*10,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'forwards'}));
-    labels.forEach((label,i)=>label.animate(
-      [{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],
-      {duration:850,delay:50+i*25,easing:'cubic-bezier(.645,.045,.355,1)',fill:'forwards'}));
-  },{rootMargin:'0px 0px -20% 0px',threshold:0});
-  io.observe(scope);
+  revealGroups.forEach(group=>{
+    group.nodes.forEach(node=>{
+      node.style.opacity='0';
+      if(group.kind!=='chars')node.style.transform=group.kind==='labels'?'translateY(20px)':'translateY(50%)';
+    });
+  });
 }
 $$('.section,.closing').forEach(revealScope);
+function scrubReveals(vh){
+  if(reduce.matches)return;
+  revealGroups.forEach(group=>{
+    const r=group.el.getBoundingClientRect();
+    if(r.top>vh*1.05||r.bottom<-vh*.1)return;
+    const progress=clamp((vh*.89-r.top)/(vh*.51));
+    const n=group.nodes.length;
+    group.nodes.forEach((node,i)=>{
+      const stagger=group.kind==='chars'?(i/Math.max(1,n-1))*.32:i*.055;
+      const local=clamp((progress-stagger)/.58),eased=1-Math.pow(1-local,3);
+      node.style.opacity=String(eased);
+      if(group.kind!=='chars')node.style.transform=`translateY(${(group.kind==='labels'?20:50)*(1-eased)}${group.kind==='labels'?'px':'%'})`;
+    });
+  });
+}
 
 /* Scroll-scrubbed PageHeader / LargeText / CardGrid */
 const heroEl=$('.route-page-header'),heroTitle=$('.route-title'),heroLines=splitLines(heroTitle);
@@ -563,10 +580,10 @@ function frame(now){
     });
   }
   if(statement&&!reduce.matches){
-    const r=smoothRect(statement),p=clamp((vh-r.bottom)/(vh*.5));
+    const r=smoothRect(statement),p=clamp((vh*.9-r.top)/(vh*.85));
     statementLines.forEach(l=>l.style.transform='translateY('+(100*(1-p))+'%)');
   }
-  chooseFocus();particles?.draw(now,dt);lastY=y;requestAnimationFrame(frame);
+  scrubReveals(vh);chooseFocus();particles?.draw(now,dt);lastY=y;requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
 

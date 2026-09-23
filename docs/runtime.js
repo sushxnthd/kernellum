@@ -278,10 +278,10 @@ $$('.card-grid .lottie-canvas canvas').forEach((cv,idx)=>{
 const sock=$('section.sock'); if(sock)sock.id='insights';
 const sockImgs=sock?$$('.images .image-wrapper img',sock):[];
 const sockUrls=[
- 'https://cdn.sanity.io/images/cktal3h7/production/be4c39906759d893e768c4a568249eb5d45d9f2d-1344x896.png?w=1920&q=80&auto=format',
- 'https://cdn.sanity.io/images/cktal3h7/production/0cd1b737f485d70df84c6fc1f95e3585f7e5db6d-1232x928.png?w=1920&q=80&auto=format',
- 'https://cdn.sanity.io/images/cktal3h7/production/901002228d737f8cef110aab22ad5d49bd3bf3cf-5567x3542.jpg?w=1920&q=80&auto=format',
- 'https://cdn.sanity.io/images/cktal3h7/production/a5fac863effd309796bd824f9d3bda53d56872c7-2464x1856.png?w=1920&q=80&auto=format'
+ '/kernellum/assets/route-topology.svg',
+ '/kernellum/assets/timing-field.svg',
+ '/kernellum/assets/measurement-array.svg',
+ '/kernellum/assets/architecture-die.svg'
 ];
 sockImgs.forEach((im,i)=>{if(sockUrls[i]){im.src=sockUrls[i];im.style.opacity='1'}});
 const sockH=sock?$('h2',sock):null;
@@ -443,7 +443,7 @@ class ParticleField{
   }
   uploadAll(){this.bindBuffer('pos',this.positions,3);this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('scale',this.scales,1);this.bindBuffer('targetScale',this.targetScales,1);this.bindBuffer('random',this.random,1)}
   loadImage(){
-    const im=new Image();im.crossOrigin='anonymous';im.src='/kernellum/assets/particle-image.png?v=2';
+    const im=new Image();im.src='/kernellum/assets/particle-mask.svg';
     im.onload=()=>{this.image=im;this.imageReady=true;if(this.target==='image')this.set('image',false,true)};
   }
   resize(){
@@ -478,6 +478,31 @@ class ParticleField{
     const o=this.empty(),prior=this.positions,ringCount=6,order=this.shuffle();let ring=0,radius=Math.max(Math.min(this.w,this.h)*.35,250),z=0,point=0,per=Math.floor(2*Math.PI*radius/this.gap);
     for(let n=0;n<this.count;n++){const i=order[n];if(ring<ringCount&&radius>0){const t=point/per*Math.PI*2;o.positions[i*3]=Math.cos(t)*radius;o.positions[i*3+1]=Math.sin(t)*radius;o.positions[i*3+2]=z;o.scales[i]=1;if(++point>=per){ring++;radius-=40;z-=15;per=Math.floor(2*Math.PI*radius/this.gap);point=0}}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
+  makeCircuit(){
+    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/250));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const lane=k%15,step=Math.floor(k/15),x=(step%Math.ceil(this.w/12))*12-this.w/2;
+      const branch=lane%3===0?Math.max(-90,Math.min(90,x*.34)):0;
+      o.positions[i*3]=x;o.positions[i*3+1]=(lane-7)*this.h/22+branch;o.positions[i*3+2]=lane*2;
+      o.scales[i]=(step%19===0)?1.45:.45;
+    }return o;
+  }
+  makeWave(){
+    const o=this.empty(),order=this.shuffle(),n=Math.min(this.count,Math.floor(this.w*this.h/220));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=n){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const band=k%9,x=((Math.floor(k/9)*11)%Math.max(1,this.w))-this.w/2;
+      o.positions[i*3]=x;o.positions[i*3+1]=(band-4)*this.h/13+Math.sin(x/95+band*.46)*this.h*.10;
+      o.positions[i*3+2]=band*4;o.scales[i]=.45+(band%3===0?.45:0);
+    }return o;
+  }
+  makeMatrix(){
+    const o=this.empty(),order=this.shuffle(),cols=Math.max(12,Math.floor(this.w/22)),rows=Math.max(9,Math.floor(this.h/22));
+    for(let k=0;k<this.count;k++){const i=order[k];if(k>=cols*rows){this.fallback(o.positions,o.scales,i,this.positions);continue}
+      const col=k%cols,row=Math.floor(k/cols),x=(col-(cols-1)/2)*20,y=(row-(rows-1)/2)*20;
+      o.positions[i*3]=x;o.positions[i*3+1]=y;o.positions[i*3+2]=0;
+      o.scales[i]=(col%7===0||row%7===0||((col+row)%11===0))?.95:.15;
+    }return o;
+  }
   makeImage(){
     if(!this.imageReady||!this.image)return this.makeNone();
     const c=document.createElement('canvas'),ctx=c.getContext('2d',{willReadFrequently:true}),w=this.cols,h=this.rows;c.width=w;c.height=h;
@@ -488,7 +513,7 @@ class ParticleField{
     const o=this.empty(),prior=this.positions,order=this.shuffle();
     for(let n=0;n<this.count;n++){const i=order[n];if(n<pixels.length){const px=pixels[n],yy=this.rows-1-px.y;o.positions[i*3]=this.startX+px.x*this.gap;o.positions[i*3+1]=this.startY+yy*this.gap;o.positions[i*3+2]=0;o.scales[i]=px.scale}else this.fallback(o.positions,o.scales,i,prior)}return o;
   }
-  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();return this.makeNone()}
+  build(shape){if(shape==='grid')return this.makeGrid();if(shape==='rings-horizontal')return this.makeHorizontal();if(shape==='rings-vertical')return this.makeVertical();if(shape==='image')return this.makeImage();if(shape==='circuit')return this.makeCircuit();if(shape==='wave')return this.makeWave();if(shape==='matrix')return this.makeMatrix();return this.makeNone()}
   transitionValue(now=performance.now()){if(!this.morphing)return this.transition;const raw=clamp((now-this.start)/this.duration);return boonEase(raw)}
   bake(now=performance.now()){
     if(!this.morphing)return;const t=this.transitionValue(now),arc=Math.sin(t*Math.PI);
@@ -497,8 +522,8 @@ class ParticleField{
   }
   set(shape,instant=false,force=false){
     if(this.disabled)return;if(shape===this.target&&!force)return;if(this.morphing)this.bake();this.target=shape;const next=this.build(shape);
-    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
-    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=(shape==='grid'||shape==='rings-horizontal'||shape==='rings-vertical')?1:0;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
+    if(instant||reduce.matches){this.positions=next.positions;this.scales=next.scales;this.targetPositions=new Float32Array(next.positions);this.targetScales=new Float32Array(next.scales);this.random=new Float32Array(this.count);for(let i=0;i<this.count;i++)this.random[i]=Math.random();this.parallax=shape==='none'||shape==='image'?0:1;this.parallaxFrom=this.parallaxTo=this.parallax;this.transition=0;this.morphing=false;this.uploadAll();this.shape=shape;return}
+    this.targetPositions=next.positions;this.targetScales=next.scales;this.bindBuffer('target',this.targetPositions,3);this.bindBuffer('targetScale',this.targetScales,1);this.parallaxFrom=this.parallax;this.parallaxTo=shape==='none'||shape==='image'?0:1;this.start=performance.now();this.transition=0;this.morphing=true;this.shape=shape;
   }
   draw(now,dt){
     if(this.disabled)return;const g=this.gl;g.useProgram(this.program);this.mouseX=lerp(this.mouseX,this.targetMouseX,1-Math.exp(-5*dt));this.mouseY=lerp(this.mouseY,this.targetMouseY,1-Math.exp(-5*dt));
@@ -535,10 +560,10 @@ prepareLargeLines();
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(prepareLargeLines);
 const focus=[
   [hero,'dark','none'],
-  [centered[0],'dark','grid'],
+  [centered[0],'dark','circuit'],
   [centered[1],'dark','image'],
-  [cardGrid,'dark','rings-horizontal'],
-  [large,'dark','rings-vertical'],
+  [cardGrid,'dark','matrix'],
+  [large,'dark','wave'],
   [sock,'dark','none']
 ].filter(x=>x[0]);
 let focusEl=null;
@@ -574,10 +599,10 @@ function frame(now){
     if(!mobile.matches){const ls=$$('.title>.k-line',hero);if(ls[0])ls[0].style.transform=`translateX(${-50*hp}vw)`;if(ls[1])ls[1].style.transform=`translateX(${50*hp}vw)`;if(heroSubtitle)heroSubtitle.style.transform=`translateX(${-5*hp}vw)`;if(heroScroll)heroScroll.style.transform=`translateX(${5*hp}vw)`}
     if(heroSubtitle)heroSubtitle.style.opacity=String(Math.max(0,1-1.5*hp));if(heroScroll)heroScroll.style.opacity=String(Math.max(0,1-1.5*hp));
   }
-  centered.forEach(sec=>{const r=smoothRect(sec),p=clamp(-r.top/(vh*.5));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=1)});
+  centered.forEach(sec=>{const r=smoothRect(sec),p=clamp((vh*.86-r.top)/(vh*.9));(sec._kLines||[]).forEach(l=>l.style.transform=`translateY(${101*(1-p)}%)`);if(sec===roloSec)runRolodex(p>=1)});
   if(cardGrid&&!reduce.matches){const r=smoothRect(cardGrid),p=clamp((vh-r.top)/(vh*.65));cards.forEach((c,i)=>{const lp=clamp((p-i*(150/800)*.35)/(1-i*.035)),e=out(lp);c.style.transform=`translateY(${(100+i*50)*(1-e)}px)`})}
-  if(large&&!reduce.matches){const r=smoothRect(large),p=clamp((vh-r.bottom)/(vh*.5));largeLines.forEach(l=>l.style.transform=`translateY(${100*(1-p)}%)`)}
-  if(sock&&!reduce.matches){const r=smoothRect(sock),p=clamp((vh-r.bottom)/vh),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const lp=clamp((p-.4)/.6);(sock._kLines||[]).forEach(line=>line.style.transform=`translateY(${100*(1-lp)}%)`);const btn=$('.btn',sock),bp=clamp((p-.5)/.5);if(btn){btn.style.opacity=String(bp);btn.style.transform=`translateY(${50*(1-bp)}%)`}}
+  if(large&&!reduce.matches){const r=smoothRect(large),p=clamp((vh*.9-r.top)/(vh*.85));largeLines.forEach(l=>l.style.transform=`translateY(${100*(1-p)}%)`)}
+  if(sock&&!reduce.matches){const r=smoothRect(sock),p=clamp((vh*.9-r.top)/(vh*.9)),wrap=$$('.images>.image-wrapper',sock);if(sockImgs[0])sockImgs[0].style.transform=`scale(${1.15-.15*p})`;if(wrap[1])wrap[1].style.transform=`translateX(${-10*(1-p)}%)`;if(sockImgs[1])sockImgs[1].style.transform=`translateX(${5*(1-p)}%)`;if(wrap[2])wrap[2].style.transform=`translateY(${50*(1-p)}%)`;if(sockImgs[2])sockImgs[2].style.transform=`translateY(${-25*(1-p)}%)`;if(wrap[3])wrap[3].style.transform=`translateY(${-50*(1-p)}%)`;if(sockImgs[3])sockImgs[3].style.transform=`translateY(${25*(1-p)}%)`;const lp=clamp((p-.4)/.6);(sock._kLines||[]).forEach(line=>line.style.transform=`translateY(${100*(1-lp)}%)`);const btn=$('.btn',sock),bp=clamp((p-.5)/.5);if(btn){btn.style.opacity=String(bp);btn.style.transform=`translateY(${50*(1-bp)}%)`}}
   chooseFocus();if(particles)particles.draw(now,dt);lastY=y;requestAnimationFrame(frame)
 }
 /* Lenis-equivalent desktop smoothing: same root/sync intent without shipping another framework. */
