@@ -122,9 +122,6 @@ div.btn-wrapper .btn.outline.k-hover{color:var(--krn-void)}
 
 footer#footer nav a{transition:color .2s ease,transform .32s cubic-bezier(.16,1,.3,1)}
 footer#footer nav a:hover{color:var(--krn-signal);transform:translateX(.18rem)}
-footer#footer nav.primary .dot-icon .dot{opacity:.38!important}
-footer#footer nav.primary li:nth-child(odd) .dot-icon .dot:nth-child(3n+1){opacity:1!important}
-footer#footer nav.primary a:hover .dot-icon .dot{opacity:1!important;background-color:var(--krn-signal)!important}
 
 .card-grid li.card{transition:translate .4s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
 .card-grid li.card:hover{translate:0 -5px;box-shadow:inset 0 0 0 1px rgba(185,243,93,.25),0 18px 55px rgba(0,0,0,.14)}
@@ -159,7 +156,7 @@ h1,h2,h3{font-weight:500!important}
 .k-nav-pips i{width:.125rem;height:.125rem;border-radius:999px;background:currentColor;opacity:0}
 
 /* Exact footer icon intent: hidden at rest, blink/stagger into view on hover. */
-footer#footer .dot-icon .dot{opacity:0!important;will-change:opacity,background-color}
+footer#footer .dot-icon .dot{opacity:0;will-change:opacity,background-color}
 footer#footer nav a{transform:none!important;padding-left:inherit!important}
 footer#footer nav a:hover{color:inherit}
 footer#footer nav.primary a:hover{color:var(--krn-signal)}
