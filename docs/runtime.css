@@ -1,9 +1,7 @@
 /* Kernellum lightweight runtime support.
    BOON's production SSR component CSS remains the sole source of layout,
    typography, spacing and responsive geometry. */
-#loader{
-  transition:opacity .55s ease,visibility .55s ease!important;
-}
+#loader{display:none!important}
 #loader.kernellum-loaded{
   opacity:0!important;
   visibility:hidden!important;
