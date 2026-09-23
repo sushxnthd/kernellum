@@ -95,3 +95,17 @@ a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit;c
 .arrow-link{transition:color .2s ease}.arrow-link:hover{color:var(--signal)}
 .wordmark,.route-title,.display,.large-statement h2,.k-footer-brand,.expand-btn,.expand-menu a,.submit,.arrow-link{font-family:var(--display)!important}
 body,p,.route-subtitle,.lede,.body-copy,.card,.feature,.value,.section-label,.route-label{font-family:var(--body)!important}
+
+/* Final route footer glass parity with the homepage/header material. */
+.k-footer-primary,.k-footer-secondary,.k-footer-cta,.k-footer-brand{
+  -webkit-backdrop-filter:blur(16px) saturate(112%);
+  backdrop-filter:blur(16px) saturate(112%);
+  background-color:color-mix(in srgb,var(--base) 40%,transparent);
+  background-image:radial-gradient(180px circle at var(--gx,50%) var(--gy,50%),rgba(185,243,93,.075),transparent 72%);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--border) 92%,transparent);
+}
+.k-footer:after{
+  background:color-mix(in srgb,var(--base) 18%,transparent);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+}
