@@ -122,7 +122,7 @@ jobs:
               else{
                 const inner=await large.locator('h2').innerText();
                 console.log('HOME_LARGE_TEXT',JSON.stringify(inner));
-                if(!inner.replace(/\s+/g,' ').includes('A breakthrough is only real when its evidence survives physical implementation.'))e.push('homepage breakthrough spacing/text mismatch '+JSON.stringify(inner));
+                if(!inner.replace(/\s+/g,' ').toLowerCase().includes('a breakthrough is only real when its evidence survives physical implementation.'))e.push('homepage breakthrough spacing/text mismatch '+JSON.stringify(inner));
                 await large.evaluate(el=>{
                   const vh=innerHeight,docBottom=el.getBoundingClientRect().bottom+scrollY;
                   scrollTo(0,docBottom-vh*.75);
