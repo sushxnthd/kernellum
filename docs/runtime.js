@@ -155,7 +155,7 @@ if(heroTitle){
   const lines=heroTitle.textContent.trim().split(/\n+/).map(s=>s.trim()).filter(Boolean);
   heroTitle.innerHTML=lines.map(s=>`<span class="k-line"><span>${s}</span></span>`).join('');
   const heroLines=$$('.k-line>span',heroTitle);
-  if(heroLines[1])heroLines[1].style.textIndent='20vw';
+  if(heroLines[1])heroLines[1].style.textIndent='40vw';
   heroImgs.forEach(im=>im.style.opacity='1');
 }
 if(hero){
