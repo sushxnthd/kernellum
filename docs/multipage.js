@@ -104,7 +104,7 @@ const hero=`<section class="route-page-header ${heroType} route-${route}" data-p
 <div class="route-content">
 
   <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
-  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Open GitHub':'Explore the work',route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div></div>
+  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Discuss the work':'Explore the work','#content')}</div></div>
 </div>
 </section>`;
 
@@ -550,10 +550,16 @@ if(!reduce.matches)cards.forEach((c,i)=>c.style.transform='translateY('+(100+i*5
 /* Page transition */
 if(!reduce.matches){
   const main=$('main');
+  const entrance={
+    'what-we-do':{clipPath:'inset(0 9% 0 0)',transform:'scale(.98)',filter:'blur(2px)'},
+    'who-we-are':{clipPath:'inset(6% 6% 6% 6%)',transform:'scale(.96)',filter:'blur(2px)'},
+    'careers':{clipPath:'inset(10% 0 0 0)',transform:'translateY(12px)',filter:'blur(2px)'},
+    'contact':{clipPath:'inset(0 0 10% 0)',transform:'scale(1.02)',filter:'blur(2px)'}
+  }[route];
   const a=main.animate(
-    [{clipPath:'inset(50% 25% 50% 25%)',transform:'scale(.5)',filter:'blur(8px)'},
+    [entrance,
      {clipPath:'inset(0 0 0 0)',transform:'scale(1)',filter:'blur(0px)'}],
-    {duration:1000,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'both'}
+    {duration:700,easing:'cubic-bezier(.25,.46,.45,.94)',fill:'both'}
   );
   a.finished.finally(()=>{main.style.clipPath='';main.style.transform='';main.style.filter=''});
 }
