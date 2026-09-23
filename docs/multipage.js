@@ -118,38 +118,38 @@ const hero=`<section class="route-page-header ${heroType}" data-particles="none"
 
 function blockCards(){
  if(!data.blocks)return '';
- return `<section class="section" id="content"><div>
- <div class="section-label reveal">The Kernellum Difference</div>
- <h2 class="display wide reveal">${data.blocks[0][1]}</h2>
- <div class="cards">${data.blocks.map((b,i)=>`<article class="card reveal"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
+ return `<section class="section card-section" id="content" data-particles="rings-horizontal"><div>
+ <div class="section-label">The Kernellum Difference</div>
+ <h2 class="display wide">${data.blocks[0][1]}</h2>
+ <div class="cards">${data.blocks.map((b,i)=>`<article class="card"><span class="card-index">0${i+1}</span><h3>${b[0]}</h3><p>${b[1]}</p></article>`).join('')}</div>
  </div></section>`;
 }
 function features(){
  if(!data.features)return '';
- return `<section class="section compact"><div>
- <div class="section-label reveal">${route==='careers'?'Where the work lives':'The Loop'}</div>
- <h2 class="display reveal">${route==='careers'?'Work across disciplines.':'From workload to routed evidence.'}</h2>
- <div class="feature-list">${data.features.map(f=>`<div class="feature reveal"><span class="n">${f[0]}</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join('')}</div>
+ return `<section class="section compact feature-section" data-particles="grid"><div>
+ <div class="section-label">${route==='careers'?'Where the work lives':'The Loop'}</div>
+ <h2 class="display">${route==='careers'?'Work across disciplines.':'From workload to routed evidence.'}</h2>
+ <div class="feature-list">${data.features.map(f=>`<div class="feature"><span class="n">${f[0]}</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join('')}</div>
  </div></section>`;
 }
 function who(){
- return `<section class="section" id="content"><div class="split">
- <div class="left"><div class="section-label reveal">Our Vision</div><h2 class="display reveal">Design with physical reality in the loop.</h2></div>
- <div class="right body-copy reveal"><p class="lede">${data.vision}</p><div class="rule"></div><p>Kernellum's current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition. Physical-board latency, power, and energy remain future validation stages rather than assumed results.</p></div>
+ return `<section class="section intro-section" id="content" data-particles="grid"><div class="split">
+ <div class="left"><div class="section-label">Our Vision</div><h2 class="display">Design with physical reality in the loop.</h2></div>
+ <div class="right body-copy"><p class="lede">${data.vision}</p><div class="rule"></div><p>Kernellum's current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition. Physical-board latency, power, and energy remain future validation stages rather than assumed results.</p></div>
  </div></section>
- <section class="section compact"><div><div class="section-label reveal">Our Values</div><h2 class="display wide reveal">Stay true to the evidence and the mission.</h2>
- <div class="values">${data.values.map(v=>`<article class="value reveal"><span class="num">${v[0]}</span><div><h3>${v[1]}</h3><p>${v[2]}</p></div></article>`).join('')}</div></div></section>`;
+ <section class="section compact values-section" data-particles="rings-horizontal"><div><div class="section-label">Our Values</div><h2 class="display wide">Stay true to the evidence and the mission.</h2>
+ <div class="values">${data.values.map(v=>`<article class="value"><span class="num">${v[0]}</span><div><h3>${v[1]}</h3><p>${v[2]}</p></div></article>`).join('')}</div></div></section>`;
 }
 function contact(){
- return `<section class="section" id="content"><div>
- <div class="section-label reveal">Contact</div><h2 class="display reveal">Research should be inspectable.</h2>
+ return `<section class="section contact-section" id="content" data-particles="image"><div>
+ <div class="section-label">Contact</div><h2 class="display">Research should be inspectable.</h2>
  <div class="contact-grid">
- <div class="contact-info reveal">
+ <div class="contact-info">
   <div class="contact-row"><small>Repository</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">github.com/sushxnthd/kernellum <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
   <div class="contact-row"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
   <div class="contact-row"><small>Current stage</small><span>K2 board-ready; physical measurements not yet claimed</span></div>
  </div>
- <form class="contact-form form-stack reveal" id="contact-form">
+ <form class="contact-form form-stack" id="contact-form">
   <div class="field"><input name="name" placeholder="Name *" required><input name="org" placeholder="Organisation"></div>
   <div class="field"><input name="email" type="email" placeholder="Email *" required><select name="reason"><option>Reason for contact</option><option>Research collaboration</option><option>Reproduction question</option><option>Technical feedback</option><option>Other</option></select></div>
   <div class="field full"><textarea name="message" placeholder="Message *" required></textarea></div>
@@ -157,12 +157,20 @@ function contact(){
  </form>
  </div></div></section>`;
 }
-const closing=`<section class="closing"><div><div class="section-label reveal">Kernellum</div><h2 class="display reveal">${data.closing}</h2><div class="reveal">${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
+const statementMap={
+  'what-we-do':'Architecture search matters only if its advantages survive implementation.',
+  'careers':'The hardware does not respect org charts.'
+};
+function largeStatement(){
+  const text=statementMap[route];if(!text)return '';
+  return `<section class="large-statement" data-particles="grid"><h2>${text}</h2></section>`;
+}
+const closing=`<section class="closing" data-particles="rings-vertical"><div><div class="section-label">Kernellum</div><h2 class="display">${data.closing}</h2><div>${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
 
 let content='';
 if(route==='who-we-are')content=who();
 else if(route==='contact')content=contact();
-else content=blockCards()+features();
+else content=largeStatement()+blockCards()+features();
 
 document.body.innerHTML=`<div id="particle-stage"><canvas></canvas></div><div class="site">${header}<main>${hero}${content}${closing}</main>${footer}</div>`;
 
