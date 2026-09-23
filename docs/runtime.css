@@ -258,3 +258,39 @@ footer#footer nav,footer#footer .cta,footer#footer .logo{
 .page-header.home .subtitle{background:rgba(5,10,7,.84)!important;-webkit-backdrop-filter:blur(32px) saturate(105%);backdrop-filter:blur(32px) saturate(105%);border:1px solid rgba(242,241,235,.18);line-height:1.45}
 .card-grid .cards .card{background:rgba(5,11,8,.84)!important;-webkit-backdrop-filter:blur(30px) saturate(110%);backdrop-filter:blur(30px) saturate(110%)}
 .k-editorial-note{display:none!important}
+
+
+/* High-fidelity reference pass: preserve source geometry, swap warm grade for Kernellum green. */
+.page-header.home .images>.image-wrapper{background:#86e65b!important}
+.page-header.home .images>.image-wrapper:nth-child(1){background:#78dc55!important}
+.page-header.home .images>.image-wrapper:nth-child(2){background:#b9f35d!important}
+.page-header.home .images>.image-wrapper:nth-child(3){background:#8dea62!important}
+.page-header.home .images>.image-wrapper:nth-child(4){background:#b5f56c!important}
+.page-header.home .images>.image-wrapper img{
+  filter:grayscale(1) contrast(1.72) brightness(.72)!important;
+  mix-blend-mode:multiply!important;
+}
+.page-header.home .images>.image-wrapper:nth-child(2) img{filter:grayscale(1) contrast(1.9) brightness(.62) blur(.45px)!important}
+.page-header.home .images>.image-wrapper:nth-child(4) img{filter:grayscale(1) contrast(1.8) brightness(.66)!important}
+.page-header.home .subtitle{
+  background:transparent!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+  padding:0!important;
+  width:min(31rem,42vw)!important;
+  font-weight:500!important;
+}
+.page-header.home .title{text-shadow:none!important}
+.page-header.home .k-line:nth-child(2){margin-left:40vw}
+.page-header.home .content{z-index:12}
+#header .logo,#header .expand-btn,#header .expand-menu{
+  background-color:rgba(5,8,5,.58)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+  backdrop-filter:blur(16px)!important;
+  box-shadow:none!important;
+}
+#header .nav-bar>.k-hover-surface{
+  background:radial-gradient(120px circle at var(--krn-hover-x,50%) var(--krn-hover-y,50%),rgba(185,243,93,.08),transparent 70%),rgba(5,8,5,.58)!important;
+}
