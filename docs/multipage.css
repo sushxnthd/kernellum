@@ -305,3 +305,49 @@ body,p,.route-subtitle,.lede,.body-copy,.card,.feature,.value,.section-label,.ro
   background:rgba(5,8,5,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
 }
 .route-cta .arrow-link:hover{background:rgba(185,243,93,.1);color:#b9f35d}
+
+
+/* Reference-matched internal page sections. */
+.large-statement mark{background:none;color:var(--signal)}
+.accordion{margin-top:clamp(3rem,6vw,6rem);border-top:1px solid var(--border)}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-button{width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;padding:1.4rem 0;border:0;background:none;color:inherit;text-align:left;cursor:pointer}
+.acc-button h3{margin:0;font-family:var(--display);font-size:clamp(2.2rem,4.2vw,4.8rem);font-weight:500;line-height:.92;text-transform:uppercase;letter-spacing:-.04em}
+.acc-button>span{font-size:1.5rem;color:var(--signal);transition:transform .35s var(--ease)}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.acc-panel p{max-width:44rem;margin:0;padding:0 0 1.7rem;color:var(--ink2)}
+.acc-item.open .acc-panel{max-height:12rem}
+.acc-item.open .acc-button>span{transform:rotate(45deg)}
+
+.who-team{padding-block:clamp(6rem,10vw,11rem)}
+.who-team-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(20rem,.85fr);gap:clamp(3rem,7vw,8rem);align-items:center}
+.who-team-media{height:min(72vh,46rem);overflow:hidden;background:#7fe15c}
+.who-team-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.7) brightness(.62);mix-blend-mode:multiply}
+.who-team-copy .display{max-width:10ch}
+.who-team-copy .lede{margin-top:2rem}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+
+.careers-quotes{min-height:100svh;display:grid;place-items:center}
+.careers-carousel{width:min(100%,76rem);min-height:32rem;position:relative;display:grid;align-items:center}
+.career-quote{grid-area:1/1;opacity:0;transform:translateY(1.5rem);pointer-events:none;transition:opacity .45s var(--ease),transform .55s var(--ease)}
+.career-quote.active{opacity:1;transform:none;pointer-events:auto}
+.career-quote blockquote{margin:0;max-width:17ch;font-family:var(--display);font-size:clamp(3rem,6.3vw,7rem);font-weight:500;line-height:.9;letter-spacing:-.04em;text-transform:uppercase}
+.career-quote>span{display:block;margin-top:2rem;color:var(--signal);font:600 .76rem/1 var(--body);text-transform:uppercase;letter-spacing:.06em}
+.career-controls{position:absolute;right:0;bottom:0;display:flex;gap:.5rem}
+.career-controls button{width:3rem;height:3rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;font-size:1.25rem}
+.career-controls button:hover{background:var(--signal);color:var(--base)}
+
+.careers-feature{min-height:100svh}
+.careers-feature-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(3rem,8vw,9rem);align-items:center}
+.careers-feature.reverse .careers-feature-media{order:2}
+.careers-feature-media{height:min(72vh,46rem);overflow:hidden;background:#83e65c}
+.careers-feature-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.72) brightness(.62);mix-blend-mode:multiply}
+.careers-feature .display{max-width:10ch}
+.careers-feature .body-copy{margin-top:2rem;font-size:1.05rem;line-height:1.55}
+
+@media(max-width:58.75rem){
+ .who-team-grid,.careers-feature-grid{grid-template-columns:1fr}
+ .careers-feature.reverse .careers-feature-media{order:0}
+ .who-team-media,.careers-feature-media{height:55vh}
+ .career-quote blockquote{font-size:clamp(2.7rem,11vw,5rem)}
+}
