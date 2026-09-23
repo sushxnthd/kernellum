@@ -327,7 +327,9 @@ if(footer){
   });
   exactText('LinkedIn','GitHub');
   exactText('Privacy Policy','Experiment Ledger');
+  exactText('Repository','Experiment Ledger');
   exactText('ISO/IEC 27001 Cert.','Contribute');
+  exactText('Public Evidence','Contribute');
   exactText('Join Us','Research');
   exactText('Careers','Collaborate');
   $$('a',footer).forEach(a=>{
