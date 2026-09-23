@@ -174,6 +174,48 @@ function contact(){
    <div class="contact-sock-copy"><h2>Meet the research behind Kernellum.</h2>${arrow('Who We Are',base+'who-we-are/')}</div>
  </section>`;
 }
+
+function whatExact(){
+  var cards=[
+    ['Physical feedback, not proxy-only','Routed timing can change which architecture is actually best. Kernellum lets implementation evidence alter the next search step.'],
+    ['Architecture search with memory','The loop learns from routed candidates rather than restarting from a static proxy model every time.'],
+    ['Real implementation evidence','Verified RTL, synthesis, placement, routing, and timing are kept distinct from future board-level measurements.']
+  ];
+  var acc=[
+    ['Physical-design authority','The search loop is updated from routed observations, not only analytical estimates.'],
+    ['Operational agility','Candidates can be acquired, implemented, measured, and fed back into the model without rebuilding the experiment around each design.'],
+    ['Models that survive routing','Surrogate quality is judged against held-out final-route timing and target-specific implementation behavior.'],
+    ['Built for the evidence','Analytical, routed, and future physical measurements are separated so the strongest claim never outruns the strongest evidence.']
+  ];
+  var effect=[
+    ['01','Map workload drivers','Translate tensor shapes, reuse, bandwidth, and deployment constraints into architecture-level objectives.'],
+    ['02','Anticipate implementation response','Predict which candidate choices are most likely to survive synthesis and routing.'],
+    ['03','Track routed effects','Measure target-aware timing and preserve the boundary between modelled, routed, and board-measured results.'],
+    ['04','Adapt at tempo','Update the surrogate with new physical-design observations and select the next candidates.']
+  ];
+  return '<section class="large-statement"><h2>Accelerator design is decided by how architecture choices <mark>survive physical implementation.</mark></h2></section>'+
+  '<section class="large-statement"><h2>Most search systems miss the implementation effects that turn fast estimates into <mark>routed outcomes.</mark></h2></section>'+
+  '<section class="section compact boon-card-grid" id="content"><div><div class="section-label">The Kernellum Difference</div><div class="cards">'+cards.map(function(c,i){return '<article class="card"><span class="card-index">0'+(i+1)+'</span><h3>'+c[0]+'</h3><p>'+c[1]+'</p></article>';}).join('')+'</div></div></section>'+
+  '<section class="section compact boon-accordion"><div><div class="section-label">What sets Kernellum apart</div><h2 class="display wide">Kernellum handles the implementation loop so architecture search can focus on what survives.</h2><div class="accordion">'+acc.map(function(r,i){return '<div class="acc-item '+(i===0?'open':'')+'"><button class="acc-button" type="button"><h3>'+r[0]+'</h3><span>+</span></button><div class="acc-panel"><p>'+r[1]+'</p></div></div>';}).join('')+'</div></div></section>'+
+  '<section class="large-statement"><h2>Most design systems stop at the estimate, leaving the physical consequences <mark>for later.</mark></h2></section>'+
+  '<section class="section compact boon-effect"><div><div class="section-label">The Effect</div><h2 class="display wide">Plan the first architecture. Own the routed outcome.</h2><div class="feature-list">'+effect.map(function(r){return '<div class="feature"><span class="n">'+r[0]+'</span><h3>'+r[1]+'</h3><p>'+r[2]+'</p></div>';}).join('')+'</div></div></section>';
+}
+function whoExact(){
+  var vals=[
+    ['01','Craftsmanship','Reproducibility and implementation details matter down to the last constraint, script, and frozen result.'],
+    ['02','Curiosity','Hard questions are followed into routing, target effects, negative results, and the places where simple proxies fail.'],
+    ['03','Evidence centricity','Every public claim is tied to the evidence level that actually supports it.'],
+    ['04','Collaboration','Architecture, ML, RTL, verification, and physical design are treated as one loop, not separate silos.']
+  ];
+  return '<section class="section who-vision" id="content"><div class="split"><div class="left"><div class="section-label">Our Vision</div><h2 class="display">Design with physical reality in the loop.</h2></div><div class="right body-copy"><p class="lede">'+data.vision+'</p><div class="rule"></div><p>The current evidence ladder runs from analytical architecture search through functional RTL, synthesis, final-route timing, and closed-loop acquisition. Physical-board latency, power, and energy remain future validation stages rather than assumed results.</p></div></div></section>'+
+  '<section class="section compact who-values"><div><div class="section-label">Our Values</div><h2 class="display wide">Always stay true to the evidence and the mission.</h2><div class="values">'+vals.map(function(v){return '<article class="value"><span class="num">'+v[0]+'</span><div><h3>'+v[1]+'</h3><p>'+v[2]+'</p></div></article>';}).join('')+'</div></div></section>'+
+  '<section class="section who-team"><div class="who-team-grid"><div class="who-team-media"><img src="'+base+'assets/study-researcher.webp" alt=""></div><div class="who-team-copy"><div class="section-label">Our Team</div><h2 class="display">Join the design loop.</h2><p class="lede">Kernellum brings architecture search, ML, RTL, verification, and physical design into one research loop.</p><p class="body-copy">If you care about proving what survives implementation, start by reproducing a result, challenging a claim, or contributing a focused experiment.</p><div class="cta-row">'+arrow('Career openings',base+'careers/')+'</div></div></div></section>';
+}
+function careersExact(){
+  return '<section class="section careers-quotes" id="content"><div class="careers-carousel"><article class="career-quote active"><blockquote>“The most interesting work is where architecture intuition meets the evidence from routing, timing, and verification.”</blockquote><span>Architecture + ML</span></article><article class="career-quote"><blockquote>“Failure, learning, and iteration are useful only when the experiment makes it possible to tell what actually changed.”</blockquote><span>Research Engineering</span></article><div class="career-controls"><button type="button" data-career-prev>←</button><button type="button" data-career-next>→</button></div></div></section>'+
+  '<section class="section careers-feature"><div class="careers-feature-grid"><div class="careers-feature-media"><img src="'+base+'assets/study-wafer.webp" alt=""></div><div><h2 class="display">We provide clarity for uncertain design spaces.</h2><p class="body-copy">Kernellum is a place to work on the difficult boundary between machine learning, computer architecture, EDA, and experimental science, where convincing proxies are not enough.</p></div></div></section>'+
+  '<section class="section careers-feature reverse"><div class="careers-feature-grid"><div class="careers-feature-media"><img src="'+base+'assets/study-researcher.webp" alt=""></div><div><h2 class="display">We win as one.</h2><p class="body-copy">What we are building needs rare breadth across architecture, RTL, verification, physical design, and research tooling. The loop only works when those disciplines share the same evidence.</p><p class="body-copy">If you enjoy solving complex systems problems and raising the standard of proof, start with the public repository.</p><div class="cta-row">'+arrow('View repository','https://github.com/sushxnthd/kernellum')+'</div></div></div></section>';
+}
 const statementMap={
   'what-we-do':'Architecture search matters only if its advantages survive implementation.',
   'careers':'The hardware does not respect org charts.'
@@ -185,11 +227,18 @@ function largeStatement(){
 const closing=route==='contact'?'':`<section class="closing" data-particles="${particlePlan.closing}"><div><div class="section-label">Kernellum</div><h2 class="display">${data.closing}</h2><div>${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
 
 let content='';
-if(route==='who-we-are')content=who();
+if(route==='what-we-do')content=whatExact();
+else if(route==='who-we-are')content=whoExact();
+else if(route==='careers')content=careersExact();
 else if(route==='contact')content=contact();
-else content=largeStatement()+blockCards()+features();
 
 document.body.innerHTML=`<div id="particle-stage"><canvas></canvas></div><div class="site">${header}<main>${hero}${content}${closing}</main>${footer}</div>`;
+$$('.acc-button').forEach(function(btn){btn.addEventListener('click',function(){btn.closest('.acc-item').classList.toggle('open');});});
+var careerQuotes=$$('.career-quote'),careerIndex=0;
+function showCareer(i){if(!careerQuotes.length)return;careerIndex=(i+careerQuotes.length)%careerQuotes.length;careerQuotes.forEach(function(q,j){q.classList.toggle('active',j===careerIndex);});}
+var careerPrev=$('[data-career-prev]'),careerNext=$('[data-career-next]');
+if(careerPrev)careerPrev.addEventListener('click',function(){showCareer(careerIndex-1);});
+if(careerNext)careerNext.addEventListener('click',function(){showCareer(careerIndex+1);});
 const contactForm=$('#contact-form');
 if(contactForm)contactForm.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(contactForm);const reason=fd.get('reason')||'Contact';const body=['Reason: '+reason,'Name: '+((fd.get('first')||'')+' '+(fd.get('last')||'')).trim(),'Email: '+(fd.get('email')||''),'Company / Institution: '+(fd.get('org')||''),'Role: '+(fd.get('title')||''),'',String(fd.get('message')||'')].join('\n');location.href='https://github.com/sushxnthd/kernellum/issues/new?title='+encodeURIComponent('[Contact] '+reason)+'&body='+encodeURIComponent(body)});
 
