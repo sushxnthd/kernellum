@@ -1,6 +1,10 @@
 (() => {
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const reduce=matchMedia('(prefers-reduced-motion:reduce)');
+const mobile=matchMedia('(max-width:58.749rem)');
 const base='/kernellum/';
 const route=location.pathname.replace(base,'').replace(/\/+$/,'')||'home';
 const pages={
