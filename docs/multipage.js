@@ -66,35 +66,55 @@ const pages={
 const data=pages[route]||pages['what-we-do'];
 document.title=data.title;
 
-const header=`<header id="header"><div class="nav-bar">
+const arrowSvg='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg>';
+const arrow=(label,href)=>'<a class="arrow-link" href="'+href+'"><span>'+label+'</span><span class="btn-arrow-stack" aria-hidden="true"><span class="arr one">'+arrowSvg+'</span><span class="arr two">'+arrowSvg+'</span></span></a>';
+const navPips=()=>'<span class="k-nav-pips" aria-hidden="true"><i></i><i></i></span>';
+const menuDots=()=>'<b class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b>';
+const footerArrowDots=()=>'<span class="footer-dot-icon arrow" aria-hidden="true">'+[[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[4,1],[4,5],[5,2],[5,4]].map(([c,r])=>'<i style="grid-column:'+c+';grid-row:'+r+'"></i>').join('')+'</span>';
+const footerPips=()=>'<span class="footer-dot-icon pips" aria-hidden="true"><i></i><i></i></span>';
+const footerCorner=()=>'<span class="footer-corner" aria-hidden="true">'+Array.from({length:9},()=>'<i></i>').join('')+'</span>';
+
+const header=`<header id="header" class="visible"><div class="nav-bar">
 <a class="logo" href="${base}" aria-label="Kernellum"><span class="wordmark">KERNELLUM</span></a>
-<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p><b class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></button>
-<div class="expand-menu" aria-hidden="true"><nav><ul>
-<li><a href="${base}">Home</a></li>
-<li><a href="${base}what-we-do/" ${route==='what-we-do'?'aria-current="page"':''}>What We Do</a></li>
-<li><a href="${base}who-we-are/" ${route==='who-we-are'?'aria-current="page"':''}>Who We Are</a></li>
-<li><a href="${base}careers/" ${route==='careers'?'aria-current="page"':''}>Careers</a></li>
-<li><a href="${base}contact/" ${route==='contact'?'aria-current="page"':''}>Contact</a></li>
+<button class="expand-btn" type="button" aria-expanded="false"><p>MENU</p>${menuDots()}</button>
+<div class="expand-menu" aria-hidden="true"><nav aria-label="Main Navigation"><ul>
+<li><a href="${base}">${navPips()}<span>Home</span>${navPips()}</a></li>
+<li><a href="${base}what-we-do/" ${route==='what-we-do'?'aria-current="page"':''}>${navPips()}<span>What We Do</span>${navPips()}</a></li>
+<li><a href="${base}who-we-are/" ${route==='who-we-are'?'aria-current="page"':''}>${navPips()}<span>Who We Are</span>${navPips()}</a></li>
+<li><a href="${base}careers/" ${route==='careers'?'aria-current="page"':''}>${navPips()}<span>Careers</span>${navPips()}</a></li>
+<li><a href="${base}contact/" ${route==='contact'?'aria-current="page"':''}>${navPips()}<span>Contact</span>${navPips()}</a></li>
 </ul></nav></div></div></header>`;
 
-const footer=`<footer><div class="footer-shell">
-<nav class="footer-nav">
-<a href="${base}what-we-do/"><span>What We Do</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
-<a href="${base}who-we-are/"><span>Who We Are</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
-<a href="${base}contact/"><span>Contact</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
-<a href="${base}careers/"><span>Careers</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
+const footer=`<footer class="k-footer">
+<div class="footer-dot-wrapper">${footerCorner()}${footerCorner()}${footerCorner()}${footerCorner()}</div>
+<div class="k-footer-container">
+<nav class="k-footer-primary" aria-label="Primary Footer Nav">
+<a href="${base}what-we-do/"><span>What We Do</span>${footerArrowDots()}</a>
+<a href="${base}who-we-are/"><span>Who We Are</span>${footerArrowDots()}</a>
+<a href="${base}contact/"><span>Research</span>${footerArrowDots()}</a>
+<a href="${base}careers/"><span>Careers</span>${footerArrowDots()}</a>
 </nav>
-<a class="footer-brand" href="${base}">KERNELLUM</a>
-<nav class="footer-legal"><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">GitHub</a><span>Research-first</span><span>Public evidence</span></nav>
+<div class="k-footer-cta">${arrow('Contact',base+'contact/')}</div>
+<nav class="k-footer-secondary" aria-label="Secondary Footer Nav">
+<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>GitHub</span>${footerPips()}</a>
+<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>Repository</span>${footerPips()}</a>
+<a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">${footerPips()}<span>Public Evidence</span>${footerPips()}</a>
+</nav>
+<a class="k-footer-brand" href="${base}">KERNELLUM</a>
 </div></footer>`;
 
-const arrow=(label,href)=>`<a class="arrow-link" href="${href}"><span>${label}</span><span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>`;
-const hero=`<section class="hero"><div class="hero-grid">
-<div class="eyebrow reveal">${data.heroLabel}</div>
-<h1 class="reveal">${data.hero}</h1>
-<p class="hero-copy reveal">${data.intro}</p>
-<div class="hero-cta reveal">${arrow(route==='contact'?'Open GitHub':'Explore the work', route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div>
-</div></section>`;
+const heroType=route==='what-we-do'?'left':'center';
+const hero=`<section class="route-page-header ${heroType}" data-particles="none">
+<div class="route-images" aria-hidden="true">
+  <figure class="route-image"><div class="route-viz viz-base"></div></figure>
+  <figure class="route-image"><div class="route-viz viz-a"></div></figure>
+  <figure class="route-image"><div class="route-viz viz-b"></div></figure>
+</div>
+<div class="route-content">
+  <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
+  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Open GitHub':'Explore the work',route==='contact'?'https://github.com/sushxnthd/kernellum':'#content')}</div></div>
+</div>
+</section>`;
 
 function blockCards(){
  if(!data.blocks)return '';
