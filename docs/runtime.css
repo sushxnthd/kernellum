@@ -175,3 +175,6 @@ div.btn-wrapper .btn:hover div.icon.arrow.one,
 div.btn-wrapper .btn.k-hover div.icon.arrow.one{transform:translateX(100%)!important}
 div.btn-wrapper .btn:hover div.icon.arrow.two,
 div.btn-wrapper .btn.k-hover div.icon.arrow.two{transform:translateX(100%)!important}
+
+/* Ensure homepage requests the actual IBM Plex body weight instead of the retired 450 face. */
+body,p,.p,.text-label,.subtitle,.card-body,.rolodex-entry{font-weight:400!important}
