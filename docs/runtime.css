@@ -241,13 +241,13 @@ footer#footer .logo{
 .sock .images>.image-wrapper img{filter:brightness(.84) saturate(.9)}
 .text-label,footer#footer .section-label{font-family:"IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.08em}
 #header .logo,#header .expand-btn,#header .expand-menu{
-  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
-  backdrop-filter:blur(18px) saturate(125%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(125%)!important;
+  backdrop-filter:blur(26px) saturate(125%)!important;
 }
 footer#footer nav,footer#footer .cta,footer#footer .logo{
-  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
-  backdrop-filter:blur(18px) saturate(125%)!important;
-  background-color:rgba(10,18,13,.52)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(125%)!important;
+  backdrop-filter:blur(26px) saturate(125%)!important;
+  background-color:rgba(8,16,11,.76)!important;
 }
 #header a:focus-visible,#header button:focus-visible,footer#footer a:focus-visible{
   outline:2px solid var(--krn-signal);outline-offset:3px;
