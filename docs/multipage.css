@@ -109,3 +109,44 @@ body,p,.route-subtitle,.lede,.body-copy,.card,.feature,.value,.section-label,.ro
   -webkit-backdrop-filter:blur(6px);
   backdrop-filter:blur(6px);
 }
+
+/* Each route uses a different first-party instrument study. The image panels
+   keep the layered editorial geometry while describing this research. */
+.route-page-header .viz-base,
+.route-page-header .viz-a,
+.route-page-header .viz-b{background-size:cover;background-position:center}
+.route-page-header .viz-base:before,
+.route-page-header .viz-a:before,
+.route-page-header .viz-a:after,
+.route-page-header .viz-b:before,
+.route-page-header .viz-b:after{content:none}
+.route-page-header.route-what-we-do .viz-base{background-image:linear-gradient(90deg,rgba(7,9,7,.62),rgba(7,9,7,.08)),url('/kernellum/assets/architecture-die.svg')}
+.route-page-header.route-what-we-do .viz-a{background-image:url('/kernellum/assets/route-topology.svg')}
+.route-page-header.route-what-we-do .viz-b{background-image:url('/kernellum/assets/timing-field.svg')}
+.route-page-header.route-who-we-are .viz-base{background-image:linear-gradient(180deg,rgba(7,9,7,.12),rgba(7,9,7,.35)),url('/kernellum/assets/measurement-array.svg')}
+.route-page-header.route-who-we-are .viz-a{background-image:url('/kernellum/assets/architecture-die.svg')}
+.route-page-header.route-who-we-are .viz-b{background-image:url('/kernellum/assets/route-topology.svg')}
+.route-page-header.route-careers .viz-base{background-image:linear-gradient(180deg,rgba(7,9,7,.05),rgba(7,9,7,.45)),url('/kernellum/assets/timing-field.svg')}
+.route-page-header.route-careers .viz-a{background-image:url('/kernellum/assets/measurement-array.svg')}
+.route-page-header.route-careers .viz-b{background-image:url('/kernellum/assets/architecture-die.svg')}
+.route-page-header.route-contact .viz-base{background-image:linear-gradient(180deg,rgba(7,9,7,.08),rgba(7,9,7,.48)),url('/kernellum/assets/route-topology.svg')}
+.route-page-header.route-contact .viz-a{background-image:url('/kernellum/assets/timing-field.svg')}
+.route-page-header.route-contact .viz-b{background-image:url('/kernellum/assets/measurement-array.svg')}
+.route-page-header .route-image:not(:first-child){border:1px solid rgba(185,243,93,.18);box-shadow:0 12px 55px rgba(0,0,0,.38)}
+.route-label,.section-label,.card-index,.feature .n,.value .num,
+.contact-row small{font-family:"IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.1em}
+.logo,.expand-btn,.expand-menu,
+.k-footer-primary,.k-footer-secondary,.k-footer-cta,.k-footer-brand{
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.k-footer-primary,.k-footer-secondary,.k-footer-cta,.k-footer-brand{
+  background-color:rgba(10,18,13,.52);
+  box-shadow:inset 0 0 0 1px rgba(206,244,202,.13),0 14px 42px rgba(0,0,0,.16);
+}
+.k-footer:after{background:rgba(7,9,7,.18);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.expand-menu a:focus-visible,.expand-btn:focus-visible,.logo:focus-visible,
+.arrow-link:focus-visible,.k-footer a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.contact-panel{border:1px solid rgba(185,243,93,.2);padding:clamp(2rem,3vw,3.5rem);border-radius:.6rem;background:rgba(16,30,22,.58);backdrop-filter:blur(14px)}
+.contact-panel .section-label{display:block;margin-bottom:4rem}
+.contact-panel .lede{max-width:25ch}

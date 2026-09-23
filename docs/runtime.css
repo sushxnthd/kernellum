@@ -189,3 +189,22 @@ footer#footer .logo{
   background-image:radial-gradient(180px circle at var(--krn-glow-x,50%) var(--krn-glow-y,50%),rgba(185,243,93,.075),transparent 72%)!important;
   box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--clr-border) 92%,transparent)!important;
 }
+
+/* First-party artwork and consistent text contrast. */
+.page-header.home .images>.image-wrapper:not(:first-child){border:1px solid rgba(185,243,93,.15)}
+.page-header.home .images>.image-wrapper:first-child img{filter:brightness(.77) saturate(.94)}
+.page-header.home .images>.image-wrapper:not(:first-child) img,
+.sock .images>.image-wrapper img{filter:brightness(.84) saturate(.9)}
+.text-label,footer#footer .section-label{font-family:"IBM Plex Mono",ui-monospace,monospace!important;letter-spacing:.08em}
+#header .logo,#header .expand-btn,#header .expand-menu{
+  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+}
+footer#footer nav,footer#footer .cta,footer#footer .logo{
+  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+  background-color:rgba(10,18,13,.52)!important;
+}
+#header a:focus-visible,#header button:focus-visible,footer#footer a:focus-visible{
+  outline:2px solid var(--krn-signal);outline-offset:3px;
+}
