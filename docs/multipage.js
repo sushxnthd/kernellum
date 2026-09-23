@@ -69,6 +69,7 @@ const pages={
 }};
 const data=pages[route]||pages['what-we-do'];
 document.title=data.title;
+document.body.classList.add('route-'+route);
 
 const arrowSvg='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg>';
 const arrow=(label,href)=>'<a class="arrow-link" href="'+href+'"><span>'+label+'</span><span class="btn-arrow-stack" aria-hidden="true"><span class="arr one">'+arrowSvg+'</span><span class="arr two">'+arrowSvg+'</span></span></a>';
@@ -95,16 +96,19 @@ const particlePlans={
 };
 const particlePlan=particlePlans[route]||{hero:'none',closing:'rings-vertical'};
 const heroType=route==='what-we-do'?'left':'center';
-const hero=`<section class="route-page-header ${heroType} route-${route}" data-particles="${particlePlan.hero}">
+const routeMedia={
+  'what-we-do':['study-researcher.webp','study-die.webp','study-wafer.webp'],
+  'who-we-are':['study-researcher.webp','study-wafer.webp','study-die.webp'],
+  'careers':['study-researcher.webp','study-die.webp','study-wafer.webp']
+};
+const media=routeMedia[route]||routeMedia['what-we-do'];
+const hero=route==='contact'?'':`<section class="route-page-header ${heroType} route-${route}" data-particles="${particlePlan.hero}">
 <div class="route-images" aria-hidden="true">
-  <figure class="route-image"><div class="route-viz viz-base"></div></figure>
-  <figure class="route-image"><div class="route-viz viz-a"></div></figure>
-  <figure class="route-image"><div class="route-viz viz-b"></div></figure>
+  ${media.map((src,i)=>`<figure class="route-image route-image-${i+1}"><img src="${base}assets/${src}" alt=""></figure>`).join('')}
 </div>
 <div class="route-content">
-
   <div class="route-title-wrap"><div class="route-label">${data.heroLabel}</div><h1 class="route-title">${data.hero}</h1></div>
-  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow(route==='contact'?'Discuss the work':'Explore the work','#content')}</div></div>
+  <div class="route-bottom"><p class="route-subtitle">${data.intro}</p><div class="route-cta">${arrow('Get in touch',base+'contact/')}</div></div>
 </div>
 </section>`;
 
@@ -139,16 +143,36 @@ function who(){
  <div class="values">${data.values.map(v=>`<article class="value"><span class="num">${v[0]}</span><div><h3>${v[1]}</h3><p>${v[2]}</p></div></article>`).join('')}</div></div></section>`;
 }
 function contact(){
- return `<section class="section contact-section" id="content" data-particles="${particlePlan.contact}"><div>
- <div class="section-label">Contact</div><h2 class="display">Research should be inspectable.</h2>
- <div class="contact-grid">
- <div class="contact-info">
-  <div class="contact-row"><small>Repository</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">github.com/sushxnthd/kernellum <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
-  <div class="contact-row"><small>Technical discussion</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues <span class="k-arrow-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a></div>
-  <div class="contact-row"><small>Current stage</small><span>K2 board-ready; physical measurements not yet claimed</span></div>
+ return `<section class="contact-light" id="content">
+ <div class="contact-light-grid">
+  <div class="contact-light-copy">
+    <h1>GET IN TOUCH<br>WITH KERNELLUM.</h1>
+    <p>Start a focused discussion around research, reproduction, collaboration, contribution, or funding.</p>
+    <div class="contact-light-links">
+      <div><small>RESEARCH</small><a href="https://github.com/sushxnthd/kernellum/issues" target="_blank" rel="noopener">GitHub Issues ↗</a></div>
+      <div><small>REPOSITORY</small><a href="https://github.com/sushxnthd/kernellum" target="_blank" rel="noopener">sushxnthd/kernellum ↗</a></div>
+      <div><small>CURRENT STAGE</small><span>K2 board-ready; physical measurements next.</span></div>
+    </div>
+  </div>
+  <form class="contact-light-form" id="contact-form">
+    <select name="reason" required><option value="">Reason for Contact</option><option>Research collaboration</option><option>Reproduction question</option><option>Funding / investment</option><option>Contribution</option><option>General</option></select>
+    <div class="contact-pair"><input name="first" placeholder="First Name *" required><input name="last" placeholder="Last Name *" required></div>
+    <input name="email" type="email" placeholder="Business Email">
+    <input name="org" placeholder="Company / Institution">
+    <input name="title" placeholder="Role / Job Title">
+    <textarea name="message" placeholder="Message *" required></textarea>
+    <button type="submit" class="contact-submit">SUBMIT <span>→</span></button>
+  </form>
  </div>
- <div class="contact-form contact-panel"><span class="section-label">Start a conversation</span><p class="lede">The research is public. Raise a reproduction question, propose a collaboration, or point out a result that needs a closer look.</p><div class="rule"></div>${arrow('Open a GitHub issue','https://github.com/sushxnthd/kernellum/issues/new')}</div>
- </div></div></section>`;
+ </section>
+ <section class="contact-sock">
+   <div class="contact-sock-images">
+     <figure><img src="${base}assets/study-researcher.webp" alt=""></figure>
+     <figure><img src="${base}assets/study-wafer.webp" alt=""></figure>
+     <figure><img src="${base}assets/study-die.webp" alt=""></figure>
+   </div>
+   <div class="contact-sock-copy"><h2>Meet the research behind Kernellum.</h2>${arrow('Who We Are',base+'who-we-are/')}</div>
+ </section>`;
 }
 const statementMap={
   'what-we-do':'Architecture search matters only if its advantages survive implementation.',
@@ -158,7 +182,7 @@ function largeStatement(){
   const text=statementMap[route];if(!text)return '';
   return `<section class="large-statement" data-particles="${particlePlan.statement}"><h2>${text}</h2></section>`;
 }
-const closing=`<section class="closing" data-particles="${particlePlan.closing}"><div><div class="section-label">Kernellum</div><h2 class="display">${data.closing}</h2><div>${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
+const closing=route==='contact'?'':`<section class="closing" data-particles="${particlePlan.closing}"><div><div class="section-label">Kernellum</div><h2 class="display">${data.closing}</h2><div>${arrow(route==='careers'?'View Repository':'Read the Research','https://github.com/sushxnthd/kernellum')}</div></div></section>`;
 
 let content='';
 if(route==='who-we-are')content=who();
@@ -166,6 +190,8 @@ else if(route==='contact')content=contact();
 else content=largeStatement()+blockCards()+features();
 
 document.body.innerHTML=`<div id="particle-stage"><canvas></canvas></div><div class="site">${header}<main>${hero}${content}${closing}</main>${footer}</div>`;
+const contactForm=$('#contact-form');
+if(contactForm)contactForm.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(contactForm);const reason=fd.get('reason')||'Contact';const body=['Reason: '+reason,'Name: '+((fd.get('first')||'')+' '+(fd.get('last')||'')).trim(),'Email: '+(fd.get('email')||''),'Company / Institution: '+(fd.get('org')||''),'Role: '+(fd.get('title')||''),'',String(fd.get('message')||'')].join('\n');location.href='https://github.com/sushxnthd/kernellum/issues/new?title='+encodeURIComponent('[Contact] '+reason)+'&body='+encodeURIComponent(body)});
 
 
 const boonEase=t=>{
