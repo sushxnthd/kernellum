@@ -116,6 +116,28 @@ jobs:
                 console.log('SOCK_SYNC',JSON.stringify(sync));
                 if(sync.actual.some(v=>!Number.isFinite(v)||Math.abs(v-sync.expected)>5))e.push('homepage sock scroll mismatch '+JSON.stringify(sync));
               }
+
+              const large=page.locator('section.large-text').first();
+              if(!(await large.count()))e.push('homepage breakthrough LargeText missing');
+              else{
+                const inner=await large.locator('h2').innerText();
+                console.log('HOME_LARGE_TEXT',JSON.stringify(inner));
+                if(!inner.replace(/\s+/g,' ').includes('A breakthrough is only real when its evidence survives physical implementation.'))e.push('homepage breakthrough spacing/text mismatch '+JSON.stringify(inner));
+                await large.evaluate(el=>{
+                  const vh=innerHeight,docBottom=el.getBoundingClientRect().bottom+scrollY;
+                  scrollTo(0,docBottom-vh*.75);
+                });
+                await page.waitForTimeout(300);
+                const syncLarge=await large.evaluate(el=>{
+                  const r=el.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.bottom)/(innerHeight*.5)));
+                  const expected=100*(1-p);
+                  const lines=[...el.querySelectorAll('.k-line>span')];
+                  const actual=lines.map(x=>parseFloat((x.style.transform.match(/translateY\(([-\d.]+)%\)/)||[])[1]));
+                  return {p,expected,actual,bottom:r.bottom,text:el.querySelector('h2')?.innerText};
+                });
+                console.log('HOME_LARGE_SYNC',JSON.stringify(syncLarge));
+                if(syncLarge.actual.some(v=>!Number.isFinite(v)||Math.abs(v-syncLarge.expected)>5))e.push('homepage breakthrough scroll mismatch '+JSON.stringify(syncLarge));
+              }
             }
 
             const filtered=e.filter(x=>!x.includes('favicon.ico'));
