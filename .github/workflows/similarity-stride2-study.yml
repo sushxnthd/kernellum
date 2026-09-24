@@ -1,0 +1,145 @@
+name: SIMILARITY prospective stride-two ASIC study
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_stride2_route.py'
+      - 'scripts/similarity_stride2_validate.py'
+      - 'tests/test_similarity_stride2_validate.py'
+      - 'docs/SIMILARITY_STRIDE2_PREREGISTRATION.md'
+      - '.github/workflows/similarity-stride2-study.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_stride2_route.py'
+      - 'scripts/similarity_stride2_validate.py'
+      - 'tests/test_similarity_stride2_validate.py'
+      - 'docs/SIMILARITY_STRIDE2_PREREGISTRATION.md'
+      - '.github/workflows/similarity-stride2-study.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - run: python -m pip install pytest
+      - run: PYTHONPATH=. python -m pytest -q tests/test_similarity_stride2_validate.py tests/test_similarity_asic_transfer.py tests/test_similarity_asic_repair_canary.py
+      - name: Verify frozen physical configs
+        run: |
+          for family in repair_canary stride2; do
+            for platform in nangate45 sky130hd; do
+              grep -qx 'export CAP_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+              grep -qx 'export SLEW_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+            done
+          done
+      - name: Compare signed GEMM across fresh geometries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_stride2_preflight
+          for geometry in '4 7' '7 4' '5 8' '8 5'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_strided_equivalence \
+              -o "results/similarity_stride2_preflight/tb_${1}x${2}.vvp" \
+              rtl/kernellum_mac_array.sv \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_strided_mac_array.sv \
+              rtl/tb_kernellum_strided_equivalence.sv
+            vvp "results/similarity_stride2_preflight/tb_${1}x${2}.vvp" | \
+              tee "results/similarity_stride2_preflight/tb_${1}x${2}.log"
+            grep -q KERNELLUM_STRIDED_EQUIVALENCE_PASS \
+              "results/similarity_stride2_preflight/tb_${1}x${2}.log"
+          done
+          touch results/similarity_stride2_preflight/similarity_stride2_functional_passed
+          git rev-parse HEAD > results/similarity_stride2_preflight/source_sha.txt
+          sha256sum docs/SIMILARITY_STRIDE2_PREREGISTRATION.md \
+            scripts/similarity_stride2_route.py scripts/similarity_stride2_validate.py \
+            rtl/kernellum_strided_mac_array.sv rtl/similarity_asic_transfer_stride2.sv \
+            asic/repair_canary/config_*.mk asic/stride2/config_*.mk \
+            > results/similarity_stride2_preflight/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-stride2-functional
+          path: |
+            results/similarity_stride2_preflight/*.log
+            results/similarity_stride2_preflight/*passed
+            results/similarity_stride2_preflight/*sha*.txt
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        platform: [nangate45, sky130hd]
+        topology: [broadcast, local, stride2]
+        seed: [53, 71, 89]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
+      - name: Route all four fresh geometries in this shard
+        run: |
+          PYTHONPATH=. python scripts/similarity_stride2_route.py \
+            --platform ${{ matrix.platform }} \
+            --topology ${{ matrix.topology }} \
+            --seed ${{ matrix.seed }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-stride2-route-${{ matrix.platform }}-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: |
+            results/similarity_stride2_${{ matrix.platform }}_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+            build/similarity_stride2_study/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/*.rpt
+            build/similarity_stride2_study/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/synth_stat.txt
+            build/similarity_stride2_study/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/logs/*.log
+            build/similarity_stride2_study/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/driver.log
+          retention-days: 30
+
+  validate:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [preflight, route]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: similarity-stride2-*
+          path: results/similarity_stride2_download
+      - name: Apply complete prospective gate
+        run: |
+          PYTHONPATH=. python scripts/similarity_stride2_validate.py \
+            --input results/similarity_stride2_download
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-stride2-final-summary
+          path: results/similarity_stride2_summary.json
+          retention-days: 90
