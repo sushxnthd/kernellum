@@ -57,6 +57,15 @@ def test_duplicate_missing_and_electrical_null_each_reject_claim():
     assert not result["claim_supported"]
 
 
+def test_nonfinite_metric_remains_a_reportable_null():
+    rows = plausible_rows()
+    rows[0]["cell_area_um2"] = "inf"
+    result = summarize(rows, True)
+    assert result["clean"] == 71
+    assert not result["claim_supported"]
+    json.dumps(result, allow_nan=False)
+
+
 def test_artifact_layout_and_missing_functional_marker(tmp_path, monkeypatch):
     artifacts = tmp_path / "download"
     output = tmp_path / "summary.json"
