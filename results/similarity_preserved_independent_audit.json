@@ -1,0 +1,25 @@
+{
+  "attempted": 12,
+  "clean": 10,
+  "complete_matched_sets": 10,
+  "gates": {
+    "all_12_candidate_routes_clean": false,
+    "all_four_groups_have_three_matched_seeds": false,
+    "candidate_area_below_full_local": false,
+    "candidate_dffs_at_most_90pct_local": false,
+    "density_win_on_each_platform": true,
+    "density_wins_at_least_three_of_four": true,
+    "exact_preserved_dff_counts": false,
+    "exactly_12_unique_candidate_attempts": true,
+    "functional_equivalence_on_opened_shapes": true,
+    "median_raw_timing_benefit_at_least_5pct": false,
+    "median_retention_at_least_70pct": false,
+    "target_improves_noop_by_0p02ns": false,
+    "target_improves_stride2_by_0p04ns": false,
+    "target_median_launch_q_fanout_at_most_10": false
+  },
+  "matches_frozen_decision": true,
+  "matches_frozen_gates": true,
+  "prospective_study_warranted": false,
+  "source_sha": "9678983c99e4cf282b47a50e2deaea67397926a9"
+}
