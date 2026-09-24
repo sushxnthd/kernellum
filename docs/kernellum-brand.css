@@ -1,3 +1,8 @@
+@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:500;src:url("/kernellum/fonts/mschn/mschn-medium.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:600;src:url("/kernellum/fonts/mschn/mschn-semibold.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:450;src:url("/kernellum/fonts/suisse/suisse-book.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:500;src:url("/kernellum/fonts/suisse/suisse-medium.woff2?v=3") format("woff2")}
+
 /* Kernellum identity: mineral green, graphite, precise contrast.
    This file loads after the generated Nuxt CSS and intentionally owns brand tokens. */
 :root{
@@ -99,3 +104,7 @@ form div.message p{color:var(--kernellum-paper)!important}
 form div.message.error{background-color:#7b3c3c!important}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Typography contract: preserve the original display/body split even if generated CSS changes. */
+body,p,.p,h4,h5,h6,.h4,.h5,.h6,.text-label{font-family:"Suisse Int'l",sans-serif}
+h1,h2,h3,.h1,.h2,.h3,.text-cta,div.btn-wrapper .btn{font-family:MSCHN,sans-serif}
