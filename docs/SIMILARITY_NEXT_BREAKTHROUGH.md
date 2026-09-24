@@ -19,6 +19,23 @@ error of 3.46 percentage points. Adding signed log(rows/cols) increases this
 error to 3.97 percentage points. These are retrospective model-selection
 numbers, not an independent confirmation or a new breakthrough.
 
+Restricting the old 96-route archive to topology-matched seeds where *both*
+final implementations were electrically and DRC clean leaves 40 pairs:
+13 NanGate45 and 27 Sky130HD. Every clean pair favors local transport on
+raw clock period. This is a useful exploratory sign check, but the old
+geometry and seed outcomes are already known.
+
+The cost boundary is much less uniform. For these same clean pairs, define
+area-normalized throughput ratio as
+`(broadcast_period * broadcast_cell_area) /
+  (local_period * local_cell_area)`.
+Only 8/13 NanGate45 and 16/27 Sky130HD pairs exceed one; the median net
+changes are +0.72% and +2.04% respectively. The original area figures are
+synthesis cell area, so these are *cell-area proxies*, not a chip-area,
+energy-efficiency or silicon measurement. A second-generation result should
+report area and sequential-cell costs alongside raw period; a timing-only
+win cannot be sold as a universal density win.
+
 ## Gate A: qualify electrical repair on excluded prior geometry
 
 The next build repeats the *previously opened* 7x7 geometry on NanGate45 and
