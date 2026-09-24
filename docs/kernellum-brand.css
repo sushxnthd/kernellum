@@ -1,10 +1,101 @@
-/* Kernellum identity: graphite, signal lime, precise typography. */
-:root{--clr-primary:#b9f35d;--clr-base-100:#070907;--clr-content-100:#f2f1eb;--kernellum-mint:#79d8c1}
-::selection{background:#b9f35d;color:#070907}
+/* Kernellum identity: mineral green, graphite, precise contrast.
+   This file loads after the generated Nuxt CSS and intentionally owns brand tokens. */
+:root{
+  --kernellum-ink:#070a08;
+  --kernellum-surface:#0e1510;
+  --kernellum-panel:#172019;
+  --kernellum-line:#2a3b2f;
+  --kernellum-muted:#77877a;
+  --kernellum-mist:#e8efe6;
+  --kernellum-paper:#f4f6f0;
+  --kernellum-green:#8deb72;
+  --kernellum-green-soft:#b8f4a6;
+  --kernellum-green-deep:#257a43;
+
+  /* Raw tokens consumed by the site's dark/light theme engine. */
+  --clr-jet-black-800:var(--kernellum-ink);
+  --clr-jet-black-600:var(--kernellum-surface);
+  --clr-moss-khaki-80:var(--kernellum-panel);
+  --clr-moss-khaki-60:#405246;
+  --clr-moss-khaki-40:var(--kernellum-muted);
+  --clr-moss-khaki-20:#a8b5ab;
+  --clr-mint:var(--kernellum-mist);
+  --clr-sand:var(--kernellum-paper);
+  --clr-sol:var(--kernellum-green);
+  --clr-orange:var(--kernellum-green-deep);
+
+  /* Stable dark-theme defaults before the runtime theme observer initializes. */
+  --clr-base-100:var(--clr-jet-black-800);
+  --clr-base-200:var(--clr-jet-black-600);
+  --clr-base-300:var(--clr-moss-khaki-80);
+  --clr-base-400:var(--clr-jet-black-800);
+  --clr-content-100:var(--clr-sand);
+  --clr-content-200:var(--clr-mint);
+  --clr-content-300:var(--clr-moss-khaki-40);
+  --clr-border:var(--clr-moss-khaki-80);
+  --clr-border-card:var(--clr-moss-khaki-80);
+  --clr-primary:var(--clr-sol);
+  --clr-secondary:var(--clr-orange);
+}
+
+::selection{background:var(--kernellum-green);color:var(--kernellum-ink)}
+
 header .logo svg{width:10rem!important;height:auto!important}
 svg[aria-label="Kernellum"]{overflow:visible}
+svg[aria-label="Kernellum"] path{fill:var(--kernellum-green)!important}
 footer a:has(>svg[aria-label="Kernellum"]){display:block}
 footer svg[aria-label="Kernellum"]{width:100%;height:auto}
-a:focus-visible,button:focus-visible{outline:2px solid #b9f35d;outline-offset:6px}
+
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--kernellum-green);
+  outline-offset:6px;
+}
+
 .text-label{font-family:MSCHN,monospace;letter-spacing:.06em}
+
+/* Keep the floating navigation inside the same mineral-green material system. */
+header#header div.nav-bar a.logo,
+header#header div.nav-bar button.expand-btn,
+header#header div.nav-bar div.expand-menu{
+  background-color:color-mix(in srgb,var(--clr-base-100) 76%,transparent)!important;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb,var(--clr-border) 76%,transparent),
+    0 12px 40px #0000001f;
+}
+
+@media (hover:hover){
+  header#header div.nav-bar div.expand-menu nav ul li a:hover{color:var(--clr-primary)!important}
+}
+
+/* Replace legacy hard-coded lime/mint button states with theme-aware greens. */
+div.btn-wrapper .btn.outline div.bg.active{
+  background-color:color-mix(in srgb,var(--clr-primary) 24%,var(--clr-base-100))!important;
+}
+div.btn-wrapper .btn.filled{color:var(--clr-base-100)!important}
+div.btn-wrapper .btn.filled div.bg.inactive{background-color:var(--clr-primary)!important}
+div.btn-wrapper .btn.filled div.bg.active{background-color:var(--clr-content-100)!important}
+div.btn-wrapper .btn.text-link div.underline div.fill,
+div.btn-wrapper .btn.text-load div.underline div.fill{background-color:var(--clr-primary)!important}
+
+/* Contact controls: neutral surfaces, green focus/success, non-green error semantics. */
+form input:not([type=checkbox]),
+form select,
+form textarea{
+  color:var(--kernellum-ink)!important;
+  background-color:var(--kernellum-paper)!important;
+  border-color:var(--clr-border)!important;
+}
+form input:not([type=checkbox])::placeholder,
+form select::placeholder,
+form textarea::placeholder,
+form select.inactive{color:var(--clr-content-300)!important}
+form input:not([type=checkbox]):focus-visible,
+form select:focus-visible,
+form textarea:focus-visible{border-color:var(--clr-primary)!important}
+form input[type=checkbox]{border-color:var(--clr-border)!important}
+form input[type=checkbox]:checked{background-color:var(--clr-primary)!important}
+form div.message{background-color:var(--kernellum-green-deep)!important}
+form div.message p{color:var(--kernellum-paper)!important}
+form div.message.error{background-color:#7b3c3c!important}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
