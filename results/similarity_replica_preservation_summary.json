@@ -1,0 +1,51 @@
+{
+  "study": "similarity replica-preservation synthesis canary",
+  "classification": "opened-data implementation-fidelity canary",
+  "protocol_commit": "8935555a38fc3892810f7b33d00f9ed07a6bebed",
+  "workflow_run": 36061292676,
+  "functional_pass": true,
+  "row_count": 4,
+  "rows": [
+    {
+      "platform": "nangate45",
+      "geometry": "5x8",
+      "dff_cells": 1899,
+      "expected_dffs": 1899,
+      "full_local_dffs": 2284,
+      "dff_fraction_of_local": 0.8314360771,
+      "cell_area_um2": 55843.242
+    },
+    {
+      "platform": "nangate45",
+      "geometry": "8x5",
+      "dff_cells": 1872,
+      "expected_dffs": 1872,
+      "full_local_dffs": 2232,
+      "dff_fraction_of_local": 0.8387096774,
+      "cell_area_um2": 55001.352
+    },
+    {
+      "platform": "sky130hd",
+      "geometry": "5x8",
+      "dff_cells": 1899,
+      "expected_dffs": 1899,
+      "full_local_dffs": 2284,
+      "dff_fraction_of_local": 0.8314360771,
+      "cell_area_um2": 262460.4704
+    },
+    {
+      "platform": "sky130hd",
+      "geometry": "8x5",
+      "dff_cells": 1872,
+      "expected_dffs": 1872,
+      "full_local_dffs": 2232,
+      "dff_fraction_of_local": 0.8387096774,
+      "cell_area_um2": 259797.9168
+    }
+  ],
+  "all_exact_dff_gates_pass": true,
+  "all_dff_budget_gates_pass": true,
+  "canary_pass": true,
+  "scientific_confirmation": false,
+  "breakthrough_claim": false
+}

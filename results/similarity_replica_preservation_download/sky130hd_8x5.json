@@ -1,0 +1,13 @@
+{
+  "platform": "sky130hd",
+  "rows": 8,
+  "cols": 5,
+  "source_sha": "8935555a38fc3892810f7b33d00f9ed07a6bebed",
+  "synth_exit_code": 0,
+  "expected_dffs": 1872,
+  "local_dffs": 2232,
+  "total_cells": 22834,
+  "dff_cells": 1872,
+  "cell_area_um2": 259797.9168,
+  "replicas_preserved": true
+}
