@@ -82,7 +82,12 @@ jobs:
           retention-days: 30
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # The opened-data experiment is immutable. Later evidence/report commits
+    # must never cause an adaptive retry of its physical routes.
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      github.sha == '7b243236694885fc69affff10fcb6fa83b13c7f1'
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -125,7 +130,11 @@ jobs:
           retention-days: 30
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      always() &&
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      github.sha == '7b243236694885fc69affff10fcb6fa83b13c7f1'
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:
