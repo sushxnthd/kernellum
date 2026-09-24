@@ -1,0 +1,98 @@
+name: SIMILARITY B-local preservation synthesis canary
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - 'rtl/tb_kernellum_blocal_equivalence.sv'
+      - 'asic/blocal/**'
+      - 'scripts/similarity_blocal_preservation_synth.py'
+      - 'docs/SIMILARITY_BLOCAL_PRESERVATION_CANARY.md'
+      - '.github/workflows/similarity-blocal-preservation-canary.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  functional:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Verify plan and signed GEMM
+        run: |
+          grep -q 'Status: \*\*synthesis-only B-local repair protocol fixed before results\*\*' docs/SIMILARITY_BLOCAL_PRESERVATION_CANARY.md
+          python -m py_compile scripts/similarity_blocal_preservation_synth.py
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_blocal_preservation
+          for geometry in '5 8' '8 5'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_blocal_equivalence \
+              -o "results/similarity_blocal_preservation/tb_${1}x${2}.vvp" \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_blocal_mac_array.sv \
+              rtl/tb_kernellum_blocal_equivalence.sv
+            vvp "results/similarity_blocal_preservation/tb_${1}x${2}.vvp" | \
+              tee "results/similarity_blocal_preservation/tb_${1}x${2}.log"
+            grep -q KERNELLUM_BLOCAL_EQUIVALENCE_PASS \
+              "results/similarity_blocal_preservation/tb_${1}x${2}.log"
+          done
+          git rev-parse HEAD > results/similarity_blocal_preservation/source_sha.txt
+          sha256sum docs/SIMILARITY_BLOCAL_PRESERVATION_CANARY.md \
+            scripts/similarity_blocal_preservation_synth.py \
+            rtl/kernellum_blocal_mac_array.sv \
+            rtl/similarity_asic_transfer_blocal.sv \
+            asic/blocal/config_*.mk \
+            > results/similarity_blocal_preservation/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-preservation-functional
+          path: results/similarity_blocal_preservation/*
+          retention-days: 30
+
+  synth:
+    needs: functional
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [nangate45, sky130hd]
+        geometry: ['5x8', '8x5']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned synthesis flow
+        run: |
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
+      - name: Synthesize and apply exact DFF gate
+        run: |
+          geometry='${{ matrix.geometry }}'
+          rows="${geometry%x*}"
+          cols="${geometry#*x}"
+          PYTHONPATH=. python scripts/similarity_blocal_preservation_synth.py \
+            --platform ${{ matrix.platform }} \
+            --rows "$rows" --cols "$cols" \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-preservation-${{ matrix.platform }}-${{ matrix.geometry }}
+          path: results/similarity_blocal_preservation/*
+          retention-days: 30
