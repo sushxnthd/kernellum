@@ -1,0 +1,40 @@
+name: SIMILARITY stride-two functional preflight
+
+on:
+  pull_request:
+    paths:
+      - 'rtl/kernellum_strided_mac_array.sv'
+      - 'rtl/tb_kernellum_strided_equivalence.sv'
+      - 'docs/SIMILARITY_STRIDE2_PLAN.md'
+      - '.github/workflows/similarity-stride2-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  equivalence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install functional simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+      - name: Compare signed GEMM with broadcast and full local
+        run: |
+          mkdir -p build/stride2_preflight
+          for geometry in '2 4' '4 2' '5 7' '7 5' '6 8' '8 6'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_strided_equivalence \
+              -o "build/stride2_preflight/tb_${1}x${2}.vvp" \
+              rtl/kernellum_mac_array.sv \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_strided_mac_array.sv \
+              rtl/tb_kernellum_strided_equivalence.sv
+            vvp "build/stride2_preflight/tb_${1}x${2}.vvp" | \
+              tee "build/stride2_preflight/tb_${1}x${2}.log"
+            grep -q KERNELLUM_STRIDED_EQUIVALENCE_PASS \
+              "build/stride2_preflight/tb_${1}x${2}.log"
+          done
