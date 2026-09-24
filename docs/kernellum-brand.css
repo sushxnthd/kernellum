@@ -1,0 +1,10 @@
+/* Kernellum identity: graphite, signal lime, precise typography. */
+:root{--clr-primary:#b9f35d;--clr-base-100:#070907;--clr-content-100:#f2f1eb;--kernellum-mint:#79d8c1}
+::selection{background:#b9f35d;color:#070907}
+header .logo svg{width:10rem!important;height:auto!important}
+svg[aria-label="Kernellum"]{overflow:visible}
+footer a:has(>svg[aria-label="Kernellum"]){display:block}
+footer svg[aria-label="Kernellum"]{width:100%;height:auto}
+a:focus-visible,button:focus-visible{outline:2px solid #b9f35d;outline-offset:6px}
+.text-label{font-family:MSCHN,monospace;letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
