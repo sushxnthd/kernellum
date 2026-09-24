@@ -108,3 +108,9 @@ form div.message.error{background-color:#7b3c3c!important}
 /* Typography contract: preserve the original display/body split even if generated CSS changes. */
 body,p,.p,h4,h5,h6,.h4,.h5,.h6,.text-label{font-family:"Suisse Int'l",sans-serif}
 h1,h2,h3,.h1,.h2,.h3,.text-cta,div.btn-wrapper .btn{font-family:MSCHN,sans-serif}
+
+/* Recolor the three animated feature-card Lottie canvases from legacy orange
+   (#ff9d00) to Kernellum green (#8deb72) without altering their animation. */
+.card-grid.three-wide .lottie-canvas canvas{
+  filter:hue-rotate(63.25deg) saturate(.48) brightness(1.2372);
+}
