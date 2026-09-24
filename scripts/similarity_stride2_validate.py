@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import statistics
 from collections import defaultdict
 from pathlib import Path
@@ -43,9 +44,12 @@ def good_route(row: dict[str, str]) -> bool:
     try:
         return (
             all(row[field] != "" and int(row[field]) == 0 for field in VIOLATIONS)
-            and all(row[field] != "" and float(row[field]) > 0
+            and all(row[field] != "" and math.isfinite(float(row[field]))
+                    and float(row[field]) > 0
                     for field in COSTS + ("period_min_ns",))
-            and all(len(row[field]) == 64 for field in HASHES)
+            and all(len(row[field]) == 64
+                    and all(char in "0123456789abcdef" for char in row[field].lower())
+                    for field in HASHES)
         )
     except (KeyError, ValueError):
         return False
