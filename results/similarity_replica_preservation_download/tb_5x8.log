@@ -1,0 +1,2 @@
+KERNELLUM_PRESERVED_EQUIVALENCE_PASS rows=5 cols=8
+rtl/tb_kernellum_preserved_equivalence.sv:79: $finish called at 520000 (1ps)
