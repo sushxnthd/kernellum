@@ -228,10 +228,11 @@ def route_one(
     cols: int,
     flow_root: Path,
     qemu: Path,
+    config_path: str | None = None,
 ) -> dict[str, object]:
     started = time.time()
     design = f"similarity_asic_transfer_{topology}"
-    config = f"/work/asic/transfer/config_{platform}.mk"
+    config = config_path or f"/work/asic/transfer/config_{platform}.mk"
     shard = BUILD / platform / topology / f"s{seed}" / f"r{rows}_c{cols}"
     shard.mkdir(parents=True, exist_ok=True)
     run_log = shard / "driver.log"
