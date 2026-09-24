@@ -1,0 +1,65 @@
+name: SIMILARITY stride-two excluded pilot
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_stride2_pilot.py'
+      - '.github/workflows/similarity-stride2-pilot.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_stride2_pilot.py'
+      - '.github/workflows/similarity-stride2-pilot.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          python -m compileall -q scripts/similarity_stride2_pilot.py
+          test -f asic/stride2/config_nangate45.mk
+          test -f asic/stride2/config_sky130hd.mk
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [nangate45, sky130hd]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+      - name: Route excluded stride-two 7x7 pilot
+        run: |
+          PYTHONPATH=. python scripts/similarity_stride2_pilot.py \
+            --platform ${{ matrix.platform }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-stride2-pilot-${{ matrix.platform }}
+          path: |
+            results/similarity_stride2_pilot_${{ matrix.platform }}.csv
+            build/similarity_stride2_pilot/${{ matrix.platform }}/stride2/s29/r7_c7/reports/6_finish.rpt
+            build/similarity_stride2_pilot/${{ matrix.platform }}/stride2/s29/r7_c7/reports/synth_stat.txt
+          retention-days: 30
