@@ -1,0 +1,19 @@
+{
+  "study": "SIMILARITY B-local preservation synthesis canary",
+  "classification": "opened-data implementation-fidelity canary",
+  "source_sha": "7bfe4521a2b3034abc10e412398a0028a4dc8e95",
+  "workflow_run": 36069975816,
+  "functional_pass": true,
+  "row_count": 4,
+  "rows": [
+    {"platform":"nangate45","geometry":"5x8","dff_cells":1979,"local_dffs":2284,"cell_area_um2":56098.868},
+    {"platform":"nangate45","geometry":"8x5","dff_cells":1972,"local_dffs":2232,"cell_area_um2":55576.976},
+    {"platform":"sky130hd","geometry":"5x8","dff_cells":1979,"local_dffs":2284,"cell_area_um2":265452.0896},
+    {"platform":"sky130hd","geometry":"8x5","dff_cells":1972,"local_dffs":2232,"cell_area_um2":260807.6352}
+  ],
+  "all_exact_dff_gates_pass": true,
+  "all_dff_budget_gates_pass": true,
+  "canary_pass": true,
+  "scientific_confirmation": false,
+  "breakthrough_claim": false
+}

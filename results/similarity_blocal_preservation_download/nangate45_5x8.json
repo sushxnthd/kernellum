@@ -1,0 +1,13 @@
+{
+  "platform": "nangate45",
+  "rows": 5,
+  "cols": 8,
+  "source_sha": "7bfe4521a2b3034abc10e412398a0028a4dc8e95",
+  "synth_exit_code": 0,
+  "expected_dffs": 1979,
+  "local_dffs": 2284,
+  "total_cells": 26277,
+  "dff_cells": 1979,
+  "cell_area_um2": 56098.868,
+  "replicas_preserved": true
+}
