@@ -51,7 +51,7 @@ a:focus-visible,button:focus-visible{
   outline-offset:6px;
 }
 
-.text-label{font-family:MSCHN,monospace;letter-spacing:.06em}
+.text-label{font-family:"Suisse Int'l",sans-serif;letter-spacing:normal}
 
 /* Keep the floating navigation inside the same mineral-green material system. */
 header#header div.nav-bar a.logo,
