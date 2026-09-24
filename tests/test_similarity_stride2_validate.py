@@ -1,8 +1,12 @@
 """Check the frozen prospective evaluator on complete data and physical nulls."""
 
+import csv
+import json
+import sys
+
 from scripts.similarity_asic_transfer_route import FIELDS
 from scripts.similarity_stride2_route import GEOMETRIES, PLATFORMS, SEEDS, TOPOLOGIES
-from scripts.similarity_stride2_validate import expected_keys, summarize
+from scripts.similarity_stride2_validate import expected_keys, main, summarize
 
 
 def plausible_rows():
@@ -51,3 +55,30 @@ def test_duplicate_missing_and_electrical_null_each_reject_claim():
     assert result["clean"] == 71
     assert not result["gates"]["all_72_final_routes_clean"]
     assert not result["claim_supported"]
+
+
+def test_artifact_layout_and_missing_functional_marker(tmp_path, monkeypatch):
+    artifacts = tmp_path / "download"
+    output = tmp_path / "summary.json"
+    rows = plausible_rows()
+    for platform in PLATFORMS:
+        for topology in TOPOLOGIES:
+            for seed in SEEDS:
+                shard = artifacts / f"similarity-stride2-route-{platform}-{topology}-s{seed}"
+                shard.mkdir(parents=True)
+                with (shard / f"similarity_stride2_{platform}_{topology}_s{seed}.csv").open("w", newline="") as handle:
+                    writer = csv.DictWriter(handle, fieldnames=FIELDS)
+                    writer.writeheader()
+                    writer.writerows(row for row in rows if
+                                     row["platform"] == platform
+                                     and row["topology"] == topology
+                                     and row["seed"] == str(seed))
+    marker = artifacts / "similarity-stride2-functional" / "similarity_stride2_functional_passed"
+    marker.parent.mkdir()
+    marker.touch()
+    monkeypatch.setattr(sys, "argv", ["validate", "--input", str(artifacts), "--output", str(output)])
+    assert main() == 0
+    assert json.loads(output.read_text())["claim_supported"]
+    marker.unlink()
+    assert main() == 1
+    assert json.loads(output.read_text())["gates"]["functional_equivalence"] is False
