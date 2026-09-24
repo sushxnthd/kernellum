@@ -75,7 +75,12 @@ jobs:
           retention-days: 30
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # The opened-data diagnostic is immutable. Evidence commits must not
+    # launch adaptive repetitions after the frozen run.
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      github.sha == '9678983c99e4cf282b47a50e2deaea67397926a9'
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -118,7 +123,11 @@ jobs:
           retention-days: 30
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      always() &&
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      github.sha == '9678983c99e4cf282b47a50e2deaea67397926a9'
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:
