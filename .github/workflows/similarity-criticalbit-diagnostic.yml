@@ -1,0 +1,148 @@
+name: SIMILARITY opened critical-bit diagnostic
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'rtl/kernellum_selective_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_criticalbit.sv'
+      - 'rtl/tb_kernellum_criticalbit_equivalence.sv'
+      - 'asic/criticalbit/**'
+      - 'scripts/similarity_criticalbit_*.py'
+      - 'tests/test_similarity_criticalbit_validate.py'
+      - 'docs/SIMILARITY_CRITICALBIT_DIAGNOSTIC_PLAN.md'
+      - '.github/workflows/similarity-criticalbit-diagnostic.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'rtl/kernellum_selective_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_criticalbit.sv'
+      - 'rtl/tb_kernellum_criticalbit_equivalence.sv'
+      - 'asic/criticalbit/**'
+      - 'scripts/similarity_criticalbit_*.py'
+      - 'tests/test_similarity_criticalbit_validate.py'
+      - 'docs/SIMILARITY_CRITICALBIT_DIAGNOSTIC_PLAN.md'
+      - '.github/workflows/similarity-criticalbit-diagnostic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - run: python -m pip install pytest
+      - run: >-
+          PYTHONPATH=. python -m pytest -q
+          tests/test_similarity_criticalbit_validate.py
+          tests/test_similarity_stride2_validate.py
+      - name: Verify diagnostic contract and configs
+        run: |
+          grep -q 'Status: \*\*exploratory protocol fixed before candidate physical routing\*\*' docs/SIMILARITY_CRITICALBIT_DIAGNOSTIC_PLAN.md
+          for platform in nangate45 sky130hd; do
+            grep -qx 'export CAP_MARGIN = 20' "asic/criticalbit/config_${platform}.mk"
+            grep -qx 'export SLEW_MARGIN = 20' "asic/criticalbit/config_${platform}.mk"
+          done
+          python -m py_compile scripts/similarity_criticalbit_route.py scripts/similarity_criticalbit_validate.py
+      - name: Compare signed GEMM on opened diagnostic shapes
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_criticalbit_preflight
+          for geometry in '5 8' '8 5'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_criticalbit_equivalence \
+              -o "results/similarity_criticalbit_preflight/tb_${1}x${2}.vvp" \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_selective_mac_array.sv \
+              rtl/tb_kernellum_criticalbit_equivalence.sv
+            vvp "results/similarity_criticalbit_preflight/tb_${1}x${2}.vvp" | \
+              tee "results/similarity_criticalbit_preflight/tb_${1}x${2}.log"
+            grep -q KERNELLUM_CRITICALBIT_EQUIVALENCE_PASS \
+              "results/similarity_criticalbit_preflight/tb_${1}x${2}.log"
+          done
+          touch results/similarity_criticalbit_preflight/similarity_criticalbit_functional_passed
+          git rev-parse HEAD > results/similarity_criticalbit_preflight/source_sha.txt
+          sha256sum docs/SIMILARITY_CRITICALBIT_DIAGNOSTIC_PLAN.md \
+            scripts/similarity_criticalbit_route.py scripts/similarity_criticalbit_validate.py \
+            rtl/kernellum_selective_mac_array.sv rtl/similarity_asic_transfer_criticalbit.sv \
+            asic/criticalbit/config_*.mk \
+            > results/similarity_criticalbit_preflight/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-criticalbit-functional
+          path: results/similarity_criticalbit_preflight/*
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        platform: [nangate45, sky130hd]
+        seed: [53, 71, 89]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
+      - name: Route both opened diagnostic shapes
+        run: |
+          PYTHONPATH=. python scripts/similarity_criticalbit_route.py \
+            --platform ${{ matrix.platform }} \
+            --seed ${{ matrix.seed }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-criticalbit-route-${{ matrix.platform }}-s${{ matrix.seed }}
+          path: |
+            results/similarity_criticalbit_${{ matrix.platform }}_s${{ matrix.seed }}.csv
+            build/similarity_criticalbit_diagnostic/${{ matrix.platform }}/criticalbit/s${{ matrix.seed }}/**/reports/*.rpt
+            build/similarity_criticalbit_diagnostic/${{ matrix.platform }}/criticalbit/s${{ matrix.seed }}/**/reports/synth_stat.txt
+            build/similarity_criticalbit_diagnostic/${{ matrix.platform }}/criticalbit/s${{ matrix.seed }}/**/logs/*.log
+            build/similarity_criticalbit_diagnostic/${{ matrix.platform }}/criticalbit/s${{ matrix.seed }}/**/driver.log
+          retention-days: 30
+
+  validate:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [preflight, route]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: similarity-criticalbit-*
+          path: results/similarity_criticalbit_download
+      - name: Apply fixed opened-data continue/stop gate
+        run: |
+          PYTHONPATH=. python scripts/similarity_criticalbit_validate.py \
+            --input results/similarity_criticalbit_download
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-criticalbit-final-summary
+          path: results/similarity_criticalbit_summary.json
+          retention-days: 90
