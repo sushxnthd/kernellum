@@ -4,7 +4,9 @@ import csv
 import json
 import sys
 
-from scripts.similarity_asic_transfer_route import FIELDS
+from scripts.similarity_asic_transfer_route import (
+    DISCOVERY_GEOMETRIES, FIELDS, HOLDOUT_GEOMETRIES, SEEDS as OLD_SEEDS,
+)
 from scripts.similarity_stride2_route import GEOMETRIES, PLATFORMS, SEEDS, TOPOLOGIES
 from scripts.similarity_stride2_validate import expected_keys, main, summarize
 
@@ -34,6 +36,15 @@ def plausible_rows():
                         row[field] = "0"
                     rows.append(row)
     return rows
+
+
+def test_new_geometry_and_seed_firewall():
+    prior = set(DISCOVERY_GEOMETRIES + HOLDOUT_GEOMETRIES)
+    assert len({(r, c) for _, r, c in GEOMETRIES}) == 4
+    assert {(r, c) for _, r, c in GEOMETRIES}.isdisjoint(prior)
+    assert set(SEEDS).isdisjoint(OLD_SEEDS)
+    assert sum(split == "discovery" for split, _, _ in GEOMETRIES) == 2
+    assert sum(split == "holdout" for split, _, _ in GEOMETRIES) == 2
 
 
 def test_full_matrix_supports_claim_only_with_functional_equivalence():
