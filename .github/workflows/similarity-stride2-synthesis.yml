@@ -1,0 +1,44 @@
+name: SIMILARITY stride-two synthesis preflight
+
+on:
+  pull_request:
+    paths:
+      - 'rtl/kernellum_strided_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_stride2.sv'
+      - 'asic/stride2/**'
+      - '.github/workflows/similarity-stride2-synthesis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  elaboration:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog yosys
+      - name: Elaborate non-square stride-two top
+        run: |
+          for geometry in '4 7' '7 4'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DASIC_ROWS=$1 -DASIC_COLS=$2 \
+              -s similarity_asic_transfer_stride2 \
+              -o "/tmp/stride2_${1}x${2}.vvp" \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_strided_mac_array.sv \
+              rtl/similarity_asic_transfer_stride2.sv
+          done
+      - name: Check synthesizeable registered fabric
+        run: |
+          yosys -Q -T -p '
+            read_verilog -sv rtl/kernellum_local_mac_array.sv
+            read_verilog -sv rtl/kernellum_strided_mac_array.sv
+            read_verilog -sv rtl/similarity_asic_transfer_stride2.sv
+            hierarchy -check -top similarity_asic_transfer_stride2
+            synth -top similarity_asic_transfer_stride2
+            stat
+          ' > /tmp/stride2_synthesis.log
+          tail -35 /tmp/stride2_synthesis.log
