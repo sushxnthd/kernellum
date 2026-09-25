@@ -1,0 +1,1338 @@
+{
+  "schema_version": 1,
+  "audit_role": "independent raw-artifact audit; opened-data flow qualification only",
+  "source_sha": "bb9a8887be5411247afe59404652676d293d1cc8",
+  "archive_digests": {
+    "similarity-electrical-margin-final-summary.zip": "ba7c86594dc66696c7000e1d9d564bccacffc1bfdb9c9da24450a802d0998cd6",
+    "similarity-electrical-margin-functional.zip": "a56b6009c9a7d0a7b5d52dd4ff6fb9626234cc11493572924d21968d62208a2e",
+    "similarity-electrical-margin-nangate45-blocal-s263.zip": "4357cb72e92365077bba8e3425b98b577482e0f4899bb79a36123964058f45e0",
+    "similarity-electrical-margin-nangate45-broadcast-s263.zip": "679f007e1bd87cc14a7d3dadcb7abc43903a852306ad9c08124c124c5eb633d3",
+    "similarity-electrical-margin-nangate45-local-s263.zip": "f0a31fe8ccd6b2b148ecd659f39738f0d4c5cc463004dfda13eb112c79cb8b12",
+    "similarity-electrical-margin-sky130hd-blocal-s263.zip": "d13de7321d9f7d49986bc16d33b85faf67533c344ea9f0a9776a654af0e2df34",
+    "similarity-electrical-margin-sky130hd-broadcast-s263.zip": "d2b9599d51c6ae1fffa98ed94d58824cd1f8f1e6a68e6e34a9fd5a8edc0bf8f5",
+    "similarity-electrical-margin-sky130hd-local-s263.zip": "d59c08bc0ff16efdc4b2e24a18a51593555af77ccc1f9fd34212a09d3b46b9aa"
+  },
+  "counts": {
+    "archives": 8,
+    "csv_shards": 6,
+    "rows": 18,
+    "manifests": 6,
+    "functional_logs": 3,
+    "drivers": 18,
+    "finish_reports": 18,
+    "drc_reports": 18,
+    "route_logs": 18,
+    "product_hash_checks": 72
+  },
+  "minimum_headroom": {
+    "cap_fraction": 0.2322,
+    "slew_fraction": 0.1617
+  },
+  "supplemental_non_preregistered_observation": {
+    "antenna_was_not_a_frozen_canary_gate": true,
+    "all_route_logs_end_with_zero_antenna": false,
+    "nonzero_or_missing_antenna_rows": [
+      {
+        "file": "similarity-electrical-margin-sky130hd-blocal-s263/build/similarity_electrical_margin_canary/sky130hd/blocal/s263/r10_c5/logs/5_2_route.log",
+        "final_net_violations": 1,
+        "final_pin_violations": 1
+      }
+    ]
+  },
+  "gates": {
+    "actions_artifact_digests_match": true,
+    "source_sha_and_three_signed_gemm_logs": true,
+    "six_shards_and_exact_18_row_matrix": true,
+    "six_exact_patch_manifests": true,
+    "18_native_finishes_without_crash": true,
+    "18_finish_drc_and_route_logs_present": true,
+    "18_final_route_logs_end_with_zero_detailed_route_drc": true,
+    "18_finish_reports_zero_violations_and_ge_2pct_headroom": true,
+    "18_csv_rows_clean_with_positive_metrics": true,
+    "18_rows_preserve_frozen_dff_and_synthesis_area": true,
+    "72_final_product_hashes_match_csv": true
+  },
+  "independent_audit_pass": true,
+  "reports": [
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.4629,
+      "slew_headroom": 0.4815,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.2913,
+      "slew_headroom": 0.4643,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.3291,
+      "slew_headroom": 0.5129,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.3194,
+      "slew_headroom": 0.5068,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.3214,
+      "slew_headroom": 0.4959,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.4623,
+      "slew_headroom": 0.4887,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.3438,
+      "slew_headroom": 0.4665,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.2322,
+      "slew_headroom": 0.4829,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.3354,
+      "slew_headroom": 0.5209,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.3572,
+      "slew_headroom": 0.2231,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.4985,
+      "slew_headroom": 0.2246,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.2907,
+      "slew_headroom": 0.2736,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.4395,
+      "slew_headroom": 0.2342,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.4944,
+      "slew_headroom": 0.2185,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.4063,
+      "slew_headroom": 0.165,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "cap_headroom": 0.4491,
+      "slew_headroom": 0.1617,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "cap_headroom": 0.3731,
+      "slew_headroom": 0.222,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "cap_headroom": 0.5114,
+      "slew_headroom": 0.2409,
+      "counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      },
+      "pass": true
+    }
+  ],
+  "product_checks": [
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "160962083186a0ae0db0703b10b8f59bb62fce8ace9d004c6b327dd9dd05064b",
+      "actual": "160962083186a0ae0db0703b10b8f59bb62fce8ace9d004c6b327dd9dd05064b",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "4ac55d0caea5c44adba3b1c30649ef7a6782cad333e700b5ea2fb94d3622e742",
+      "actual": "4ac55d0caea5c44adba3b1c30649ef7a6782cad333e700b5ea2fb94d3622e742",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "b45ac255876439aa674f57aa1f6d8d816417733f44b90179b3c284d77cb56782",
+      "actual": "b45ac255876439aa674f57aa1f6d8d816417733f44b90179b3c284d77cb56782",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "72f65f2a39c0bcd60d47145b0785a0e8c6c19010c0207122489ec6a185251739",
+      "actual": "72f65f2a39c0bcd60d47145b0785a0e8c6c19010c0207122489ec6a185251739",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "e338ca05e4bb339c4bacf17ce5e69282853f2f9029bde52fe01d0e2f12bcc4af",
+      "actual": "e338ca05e4bb339c4bacf17ce5e69282853f2f9029bde52fe01d0e2f12bcc4af",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "dd1a55b80195afd3ae529720391824d1a90056943ed84a26fb529dcc2a4bdcbb",
+      "actual": "dd1a55b80195afd3ae529720391824d1a90056943ed84a26fb529dcc2a4bdcbb",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "3653b4daa43941ce007bf6241ea9c1a3dba6e857c2d18fa76e3fda3516dc4b7a",
+      "actual": "3653b4daa43941ce007bf6241ea9c1a3dba6e857c2d18fa76e3fda3516dc4b7a",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "a75092371aa448fe193aa27b978b464c491e21755b868303a943eb9883f6a2f6",
+      "actual": "a75092371aa448fe193aa27b978b464c491e21755b868303a943eb9883f6a2f6",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "fa932f0a8f6a9543734a491cadd9b120a367136012aa8aed27b4511374ac8fc8",
+      "actual": "fa932f0a8f6a9543734a491cadd9b120a367136012aa8aed27b4511374ac8fc8",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "0340ab0357bc63757fb5e42bf233ef0e4757af4ff0016728dcb41912e2d7244a",
+      "actual": "0340ab0357bc63757fb5e42bf233ef0e4757af4ff0016728dcb41912e2d7244a",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "08ac38d4c6498cdb1b0b075b0e74a7d213461cfe4ce4c7124263a64d5ac5a9ea",
+      "actual": "08ac38d4c6498cdb1b0b075b0e74a7d213461cfe4ce4c7124263a64d5ac5a9ea",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "710e59831620aff441577372d563e66f8e7628046829c09adc845f8311d5a8ea",
+      "actual": "710e59831620aff441577372d563e66f8e7628046829c09adc845f8311d5a8ea",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "db1d602b6738c6098a017c04850221896713f4b0ee5878b5e34bc320fcf5e93a",
+      "actual": "db1d602b6738c6098a017c04850221896713f4b0ee5878b5e34bc320fcf5e93a",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "d08c8e828f818b465fb4002fc4bb33f41755315204cd5110435e21a59d0c1e5d",
+      "actual": "d08c8e828f818b465fb4002fc4bb33f41755315204cd5110435e21a59d0c1e5d",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "3d34552b7859f9ae72ad8435feeec354bfb18a1f5f1ad6d25969c630a26b7e58",
+      "actual": "3d34552b7859f9ae72ad8435feeec354bfb18a1f5f1ad6d25969c630a26b7e58",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "ef9f0d3b641f7c1846197431ab12200981056dd99c7a62fcce676dbc73bef1c8",
+      "actual": "ef9f0d3b641f7c1846197431ab12200981056dd99c7a62fcce676dbc73bef1c8",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "6722bf4fe6936f6a8561d34a148feab12503ececc57b5d9e6ed99cfde95bf97c",
+      "actual": "6722bf4fe6936f6a8561d34a148feab12503ececc57b5d9e6ed99cfde95bf97c",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "8cc889b4868ffac9d24f865e6daaceb9c3f98525f277e46257a5846aa14f6dd9",
+      "actual": "8cc889b4868ffac9d24f865e6daaceb9c3f98525f277e46257a5846aa14f6dd9",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "56af317b1c8ad7b943579bdf8d4578ca252969ebe24f3aacc10fe577eb8079ea",
+      "actual": "56af317b1c8ad7b943579bdf8d4578ca252969ebe24f3aacc10fe577eb8079ea",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "83d8d47a636567b128e4d34884c3bdc5d42dd5354372e0e4e65c13ef3e21f626",
+      "actual": "83d8d47a636567b128e4d34884c3bdc5d42dd5354372e0e4e65c13ef3e21f626",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "8c1f12fc683c372315d3535791bfecb160305956f70ada52f0d71692579200c0",
+      "actual": "8c1f12fc683c372315d3535791bfecb160305956f70ada52f0d71692579200c0",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "387cd83c45cf21e437a3d2338d626b155fba4590a44bcf77dd255aa65406c5a7",
+      "actual": "387cd83c45cf21e437a3d2338d626b155fba4590a44bcf77dd255aa65406c5a7",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "4bdc56b706e8b0324b7f8201c1700a8b904e6ddbbd923617847c2a30b7a560bd",
+      "actual": "4bdc56b706e8b0324b7f8201c1700a8b904e6ddbbd923617847c2a30b7a560bd",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "9e83dfa097c3de3425e9262e48e332fbefc19b15f444da0346372dbfe68d2163",
+      "actual": "9e83dfa097c3de3425e9262e48e332fbefc19b15f444da0346372dbfe68d2163",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "e1430f2505d44b4626117cd6dc43b0e3c669a86a77c0680c2f2972583dd41dc3",
+      "actual": "e1430f2505d44b4626117cd6dc43b0e3c669a86a77c0680c2f2972583dd41dc3",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "c48022339543f3bacd7ed6b55af473db1c806d52bb203c902179edeeaa71b6ac",
+      "actual": "c48022339543f3bacd7ed6b55af473db1c806d52bb203c902179edeeaa71b6ac",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "c99f6a73a33002c3c2b07ed4a53af4d793de5363cd555547978c6ed57576d5c1",
+      "actual": "c99f6a73a33002c3c2b07ed4a53af4d793de5363cd555547978c6ed57576d5c1",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "61b33d7680cdbcde4003d2e63caa70100b8eb59643b7993473e74b1bd651d76e",
+      "actual": "61b33d7680cdbcde4003d2e63caa70100b8eb59643b7993473e74b1bd651d76e",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "1cde8e47740fb4863d809c6d8ea128b6a8d71670b8e3a9f7caf948ffb5b57119",
+      "actual": "1cde8e47740fb4863d809c6d8ea128b6a8d71670b8e3a9f7caf948ffb5b57119",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "ff74e1cd8c73abfcf91cf5f708e88390e110b990922b9af02e98f9db83481c87",
+      "actual": "ff74e1cd8c73abfcf91cf5f708e88390e110b990922b9af02e98f9db83481c87",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "a77b48c24f9666f0b207b6ae0cdc1458ca5d6100ebcdf3dcd9a194c74d2948dd",
+      "actual": "a77b48c24f9666f0b207b6ae0cdc1458ca5d6100ebcdf3dcd9a194c74d2948dd",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "389ef7d0411be60639bfc0a84d383fc4a410a404da90a20ec11799ad2df5f2e5",
+      "actual": "389ef7d0411be60639bfc0a84d383fc4a410a404da90a20ec11799ad2df5f2e5",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "2c2d2a54869b55a7c376fa4b6f8c5a71dce08234b531e16099f569df060a000d",
+      "actual": "2c2d2a54869b55a7c376fa4b6f8c5a71dce08234b531e16099f569df060a000d",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "96a9056d2380dd919af76bb490ba09d1d09b2c6b06fae8fde83df33fab021dc1",
+      "actual": "96a9056d2380dd919af76bb490ba09d1d09b2c6b06fae8fde83df33fab021dc1",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "48b9e6e9ac241b606b736f7ce61e5248f9ab2085c5a3f0b93d2739aa93f23b55",
+      "actual": "48b9e6e9ac241b606b736f7ce61e5248f9ab2085c5a3f0b93d2739aa93f23b55",
+      "pass": true
+    },
+    {
+      "identity": [
+        "nangate45",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "d36b50415fbba54052b7d70dba738ec89743f292dbf9009fe81323e4ffab03a8",
+      "actual": "d36b50415fbba54052b7d70dba738ec89743f292dbf9009fe81323e4ffab03a8",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "ad668854a09ed7e7d019d2cc5a65ed7dfdda83794daf8bb233b428ccecb5f3e3",
+      "actual": "ad668854a09ed7e7d019d2cc5a65ed7dfdda83794daf8bb233b428ccecb5f3e3",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "d57bba8512824b1ec1cc887bbd1ad70baf89200a32eb9eb16843bb21ea15d2f6",
+      "actual": "d57bba8512824b1ec1cc887bbd1ad70baf89200a32eb9eb16843bb21ea15d2f6",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "4b7a0a65da27f2c39c80f289b72bb15fdf1b754fdc28a0084fc3d17da091e888",
+      "actual": "4b7a0a65da27f2c39c80f289b72bb15fdf1b754fdc28a0084fc3d17da091e888",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "2417db566278c249a9a1dc2947ed25e110192e7a3360d99cd8ad54e86aa7e828",
+      "actual": "2417db566278c249a9a1dc2947ed25e110192e7a3360d99cd8ad54e86aa7e828",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "f4d2817ab26e1c3640144ea4371f553c6e1e2b882b462c578cb50eb0f5cd7001",
+      "actual": "f4d2817ab26e1c3640144ea4371f553c6e1e2b882b462c578cb50eb0f5cd7001",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "e1ad6d23fb486269281c4e28677ad338cc382a0b53783ba3965aecdf99493765",
+      "actual": "e1ad6d23fb486269281c4e28677ad338cc382a0b53783ba3965aecdf99493765",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "15fd951957936893d606ae37d2bc0feff396fbfbc5869a2d8a008197765c7397",
+      "actual": "15fd951957936893d606ae37d2bc0feff396fbfbc5869a2d8a008197765c7397",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "83c094dfeaa4dd8b973a139a4d194e9af6f68cc650d84c6a6ac2ab8fe029b04c",
+      "actual": "83c094dfeaa4dd8b973a139a4d194e9af6f68cc650d84c6a6ac2ab8fe029b04c",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "6399245f1f425e183c3f8474f410d08bbe78c9a707db6a683bc01f8351f7b2ce",
+      "actual": "6399245f1f425e183c3f8474f410d08bbe78c9a707db6a683bc01f8351f7b2ce",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "f4e8c4e53e7e77488842332e384cace83c7f0ebd948a4c7416e16aa117e0770f",
+      "actual": "f4e8c4e53e7e77488842332e384cace83c7f0ebd948a4c7416e16aa117e0770f",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "9a8cd02a38ab0bf736a27ba39d3b7bbff7de7b5afc48eb3fd04a7769e34078c6",
+      "actual": "9a8cd02a38ab0bf736a27ba39d3b7bbff7de7b5afc48eb3fd04a7769e34078c6",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "blocal",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "33edb15baae9bf40e4c093dd44038083666948bd0d41767f4b5c6e87c0d00699",
+      "actual": "33edb15baae9bf40e4c093dd44038083666948bd0d41767f4b5c6e87c0d00699",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "b8d93e9c39568ceb4b0175eb6b66de3ea343ab6e853339a4c9caa5bd13819a9c",
+      "actual": "b8d93e9c39568ceb4b0175eb6b66de3ea343ab6e853339a4c9caa5bd13819a9c",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "6a4c69a60cef7cb43d431c20e7ddc2e10bb71b2ffaf2b76c942e3e1a1097f006",
+      "actual": "6a4c69a60cef7cb43d431c20e7ddc2e10bb71b2ffaf2b76c942e3e1a1097f006",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "cf77f745615a0c32e803fe37052332fda3437c4f5dec1c75d21e7ac05b1c864f",
+      "actual": "cf77f745615a0c32e803fe37052332fda3437c4f5dec1c75d21e7ac05b1c864f",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "9f1595ef3895454f8cd5fad6238016fb4807ee7cf04a56f83764ea1cd74a8065",
+      "actual": "9f1595ef3895454f8cd5fad6238016fb4807ee7cf04a56f83764ea1cd74a8065",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "01ddd207e4f2b1f713eeeebd7bbea9a31e27570aab61ac84d0255bd9bbafffd9",
+      "actual": "01ddd207e4f2b1f713eeeebd7bbea9a31e27570aab61ac84d0255bd9bbafffd9",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "146844e727a69201231613bdb26ebab0c51e29277b34e6eba35502858b864b65",
+      "actual": "146844e727a69201231613bdb26ebab0c51e29277b34e6eba35502858b864b65",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "31aeac1be022fc338a8a7cffd141df0e20ba55f6a8d608aea413611d8750092a",
+      "actual": "31aeac1be022fc338a8a7cffd141df0e20ba55f6a8d608aea413611d8750092a",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "130f4a4dc841fab2fa9507235bf09dd053ec96fb27982daaded7c9c74c439b56",
+      "actual": "130f4a4dc841fab2fa9507235bf09dd053ec96fb27982daaded7c9c74c439b56",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "b2e09ef5b4325238a60e716121f0f8a3946b5fca6d04d0ebd08f5584ff129367",
+      "actual": "b2e09ef5b4325238a60e716121f0f8a3946b5fca6d04d0ebd08f5584ff129367",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "6050f66f040d5bed2e597e8adea5092d7640df6076556aabd87354193a29b104",
+      "actual": "6050f66f040d5bed2e597e8adea5092d7640df6076556aabd87354193a29b104",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "62f70c10c4aee61cc379c5fa80021babc5000b2b402029fffdf5a3b68f935c77",
+      "actual": "62f70c10c4aee61cc379c5fa80021babc5000b2b402029fffdf5a3b68f935c77",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "broadcast",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "7ccf8097495715008853c2c89713b0f99a722058825a3eb55aae38070992ef61",
+      "actual": "7ccf8097495715008853c2c89713b0f99a722058825a3eb55aae38070992ef61",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.gds",
+      "expected": "d62e4123c1a8d805123dbf9026ee685dcf13d32ec101fe645a1577ba288a1c44",
+      "actual": "d62e4123c1a8d805123dbf9026ee685dcf13d32ec101fe645a1577ba288a1c44",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.odb",
+      "expected": "02a5b63984d0686ed32b67e687899c9f1f8ac924b86ba0b6a65ed15274f174e9",
+      "actual": "02a5b63984d0686ed32b67e687899c9f1f8ac924b86ba0b6a65ed15274f174e9",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.spef",
+      "expected": "9ee150b8f3275b9bc96a3144d846f8d09621a2a36d046486f66bb974324079e3",
+      "actual": "9ee150b8f3275b9bc96a3144d846f8d09621a2a36d046486f66bb974324079e3",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        10,
+        5
+      ],
+      "product": "6_final.v",
+      "expected": "3ffbb71d39bef2eb1d17eefa788b760f323f6bb4cb45c8f1e4d1c5914ecb82f2",
+      "actual": "3ffbb71d39bef2eb1d17eefa788b760f323f6bb4cb45c8f1e4d1c5914ecb82f2",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.gds",
+      "expected": "25877f439600572f6c769edaea209212d3351cbba451922a90c24f3c2ad6c61d",
+      "actual": "25877f439600572f6c769edaea209212d3351cbba451922a90c24f3c2ad6c61d",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.odb",
+      "expected": "c0b1c0cccce087a2180cb0d7e5eb2fb08af5b36677890eb88559c81d69010f04",
+      "actual": "c0b1c0cccce087a2180cb0d7e5eb2fb08af5b36677890eb88559c81d69010f04",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.spef",
+      "expected": "798400f2d6c6368c95c8b7d300ab0d50119c180e2f38d3084ac25749bfa78700",
+      "actual": "798400f2d6c6368c95c8b7d300ab0d50119c180e2f38d3084ac25749bfa78700",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        7,
+        8
+      ],
+      "product": "6_final.v",
+      "expected": "4c8aa33a005601f4132777c61bf576774a38c17ed6db35405a2d0b9d8bd45d21",
+      "actual": "4c8aa33a005601f4132777c61bf576774a38c17ed6db35405a2d0b9d8bd45d21",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.gds",
+      "expected": "2bf3eabfa47722895d393358831a60e080906ef3571b28afa7228d62cfa2dcff",
+      "actual": "2bf3eabfa47722895d393358831a60e080906ef3571b28afa7228d62cfa2dcff",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.odb",
+      "expected": "7dffcd4f959362e6a7421a6a30ee3a42011793944bf435d5533fb1cac5a1427f",
+      "actual": "7dffcd4f959362e6a7421a6a30ee3a42011793944bf435d5533fb1cac5a1427f",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.spef",
+      "expected": "87f9c3a68cf1a67ad7411e202e355082f8a5a2b141ab0aa5dc6a283e37518e9c",
+      "actual": "87f9c3a68cf1a67ad7411e202e355082f8a5a2b141ab0aa5dc6a283e37518e9c",
+      "pass": true
+    },
+    {
+      "identity": [
+        "sky130hd",
+        "local",
+        263,
+        8,
+        7
+      ],
+      "product": "6_final.v",
+      "expected": "fd5d799c0c84fc54cd12f9afd0a87adcc100532783e0ed9484d1d9c7f58e437a",
+      "actual": "fd5d799c0c84fc54cd12f9afd0a87adcc100532783e0ed9484d1d9c7f58e437a",
+      "pass": true
+    }
+  ]
+}
