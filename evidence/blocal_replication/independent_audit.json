@@ -1,0 +1,130 @@
+{
+  "artifact_count": 20,
+  "rows": 72,
+  "clean": 68,
+  "dirty": [
+    {
+      "platform": "sky130hd",
+      "topology": "blocal",
+      "rows": "8",
+      "cols": "7",
+      "seed": "181",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "2",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "1",
+      "drc_count": "0"
+    },
+    {
+      "platform": "nangate45",
+      "topology": "local",
+      "rows": "7",
+      "cols": "8",
+      "seed": "211",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "1",
+      "drc_count": "0"
+    },
+    {
+      "platform": "nangate45",
+      "topology": "broadcast",
+      "rows": "7",
+      "cols": "8",
+      "seed": "239",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "1",
+      "drc_count": "0"
+    },
+    {
+      "platform": "nangate45",
+      "topology": "blocal",
+      "rows": "10",
+      "cols": "5",
+      "seed": "239",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "1",
+      "drc_count": "0"
+    }
+  ],
+  "matched": 20,
+  "groups": [
+    {
+      "platform": "nangate45",
+      "shape": "5x10",
+      "holdout": false,
+      "raw": 0.12426035502958578,
+      "retention": 1.2272727272727275,
+      "density_b": 1.0673520998855146,
+      "density_l": 1.068364410800636,
+      "local_raw": 0.11560693641618494
+    },
+    {
+      "platform": "nangate45",
+      "shape": "8x7",
+      "holdout": true,
+      "raw": 0.11999999999999998,
+      "retention": 0.9199999999999999,
+      "density_b": 1.0637435987069592,
+      "density_l": 1.0150391232955396,
+      "local_raw": 0.13142857142857142
+    },
+    {
+      "platform": "sky130hd",
+      "shape": "5x10",
+      "holdout": false,
+      "raw": 0.10361445783132534,
+      "retention": 0.6853146853146855,
+      "density_b": 1.0468272197892041,
+      "density_l": 0.989465152833328,
+      "local_raw": 0.13341346153846156
+    },
+    {
+      "platform": "sky130hd",
+      "shape": "7x8",
+      "holdout": true,
+      "raw": 0.11374407582938378,
+      "retention": 0.7904761904761906,
+      "density_b": 1.0654326753665038,
+      "density_l": 1.0002493420853884,
+      "local_raw": 0.14470588235294124
+    },
+    {
+      "platform": "sky130hd",
+      "shape": "10x5",
+      "holdout": false,
+      "raw": 0.13463892288861684,
+      "retention": 1.1904761904761907,
+      "density_b": 1.0890342100065113,
+      "density_l": 1.0581486576022494,
+      "local_raw": 0.12727272727272726
+    }
+  ],
+  "gates": {
+    "function": true,
+    "patch_manifests": true,
+    "all_evidence": true,
+    "drivers": true,
+    "all_attempted": true,
+    "all_clean": false,
+    "all_groups": false,
+    "local_positive": false,
+    "dff": false,
+    "area": false,
+    "fanout": true,
+    "raw": false,
+    "retention": false,
+    "density": false,
+    "density_both_platforms": false
+  },
+  "all_required_pass": false
+}
