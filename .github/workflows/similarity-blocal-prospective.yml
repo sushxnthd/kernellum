@@ -74,7 +74,7 @@ jobs:
           retention-days: 30
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '3a0d7f7364f55ad0757964f3d8cb2eb43717c635'
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -119,7 +119,7 @@ jobs:
           retention-days: 30
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '3a0d7f7364f55ad0757964f3d8cb2eb43717c635'
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:
