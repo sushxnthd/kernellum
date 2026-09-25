@@ -1,0 +1,142 @@
+name: SIMILARITY prospective B-local ASIC study
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_blocal_prospective_*.py'
+      - 'docs/SIMILARITY_BLOCAL_PROSPECTIVE_PREREGISTRATION.md'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - '.github/workflows/similarity-blocal-prospective.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_blocal_prospective_*.py'
+      - 'docs/SIMILARITY_BLOCAL_PROSPECTIVE_PREREGISTRATION.md'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - '.github/workflows/similarity-blocal-prospective.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Confirm frozen source and protocol
+        run: |
+          echo '7cdd3223ac401ec9c9df5a792cb41f2e754262dbd2c6fad103752fce7afdc766  rtl/kernellum_blocal_mac_array.sv' | sha256sum -c -
+          echo '1f6bd084dab5e368f34dee5c44fb6ca12a68860b4b26fff2f78b85277d50552a  rtl/similarity_asic_transfer_blocal.sv' | sha256sum -c -
+          python -m py_compile scripts/similarity_blocal_prospective_route.py scripts/similarity_blocal_prospective_validate.py
+          for family in blocal repair_canary; do
+            for platform in nangate45 sky130hd; do
+              grep -qx 'export CAP_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+              grep -qx 'export SLEW_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+            done
+          done
+      - name: Compare signed GEMM on all four new shapes
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_blocal_prospective_preflight
+          for geometry in '6 8' '8 6' '6 9' '9 6'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_blocal_equivalence \
+              -o "results/similarity_blocal_prospective_preflight/tb_${1}x${2}.vvp" \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_blocal_mac_array.sv \
+              rtl/tb_kernellum_blocal_equivalence.sv
+            vvp "results/similarity_blocal_prospective_preflight/tb_${1}x${2}.vvp" | \
+              tee "results/similarity_blocal_prospective_preflight/tb_${1}x${2}.log"
+            grep -q KERNELLUM_BLOCAL_EQUIVALENCE_PASS \
+              "results/similarity_blocal_prospective_preflight/tb_${1}x${2}.log"
+          done
+          touch results/similarity_blocal_prospective_preflight/similarity_blocal_prospective_functional_passed
+          git rev-parse HEAD > results/similarity_blocal_prospective_preflight/source_sha.txt
+          sha256sum docs/SIMILARITY_BLOCAL_PROSPECTIVE_PREREGISTRATION.md \
+            scripts/similarity_blocal_prospective_route.py scripts/similarity_blocal_prospective_validate.py \
+            rtl/kernellum_blocal_mac_array.sv rtl/similarity_asic_transfer_blocal.sv \
+            asic/blocal/config_*.mk asic/repair_canary/config_*.mk \
+            > results/similarity_blocal_prospective_preflight/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-prospective-functional
+          path: results/similarity_blocal_prospective_preflight/*
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        platform: [nangate45, sky130hd]
+        topology: [broadcast, local, blocal]
+        seed: [101, 131, 157]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
+      - name: Route the four frozen shapes
+        run: |
+          PYTHONPATH=. python scripts/similarity_blocal_prospective_route.py \
+            --platform ${{ matrix.platform }} \
+            --topology ${{ matrix.topology }} \
+            --seed ${{ matrix.seed }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-prospective-route-${{ matrix.platform }}-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: |
+            results/similarity_blocal_prospective_${{ matrix.platform }}_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+            build/similarity_blocal_prospective/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/*.rpt
+            build/similarity_blocal_prospective/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/synth_stat.txt
+            build/similarity_blocal_prospective/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/logs/*.log
+            build/similarity_blocal_prospective/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/driver.log
+          retention-days: 30
+
+  validate:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [preflight, route]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: similarity-blocal-prospective-*
+          path: results/similarity_blocal_prospective_download
+      - name: Apply every frozen confirmatory gate
+        run: |
+          PYTHONPATH=. python scripts/similarity_blocal_prospective_validate.py \
+            --input results/similarity_blocal_prospective_download
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-prospective-final-summary
+          path: results/similarity_blocal_prospective_summary.json
+          retention-days: 90
