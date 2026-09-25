@@ -116,10 +116,12 @@ h1,h2,h3,.h1,.h2,.h3,.text-cta,div.btn-wrapper .btn{font-family:MSCHN,sans-serif
   filter:hue-rotate(63.25deg) saturate(.48) brightness(1.2372);
 }
 
+
+
 /* Boon imagery -> Kernellum green.
-   Preserve the original imagery, crop, blur, texture and composition;
-   only shift the rendered colour treatment. */
-.image-wrapper img[src*="/kernellum/media-rendered/"],
-.image-wrapper img[srcset*="/kernellum/media-rendered/"]{
-  filter:hue-rotate(72deg) saturate(.88) brightness(.98)!important;
+   Exact same source imagery/composition; only the warm Boon palette is hue-shifted.
+   Target the image element itself rather than src/srcset attributes, because Nuxt
+   hydrates several responsive <picture> images through <source> elements. */
+.image-wrapper img{
+  filter:hue-rotate(88deg) saturate(.82) brightness(.98)!important;
 }
