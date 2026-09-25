@@ -1,0 +1,154 @@
+name: SIMILARITY prospective B-local replication ASIC study
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_blocal_replication_*.py'
+      - 'docs/SIMILARITY_BLOCAL_REPLICATION_PREREGISTRATION.md'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - 'scripts/similarity_final_report_canary.py'
+      - '.github/workflows/similarity-blocal-replication.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_blocal_replication_*.py'
+      - 'docs/SIMILARITY_BLOCAL_REPLICATION_PREREGISTRATION.md'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - 'scripts/similarity_final_report_canary.py'
+      - '.github/workflows/similarity-blocal-replication.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Confirm frozen source, repair and protocol
+        run: |
+          echo '7cdd3223ac401ec9c9df5a792cb41f2e754262dbd2c6fad103752fce7afdc766  rtl/kernellum_blocal_mac_array.sv' | sha256sum -c -
+          echo '1f6bd084dab5e368f34dee5c44fb6ca12a68860b4b26fff2f78b85277d50552a  rtl/similarity_asic_transfer_blocal.sv' | sha256sum -c -
+          echo '5fb440ce9037a2efbf75be6ba82d366f184a53b858daca9e1ff97f582847ec17  scripts/similarity_final_report_canary.py' | sha256sum -c -
+          python -m py_compile \
+            scripts/similarity_blocal_replication_route.py \
+            scripts/similarity_blocal_replication_validate.py
+          grep -q 'Status: \*\*draft until merged to main; no eligible physical route may precede that merge\*\*' \
+            docs/SIMILARITY_BLOCAL_REPLICATION_PREREGISTRATION.md
+          for family in blocal repair_canary; do
+            for platform in nangate45 sky130hd; do
+              grep -qx 'export CAP_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+              grep -qx 'export SLEW_MARGIN = 20' "asic/${family}/config_${platform}.mk"
+            done
+          done
+      - name: Compare signed GEMM on all four unopened shapes
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_blocal_replication_preflight
+          for geometry in '5 10' '10 5' '7 8' '8 7'; do
+            set -- $geometry
+            iverilog -g2012 -Wall -DTEST_ROWS=$1 -DTEST_COLS=$2 \
+              -s tb_kernellum_blocal_equivalence \
+              -o "results/similarity_blocal_replication_preflight/tb_${1}x${2}.vvp" \
+              rtl/kernellum_local_mac_array.sv \
+              rtl/kernellum_blocal_mac_array.sv \
+              rtl/tb_kernellum_blocal_equivalence.sv
+            vvp "results/similarity_blocal_replication_preflight/tb_${1}x${2}.vvp" | \
+              tee "results/similarity_blocal_replication_preflight/tb_${1}x${2}.log"
+            grep -q "KERNELLUM_BLOCAL_EQUIVALENCE_PASS rows=$1 cols=$2" \
+              "results/similarity_blocal_replication_preflight/tb_${1}x${2}.log"
+          done
+          touch results/similarity_blocal_replication_preflight/similarity_blocal_replication_functional_passed
+          git rev-parse HEAD > results/similarity_blocal_replication_preflight/source_sha.txt
+          sha256sum \
+            docs/SIMILARITY_BLOCAL_REPLICATION_PREREGISTRATION.md \
+            scripts/similarity_blocal_replication_route.py \
+            scripts/similarity_blocal_replication_validate.py \
+            scripts/similarity_final_report_canary.py \
+            rtl/kernellum_blocal_mac_array.sv \
+            rtl/similarity_asic_transfer_blocal.sv \
+            asic/blocal/config_*.mk asic/repair_canary/config_*.mk \
+            > results/similarity_blocal_replication_preflight/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-replication-functional
+          path: results/similarity_blocal_replication_preflight/*
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        platform: [nangate45, sky130hd]
+        topology: [broadcast, local, blocal]
+        seed: [181, 211, 239]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/scripts/final_outputs.tcl"
+      - name: Apply frozen headless repair and route four frozen shapes
+        run: |
+          PYTHONPATH=. python scripts/similarity_blocal_replication_route.py \
+            --platform ${{ matrix.platform }} \
+            --topology ${{ matrix.topology }} \
+            --seed ${{ matrix.seed }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-replication-route-${{ matrix.platform }}-${{ matrix.topology }}-s${{ matrix.seed }}
+          path: |
+            results/similarity_blocal_replication/similarity_blocal_replication_${{ matrix.platform }}_${{ matrix.topology }}_s${{ matrix.seed }}.csv
+            results/similarity_blocal_replication/flow_patch_${{ matrix.platform }}_${{ matrix.topology }}_s${{ matrix.seed }}.json
+            build/similarity_blocal_replication/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/*.rpt
+            build/similarity_blocal_replication/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/reports/synth_stat.txt
+            build/similarity_blocal_replication/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/logs/*.log
+            build/similarity_blocal_replication/${{ matrix.platform }}/${{ matrix.topology }}/s${{ matrix.seed }}/**/driver.log
+          retention-days: 30
+
+  validate:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [preflight, route]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: similarity-blocal-replication-*
+          path: results/similarity_blocal_replication_download
+      - name: Apply every frozen replication gate
+        run: |
+          PYTHONPATH=. python scripts/similarity_blocal_replication_validate.py \
+            --input results/similarity_blocal_replication_download
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-blocal-replication-final-summary
+          path: results/similarity_blocal_replication_summary.json
+          retention-days: 90
