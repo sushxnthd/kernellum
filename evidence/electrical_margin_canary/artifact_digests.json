@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "repository": "sushxnthd/kernellum",
+  "run_id": 36140794251,
+  "source_sha": "bb9a8887be5411247afe59404652676d293d1cc8",
+  "artifacts": {
+    "similarity-electrical-margin-final-summary.zip": "ba7c86594dc66696c7000e1d9d564bccacffc1bfdb9c9da24450a802d0998cd6",
+    "similarity-electrical-margin-functional.zip": "a56b6009c9a7d0a7b5d52dd4ff6fb9626234cc11493572924d21968d62208a2e",
+    "similarity-electrical-margin-nangate45-blocal-s263.zip": "4357cb72e92365077bba8e3425b98b577482e0f4899bb79a36123964058f45e0",
+    "similarity-electrical-margin-nangate45-broadcast-s263.zip": "679f007e1bd87cc14a7d3dadcb7abc43903a852306ad9c08124c124c5eb633d3",
+    "similarity-electrical-margin-nangate45-local-s263.zip": "f0a31fe8ccd6b2b148ecd659f39738f0d4c5cc463004dfda13eb112c79cb8b12",
+    "similarity-electrical-margin-sky130hd-blocal-s263.zip": "d13de7321d9f7d49986bc16d33b85faf67533c344ea9f0a9776a654af0e2df34",
+    "similarity-electrical-margin-sky130hd-broadcast-s263.zip": "d2b9599d51c6ae1fffa98ed94d58824cd1f8f1e6a68e6e34a9fd5a8edc0bf8f5",
+    "similarity-electrical-margin-sky130hd-local-s263.zip": "d59c08bc0ff16efdc4b2e24a18a51593555af77ccc1f9fd34212a09d3b46b9aa"
+  },
+  "repository_compact_evidence_sha256": "926d7ea10410491db841a9c715797e6d2da321b10436efb6855abf288827a698"
+}
