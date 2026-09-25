@@ -1,0 +1,100 @@
+name: SIMILARITY final-report integrity canary
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/similarity_final_report_canary*.py'
+      - 'docs/SIMILARITY_FINAL_REPORT_CANARY.md'
+      - '.github/workflows/similarity-final-report-canary.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/similarity_final_report_canary*.py'
+      - 'docs/SIMILARITY_FINAL_REPORT_CANARY.md'
+      - '.github/workflows/similarity-final-report-canary.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Verify frozen canary source
+        run: |
+          python -m py_compile \
+            scripts/similarity_final_report_canary.py \
+            scripts/similarity_final_report_canary_validate.py
+          grep -q 'seed: 173' docs/SIMILARITY_FINAL_REPORT_CANARY.md
+          grep -q 'Geometry: 8x6' docs/SIMILARITY_FINAL_REPORT_CANARY.md
+      - name: Check signed GEMM on opened 8x6 geometry
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_final_report_canary_preflight
+          iverilog -g2012 -Wall -DTEST_ROWS=8 -DTEST_COLS=6 \
+            -s tb_kernellum_blocal_equivalence \
+            -o results/similarity_final_report_canary_preflight/tb_8x6.vvp \
+            rtl/kernellum_local_mac_array.sv \
+            rtl/kernellum_blocal_mac_array.sv \
+            rtl/tb_kernellum_blocal_equivalence.sv
+          vvp results/similarity_final_report_canary_preflight/tb_8x6.vvp | \
+            tee results/similarity_final_report_canary_preflight/tb_8x6.log
+          grep -q 'KERNELLUM_BLOCAL_EQUIVALENCE_PASS rows=8 cols=6' \
+            results/similarity_final_report_canary_preflight/tb_8x6.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-final-report-canary-functional
+          path: results/similarity_final_report_canary_preflight/*
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          name: similarity-final-report-canary-functional
+          path: results/similarity_final_report_canary_preflight
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/scripts/final_outputs.tcl"
+      - name: Apply frozen headless patch and route opened canary
+        run: |
+          PYTHONPATH=. python scripts/similarity_final_report_canary.py \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - name: Apply all canary gates
+        run: |
+          PYTHONPATH=. python scripts/similarity_final_report_canary_validate.py \
+            --input results/similarity_final_report_canary \
+            --functional results/similarity_final_report_canary_preflight/tb_8x6.log \
+            --output results/similarity_final_report_canary/summary.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-final-report-canary-route
+          path: |
+            results/similarity_final_report_canary/*
+            build/similarity_final_report_canary/**/reports/*.rpt
+            build/similarity_final_report_canary/**/logs/*.log
+            build/similarity_final_report_canary/**/driver.log
+          retention-days: 30
