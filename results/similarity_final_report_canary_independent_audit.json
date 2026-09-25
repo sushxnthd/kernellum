@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "frozen_source_sha": "be86ce64ff13a1d1d789b8e3d7a1f476eba437f9",
+  "artifact_zip_sha256": {
+    "similarity-final-report-canary-functional.zip": "00233bbd628c8a0eab546db149ab5687955f446ba72d3669cb6ba498d40cec03",
+    "similarity-final-report-canary-route.zip": "c06f2e0407027f92eedc510758c99ec0e71e73ba86a6136a67823db3204c42e3"
+  },
+  "gates": {
+    "original_artifact_digests_match_actions": true,
+    "signed_gemm_8x6": true,
+    "exactly_one_frozen_identity": true,
+    "route_and_evidence_complete": true,
+    "all_electrical_and_drc_counts_zero": true,
+    "all_metrics_and_product_hashes_valid": true,
+    "exact_single_gui_patch": true,
+    "driver_completed_without_signal_or_make_failure": true
+  },
+  "independent_canary_passed": true,
+  "frozen_evaluator_agreement": true,
+  "row": {
+    "platform": "sky130hd",
+    "split": "opened_canary",
+    "topology": "blocal",
+    "rows": "8",
+    "cols": "6",
+    "pe_count": "48",
+    "sqrt_pe": "6.928203230275509",
+    "seed": "173",
+    "attempted": "True",
+    "route_ok": "True",
+    "error_stage": "",
+    "period_min_ns": "6.93",
+    "fmax_mhz": "144.31",
+    "critical_path_delay_ns": "7.8145",
+    "setup_violations": "0",
+    "hold_violations": "0",
+    "max_slew_violations": "0",
+    "max_fanout_violations": "0",
+    "max_cap_violations": "0",
+    "drc_count": "0",
+    "total_cells": "27420",
+    "dff_cells": "2317",
+    "cell_area_um2": "313043.984",
+    "wire_length_um": "921235.0",
+    "gds_sha256": "36fdcae04b70fbe1ff2a417751a795e90289971be42e8e6d059a5efa74c2b9a6",
+    "odb_sha256": "408f3e12450b68778b03546f3f8bd5ec431949da783d389e3c28c4c62b3921f1",
+    "spef_sha256": "51774409d23faf04fd8c3d4840cbc7fce17fe6fadc654b1b81a1541e143e5928",
+    "netlist_sha256": "1fbaa4c88bf72f5427d1890e7a509c9ed565b4d03bc50d4c5efcd729a2acee5e",
+    "elapsed_sec": "2093.7870111465454"
+  },
+  "report_counts": {
+    "setup_violations": 0,
+    "hold_violations": 0,
+    "max_slew_violations": 0,
+    "max_fanout_violations": 0,
+    "max_cap_violations": 0
+  },
+  "patch_manifest": {
+    "schema_version": 1,
+    "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+    "workflow_source_sha": "be86ce64ff13a1d1d789b8e3d7a1f476eba437f9",
+    "target": "flow/scripts/final_outputs.tcl",
+    "replacement_count": 1,
+    "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+    "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+    "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+    "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+  }
+}
