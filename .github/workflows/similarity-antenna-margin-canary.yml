@@ -1,0 +1,157 @@
+name: SIMILARITY antenna-ratio-margin flow canary
+
+env:
+  ORFS_IMAGE: openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6
+
+on:
+  pull_request:
+    paths:
+      - 'asic/electrical_margin_canary/**'
+      - 'rtl/kernellum_mac_array.sv'
+      - 'rtl/kernellum_local_mac_array.sv'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_top.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - 'scripts/similarity_antenna_margin_canary.py'
+      - 'scripts/similarity_asic_transfer_route.py'
+      - 'scripts/similarity_final_report_canary.py'
+      - 'tests/test_similarity_antenna_margin_canary.py'
+      - 'docs/SIMILARITY_ANTENNA_MARGIN_CANARY.md'
+      - '.github/workflows/similarity-antenna-margin-canary.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'asic/electrical_margin_canary/**'
+      - 'rtl/kernellum_mac_array.sv'
+      - 'rtl/kernellum_local_mac_array.sv'
+      - 'rtl/kernellum_blocal_mac_array.sv'
+      - 'rtl/similarity_asic_transfer_top.sv'
+      - 'rtl/similarity_asic_transfer_blocal.sv'
+      - 'scripts/similarity_antenna_margin_canary.py'
+      - 'scripts/similarity_asic_transfer_route.py'
+      - 'scripts/similarity_final_report_canary.py'
+      - 'tests/test_similarity_antenna_margin_canary.py'
+      - 'docs/SIMILARITY_ANTENNA_MARGIN_CANARY.md'
+      - '.github/workflows/similarity-antenna-margin-canary.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Verify frozen protocol and source
+        run: |
+          python -m pip install pytest
+          PYTHONPATH=. python -m pytest -q tests/test_similarity_antenna_margin_canary.py
+          python -m py_compile scripts/similarity_antenna_margin_canary.py
+          grep -q 'Status: \*\*draft until merged to main; no route is eligible before that merge\*\*' docs/SIMILARITY_ANTENNA_MARGIN_CANARY.md
+          grep -q 'RATIO_MARGIN = 20' scripts/similarity_antenna_margin_canary.py
+          for family in blocal controls; do
+            for platform in nangate45 sky130hd; do
+              grep -qx 'export CAP_MARGIN = 30' "asic/electrical_margin_canary/${family}_config_${platform}.mk"
+              grep -qx 'export SLEW_MARGIN = 25' "asic/electrical_margin_canary/${family}_config_${platform}.mk"
+            done
+          done
+          echo '6863f5e01d83d2833805a41824b0d1ef2bd6c92cc5c6626af6566c99037a77e6  rtl/kernellum_mac_array.sv' | sha256sum -c -
+          echo '9e01f43a09d43ad62ca6582d87902b32c3691b8117dddaf0be7f542d157201ff  rtl/kernellum_local_mac_array.sv' | sha256sum -c -
+          echo '7cdd3223ac401ec9c9df5a792cb41f2e754262dbd2c6fad103752fce7afdc766  rtl/kernellum_blocal_mac_array.sv' | sha256sum -c -
+          echo '28159be6fffb2a74e15f64db6c013b018948c54546f43ec142a77070005bfc78  rtl/similarity_asic_transfer_top.sv' | sha256sum -c -
+          echo '1f6bd084dab5e368f34dee5c44fb6ca12a68860b4b26fff2f78b85277d50552a  rtl/similarity_asic_transfer_blocal.sv' | sha256sum -c -
+      - name: Compare signed GEMM on opened canary shape
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          mkdir -p results/similarity_antenna_margin_functional
+          iverilog -g2012 -Wall -DTEST_ROWS=10 -DTEST_COLS=5 \
+            -s tb_kernellum_blocal_equivalence \
+            -o results/similarity_antenna_margin_functional/tb_10x5.vvp \
+            rtl/kernellum_local_mac_array.sv \
+            rtl/kernellum_blocal_mac_array.sv \
+            rtl/tb_kernellum_blocal_equivalence.sv
+          vvp results/similarity_antenna_margin_functional/tb_10x5.vvp | \
+            tee results/similarity_antenna_margin_functional/tb_10x5.log
+          grep -q 'KERNELLUM_BLOCAL_EQUIVALENCE_PASS rows=10 cols=5' \
+            results/similarity_antenna_margin_functional/tb_10x5.log
+          git rev-parse HEAD > results/similarity_antenna_margin_functional/source_sha.txt
+          sha256sum docs/SIMILARITY_ANTENNA_MARGIN_CANARY.md \
+            scripts/similarity_antenna_margin_canary.py \
+            asic/electrical_margin_canary/*.mk \
+            rtl/kernellum_blocal_mac_array.sv rtl/similarity_asic_transfer_blocal.sv \
+            > results/similarity_antenna_margin_functional/source_hashes.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-antenna-margin-functional
+          path: results/similarity_antenna_margin_functional/*
+          retention-days: 30
+
+  route:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        platform: [nangate45, sky130hd]
+        topology: [broadcast, local, blocal]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Prepare pinned OpenROAD flow
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          docker pull "$ORFS_IMAGE"
+          mkdir -p "$RUNNER_TEMP/orfs"
+          cid="$(docker create "$ORFS_IMAGE")"
+          docker cp "$cid:/OpenROAD-flow-scripts/flow" "$RUNNER_TEMP/orfs/"
+          docker rm "$cid"
+          test -f "$RUNNER_TEMP/orfs/flow/Makefile"
+      - name: Route frozen opened-data canary shard
+        run: |
+          PYTHONPATH=. python scripts/similarity_antenna_margin_canary.py \
+            --platform ${{ matrix.platform }} \
+            --topology ${{ matrix.topology }} \
+            --flow-root "$RUNNER_TEMP/orfs/flow"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-antenna-margin-${{ matrix.platform }}-${{ matrix.topology }}-s277
+          path: |
+            results/similarity_antenna_margin_canary/similarity_antenna_margin_${{ matrix.platform }}_${{ matrix.topology }}_s277.csv
+            results/similarity_antenna_margin_canary/flow_patch_antenna_margin_${{ matrix.platform }}_${{ matrix.topology }}.json
+            build/similarity_antenna_margin_canary/${{ matrix.platform }}/${{ matrix.topology }}/s277/**/driver.log
+            build/similarity_antenna_margin_canary/${{ matrix.platform }}/${{ matrix.topology }}/s277/**/logs/*.log
+            build/similarity_antenna_margin_canary/${{ matrix.platform }}/${{ matrix.topology }}/s277/**/reports/*
+          retention-days: 30
+
+  validate:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [preflight, route]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: similarity-antenna-margin-*
+          path: results/similarity_antenna_margin_download
+      - name: Apply all-required frozen gates
+        run: |
+          PYTHONPATH=. python scripts/similarity_antenna_margin_canary.py \
+            --evaluate results/similarity_antenna_margin_download
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: similarity-antenna-margin-final-summary
+          path: results/similarity_antenna_margin_canary_summary.json
+          retention-days: 30
