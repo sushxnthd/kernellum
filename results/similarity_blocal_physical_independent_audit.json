@@ -1,0 +1,82 @@
+{
+  "status": "EXPLORATORY_PASS_NOT_CONFIRMATION",
+  "source_sha": "f2b2c59fb75e1753e49c3f99e488cc5bf91855f5",
+  "original_zip_sha256": {
+    "blocal-10837828475.zip": "3366fb4d152f03735aab100dfddc7fb4e8321d66f8b8b4569de1b2b897ec7fa8",
+    "blocal-10838393337.zip": "9b903ebded7c290120f7502ccbe3080532b983ac21d7020a3f6497000867726b",
+    "blocal-10838459149.zip": "c1c0d716a03f4357cbf329001029d30926fefd7b4d9070a6494b5a101fc4328d",
+    "blocal-10838911151.zip": "d95d1b1ba4aea89b729438d7dbeb2a2c5b807b773319e32ffeba40984edf3121",
+    "blocal-10839255044.zip": "60b055416ad5e1d9b142375e0aa136f31b253c8771ed3b7bb5cde55f33ba32cf",
+    "blocal-10839657594.zip": "83d2e3b117559ff1144928ca6aa41471948e041c90ae30d16b1891730abd0a02",
+    "blocal-10839707495.zip": "e22ac031f7a8b202aeec9c1e3d93437e673b76165e3bc9b4efac02d35d915551",
+    "blocal-10840310291.zip": "a5413fc5f6530029e2f14f3c5bf24fad257ef2eaadb4c085e7a1177a7c1fbbcb"
+  },
+  "summary_sha256": "d141b54720557bb303df16c8225c42515fdb90c2ec9696207f313c8b96eb9366",
+  "attempts": 12,
+  "clean_routes": 12,
+  "reports": 12,
+  "fanouts_nangate45_8x5": [
+    9,
+    9,
+    9
+  ],
+  "gates": {
+    "complete_functional_electrical_cost_evidence": true,
+    "all_groups_q_at_least_5pct": true,
+    "all_groups_retention_at_least_70pct": true,
+    "three_joint_density_wins_both_platforms": true,
+    "target_improves_stride_by_0p04ns": true,
+    "target_improves_noop_by_0p02ns": true,
+    "target_median_launch_q_fanout_at_most_10": true
+  },
+  "groups": [
+    {
+      "period_ns": 1.54,
+      "q": 0.10465116279069764,
+      "retention": 0.7916666666666665,
+      "density_b": 1.0484607996011612,
+      "density_l": 1.0042353828212394,
+      "stride_ns": 1.57,
+      "noop_ns": 1.59,
+      "platform": "nangate45",
+      "rows": 5,
+      "cols": 8
+    },
+    {
+      "period_ns": 1.53,
+      "q": 0.08383233532934126,
+      "retention": 0.8095238095238093,
+      "density_b": 1.0253922394473736,
+      "density_l": 1.0037427103424235,
+      "stride_ns": 1.58,
+      "noop_ns": 1.56,
+      "platform": "nangate45",
+      "rows": 8,
+      "cols": 5
+    },
+    {
+      "period_ns": 6.89,
+      "q": 0.13602015113350127,
+      "retention": 1.506493506493507,
+      "density_b": 1.0878436575282457,
+      "density_l": 1.0821771960646414,
+      "stride_ns": 7.49,
+      "noop_ns": 7.61,
+      "platform": "sky130hd",
+      "rows": 5,
+      "cols": 8
+    },
+    {
+      "period_ns": 7.49,
+      "q": 0.11255924170616106,
+      "retention": 0.7031249999999994,
+      "density_b": 1.0617434806877266,
+      "density_l": 0.9761024205851411,
+      "stride_ns": 7.52,
+      "noop_ns": 7.48,
+      "platform": "sky130hd",
+      "rows": 8,
+      "cols": 5
+    }
+  ]
+}
