@@ -1,0 +1,2 @@
+KERNELLUM_BLOCAL_EQUIVALENCE_PASS rows=9 cols=6
+rtl/tb_kernellum_blocal_equivalence.sv:60: $finish called at 560000 (1ps)
