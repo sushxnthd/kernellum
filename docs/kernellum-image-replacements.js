@@ -1,45 +1,48 @@
 (() => {
-  const assets = Array.from({ length: 13 }, (_, i) =>
-    `/kernellum/kernellum-replacements/${String(i + 1).padStart(2, "0")}.png`
-  );
+  const A = n => `/kernellum/kernellum-replacements/${String(n).padStart(2, "0")}.png`;
 
-  const pageOffsets = {
-    "/kernellum/": 0,
-    "/kernellum/what-we-do/": 4,
-    "/kernellum/who-we-are/": 7,
-    "/kernellum/careers/": 10,
-    "/kernellum/contact/": 10,
-    "/kernellum/insights/": 12
+  // Every raster/image slot on every page is assigned to the new Kernellum set.
+  // No legacy Boon image, earlier Kernellum placeholder, or responsive derivative
+  // is allowed to survive hydration.
+  const pageAssets = {
+    "/kernellum/":                 [1,2,3,4,5,6,7,8,9],
+    "/kernellum/what-we-do/":      [10,11,12,5,6,7,8,9],
+    "/kernellum/who-we-are/":      [1,3,4,9],
+    "/kernellum/careers/":         [11,2,6,9],
+    "/kernellum/contact/":         [5,6,7,8,9],
+    "/kernellum/insights/":        [9],
+    "/kernellum/legal/privacy-policy/": [9],
+    "/kernellum/legal/terms-of-use/":   [9]
   };
 
-  const cleanPath = location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
-  const offset = pageOffsets[cleanPath] ?? 0;
+  function pathKey() {
+    return location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
+  }
 
-  function replaceImages() {
-    const wrappers = [...document.querySelectorAll(".image-wrapper")];
+  function replaceAllImages() {
+    const map = pageAssets[pathKey()] || [];
+    const images = [...document.querySelectorAll("img")];
 
-    wrappers.forEach((wrapper, index) => {
-      const img = wrapper.querySelector("img");
-      if (!img) return;
+    images.forEach((img, index) => {
+      const asset = A(map[index] || ((index % 13) + 1));
 
-      const asset = assets[(offset + index) % assets.length];
-
-      wrapper.querySelectorAll("source").forEach(source => {
-        source.removeAttribute("srcset");
-        source.removeAttribute("sizes");
-      });
-
-      if (img.dataset.kernellumReplacement !== asset) {
-        img.dataset.kernellumReplacement = asset;
-        img.removeAttribute("srcset");
-        img.removeAttribute("sizes");
-        img.src = asset;
-        img.style.filter = "none";
+      const picture = img.closest("picture");
+      if (picture) {
+        picture.querySelectorAll("source").forEach(source => {
+          source.removeAttribute("srcset");
+          source.removeAttribute("sizes");
+        });
       }
+
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+      if (img.getAttribute("src") !== asset) img.setAttribute("src", asset);
+      img.dataset.kernellumReplacement = asset;
+      img.style.filter = "none";
     });
   }
 
-  replaceImages();
+  replaceAllImages();
 
   let queued = false;
   const observer = new MutationObserver(() => {
@@ -47,7 +50,7 @@
     queued = true;
     requestAnimationFrame(() => {
       queued = false;
-      replaceImages();
+      replaceAllImages();
     });
   });
 
@@ -55,6 +58,6 @@
     subtree: true,
     childList: true,
     attributes: true,
-    attributeFilter: ["src", "srcset"]
+    attributeFilter: ["src", "srcset", "sizes"]
   });
 })();
