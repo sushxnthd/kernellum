@@ -1,22 +1,15 @@
 (() => {
-  const assets = [
-    "/kernellum/kernellum-assets/study-wafer.webp",
-    "/kernellum/kernellum-assets/study-researcher.webp",
-    "/kernellum/kernellum-assets/study-die.webp",
-    "/kernellum/kernellum-assets/architecture-die.svg",
-    "/kernellum/kernellum-assets/measurement-array.svg",
-    "/kernellum/kernellum-assets/route-topology.svg",
-    "/kernellum/kernellum-assets/timing-field.svg",
-    "/kernellum/kernellum-assets/particle-image.png"
-  ];
+  const assets = Array.from({ length: 13 }, (_, i) =>
+    `/kernellum/kernellum-replacements/${String(i + 1).padStart(2, "0")}.png`
+  );
 
   const pageOffsets = {
     "/kernellum/": 0,
-    "/kernellum/what-we-do/": 2,
-    "/kernellum/who-we-are/": 4,
-    "/kernellum/careers/": 5,
-    "/kernellum/contact/": 6,
-    "/kernellum/insights/": 7
+    "/kernellum/what-we-do/": 3,
+    "/kernellum/who-we-are/": 6,
+    "/kernellum/careers/": 8,
+    "/kernellum/contact/": 10,
+    "/kernellum/insights/": 12
   };
 
   const cleanPath = location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
@@ -24,9 +17,11 @@
 
   function replaceImages() {
     const wrappers = [...document.querySelectorAll(".image-wrapper")];
+
     wrappers.forEach((wrapper, index) => {
       const img = wrapper.querySelector("img");
       if (!img) return;
+
       const asset = assets[(offset + index) % assets.length];
 
       wrapper.querySelectorAll("source").forEach(source => {
