@@ -19,6 +19,18 @@
     return location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
   }
 
+
+  function fixKernellumLinks() {
+    document.querySelectorAll("a").forEach(link => {
+      const label=(link.textContent || "").replace(/\\s+/g," ").trim().toLowerCase();
+      if (label.includes("view the repository") || label.includes("research repository") || label.includes("explore the research")) {
+        link.href = "https://github.com/sushxnthd/kernellum";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    });
+  }
+
   function removeResearchRepositoryHoverImage() {
     document.querySelectorAll("footer .secondary a").forEach(link => {
       if ((link.textContent || "").toLowerCase().includes("research repository")) {
@@ -53,6 +65,7 @@
 
   replaceAllImages();
   removeResearchRepositoryHoverImage();
+  fixKernellumLinks();
 
   let queued = false;
   const observer = new MutationObserver(() => {
@@ -62,6 +75,7 @@
       queued = false;
       replaceAllImages();
       removeResearchRepositoryHoverImage();
+      fixKernellumLinks();
     });
   });
 
