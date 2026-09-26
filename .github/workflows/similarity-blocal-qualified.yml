@@ -95,7 +95,7 @@ jobs:
           retention-days: 90
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local study')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == 'a8f24cb1825f249c43ef43457d74bbabaac31625'
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -141,7 +141,7 @@ jobs:
           retention-days: 90
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local study')
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == 'a8f24cb1825f249c43ef43457d74bbabaac31625'
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:
