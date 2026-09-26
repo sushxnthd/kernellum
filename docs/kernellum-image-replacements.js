@@ -6,10 +6,10 @@
   // is allowed to survive hydration.
   const pageAssets = {
     "/kernellum/":                 [1,2,3,4,5,6,7,8,9],
-    "/kernellum/what-we-do/":      [10,11,12,5,6,7,8,9],
-    "/kernellum/who-we-are/":      [1,3,4,9],
-    "/kernellum/careers/":         [11,2,6,9],
-    "/kernellum/contact/":         [5,6,7,8,9],
+    "/kernellum/architecture/":      [10,11,12,5,6,7,8,9],
+    "/kernellum/research/":      [1,3,4,9],
+    "/kernellum/contribute/":         [11,2,6,9],
+    "/kernellum/collaborate/":         [5,6,7,8,9],
     "/kernellum/insights/":        [9],
     "/kernellum/legal/privacy-policy/": [9],
     "/kernellum/legal/terms-of-use/":   [9]
