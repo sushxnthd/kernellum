@@ -19,7 +19,16 @@
     return location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
   }
 
+  function removeResearchRepositoryHoverImage() {
+    document.querySelectorAll("footer .secondary a").forEach(link => {
+      if ((link.textContent || "").toLowerCase().includes("research repository")) {
+        link.querySelectorAll(".hover-image, figure.image-wrapper").forEach(el => el.remove());
+      }
+    });
+  }
+
   function replaceAllImages() {
+    removeResearchRepositoryHoverImage();
     const map = pageAssets[pathKey()] || [];
     const images = [...document.querySelectorAll("img")];
 
@@ -43,6 +52,7 @@
   }
 
   replaceAllImages();
+  removeResearchRepositoryHoverImage();
 
   let queued = false;
   const observer = new MutationObserver(() => {
@@ -51,6 +61,7 @@
     requestAnimationFrame(() => {
       queued = false;
       replaceAllImages();
+      removeResearchRepositoryHoverImage();
     });
   });
 
