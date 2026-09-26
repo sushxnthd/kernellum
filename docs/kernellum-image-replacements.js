@@ -1,5 +1,5 @@
 (() => {
-  const A = n => `/kernellum/kernellum-replacements/${String(n).padStart(2, "0")}.${n === 1 ? "hq.webp" : "png"}`;
+  const A = n => n === 1 ? "/kernellum/kernellum-replacements/01-hq.webp" : `/kernellum/kernellum-replacements/${String(n).padStart(2, "0")}.png`;
 
   // Every raster/image slot on every page is assigned to the new Kernellum set.
   // No legacy Boon image, earlier Kernellum placeholder, or responsive derivative
