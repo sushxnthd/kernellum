@@ -1,0 +1,43 @@
+name: Unpack Kernellum replacement images
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract finalized replacement images
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="docs/kernellum-replacements/kernellum-final-13-images.zip"
+          DEST="docs/kernellum-replacements"
+          test -f "$ZIP"
+          rm -rf /tmp/kernellum-final-13
+          mkdir -p /tmp/kernellum-final-13
+          unzip -j -o "$ZIP" '*.png' -d /tmp/kernellum-final-13
+          for n in $(seq -w 1 13); do
+            test -f "/tmp/kernellum-final-13/$n.png"
+            cp "/tmp/kernellum-final-13/$n.png" "$DEST/$n.png"
+          done
+          test "$(find "$DEST" -maxdepth 1 -type f -name '??.png' | wc -l)" -eq 13
+      - name: Commit extracted images
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- docs/kernellum-replacements/??.png 2>/dev/null &&              [ "$(git status --porcelain -- docs/kernellum-replacements/??.png | wc -l)" -eq 0 ]; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/kernellum-replacements/??.png
+          git commit -m "Extract final Kernellum replacement images"
+          git push
