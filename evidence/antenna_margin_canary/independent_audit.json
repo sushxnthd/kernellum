@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "run_id": 36173718315,
+  "source_sha": "952bc668d50222ecd274b72150b511f291aae61b",
+  "artifact_zip_sha256": {
+    "final-summary.zip": "286ee8328622bab091b93689f5da0e41542db2b7335057c55afba07802adbd78",
+    "functional.zip": "9a8074c3c36e4c6698d5edf3c99d2c45d4a30d46e785fbce4a9bc5a2e6a8533c",
+    "nangate45-blocal.zip": "6748f18c386ea248711b21179e6c244e4ac27acc5d4fae75f5d0ce460325a763",
+    "nangate45-broadcast.zip": "6259d82b09cb4581a0f26962204343c4064ac2fe04c5f76a0f7c710b39759872",
+    "nangate45-local.zip": "13527c6b964845820d7410d865523cd79d9fb890a81d5d3c64dc8e8073b09135",
+    "sky130hd-blocal.zip": "1b4cc8a204230bf327c6513323b13f4147384cffa85982b1bc7b6bae8d29af1d",
+    "sky130hd-broadcast.zip": "850a5e9d9df2b69c359c318215549f91dcd9d299bf068c1786f52251d9c969c0",
+    "sky130hd-local.zip": "ccc4bf443105d4482b80f55188fce2ba8d03ddc3d86f8e9e538197ba8e325ba7"
+  },
+  "artifact_digests_match_github": true,
+  "extracted_file_count": 53,
+  "extracted_file_sha256": {
+    "final-summary/similarity_antenna_margin_canary_summary.json": "a4e85e2a0aba95d9128d542803c8d5e6c7e1d933eebebbffa2a4b2f16a249490",
+    "functional/source_hashes.txt": "861ec99ce1acf99bf410a80709e862a6a8163fe4a23d63dc713f59606eea8420",
+    "functional/source_sha.txt": "7b3f617a515f312f28ab508b00f2c14d33676ccceda07ac7bfdf03f012b5f8e5",
+    "functional/tb_10x5.log": "ad7c138feaf4759b1fd480695296c1cb26d1c42cadc3449a68b2b73e192faf14",
+    "functional/tb_10x5.vvp": "d16b166c4d3a49e0705b6e6cfc011d6311002745c3a3606543c53562396684eb",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/driver.log": "8f968a5a783aa297697493dce9f7c07ea1d17e05f473f4c7524ed4686fb44754",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/logs/5_2_route.log": "603e052efedf2e375d1f33e19c1cf08c336e66c1a46a895c875ae14049535591",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/logs/6_report.log": "6035fbe7aa481af35de0155939ad771bd7766b39c6270b8abd35e27eb3ff5215",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/reports/6_finish.rpt": "15f9640d7296f9053743ab9068cbb712727bebb03217cbcc4c7e5814d984fa4e",
+    "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/reports/synth_stat.txt": "2d4c410dd027fb075c19ae7d467d9ce2caf231c67cbb51799c19b4b20ff53965",
+    "nangate45-blocal/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_nangate45_blocal.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "nangate45-blocal/results/similarity_antenna_margin_canary/similarity_antenna_margin_nangate45_blocal_s277.csv": "45a5d1fe894deda3d04c92b5f3ef1c5ee7146c2268ad4863fac07ff9b4abbeda",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/driver.log": "63f12f14511ee83d586d63fe96c367065469894c7b45048cd3cbcba94dc7b17f",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/logs/5_2_route.log": "46d51a3863cfe648633cfea5bb952be580d49f1895e2b0986bc8068d0706392a",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/logs/6_report.log": "0aab9133d86c3bd5c6559945e3f806160ff0b33022f35017c43558522943946b",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/reports/6_finish.rpt": "77aef03bea7a222d83410c55825daca63202d23c960f3ec60253b37773e6a15b",
+    "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/reports/synth_stat.txt": "0d85adf36956d20baa4fc5c129eedcdf4616901a4e2c97661cb4dd7f14f1a0ee",
+    "nangate45-broadcast/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_nangate45_broadcast.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "nangate45-broadcast/results/similarity_antenna_margin_canary/similarity_antenna_margin_nangate45_broadcast_s277.csv": "11cae109a5d97369cf13f324a8e74e2924dacdc4a3e8fe357c2ff720c40da19e",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/driver.log": "00c859d998c46d17acce918663728086503896a49dfc1cb2cfdcc5c46eea2dae",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/logs/5_2_route.log": "d33c7092f899b52e3005f3f3f7f5fe982430aa2fc672d8d569fb80bf9d0efdad",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/logs/6_report.log": "e8acfb83d64903ea150407e15df58529cd591b3f9373f13642a193fda9e976f0",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/reports/6_finish.rpt": "1c36f5eb8523db5423ea3109716965fb700d94a5f619c8ad330bf5dcf952e160",
+    "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/reports/synth_stat.txt": "2c135930b4f7628ae52498443ced00d446633a6a336294afbcd4c2b581f6cc03",
+    "nangate45-local/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_nangate45_local.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "nangate45-local/results/similarity_antenna_margin_canary/similarity_antenna_margin_nangate45_local_s277.csv": "ad6b6b5c56e65c1ae00503ec36ba635ada36d519d75d0699bdbf87a4a4279ba3",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/driver.log": "c0b52c6fc983f379f73fda8162e2fb88b4c9798d80538e9e72304714fcda95fc",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/logs/5_2_route.log": "040af68fa9f02303c3dd304ac81faf3165de698f82ebc8325cd91d5e48776ec0",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/logs/6_report.log": "3e704306729862b4d4d6417f4cd814d9031dc252177e60099a7d41174d6a4923",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/reports/6_finish.rpt": "9b01ce1a4464513da3ffdf3b86ead5c137382a6c3766a6f5bceddaf2dbc7f34f",
+    "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/reports/synth_stat.txt": "805e6797fe34621d989f4ebf3e30419e67feb3d7372222fc0a8c24d27a1bcbb8",
+    "sky130hd-blocal/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_sky130hd_blocal.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "sky130hd-blocal/results/similarity_antenna_margin_canary/similarity_antenna_margin_sky130hd_blocal_s277.csv": "cdf19e1847abd5908d95f70095cd78b14829a3e1b753c7b4da4491b58a9e4183",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/driver.log": "d61d1f57c3a553023455e7cd0ce71adb42ff62ac36600f4586a935150d912045",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/logs/5_2_route.log": "15040127bfb7447bafa5ece33324aaa63b03745c09453c39876b6c2746e3e65c",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/logs/6_report.log": "512fbe609b1ff7666b47a6b5d5d1c277180559283ad7f576f2b1c2df2fed3c92",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/reports/6_finish.rpt": "28e6019e8c06e0c8e0515daf77e1f67bd13e8b24934e8139dd4582158f83e1a9",
+    "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/reports/synth_stat.txt": "e42567bf28ef4cce78d3573fb57c05a062c249fecf3643ab7d9ff932fd64c58d",
+    "sky130hd-broadcast/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_sky130hd_broadcast.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "sky130hd-broadcast/results/similarity_antenna_margin_canary/similarity_antenna_margin_sky130hd_broadcast_s277.csv": "192e57a32986670f2caa5265c0eb6020debd6e06bbbda367e968c9178cae9386",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/driver.log": "80d73ff85dc7ac2d9ba5afb4d0ae5145e0e9bb456939b80d30c1d089bb3f9133",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/logs/5_2_route.log": "0a8607ecdce2f7f3729ca2b26111bf81377fa329f7333466d0e2cf1aee7056ef",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/logs/6_report.log": "db07cf31b0988195c0c835545374eb38f895eb108ba76f029122235065f7026f",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/reports/6_finish.rpt": "e142b14247f2b81183e7b57ddd49fc5733a48087a2fcc008a9cfda43aef3405b",
+    "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/reports/synth_stat.txt": "4e2672b67d0feb713fd802b6d1b963e40564a64232b3f3ba62a525f1fad55ad2",
+    "sky130hd-local/results/similarity_antenna_margin_canary/flow_patch_antenna_margin_sky130hd_local.json": "03ce15280a6d702415dafe9ea640fa30695ffcb0344338c74c4aa236df9b2ff4",
+    "sky130hd-local/results/similarity_antenna_margin_canary/similarity_antenna_margin_sky130hd_local_s277.csv": "388169175f1dca85c108345e257864f187e507c2b31f352e565a35540f91ae8f"
+  },
+  "independent_gates": {
+    "signed_gemm": true,
+    "exact_six_row_matrix": true,
+    "source_and_patch_identity": true,
+    "six_native_finishes": true,
+    "all_electrical_and_drc_clean": true,
+    "minimum_two_percent_cap_and_slew_headroom": true,
+    "final_antenna_zero": true,
+    "exact_dff_and_synthesis_area": true,
+    "official_summary_consistent": true
+  },
+  "minimum_cap_headroom_fraction": 0.2768,
+  "minimum_slew_headroom_fraction": 0.1864,
+  "headroom": [
+    {
+      "file": "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.3123,
+      "slew_fraction": 0.511
+    },
+    {
+      "file": "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.2932,
+      "slew_fraction": 0.4718
+    },
+    {
+      "file": "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.2768,
+      "slew_fraction": 0.4757
+    },
+    {
+      "file": "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.3338,
+      "slew_fraction": 0.1864
+    },
+    {
+      "file": "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.4408,
+      "slew_fraction": 0.224
+    },
+    {
+      "file": "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/reports/6_finish.rpt",
+      "cap_fraction": 0.3865,
+      "slew_fraction": 0.1947
+    }
+  ],
+  "final_antenna_and_drc": [
+    {
+      "file": "nangate45-blocal/build/similarity_antenna_margin_canary/nangate45/blocal/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "nangate45-broadcast/build/similarity_antenna_margin_canary/nangate45/broadcast/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "nangate45-local/build/similarity_antenna_margin_canary/nangate45/local/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "sky130hd-blocal/build/similarity_antenna_margin_canary/sky130hd/blocal/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "sky130hd-broadcast/build/similarity_antenna_margin_canary/sky130hd/broadcast/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "sky130hd-local/build/similarity_antenna_margin_canary/sky130hd/local/s277/r10_c5/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    }
+  ],
+  "verdict": "PASS",
+  "interpretation": "opened-data flow qualification only; not architectural confirmation"
+}

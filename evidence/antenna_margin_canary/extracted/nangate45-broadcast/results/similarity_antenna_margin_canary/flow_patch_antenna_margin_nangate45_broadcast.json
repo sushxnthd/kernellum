@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+  "workflow_source_sha": "952bc668d50222ecd274b72150b511f291aae61b",
+  "antenna_ratio_margin": 20,
+  "patches": [
+    {
+      "target": "flow/scripts/final_outputs.tcl",
+      "replacement_count": 1,
+      "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+      "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+      "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+      "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+    },
+    {
+      "target": "flow/scripts/global_route.tcl",
+      "replacement_count": 1,
+      "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+      "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+      "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+      "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+    }
+  ]
+}
