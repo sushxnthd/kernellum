@@ -44,10 +44,38 @@ for(const file of walk(root)){
  s=s.replaceAll('https://www.linkedin.com/company/boon-io/','https://github.com/sushxnthd/kernellum');
  if(file.endsWith('.json')||file.endsWith('replica-data.js'))s=s.replace(/\/kernellum\/(what-we-do|who-we-are|careers|contact|legal|insights)/g,'/$1');
  for(const [a,b]of replacements){s=s.replaceAll(a,b).replaceAll(JSON.stringify(a).slice(1,-1),JSON.stringify(b).slice(1,-1));if(file.endsWith('.html'))s=s.replaceAll(escapeHtml(a),escapeHtml(b));}
+ s=s.replaceAll('https://cdn.sanity.io/images/cktal3h7/production/6e6c3150c4aee4b572782ae46c37e742f19fb173-1600x1066.png','/kernellum/kernellum-replacements/04.png');
+ s=s.replaceAll('https://cdn.sanity.io/images/cktal3h7/production/d40065334339bf34f53b28717da2543132da8afe-572x456.png','/kernellum/kernellum-replacements/12.png');
  // The Nuxt router owns the project prefix. Content slugs stay route-relative.
  s=s.replace(/(?<!\/kernellum)\/(?:_nuxt|fonts|favi|media-files|media-originals|media-rendered|kernellum-assets)(?=\/)/g,m=>'/kernellum'+m);
  if(file.endsWith('.html')){
    s=s.replace(/href="\/(?!\/|kernellum\/)([^"]*)"/g,'href="/kernellum/$1"');
+
+   const rel=path.relative(root,file).replaceAll('\\\\','/');
+   const pageMaps={
+     'index.html':[1,2,3,4,5,6,7,8,9],
+     'what-we-do/index.html':[10,11,12,5,6,7,8,9],
+     'who-we-are/index.html':[1,3,4,9],
+     'careers/index.html':[11,2,6,9],
+     'contact/index.html':[5,6,7,8,9],
+     'insights/index.html':[9],
+     'legal/privacy-policy/index.html':[9],
+     'legal/terms-of-use/index.html':[9]
+   };
+   const map=pageMaps[rel]||[];
+   let imageIndex=0;
+   s=s.replace(/<link\\b[^>]*rel="preload"[^>]*as="image"[^>]*>/gi,'');
+   s=s.replace(/<source\\b[^>]*>/gi,'');
+   s=s.replace(/<img\\b[^>]*>/gi,tag=>{
+     const n=map[imageIndex]||((imageIndex%13)+1); imageIndex++;
+     const asset='/kernellum/kernellum-replacements/'+String(n).padStart(2,'0')+'.png';
+     let t=tag.replace(/\\s+srcset="[^"]*"/gi,'').replace(/\\s+sizes="[^"]*"/gi,'').replace(/\\s+src="[^"]*"/gi,'');
+     return t.replace(/^<img\\b/i,'<img src="'+asset+'"');
+   });
+   const og=(map[0]||9).toString().padStart(2,'0');
+   s=s.replace(/<meta property="og:image" content="[^"]*">/i,'<meta property="og:image" content="/kernellum/kernellum-replacements/'+og+'.png">');
+   s=s.replaceAll('/kernellum/media-originals/6e6c3150c4aee4b572782ae46c37e742f19fb173-1600x1066.png','/kernellum/kernellum-replacements/04.png');
+   s=s.replaceAll('/kernellum/media-originals/d40065334339bf34f53b28717da2543132da8afe-572x456.png','/kernellum/kernellum-replacements/12.png');
    s=s.replace('baseURL:"/"','baseURL:"/kernellum/"');
    s=s.replaceAll('buildAssetsDir:"/kernellum/_nuxt/"','buildAssetsDir:"/_nuxt/"');
    s=s.replace(/<link[^>]+(?:rel="(?:icon|apple-touch-icon)"|href="[^\"]*favicon[^\"]*")[^>]*>/g,'');
