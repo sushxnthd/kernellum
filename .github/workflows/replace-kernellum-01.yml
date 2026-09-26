@@ -1,0 +1,43 @@
+name: Replace Kernellum 01
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".tmp-kernellum-01/**"
+      - ".github/workflows/replace-kernellum-01.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild approved hero asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .tmp-kernellum-01/part1.txt               .tmp-kernellum-01/part2.txt               .tmp-kernellum-01/part3.txt               .tmp-kernellum-01/part4.txt               .tmp-kernellum-01/part5.txt             | base64 --decode > docs/kernellum-replacements/01.webp
+          test -s docs/kernellum-replacements/01.webp
+          file docs/kernellum-replacements/01.webp | grep -qi webp
+      - name: Point the site to the new asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            sed -i 's#/kernellum/kernellum-replacements/01\.png#/kernellum/kernellum-replacements/01.webp#g' "$file"
+          done < <(grep -RIlZ             --include='*.html' --include='*.js' --include='*.json' --include='*.css'             '/kernellum/kernellum-replacements/01.png' docs || true)
+          rm -f docs/kernellum-replacements/01.png
+          rm -rf .tmp-kernellum-01
+          rm -f .github/workflows/replace-kernellum-01.yml
+      - name: Commit replacement
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace Kernellum 01 with approved hero visual"
+          git push
