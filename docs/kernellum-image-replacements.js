@@ -5,9 +5,9 @@
 
   const pageOffsets = {
     "/kernellum/": 0,
-    "/kernellum/what-we-do/": 3,
-    "/kernellum/who-we-are/": 6,
-    "/kernellum/careers/": 8,
+    "/kernellum/what-we-do/": 4,
+    "/kernellum/who-we-are/": 7,
+    "/kernellum/careers/": 10,
     "/kernellum/contact/": 10,
     "/kernellum/insights/": 12
   };
