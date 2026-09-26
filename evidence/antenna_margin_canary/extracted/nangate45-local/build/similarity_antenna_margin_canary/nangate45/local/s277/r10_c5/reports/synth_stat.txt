@@ -1,0 +1,64 @@
+
+21. Printing statistics.
+
+=== similarity_asic_transfer_local ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+    46055        -    46055        - wires
+    46086        -    46086        - wire bits
+     2889        -     2889        - public wires
+     2920        -     2920        - public wire bits
+        3        -        3        - ports
+       34        -       34        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+    33268 7.15E+04    33268 7.15E+04 cells
+     4276 4.55E+03     4276 4.55E+03   AND2_X1
+      157   208.81      157   208.81   AND3_X1
+       28   44.688       28   44.688   AND4_X1
+       57  136.458       57  136.458   AOI211_X2
+     2573 2.74E+03     2573 2.74E+03   AOI21_X1
+        1    1.862        1    1.862   AOI21_X2
+      123  196.308      123  196.308   AOI221_X1
+       15    43.89       15    43.89   AOI221_X2
+        4    8.512        4    8.512   AOI222_X1
+       45    59.85       45    59.85   AOI22_X1
+        2    4.788        2    4.788   AOI22_X2
+     1923 1.53E+03     1923 1.53E+03   BUF_X1
+      164  130.872      164  130.872   CLKBUF_X1
+     2846 1.29E+04     2846 1.29E+04   DFF_X1
+     6610 2.81E+04     6610 2.81E+04   FA_X1
+     3360   8937.6     3360   8937.6   HA_X1
+     1535   816.62     1535   816.62   INV_X1
+        1    0.532        1    0.532   LOGIC0_X1
+       68  126.616       68  126.616   MUX2_X1
+     2878  2.3E+03     2878  2.3E+03   NAND2_X1
+      434  461.776      434  461.776   NAND3_X1
+      115   152.95      115   152.95   NAND4_X1
+      703  560.994      703  560.994   NOR2_X1
+      307  326.648      307  326.648   NOR3_X1
+       46    61.18       46    61.18   NOR4_X1
+        1    2.394        1    2.394   NOR4_X2
+        1    4.788        1    4.788   NOR4_X4
+       41   98.154       41   98.154   OAI211_X2
+     1361 1.45E+03     1361 1.45E+03   OAI21_X1
+        2    3.724        2    3.724   OAI21_X2
+      113  180.348      113  180.348   OAI221_X1
+        1    2.926        1    2.926   OAI221_X2
+        1    2.128        1    2.128   OAI222_X1
+       26    34.58       26    34.58   OAI22_X1
+        5     9.31        5     9.31   OAI33_X1
+      192  204.288      192  204.288   OR2_X1
+      171   227.43      171   227.43   OR3_X1
+       20    31.92       20    31.92   OR4_X1
+     2514 4.01E+03     2514 4.01E+03   XNOR2_X1
+      548  874.608      548  874.608   XOR2_X1
+
+   Chip area for module '\similarity_asic_transfer_local': 71538.306000
+     of which used for sequential elements: 12869.612000 (17.99%)
+
