@@ -1,0 +1,31 @@
+{
+  "run_id": 36262319975,
+  "source_sha": "a8f24cb1825f249c43ef43457d74bbabaac31625",
+  "github_artifacts": [
+    {"name": "similarity-blocal-qualified-route-sky130hd-blocal-s347", "id": 10918430266, "size_in_bytes": 158871, "digest": "sha256:069efa3e5898692ab792aa677e15b8ac17b3e0b39701f4a5f6eaaedd45b77bdd"},
+    {"name": "similarity-blocal-qualified-final-summary", "id": 10918005868, "size_in_bytes": 23531, "digest": "sha256:3d0cf31adf91fd632bcc7f8c5da109a45ae03220a29fa163ffa0337ddc1b4242"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-local-s347", "id": 10917975885, "size_in_bytes": 163375, "digest": "sha256:41583869705a3927538ca79bd73b9b00ea756fc8ee9725b1eb806df3e17996ac"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-local-s293", "id": 10917582271, "size_in_bytes": 144057, "digest": "sha256:f03746c3012a261c7385ec15a8ad4092a9b8414174d7d8f7212c4a9880c25ce1"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-local-s317", "id": 10917427856, "size_in_bytes": 175840, "digest": "sha256:f5d29b719fcbb7fc0843f6db1cab01112075a5026c57bd7e66b8b054f4177f4b"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-broadcast-s347", "id": 10916840629, "size_in_bytes": 168903, "digest": "sha256:23c0e4a572025e66afd003cb65c5c4c4cd4713f540f098c22b4fdd1b63745eb9"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-blocal-s293", "id": 10916690912, "size_in_bytes": 167690, "digest": "sha256:c8e22dbfc44deaa3b30a9fdce7a8d9d91b0ebfa779e09053297cef860aa1a67a"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-blocal-s317", "id": 10915924933, "size_in_bytes": 166584, "digest": "sha256:0af5b81bdc21aeabbc891165f332927212303fc76d77d46f1d2bbaa16891eb87"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-broadcast-s293", "id": 10915745277, "size_in_bytes": 161864, "digest": "sha256:9d5eec9f593c6b0c117422521ad5dd8cd55702ce78c40bd8ba602d958ece5fba"},
+    {"name": "similarity-blocal-qualified-route-sky130hd-broadcast-s317", "id": 10915179073, "size_in_bytes": 164488, "digest": "sha256:7d6e3951abed02ddab2bb9f07b64584f584767fbaa9f6e697a259acbbc7ac4fa"},
+    {"name": "similarity-blocal-qualified-route-nangate45-blocal-s347", "id": 10914453045, "size_in_bytes": 152225, "digest": "sha256:37d30fbfc1a7248885e0db8df49c92b62761082dde0cff591d744225c8aa9e13"},
+    {"name": "similarity-blocal-qualified-route-nangate45-local-s293", "id": 10914380684, "size_in_bytes": 154724, "digest": "sha256:4c5f07c49c86eba4087c3b5c4c7b5e1b2ad6cfd34824be43e94ddd176193b1ad"},
+    {"name": "similarity-blocal-qualified-route-nangate45-local-s347", "id": 10914027192, "size_in_bytes": 154819, "digest": "sha256:bc19324adc8f5e047e5cfe342a60c72de09cd522ff91c362e0f891d23c322ae3"},
+    {"name": "similarity-blocal-qualified-route-nangate45-broadcast-s317", "id": 10913762972, "size_in_bytes": 151365, "digest": "sha256:843e6ca7319389884441a3358ebcd513353f5ff9f539f012f26b17e601bee004"},
+    {"name": "similarity-blocal-qualified-route-nangate45-blocal-s317", "id": 10913762007, "size_in_bytes": 152642, "digest": "sha256:4c145495893b37edb0bc4f35501b21de9d422bf0a3ef516ee646af5846fbb048"},
+    {"name": "similarity-blocal-qualified-route-nangate45-broadcast-s293", "id": 10913727966, "size_in_bytes": 150950, "digest": "sha256:44f84d4457eef950501db9a2f89bf8fd3024c43c0df294757f6eab5695fdf850"},
+    {"name": "similarity-blocal-qualified-route-nangate45-broadcast-s347", "id": 10913615834, "size_in_bytes": 150253, "digest": "sha256:4738988ac666f7a334c707e33fd8347f020c0fbd8d761be9d3d7a1a7ca66b891"},
+    {"name": "similarity-blocal-qualified-route-nangate45-blocal-s293", "id": 10913584923, "size_in_bytes": 152599, "digest": "sha256:316d5e702b6b030063016e88a01f3d99eb6593b0c0fc4f38ed8cc7df83fcf67d"},
+    {"name": "similarity-blocal-qualified-route-nangate45-local-s317", "id": 10913478921, "size_in_bytes": 154058, "digest": "sha256:de6ec1166359e2e4a8f0f0bf357c23eb566265b41ffdb7a946a0e961ce81165a"},
+    {"name": "similarity-blocal-qualified-functional", "id": 10913111513, "size_in_bytes": 312889, "digest": "sha256:824bdef139a7989fd8bd7be99ae83b8bcfcd9d98fd7907f94a3bcd635e5ea092"}
+  ],
+  "extracted_bundle": {
+    "name": "extracted_evidence.zip",
+    "file_count": 468,
+    "digest": "sha256:1fca420462f5cc34297499b5c29176202c9a13505a5065db29e5c6f25d4834ef"
+  }
+}
