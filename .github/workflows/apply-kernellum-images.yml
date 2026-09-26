@@ -1,0 +1,43 @@
+name: Apply final Kernellum imagery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/kernellum-replacements/kernellum-final-13-images.zip"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract finalized 13-image set
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="docs/kernellum-replacements/kernellum-final-13-images.zip"
+          DEST="docs/kernellum-replacements"
+          rm -rf /tmp/kernellum-images
+          mkdir -p /tmp/kernellum-images
+          unzip -j -o "$ZIP" '*.png' -d /tmp/kernellum-images
+          for n in $(seq -w 1 13); do
+            test -f "/tmp/kernellum-images/$n.png"
+            cp "/tmp/kernellum-images/$n.png" "$DEST/$n.png"
+          done
+          test "$(find "$DEST" -maxdepth 1 -type f -name '??.png' | wc -l)" -eq 13
+      - name: Commit finalized imagery
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/kernellum-replacements/??.png
+          if git diff --cached --quiet; then
+            echo "No image changes."
+            exit 0
+          fi
+          git commit -m "Apply corrected Kernellum imagery"
+          git push
