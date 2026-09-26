@@ -53,6 +53,8 @@ for(const file of walk(root)){
    s=s.replace(/<link[^>]+(?:rel="(?:icon|apple-touch-icon)"|href="[^\"]*favicon[^\"]*")[^>]*>/g,'');
    s=s.replaceAll('<link rel="stylesheet" href="/kernellum/kernellum-brand.css">','');
    s=s.replace('</head>','<link rel="icon" type="image/svg+xml" href="/kernellum/favi/kernellum.svg"><link rel="stylesheet" href="/kernellum/kernellum-brand.css"></head>');
+   s=s.replaceAll('<script src="/kernellum/kernellum-image-replacements.js" defer></script>','');
+   s=s.replace('</body>','<script src="/kernellum/kernellum-image-replacements.js" defer></script></body>');
    s=s.replace(/<svg[^>]*viewBox="0 0 89 24"[^>]*>[\s\S]*?<\/svg>/g,'<svg viewBox="0 0 248 32" role="img" aria-label="Kernellum"><path fill="#b9f35d" d="M0 1h5v13L18 1h7L10 16l15 15h-7L5 18v13H0z"/><text x="35" y="25" fill="currentColor" font-family="MSCHN, sans-serif" font-size="27" letter-spacing="1">KERNELLUM</text></svg>');
  }
  fs.writeFileSync(file,s);
