@@ -1,0 +1,239 @@
+{
+  "reports": [
+    {
+      "id": "KRN / TR-002",
+      "shortId": "TR-002",
+      "slug": "tr-002",
+      "date": "2026-09-21",
+      "dateLabel": "21 September 2026",
+      "type": "Technical report",
+      "topic": "Causal timing law / route-robust selection",
+      "title": "Project SIMILARITY: Learning Routed Timing Laws for Architecture Search",
+      "summary": "A causal topology intervention isolates operand-distribution topology as an architecture variable, freezes a routed timing law, and tests a bounded two-candidate selection policy on unseen deployment routes.",
+      "metrics": [
+        "96 / 96 causal routes",
+        "0.3039 ns held-out MAE",
+        "36 / 36 unseen deployment wins",
+        "23.56% mean latency improvement"
+      ],
+      "featured": true,
+      "href": "/kernellum/research/tr-002/",
+      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md",
+      "pdf": "Kernellum_TR-002.pdf",
+      "subtitle": "Causal topology intervention, held-out prediction, and route-robust two-candidate selection.",
+      "abstract": "Project SIMILARITY isolates operand-distribution topology under matched arithmetic fabrics, freezes a differential routed timing law on a discovery corpus, and evaluates it on unseen rectangular geometries and disjoint route seeds. A prospective two-candidate local-transport portfolio then tests whether the learned law can support route-robust architecture selection.",
+      "results": [
+        {
+          "value": "96 / 96",
+          "label": "corrected causal routes"
+        },
+        {
+          "value": "0.3039 ns",
+          "label": "held-out timing-tax MAE"
+        },
+        {
+          "value": "36 / 36",
+          "label": "unseen deployments beating broadcast"
+        },
+        {
+          "value": "23.56%",
+          "label": "mean routed-latency improvement"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Frozen routed-law report",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md"
+        },
+        {
+          "title": "Routed-law machine summary",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/similarity_routed_law_summary.json"
+        },
+        {
+          "title": "Portfolio confirmation report",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
+        },
+        {
+          "title": "Portfolio machine summary",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/similarity_portfolio_summary.json"
+        }
+      ]
+    },
+    {
+      "id": "KRN / TR-003",
+      "shortId": "TR-003",
+      "slug": "tr-003",
+      "date": "2026-09-20",
+      "dateLabel": "20 September 2026",
+      "type": "Technical report",
+      "topic": "Closed-loop architecture search",
+      "title": "Closed-Loop Physical-Design Search",
+      "summary": "Final-route observations are folded back into architecture selection under a fixed implementation budget, comparing active acquisition against an equal-budget random control.",
+      "metrics": [
+        "17 / 172 designs attempted",
+        "8 / 8 new routes successful",
+        "6.475% Fmax MAPE",
+        "12 / 12 workloads improved"
+      ],
+      "featured": true,
+      "href": "/kernellum/research/tr-003/",
+      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md",
+      "pdf": "Kernellum_TR-003.pdf",
+      "subtitle": "Using routed observations to improve workload-specific accelerator choices under a fixed implementation budget.",
+      "abstract": "K1 tests whether a small set of final-route observations can guide where physical-design budget is spent next. Starting from nine routed designs in a 172-architecture pool, four active acquisitions are compared with an equal-budget random arm. The selection objective is workload latency, not standalone frequency.",
+      "results": [
+        {
+          "value": "17 / 172",
+          "label": "designs physically attempted"
+        },
+        {
+          "value": "8 / 8",
+          "label": "new routes successful"
+        },
+        {
+          "value": "6.475%",
+          "label": "new-candidate Fmax MAPE"
+        },
+        {
+          "value": "12 / 12",
+          "label": "workloads improved by active search"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "K1 closed-loop report",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+        },
+        {
+          "title": "Closed-loop proposals",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_proposals.json"
+        },
+        {
+          "title": "Closed-loop routes",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_routes.csv"
+        },
+        {
+          "title": "Validation record",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_validation.json"
+        }
+      ]
+    },
+    {
+      "id": "KRN / TR-001",
+      "shortId": "TR-001",
+      "slug": "tr-001",
+      "date": "2026-09-17",
+      "dateLabel": "17 September 2026",
+      "type": "Technical report",
+      "topic": "System / compiler / physical evidence",
+      "title": "Kernellum Compiler and Physical-Evidence Pipeline",
+      "summary": "A system-level record connecting quantized model-to-RTL generation, analytical search, synthesis calibration, final-route measurement, closed-loop physical feedback, and the K2 board-validation handoff.",
+      "metrics": [
+        "96.44% INT8 held-out accuracy",
+        "450 / 450 cycle-model exact matches",
+        "0.9441 K1 rank Spearman",
+        "12 / 12 active-search improvements"
+      ],
+      "featured": false,
+      "href": "/kernellum/research/tr-001/",
+      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md",
+      "pdf": "Kernellum_TR-001.pdf",
+      "subtitle": "From quantized models to routed architecture search and board-ready validation.",
+      "abstract": "Kernellum couples deterministic model-to-RTL generation with analytical search, synthesis calibration, final-route measurement, bounded physical feedback, and a board-validation handoff. The report organizes those layers as one evidence ladder so architecture decisions can be tested against progressively stronger implementation evidence.",
+      "results": [
+        {
+          "value": "96.44%",
+          "label": "INT8 held-out accuracy"
+        },
+        {
+          "value": "450 / 450",
+          "label": "cycle-model exact tensor matches"
+        },
+        {
+          "value": "0.9441",
+          "label": "K1 workload-rank Spearman"
+        },
+        {
+          "value": "12 / 12",
+          "label": "workloads improved by active search"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Experiment ledger",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md"
+        },
+        {
+          "title": "K1 final-route correction",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md"
+        },
+        {
+          "title": "K1 closed-loop record",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+        },
+        {
+          "title": "K2 board-ready record",
+          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K2_BOARD_READY_REPORT.md"
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "id": "KRN / EVD-001",
+    "shortId": "EVD-001",
+    "date": "2026-09-21",
+    "dateLabel": "21 September 2026",
+    "type": "Evidence dossier",
+    "topic": "Evidence control / publication bundle",
+    "title": "Kernellum Evidence Dossier",
+    "summary": "A claim-to-artifact record connecting the compiler, K1 routed search, Project SIMILARITY, machine-readable results, and the K2 validation handoff into one diligence path.",
+    "metrics": [
+      "Claim-to-artifact traceability",
+      "Machine-readable evidence map",
+      "Research review path",
+      "K2 handoff record"
+    ],
+    "href": "/kernellum/research/evidence/",
+    "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md",
+    "slug": "evidence",
+    "pdf": "Kernellum_Evidence_Dossier.pdf",
+    "subtitle": "A claim-to-artifact record for the compiler, routed search, Project SIMILARITY, and K2 evidence.",
+    "abstract": "The dossier is the external claim-control layer for Kernellum Research. It connects concise public statements to named technical reports, machine-readable records, implementation artifacts, and the next evidence layer, giving technical reviewers, research partners, and diligence workflows one traceable path through the program.",
+    "results": [
+      {
+        "value": "96.44%",
+        "label": "INT8 held-out accuracy"
+      },
+      {
+        "value": "12 / 12",
+        "label": "K1 workloads improved"
+      },
+      {
+        "value": "0.3039 ns",
+        "label": "SIMILARITY held-out MAE"
+      },
+      {
+        "value": "36 / 36",
+        "label": "portfolio deployment wins"
+      }
+    ],
+    "artifacts": [
+      {
+        "title": "Experiment index",
+        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md"
+      },
+      {
+        "title": "K1 closed-loop report",
+        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+      },
+      {
+        "title": "SIMILARITY portfolio record",
+        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
+      },
+      {
+        "title": "K2 board-ready record",
+        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K2_BOARD_READY_REPORT.md"
+      }
+    ]
+  }
+}
