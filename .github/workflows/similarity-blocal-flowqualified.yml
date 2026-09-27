@@ -98,7 +98,7 @@ jobs:
           retention-days: 90
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local replication')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '8aba1ab82c9cfec0388c4ff3bfd6999c8f36cddf' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local replication')
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -152,7 +152,7 @@ jobs:
           retention-days: 90
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local replication')
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '8aba1ab82c9cfec0388c4ff3bfd6999c8f36cddf' && startsWith(github.event.head_commit.message, 'Freeze flow-qualified prospective B-local replication')
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:

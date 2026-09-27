@@ -1,0 +1,110 @@
+{
+  "official_artifacts": 73,
+  "downloaded_artifacts": 73,
+  "all_official_digests_match": true,
+  "route_artifacts": 71,
+  "missing_artifacts": [
+    "similarity-blocal-flowqualified-route-sky130hd-blocal-s421-r11c6"
+  ],
+  "planned_rows": 72,
+  "attempted_rows": 71,
+  "clean_rows": 71,
+  "matched_trios": 23,
+  "missing_identities": [
+    [
+      "sky130hd",
+      "blocal",
+      421,
+      11,
+      6
+    ]
+  ],
+  "gates": {
+    "signed_gemm_functional_on_all_four_unopened_shapes": true,
+    "exactly_72_shards_and_72_unique_attempted_rows": false,
+    "all_72_exact_flow_patch_and_runtime_manifests": false,
+    "all_72_raw_reports_drivers_drc_and_route_logs_complete": false,
+    "all_72_routes_clean_hashed_with_2pct_headroom_and_zero_antenna": false,
+    "all_eight_groups_three_complete_matched_seeds": false,
+    "full_local_positive_each_group": false,
+    "all_24_candidate_dffs_above_broadcast_and_at_most_90pct_local": false,
+    "all_24_candidate_synthesis_and_routed_cell_areas_below_local": false,
+    "all_12_holdout_seed_pairs_candidate_faster_than_broadcast": true,
+    "all_four_holdouts_raw_benefit_at_least_5pct": true,
+    "all_four_holdouts_retention_at_least_70pct": false,
+    "synthesis_area_normalized_wins_at_least_3_of_4_and_both_platforms": false,
+    "routed_area_normalized_wins_at_least_3_of_4_and_both_platforms": true,
+    "all_four_holdouts_median_wirelength_not_above_local": true,
+    "nangate45_holdout_launch_q_fanout_at_most_10": true
+  },
+  "conditional_present_evidence": {
+    "all_71_present_rows_clean": true,
+    "all_23_present_matched_trios_dff_gate": true,
+    "all_23_present_matched_trios_area_gate": true
+  },
+  "frozen_claim_supported": false,
+  "synthesis_area_normalized_winners": 2,
+  "routed_area_normalized_winners": 3,
+  "holdout_points": [
+    {
+      "platform": "nangate45",
+      "split": "holdout",
+      "rows": 8,
+      "cols": 9,
+      "median_q_local": 0.12941176470588234,
+      "median_q_candidate": 0.0919540229885057,
+      "median_retention": 0.5925925925925922,
+      "median_synth_vs_broadcast": 1.0257508232891623,
+      "median_synth_vs_local": 0.9690415851138511,
+      "median_routed_vs_broadcast": 1.0298001028008745,
+      "median_routed_vs_local": 0.9718132285690667,
+      "median_wire_ratio_vs_local": 0.9396550077365374,
+      "median_vectorless_power_ratio_vs_local": 1.9880668257756564
+    },
+    {
+      "platform": "nangate45",
+      "split": "holdout",
+      "rows": 9,
+      "cols": 8,
+      "median_q_local": 0.11695906432748536,
+      "median_q_candidate": 0.1098265895953757,
+      "median_retention": 0.9047619047619047,
+      "median_synth_vs_broadcast": 1.0592531902535063,
+      "median_synth_vs_local": 1.0146847171922,
+      "median_routed_vs_broadcast": 1.059253376126583,
+      "median_routed_vs_local": 1.0142879912564324,
+      "median_wire_ratio_vs_local": 0.9650518446295445,
+      "median_vectorless_power_ratio_vs_local": 1.9594272076372314
+    },
+    {
+      "platform": "sky130hd",
+      "split": "holdout",
+      "rows": 8,
+      "cols": 9,
+      "median_q_local": 0.1757857974388824,
+      "median_q_candidate": 0.15752625437572934,
+      "median_retention": 0.8598726114649683,
+      "median_synth_vs_broadcast": 1.1224892938392967,
+      "median_synth_vs_local": 1.0086852896801375,
+      "median_routed_vs_broadcast": 1.110668874518748,
+      "median_routed_vs_local": 1.0175788964371302,
+      "median_wire_ratio_vs_local": 0.9238051633390522,
+      "median_vectorless_power_ratio_vs_local": 1.7578947368421052
+    },
+    {
+      "platform": "sky130hd",
+      "split": "holdout",
+      "rows": 9,
+      "cols": 8,
+      "median_q_local": 0.1690997566909976,
+      "median_q_candidate": 0.13987730061349699,
+      "median_retention": 0.8987341772151903,
+      "median_synth_vs_broadcast": 1.1043123581261474,
+      "median_synth_vs_local": 1.0104090081000323,
+      "median_routed_vs_broadcast": 1.0901287063368885,
+      "median_routed_vs_local": 1.0186621630089665,
+      "median_wire_ratio_vs_local": 0.9275076138281775,
+      "median_vectorless_power_ratio_vs_local": 1.7382198952879582
+    }
+  ]
+}
