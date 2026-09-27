@@ -20,6 +20,17 @@
   }
 
 
+  function prioritizeResearchNav() {
+    document.querySelectorAll("header nav ul").forEach(list => {
+      const items = [...list.children];
+      const research = items.find(item => item.querySelector('a[href="/research/"], a[href="/research"]'));
+      const architecture = items.find(item => item.querySelector('a[href="/architecture/"], a[href="/architecture"]'));
+      if (research && architecture && research.nextElementSibling !== architecture) {
+        list.insertBefore(research, architecture);
+      }
+    });
+  }
+
   function fixKernellumLinks() {
     document.querySelectorAll("a").forEach(link => {
       const label=(link.textContent || "").replace(/\\s+/g," ").trim().toLowerCase();
@@ -66,6 +77,7 @@
   replaceAllImages();
   removeResearchRepositoryHoverImage();
   fixKernellumLinks();
+  prioritizeResearchNav();
 
   let queued = false;
   const observer = new MutationObserver(() => {
@@ -76,6 +88,7 @@
       replaceAllImages();
       removeResearchRepositoryHoverImage();
       fixKernellumLinks();
+      prioritizeResearchNav();
     });
   });
 
