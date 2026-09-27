@@ -134,9 +134,9 @@ footer .secondary .hover-image {
 /* Publication rows use the site's native TextIntro component. No runtime DOM insertion. */
 section.text-intro[data-key^="publications-"]{padding-block:3rem;gap:clamp(2rem,5vw,6rem)}
 section.text-intro[data-key="publications-heading"]{padding-top:8rem;padding-bottom:3rem}
-section.text-intro[data-key^="publications-"]:not([data-key="publications-heading"]){border-top:1px solid #29302b}
-section.text-intro[data-key^="publications-"] .left .text-label{color:#79d8c1}
+section.text-intro[data-key^="publications-"]:not([data-key="publications-heading"]){border-top:1px solid var(--kernellum-line)}
+section.text-intro[data-key^="publications-"] .left .text-label{color:var(--kernellum-green)}
 section.text-intro[data-key^="publications-"] h3{font-family:"Suisse Int'l",sans-serif;text-transform:none;font-size:clamp(1.5rem,2.4vw,2.5rem);line-height:1.12;letter-spacing:-.025em}
 section.text-intro[data-key^="publications-"] .col{min-width:0}
-section.text-intro[data-key^="publications-"] a:focus-visible{outline:2px solid #79d8c1;outline-offset:5px}
+section.text-intro[data-key^="publications-"] a:focus-visible{outline:2px solid var(--kernellum-green);outline-offset:5px}
 @media(max-width:600px){section.text-intro[data-key^="publications-"]{padding-block:2.25rem}section.text-intro[data-key="publications-heading"]{padding-top:5rem}}
