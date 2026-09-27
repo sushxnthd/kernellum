@@ -1,0 +1,1083 @@
+{
+  "schema_version": 1,
+  "role": "opened-data runtime/headroom flow qualification only; cannot confirm architecture or rescue prior nulls",
+  "source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+  "planned": 12,
+  "attempted": 12,
+  "clean": 12,
+  "gates": {
+    "signed_gemm_on_two_opened_shapes": true,
+    "exactly_six_shards_and_12_unique_rows": true,
+    "all_12_exact_qualified_patch_and_runtime_manifests": true,
+    "all_12_native_finishes_without_timeout_crash_or_make_failure": true,
+    "all_12_rows_complete_electrically_clean_and_hashed": true,
+    "all_12_finish_reports_ge_2pct_cap_and_slew_headroom": true,
+    "all_12_detailed_route_and_final_antenna_checks_clean": true,
+    "all_12_rows_preserve_exact_dff_and_synthesis_area": true
+  },
+  "canary_pass": true,
+  "reports": [
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3599,
+      "slew_slack_fraction": 0.4583,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.1172,
+      "slew_slack_fraction": 0.4353,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.4003,
+      "slew_slack_fraction": 0.4641,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3284,
+      "slew_slack_fraction": 0.4854,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3108,
+      "slew_slack_fraction": 0.4712,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3446,
+      "slew_slack_fraction": 0.4779,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.4445,
+      "slew_slack_fraction": 0.2106,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3819,
+      "slew_slack_fraction": 0.1803,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3342,
+      "slew_slack_fraction": 0.2333,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.3686,
+      "slew_slack_fraction": 0.2111,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.0206,
+      "slew_slack_fraction": 0.0222,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/reports/6_finish.rpt",
+      "cap_slack_fraction": 0.4223,
+      "slew_slack_fraction": 0.095,
+      "pass": true
+    }
+  ],
+  "route_reports": [
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    },
+    {
+      "file": "results/similarity_runtime_headroom_download/similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/logs/5_2_route.log",
+      "final_net_violations": 0,
+      "final_pin_violations": 0,
+      "final_drc_violations": 0,
+      "pass": true
+    }
+  ],
+  "rows": [
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "blocal",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.51",
+      "fmax_mhz": "663.29",
+      "critical_path_delay_ns": "1.7525",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "44925",
+      "dff_cells": "3415",
+      "cell_area_um2": "96487.776",
+      "wire_length_um": "670958.0",
+      "gds_sha256": "dd11ef0e8442269a2a4779fbd1b59e5e98d9fd3ad29b238be9267bed570ae03c",
+      "odb_sha256": "eb5c282acd3a7e9eae2d5512adc58289b9d3b72ff168ed2c982ff14acf030a18",
+      "spef_sha256": "0856687bde8c2b4e3444a7897a40a2bc73eb456fbfc144237d7f26c4c6a4b8de",
+      "netlist_sha256": "1bed75baa372bc3884c676602fe6ee7402a4cb450cb540ffda369df4086c3d5c",
+      "elapsed_sec": "1274.7232456207275",
+      "routed_cell_area_um2": "97433.0",
+      "vectorless_power_w": "0.00807",
+      "cap_slack_fraction": "0.3599",
+      "slew_slack_fraction": "0.4583",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "blocal",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.54",
+      "fmax_mhz": "648.2",
+      "critical_path_delay_ns": "1.7961",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "46267",
+      "dff_cells": "3425",
+      "cell_area_um2": "98385.154",
+      "wire_length_um": "703207.0",
+      "gds_sha256": "8780524b9bcaa0a0e4563f45cd3dd911448c4d87e6d795a77f9e7e47cff32bfb",
+      "odb_sha256": "ea85fa9e1411a9d0b44338f2a3c7aa8da1e07a1fc261977590d8546cd288aa6d",
+      "spef_sha256": "edea42975afdb572275119ea64e31a2ebd6e74f995876bbcd423b81796122f5e",
+      "netlist_sha256": "b6e1579d2d0cd4f6afabda1da7f64711721ceebcfd0719950fde589ce2aaa284",
+      "elapsed_sec": "1382.5949802398682",
+      "routed_cell_area_um2": "99166.0",
+      "vectorless_power_w": "0.00812",
+      "cap_slack_fraction": "0.1172",
+      "slew_slack_fraction": "0.4353",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "broadcast",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.68",
+      "fmax_mhz": "594.05",
+      "critical_path_delay_ns": "1.9462",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "43800",
+      "dff_cells": "2314",
+      "cell_area_um2": "91591.248",
+      "wire_length_um": "651930.0",
+      "gds_sha256": "31c6b422b79dd930e80218dd236d03ed5420ed230a92e253ca33763687d6441a",
+      "odb_sha256": "e9c502643e8b2b56bf9e3adcf8bc4a9a99f14d9a7be401e590cfe1c691414cd5",
+      "spef_sha256": "a85b9a67e2a48d46581229f03d586d8ba0b099c969be631438126c29a5de0937",
+      "netlist_sha256": "3b4385948b1f2519a2c1d622ae3d3cb5b9f48c97cb4373b6e908797b06466cf5",
+      "elapsed_sec": "1311.1252183914185",
+      "routed_cell_area_um2": "92507.0",
+      "vectorless_power_w": "0.00576",
+      "cap_slack_fraction": "0.4003",
+      "slew_slack_fraction": "0.4641",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "broadcast",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.66",
+      "fmax_mhz": "600.72",
+      "critical_path_delay_ns": "1.928",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "44404",
+      "dff_cells": "2334",
+      "cell_area_um2": "92517.992",
+      "wire_length_um": "663949.0",
+      "gds_sha256": "124161398bde4108c526a506b5e6bab49a472384978ec42d00712b31e94f7028",
+      "odb_sha256": "37e400f03cb6b02eb0b6fd853b1df0a9a96547dd609b33e2e366a52bd835b4f8",
+      "spef_sha256": "f4fc2ef301aa87286f6513af16770730219ac5be3ab1b6deae41c9c9f43782ba",
+      "netlist_sha256": "824ce04a8017b3ef2e1b8891538bae93a52f65909de4293b562127ff5b6e41ac",
+      "elapsed_sec": "1054.202490568161",
+      "routed_cell_area_um2": "93607.0",
+      "vectorless_power_w": "0.00621",
+      "cap_slack_fraction": "0.3284",
+      "slew_slack_fraction": "0.4854",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "local",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.55",
+      "fmax_mhz": "646.02",
+      "critical_path_delay_ns": "1.7894",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "46326",
+      "dff_cells": "3880",
+      "cell_area_um2": "99536.402",
+      "wire_length_um": "696509.0",
+      "gds_sha256": "bb0ef1431485465a35f2538a96014a43651454aae37f9f17358914bdab789294",
+      "odb_sha256": "d0561733f3172e47ae1837ace9ce2cf843fb064cb2e8c139251f2179cf7dfa4f",
+      "spef_sha256": "58659f8c9deeb38572aa9e45c6373b6a17cf1c733b874c1ca20ceac1da832430",
+      "netlist_sha256": "08ae310b1833639d0647cfbc8631ac75baf2d1e21cb9cbe46a7aad3cfdda5edf",
+      "elapsed_sec": "1365.5481688976288",
+      "routed_cell_area_um2": "100507.0",
+      "vectorless_power_w": "0.00409",
+      "cap_slack_fraction": "0.3108",
+      "slew_slack_fraction": "0.4712",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "nangate45",
+      "split": "opened_canary",
+      "topology": "local",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "1.5",
+      "fmax_mhz": "664.92",
+      "critical_path_delay_ns": "1.7367",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "46743",
+      "dff_cells": "3946",
+      "cell_area_um2": "100701.748",
+      "wire_length_um": "709173.0",
+      "gds_sha256": "4054e4349c9c5dfab0013759d56e2f64d5c006a90ae48f9ff06a0cf2a996c42e",
+      "odb_sha256": "69d30fc5dfc2fe3ebc8b0746898139c01508624943c28d02709c54ad48c86884",
+      "spef_sha256": "ad037e060b2a338f800929ed516efe421bd85f83d666057449c1bffcea664535",
+      "netlist_sha256": "0c77fa19c234d0fa146794e92752fe29bc6b1ca671b6afc09839fc3f1e8562f0",
+      "elapsed_sec": "1169.910230398178",
+      "routed_cell_area_um2": "101721.0",
+      "vectorless_power_w": "0.00415",
+      "cap_slack_fraction": "0.3446",
+      "slew_slack_fraction": "0.4779",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "blocal",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "7.18",
+      "fmax_mhz": "139.3",
+      "critical_path_delay_ns": "8.1611",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "39747",
+      "dff_cells": "3415",
+      "cell_area_um2": "455850.9472",
+      "wire_length_um": "1417159.0",
+      "gds_sha256": "f05693dc1ee6ed64fe5812b3b86b03ad0acecdfbb27188791d6608448d964cab",
+      "odb_sha256": "5e1a27cd1dcdeb6d8659e6662007a0533bab86433a1d66b1a18ef7f35157ba8f",
+      "spef_sha256": "fc467b82380db13812dbaa1fe2efbbe6fd1ced92fe874bf295787bb893020441",
+      "netlist_sha256": "39932288642e900e1a4d6b84472d4f35eae3937c5b2c4f823e6683783ccd2725",
+      "elapsed_sec": "2637.8432517051697",
+      "routed_cell_area_um2": "501112.0",
+      "vectorless_power_w": "0.0336",
+      "cap_slack_fraction": "0.4445",
+      "slew_slack_fraction": "0.2106",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "blocal",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "7.19",
+      "fmax_mhz": "139.06",
+      "critical_path_delay_ns": "8.2237",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "40442",
+      "dff_cells": "3425",
+      "cell_area_um2": "461906.7552",
+      "wire_length_um": "1485729.0",
+      "gds_sha256": "4ef24287f43c088ee6d1f84e07b0fe7e51471672c42069131ba6cf9d18d394bd",
+      "odb_sha256": "bcd4280c0a0c7734675092effa52a06a4f8da9040c8fd7b50e4f4214d07ad71a",
+      "spef_sha256": "0f72cf090287c3c84e971f730c53949271ad21092da887b670910a3cae6562a9",
+      "netlist_sha256": "8a7be324adfd0fefd1250a4a6371e95643a1743458b5b9e996b474424aec1b84",
+      "elapsed_sec": "2778.163783311844",
+      "routed_cell_area_um2": "508556.0",
+      "vectorless_power_w": "0.0332",
+      "cap_slack_fraction": "0.3819",
+      "slew_slack_fraction": "0.1803",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "broadcast",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "8.18",
+      "fmax_mhz": "122.18",
+      "critical_path_delay_ns": "9.0944",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "38018",
+      "dff_cells": "2314",
+      "cell_area_um2": "428609.8208",
+      "wire_length_um": "1299973.0",
+      "gds_sha256": "9c0c96545d174c1243c96ac15bb773cc8c0e032601b73c2682389c4c1f877098",
+      "odb_sha256": "d59e9f1686b955f1e22db0f0d692d87c2026751eed79ac1f8d0965bf1d6ab5a5",
+      "spef_sha256": "d8473a4b7d4675dc25a0ce22dd24b5eb85cdf19fbb062166f83c4501353d4654",
+      "netlist_sha256": "1b69e8b1f50c50220a80f298c6187046e6c18fd77d24745f102d944852a465bf",
+      "elapsed_sec": "2799.636620283127",
+      "routed_cell_area_um2": "465816.0",
+      "vectorless_power_w": "0.0246",
+      "cap_slack_fraction": "0.3342",
+      "slew_slack_fraction": "0.2333",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "broadcast",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "8.28",
+      "fmax_mhz": "120.74",
+      "critical_path_delay_ns": "9.2323",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "38618",
+      "dff_cells": "2334",
+      "cell_area_um2": "433724.7264",
+      "wire_length_um": "1332798.0",
+      "gds_sha256": "1c5f7c1eb75cde99855913f3d76c9243a57511b5ac8c61a7d60e627e9100cbf6",
+      "odb_sha256": "fb56be6870171c69964f0a551946119bd926569ff44f56df1b87dabec3a74a68",
+      "spef_sha256": "6bad0a16667f512e69404ec5a8d8275a20fe648e714aa18aba87c4f1506554bf",
+      "netlist_sha256": "3e557b2999f18734d4640b9f953d7440e8bf0d0e543a9c49adee5ff099992998",
+      "elapsed_sec": "2047.819224357605",
+      "routed_cell_area_um2": "470736.0",
+      "vectorless_power_w": "0.0259",
+      "cap_slack_fraction": "0.3686",
+      "slew_slack_fraction": "0.2111",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "local",
+      "rows": "10",
+      "cols": "7",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "7.06",
+      "fmax_mhz": "141.67",
+      "critical_path_delay_ns": "8.0676",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "41376",
+      "dff_cells": "3880",
+      "cell_area_um2": "472732.1376",
+      "wire_length_um": "1552323.0",
+      "gds_sha256": "75f91dfd28e0174eca06ef36c3ee78364a86eb9df1ffe18b1c29ddf606434f65",
+      "odb_sha256": "5ebe76f40d001f9d570b1d6d0700ee449cd0df17c90a2c6618197b6b8a2c68d6",
+      "spef_sha256": "23724452c6f07b75735bb40a080c4a1c05b99d2b68ccff5912a97c7e87e7f506",
+      "netlist_sha256": "e0e8427af918079634cba1c9eadc6e663b4f77ec20bae06b7be4e44718c3881c",
+      "elapsed_sec": "3268.5829186439514",
+      "routed_cell_area_um2": "523162.0",
+      "vectorless_power_w": "0.0186",
+      "cap_slack_fraction": "0.0206",
+      "slew_slack_fraction": "0.0222",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    },
+    {
+      "platform": "sky130hd",
+      "split": "opened_canary",
+      "topology": "local",
+      "rows": "7",
+      "cols": "10",
+      "pe_count": "70",
+      "sqrt_pe": "8.366600265340756",
+      "seed": "373",
+      "attempted": "True",
+      "route_ok": "True",
+      "error_stage": "",
+      "period_min_ns": "7.01",
+      "fmax_mhz": "142.72",
+      "critical_path_delay_ns": "7.9592",
+      "setup_violations": "0",
+      "hold_violations": "0",
+      "max_slew_violations": "0",
+      "max_fanout_violations": "0",
+      "max_cap_violations": "0",
+      "drc_count": "0",
+      "total_cells": "40859",
+      "dff_cells": "3946",
+      "cell_area_um2": "472873.5232",
+      "wire_length_um": "1541273.0",
+      "gds_sha256": "b4a60700771c6e20d64ceb4cdcce4e3a908c8ea0ab8c6c518f81a4dea6be3b59",
+      "odb_sha256": "0e4649544ab0e2d8e6200b299064209181a616d2a98e59361935bb68d7b92a3b",
+      "spef_sha256": "d513de6e2a8a75dcb317ffd11436aa5ea85c76e93f7b6e75e6edc410d0f9e041",
+      "netlist_sha256": "d5cd28cb19a8ffbeee5ec4c59e1ab856bdf216681060aa3c9b4153da049dc8c3",
+      "elapsed_sec": "3214.780031442642",
+      "routed_cell_area_um2": "523854.0",
+      "vectorless_power_w": "0.019",
+      "cap_slack_fraction": "0.4223",
+      "slew_slack_fraction": "0.095",
+      "final_antenna_net_violations": "0",
+      "final_antenna_pin_violations": "0"
+    }
+  ],
+  "patch_manifests": [
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "schema_version": 1,
+      "orfs_image": "openroad/orfs@sha256:573c1716efa0e286c4f641c26d343e20929d58d27fffbb22be2d0b93f09764f6",
+      "workflow_source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+      "antenna_ratio_margin": 20,
+      "patches": [
+        {
+          "target": "flow/scripts/final_outputs.tcl",
+          "replacement_count": 1,
+          "before_sha256": "d7c98097030afd37d4c86d81286ebbb304a963427a7be69afa3d6ec045b57676",
+          "after_sha256": "50d40ebf0fdb08a24805453bdfb3f26a0fb8fe959321b5a50cfa2905b82363d1",
+          "removed_text": "# Save a final image if openroad is compiled with the gui\nif { [ord::openroad_gui_compiled] } {\n  gui::show \"source $::env(SCRIPTS_DIR)/save_images.tcl\" false\n}\n",
+          "replacement_text": "# Optional GUI images intentionally disabled for deterministic headless evidence.\n"
+        },
+        {
+          "target": "flow/scripts/global_route.tcl",
+          "replacement_count": 1,
+          "before_sha256": "aeeb5c3aa3bdef64ba569cb650fd119c3389d0f0bf7478a7e440dca3f6b50447",
+          "after_sha256": "61c155f8c5bdbdec0c1d12518bb464c90d8791fc58f452c3d8fed24e7f0fd810",
+          "removed_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT)\n",
+          "replacement_text": "    repair_antennas -iterations $::env(MAX_REPAIR_ANTENNAS_ITER_GRT) -ratio_margin 20\n"
+        }
+      ],
+      "native_stage_timeout_seconds": 7200,
+      "cap_margin": 31,
+      "slew_margin": 25,
+      "canary_seed": 373,
+      "geometries": [
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    }
+  ]
+}

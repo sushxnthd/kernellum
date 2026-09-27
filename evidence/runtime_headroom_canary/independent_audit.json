@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "run_id": 36281577690,
+  "source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+  "artifact_zip_sha256": {
+    "similarity-runtime-headroom-final-summary.zip": "8802afe0748438281a4084f1a84cc697d1fe17977c98d38e3e3da9c7cc0a623d",
+    "similarity-runtime-headroom-functional.zip": "6c3c095f762868ea88ba1c3c25e7acdb80c5ac31190939da75371d5a11096b18",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7.zip": "eb5eb1464c0b3fa7de1f8a2c2dc85f2520ee160608c4940b11a6d9fbbb20e812",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10.zip": "46ff7720d5b55731e8f0388a6b79701b33a79397feed51ba86a64f2472b8ce56",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7.zip": "f19f4db2b06367de0c69bb847db9e5f66a800b6c5f76ee74c5889b07f1c2a8bc",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10.zip": "74305103abb4899c242e4f634eef99d0fef71fee43934276fd4812ee1c0016eb",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7.zip": "94a695db4d902f2244da245a585619aa2278fed8b102d08ea87c6cdca49ee06c",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10.zip": "5c7f874f951ae0386eea3dd39b82cd1ea135b063aac463adfd441cd12b1d13df",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7.zip": "8a6a2f6a34212068691392eeed7f2f8dc04d18d160c2f6701c43fe033dac27d7",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10.zip": "0a9217732a874d09484922f22a3d2618ae15faa80b665b0c86c7ec6e1e900c47",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7.zip": "470ccc432f2a13cc2836a0520a357dfc51d4d921e980765c2311c01f8f00373d",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10.zip": "f178fc53d5690945158ed2f285851eef8a32d79d167802c695bfe2e40b6c55bb",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7.zip": "d6d6f51094dba7ef6d198811182196e45a2edf18c6e254b2bc5635761db5b7f3",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10.zip": "9d4ce50abaab7347edb0e1e29272b16b61f18490163527a66aba1ee431bab5aa"
+  },
+  "artifact_digests_match_github": true,
+  "extracted_file_count": 103,
+  "extracted_file_sha256": {
+    "similarity-runtime-headroom-final-summary/similarity_runtime_headroom_canary_summary.json": "07d808289dcbcd6e13b76289decd41d6d4e3aa154f753095e7e73377c95db08d",
+    "similarity-runtime-headroom-functional/source_hashes.txt": "f8dbcb951f1e6caf6a9ed862535f33a23365b787dc5ac08f7358a69eb9a41f54",
+    "similarity-runtime-headroom-functional/source_sha.txt": "cf329aee872613964aa17acbf9e3ae5220e3c21d5d01293e4ce7ec4f35fd6266",
+    "similarity-runtime-headroom-functional/tb_10x7.log": "92c58c2c5f630913f79bfcccd1d9763d4a7270529d1f9004c1552d039706f9ea",
+    "similarity-runtime-headroom-functional/tb_10x7.vvp": "f39f5e8fc85fd63a02741e514bfadaf0d6884639df64b1ea332b76e959a6b9a8",
+    "similarity-runtime-headroom-functional/tb_7x10.log": "099df6caa292e87bd3d9c16ea2e68dc90222d0fb3353f81d9c6d650290e2edca",
+    "similarity-runtime-headroom-functional/tb_7x10.vvp": "c9fd838eed9450a76916dd958dc288c3c5a6d3198f9ffefbff1692b0bb20302d",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/driver.log": "17d43dce077000cb011739dcd0c14b720dd2489c7496caa02b582a4de06a04d9",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/logs/5_2_route.log": "ebb5029b42432e37cb8e8916f3527efb5c276decf528da715a087ea9e6646bfa",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/logs/6_report.log": "236d2748a077845edfb4ffcf8e4dae8a305ee36f6977a616b5a1198b14467a7e",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/reports/6_finish.rpt": "8b663960d265f2c6d03b04990c6a7d683c83331822247c8ab7ea4f86c2bf8add",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/reports/synth_stat.txt": "c562c55bccea7c9c074c14914906d6347bef347af97d14e7584d773d2a5a8d23",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_blocal_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_blocal_s373_r10_c7.csv": "bebb011570f523044ef53223d0ee569cd5a69d4673be50031373fdcb5398500e",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/driver.log": "9782522b746da503fab7714e625a26d1cb1edd3a741f489df575a63276ae4310",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/logs/5_2_route.log": "b0202bdc4b01001194a9a820167271bff8659a306fb679afb60fddb8caf2a2e1",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/logs/6_report.log": "a7afc385d460aa2d6b6a3dec32dcfe1692ef6eb4eb7e95123bf2b70055ed27a9",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/reports/6_finish.rpt": "3d546a9cfe17791dc4b5160e8fadd8504dd0d4be20915875626377f446bf89fa",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/reports/synth_stat.txt": "59ecde8433663251f0bb1c79f99ae173b3499687168a01def1e220d62930e147",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_blocal_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_blocal_s373_r7_c10.csv": "2fa7e241aa25bb2d836c5a89a9678a31e77bd9a4a0f29e78420656fdeb72b6fc",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/driver.log": "9969e66b94ef7489dff1a2de6a54222507c3ad5c5f4e0bff4ef41984f1be2bdf",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/logs/5_2_route.log": "187ae2a3083e8267ecd8d656520106abf6d500625683997522734335c7e676d1",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/logs/6_report.log": "3574b48a8e904196e4fba5292378c27a6aaa7666a27746aa390cb6b3a34fee90",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/reports/6_finish.rpt": "0d771e8cc5031b0594199746154a0c6b6a2a6b34a0918411382a413554b7f20d",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/reports/synth_stat.txt": "8db4fcb0cd03ce6235d02ed91e97c466a50a16cd6e427fe5b05870cc06b8110d",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_broadcast_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_broadcast_s373_r10_c7.csv": "2554822ef8f614ec905aa28dd4882f4f6ca359be0f8aba0195d166e226722f65",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/driver.log": "81fd8f9c19f0ce79290240ce1d69e71fee6cbe9b95798acd81aa33d0fde814fe",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/logs/5_2_route.log": "ebd9758c27878ad286d260d84ff98267a5f399d7d4e8df490e1e46173f891817",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/logs/6_report.log": "d2d52a79b7a695675d4347fda6d8cad268e5675c171f97404e454f2da123bb67",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/reports/6_finish.rpt": "cab0587234d8d2374149c6f4e5344275e8a48342e99b80c84c866c250aeda1e8",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/reports/synth_stat.txt": "6fc904ba76d67254e48c5c14ecc4ae61390e37d40c0a14ee6d32fcdf36c8f356",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_broadcast_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_broadcast_s373_r7_c10.csv": "93302b5a939d32806bce4637cf8e569afe9edf48622e8b80b8ff6f258bf43c1b",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/driver.log": "72ec91e1b88f27ce5657f16f5fa6e08c8f781a68e7d2f37882bc05dd2d8a780c",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/logs/5_2_route.log": "ae7fbd7dd7f1356d424d004fbc1ce23a2148b5c737eea3ff271fe1754e917955",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/logs/6_report.log": "eb2020afb5cb78b5afc94cb89c7f02797c6f45296ba51dbc7fdb06ac566e58f4",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/reports/6_finish.rpt": "99e51711a2142efa96a3f41cbf99aa7106068f5dc893d01c167851cb705cdf28",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/reports/synth_stat.txt": "c614efbf66d462ddf629f227351ab6adf79863084fa5848584769b28acbf12a1",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_local_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-local-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_local_s373_r10_c7.csv": "848f4d481fd70f1e735fb2cabca91aec259fc5355820468c129e52cd2a094a6b",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/driver.log": "b62b535c0dbab2dd1ed3110fcfc0c462b2708ce08dbc1f8e20efe1ced78d2e64",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/logs/5_2_route.log": "e54fed909651900c11a26ec17cf503bcdb99bfe40ac74447908c48aecc5bcf69",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/logs/6_report.log": "03a8be29e51e5bd96a049401fb8221e974f8d321d2be4b85c67da2728079ed09",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/reports/6_finish.rpt": "b1e32d8b39348929b4ff160856994c0e03b9655c29dbf42c702cfe6ab61a0508",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/reports/synth_stat.txt": "86bcc17f8f969d04ded75704c412a915eaca7a18b8578073b078b8a2be25ac03",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_nangate45_local_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-nangate45-local-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_nangate45_local_s373_r7_c10.csv": "c9f543c0b4e81aa67be9c08929bbe8d1508c37bed2f0696bd2f00f9865c00ae7",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/driver.log": "a3ee7e3e8a56f60da3d21468218de4174085ac46e19f0867056bcee8a7ed81f1",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/logs/5_2_route.log": "f11bbebf4eea93b3cf33531e83297291584a2278d11b69a8bfaff61da0a30aad",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/logs/6_report.log": "f8351b97f4c6229be5c103d86c185e22669dbc5e85bb6969710e4b8106de3ba7",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/reports/6_finish.rpt": "af6ebe8e90bc3b5f55fb96577c9e877dbb1983a73e721343b5615aa2e7d85b73",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/reports/synth_stat.txt": "58e73410c0c64f8035f6a72419a449b6c11f55b8aaf56db0e0feac215c7bddb4",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_blocal_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_blocal_s373_r10_c7.csv": "93c93d9cdf52dc9bd89101ebb4e2b7657097f9047caa325c9a33158c6afd755e",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/driver.log": "ddc6849900b7f131c95a651fa6a6dff780a5327f603d024917a1bcebdb228839",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/logs/5_2_route.log": "e9c099f3f8f58c669ec753211a53983f85b9a85fdcee6d2f7a3f9c6f4ea8e820",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/logs/6_report.log": "3353d53c646fc0bdce942ba9af65fcd6d6b0c8823f95c7ecf87ac2c54e5ce12b",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/reports/6_finish.rpt": "1fb867da8b98bec3bd9db6db6e96c94d1135e5f17b9d39c917a206cd6dbe58fe",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/reports/synth_stat.txt": "12adf5d497c4eb561a9a58173ac7b3027dc870f74f06b16cc0b4148dc6893c8b",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_blocal_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_blocal_s373_r7_c10.csv": "983991cdfe3d87747eb25eefc40371550ffc7135a4129e862b9762b30f496e96",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/driver.log": "18e143c4c11dd1436ba660b2d10a701857781d854d6edc13796e8a15599c0167",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/logs/5_2_route.log": "89e9990ef66e72623b03adce438cd9b92dbe9b6783735eb33c2c5ac90113f56f",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/logs/6_report.log": "a72fdbf1d78acc2e1ea0ad5e4613212b0405fd2b2b80545ea98b15b313d967e9",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/reports/6_finish.rpt": "4dbfc02686077cbe362b89c220e6527208db2036d619120be8d00ffe3a58c1d8",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/reports/synth_stat.txt": "139b1ee2558fbe2f1231a13d3eaa58fc75a831016c400dc6d25ac99c8b2406cd",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_broadcast_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_broadcast_s373_r10_c7.csv": "0125c770739cca66f18a5784130d96500c8832aac96c02e0d9343f96d47aab52",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/driver.log": "f9ed15d905ececc9f53b3348891bac29fae19d6277c7fb6be019a184e7f96976",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/logs/5_2_route.log": "589178e9b5365c9c51326c12dd11d8e6e4f7099bfafaa9d25ca22e008b2d341a",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/logs/6_report.log": "0ee761a901a724f619d6550542339784e867681d9743453dbc90dcffc0cc0a33",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/reports/6_finish.rpt": "7f8e468a0902818f815e1e2dd68a2f58edaba3bb13c3446e81e0462814a32789",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/reports/synth_stat.txt": "911af9f9f51f53c95883e41433efe728f744edbffc3aee6763d7b1443ab84a21",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_broadcast_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_broadcast_s373_r7_c10.csv": "f0058ae72547b5eaa5e0835efdc94f8f74e6a39804cb87096237c476a1d9f56a",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/driver.log": "ff832d9122eea885b5b9d688388afd75f59fac0573fc1b3237cbfcec30904886",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/logs/5_2_route.log": "18957b042341f480a4375a9cca6ce6b6c7ab35ccf9fbc4e3376c2fe54ff01e2b",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/logs/6_report.log": "baff8221fb72749bbcc626f5660e4e422c347534f2278a0f9e482d5b15d16ee9",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/reports/6_finish.rpt": "db74c7b0fdc3d51ff2b6c93d88c0eea74ca8b789de40c51cf8705872cc5580a6",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/reports/synth_stat.txt": "5c822bcb11c9f7eb016f2b0b0bda6d1b896a97424ab8e139093794001b9207f4",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_local_r10_c7.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-local-s373-r10c7/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_local_s373_r10_c7.csv": "06de230a73cdf9889697c3decbd39f15031030f1f3c82250e41ef0857fe40579",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/driver.log": "77ef6a128960b1996ca9017076382bf4dbd9c9cd5473cd418e4173f18335c528",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/logs/5_2_route.log": "dd61ddda7e054416cc9b4cc1067136f3628950ede721486970f6d9ad059dcf16",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/logs/6_report.log": "cb6d8bb93ab8d0c4e7d56814a5b18a648d0ad48c7912e9b7328b49429113dbf3",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/reports/5_route_drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/reports/6_finish.rpt": "87c6d667853775479b11bc6e34daa96a3dcb106999343189ffc40fb9f4099ba2",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/reports/synth_stat.txt": "c7bc9af009ced59dba6b13567b6ebb25e4036aa0ea5b033b33692137e353e4da",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/results/similarity_runtime_headroom_canary/flow_patch_runtime_headroom_sky130hd_local_r7_c10.json": "4b12e82a587b2d9a1acb79a6bd21a634182479495fe66dc1fdbb09298b2b8ea2",
+    "similarity-runtime-headroom-sky130hd-local-s373-r7c10/results/similarity_runtime_headroom_canary/similarity_runtime_headroom_sky130hd_local_s373_r7_c10.csv": "9b350e457a2ef98d7c97c17f77b50a89b9d4a2ef831d2827e9ed02b3bacb530c"
+  },
+  "independent_gates": {
+    "signed_gemm_on_both_shapes": true,
+    "exact_12_row_matrix": true,
+    "source_and_patch_identity": true,
+    "all_12_native_finishes": true,
+    "all_12_electrically_and_drc_clean": true,
+    "all_12_at_least_two_percent_cap_and_slew_headroom": true,
+    "all_12_final_antenna_clean": true,
+    "exact_dff_and_synthesis_area": true,
+    "official_summary_consistent": true
+  },
+  "minimum_cap_headroom_fraction": 0.0206,
+  "minimum_slew_headroom_fraction": 0.0222,
+  "headroom": [
+    {
+      "file": "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.3599,
+      "slew_fraction": 0.4583,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.1172,
+      "slew_fraction": 0.4353,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.4003,
+      "slew_fraction": 0.4641,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.3284,
+      "slew_fraction": 0.4854,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.3108,
+      "slew_fraction": 0.4712,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.3446,
+      "slew_fraction": 0.4779,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.4445,
+      "slew_fraction": 0.2106,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.3819,
+      "slew_fraction": 0.1803,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.3342,
+      "slew_fraction": 0.2333,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.3686,
+      "slew_fraction": 0.2111,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/reports/6_finish.rpt",
+      "cap_fraction": 0.0206,
+      "slew_fraction": 0.0222,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/reports/6_finish.rpt",
+      "cap_fraction": 0.4223,
+      "slew_fraction": 0.095,
+      "violation_counts": {
+        "max_slew": 0,
+        "max_fanout": 0,
+        "max_cap": 0,
+        "setup": 0,
+        "hold": 0
+      }
+    }
+  ],
+  "final_antenna_and_drc": [
+    {
+      "file": "similarity-runtime-headroom-nangate45-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/blocal/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/broadcast/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-local-s373-r10c7/build/similarity_runtime_headroom_canary/nangate45/local/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-nangate45-local-s373-r7c10/build/similarity_runtime_headroom_canary/nangate45/local/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/blocal/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/broadcast/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-local-s373-r10c7/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r10_c7/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    },
+    {
+      "file": "similarity-runtime-headroom-sky130hd-local-s373-r7c10/build/similarity_runtime_headroom_canary/sky130hd/local/s373/r7_c10/logs/5_2_route.log",
+      "net_violations": 0,
+      "pin_violations": 0,
+      "drc_violations": 0
+    }
+  ],
+  "verdict": "PASS",
+  "interpretation": "opened-data flow qualification only; not architectural confirmation, novelty evidence or a rescue of any prior null"
+}

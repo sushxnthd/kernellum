@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": 36281577690,
+  "source_sha": "8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a",
+  "artifacts": [
+    {"id": 10919489677, "name": "similarity-runtime-headroom-final-summary.zip", "size_bytes": 5331, "sha256": "8802afe0748438281a4084f1a84cc697d1fe17977c98d38e3e3da9c7cc0a623d"},
+    {"id": 10919256088, "name": "similarity-runtime-headroom-functional.zip", "size_bytes": 167351, "sha256": "6c3c095f762868ea88ba1c3c25e7acdb80c5ac31190939da75371d5a11096b18"},
+    {"id": 10919725149, "name": "similarity-runtime-headroom-nangate45-blocal-s373-r10c7.zip", "size_bytes": 39580, "sha256": "eb5eb1464c0b3fa7de1f8a2c2dc85f2520ee160608c4940b11a6d9fbbb20e812"},
+    {"id": 10919038801, "name": "similarity-runtime-headroom-nangate45-blocal-s373-r7c10.zip", "size_bytes": 39487, "sha256": "46ff7720d5b55731e8f0388a6b79701b33a79397feed51ba86a64f2472b8ce56"},
+    {"id": 10919755088, "name": "similarity-runtime-headroom-nangate45-broadcast-s373-r10c7.zip", "size_bytes": 39654, "sha256": "f19f4db2b06367de0c69bb847db9e5f66a800b6c5f76ee74c5889b07f1c2a8bc"},
+    {"id": 10918479697, "name": "similarity-runtime-headroom-nangate45-broadcast-s373-r7c10.zip", "size_bytes": 39158, "sha256": "74305103abb4899c242e4f634eef99d0fef71fee43934276fd4812ee1c0016eb"},
+    {"id": 10919735181, "name": "similarity-runtime-headroom-nangate45-local-s373-r10c7.zip", "size_bytes": 40190, "sha256": "94a695db4d902f2244da245a585619aa2278fed8b102d08ea87c6cdca49ee06c"},
+    {"id": 10919695054, "name": "similarity-runtime-headroom-nangate45-local-s373-r7c10.zip", "size_bytes": 40360, "sha256": "5c7f874f951ae0386eea3dd39b82cd1ea135b063aac463adfd441cd12b1d13df"},
+    {"id": 10919731472, "name": "similarity-runtime-headroom-sky130hd-blocal-s373-r10c7.zip", "size_bytes": 43323, "sha256": "8a6a2f6a34212068691392eeed7f2f8dc04d18d160c2f6701c43fe033dac27d7"},
+    {"id": 10919746486, "name": "similarity-runtime-headroom-sky130hd-blocal-s373-r7c10.zip", "size_bytes": 43301, "sha256": "0a9217732a874d09484922f22a3d2618ae15faa80b665b0c86c7ec6e1e900c47"},
+    {"id": 10920250933, "name": "similarity-runtime-headroom-sky130hd-broadcast-s373-r10c7.zip", "size_bytes": 42260, "sha256": "470ccc432f2a13cc2836a0520a357dfc51d4d921e980765c2311c01f8f00373d"},
+    {"id": 10919527748, "name": "similarity-runtime-headroom-sky130hd-broadcast-s373-r7c10.zip", "size_bytes": 43084, "sha256": "f178fc53d5690945158ed2f285851eef8a32d79d167802c695bfe2e40b6c55bb"},
+    {"id": 10919539510, "name": "similarity-runtime-headroom-sky130hd-local-s373-r10c7.zip", "size_bytes": 47126, "sha256": "d6d6f51094dba7ef6d198811182196e45a2edf18c6e254b2bc5635761db5b7f3"},
+    {"id": 10919821753, "name": "similarity-runtime-headroom-sky130hd-local-s373-r7c10.zip", "size_bytes": 45916, "sha256": "9d4ce50abaab7347edb0e1e29272b16b61f18490163527a66aba1ee431bab5aa"}
+  ]
+}
