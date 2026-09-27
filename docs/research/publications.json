@@ -17,8 +17,8 @@
         "23.56% mean latency improvement"
       ],
       "featured": true,
-      "href": "/kernellum/research/tr-002/",
-      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md",
+      "href": "/research/tr-002/",
+      "source": "https://github.com/sushxnthd/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md",
       "pdf": "Kernellum_TR-002.pdf",
       "subtitle": "Causal topology intervention, held-out prediction, and route-robust two-candidate selection.",
       "abstract": "Project SIMILARITY isolates operand-distribution topology under matched arithmetic fabrics, freezes a differential routed timing law on a discovery corpus, and evaluates it on unseen rectangular geometries and disjoint route seeds. A prospective two-candidate local-transport portfolio then tests whether the learned law can support route-robust architecture selection.",
@@ -43,19 +43,19 @@
       "artifacts": [
         {
           "title": "Frozen routed-law report",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/SIMILARITY_ROUTED_LAW_REPORT.md"
         },
         {
           "title": "Routed-law machine summary",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/similarity_routed_law_summary.json"
+          "url": "https://github.com/sushxnthd/blob/main/results/similarity_routed_law_summary.json"
         },
         {
           "title": "Portfolio confirmation report",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
         },
         {
           "title": "Portfolio machine summary",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/similarity_portfolio_summary.json"
+          "url": "https://github.com/sushxnthd/blob/main/results/similarity_portfolio_summary.json"
         }
       ]
     },
@@ -76,8 +76,8 @@
         "12 / 12 workloads improved"
       ],
       "featured": true,
-      "href": "/kernellum/research/tr-003/",
-      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md",
+      "href": "/research/tr-003/",
+      "source": "https://github.com/sushxnthd/blob/main/docs/K1_CLOSED_LOOP_REPORT.md",
       "pdf": "Kernellum_TR-003.pdf",
       "subtitle": "Using routed observations to improve workload-specific accelerator choices under a fixed implementation budget.",
       "abstract": "K1 tests whether a small set of final-route observations can guide where physical-design budget is spent next. Starting from nine routed designs in a 172-architecture pool, four active acquisitions are compared with an equal-budget random arm. The selection objective is workload latency, not standalone frequency.",
@@ -102,19 +102,19 @@
       "artifacts": [
         {
           "title": "K1 closed-loop report",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
         },
         {
           "title": "Closed-loop proposals",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_proposals.json"
+          "url": "https://github.com/sushxnthd/blob/main/results/k1_closed_loop_proposals.json"
         },
         {
           "title": "Closed-loop routes",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_routes.csv"
+          "url": "https://github.com/sushxnthd/blob/main/results/k1_closed_loop_routes.csv"
         },
         {
           "title": "Validation record",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/results/k1_closed_loop_validation.json"
+          "url": "https://github.com/sushxnthd/blob/main/results/k1_closed_loop_validation.json"
         }
       ]
     },
@@ -135,8 +135,8 @@
         "12 / 12 active-search improvements"
       ],
       "featured": false,
-      "href": "/kernellum/research/tr-001/",
-      "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md",
+      "href": "/research/tr-001/",
+      "source": "https://github.com/sushxnthd/blob/main/docs/EXPERIMENT_LEDGER.md",
       "pdf": "Kernellum_TR-001.pdf",
       "subtitle": "From quantized models to routed architecture search and board-ready validation.",
       "abstract": "Kernellum couples deterministic model-to-RTL generation with analytical search, synthesis calibration, final-route measurement, bounded physical feedback, and a board-validation handoff. The report organizes those layers as one evidence ladder so architecture decisions can be tested against progressively stronger implementation evidence.",
@@ -161,19 +161,19 @@
       "artifacts": [
         {
           "title": "Experiment ledger",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/EXPERIMENT_LEDGER.md"
         },
         {
           "title": "K1 final-route correction",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/K1_FINAL_ROUTE_CORRECTION_REPORT.md"
         },
         {
           "title": "K1 closed-loop record",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
         },
         {
           "title": "K2 board-ready record",
-          "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K2_BOARD_READY_REPORT.md"
+          "url": "https://github.com/sushxnthd/blob/main/docs/K2_BOARD_READY_REPORT.md"
         }
       ]
     }
@@ -193,8 +193,8 @@
       "Research review path",
       "K2 handoff record"
     ],
-    "href": "/kernellum/research/evidence/",
-    "source": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md",
+    "href": "/research/evidence/",
+    "source": "https://github.com/sushxnthd/blob/main/docs/EXPERIMENT_LEDGER.md",
     "slug": "evidence",
     "pdf": "Kernellum_Evidence_Dossier.pdf",
     "subtitle": "A claim-to-artifact record for the compiler, routed search, Project SIMILARITY, and K2 evidence.",
@@ -220,19 +220,19 @@
     "artifacts": [
       {
         "title": "Experiment index",
-        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/EXPERIMENT_LEDGER.md"
+        "url": "https://github.com/sushxnthd/blob/main/docs/EXPERIMENT_LEDGER.md"
       },
       {
         "title": "K1 closed-loop report",
-        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
+        "url": "https://github.com/sushxnthd/blob/main/docs/K1_CLOSED_LOOP_REPORT.md"
       },
       {
         "title": "SIMILARITY portfolio record",
-        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
+        "url": "https://github.com/sushxnthd/blob/main/docs/SIMILARITY_PORTFOLIO_CONFIRMATION_REPORT.md"
       },
       {
         "title": "K2 board-ready record",
-        "url": "https://github.com/sushxnthd/kernellum/blob/main/docs/K2_BOARD_READY_REPORT.md"
+        "url": "https://github.com/sushxnthd/blob/main/docs/K2_BOARD_READY_REPORT.md"
       }
     ]
   }
