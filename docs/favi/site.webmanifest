@@ -3,12 +3,12 @@
   "short_name": "Kernellum",
   "icons": [
     {
-      "src": "/kernellum/favi/favicon-32x32.png",
+      "src": "/favi/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/kernellum/favi/apple-touch-icon.png",
+      "src": "/favi/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     }
