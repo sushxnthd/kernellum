@@ -1,0 +1,25 @@
+{
+  "run_id": 36298460695,
+  "job_id": 108561612651,
+  "job_name": "route (sky130hd, blocal, 421, discovery, 11, 6)",
+  "job_conclusion": "failure",
+  "steps": [
+    {"number": 1, "name": "Set up job", "status": "completed", "conclusion": "success"},
+    {"number": 2, "name": "Run actions/checkout@v7", "status": "completed", "conclusion": "success"},
+    {"number": 3, "name": "Run actions/setup-python@v7", "status": "completed", "conclusion": "success"},
+    {"number": 4, "name": "Prepare pinned OpenROAD flow", "status": "completed", "conclusion": "success"},
+    {"number": 5, "name": "Apply frozen repairs and route one unopened shard", "status": "in_progress", "conclusion": null},
+    {"number": 6, "name": "Run actions/upload-artifact@v4", "status": "pending", "conclusion": null},
+    {"number": 11, "name": "Post Run actions/setup-python@v7", "status": "pending", "conclusion": null},
+    {"number": 12, "name": "Post Run actions/checkout@v7", "status": "pending", "conclusion": null}
+  ],
+  "artifact_published": false,
+  "log_retrieval": {
+    "status": "failed",
+    "http_status": 404,
+    "github_error_code": "NOT_FOUND",
+    "service_error_code": "BlobNotFound",
+    "retrieved_at_utc": "2026-09-27T09:53:55Z"
+  },
+  "interpretation": "The job ended while its route step remained in progress and before artifact upload. The unavailable log prevents a more specific causal diagnosis. This is an evidence-completeness failure, not a proven electrical failure."
+}
