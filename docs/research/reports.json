@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "reports": [
+    {
+      "id": "TR-002",
+      "type": "Technical Report",
+      "date": "21 SEP 2026",
+      "dateISO": "2026-09-21",
+      "title": "Project SIMILARITY: Learning Routed Timing Laws for Architecture Search",
+      "summary": "A causal study of operand-distribution topology as a routed timing variable, with held-out prediction and prospective two-candidate deployment.",
+      "result": "96 / 96 corrected routes · 0.3039 ns held-out MAE · 36 / 36 unseen cases",
+      "pdf": "reports/Kernellum_TR-002.pdf",
+      "published": true
+    },
+    {
+      "id": "TR-003",
+      "type": "Technical Report",
+      "date": "20 SEP 2026",
+      "dateISO": "2026-09-20",
+      "title": "Closed-Loop Physical-Design Search",
+      "summary": "A fixed-budget search loop that uses routed observations to choose which accelerator designs to implement next.",
+      "result": "8 / 8 new routes · 6.475% Fmax MAPE · 12 / 12 workloads improved",
+      "pdf": "reports/Kernellum_TR-003.pdf",
+      "published": true
+    },
+    {
+      "id": "TR-001",
+      "type": "Technical Report",
+      "date": "17 SEP 2026",
+      "dateISO": "2026-09-17",
+      "title": "Kernellum Compiler and Physical-Evidence Pipeline",
+      "summary": "An evidence-aware compiler pipeline from quantized models and generated RTL through synthesis, final-route measurement, and the K2 board handoff.",
+      "result": "96.44% INT8 accuracy · 450 / 450 cycle-model matches · 0.9441 routed rank ρ",
+      "pdf": "reports/Kernellum_TR-001.pdf",
+      "published": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-001",
+      "type": "Evidence Dossier",
+      "date": "21 SEP 2026",
+      "dateISO": "2026-09-21",
+      "title": "Evidence & Reproducibility",
+      "summary": "A claim-to-artifact record connecting the technical reports, machine-readable evidence, implementation records, and K2 validation handoff.",
+      "result": "Claim → report → artifact → next evidence layer",
+      "pdf": "reports/Kernellum_Evidence_Dossier.pdf",
+      "published": true
+    }
+  ]
+}
