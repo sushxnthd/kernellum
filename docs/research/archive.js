@@ -5,12 +5,7 @@
   const esc = (v) => String(v).replace(/[&<>"']/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const metric = (m) => '<span class="krn-metric">'+esc(m)+'</span>';
   const link = (href,label,primary,external) => '<a class="krn-archive-link'+(primary?' primary':'')+'" href="'+esc(href)+'"'+(external?' target="_blank" rel="noopener noreferrer"':'')+'>'+esc(label)+' <span aria-hidden="true">↗</span></a>';
-  function isResearchRoute(){
-    const path = location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
-    return path === "/kernellum/research/";
-  }
   function render(){
-    if (!isResearchRoute()) return;
     if (document.getElementById("research-publications")) return;
     const main = document.querySelector("main");
     if (!main) return;
@@ -47,18 +42,6 @@
     section.innerHTML = html;
     if (nextSection) main.insertBefore(section,nextSection); else main.appendChild(section);
   }
-  window.KernellumRenderResearchArchive = render;
-  let routeQueued = false;
-  const routeObserver = new MutationObserver(() => {
-    if (routeQueued || !isResearchRoute()) return;
-    routeQueued = true;
-    requestAnimationFrame(() => {
-      routeQueued = false;
-      render();
-    });
-  });
-  routeObserver.observe(document.documentElement,{childList:true,subtree:true});
-  window.addEventListener("popstate",render);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(render,0),{once:true});
   else setTimeout(render,0);
   window.addEventListener("pageshow",render,{once:true});
