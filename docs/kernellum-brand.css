@@ -1,7 +1,7 @@
-@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:500;src:url("/kernellum/fonts/mschn/mschn-medium.woff2?v=3") format("woff2")}
-@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:600;src:url("/kernellum/fonts/mschn/mschn-semibold.woff2?v=3") format("woff2")}
-@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:450;src:url("/kernellum/fonts/suisse/suisse-book.woff2?v=3") format("woff2")}
-@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:500;src:url("/kernellum/fonts/suisse/suisse-medium.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:500;src:url("/fonts/mschn/mschn-medium.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:MSCHN;font-style:normal;font-weight:600;src:url("/fonts/mschn/mschn-semibold.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:450;src:url("/fonts/suisse/suisse-book.woff2?v=3") format("woff2")}
+@font-face{font-display:swap;font-family:"Suisse Int'l";font-style:normal;font-weight:500;src:url("/fonts/suisse/suisse-medium.woff2?v=3") format("woff2")}
 
 /* Kernellum identity: mineral green, graphite, precise contrast.
    This file loads after the generated Nuxt CSS and intentionally owns brand tokens. */

@@ -1,18 +1,18 @@
 (() => {
-  const A = n => n === 1 ? "/kernellum/kernellum-replacements/01-hero-v2.webp" : `/kernellum/kernellum-replacements/${String(n).padStart(2, "0")}.png`;
+  const A = n => n === 1 ? "/kernellum-replacements/01-hero-v2.webp" : `/kernellum-replacements/${String(n).padStart(2, "0")}.png`;
 
   // Every raster/image slot on every page is assigned to the new Kernellum set.
   // No legacy Boon image, earlier Kernellum placeholder, or responsive derivative
   // is allowed to survive hydration.
   const pageAssets = {
-    "/kernellum/":                 [1,2,3,4,5,6,7,8,9],
-    "/kernellum/architecture/":      [10,11,12,5,6,7,8,9],
-    "/kernellum/research/":      [1,3,4,9],
-    "/kernellum/contribute/":         [11,2,6,9],
-    "/kernellum/collaborate/":         [5,6,7,8,9],
-    "/kernellum/insights/":        [9],
-    "/kernellum/legal/privacy-policy/": [9],
-    "/kernellum/legal/terms-of-use/":   [9]
+    "/":                 [1,2,3,4,5,6,7,8,9],
+    "/architecture/":      [10,11,12,5,6,7,8,9],
+    "/research/":      [1,3,4,9],
+    "/contribute/":         [11,2,6,9],
+    "/collaborate/":         [5,6,7,8,9],
+    "/insights/":        [9],
+    "/legal/privacy-policy/": [9],
+    "/legal/terms-of-use/":   [9]
   };
 
   function pathKey() {
