@@ -108,7 +108,7 @@ jobs:
           retention-days: 90
 
   route:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze opened-data runtime/headroom flow canary')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a' && startsWith(github.event.head_commit.message, 'Freeze opened-data runtime/headroom flow canary')
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 360
@@ -157,7 +157,7 @@ jobs:
           retention-days: 90
 
   validate:
-    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Freeze opened-data runtime/headroom flow canary')
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.sha == '8eb81e96eb1a33ed7f5e0759dece9b365fb52a5a' && startsWith(github.event.head_commit.message, 'Freeze opened-data runtime/headroom flow canary')
     needs: [preflight, route]
     runs-on: ubuntu-24.04
     steps:
