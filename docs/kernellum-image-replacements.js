@@ -19,41 +19,6 @@
     return location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
   }
 
-  function ensureResearchArchive() {
-    if (pathKey() !== "/kernellum/research/") return;
-
-    if (!document.querySelector('link[href="/kernellum/research/archive.css"]')) {
-      const css = document.createElement("link");
-      css.rel = "stylesheet";
-      css.href = "/kernellum/research/archive.css";
-      css.dataset.krnResearchArchive = "style";
-      document.head.appendChild(css);
-    }
-
-    const run = () => {
-      if (typeof window.KernellumRenderResearchArchive === "function") {
-        window.KernellumRenderResearchArchive();
-        return;
-      }
-      if (document.querySelector('script[src="/kernellum/research/archive.js"]')) return;
-      const script = document.createElement("script");
-      script.src = "/kernellum/research/archive.js";
-      script.dataset.krnResearchArchive = "runtime";
-      document.body.appendChild(script);
-    };
-
-    if (window.KernellumResearchArchive) {
-      run();
-      return;
-    }
-
-    if (document.querySelector('script[src="/kernellum/research/archive-data.js"]')) return;
-    const data = document.createElement("script");
-    data.src = "/kernellum/research/archive-data.js";
-    data.dataset.krnResearchArchive = "data";
-    data.addEventListener("load", run, { once: true });
-    document.body.appendChild(data);
-  }
 
   function fixKernellumLinks() {
     document.querySelectorAll("a").forEach(link => {
@@ -101,7 +66,6 @@
   replaceAllImages();
   removeResearchRepositoryHoverImage();
   fixKernellumLinks();
-  ensureResearchArchive();
 
   let queued = false;
   const observer = new MutationObserver(() => {
@@ -112,12 +76,8 @@
       replaceAllImages();
       removeResearchRepositoryHoverImage();
       fixKernellumLinks();
-      ensureResearchArchive();
     });
   });
-
-  window.addEventListener("popstate", ensureResearchArchive);
-  window.addEventListener("pageshow", ensureResearchArchive);
 
   observer.observe(document.documentElement, {
     subtree: true,
