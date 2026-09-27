@@ -169,7 +169,12 @@ def docker_command(
     return command
 
 
-def run_stage(command: list[str], log: Path, label: str) -> int:
+def run_stage(
+    command: list[str],
+    log: Path,
+    label: str,
+    timeout_seconds: int = 3600,
+) -> int:
     started = time.time()
     try:
         completed = subprocess.run(
@@ -178,7 +183,7 @@ def run_stage(command: list[str], log: Path, label: str) -> int:
             text=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            timeout=3600,
+            timeout=timeout_seconds,
             check=False,
         )
         output = completed.stdout
@@ -229,6 +234,7 @@ def route_one(
     flow_root: Path,
     qemu: Path,
     config_path: str | None = None,
+    stage_timeout_seconds: int = 3600,
 ) -> dict[str, object]:
     started = time.time()
     design = f"similarity_asic_transfer_{topology}"
@@ -260,7 +266,12 @@ def route_one(
         f"make {common} clean_all && make {common} route && make {common} do-6_1_fill && "
         f"cp {result_dir}/5_route.sdc {result_dir}/6_1_fill.sdc"
     )
-    if run_stage(docker_command(ROOT, flow_root, native), run_log, "native route and fill") != 0:
+    if run_stage(
+        docker_command(ROOT, flow_root, native),
+        run_log,
+        "native route and fill",
+        stage_timeout_seconds,
+    ) != 0:
         row["error_stage"] = "native_route"
         copy_evidence(flow_root, platform, design, shard)
         row["elapsed_sec"] = time.time() - started
@@ -270,13 +281,23 @@ def route_one(
         "/work/scripts/openroad_qemu_wrapper.sh -version && "
         f"make {common} OPENROAD_EXE=/work/scripts/openroad_qemu_wrapper.sh do-6_report"
     )
-    if run_stage(docker_command(ROOT, flow_root, emulated, qemu), run_log, "emulated final report") != 0:
+    if run_stage(
+        docker_command(ROOT, flow_root, emulated, qemu),
+        run_log,
+        "emulated final report",
+        stage_timeout_seconds,
+    ) != 0:
         row["error_stage"] = "final_report"
         copy_evidence(flow_root, platform, design, shard)
         row["elapsed_sec"] = time.time() - started
         return row
 
-    if run_stage(docker_command(ROOT, flow_root, f"make {common} finish"), run_log, "native finish") != 0:
+    if run_stage(
+        docker_command(ROOT, flow_root, f"make {common} finish"),
+        run_log,
+        "native finish",
+        stage_timeout_seconds,
+    ) != 0:
         row["error_stage"] = "native_finish"
         copy_evidence(flow_root, platform, design, shard)
         row["elapsed_sec"] = time.time() - started
