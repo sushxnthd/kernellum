@@ -1,0 +1,602 @@
+{
+  "schema_version": "0.1.0",
+  "evidence_kind": "descriptive_existing_route_review",
+  "boundary": "K1 INT8 GEMM model only. Latency = modeled kernel cycles / supplied final-route Fmax. Resource counts are synthesis counts. No board timing, host I/O, model inference, power, new routing, functional verification, or customer savings were measured. Input labels are checked, but raw tool reports and RTL equivalence are not independently verified. Comparisons are descriptive over the supplied observations, not held-out validation.",
+  "workload": {
+    "m": 128,
+    "n": 1200,
+    "k": 312,
+    "precision": "signed INT8"
+  },
+  "limits": {
+    "dsp": 120,
+    "bram": 6,
+    "lut4": 10000,
+    "ff": 10000
+  },
+  "min_observations": 1,
+  "sources": [
+    {
+      "file": "k1_routes.csv",
+      "sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2"
+    },
+    {
+      "file": "k1_closed_loop_routes.csv",
+      "sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc"
+    }
+  ],
+  "candidate_count": 17,
+  "eligible_count": 17,
+  "status": "comparison_available",
+  "baseline": "r08_c08_k32",
+  "baseline_eligible": true,
+  "best_supplied_candidate": "r10_c12_k32",
+  "latency_reduction_vs_baseline_pct": 40.844196368061304,
+  "ranking": [
+    {
+      "name": "r10_c12_k32",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 45.36793518066406,
+      "modeled_cycles": 852800,
+      "worst_observed_latency_ms": 18.79741708772908,
+      "peak_synthesis_resources": {
+        "dsp": 120,
+        "bram": 6,
+        "lut4": 294,
+        "ff": 3982
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 3,
+          "seed": null,
+          "fmax_mhz": 45.36793518066406,
+          "resources": {
+            "dsp": 120,
+            "bram": 6,
+            "lut4": 294,
+            "ff": 3982
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r12_c10_k64",
+      "rows": 12,
+      "cols": 10,
+      "k_tile": 64,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 44.79684829711914,
+      "modeled_cycles": 846120,
+      "worst_observed_latency_ms": 18.88793591879573,
+      "peak_synthesis_resources": {
+        "dsp": 120,
+        "bram": 6,
+        "lut4": 301,
+        "ff": 4035
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 4,
+          "seed": null,
+          "fmax_mhz": 44.79684829711914,
+          "resources": {
+            "dsp": 120,
+            "bram": 6,
+            "lut4": 301,
+            "ff": 4035
+          }
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "name": "r08_c14_k64",
+      "rows": 8,
+      "cols": 14,
+      "k_tile": 64,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 45.770782470703125,
+      "modeled_cycles": 882016,
+      "worst_observed_latency_ms": 19.27028450004234,
+      "peak_synthesis_resources": {
+        "dsp": 112,
+        "bram": 6,
+        "lut4": 301,
+        "ff": 3780
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 5,
+          "seed": null,
+          "fmax_mhz": 45.770782470703125,
+          "resources": {
+            "dsp": 112,
+            "bram": 6,
+            "lut4": 301,
+            "ff": 3780
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r10_c12_k64",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 64,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 41.95158767700195,
+      "modeled_cycles": 833300,
+      "worst_observed_latency_ms": 19.863372190245347,
+      "peak_synthesis_resources": {
+        "dsp": 120,
+        "bram": 6,
+        "lut4": 301,
+        "ff": 4036
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 2,
+          "seed": null,
+          "fmax_mhz": 41.95158767700195,
+          "resources": {
+            "dsp": 120,
+            "bram": 6,
+            "lut4": 301,
+            "ff": 4036
+          }
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "name": "r10_c10_k32",
+      "rows": 10,
+      "cols": 10,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 47.38438034057617,
+      "modeled_cycles": 1023360,
+      "worst_observed_latency_ms": 21.596990245405337,
+      "peak_synthesis_resources": {
+        "dsp": 100,
+        "bram": 6,
+        "lut4": 278,
+        "ff": 3336
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 10,
+          "seed": null,
+          "fmax_mhz": 47.38438034057617,
+          "resources": {
+            "dsp": 100,
+            "bram": 6,
+            "lut4": 278,
+            "ff": 3336
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r08_c12_k32",
+      "rows": 8,
+      "cols": 12,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 46.57011413574219,
+      "modeled_cycles": 1049600,
+      "worst_observed_latency_ms": 22.538059428856766,
+      "peak_synthesis_resources": {
+        "dsp": 96,
+        "bram": 5,
+        "lut4": 278,
+        "ff": 3203
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 8,
+          "seed": null,
+          "fmax_mhz": 46.57011413574219,
+          "resources": {
+            "dsp": 96,
+            "bram": 5,
+            "lut4": 278,
+            "ff": 3203
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r12_c08_k32",
+      "rows": 12,
+      "cols": 8,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 46.236358642578125,
+      "modeled_cycles": 1082400,
+      "worst_observed_latency_ms": 23.4101480258707,
+      "peak_synthesis_resources": {
+        "dsp": 96,
+        "bram": 5,
+        "lut4": 281,
+        "ff": 3217
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 9,
+          "seed": null,
+          "fmax_mhz": 46.236358642578125,
+          "resources": {
+            "dsp": 96,
+            "bram": 5,
+            "lut4": 281,
+            "ff": 3217
+          }
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "name": "r08_c08_k32",
+      "rows": 8,
+      "cols": 8,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 49.54664611816406,
+      "modeled_cycles": 1574400,
+      "worst_observed_latency_ms": 31.776116515438904,
+      "peak_synthesis_resources": {
+        "dsp": 64,
+        "bram": 4,
+        "lut4": 246,
+        "ff": 2173
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 6,
+          "seed": null,
+          "fmax_mhz": 49.54664611816406,
+          "resources": {
+            "dsp": 64,
+            "bram": 4,
+            "lut4": 246,
+            "ff": 2173
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r08_c08_k16",
+      "rows": 8,
+      "cols": 8,
+      "k_tile": 16,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 49.704261779785156,
+      "modeled_cycles": 1646400,
+      "worst_observed_latency_ms": 33.123920184035306,
+      "peak_synthesis_resources": {
+        "dsp": 64,
+        "bram": 4,
+        "lut4": 243,
+        "ff": 2152
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 5,
+          "seed": null,
+          "fmax_mhz": 49.704261779785156,
+          "resources": {
+            "dsp": 64,
+            "bram": 4,
+            "lut4": 243,
+            "ff": 2152
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r08_c08_k64",
+      "rows": 8,
+      "cols": 8,
+      "k_tile": 64,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 45.82951354980469,
+      "modeled_cycles": 1538400,
+      "worst_observed_latency_ms": 33.56788848147301,
+      "peak_synthesis_resources": {
+        "dsp": 64,
+        "bram": 4,
+        "lut4": 253,
+        "ff": 2206
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 7,
+          "seed": null,
+          "fmax_mhz": 45.82951354980469,
+          "resources": {
+            "dsp": 64,
+            "bram": 4,
+            "lut4": 253,
+            "ff": 2206
+          }
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "name": "r08_c06_k08",
+      "rows": 8,
+      "cols": 6,
+      "k_tile": 8,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 53.42451095581055,
+      "modeled_cycles": 2377600,
+      "worst_observed_latency_ms": 44.50391697486204,
+      "peak_synthesis_resources": {
+        "dsp": 48,
+        "bram": 4,
+        "lut4": 198,
+        "ff": 1608
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 7,
+          "seed": null,
+          "fmax_mhz": 53.42451095581055,
+          "resources": {
+            "dsp": 48,
+            "bram": 4,
+            "lut4": 198,
+            "ff": 1608
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r04_c08_k32",
+      "rows": 4,
+      "cols": 8,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 54.05990219116211,
+      "modeled_cycles": 3148800,
+      "worst_observed_latency_ms": 58.24649828010189,
+      "peak_synthesis_resources": {
+        "dsp": 32,
+        "bram": 3,
+        "lut4": 211,
+        "ff": 1129
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 3,
+          "seed": null,
+          "fmax_mhz": 54.05990219116211,
+          "resources": {
+            "dsp": 32,
+            "bram": 3,
+            "lut4": 211,
+            "ff": 1129
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r08_c04_k32",
+      "rows": 8,
+      "cols": 4,
+      "k_tile": 32,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 53.21696472167969,
+      "modeled_cycles": 3148800,
+      "worst_observed_latency_ms": 59.16910174167134,
+      "peak_synthesis_resources": {
+        "dsp": 32,
+        "bram": 3,
+        "lut4": 214,
+        "ff": 1138
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 4,
+          "seed": null,
+          "fmax_mhz": 53.21696472167969,
+          "resources": {
+            "dsp": 32,
+            "bram": 3,
+            "lut4": 214,
+            "ff": 1138
+          }
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "name": "r08_c04_k08",
+      "rows": 8,
+      "cols": 4,
+      "k_tile": 8,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 53.9840202331543,
+      "modeled_cycles": 3566400,
+      "worst_observed_latency_ms": 66.0639942078581,
+      "peak_synthesis_resources": {
+        "dsp": 32,
+        "bram": 3,
+        "lut4": 182,
+        "ff": 1096
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 9,
+          "seed": null,
+          "fmax_mhz": 53.9840202331543,
+          "resources": {
+            "dsp": 32,
+            "bram": 3,
+            "lut4": 182,
+            "ff": 1096
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r02_c14_k16",
+      "rows": 2,
+      "cols": 14,
+      "k_tile": 16,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 54.4810676574707,
+      "modeled_cycles": 3775744,
+      "worst_observed_latency_ms": 69.30378133810768,
+      "peak_synthesis_resources": {
+        "dsp": 28,
+        "bram": 5,
+        "lut4": 229,
+        "ff": 1004
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 6,
+          "seed": null,
+          "fmax_mhz": 54.4810676574707,
+          "resources": {
+            "dsp": 28,
+            "bram": 5,
+            "lut4": 229,
+            "ff": 1004
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r04_c06_k08",
+      "rows": 4,
+      "cols": 6,
+      "k_tile": 8,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 55.3342170715332,
+      "modeled_cycles": 4755200,
+      "worst_observed_latency_ms": 85.93597689929767,
+      "peak_synthesis_resources": {
+        "dsp": 24,
+        "bram": 3,
+        "lut4": 160,
+        "ff": 834
+      },
+      "evidence": [
+        {
+          "file": "k1_closed_loop_routes.csv",
+          "source_sha256": "c1cc789368263fc242a61d271fba28f83de824bc987e404d547c374a557c4fbc",
+          "line": 8,
+          "seed": null,
+          "fmax_mhz": 55.3342170715332,
+          "resources": {
+            "dsp": 24,
+            "bram": 3,
+            "lut4": 160,
+            "ff": 834
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r04_c04_k16",
+      "rows": 4,
+      "cols": 4,
+      "k_tile": 16,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 52.963294982910156,
+      "modeled_cycles": 6585600,
+      "worst_observed_latency_ms": 124.34271701043143,
+      "peak_synthesis_resources": {
+        "dsp": 16,
+        "bram": 2,
+        "lut4": 175,
+        "ff": 597
+      },
+      "evidence": [
+        {
+          "file": "k1_routes.csv",
+          "source_sha256": "e67066c2073edfc2c8cda0c78cc6eddb261a33c0752d58921d9cfb200bdb62c2",
+          "line": 2,
+          "seed": null,
+          "fmax_mhz": 52.963294982910156,
+          "resources": {
+            "dsp": 16,
+            "bram": 2,
+            "lut4": 175,
+            "ff": 597
+          }
+        }
+      ],
+      "pareto": true
+    }
+  ],
+  "rejected": [],
+  "row_errors": [],
+  "aggregation": "minimum observed Fmax and maximum resource counts per candidate; any invalid row rejects its candidate",
+  "sampling_note": "Seed sets and observation counts may differ. Worst observed is not a statistical guarantee or paired comparison."
+}

@@ -1,6 +1,25 @@
 # Kernellum
 
-**AI-native computer architecture research for workload-specific accelerator synthesis with physical-design feedback.**
+**An independent AI research lab building systems that can reason, investigate, and discover.**
+
+Kernellum's research programs are Machine Reasoning, Scientific Discovery,
+AI Systems & Architecture, and Evaluation & Reliability. The accelerator work
+below is the current concrete implementation within AI Systems & Architecture.
+
+### Try the first engineering preview
+
+[Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for
+your GEMM dimensions and resource limits. It produces a ranked report with
+exclusion reasons and source hashes, offline and without an API key.
+It reviews existing evidence; customer adoption and time savings are unvalidated.
+The [customer validation sprint](docs/YC_EXECUTION_SPRINT.md) defines the next
+commercial tests and a source-grounded application draft.
+
+**Latest research decision:** the 27 September B-local audit closed that
+intervention as a negative result. See the
+[closure audit](docs/SIMILARITY_BLOCAL_NOVELTY_SCREEN.md) and
+[final prospective report](docs/SIMILARITY_BLOCAL_FLOWQUALIFIED_REPORT.md).
+The earlier bounded K1 results below do not overturn that decision.
 
 Kernellum is currently a research-first system, not a production EDA product. The core question is whether an automated search can choose hardware architectures for AI workloads whose predicted advantages survive synthesis, place-and-route, and eventually physical measurement.
 
