@@ -1,0 +1,177 @@
+{
+  "run_id": 36442925007,
+  "artifacts": [
+    {
+      "id": 10979700067,
+      "name": "pilot-routes-s1109-shard3",
+      "size_in_bytes": 1238590,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979700067",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979700067/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:26:04Z",
+      "expires_at": "2026-10-28T15:26:02Z",
+      "updated_at": "2026-09-28T15:26:04Z",
+      "digest": "sha256:b47902ce6c47790cbd11bffa437b52b8739921a8ddf844c5c3d56024e5eb989c",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10979438614,
+      "name": "pilot-routes-s1109-shard0",
+      "size_in_bytes": 1226850,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979438614",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979438614/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:25:30Z",
+      "expires_at": "2026-10-28T15:25:30Z",
+      "updated_at": "2026-09-28T15:25:30Z",
+      "digest": "sha256:d6da0c9660752074c3aa8b26f0c42573ab20daec9c843d88d8f8e9049cac58df",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10979433095,
+      "name": "pilot-routes-s1103-shard2",
+      "size_in_bytes": 1241616,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979433095",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979433095/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:23:20Z",
+      "expires_at": "2026-10-28T15:23:18Z",
+      "updated_at": "2026-09-28T15:23:20Z",
+      "digest": "sha256:aa2753dd2fd069302f466de675cbdc7b4c2b8f80d909ca9ff16a2eba4dbf89a2",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10979403450,
+      "name": "pilot-routes-s1109-shard1",
+      "size_in_bytes": 1224807,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979403450",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979403450/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:25:08Z",
+      "expires_at": "2026-10-28T15:25:07Z",
+      "updated_at": "2026-09-28T15:25:08Z",
+      "digest": "sha256:9db984d5807120492d4604c08263fbc566fc5f6954b8fe85980fa66d14acd508",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10979373815,
+      "name": "pilot-search-summary",
+      "size_in_bytes": 1413,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979373815",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979373815/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:26:17Z",
+      "expires_at": "2026-10-28T15:26:16Z",
+      "updated_at": "2026-09-28T15:26:17Z",
+      "digest": "sha256:944c33bbbe9791d57a6b132d3d08f92697544e156703720924b5ae9d5c654ef9",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10979233418,
+      "name": "pilot-routes-s1103-shard3",
+      "size_in_bytes": 1245909,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979233418",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10979233418/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:23:35Z",
+      "expires_at": "2026-10-28T15:23:33Z",
+      "updated_at": "2026-09-28T15:23:35Z",
+      "digest": "sha256:2464ea7c45efb607f860fa135fc17301c48455bbdc3c8891950df06af632af1b",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10978514869,
+      "name": "pilot-routes-s1109-shard2",
+      "size_in_bytes": 1242666,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978514869",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978514869/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:25:45Z",
+      "expires_at": "2026-10-28T15:25:44Z",
+      "updated_at": "2026-09-28T15:25:45Z",
+      "digest": "sha256:6a9544fdd735ca5fb2c357ae5de113944fb2d3bdd9d1102bd666faecd828933d",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10978444474,
+      "name": "pilot-routes-s1103-shard0",
+      "size_in_bytes": 1233294,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978444474",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978444474/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:23:38Z",
+      "expires_at": "2026-10-28T15:23:36Z",
+      "updated_at": "2026-09-28T15:23:38Z",
+      "digest": "sha256:b43fbf3f67876edb3dcd2b0802c5550867ab10b8f5a6a533ec35722debb087bd",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    },
+    {
+      "id": 10978264569,
+      "name": "pilot-routes-s1103-shard1",
+      "size_in_bytes": 1231387,
+      "url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978264569",
+      "archive_download_url": "https://api.github.com/repos/sushxnthd/kernellum/actions/artifacts/10978264569/zip",
+      "expired": false,
+      "created_at": "2026-09-28T15:23:24Z",
+      "expires_at": "2026-10-28T15:23:23Z",
+      "updated_at": "2026-09-28T15:23:24Z",
+      "digest": "sha256:d92d84d8258494576a83bdee29bb1439a6c26150e4454fd6f7172a8f22b5bfb9",
+      "workflow_run": {
+        "id": 36442925007,
+        "repository_id": 1374602308,
+        "head_repository_id": 1374602308,
+        "head_branch": "feat/workload-routing-benchmark",
+        "head_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+      }
+    }
+  ],
+  "source_sha": "9f02b571f34a1b5aa004034fc50de70adc9e5243"
+}

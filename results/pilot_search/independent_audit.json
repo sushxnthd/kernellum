@@ -1,0 +1,23 @@
+{
+  "audit_passed": true,
+  "archives": 9,
+  "routes": 16,
+  "hashed_files_checked": 208,
+  "policy_traces_reproduced": 18,
+  "mean_gain_pct": {
+    "analytic": -1.2647363357688308,
+    "static": -0.41638618921046033,
+    "random": 6.25412433504912
+  },
+  "mean_adaptive_regret_pct": 1.2647363357688308,
+  "analytic_oracle_hits": 6,
+  "adaptive_oracle_hits": 4,
+  "flags": {
+    "mean_regret": true,
+    "gain_vs_analytic": false,
+    "gain_vs_static": false,
+    "gain_vs_random": true,
+    "never_worse_than_analytic": false
+  },
+  "claim_supported": false
+}

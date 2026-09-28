@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1.0",
+  "evidence_kind": "descriptive_existing_route_review",
+  "boundary": "RECORDED REPLAY: no new route was executed. Archived functional, synthesis and routing records were used. K1 INT8 GEMM only. Latency is modeled kernel cycles divided by final routed Fmax. Resources are synthesis counts. No board latency, host I/O, full-model inference, power or customer savings were measured. The baseline is the first selected candidate. This comparison does not establish superiority over other selection policies.",
+  "workload": {
+    "m": 192,
+    "n": 768,
+    "k": 768,
+    "precision": "signed INT8"
+  },
+  "limits": {
+    "dsp": 120,
+    "bram": 8,
+    "lut4": 20000,
+    "ff": 20000
+  },
+  "min_observations": 1,
+  "sources": [
+    {
+      "file": "selected_routes.csv",
+      "sha256": "4934e137f91f95c5778fc5c375da69269327f30766cd7bd514048a551f651750"
+    }
+  ],
+  "candidate_count": 2,
+  "eligible_count": 2,
+  "status": "comparison_available",
+  "baseline": "r12_c10_k128",
+  "baseline_eligible": true,
+  "best_supplied_candidate": "r10_c12_k128",
+  "latency_reduction_vs_baseline_pct": 5.877764661298112,
+  "ranking": [
+    {
+      "name": "r10_c12_k128",
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 128,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 47.61224365234375,
+      "modeled_cycles": 1991680,
+      "worst_observed_latency_ms": 41.83125698807429,
+      "peak_synthesis_resources": {
+        "dsp": 120,
+        "bram": 6,
+        "lut4": 309,
+        "ff": 4049
+      },
+      "evidence": [
+        {
+          "file": "selected_routes.csv",
+          "source_sha256": "4934e137f91f95c5778fc5c375da69269327f30766cd7bd514048a551f651750",
+          "line": 3,
+          "seed": "1109",
+          "fmax_mhz": 47.61224365234375,
+          "resources": {
+            "dsp": 120,
+            "bram": 6,
+            "lut4": 309,
+            "ff": 4049
+          }
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "name": "r12_c10_k128",
+      "rows": 12,
+      "cols": 10,
+      "k_tile": 128,
+      "transport": "broadcast",
+      "observations": 1,
+      "worst_observed_fmax_mhz": 43.13319396972656,
+      "modeled_cycles": 1916992,
+      "worst_observed_latency_ms": 44.44354390601027,
+      "peak_synthesis_resources": {
+        "dsp": 120,
+        "bram": 6,
+        "lut4": 309,
+        "ff": 4050
+      },
+      "evidence": [
+        {
+          "file": "selected_routes.csv",
+          "source_sha256": "4934e137f91f95c5778fc5c375da69269327f30766cd7bd514048a551f651750",
+          "line": 2,
+          "seed": "1109",
+          "fmax_mhz": 43.13319396972656,
+          "resources": {
+            "dsp": 120,
+            "bram": 6,
+            "lut4": 309,
+            "ff": 4050
+          }
+        }
+      ],
+      "pareto": false
+    }
+  ],
+  "rejected": [],
+  "row_errors": [],
+  "aggregation": "minimum observed Fmax and maximum resource counts per candidate; any invalid row rejects its candidate",
+  "sampling_note": "Seed sets and observation counts may differ. Worst observed is not a statistical guarantee or paired comparison.",
+  "execution_mode": "recorded_evidence_replay",
+  "selection_policy": "analytic"
+}

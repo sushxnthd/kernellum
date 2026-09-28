@@ -1,0 +1,27 @@
+{
+  "trace": [
+    {
+      "candidate": "r12_c10_k128",
+      "eligible": true,
+      "latency_ms": 44.44354390601027
+    },
+    {
+      "candidate": "r10_c12_k128",
+      "eligible": true,
+      "latency_ms": 41.83125698807429
+    }
+  ],
+  "best_ms": 41.83125698807429,
+  "route_calls": 2,
+  "execution_mode": "recorded_evidence_replay",
+  "policy": "analytic",
+  "workload": {
+    "name": "wide",
+    "m": 192,
+    "n": 768,
+    "k": 768
+  },
+  "spec_sha256": "c536a1dd230ac40c3dc3f64cb550fbcdfeceab21fca889e67aa20018c0303f73",
+  "new_route_calls": 0,
+  "selection_note": "Analytical policy chosen after the frozen pilot; further generalization is unvalidated."
+}
