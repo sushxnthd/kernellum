@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "target": "ecp5-85k-CABGA381",
+  "frequency_mhz": 25,
+  "budget": 2,
+  "seeds": [
+    1103,
+    1109
+  ],
+  "prior_files": [
+    "results/k1_routes.csv",
+    "results/k1_closed_loop_routes.csv"
+  ],
+  "limits": {
+    "dsp": 120,
+    "bram": 8,
+    "lut4": 20000,
+    "ff": 20000
+  },
+  "candidates": [
+    {
+      "rows": 6,
+      "cols": 16,
+      "k_tile": 128
+    },
+    {
+      "rows": 16,
+      "cols": 6,
+      "k_tile": 128
+    },
+    {
+      "rows": 8,
+      "cols": 14,
+      "k_tile": 128
+    },
+    {
+      "rows": 14,
+      "cols": 8,
+      "k_tile": 128
+    },
+    {
+      "rows": 10,
+      "cols": 12,
+      "k_tile": 128
+    },
+    {
+      "rows": 12,
+      "cols": 10,
+      "k_tile": 128
+    },
+    {
+      "rows": 9,
+      "cols": 12,
+      "k_tile": 128
+    },
+    {
+      "rows": 12,
+      "cols": 9,
+      "k_tile": 128
+    }
+  ],
+  "workloads": [
+    {
+      "name": "compact",
+      "m": 32,
+      "n": 512,
+      "k": 256
+    },
+    {
+      "name": "expand",
+      "m": 128,
+      "n": 1200,
+      "k": 312
+    },
+    {
+      "name": "wide",
+      "m": 192,
+      "n": 768,
+      "k": 768
+    }
+  ],
+  "gate": {
+    "max_mean_regret_pct": 2,
+    "min_gain_vs_analytic_pct": 3,
+    "min_gain_vs_random_pct": 5,
+    "min_gain_vs_static_pct": 0
+  }
+}

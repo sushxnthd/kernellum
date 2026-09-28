@@ -1,0 +1,3 @@
+name,rows,cols,k_tile,seed,synth_ok,route_ok,fmax_mhz,timing_metric,nextpnr_returncode,synth_dsp,synth_bram,synth_lut4,synth_ff
+r12_c10_k128,12,10,128,1109,True,True,43.13319396972656,post_route_report_json,0,120,6,309,4050
+r10_c12_k128,10,12,128,1109,True,True,47.61224365234375,post_route_report_json,0,120,6,309,4049

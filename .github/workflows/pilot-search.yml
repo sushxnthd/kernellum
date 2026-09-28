@@ -1,0 +1,93 @@
+name: Workload routing pilot benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'kernellum/pilot.py'
+      - 'tests/test_pilot.py'
+      - 'experiments/pilot_search/spec.json'
+      - '.github/workflows/pilot-search.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    # Preserve the first registered cohort. Later documentation/test fixes must
+    # not repeat its routes. A distinct study needs a new registered source.
+    if: github.event.pull_request.head.sha == '9f02b571f34a1b5aa004034fc50de70adc9e5243'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - run: python -m unittest discover -s tests -p 'test_pilot.py' -v
+      - run: python -m kernellum.pilot plan --spec experiments/pilot_search/spec.json --out build/pilot-plan.json
+
+  route:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        seed: [1103, 1109]
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - name: Install free toolchain
+        run: sudo apt-get update && sudo apt-get install -y iverilog yosys nextpnr-ecp5 fpga-trellis
+      - name: Simulate, synthesize and route frozen candidates
+        run: |
+          python -m kernellum.pilot benchmark-route \
+            --spec experiments/pilot_search/spec.json \
+            --seed ${{ matrix.seed }} --shard ${{ matrix.shard }} --shards 4 \
+            --out build/pilot
+      - name: Preserve successful and failed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pilot-routes-s${{ matrix.seed }}-shard${{ matrix.shard }}
+          path: build/pilot/
+          if-no-files-found: warn
+          retention-days: 30
+
+  audit:
+    needs: [preflight, route]
+    if: always() && needs.preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.12'}
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: pilot-routes-*
+          path: build/pilot-collected
+          merge-multiple: true
+      - name: Audit completeness, provenance and fixed policy comparison
+        run: |
+          python -m kernellum.pilot audit \
+            --spec experiments/pilot_search/spec.json \
+            --inputs build/pilot-collected \
+            --out results/pilot_search/summary.json
+      - name: Preserve summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pilot-search-summary
+          path: results/pilot_search/summary.json
+          if-no-files-found: warn
+          retention-days: 30

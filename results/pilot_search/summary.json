@@ -1,0 +1,386 @@
+{
+  "spec_sha256": "c536a1dd230ac40c3dc3f64cb550fbcdfeceab21fca889e67aa20018c0303f73",
+  "expected_routes": 16,
+  "received_routes": 16,
+  "missing": [],
+  "integrity_errors": [],
+  "complete_and_eligible": true,
+  "tool_versions_consistent": true,
+  "cases": [
+    {
+      "seed": 1103,
+      "workload": "compact",
+      "oracle_ms": 1.7694704949030553,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7932450562347848
+            },
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 1.7694704949030553
+            }
+          ],
+          "best_ms": 1.7694704949030553,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7932450562347848
+            },
+            {
+              "candidate": "r16_c06_k128",
+              "eligible": true,
+              "latency_ms": 1.9298468767534542
+            }
+          ],
+          "best_ms": 1.7932450562347848,
+          "route_calls": 2,
+          "oracle_regret_pct": 1.3435974999420397
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7932450562347848
+            },
+            {
+              "candidate": "r16_c06_k128",
+              "eligible": true,
+              "latency_ms": 1.9298468767534542
+            }
+          ],
+          "best_ms": 1.7932450562347848,
+          "route_calls": 2,
+          "oracle_regret_pct": 1.3435974999420397
+        }
+      },
+      "expected_random_best_ms": 1.8821424722347757,
+      "random_subsets": 28
+    },
+    {
+      "seed": 1103,
+      "workload": "expand",
+      "oracle_ms": 18.28365592736367,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 18.60842055605674
+            },
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 18.28365592736367
+            }
+          ],
+          "best_ms": 18.28365592736367,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 18.28365592736367
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 18.60842055605674
+            }
+          ],
+          "best_ms": 18.28365592736367,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 18.28365592736367
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 18.60842055605674
+            }
+          ],
+          "best_ms": 18.28365592736367,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        }
+      },
+      "expected_random_best_ms": 19.651728948789813,
+      "random_subsets": 28
+    },
+    {
+      "seed": 1103,
+      "workload": "wide",
+      "oracle_ms": 41.815344957657764,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 41.815344957657764
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 44.89644948890017
+            }
+          ],
+          "best_ms": 41.815344957657764,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 41.815344957657764
+            },
+            {
+              "candidate": "r14_c08_k128",
+              "eligible": true,
+              "latency_ms": 46.833857163872956
+            }
+          ],
+          "best_ms": 41.815344957657764,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 41.815344957657764
+            },
+            {
+              "candidate": "r14_c08_k128",
+              "eligible": true,
+              "latency_ms": 46.833857163872956
+            }
+          ],
+          "best_ms": 41.815344957657764,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        }
+      },
+      "expected_random_best_ms": 45.478488863191444,
+      "random_subsets": 28
+    },
+    {
+      "seed": 1109,
+      "workload": "compact",
+      "oracle_ms": 1.7072806261929514,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7072806261929514
+            },
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 1.88068613831229
+            }
+          ],
+          "best_ms": 1.7072806261929514,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7072806261929514
+            },
+            {
+              "candidate": "r16_c06_k128",
+              "eligible": true,
+              "latency_ms": 1.8455050113078328
+            }
+          ],
+          "best_ms": 1.7072806261929514,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 1.7072806261929514
+            },
+            {
+              "candidate": "r16_c06_k128",
+              "eligible": true,
+              "latency_ms": 1.8455050113078328
+            }
+          ],
+          "best_ms": 1.7072806261929514,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        }
+      },
+      "expected_random_best_ms": 1.8510123836667838,
+      "random_subsets": 28
+    },
+    {
+      "seed": 1109,
+      "workload": "expand",
+      "oracle_ms": 17.337977307426556,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 17.337977307426556
+            },
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 19.432829402531574
+            }
+          ],
+          "best_ms": 17.337977307426556,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 19.432829402531574
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 17.337977307426556
+            }
+          ],
+          "best_ms": 17.337977307426556,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 19.432829402531574
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 17.337977307426556
+            }
+          ],
+          "best_ms": 17.337977307426556,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        }
+      },
+      "expected_random_best_ms": 19.244064791308368,
+      "random_subsets": 28
+    },
+    {
+      "seed": 1109,
+      "workload": "wide",
+      "oracle_ms": 41.83125698807429,
+      "policies": {
+        "analytic": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 44.44354390601027
+            },
+            {
+              "candidate": "r10_c12_k128",
+              "eligible": true,
+              "latency_ms": 41.83125698807429
+            }
+          ],
+          "best_ms": 41.83125698807429,
+          "route_calls": 2,
+          "oracle_regret_pct": 0.0
+        },
+        "static": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 44.44354390601027
+            },
+            {
+              "candidate": "r14_c08_k128",
+              "eligible": true,
+              "latency_ms": 43.36026692746572
+            }
+          ],
+          "best_ms": 43.36026692746572,
+          "route_calls": 2,
+          "oracle_regret_pct": 3.655185259738536
+        },
+        "adaptive": {
+          "trace": [
+            {
+              "candidate": "r12_c10_k128",
+              "eligible": true,
+              "latency_ms": 44.44354390601027
+            },
+            {
+              "candidate": "r08_c14_k128",
+              "eligible": true,
+              "latency_ms": 45.56416091151542
+            }
+          ],
+          "best_ms": 44.44354390601027,
+          "route_calls": 2,
+          "oracle_regret_pct": 6.244820514670946
+        }
+      },
+      "expected_random_best_ms": 44.49490698083872,
+      "random_subsets": 28
+    }
+  ],
+  "claim_supported": false,
+  "boundary": "Prospective software-flow benchmark on one ECP5 family. Modeled kernel latency from routed Fmax; no board, power, customer, novel architecture or investor outcome claim. Exhaustive benchmark cost includes every route; two-call policy cost is simulated by controlled replay.",
+  "mean_adaptive_regret_pct": 1.2647363357688308,
+  "mean_gain_pct": {
+    "analytic": -1.2647363357688308,
+    "static": -0.41638618921046033,
+    "random": 6.25412433504912
+  },
+  "flags": {
+    "mean_regret": true,
+    "gain_vs_analytic": false,
+    "gain_vs_static": false,
+    "gain_vs_random": true,
+    "never_worse_than_analytic": false
+  }
+}
