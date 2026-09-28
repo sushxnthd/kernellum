@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   preflight:
+    # Preserve the first registered cohort. Later documentation/test fixes must
+    # not repeat its routes. A distinct study needs a new registered source.
+    if: github.event.pull_request.head.sha == '9f02b571f34a1b5aa004034fc50de70adc9e5243'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from kernellum.pilot import ROOT, load_spec, prior, choose, simulate_policy, latency, testbench, audit
+from kernellum.pilot import ROOT, load_spec, prior, choose, simulate_policy, latency, testbench as make_testbench, audit
 from kernellum.k1.model import K1Architecture
 from kernellum.k1.closed_loop import RoutedObservation
 
@@ -70,7 +70,7 @@ class PilotTests(unittest.TestCase):
                 with self.assertRaises(ValueError):load_spec(p)
 
     def test_testbench_checks_every_output_and_accumulation(self):
-        tb=testbench(K1Architecture('tiny',2,3,8))
+        tb=make_testbench(K1Architecture('tiny',2,3,8))
         self.assertIn('R=2, C=3, K=8',tb)
         self.assertIn('for(r=0;r<R*C;r=r+1)',tb)
         self.assertIn('clear_before=(trial!=1)',tb)

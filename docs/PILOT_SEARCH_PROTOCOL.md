@@ -128,8 +128,12 @@ GitHub's public-repository Linux workflow uses free tools, at most four concurre
 route jobs and eight shards total, with 45-minute job timeouts and ten-minute
 per-command limits. No hardware purchase or paid API is required. Artifacts remain
 on the run for 30 days; preserve summaries and evidence references in the repo.
-The workflow pins all checkouts to the same PR head commit. A report-only commit
-does not match this workflow's trigger paths and should not rerun this cohort.
+The workflow pins all checkouts to the same PR head commit. After registering
+source `9f02b571f34a1b5aa004034fc50de70adc9e5243`, its preflight is restricted to
+that exact source so later PR synchronizations cannot repeat the cohort.
+The initial full pytest job exposed accidental collection of an imported
+testbench generator as a test. The test import was aliased after registration;
+the routing runner, functional testbench, policies, prior and spec were unchanged.
 
 Tests: `python -m unittest discover -s tests -p test_pilot.py -v`.
 The suite checks feedback isolation, budget consumption on failures, immutable
