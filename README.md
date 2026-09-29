@@ -6,6 +6,16 @@ Kernellum's research programs are Machine Reasoning, Scientific Discovery,
 AI Systems & Architecture, and Evaluation & Reliability. The accelerator work
 below is the current concrete implementation within AI Systems & Architecture.
 
+### Scientific Discovery: choose the next experiment
+
+A new [experiment-selection component](docs/DISCOVERY_DESIGN_RESULT.md) accepts
+observed measurements and recommends the next point to measure. It now has a
+completed 52-equation external-formula evaluation, with full query traces and a
+separate arithmetic audit. **The proposed adaptive method failed its improvement
+gate against space-filling sampling.** The usable baseline and all negative
+results are preserved. This is a non-hardware research component, not yet an
+autonomous scientist or a scientific breakthrough.
+
 ### Try the first engineering preview
 
 [Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for

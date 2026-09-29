@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "kernellum-research"
 version = "0.2.0"
-description = "Kernellum: workload-specific accelerator search with physical-design feedback"
+description = "Kernellum: research systems for experiment design, evaluation, and architecture search"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24", "pandas>=2.0", "matplotlib>=3.7"]

@@ -1,0 +1,19 @@
+{
+  "source_hashes": {
+    "kernellum/discovery/design.py": "bf8564f3c0a7cd0c865bd5ace21ae9f3295d077b588658d9053476cbd1efefbd",
+    "experiments/discovery_design/run.py": "64aaa3f6fc8717f28253b4817ce6939e06f782cfa9e97edb884c15c3547b8266",
+    "experiments/discovery_design/spec.json": "4097cc929c45c4c1e0c02160f8c295506908955ede957dcf0085d09708af57e5",
+    "experiments/discovery_design/vendor/FeynmanEquations.csv": "0ad269e6668ea5f25bfc7fd229c667bc8413246ec816ef7a5623bc2f1b564d80"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "blas_threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "traces.jsonl": "b39c13ac0d25a7f78a9f53a2bdd49cabff1417cb67a0146d4c7a476948101f48",
+    "summary.json": "5b2594eb2dc3bce335f799c20a8e55d3f3550fd1be34f3687a33fa737bea7ecb"
+  }
+}

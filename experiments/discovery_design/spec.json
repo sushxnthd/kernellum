@@ -1,0 +1,25 @@
+{
+  "name": "discovery-design-001",
+  "selection": "Every nonempty Feynman metadata row with one to three variables; no outcome exclusions",
+  "source_commit": "22cd4b3362dea302e82b91db45cc1516c95f184d",
+  "source_repository": "https://github.com/prescriptiveanalytics/FeynmanEquations-Python",
+  "pool_size": 256,
+  "test_size": 2048,
+  "initial": 12,
+  "budget": 40,
+  "checkpoints": [12, 24, 40],
+  "seeds": [1701, 1709, 1723],
+  "noise_fractions": [0.0, 0.02],
+  "noise_scale": "standard deviation of clean pool outputs; known only to evaluator",
+  "methods": ["random", "maximin", "variance", "integrated_variance", "committee", "igs", "teacher_risk", "teacher_risk_pure"],
+  "primary_method": "teacher_risk",
+  "primary_checkpoint": 40,
+  "metric": "test MSE divided by clean test variance; floor 1e-8 only when computing log ratios",
+  "gates": {
+    "geometric_mean_ratio_vs_each_baseline_max": 0.8,
+    "equation_win_fraction_vs_each_baseline_min": 0.6,
+    "geometric_mean_ratio_each_noise_vs_each_baseline_max": 1.0
+  },
+  "baselines": ["random", "maximin", "variance", "integrated_variance", "committee", "igs"],
+  "claim_boundary": "A bounded experimental-design result, not symbolic recovery, new physical laws, autonomous science, or state of the art"
+}

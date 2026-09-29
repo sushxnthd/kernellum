@@ -1,0 +1,13 @@
+{
+  "frozen_commit": "3d580a2a890790418a5b3a3ed34069042afd9428",
+  "note": "Preservation manifest written after results. Development and diagnosis are post-hoc, not confirmation.",
+  "sha256": {
+    "experiments/discovery_design/develop.py": "88799ab97e30412fc45c09dc38757745927c7be58f67abed57a33ac86e0a3349",
+    "experiments/discovery_design/diagnose.py": "658798c6d3c338874c38e7bad9eb1bb8ffe291b23c4e767312f81d8ad93edc5d",
+    "results/discovery_design/development.jsonl.gz": "3351953558879a4fd17726f829007661e8b733c751d1f720f57dd71f8ff06b74",
+    "results/discovery_design/posthoc_floor.json": "f2c422c40aba207d8967e2624010cbc56aeace0d612501f461102a4b4665e2fd",
+    "results/discovery_design/frozen_run/traces.jsonl.gz": "c2fdebbc54bbaf3ceed6ce42bcf326cab6864049803b5fd0d73520d6d8a3626f",
+    "scripts/audit_discovery_design.py": "bcd3584f4aca37041da1e10cf7f3bf07545890ed10d38317b89f038d37bfcc1f",
+    "results/discovery_design/audit.json": "ba6ac25ef6f983f4bec33ec6fe171372dcf1221ba072d17098a853e3df482949"
+  }
+}

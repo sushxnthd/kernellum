@@ -42,7 +42,7 @@ jobs:
           iverilog -V | head -n 2
       - name: Python unit tests
         run: |
-          python -m pip install pytest
+          python -m pip install pytest numpy
           PYTHONPATH=. python -m pytest -q
       - name: RTL functional simulation
         run: bash scripts/run_rtl_sim.sh
