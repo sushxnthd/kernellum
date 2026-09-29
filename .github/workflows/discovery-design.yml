@@ -1,0 +1,61 @@
+name: Scientific discovery evidence audit
+on:
+  pull_request:
+    paths:
+      - 'kernellum/discovery/**'
+      - 'experiments/discovery_design/**'
+      - 'results/discovery_design/**'
+      - 'scripts/audit_discovery_design.py'
+      - 'tests/test_discovery_design.py'
+      - '.github/workflows/discovery-design.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'kernellum/discovery/**'
+      - 'experiments/discovery_design/**'
+      - 'results/discovery_design/**'
+      - 'scripts/audit_discovery_design.py'
+      - 'tests/test_discovery_design.py'
+      - '.github/workflows/discovery-design.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: '.'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5
+      - run: python -m unittest tests.test_discovery_design -v
+      - run: python scripts/audit_discovery_design.py results/discovery_design/frozen_run
+      - name: Reproduce the frozen experiment
+        run: python experiments/discovery_design/run.py --out build/discovery-design-reproduction
+      - name: Compare reproduced results
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          old=json.loads(Path('results/discovery_design/frozen_run/summary.json').read_text())
+          new=json.loads(Path('build/discovery-design-reproduction/summary.json').read_text())
+          assert new['complete'] and new['runs']==2496
+          assert new['criterion_supported']==old['criterion_supported']
+          for method,c in old['comparisons'].items():
+              d=new['comparisons'][method]
+              assert np.isclose(c['geometric_mean_ratio'],d['geometric_mean_ratio'],rtol=1e-5)
+              assert c['equation_win_fraction']==d['equation_win_fraction']
+          print('All six primary comparison aggregates and the verdict reproduced.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: discovery-design-reproduction
+          path: build/discovery-design-reproduction
+          retention-days: 30

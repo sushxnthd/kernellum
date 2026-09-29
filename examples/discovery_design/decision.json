@@ -1,0 +1,16 @@
+{
+  "next_index": 2,
+  "inputs": [
+    0.0,
+    1.0
+  ],
+  "method": "maximin",
+  "observed_measurements": 2,
+  "measurement_executed": false,
+  "evidence_status": "baseline",
+  "note": "Run the measurement and add its actual value before requesting the next experiment. This is not a validated scientific law.",
+  "input_sha256": {
+    "pool": "135a01239150c477417a178686e6bc4d3c2014a67ad1c796a5e50613a8816f13",
+    "observations": "20dcd89aebe1bd8d905f24cdfe5554e613ca4924ad898feed3e9f0e73aae7bda"
+  }
+}

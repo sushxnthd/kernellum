@@ -1,0 +1,67 @@
+{
+  "audit_passed": true,
+  "runs": 2496,
+  "equations": 52,
+  "measurement_calls": 99840,
+  "checkpoint_metrics_recomputed": 7488,
+  "hashes_verified": 6,
+  "max_absolute_metric_difference": 4.888534022029489e-12,
+  "criterion_supported": false,
+  "comparisons": {
+    "random": {
+      "ratio": 0.8424609372871862,
+      "win_fraction": 0.8461538461538461,
+      "by_noise": {
+        "0.0": 0.8483156978193992,
+        "0.02": 0.8366465841421967
+      },
+      "passes": false
+    },
+    "maximin": {
+      "ratio": 1.0002559380106275,
+      "win_fraction": 0.5384615384615384,
+      "by_noise": {
+        "0.0": 0.9805291274221334,
+        "0.02": 1.0203796231489042
+      },
+      "passes": false
+    },
+    "variance": {
+      "ratio": 0.8287434192620432,
+      "win_fraction": 0.8846153846153846,
+      "by_noise": {
+        "0.0": 0.8083005492366118,
+        "0.02": 0.8497033134751625
+      },
+      "passes": false
+    },
+    "integrated_variance": {
+      "ratio": 0.889396755381943,
+      "win_fraction": 0.7884615384615384,
+      "by_noise": {
+        "0.0": 0.8630485136809798,
+        "0.02": 0.9165493896862504
+      },
+      "passes": false
+    },
+    "committee": {
+      "ratio": 0.8605505894987927,
+      "win_fraction": 0.8653846153846154,
+      "by_noise": {
+        "0.0": 0.8299673446950865,
+        "0.02": 0.8922607881142384
+      },
+      "passes": false
+    },
+    "igs": {
+      "ratio": 0.9116006299303263,
+      "win_fraction": 0.7692307692307693,
+      "by_noise": {
+        "0.0": 0.8986272289055199,
+        "0.02": 0.9247613267867484
+      },
+      "passes": false
+    }
+  },
+  "boundary": "Same-author separate arithmetic implementation; not independent external replication"
+}

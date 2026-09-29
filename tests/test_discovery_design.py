@@ -71,5 +71,24 @@ class DiscoveryDesignTests(unittest.TestCase):
             self.assertTrue(np.isfinite(y).all() and np.isfinite(yt).all())
 
 
+class ExperimentRecommendationTests(unittest.TestCase):
+    def test_default_recommends_unmeasured_point(self):
+        from kernellum.discovery.__main__ import recommend
+        pool=dict(points=[[0],[0.25],[0.5],[0.75],[1]],lower=[0],upper=[1])
+        result=recommend(pool,[dict(index=0,value=0),dict(index=4,value=1)])
+        self.assertEqual(result['next_index'],2)
+        self.assertEqual(result['method'],'maximin')
+        self.assertFalse(result['measurement_executed'])
+
+    def test_rejects_invalid_bounds_and_indices(self):
+        from kernellum.discovery.__main__ import recommend
+        for lower,upper in [([0],[0]),([float('nan')],[1]),([0,1],[2,3])]:
+            with self.assertRaises(ValueError):
+                recommend(dict(points=[[0],[1]],lower=lower,upper=upper),[])
+        with self.assertRaises(ValueError):
+            recommend(dict(points=[[0],[0.5],[1]],lower=[0],upper=[1]),
+                      [dict(index=0.0,value=1),dict(index=2,value=1)])
+
+
 if __name__ == '__main__':
     unittest.main()
