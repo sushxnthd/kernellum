@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "criterion_supported": false,
+  "checkpoint_errors_recomputed": 5460,
+  "runs": 2730,
+  "functions": 39,
+  "unique_observation_trajectories": 390,
+  "max_absolute_nmse_discrepancy": 3884912.0,
+  "max_absolute_discrepancy_case": {
+    "function": "GenzCornerPeak",
+    "seed": 930105,
+    "noise": 0.02,
+    "method": "representation_stack",
+    "budget": 64,
+    "recorded_nmse": 8.42716845367668e+16
+  },
+  "max_scaled_nmse_discrepancy": 4.904190348324521e-06,
+  "max_relative_simplex_kkt_violation": 2.9442832638054015e-09,
+  "sampling_arrays_with_byte_differences": 0,
+  "max_sampling_relative_difference": 0.0,
+  "description": "Second arithmetic implementation by same author, not external independent reproduction.",
+  "seconds": 290.92722163400003,
+  "audit_sha256": "92b8f77b61e19aec5ad2a2176b73220a79d566732f22ceb5bd40971dc837b9b3"
+}

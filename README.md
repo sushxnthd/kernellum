@@ -27,6 +27,17 @@ over maximin with the revised model. **Both full acceptance gates failed; no
 breakthrough is established.** All traces and a second arithmetic implementation
 recomputing 7,776 checkpoint errors are retained.
 
+### Scientific Discovery: representation revision
+
+The [publicly frozen external confirmation](docs/REPRESENTATION_REVISION_RESULT.md)
+tested 39 UQ functions across 2,730 method trajectories. Transforming inputs and
+outputs reduced geometric mean error 69.59% against original-space selection, but
+**the full gate failed** against stronger controls and one noisy prediction
+exploded to 8.427e16 NMSE. A second arithmetic implementation verifies all 5,460
+checkpoint scores. Nested cross-validation and bounded-output repairs were also
+tested and rejected as breakthrough candidates. These are research results;
+the unstable ensemble is not promoted as a default predictor.
+
 ### Try the first engineering preview
 
 [Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for
