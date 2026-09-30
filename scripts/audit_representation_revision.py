@@ -67,6 +67,10 @@ def audit(folder,out):
  start=time.perf_counter();spec=json.loads((ROOT/'experiments/representation_revision/spec.json').read_text())
  assert uqtf.__version__==spec['uqtestfuns']
  manifest=json.loads((folder/'manifest.json').read_text())
+ portable_manifest=json.loads((folder/'exact_nonuniform_inputs.json').read_text())
+ assert digest(folder/'exact_nonuniform_inputs.npz')==portable_manifest['sha256']
+ portable=np.load(folder/'exact_nonuniform_inputs.npz',allow_pickle=False)
+ max_sampling_relative_difference=0.;sampling_byte_differences=0
  for name,sha in manifest['source_hashes'].items():assert digest(ROOT/name)==sha,name
  for name,sha in manifest['output_hashes'].items():assert digest(folder/name)==sha,name
  with gzip.open(folder/'traces.jsonl.gz','rt') as f:records=[json.loads(line) for line in f]
@@ -78,6 +82,15 @@ def audit(folder,out):
   fun=getattr(uqtf,case['name'])();assert digest(Path(inspect.getfile(type(fun))))==case['source_sha256']
   for seed in spec['seeds']:
    fun.prob_input.reset_rng(seed+1000*index);x=fun.prob_input.get_sample(spec['pool_size']);xt=fun.prob_input.get_sample(spec['test_size'])
+   if case['name'] in portable_manifest['columns']:
+    cols=portable_manifest['columns'][case['name']]
+    for values,kind in ((x,'pool'),(xt,'test')):
+     original=portable[f"{case['name']}_{seed}_{kind}"];regenerated=values[:,cols]
+     sampling_byte_differences+=int(not np.array_equal(original,regenerated))
+     scale=np.maximum(np.abs(original).max(0),1e-12)
+     max_sampling_relative_difference=max(max_sampling_relative_difference,float(np.max(np.abs(original-regenerated)/scale)))
+     np.testing.assert_allclose(regenerated/scale,original/scale,rtol=1e-12,atol=1e-12)
+     values[:,cols]=original
    yp=np.asarray(fun(x)).reshape(-1);yt=np.asarray(fun(xt)).reshape(-1)
    z=2*(x-x.min(0))/np.maximum(np.ptp(x,axis=0),1e-12)-1
    ids=list(map(int,np.random.default_rng(seed).choice(len(x),spec['initial'],replace=False)))
@@ -128,6 +141,7 @@ def audit(folder,out):
  assert passed==summary['criterion_supported']
  result=dict(passed=True,criterion_supported=passed,checkpoint_errors_recomputed=checked,runs=len(records),functions=len(spec['cohort']),
   unique_observation_trajectories=len(spec['cohort'])*len(spec['seeds'])*len(spec['noise_fractions']),max_absolute_nmse_discrepancy=max_error,max_absolute_discrepancy_case=max_error_case,max_scaled_nmse_discrepancy=max_scaled_error,max_relative_simplex_kkt_violation=max_kkt,
+  sampling_arrays_with_byte_differences=sampling_byte_differences,max_sampling_relative_difference=max_sampling_relative_difference,
   description='Second arithmetic implementation by same author, not external independent reproduction.',seconds=time.perf_counter()-start,audit_sha256=digest(Path(__file__)))
  out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
 if __name__=='__main__':

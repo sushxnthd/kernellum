@@ -1,0 +1,52 @@
+{
+  "description": "Original nonuniform input columns, reconstructed after the run and verified bit-for-bit against all original full-input hashes. Uniform columns remain seed-reconstructed. No new evaluation data.",
+  "full_input_pairs_verified": 195,
+  "columns": {
+    "Borehole": [
+      0,
+      1
+    ],
+    "DampedOscillator": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "Flood": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "Sulfur": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "UndampedOscillator": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "Webster2D": [
+      1
+    ]
+  },
+  "sha256": "bead2b3798f75b64d2df026a4d39a6dd42655eb9ad5302d9c3ffdde53468a25b",
+  "bytes": 2679023
+}

@@ -120,6 +120,16 @@ unused function cohorts remain available for a genuinely new candidate.
   floating-point-scale relative error; both implementations agree it is a
   catastrophic failure. Exact discrepancies and the relevant trial are recorded
   in [audit.json](../results/representation_revision/confirmation/audit.json).
+- The first GitHub audit caught a cross-platform, byte-level sampling mismatch
+  on Borehole despite pinned package versions. Exact nonuniform input columns
+  were subsequently reconstructed on the original platform and checked against
+  **all 195 original full-input hashes** before export. The auditor now compares
+  regenerated columns numerically (1e-12 tolerance after column scaling), then
+  replays the exact originals and still requires every original full-input hash.
+  It records the size and count of sampling differences. Uniform RNG columns
+  continue to regenerate directly. The public frozen predictor, raw outcome
+  traces and original acceptance gate are unchanged. This is a portability
+  repair to the audit, not a rerun selected for a better scientific outcome.
 - This is **same-author verification**, not an independent external reproduction.
   A new GitHub Actions workflow reruns tests and the full evidence audit.
 
