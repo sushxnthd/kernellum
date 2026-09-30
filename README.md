@@ -16,6 +16,17 @@ gate against space-filling sampling.** The usable baseline and all negative
 results are preserved. This is a non-hardware research component, not yet an
 autonomous scientist or a scientific breakthrough.
 
+### Scientific Discovery: model revision follow-up
+
+The [48-equation follow-up](docs/MODEL_REVISION_RESULT.md) ran 2,592 trials on
+previously excluded higher-dimensional rows. Observed-data model selection reduced
+geometric mean prediction error **70.44%** against the earlier quadratic predictor
+using identical measurements (47/48 equation wins). Its broader gate still failed
+against an RBF-only control. The proposed acquisition rule added only **4.64%**
+over maximin with the revised model. **Both full acceptance gates failed; no
+breakthrough is established.** All traces and a second arithmetic implementation
+recomputing 7,776 checkpoint errors are retained.
+
 ### Try the first engineering preview
 
 [Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for

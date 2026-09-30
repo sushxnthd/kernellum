@@ -1,0 +1,24 @@
+{
+  "source_hashes": {
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/design.py": "bf8564f3c0a7cd0c865bd5ace21ae9f3295d077b588658d9053476cbd1efefbd",
+    "experiments/model_revision/run.py": "7d771b2032a7346fd604cba956f3b693add6b2058356a06251fd8c5bac24657a",
+    "experiments/model_revision/spec.json": "9c82f947704bccd504d8cd1725e4d35b8e6bbc1489df96807e5a518af0b247c8",
+    "experiments/discovery_design/run.py": "64aaa3f6fc8717f28253b4817ce6939e06f782cfa9e97edb884c15c3547b8266",
+    "experiments/discovery_design/vendor/FeynmanEquations.csv": "0ad269e6668ea5f25bfc7fd229c667bc8413246ec816ef7a5623bc2f1b564d80",
+    "docs/MODEL_REVISION_PROTOCOL.md": "4a83d84aaaf529ea9ff1c5181b1e39a0dc9c61b2f618bd55b60d70c8f64a0bee"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "git_commit": "16e673d8611332a1f06a8ec4644734c7b4020ceb",
+  "git_status": "",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "summary.json": "bcc6b8d5cf242336dfcad55b5bd28ea9c8ca166135d2e63004da0be4689537d3",
+    "traces.jsonl.gz": "83e4a9bb5d788f2330b8a04c13ff362e37167fd46eda4b741f48642451fa4783"
+  }
+}
