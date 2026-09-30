@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "runs": 2592,
+  "equations": 48,
+  "measurement_calls": 165888,
+  "checkpoint_errors_recomputed": 7776,
+  "max_absolute_nmse_discrepancy": 2.2244134534332716e-08,
+  "model_choice_disagreements": 0,
+  "acquisition_gate": false,
+  "model_revision_gate": false,
+  "seconds": 25.18382239099992,
+  "description": "Second arithmetic implementation by the same author; no external independent reproduction.",
+  "audit_sha256": "a5929fb7bab136e2ecb511b3baef67b957240f5b934a3093eb4b4fd4afebb142"
+}

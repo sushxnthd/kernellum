@@ -1,0 +1,18 @@
+{
+  "cohort": "all nonempty Feynman rows with 4 through 9 variables; excluded from previous discovery-design study",
+  "seeds": [93001, 93002, 93003],
+  "noise_fractions": [0.0, 0.02],
+  "pool_size": 192,
+  "test_size": 2048,
+  "initial": 16,
+  "budget": 64,
+  "refresh": 4,
+  "checkpoints": [16, 32, 64],
+  "methods": ["mixture_ivr", "winner_ivr", "maximin", "random", "variance", "ideal", "committee", "quadratic_maximin", "rbf_maximin"],
+  "primary": "mixture_ivr",
+  "baseline_methods": ["winner_ivr", "maximin", "random", "variance", "ideal", "committee", "quadratic_maximin", "rbf_maximin"],
+  "error_floor": 1e-8,
+  "gates": {"ratio_max": 0.8, "equation_win_fraction_min": 0.6, "each_noise_ratio_max": 1.0},
+  "secondary": "maximin model-revision vs quadratic_maximin and rbf_maximin using identical query traces; same gates; engineering claim only",
+  "invalid_domain_policy": "abort study and report invalid-domain failure; no outcome-dependent exclusions"
+}
