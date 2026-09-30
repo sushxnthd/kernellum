@@ -1,0 +1,86 @@
+{
+  "input_only": {
+    "median_nmse": 0.0025893636929458543,
+    "arithmetic_mean_nmse": 0.1677607243230444,
+    "maximum_nmse": 5.404339089740989,
+    "count_nmse_over_1": 10,
+    "count_nmse_over_1000": 0,
+    "worst_case": {
+      "function": "RobotArm",
+      "seed": 930105,
+      "noise": 0.0
+    }
+  },
+  "log_linear": {
+    "median_nmse": 0.49117433399983823,
+    "arithmetic_mean_nmse": 772663453.2422556,
+    "maximum_nmse": 301050248448.52936,
+    "count_nmse_over_1": 99,
+    "count_nmse_over_1000": 4,
+    "worst_case": {
+      "function": "Franke2",
+      "seed": 930101,
+      "noise": 0.0
+    }
+  },
+  "output_only": {
+    "median_nmse": 0.0025418162505127916,
+    "arithmetic_mean_nmse": 0.15571669378758052,
+    "maximum_nmse": 5.404339089740989,
+    "count_nmse_over_1": 10,
+    "count_nmse_over_1000": 0,
+    "worst_case": {
+      "function": "RobotArm",
+      "seed": 930105,
+      "noise": 0.0
+    }
+  },
+  "raw": {
+    "median_nmse": 0.004031759397018213,
+    "arithmetic_mean_nmse": 0.16770447254868745,
+    "maximum_nmse": 5.404339089740989,
+    "count_nmse_over_1": 10,
+    "count_nmse_over_1000": 0,
+    "worst_case": {
+      "function": "RobotArm",
+      "seed": 930105,
+      "noise": 0.0
+    }
+  },
+  "raw_stack": {
+    "median_nmse": 0.004031108143952564,
+    "arithmetic_mean_nmse": 0.165979859493648,
+    "maximum_nmse": 5.342172812185059,
+    "count_nmse_over_1": 12,
+    "count_nmse_over_1000": 0,
+    "worst_case": {
+      "function": "RobotArm",
+      "seed": 930105,
+      "noise": 0.0
+    }
+  },
+  "representation": {
+    "median_nmse": 0.0009546741541639431,
+    "arithmetic_mean_nmse": 0.6803859620467311,
+    "maximum_nmse": 204.80680836936398,
+    "count_nmse_over_1": 11,
+    "count_nmse_over_1000": 0,
+    "worst_case": {
+      "function": "GenzCornerPeak",
+      "seed": 930102,
+      "noise": 0.02
+    }
+  },
+  "representation_stack": {
+    "median_nmse": 0.0007433030883566822,
+    "arithmetic_mean_nmse": 216081242401966.4,
+    "maximum_nmse": 8.42716845367668e+16,
+    "count_nmse_over_1": 14,
+    "count_nmse_over_1000": 1,
+    "worst_case": {
+      "function": "GenzCornerPeak",
+      "seed": 930105,
+      "noise": 0.02
+    }
+  }
+}
