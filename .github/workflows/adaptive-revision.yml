@@ -32,4 +32,6 @@ jobs:
           git config user.email 'research-bot@users.noreply.github.com'
           git add results/adaptive_revision/development
           git commit -m 'Record adaptive aggregation development screen [skip ci]' || true
-          git push origin HEAD:${{ github.head_ref }}
+          # This branch is a dedicated research branch; the generated traces are
+          # part of the PR evidence and replace only its previous tip.
+          git push --force origin HEAD:${{ github.head_ref }}
