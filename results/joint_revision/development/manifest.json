@@ -1,0 +1,24 @@
+{
+  "development_only": true,
+  "source_hashes": {
+    "experiments/joint_revision/develop.py": "6607219ed26cb0a3a224b0c409959eb511c572aaefa7555bea2c88820158db5f",
+    "kernellum/discovery/representation_acquisition.py": "bcdfe7b722294071781552e23b66210178fb943e2fba9eb5946a0c0f35178b57",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/adaptive_revision.py": "f12fb395ce5952270ea12cdc5561ad4bae2d8978c935f6b5cfbf8b9474b7bbbc",
+    "kernellum/discovery/support_revision.py": "dbbfc9a99c34fb22a377951c8e3fe2d3378614a13c851a9cac41d19722c946ab",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "uqtestfuns": "0.6.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "results/joint_revision/development/summary.json": "42753265435b4abe1ca8c7a6d6ae70af2aba263bc09ea959d153607411e44369",
+    "results/joint_revision/development/traces.jsonl.gz": "f49e1352f76d66b6e4bdba404ce22e46ac0aa9b42791f5e461ad68de128a0f1f"
+  }
+}
