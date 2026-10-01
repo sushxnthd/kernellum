@@ -38,6 +38,12 @@ checkpoint scores. Nested cross-validation and bounded-output repairs were also
 tested and rejected as breakthrough candidates. These are research results;
 the unstable ensemble is not promoted as a default predictor.
 
+The [acquisition and noise follow-up](docs/REPRESENTATION_ACQUISITION_RESULT.md)
+completed another 2,808 exploratory outcomes. Hybrid measurement selection reduced
+geometric mean error 20.52% versus maximin on the opened cohort, but its advantage
+over a matching hybrid control was only 1%. Noise-aware fitting added about 3%
+and regressed on clean data. **Neither is a verified breakthrough.**
+
 ### Try the first engineering preview
 
 [Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for

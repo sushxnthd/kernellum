@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "development_only": true,
+  "checkpoint_errors_recomputed": 2028,
+  "methods": 13,
+  "functions": 39,
+  "max_absolute_nmse_discrepancy": 82.87047076225281,
+  "max_scaled_nmse_discrepancy": 6.013332456753597e-06,
+  "seconds": 233.06875917499974,
+  "description": "Second arithmetic outcome/budget audit by same author; no independent external reproduction or second acquisition-ranking implementation.",
+  "audit_sha256": "9886e48c13369cfdb18e312a6d3526b97f5e49bb8cfb3b8862977e9c0a12cc3c"
+}
