@@ -33,11 +33,12 @@ def run():
             for seed in spec['seeds'][:2]:
                 for noise in spec['noise_fractions']:
                     x, y, xt, truth = sample_case(case,index,seed,noise,spec)
+                    labels = np.asarray(y, dtype=float)
                     variance=max(float(np.var(truth)),1e-30)
                     for acquisition in ARMS:
-                        ids, values, revisions = investigate(x,lambda i: y[i],acquisition,budget=64,initial=16,refresh=4,seed=seed)
-                        y=np.asarray(values,dtype=float)
-                        bank=RepresentationBank(x).fit(ids,y)
+                        ids, values, revisions = investigate(x,lambda i: labels[i],acquisition,budget=64,initial=16,refresh=4,seed=seed)
+                        observed=np.asarray(values,dtype=float)
+                        bank=RepresentationBank(x).fit(ids,observed)
                         adaptive=AdaptiveStack(bank)
                         support=SupportRouter(bank,xt)
                         predictions={
@@ -49,7 +50,7 @@ def run():
                             nmse=float(np.mean((predictions[predictor]-truth)**2)/variance)
                             assert np.isfinite(nmse)
                             r=dict(function=case['name'],seed=seed,noise=noise,acquisition=acquisition,predictor=predictor,
-                                   nmse=nmse,selected=ids,observed=y.tolist(),revisions=revisions,
+                                   nmse=nmse,selected=ids,observed=observed.tolist(),revisions=revisions,
                                    input_sha256=hashlib.sha256(x.tobytes()+xt.tobytes()).hexdigest())
                             f.write(json.dumps(r,allow_nan=False)+'\n');f.flush();records.append(r)
             print(case['name'],len(records),round(time.perf_counter()-start,1),flush=True)
