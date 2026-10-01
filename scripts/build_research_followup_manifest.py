@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 folders=['experiments/representation_acquisition','experiments/noise_revision','results/representation_acquisition','results/noise_revision']
 files={p for folder in folders for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.name!='manifest.json'}
-files.update(ROOT/p for p in ['kernellum/discovery/representation_acquisition.py','kernellum/discovery/noise_revision.py','scripts/audit_representation_acquisition.py','scripts/audit_representation_revision.py','scripts/build_research_followup_manifest.py','tests/test_representation_acquisition.py','tests/test_noise_revision.py','docs/REPRESENTATION_ACQUISITION_RESULT.md'])
+files.update(ROOT/p for p in ['kernellum/discovery/representation.py','kernellum/discovery/revision.py','kernellum/discovery/aggregation.py','experiments/representation_revision/run.py','experiments/representation_revision/spec.json','results/representation_revision/confirmation/exact_nonuniform_inputs.json','results/representation_revision/confirmation/exact_nonuniform_inputs.npz','kernellum/discovery/representation_acquisition.py','kernellum/discovery/noise_revision.py','scripts/audit_representation_acquisition.py','scripts/audit_representation_revision.py','scripts/build_research_followup_manifest.py','tests/test_representation_acquisition.py','tests/test_noise_revision.py','docs/REPRESENTATION_ACQUISITION_RESULT.md'])
 a=json.loads((ROOT/'results/representation_acquisition/second_screen/summary.json').read_text())
 n=json.loads((ROOT/'results/noise_revision/development/summary.json').read_text())
 def meets(comparisons):return all(v['ratio']<=.8 and v['wins']/39>=.6 and max(v['by_noise'].values())<=1 for v in comparisons.values())

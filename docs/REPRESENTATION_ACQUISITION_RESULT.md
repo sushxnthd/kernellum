@@ -94,6 +94,12 @@ All code, raw traces and summaries are retained under
 `experiments/representation_acquisition`, `results/representation_acquisition`,
 `experiments/noise_revision`, and `results/noise_revision`.
 
+**Completed validation:** 149 tests and 24 subtests passed. The second arithmetic
+implementation reproduced all 2,028 acquisition outcomes within the declared
+2e-5 relative / 1e-7 absolute tolerance; its maximum scaled discrepancy was
+6.014e-6. The completed machine-readable audit is in
+`results/representation_acquisition/audit.json`.
+
 The acquisition outcome auditor uses the separate augmented-system kernel
 implementation from the preceding study; it imports neither the candidate
 predictor nor the acquisition policy. It verifies every arm's labels, budget,
