@@ -43,7 +43,7 @@ def run():
                         predictions={
                             'representation_stack':bank.predict(xt,'representation_stack'),
                             'adaptive_stack':adaptive.predict(xt)[0],
-                            'support_nonlinear_leverage_stack':support.predict(xt,'support_nonlinear_leverage_stack')[0],
+                            'support_nonlinear_leverage_stack':support.predict('support_nonlinear_leverage_stack')[0],
                         }
                         for predictor in PREDICTORS:
                             nmse=float(np.mean((predictions[predictor]-truth)**2)/variance)
