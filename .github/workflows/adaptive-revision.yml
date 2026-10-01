@@ -1,0 +1,37 @@
+name: Adaptive aggregation development screen
+on:
+  pull_request:
+    paths:
+      - 'kernellum/discovery/adaptive_revision.py'
+      - 'experiments/adaptive_revision/**'
+      - 'tests/test_adaptive_revision.py'
+      - '.github/workflows/adaptive-revision.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: '.'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 uqtestfuns==0.6.0 pytest
+      - run: python -m pytest -q
+      - run: python experiments/adaptive_revision/develop.py | tee adaptive-screen.log
+      - name: Persist traces on the research branch
+        if: github.event_name == 'pull_request'
+        run: |
+          git config user.name 'kernellum-research-bot'
+          git config user.email 'research-bot@users.noreply.github.com'
+          git add results/adaptive_revision/development
+          git commit -m 'Record adaptive aggregation development screen [skip ci]' || true
+          # This branch is a dedicated research branch; the generated traces are
+          # part of the PR evidence and replace only its previous tip.
+          git push --force origin HEAD:${{ github.head_ref }}
