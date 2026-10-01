@@ -1,0 +1,29 @@
+{
+  "development_only": true,
+  "source_hashes": {
+    "kernellum/discovery/support_revision.py": "dbbfc9a99c34fb22a377951c8e3fe2d3378614a13c851a9cac41d19722c946ab",
+    "experiments/support_revision/develop.py": "0f23d90d69123ad84d7649666b8d9329bba9a90c36a7dc6c1f50134f6f1a81f5",
+    "tests/test_support_revision.py": "0a8b6c2e2814c988250e28f77ed58856af844dde2d620d756b7d6b5c15085750",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/crossfit_revision/development/traces.jsonl.gz": "fcbb1132cbed54d1ada7dd9bacef6ee49e1e7632250c87cefd50fff59737c990",
+    "results/noise_revision/development/traces.jsonl.gz": "071b6c51485798eee8ddbf5d340ac6193c7b0a312577cefc7aa47fd95c3e0b98"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "uqtestfuns": "0.6.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "results/support_revision/development/summary.json": "77afe00d59354b2b0919b8ec88c182ac683f9911dcfcd49d9a3a721cb43b58c6",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3"
+  },
+  "verification_note": "Added a feature-space variance regression test after the run; candidate and runner unchanged. All 2340 cases rerun after replacing inverse-based variance with Cholesky arithmetic."
+}

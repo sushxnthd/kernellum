@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "development_only": true,
+  "checkpoint_errors_recomputed": 2340,
+  "methods": 6,
+  "max_absolute_nmse_discrepancy": 2.8519054062758897e-09,
+  "max_scaled_nmse_discrepancy": 4.904190348324521e-06,
+  "max_scaled_kkt_residual": 2.0577469473605987e-09,
+  "seconds": 170.72324125500018,
+  "audit_sha256": "234fd21564c8402ffd1a902a25e4eb1f8284079002a38210d6d354af06b5a0d4",
+  "description": "Same-author second arithmetic: model choice, stack KKT, routing masks, errors, budgets, hashes and gates; not external reproduction."
+}
