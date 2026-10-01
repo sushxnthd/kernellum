@@ -1,0 +1,29 @@
+{
+  "development_only": true,
+  "source_hashes": {
+    "kernellum/discovery/robust_revision.py": "17bdfec58189a909576809e2c4ce8d1fdb905acb9b4a3f873709adaaac1d7731",
+    "experiments/robust_revision/develop.py": "18b92c0a8d3a102be444bb479c4faf60124185dbd10828f7420ddcee6556464b",
+    "tests/test_robust_revision.py": "bbc8dc27abe623341afdf34752eec6b5ca6a802ab5f574914cee895feccbb66d",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/crossfit_revision/development/traces.jsonl.gz": "fcbb1132cbed54d1ada7dd9bacef6ee49e1e7632250c87cefd50fff59737c990",
+    "results/noise_revision/development/traces.jsonl.gz": "071b6c51485798eee8ddbf5d340ac6193c7b0a312577cefc7aa47fd95c3e0b98",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "uqtestfuns": "0.6.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "results/robust_revision/development/summary.json": "fbd50fab9c17098614cb684780b7d9d85792e53d4e4b69b3d8bdc03b4bdb091b",
+    "results/robust_revision/development/traces.jsonl.gz": "791a96f479b2324a03aba8a06e207a2659543c51d600431a548ecbb0a8f954e5"
+  }
+}

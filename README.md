@@ -44,6 +44,13 @@ geometric mean error 20.52% versus maximin on the opened cohort, but its advanta
 over a matching hybrid control was only 1%. Noise-aware fitting added about 3%
 and regressed on clean data. **Neither is a verified breakthrough.**
 
+The [extrapolation follow-up](docs/ROBUST_EXTRAPOLATION_RESULT.md) tested support
+routing and robust aggregation against the transformed-stack failure. Routing
+repaired the known 8.4e16-NMSE case but regressed on clean functions; a weighted
+median reduced stack error to 0.891× and repaired that case to 0.045 NMSE, still
+missing the broad gate. **These are retained as negative development results;
+no new default is promoted.**
+
 ### Try the first engineering preview
 
 [Route Review](docs/ROUTE_REVIEW.md) compares supplied K1 route observations for
