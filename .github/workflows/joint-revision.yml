@@ -1,0 +1,34 @@
+name: Joint acquisition-predictor development screen
+on:
+  pull_request:
+    paths:
+      - 'experiments/joint_revision/**'
+      - 'kernellum/discovery/**'
+      - '.github/workflows/joint-revision.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: '.'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 uqtestfuns==0.6.0 pytest
+      - run: python -m pytest -q
+      - run: python experiments/joint_revision/develop.py
+      - name: Persist joint screen traces
+        if: github.event_name == 'pull_request'
+        run: |
+          git config user.name 'kernellum-research-bot'
+          git config user.email 'research-bot@users.noreply.github.com'
+          git add results/joint_revision/development
+          git commit -m 'Record joint acquisition-predictor development screen [skip ci]' || true
+          git push --force origin HEAD:${{ github.head_ref }}
