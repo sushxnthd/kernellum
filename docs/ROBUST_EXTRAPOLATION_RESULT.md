@@ -30,14 +30,15 @@ Three fixed aggregators were screened over the same cohort: weighted component
 median, weighted signed geometric mean when all components share a sign, and an
 observed-label LOO selector among those two and the original weighted mean.
 The weighted median was the strongest: 0.891× the original representation
-stack error, with 12/39 function wins. It repaired the catastrophic Genz case to
+stack error, with 18/39 function wins. It repaired the catastrophic Genz case to
 0.045 NMSE, but did not reach the 0.8 ratio / 60%-wins gate. The geometric mean
 and LOO selector were weaker (0.899× and 0.911× respectively).
 
-An independent arithmetic auditor is included for the robust screen and runs in
-CI with the pinned UQ dependency. The local environment reset before that audit
-could be rerun, so the robust result is reported from the completed development
-trace and remains explicitly development-only.
+The same-author second arithmetic implementation passed in CI (job
+110502038012), recomputing all 1,170 robust outcomes. Maximum scaled NMSE
+discrepancy was `4.904e-6`; 16 aggregation-choice numerical ties were accepted
+within the reported score tolerance. This is not external reproduction, and
+the benchmark remains development-only.
 
 These results are retained as a reproducible negative result and a practical
 diagnostic: robust aggregation is materially safer than the original stack, but
