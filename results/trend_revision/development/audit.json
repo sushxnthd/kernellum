@@ -1,0 +1,320 @@
+{
+  "passed": true,
+  "criterion_supported": false,
+  "outcomes_recomputed": 780,
+  "max_scaled_nmse_discrepancy": 0.0004949480979658884,
+  "max_scaled_cv_discrepancy": 9.862627253415185e-09,
+  "max_scaled_kkt_violation": 2.0746269016933435e-09,
+  "selection_numerical_ties": 49,
+  "audit_sha256": "675bac8ea9061a8f311461f775d2ae7902816a48fab6774a93fe2646733f021d",
+  "seconds": 202.014833485,
+  "recomputed_comparisons": {
+    "trend": {
+      "representation": {
+        "ratio": 1.2622631614472772,
+        "wins": 19,
+        "by_noise": {
+          "0.0": 1.7213109078316136,
+          "0.02": 0.9256365491542797
+        }
+      },
+      "representation_stack": {
+        "ratio": 1.1644717541339158,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.838664639719918,
+          "0.02": 0.7374887387741771
+        }
+      },
+      "raw": {
+        "ratio": 0.3541350997465523,
+        "wins": 24,
+        "by_noise": {
+          "0.0": 0.18355733068317928,
+          "0.02": 0.6832288768077674
+        }
+      },
+      "raw_stack": {
+        "ratio": 0.34742133227749433,
+        "wins": 28,
+        "by_noise": {
+          "0.0": 0.18014825014417815,
+          "0.02": 0.6700125148308016
+        }
+      },
+      "median_stack": {
+        "ratio": 1.30627922249931,
+        "wins": 20,
+        "by_noise": {
+          "0.0": 1.7328243024406624,
+          "0.02": 0.9847307685666726
+        }
+      },
+      "adaptive_stack": {
+        "ratio": 1.3128313161129046,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.7835972732474765,
+          "0.02": 0.9663201948210199
+        }
+      },
+      "support_nonlinear_leverage_stack": {
+        "ratio": 1.0210082090030517,
+        "wins": 17,
+        "by_noise": {
+          "0.0": 1.1271118089042518,
+          "0.02": 0.9248929472800654
+        }
+      },
+      "nested_winner": {
+        "ratio": 1.3372525908495818,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.8766436532287452,
+          "0.02": 0.9528950734239098
+        }
+      },
+      "noise_consistent": {
+        "ratio": 1.2998599397605373,
+        "wins": 17,
+        "by_noise": {
+          "0.0": 1.679439500366616,
+          "0.02": 1.006071289037459
+        }
+      }
+    },
+    "trend_stack": {
+      "representation": {
+        "ratio": 1.1502248618414543,
+        "wins": 26,
+        "by_noise": {
+          "0.0": 1.3989201095042147,
+          "0.02": 0.9457418074196373
+        }
+      },
+      "representation_stack": {
+        "ratio": 1.0611134060042076,
+        "wins": 21,
+        "by_noise": {
+          "0.0": 1.4942942192696163,
+          "0.02": 0.7535073387034851
+        }
+      },
+      "raw": {
+        "ratio": 0.32270211840148155,
+        "wins": 31,
+        "by_noise": {
+          "0.0": 0.14917818737527808,
+          "0.02": 0.6980689271872829
+        }
+      },
+      "raw_stack": {
+        "ratio": 0.31658426398301115,
+        "wins": 28,
+        "by_noise": {
+          "0.0": 0.1464076063609884,
+          "0.02": 0.6845654996540596
+        }
+      },
+      "median_stack": {
+        "ratio": 1.1903340635425723,
+        "wins": 26,
+        "by_noise": {
+          "0.0": 1.4082771171046287,
+          "0.02": 1.0061195808839543
+        }
+      },
+      "adaptive_stack": {
+        "ratio": 1.1963045942541142,
+        "wins": 23,
+        "by_noise": {
+          "0.0": 1.4495406271177023,
+          "0.02": 0.9873091208759148
+        }
+      },
+      "support_nonlinear_leverage_stack": {
+        "ratio": 0.9303836648397493,
+        "wins": 24,
+        "by_noise": {
+          "0.0": 0.9160107961681918,
+          "0.02": 0.9449820541653361
+        }
+      },
+      "nested_winner": {
+        "ratio": 1.2185582401006583,
+        "wins": 24,
+        "by_noise": {
+          "0.0": 1.5251600003989298,
+          "0.02": 0.973592399570418
+        }
+      },
+      "noise_consistent": {
+        "ratio": 1.184484555431395,
+        "wins": 23,
+        "by_noise": {
+          "0.0": 1.3648909555323632,
+          "0.02": 1.0279236274287424
+        }
+      }
+    }
+  },
+  "recorded_comparisons": {
+    "trend": {
+      "representation": {
+        "ratio": 1.2622642930898986,
+        "wins": 21,
+        "by_noise": {
+          "0.0": 1.721313942291485,
+          "0.02": 0.9256365770724305
+        }
+      },
+      "representation_stack": {
+        "ratio": 1.1644727981047047,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.8386678810600157,
+          "0.02": 0.7374887610175963
+        }
+      },
+      "raw": {
+        "ratio": 0.35413541723531744,
+        "wins": 26,
+        "by_noise": {
+          "0.0": 0.18355765427222498,
+          "0.02": 0.6832288974146533
+        }
+      },
+      "raw_stack": {
+        "ratio": 0.347421643747241,
+        "wins": 28,
+        "by_noise": {
+          "0.0": 0.18014856772343327,
+          "0.02": 0.6700125350390685
+        }
+      },
+      "median_stack": {
+        "ratio": 1.3062803936031564,
+        "wins": 22,
+        "by_noise": {
+          "0.0": 1.7328273571972355,
+          "0.02": 0.9847307982671659
+        }
+      },
+      "adaptive_stack": {
+        "ratio": 1.312832493090826,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.7836004175105655,
+          "0.02": 0.9663202239662314
+        }
+      },
+      "support_nonlinear_leverage_stack": {
+        "ratio": 1.0210091243560788,
+        "wins": 17,
+        "by_noise": {
+          "0.0": 1.1271137958640387,
+          "0.02": 0.9248929751757884
+        }
+      },
+      "nested_winner": {
+        "ratio": 1.3372537897216343,
+        "wins": 16,
+        "by_noise": {
+          "0.0": 1.8766469615211827,
+          "0.02": 0.9528951021642057
+        }
+      },
+      "noise_consistent": {
+        "ratio": 1.2998611051093762,
+        "wins": 19,
+        "by_noise": {
+          "0.0": 1.679442461012335,
+          "0.02": 1.0060713193816042
+        }
+      }
+    },
+    "trend_stack": {
+      "representation": {
+        "ratio": 1.1502262986878629,
+        "wins": 26,
+        "by_noise": {
+          "0.0": 1.3989235716125332,
+          "0.02": 0.9457418296756133
+        }
+      },
+      "representation_stack": {
+        "ratio": 1.0611147315337082,
+        "wins": 21,
+        "by_noise": {
+          "0.0": 1.494297917413929,
+          "0.02": 0.7535073564356409
+        }
+      },
+      "raw": {
+        "ratio": 0.32270252151690304,
+        "wins": 31,
+        "by_noise": {
+          "0.0": 0.14917855656794318,
+          "0.02": 0.6980689436148163
+        }
+      },
+      "raw_stack": {
+        "ratio": 0.3165846594560858,
+        "wins": 28,
+        "by_noise": {
+          "0.0": 0.14640796869689907,
+          "0.02": 0.6845655157638192
+        }
+      },
+      "median_stack": {
+        "ratio": 1.1903355504928903,
+        "wins": 26,
+        "by_noise": {
+          "0.0": 1.4082806023700765,
+          "0.02": 1.0061196045607896
+        }
+      },
+      "adaptive_stack": {
+        "ratio": 1.196306088662744,
+        "wins": 23,
+        "by_noise": {
+          "0.0": 1.449544214503879,
+          "0.02": 0.9873091441100871
+        }
+      },
+      "support_nonlinear_leverage_stack": {
+        "ratio": 0.9303848270633038,
+        "wins": 24,
+        "by_noise": {
+          "0.0": 0.9160130631515426,
+          "0.02": 0.9449820764034329
+        }
+      },
+      "nested_winner": {
+        "ratio": 1.2185597623082622,
+        "wins": 24,
+        "by_noise": {
+          "0.0": 1.52516377493122,
+          "0.02": 0.973592422481797
+        }
+      },
+      "noise_consistent": {
+        "ratio": 1.1844860350745812,
+        "wins": 23,
+        "by_noise": {
+          "0.0": 1.3648943334238517,
+          "0.02": 1.0279236516186887
+        }
+      }
+    }
+  },
+  "max_function_comparison_relative_difference": 4.222725226521451e-05,
+  "max_function_comparison_difference_case": {
+    "method": "trend_stack",
+    "baseline": "raw_stack",
+    "function": "McLainS4",
+    "recorded_ratio": 0.0016910841445989036,
+    "recomputed_ratio": 0.0016910127347621279
+  },
+  "description": "Same-author second arithmetic; no candidate/runner imports. Per-outcome NMSE tolerance remains rtol=2e-5, atol=1e-7. Summary arithmetic verified from exact recorded scores to 1e-12; recomputed ratios and their numerical differences reported separately, with identical criterion decision. Stored weights verified by convex KKT. Selection ties use reported score tolerance. No external reproduction."
+}

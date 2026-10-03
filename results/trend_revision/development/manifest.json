@@ -1,0 +1,37 @@
+{
+  "development_only": true,
+  "source_hashes": {
+    "kernellum/discovery/trend_revision.py": "2e77e79efab76c25f7150cff6b59af6126bb0156d9fed868f7a0a203950ff3a2",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "experiments/trend_revision/develop.py": "b872d3bf004c6934d3c33add66f39b29d5608cdb3a4303d79275a70b0b2b92de",
+    "scripts/audit_trend_revision.py": "675bac8ea9061a8f311461f775d2ae7902816a48fab6774a93fe2646733f021d",
+    "scripts/audit_representation_revision.py": "92b8f77b61e19aec5ad2a2176b73220a79d566732f22ceb5bd40971dc837b9b3",
+    "tests/test_trend_revision.py": "b4d09639ed6d6c887ccb00ed84ef1630335c6ccb591a26a0a65b4f20d0d2f51c",
+    "docs/TREND_REVISION_PROTOCOL.md": "58e4eb8d13aa9a8688c7b9da5087227459c520dc3242e45e9e9cbeaee4bfab82",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "results/representation_revision/confirmation/exact_nonuniform_inputs.npz": "bead2b3798f75b64d2df026a4d39a6dd42655eb9ad5302d9c3ffdde53468a25b",
+    "results/representation_revision/confirmation/exact_nonuniform_inputs.json": "cb85d226f9a24b975498fd3b8a5afe64fd39cb745aad5fc9d9c7867c552226f9",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/robust_revision/development/traces.jsonl.gz": "791a96f479b2324a03aba8a06e207a2659543c51d600431a548ecbb0a8f954e5",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3",
+    "results/adaptive_revision/development/traces.jsonl.gz": "6c4c0b57e2798d5bdcc2d105446f2a53419406b2b6138fdbe72a455e0d6f8241",
+    "results/crossfit_revision/development/traces.jsonl.gz": "fcbb1132cbed54d1ada7dd9bacef6ee49e1e7632250c87cefd50fff59737c990",
+    "results/noise_revision/development/traces.jsonl.gz": "071b6c51485798eee8ddbf5d340ac6193c7b0a312577cefc7aa47fd95c3e0b98"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "uqtestfuns": "0.6.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "summary.json": "af184e5aea20bc269a29e9bab1344a4f3935f88f574ded9ddc456afdfd5188bd",
+    "traces.jsonl.gz": "643b3c0c0814fff4267beb5977e99de45fbe7199373787c7fa519d5cec4f5c91",
+    "inputs_and_truth.npz": "cbc1c7702c4c06bb51719c2a9f17959868e23dd37d455e0ebacd24b8a68598cb"
+  }
+}
