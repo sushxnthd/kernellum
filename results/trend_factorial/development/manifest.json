@@ -1,0 +1,33 @@
+{
+  "development_only": true,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "data_sha256": "cbc1c7702c4c06bb51719c2a9f17959868e23dd37d455e0ebacd24b8a68598cb",
+  "source_sha256": {
+    "experiments/trend_factorial/develop.py": "dcdafb4fc5fe6ada325ffe85e9824808136933b60a60f3d5a192a9a93293f5c0",
+    "docs/TREND_FACTORIAL_PROTOCOL.md": "61e323cd07023b6abe97bacfc212add9b6604022ee2b56ec7a00c21c15458164",
+    "kernellum/discovery/trend_revision.py": "2e77e79efab76c25f7150cff6b59af6126bb0156d9fed868f7a0a203950ff3a2",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "experiments/trend_revision/develop.py": "b872d3bf004c6934d3c33add66f39b29d5608cdb3a4303d79275a70b0b2b92de",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/robust_revision/development/traces.jsonl.gz": "791a96f479b2324a03aba8a06e207a2659543c51d600431a548ecbb0a8f954e5",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3",
+    "results/adaptive_revision/development/traces.jsonl.gz": "6c4c0b57e2798d5bdcc2d105446f2a53419406b2b6138fdbe72a455e0d6f8241",
+    "results/crossfit_revision/development/traces.jsonl.gz": "fcbb1132cbed54d1ada7dd9bacef6ee49e1e7632250c87cefd50fff59737c990",
+    "results/noise_revision/development/traces.jsonl.gz": "071b6c51485798eee8ddbf5d340ac6193c7b0a312577cefc7aa47fd95c3e0b98",
+    "results/trend_revision/development/traces.jsonl.gz": "643b3c0c0814fff4267beb5977e99de45fbe7199373787c7fa519d5cec4f5c91",
+    "results/trend_revision/development/manifest.json": "77af384475f35c013e91007f24fb24c59cedc6d21c94993542e20229cc244220"
+  },
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_sha256": {
+    "summary.json": "15969c24d65068f8a608fc95f9b4614a01f4d2bce08eb6ab7723b3a9d96cd161",
+    "traces.jsonl.gz": "2838e8853d42d4d61d9089e3bcaf4558be1754bd24418b048f6841e057ca652f"
+  }
+}

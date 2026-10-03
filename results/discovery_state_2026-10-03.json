@@ -1,0 +1,47 @@
+{
+  "program": "Kernellum scientific discovery",
+  "base_commit": "283d846852113e5128fdbc05f55981b4e3be74e2",
+  "active_direction": "Mechanism discrimination for model-family reliability",
+  "spend": "No paid APIs, hardware or user compute",
+  "holdout_state": "39-function UQ cohort opened; cannot be reused as fresh confirmation",
+  "claims": [
+    {
+      "state": "FALSIFIED",
+      "claim": "Combined removal of exponential polynomial terms and affine RBF addition provides broad improvement",
+      "evidence": "results/trend_revision/development/summary.json",
+      "action": "Preserve completed negative result"
+    },
+    {
+      "state": "KNOWN",
+      "claim": "Clean-case losses on five named functions follow removal rather than affine addition in the factorial test",
+      "evidence": "results/trend_factorial/development/summary.json",
+      "scope": "Opened finite cohort; same-author computation"
+    },
+    {
+      "state": "ANOMALOUS",
+      "claim": "Affine addition without removal improves 16.55% versus original and 5.91% versus adaptive on development cohort",
+      "evidence": "results/trend_factorial/development/summary.json",
+      "limitation": "Fails full gate; original-control improvement drops to 6.34% without known catastrophe"
+    },
+    {
+      "state": "KNOWN",
+      "claim": "Response-transform availability changes on 40 of 195 paired noise paths",
+      "evidence": "results/noise_regime_diagnosis/development/summary.json"
+    },
+    {
+      "state": "UNTESTED",
+      "claim": "Add-only effect survives unseen curvature, sign and support conditions",
+      "action_type": "DISCRIMINATION",
+      "next_decisive_action": "Freeze an at-least-ten-seed factorial boundary test separating exact log-quadratic expressivity, additive-noise sign changes and out-of-support extrapolation before opening new conditions"
+    },
+    {
+      "state": "KNOWN",
+      "claim": "Removing exponentiated polynomial kernels does not guarantee stable inverse-response predictions: a log-RBF mixture produces 5.590e26 NMSE on a clean Franke5 path",
+      "evidence": "results/trend_factorial/development/traces.jsonl.gz: Franke5 seed930101 noise0 remove_only",
+      "audit": "Second arithmetic reproduces the catastrophe with 2.669e-9 relative score discrepancy",
+      "scope": "Finite computational counterexample; no universal reliability guarantee"
+    }
+  ],
+  "field_breakthrough_established": false,
+  "default_predictor_changed": false
+}
