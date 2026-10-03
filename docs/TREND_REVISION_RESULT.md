@@ -63,6 +63,13 @@ KKT violation `2.075e-9`. The largest function-comparison relative difference
 was `4.223e-5`. Both the recorded and recomputed criterion decisions were false.
 All ten repository workflows passed on that commit.
 
+The final compact-snapshot reproduction also passed in CI run `37121236140`
+on commit `7ebbff2bc75f97337d264d744d04e26c60df076e`: the input/truth archive
+matched its original SHA256, all 780 outcomes were re-audited, and all ten
+repository workflows passed again. Complete evidence is available from that
+run's artifact:
+https://github.com/sushxnthd/kernellum/actions/runs/37121236140.
+
 Compact evidence is in `results/trend_revision/development`. The full input
 and truth archive is reproducible from the pinned benchmark source, seeds,
 and archived nonuniform columns; its original SHA256 must match exactly.
@@ -77,5 +84,12 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. python scripts/audit_trend
 Run the rebuild only when that archive is absent. CI copies the compact
 snapshot, reconstructs its exact arrays, runs the arithmetic audit, and
 uploads the complete evidence with read-only repository permissions.
+Exact-byte reconstruction requires a matching numerical platform as well as
+the pinned packages. Across two CI machines the input arrays were identical,
+but some function-response last bits differed; SolarCell's largest relative
+difference was about `4.7e-11`. The helper intentionally rejects a different
+archive SHA256. Use the original complete CI artifact or a matching platform
+when that check fails; cross-platform exact response reconstruction is not
+claimed here.
 This is same-author verification, not external reproduction. No candidate
 from this screen is promoted as a default.
