@@ -4,7 +4,6 @@ The method is established prior art. This bank tests whether replacing
 log-response polynomial tails fixes the observed extrapolation/accuracy tradeoff.
 """
 import numpy as np
-from scipy.linalg import cho_factor, cho_solve
 from .representation import RepresentationBank, invert_response
 from .revision import FAMILIES, RIDGES, kernel
 from .aggregation import simplex_stack
@@ -17,12 +16,12 @@ def solve_trend(k, x, y, ridge):
     design = np.column_stack((np.ones(len(x)), x))
     if len(x) <= design.shape[1] or np.linalg.matrix_rank(design) < design.shape[1]:
         raise ValueError('affine trend is not identifiable')
-    factor = cho_factor(k + ridge*np.eye(len(y)), lower=True)
-    inv = cho_solve(factor, np.eye(len(y)))
-    v = cho_solve(factor, design)
+    factor = np.linalg.cholesky(k + ridge*np.eye(len(y)))
+    inv = np.linalg.solve(factor.T, np.linalg.solve(factor, np.eye(len(y))))
+    v = inv @ design
     information = design.T @ v
-    beta = np.linalg.solve(information, design.T @ cho_solve(factor, y))
-    alpha = cho_solve(factor, y-design @ beta)
+    beta = np.linalg.solve(information, design.T @ inv @ y)
+    alpha = inv @ (y-design @ beta)
     projection = inv - v @ np.linalg.solve(information, v.T)
     diagonal = np.diag(projection)
     if np.any(diagonal <= 1e-12):
