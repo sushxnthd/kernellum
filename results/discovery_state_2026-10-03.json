@@ -53,5 +53,29 @@
     "add_only_vs_adaptive_ratio": 5.323645122794951,
     "field_breakthrough_established": false,
     "next": "Develop response-scale exponential least squares that retains negative additive-noise measurements; freeze an expanded new-seed confirmation before evaluating it."
+  },
+  "additive_response": {
+    "state": "ACTIVE_SCOPED_FOOTHOLD",
+    "public_freeze": "f606378c8c474d40b803330af322491956b313c9",
+    "nist_public_freeze": "c9b01ccaf7208daafc6dc964269a8b5c96e77ce0",
+    "synthetic_paths": 540,
+    "synthetic_scores": 12960,
+    "nist_paths": 60,
+    "nist_scores": 480,
+    "scoped_mechanism_gate": "PASS",
+    "general_synthetic_gate": "FAIL",
+    "nist_transfer_gate": "FAIL",
+    "noisy_gaussian_inside_ratio_vs_adaptive": 0.027675335468904442,
+    "overall_synthetic_ratio_vs_adaptive": 0.19063364312486342,
+    "overall_nist_ratio_vs_adaptive": 0.9618339391732919,
+    "clean_exact_gaussian_trials": "40/40",
+    "noisy_gaussian_inside_wins": "70/80",
+    "data_audit_arrays": 720,
+    "separate_forward_scores": 11760,
+    "partial_same_author_audit": true,
+    "external_reproduction": false,
+    "scientific_novelty_established": false,
+    "field_breakthrough_established": false,
+    "next_decisive_action": "Clean independent nonlinear implementation from written specification; then freeze external conditions separating likelihood matching from selected function-family matching. Keep this active foothold and all failed gates; no retuning on opened tests."
   }
 }

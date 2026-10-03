@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "truth_and_domain_arrays_checked": 720,
+  "max_absolute_truth_discrepancy": 1.0913936421275139e-11,
+  "source_sha256": "bae07bef41d6e94c82606fded3e0dbca1803cfc4925ef9f2344d183f912a47ca",
+  "input_archive_sha256": "a4d02cbebd5b89dea194d34b7b1bef799d0861abf6334734a769e6194108670d",
+  "same_author": true
+}

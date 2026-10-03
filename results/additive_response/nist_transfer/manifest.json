@@ -1,0 +1,68 @@
+{
+  "public_freeze": "c9b01ccaf7208daafc6dc964269a8b5c96e77ce0",
+  "local_freeze": "c6e0b73f172784aafe08477497280ec53206313f",
+  "source_sha256": {
+    "experiments/additive_response/nist.py": "01f412e1599b14946c089382f4c3d0141089cca2af948a544a20c5e4a6c0e709",
+    "docs/ADDITIVE_RESPONSE_NIST_PROTOCOL.md": "079f7927543e6911d0fe02099a6ac5d745e33989d79cc07de26902c46d3c5583",
+    "experiments/additive_response/run.py": "2cff891ec1a35c2f0d252963c8df8484ec81bb69d1966e724c4a7b749a0c007c",
+    "kernellum/discovery/additive_response.py": "16598b10753127e9b42ab6b3cc31161a0df678c1f71112478f25c858cca70c6f",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/trend_revision.py": "2e77e79efab76c25f7150cff6b59af6126bb0156d9fed868f7a0a203950ff3a2",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "kernellum/discovery/robust_revision.py": "17bdfec58189a909576809e2c4ce8d1fdb905acb9b4a3f873709adaaac1d7731",
+    "kernellum/discovery/adaptive_revision.py": "f12fb395ce5952270ea12cdc5561ad4bae2d8978c935f6b5cfbf8b9474b7bbbc",
+    "kernellum/discovery/support_revision.py": "dbbfc9a99c34fb22a377951c8e3fe2d3378614a13c851a9cac41d19722c946ab"
+  },
+  "data_manifest": {
+    "Bennett5": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Bennett5.dat",
+      "rows": 154,
+      "csv_sha256": "bc4268f9a88fda88252bec2954a44d7f8189834d6eaa2e9680bcb0f448286c74",
+      "retrieved_text_sha256": "e2be71fffe2a78821361ff3e71eef4549df7015911e3e8e893f3914829872ab4",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    },
+    "Eckerle4": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Eckerle4.dat",
+      "rows": 35,
+      "csv_sha256": "afded1103998a26a15a8801ad29f8efd2651d41a60e762310b6b1454e29f7896",
+      "retrieved_text_sha256": "4eea146d9b7f7dc5a2e988c1329b16930c3f294c4b1ca469fd869b9f23610dc5",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    },
+    "Gauss1": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Gauss1.dat",
+      "rows": 250,
+      "csv_sha256": "381d89a004e711e88f25c4089bf95bbafb9ea5d4076b6ba29166e016a5111b48",
+      "retrieved_text_sha256": "434c20c2cbf2caa262968f42c2633dceec0b8ced6fbf54d182435f7e59c3c640",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    },
+    "Lanczos3": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Lanczos3.dat",
+      "rows": 24,
+      "csv_sha256": "63f0efc7f012b48489e669d46d21eaf3b6a75cf24ed2e5332f8e2a12bb0ef67c",
+      "retrieved_text_sha256": "1a9fc8e9adefdd5222ce99d71e640605b4093778af3b31f0f186bd1036cece09",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    },
+    "Hahn1": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Hahn1.dat",
+      "rows": 236,
+      "csv_sha256": "c143cb1c719e6d5a5edca9d776585dd3d6fa504da267be44fe372b3a10327e2a",
+      "retrieved_text_sha256": "251ab6520101c6a14d50a3f3b9472b4ab9f720852efbd735c7a3aee12a9c65f5",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    },
+    "Gauss2": {
+      "source_url": "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Gauss2.dat",
+      "rows": 250,
+      "csv_sha256": "1552ffc34f421edb30e2c5591a44152c99c0a1cb6599c6b7d2bad66f854ea5b0",
+      "retrieved_text_sha256": "a451efbe59d8e08dceff54bfd99cb6ab4c109d10a3f80dc3bf2ff8ec251f4464",
+      "retrieval": "Line-indexed web extraction, not original download bytes; shell download returned HTTP 403"
+    }
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "output_sha256": {
+    "summary.json": "dde6419f19b63f8db0cfcc4590b8926234dc61b8e9ae1eff27d7051871b1f7b9",
+    "traces.jsonl.gz": "28bef100fc436607e60e60ad55e76080f6173f3d618b4ad952af61c9ed25856a"
+  }
+}

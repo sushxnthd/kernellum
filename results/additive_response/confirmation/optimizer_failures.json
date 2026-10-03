@@ -1,0 +1,5277 @@
+[
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "exp_affine_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "power_law_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "log",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "convex_exponential_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "rational_peak_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "sine_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "signed_cubic_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": 1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_2d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104202,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104203,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104203,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104203,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104204,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104204,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104204,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104205,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104205,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104205,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104206,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104206,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104206,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104207,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104207,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104207,
+    "noise": 0.1,
+    "nonlinear_models_failed": [
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_affine",
+        "reason": "nonlinear optimizer failed"
+      },
+      {
+        "input": "identity",
+        "sign": -1,
+        "family": "exp_concave",
+        "reason": "nonlinear optimizer failed"
+      }
+    ]
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104208,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104208,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104208,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104209,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104209,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104209,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104210,
+    "noise": 0.0,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104210,
+    "noise": 0.01,
+    "nonlinear_models_failed": []
+  },
+  {
+    "function": "gaussian_mixture_4d",
+    "seed": 104210,
+    "noise": 0.1,
+    "nonlinear_models_failed": []
+  }
+]
