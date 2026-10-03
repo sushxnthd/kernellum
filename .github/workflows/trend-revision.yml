@@ -1,0 +1,38 @@
+name: Affine trend bounded correction development and arithmetic audit
+on:
+  pull_request:
+    paths:
+      - 'kernellum/discovery/trend_revision.py'
+      - 'experiments/trend_revision/**'
+      - 'scripts/audit_trend_revision.py'
+      - 'tests/test_trend_revision.py'
+      - 'docs/TREND_REVISION_PROTOCOL.md'
+      - '.github/workflows/trend-revision.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screen-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: '.'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 uqtestfuns==0.6.0 pytest
+      - run: python -m pytest -q
+      - run: python experiments/trend_revision/develop.py --out build/trend_revision
+      - run: python scripts/audit_trend_revision.py --folder build/trend_revision --out build/trend_revision/audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trend-revision-evidence
+          path: build/trend_revision
+          if-no-files-found: error
