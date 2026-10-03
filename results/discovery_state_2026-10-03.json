@@ -43,5 +43,15 @@
     }
   ],
   "field_breakthrough_established": false,
-  "default_predictor_changed": false
+  "default_predictor_changed": false,
+  "trend_boundary": {
+    "public_freeze": "f6c279f962033721a70aa5e7c44b1cd7b380c748",
+    "observation_paths": 280,
+    "scores": 5880,
+    "general_gate": "FAIL",
+    "clean_exact_family_prediction": "PASS: 40/40",
+    "add_only_vs_adaptive_ratio": 5.323645122794951,
+    "field_breakthrough_established": false,
+    "next": "Develop response-scale exponential least squares that retains negative additive-noise measurements; freeze an expanded new-seed confirmation before evaluating it."
+  }
 }
