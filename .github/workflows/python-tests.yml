@@ -29,9 +29,25 @@ jobs:
       - run: python -m pip install pytest numpy
       - run: PYTHONPATH=. python -m pytest -q
 
-  learn2design-uifo-benchmark:
+  semantic-transfer-sweep:
+    name: semantic-transfer-${{ matrix.topology_seed }}
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        topology_seed:
+          - 98591154
+          - 650941223
+          - 1211049875
+          - 1363760596
+          - 1795982962
+          - 196619468
+          - 239637960
+          - 1410548495
+          - 791199028
+          - 1082220220
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -41,8 +57,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/artificial-scientist-lab/Learn2Design-2026.git /tmp/Learn2Design-2026
           python -m pip install -e /tmp/Learn2Design-2026
-      - name: Scalar SPSA refinement around corpus warm start
+      - name: Semantic transfer from Differometor-30k
         run: |
-          python bench/learn2design/spsa_refine.py \
+          python bench/learn2design/semantic_transfer.py \
             /tmp/Learn2Design-2026/dataset/dataset.h5 \
-            --topology-seed 98591154
+            --topology-seed ${{ matrix.topology_seed }}
