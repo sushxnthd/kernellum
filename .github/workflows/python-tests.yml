@@ -41,8 +41,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/artificial-scientist-lab/Learn2Design-2026.git /tmp/Learn2Design-2026
           python -m pip install -e /tmp/Learn2Design-2026
-      - name: Semantic transfer from Differometor-30k
+      - name: Residual-dimension search around best semantic transfer
         run: |
-          python bench/learn2design/semantic_transfer.py \
+          python bench/learn2design/residual_refine.py \
             /tmp/Learn2Design-2026/dataset/dataset.h5 \
             --topology-seed 98591154
