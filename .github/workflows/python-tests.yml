@@ -29,25 +29,9 @@ jobs:
       - run: python -m pip install pytest numpy
       - run: PYTHONPATH=. python -m pytest -q
 
-  semantic-transfer-sweep:
-    name: semantic-transfer-${{ matrix.topology_seed }}
+  learn2design-lane8-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      max-parallel: 10
-      matrix:
-        topology_seed:
-          - 98591154
-          - 650941223
-          - 1211049875
-          - 1363760596
-          - 1795982962
-          - 196619468
-          - 239637960
-          - 1410548495
-          - 791199028
-          - 1082220220
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -57,8 +41,18 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/artificial-scientist-lab/Learn2Design-2026.git /tmp/Learn2Design-2026
           python -m pip install -e /tmp/Learn2Design-2026
-      - name: Semantic transfer from Differometor-30k
+      - name: Package Lane8
         run: |
-          python bench/learn2design/semantic_transfer.py \
-            /tmp/Learn2Design-2026/dataset/dataset.h5 \
-            --topology-seed ${{ matrix.topology_seed }}
+          cd bench/learn2design/KERN-Lane8-v1
+          zip -q -r /tmp/KERN-Lane8-v1.zip submission.py requirements.txt
+      - name: Official static validation
+        run: |
+          python /tmp/Learn2Design-2026/tools/validate_submission.py /tmp/KERN-Lane8-v1.zip
+      - name: Real UIFO CPU mechanics smoke
+        run: |
+          python /tmp/Learn2Design-2026/tools/validate_submission.py \
+            /tmp/KERN-Lane8-v1.zip \
+            --run-local \
+            --topology-seed 98591154 \
+            --optimizer-seed 1791403674 \
+            --max-time-seconds 180
