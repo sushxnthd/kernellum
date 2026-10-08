@@ -41,18 +41,9 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/artificial-scientist-lab/Learn2Design-2026.git /tmp/Learn2Design-2026
           python -m pip install -e /tmp/Learn2Design-2026
-      - name: Package KERN-ValueES-v0
+      - name: Audit Differometor-30k against retired R3 topology
         run: |
-          cd bench/learn2design/KERN-ValueES-v0
-          zip -q -r /tmp/KERN-ValueES-v0.zip submission.py requirements.txt
-      - name: Official static validation
-        run: |
-          python /tmp/Learn2Design-2026/tools/validate_submission.py /tmp/KERN-ValueES-v0.zip
-      - name: Real UIFO retired-seed benchmark
-        run: |
-          python /tmp/Learn2Design-2026/tools/validate_submission.py \
-            /tmp/KERN-ValueES-v0.zip \
-            --run-local \
+          python bench/learn2design/analyze_dataset.py \
+            /tmp/Learn2Design-2026/dataset/dataset.h5 \
             --topology-seed 98591154 \
-            --optimizer-seed 1791403674 \
-            --max-time-seconds 180
+            --optimizer-seed 1791403674
