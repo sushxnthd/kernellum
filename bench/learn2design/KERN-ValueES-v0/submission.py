@@ -18,6 +18,9 @@ class KERNValueES(OptimizationAlgorithm):
     algorithm_str: str = "kern_value_es_v0"
     algorithm_type: AlgorithmType = AlgorithmType.EVOLUTIONARY
 
+    def __init__(self) -> None:
+        pass
+
     def optimize(
         self,
         objective: Objective,
