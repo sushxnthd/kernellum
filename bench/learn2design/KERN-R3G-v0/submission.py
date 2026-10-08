@@ -12,15 +12,14 @@ def _row_clip(x, max_norm=1.0):
 
 
 def _candidate_rank(losses, feasible, penalty):
-    """Feasibility-first ranking; among infeasible points, prefer lower penalty."""
     safe_loss = jnp.nan_to_num(losses, nan=1e6, posinf=1e6, neginf=-1e6)
     safe_penalty = jnp.nan_to_num(penalty, nan=1e6, posinf=1e6, neginf=1e6)
     return jnp.where(feasible, safe_loss, 1000.0 + safe_penalty + 1e-3 * safe_loss)
 
 
 def _choose_batch_and_warmup(obj):
-    """Compile the largest conservative gradient batch that fits before the clock."""
-    preferred = (8, 6, 4, 2, 1)
+    # BENCHMARK-ONLY CPU variant. The actual submission still prefers batch 8.
+    preferred = (1,)
     last_error = None
     for batch_size in preferred:
         try:
@@ -34,7 +33,7 @@ def _choose_batch_and_warmup(obj):
 
 
 class KERNR3G(OptimizationAlgorithm):
-    algorithm_str: str = "kern_r3g_v0"
+    algorithm_str: str = "kern_r3g_v0_cpu_smoke"
     algorithm_type: AlgorithmType = AlgorithmType.GRADIENT_BASED
 
     def __init__(self) -> None:
