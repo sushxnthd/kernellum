@@ -31,7 +31,6 @@ class KERNValueES(OptimizationAlgorithm):
         obj = objective
         _, key = self.prepare(obj, unbounded=True, random_seed=random_seed)
 
-        # Compile the exact scalar aux path used below before the official clock.
         try:
             obj.warmup_value_aux()
         except AttributeError:
@@ -47,7 +46,6 @@ class KERNValueES(OptimizationAlgorithm):
         best_feasible_loss = math.inf
         best_feasible_z = None
         best_rank = math.inf
-        best_rank_z = z[0]
         best_any_loss = math.inf
         generation = 0
 
@@ -65,14 +63,11 @@ class KERNValueES(OptimizationAlgorithm):
                 penalty = float(aux["penalty"])
 
                 if math.isfinite(loss_f):
-                    if loss_f < best_any_loss:
-                        best_any_loss = loss_f
+                    best_any_loss = min(best_any_loss, loss_f)
                     if feasible and loss_f < best_feasible_loss:
                         best_feasible_loss = loss_f
                         best_feasible_z = z_eval
 
-                # Exact feasibility-first score. The 1e6 offset prevents an
-                # infeasible point from outranking any finite feasible point.
                 if feasible and math.isfinite(loss_f):
                     rank = loss_f
                 else:
@@ -80,9 +75,7 @@ class KERNValueES(OptimizationAlgorithm):
                     safe_loss = loss_f if math.isfinite(loss_f) else 1e6
                     rank = 1e6 + safe_penalty + 1e-6 * safe_loss
 
-                if rank < best_rank:
-                    best_rank = rank
-                    best_rank_z = z_eval
+                best_rank = min(best_rank, rank)
                 records.append((rank, z_eval))
 
             if not records or obj.budget_exceeded:
@@ -93,8 +86,6 @@ class KERNValueES(OptimizationAlgorithm):
 
             generation += 1
             progress = min(float(obj.budget_progress_fraction), 1.0)
-
-            # Multi-scale local search: broad early, increasingly local late.
             envelope = max(0.08, 1.0 - 0.88 * progress)
             scales = (0.12, 0.30, 0.65, 1.30)
             next_points = [center]
@@ -105,8 +96,9 @@ class KERNValueES(OptimizationAlgorithm):
                 )
                 next_points.append(jnp.clip(center + step, -12.0, 12.0))
 
-            # Global exploration remains alive for topology-dependent basins.
-            global_z = obj.random_params_unbounded(n_samples=1)[0]
+            global_z = jnp.asarray(obj.random_params_unbounded(n_samples=1))
+            if global_z.ndim == 2:
+                global_z = global_z[0]
             next_points.append(global_z)
             z = jnp.stack(next_points, axis=0)
 
