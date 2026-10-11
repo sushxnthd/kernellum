@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-11",
+  "date": "2026-10-12",
   "classification": "GLOBAL_RESEARCH_STATE",
   "spend_usd": 0,
   "field_breakthrough_established": false,
@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "8901cc8b495f9cb98d005b58407e0d84f48ec62e",
+      "head": "aa895c5cd3758c534e021e7ca182a24eb22eda6e",
       "claims": [
         {
           "state": "KNOWN",
@@ -103,6 +103,20 @@
           "evidence": "research/pcc-runtime-product/DIGEST_DICTIONARY_CORRECTION_RESULT.md; research/pcc-runtime-product/digest_dictionary_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "Public partition footprints now replace the internal key with `pcc:derived`; the unchanged 1,024-candidate enumerator found zero matches while candidate and knowledge statistics remained available. The replay was byte-identical with SHA-256 805f8db6f7ed504a47a48336f29606df611da42117db39964747e13380ccad80; 15/15 focused and 304/304 full tests passed.",
           "scope": "Closes one deterministic-digest dictionary channel. Local runtime compromise, arbitrary side channels, semantic privacy, external validation and remote-model behavior remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Hiding the compiled statement and value is sufficient to make PCC preparation metadata non-disclosing before approval.",
+          "evidence": "research/pcc-runtime-product/PREAPPROVAL_METADATA_RESULT.md; research/pcc-runtime-product/preapproval_metadata_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "With decision `ask` and zero approvals/consumptions, realized `afterCandidates` identified `secret >= 500` from 524 versus 500 candidates; a balanced 512/512 predicate still leaked through serialized size (108 versus 132 bytes); bundle `afterCandidates=300` recovered both predicate results. Result-dependent metadata is itself a disclosure. Frozen failure SHA-256: 6387be722bbaed07d631b30a062af900134784f6b68970a5e007e34e69fcabb8.",
+          "scope": "Agent-facing local preparation boundary; not evidence of provider-boundary transmission, timing leakage, or arbitrary covert-channel resistance."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent PCC preparation metadata closes the tested single and bundled pre-approval inference channels.",
+          "evidence": "research/pcc-runtime-product/PREAPPROVAL_METADATA_CORRECTION_RESULT.md; research/pcc-runtime-product/preapproval_metadata_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Safe release and bundle metadata now omit output size and realized `afterCandidates` / `totalKnowledgeBits` until consumption, while retaining pre-query candidate count and configured budget/capacity. The unchanged probe recovered 0/3 results, reran byte-identically with SHA-256 353fe2633f2f3b50f58c6ccd7dc5d042c9ac4a2d9fa2397399ea047c8644ef2f, and 15/15 focused plus 304/304 full tests passed.",
+          "scope": "Closes the tested deterministic size and realized-accounting metadata channels. Timing, memory, compromised-runtime, malicious-contract, semantic and arbitrary side channels remain open."
         },
         {
           "state": "ANOMALOUS",
