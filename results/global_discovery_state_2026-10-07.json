@@ -1,0 +1,454 @@
+{
+  "date": "2026-10-11",
+  "classification": "GLOBAL_RESEARCH_STATE",
+  "spend_usd": 0,
+  "field_breakthrough_established": false,
+  "programs": {
+    "HUSH": {
+      "priority": 1,
+      "repository": "/workspace/scratch/93c782ff9166/hush",
+      "branch": "breakthrough-engine/pcc-cleanroom-replication",
+      "head": "ab081412c3043477c43259df42be310dfbbc13f5",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "A clean-room Python implementation reproduced the bounded numeric PCC mechanism across 114,688 exhaustive cases with zero oracle disagreements, exact protected-canary disclosures, or equivalence-class violations.",
+          "evidence": "research/pcc-cleanroom/RESULTS_V2.md; research/pcc-cleanroom/results_v2.json",
+          "audit": "The implementation imports neither the Hush JavaScript PCC compiler nor its evaluators. The first frozen version failed on digits in unrelated canaries; that counterexample is preserved. A separately frozen contract-bound extractor then passed every gate and reran byte-identically with result SHA-256 80d40aa9ae0efa4b3eb9a04835f10076b29e91ecd021828ee40400ad8e81a26f.",
+          "scope": "Internal second implementation on a finite synthetic numeric domain; not a third-party reproduction, external holdout, semantic-privacy result, or breakthrough-gate pass."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A globally unique bounded number is a safe typed extractor for fused private prose.",
+          "evidence": "research/pcc-cleanroom/FIRST_RUN_FAILURE.md",
+          "mechanism": "Digits in an unrelated sensitive canary created extra numeric candidates. Extraction must be bound to an intended field or trusted anchor, not merely a scalar type."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In a 512-case production-faithful scheduling simulation, contract-bound PCC matched raw-context decisions while exposing zero exact protected canaries at the simulated model/provider boundary; raw context exposed 512/512 and coarse redaction solved 162/512.",
+          "evidence": "research/pcc-cleanroom/RESULTS_V2.md; research/pcc-cleanroom/results_v2.json",
+          "scope": "Product-translation foothold only. The model/provider boundary is simulated and no live connector, external task set, latency, errors, retries, or semantic inference evaluator was used."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Individually bounded predicate releases are not composition-safe: unbudgeted binary queries reconstructed all 4,096 secrets, while a five-bit cumulative guard reconstructed none and left at least 128 candidates in every case.",
+          "evidence": "research/pcc-cleanroom/results_v2.json",
+          "scope": "Independent finite-domain reproduction of an already recognized Hush composition boundary; not a novel information-theory theorem."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Through Hush's actual encrypted ContextKernel, approval-gated PCC releases, ActionBroker and Calendar adapter, PCC completed 256/256 scheduling actions while exposing neither exact source field at the model boundary; raw context exposed both fields in 256/256 and exact semantic minimization exposed the cutoff in 256/256.",
+          "evidence": "research/pcc-runtime-product/RESULTS.md; research/pcc-runtime-product/results.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "All eight frozen gates passed. Provider payloads and receipts contained zero source-field disclosures. A second complete run reproduced the discrete outcome SHA-256 98735b9f6dbe1c819e6701b6ed2f0000614bc89e9a1ab2693c4d12eaaca3ac9a. Strict redaction protected both fields but completed 0/256 tasks.",
+          "scope": "Production-faithful internal product translation with simulated Google endpoint and deterministic model proxy; not external holdout, live-provider reliability, semantic privacy, named-competitor superiority, third-party reproduction, or field breakthrough."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the tested bounded-integer scheduling workflow, posterior-aware PCC bundling reduced approvals from 3.0 to 2.0 per completed action while preserving task success, exact-value non-disclosure, and a 30-candidate final posterior.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/bundled_results_v4.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "On untouched case IDs 768-1023, separate and bundled PCC each completed 256/256 tasks/actions with zero tested model/provider/receipt source matches. Every constraint receipt recorded realized-partition accounting; every final posterior retained exactly 30 candidates; replay was denied in all cases. Approvals fell from 768 to 512; all seven frozen gates passed; a full rerun reproduced discrete SHA-256 acf2651226ff29b03308c40e531589aa0d29219f2a1a986b028b38cfe8ba30fb.",
+          "scope": "Synthetic deterministic product translation with a simulated provider endpoint and declared integer domains. It is not arbitrary semantic privacy, external validation, historical novelty or a scientific breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A two-bit PCC bundle ceiling guarantees that no observed result conveys more than two bits of realized knowledge.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_RESULT.md; research/pcc-runtime-product/inference_firewall_probe.json",
+          "mechanism": "The vector `(s >= 500, s <= 500)` uniquely identified `s=500` in a 1,024-value domain. PCC released it under nominal two-bit accounting and left the posterior unchanged, while native Hush denied the equivalent exact predicate at 10 realized bits. Output cardinality does not bound knowledge when output preimages are imbalanced."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Transactional realized-posterior accounting closes the tested PCC identification bypass without destroying the non-identifying scheduling capability.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/inference_firewall_correction.json; research/pcc-runtime-product/bundled_results_v4.json",
+          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later extractor-alias correction: 301/301 tests.",
+          "scope": "Applies to analyzable bounded safe-integer comparisons under declared-domain assumptions; non-integer, inaccurate-domain, malicious-contract, external-prior and covert-channel cases remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Extractor-contract syntax is a safe identity for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/EXTRACTOR_ALIAS_RESULT.md; research/pcc-runtime-product/extractor_alias_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For secret 500 in domain 0..1023, two semantically equivalent numeric extractors differing only by an irrelevant anchor created separate posterior ledgers. The system approved both `s >= 500` and `s <= 500`; independent intersection reconstructed exactly `[500]`. The shared-extractor control denied the second disclosure. Frozen failure SHA-256: 131cc51c966652bce212b57dc9b0e1f076b6cc4c0da01c1571ece0d5fa7eea28.",
+          "scope": "Trusted-local contract registration is assumed, so this is a composition-accounting counterexample for separately authored trusted contracts, not a remote arbitrary-code exploit."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Opaque extracted-scalar identity closes the tested extractor-alias composition bypass and fails closed on conflicting declared domains.",
+          "evidence": "research/pcc-runtime-product/EXTRACTOR_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/extractor_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The corrected replay keyed the posterior to a private scalar digest plus field identity, created one ledger across equivalent aliases, denied the second query, and retained 524 candidates rather than one. Conflicting declared domains for aliases of the same scalar are rejected. The correction replay was byte-identical with SHA-256 edf27db402c0c136ec49d4fba6752300faddd03add3b227f34a747cb64208208; 12/12 focused tests and 301/301 full tests passed.",
+          "scope": "Finite bounded-integer adversarial differential. It does not establish universal semantic equivalence, resistance to malicious trusted extractors, side-channel safety, external validation, or a field breakthrough."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Public output-size metadata can trigger exact-value collisions and may become a genuine size side channel even when derived values are otherwise bounded.",
+          "evidence": "research/pcc-runtime-product/BUNDLED_FIRST_RUN_FAILURE.md; research/pcc-runtime-product/bundled_results.json",
+          "audit": "The first frozen bundle run failed 1/256 receipt checks because private cutoff 203 collided with outputBytes 203. Output size was constant and therefore did not causally encode the cutoff in that cohort, but the FAIL was preserved. Public bundle size metadata was removed before the untouched correction cohort.",
+          "cheapest_next_experiment": "Under an external model-based task set, vary statement/value encodings adversarially and measure observable length, timing, retry and semantic-inference channels rather than exact equality alone."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "The runtime PCC advantage survives a pinned model and external scheduling tasks with semantic/inference leakage scoring.",
+          "cheapest_next_experiment": "Freeze an external scheduling task set and pinned local model while retaining captured model, MCP, provider, receipt, error and retry boundaries."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The Hush PCC evidence is packaged as a concise HAA-facing proof-of-work chain with the claim, decisive table, falsified assumption, reproduction commands, limitations and next experiment.",
+          "evidence": "research/pcc-runtime-product/HAA_EVIDENCE_BRIEF.md; https://github.com/sushxnthd/hush/pull/35",
+          "scope": "Translation artifact only; it does not elevate the underlying INCONCLUSIVE scientific breakthrough gate."
+        }
+      ],
+      "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
+        "action": "Freeze a genuinely external scheduling set and pinned local model, exercising bounded task approval through captured model/MCP/provider/error/retry traces and semantic-inference leakage scoring against raw and exact semantic-minimization controls. Include adaptive repeated-query and observable length/timing attacks."
+      }
+    },
+    "LATTICE": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/lattice",
+    "branch": "breakthrough-engine/codegen-factorial-v2-2-evaluator",
+    "head": "fcd9e23f5a423e344021792d2da38a1d70573431",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "The frozen matched-budget candidate-effect gate passed on a fresh holdout: violation-normal prompts scored 59/72 hidden tests versus 28/72 for strong prose.",
+          "evidence": "experiments/CODEGEN_EQUAL_BUDGET_V1_RESULT.md; GitHub Actions run 37311055552",
+          "audit": "Development selected violation-normal at 43/72 versus 26/72. The fresh holdout advantage was 31/72 = 43.06 percentage points, with two versus zero perfect programs. Every domain passed the preregistered <=5% token-gap gate before generation.",
+          "scope": "Qwen2.5-Coder-1.5B-Instruct, greedy decoding, six development and six holdout lexical variants of one small-function schema; not a field-level breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Extra prompt-token budget is necessary for the earlier Qwen 1.5B representation effect.",
+          "evidence": "The violation-normal condition was slightly shorter on average in both splits yet retained a large prospective advantage."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Closed-world violation organization is causally relevant to generated-program correctness in the frozen task family.",
+          "scope": "The run does not distinguish closed-world cue strength, violation ordering, syntactic regularity, or model-specific pretraining familiarity."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The aggregate effect is implementation-independent.",
+          "evidence": "The immutable artifact was uploaded with digest sha256:751b43da8785fdb9da0ac8a9104e6d9896a6657c74ea2a7dcb8a72b3aef25327, but its raw generations have not yet been rescored by a clean evaluator."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "The large aggregate holdout advantage need not imply improvement on a majority of independent domain programs.",
+          "evidence": "results/codegen_equal_budget_v1_aggregate_bounds.json",
+          "audit": "Every matched-test contingency table consistent with 59/72 versus 28/72 has exact McNemar p < 4.711e-5, but exact domain-allocation enumeration permits three improved and three degraded domains while preserving the two-versus-zero perfect-program counts.",
+          "scope": "Opened aggregate-only uncertainty audit; it bounds what can be inferred before raw per-domain artifact reconstruction and is not a new holdout result."
+        },
+        {
+      "state": "KNOWN",
+      "claim": "The violation-ordering effect survives exact token identity and is positive in both tested model families; transfer to repository-evolution tasks remains untested.",
+      "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+      "audit": "Across twelve untouched task structures, evaluator-specific task-perfect classifications were identical: pooled ordering contrast +52.08 percentage points, Qwen +54.17, DeepSeek +50.00. Exact one-sided task-stratified sign-flip p-values were 0.0048828125 pooled, 0.0078125 Qwen and 0.02734375 DeepSeek. All four prompt conditions had exactly equal token counts per task and tokenizer before weights were loaded.",
+      "scope": "Two pinned 1.3B-1.5B code model families, greedy decoding, small policy-to-function synthesis tasks. One evaluator execution-path disagreement keeps the stricter protocol gate inconclusive."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The exact violation-normal transformation is historically novel.",
+          "evidence": "experiments/CODEGEN_EQUAL_BUDGET_V1_PRIOR_ART_AUDIT.md",
+          "audit": "Structured code prompting, multi-constraint ordering effects, under-specification reversals, and fine-grained guard/constraint syntax effects are established. No exact prospective equal-information violation-normal antecedent was located in the bounded search.",
+          "scope": "Broad prompt-structure novelty fails; only the exact controlled transformation remains a potential novelty candidate."
+        },
+        {
+      "state": "CONFLICTING",
+          "claim": "Violation ordering has a positive causal effect after redundant closed-world wording is independently controlled.",
+      "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+      "audit": "The preregistered numerical mechanism prediction passed independently under both evaluator task-perfect classifications: +52.08 points pooled, positive in both models, pooled exact p=0.0048828125. The effect remained +41.67 points in each model without an explicit closed-world cue. However, exact dual-evaluator agreement was 95/96: evaluator B omitted the safe builtin isinstance and raised NameError on one non-perfect program that evaluator A scored 20/24. The program was non-perfect under both evaluators, leaving all contrasts invariant, but the protocol explicitly prevents a positive formal result after any disagreement.",
+      "scope": "Strong prospective foothold and mechanism-consistent evidence; formal gate INCONCLUSIVE_EVALUATOR_DISAGREEMENT, not a breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The frozen CODEGEN-FACTORIAL-v2 renderer can satisfy exact token identity under both model tokenizers using at most eight inert padding tokens.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_PREFLIGHT_RESULT.md; artifacts/codegen_factorial_v2_tokenizer_preflight.json",
+          "audit": "All 8 model-task preflight gates failed before model loading. Violation rendering cost 8-16 extra Qwen tokens and 11-21 extra DeepSeek tokens; the explicit closed-world cue cost exactly one token in every pair. Artifact sha256:64923557b29a76986b681f8d87a98429405eed48a4d26b7917e91455cf4b35c9.",
+          "scope": "Renderer/control failure only. No model weights, completions or holdout prompts were used, so the scientific mechanism remains untested."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The symmetric CODEGEN-FACTORIAL-v2.1 renderer attains exact four-condition token identity under both pinned tokenizer families within the preregistered eight-token padding cap.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1_RENDERER_FREEZE.md; experiments/CODEGEN_FACTORIAL_V2_1_PREFLIGHT_RESULT.md; artifacts/codegen_factorial_v2_1_tokenizer_preflight.json",
+          "audit": "All 8 development model-task gates passed. The same-cue permission-versus-violation gap was 3-5 Qwen tokens and 4-6 DeepSeek tokens; maximum inert padding was 6 and 7 tokens respectively. Every final four-condition token count was identical within task and model. Artifact sha256:b608f0dc54f0496fb49f14cd3f2798e223973782f4051239a191a8edffbf8b99.",
+          "scope": "Pre-generation control/capability result only. No model weights, completions or holdout prompts were used; semantic polarity and logical connective still co-vary by design, and the causal correctness effect remains untested."
+      },
+      {
+        "state": "KNOWN",
+        "claim": "An independently implemented exec-free AST interpreter reproduces every v2.1a generated-program outcome.",
+        "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_EVALUATOR_RESULT.md; artifacts/codegen_factorial_v2_2_independent_evaluator_audit.json",
+        "audit": "The new evaluator imports neither frozen v2.1 evaluator and never compiles or executes generated Python. It matched evaluator A on all 2,848 case outcomes and all 96 task-perfect classifications, with zero unsupported-program errors. Audit sha256:dbbcbd1606acb2bbdbb76e2afbec873676443464f6d8cf277d548c2f1d54996d.",
+        "scope": "Opened-corpus internal replication and capability evidence only. It materially weakens evaluator artifact as an explanation for the +52.08-point contrast but cannot retroactively repair the preregistered 95/96 dual-evaluator gate or serve as a fresh holdout."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The exact-token violation-ordering benefit is positive across both frozen model families on a distinct task family.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md; artifacts/codegen_factorial_v2_2_raw.json; artifacts/codegen_factorial_v2_2_analysis.json",
+          "audit": "On twelve fresh tasks and 96 frozen generations, Qwen's marginal task-perfect ordering contrast was -8.33 percentage points while DeepSeek's was +37.50 points. The pooled +14.58-point contrast had exact one-sided task-stratified p=0.15625. All 2,304 case outcomes agreed between isolated subprocess execution and the exec-free AST interpreter.",
+          "scope": "The preregistered cross-model mechanism gate is INCONCLUSIVE rather than PASS; broad model-family invariance is unsupported. Raw sha256:0f26b3286f51d3278126b8bc8196629dce0d2bf6d174abe04f30a23a414ab078."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Pinned DeepSeek-Coder-1.3B retains a positive exact-token violation-ordering effect on the fresh v2.2 family without the explicit closed-world cue.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md; artifacts/codegen_factorial_v2_2_analysis.json",
+          "audit": "DeepSeek improved from 7/24 to 16/24 task-perfect programs marginally (+37.50 points; exact one-sided p=0.03125), and from 4/12 to 8/12 under the implicit cue alone (+33.33 points). Its closed-world contrast was -4.17 points, much smaller than the ordering effect.",
+          "scope": "Model-specific empirical foothold only; mechanism, novelty, larger-model transfer and repository-scale utility remain unresolved."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Exact-token policy representation exhibits a reproducible model-by-ordering regime split.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md",
+          "mechanism": "Qwen reversed on backup_restore and exam_schedule while DeepSeek improved on six tasks and reversed only on lab_entry; cue removal did not remove either model's direction.",
+          "cheapest_next_experiment": "On opened/development tasks, classify generated control-flow omissions for reversal versus shared-positive tasks, derive one prediction separating semantic-prior conflict from negation/branch-planning sensitivity, then freeze a small boundary-focused replication."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Qwen's negative v2.2 exact task-perfect contrast is not a negative semantic accept/reject contrast.",
+          "evidence": "artifacts/codegen_factorial_v2_2_error_topology.json; experiments/CODEGEN_FACTORIAL_V2_2_LABEL_BINDING_RESULT.md",
+          "audit": "At both cue levels, Qwen decision-perfect programs tied 8/12 permission versus 8/12 violation. Semantic case accuracy increased by 2.78 points under the implicit cue and 0.69 points under the explicit cue. All 72 payload-only errors were the literal rejected substituted for required blocked on model_publish and dataset_join.",
+          "scope": "Post-hoc decomposition on permanently opened evidence; it localizes the anomaly but cannot replace the frozen task-perfect estimand or repair the INCONCLUSIVE gate."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Rejection-oriented wording plus a required blocked payload is sufficient to cause Qwen's rejected-for-blocked substitution.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_LABEL_BINDING_RESULT.md; artifacts/codegen_factorial_v2_2_label_binding_probe.json",
+          "audit": "The frozen development prediction failed: both violation-first media_release completions returned blocked correctly on all cases, while the hold-label specificity control also passed. Evaluators agreed on all 192 cases. Probe sha256:97cb581cf9f6fefb86eeb04d449023880a0f4f333392cee0851ff59e49496d62.",
+          "scope": "Minimal counterexample to the simple label-binding explanation; additional task-semantic or generation-state factors remain unisolated."
+        }
+      ],
+  "holdout_state": "The six CODEGEN-EQUAL-BUDGET-v1 holdout domains, all twelve CODEGEN-FACTORIAL-v2.1 tasks, and all twelve distinct CODEGEN-FACTORIAL-v2.2 tasks are permanently spent. v2.2 completed all 96 generations uninterrupted; the post-start frozen recovery procedure was not used.",
+      "next_decisive_action": {
+    "class": "DISCRIMINATION",
+    "action": "Measure token-level generation logits at the first rejection-payload token on opened model_publish, dataset_join and development media_release prompts. Derive a task-semantic boundary prediction only if rejected is selectively elevated for the first two; do not open another broad prompt family or reuse v2.1/v2.2 as fresh evidence."
+      }
+    },
+    "THEORICA": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/theorica",
+      "branch": "breakthrough-engine/robust-translation-audit",
+      "head": "8064457b4e936500b03540e1067cf23f47642d0f",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "A single robust coordinate set is exactly a 2e-deletion-resilient permutation-group base and an exact support multicover.",
+          "evidence": "docs/ROBUST_BASE_MULTICOVER.md; results/robust_base_multicover_verification.json"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Using permutation-group bases for Hamming-error decoding is broadly novel.",
+          "evidence": "docs/ROBUST_BASE_PRIOR_ART_AUDIT.md",
+          "mechanism": "Uncoverings-by-bases and permutation-group decoding are established prior art."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Independent copied actions have additive robust-base cost, whereas synchronized copies obey a capacitated multicover and can cross a sharp feasibility boundary.",
+          "evidence": "results/robust_base_coupling_law_verification.json; results/robust_base_coupling_pairwise_replication.json"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For blockwise synchronized copies, robust-base cost is the sum of the diagonal-copy costs of independently varying blocks.",
+          "evidence": "results/robust_base_partition_transition_verification.json",
+          "audit": "Frozen 10-case C3/S3 prediction passed with zero disagreements and a byte-identical rerun."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The coupling and partition laws have standalone publication novelty.",
+          "evidence": "docs/ROBUST_BASE_PRIOR_ART_AUDIT.md",
+          "scope": "No exact source was found in a bounded search, but the partition result is a short corollary of the product and diagonal laws and priority is unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the natural A_n action on r synchronized copies, feasibility is exactly 3r >= 2e+1 and the minimum robust-base size has a closed form determined by (2e+1) modulo 3.",
+          "evidence": "docs/ROBUST_BASE_ALTERNATING_RESULT.md; results/robust_base_alternating_law_verification.json",
+          "audit": "The preregistered formula passed two exhaustive routes on all 24 frozen cases for n=3,4,5 and e=1,2,3; a clean rerun was byte-identical.",
+          "scope": "Exact theorem-level foothold for natural alternating actions; historical priority remains unresolved and no field-level breakthrough is claimed."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Minimum support size controls the synchronized-copy feasibility threshold when every minimum-size support occurs in the group.",
+          "evidence": "Natural S_n and A_n closed forms and frozen finite checks",
+          "scope": "The feasibility statement holds generally, but minimum support alone does not determine optimal cost."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the natural even-dihedral action D_n with n=2k, synchronized robust-base cost is ceil(k(2e+1)/(k-1)) exactly when r(n-2) >= 2e+1.",
+          "evidence": "docs/ROBUST_BASE_DIHEDRAL_RESULT.md; results/robust_base_dihedral_law_verification.json; docs/ROBUST_BASE_DIHEDRAL_REPLICATION.md; results/robust_base_dihedral_generator_replication.json",
+          "audit": "Two original exhaustive routes and a clean generator-only reimplementation passed all 23 frozen D_4, D_6 and D_8 cases. The replication used subgroup closure, pairwise codeword disagreements and multiset search, matched every original row, and reran byte-identically.",
+          "scope": "Exact theorem-level foothold; historical priority remains unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For every natural dihedral action D_n on r synchronized copies, feasibility is exactly r mu_n >= 2e+1 and robust-base cost is ceil(n(2e+1)/mu_n), where mu_n=n-1 for odd n and n-2 for even n.",
+          "evidence": "docs/ROBUST_BASE_DIHEDRAL_PARITY_RESULT.md; results/robust_base_dihedral_parity_verification.json",
+          "audit": "The preregistered odd-degree extension passed two exact routes on all 21 frozen D_5, D_7 and D_9 cases; a clean rerun was byte-identical with SHA-256 ec2735777efcfde7bb48c3e636ac9e4f835bcb9a5c283d5bd135558dc7d307e6.",
+          "mechanism": "Odd reflections fix one vertex whereas even reflections can fix an opposite pair, changing the support hypergraph and producing the exact nonmonotone D_5-to-D_6 cost transition 4-to-5 at e=1,r=1.",
+          "scope": "Exact theorem-level natural-dihedral law and parity-regime foothold; historical priority and external specialist review remain unresolved."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Support-hypergraph symmetry forces synchronized robust-base cost to lie within a degree-independent additive constant of its fractional multicover optimum.",
+          "evidence": "docs/ROBUST_BASE_FRACTIONAL_GAP_RESULT.md; results/robust_base_fractional_gap_verification.json",
+          "audit": "The new n=6,...,10 predictions passed exhaustive triple-support enumeration; explicit even-permutation support enumeration independently confirmed A_6 and A_7; the rerun was byte-identical with SHA-256 3d6efc42038b621ab118eeb5e316bca5e46381278bafed44d4d92e5d329e60b7.",
+          "mechanism": "At e=3,r=3, integrality forces multiplicities (2,2,3,...,3), costing 3n-2, while uniform fractional weight 7/3 attains 7n/3. The exact additive gap 2n/3-2 is unbounded despite complete triple symmetry.",
+          "scope": "Exact scoped counterexample family, but x_i=m_i-2 maps it directly to the standard complete 3-uniform-hypergraph transversal gap; standalone novelty is falsified.",
+          "prior_art_state": "REDISCOVERY"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Degree and minimum nonidentity support size determine synchronized robust-base cost.",
+          "evidence": "Natural D_4 and S_4 both have degree four and minimum support two, but at r=2 and e=1 their exact costs are 6 and 7 respectively.",
+          "mechanism": "D_4 has only two disjoint minimum supports, while S_4 has every vertex pair; the support hypergraph changes the integer-cover optimum."
+        }
+      ],
+      "holdout_state": "All located translation-action challenges are already opened; none may be reused as fresh evidence.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION",
+        "action": "Obtain external specialist proof and priority review of the dihedral parity law, while excluding complete-uniform-hypergraph consequences from novelty candidates and targeting genuinely group-specific support geometries."
+      }
+    },
+    "KERNELLUM": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/kernellum-independent",
+      "branch": "research/independent-additive-replication",
+      "head": "09a63b0c00185659037dff1bae02367eb7d0c7e8",
+      "pull_request": "https://github.com/sushxnthd/kernellum/pull/101",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "Direct response-scale exponential least squares preserves negative additive-noise observations and strongly improves the frozen inside-Gaussian regime.",
+          "evidence": "docs/ADDITIVE_RESPONSE_RESULT.md",
+          "scope": "Scoped mechanism gate only; broad synthetic and NIST transfer gates failed."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "With the latent Gaussian mean family held exact, changing additive Gaussian noise to multiplicative lognormal noise reverses the ranking of response NLS and bias-corrected log OLS.",
+          "evidence": "docs/NOISE_LIKELIHOOD_CROSSOVER_RESULT.md; results/additive_response/noise_likelihood_crossover/result.json",
+          "audit": "Frozen ten-seed gate passed: response/log geometric NMSE ratio 0.1112 with additive noise and 5.4728 with multiplicative noise; byte-identical rerun and independent aggregation audit.",
+          "scope": "Prospective two-dimensional synthetic mechanism result; established estimators, no field-level novelty claim."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Under frozen two-peak topology misspecification, the likelihood-driven estimator ordering retained its direction at separations 0.3, 0.7 and 1.1, but the preregistered robustness margin and universal monotone weakening prediction failed.",
+          "evidence": "docs/NOISE_LIKELIHOOD_TOPOLOGY_SHIFT_RESULT.md; results/additive_response/noise_likelihood_topology_shift/result.json",
+          "audit": "Primary FAIL: the multiplicative response/log ratio was 1.2046 at separation 1.1 versus the frozen minimum 1.25. Directional ordering held in all six aggregates; response won 27/30 additive trials and log OLS won 22/30 multiplicative trials. Byte-identical rerun and independent aggregation audit.",
+          "scope": "Finite synthetic boundary result; no threshold revision, novelty claim or field-level breakthrough."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In the frozen additive-noise two-peak regime, response-scale fitting rather than retention of negative observations is the dominant tested mechanism behind the response-NLS advantage over log OLS.",
+          "evidence": "docs/RESPONSE_SCALE_CENSORING_RESULT.md; results/additive_response/response_scale_censoring/result.json",
+          "audit": "Prospective gate passed after removing 50 negative observations: censored/full response geometric NMSE ratios 0.957--0.973, censored response/log ratios 0.0616--0.3255, and censored response won 29/30 trials. Byte-identical rerun and independent aggregation audit.",
+          "scope": "Falsifies a signed-retention-dominant explanation only in the frozen synthetic regime; established estimators and no field-level novelty claim."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Positive-subset selection bias is not the main residual explanation for censored response NLS performance in the two-peak development regime.",
+          "evidence": "results/additive_response/response_scale_censoring/development_truncated_probe.json",
+          "audit": "An oracle truncated-Gaussian likelihood using the true simulation noise scale had geometric NMSE ratios 1.040, 1.003 and 1.008 versus naive censored response NLS across 90 opened development conditions.",
+          "scope": "Opened-seed exploratory evidence with an oracle noise scale; not prospective confirmation or a deployable estimator."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The synthetic likelihood-crossover mechanism transfers as a material lognormal-estimator advantage to replicated fathead-minnow dry-weight measurements.",
+          "evidence": "docs/PROMELAS_REPLICATE_LIKELIHOOD_RESULT.md; results/additive_response/promelas_replicate_likelihood/result.json",
+          "audit": "Frozen external gate failed all conditions: lognormal/arithmetic SSE ratio 0.9869, lognormal/median ratio 1.0465, and 13/24 paired wins. Dataset, protocol and evaluator were frozen before response inspection; byte-identical rerun and independent raw-data audit.",
+          "scope": "Decisive only for the 24-observation P.promelas replicate protocol; it does not falsify the synthetic crossover."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A fixed 75%-median/25%-mean robust shrinkage estimator reliably dominates arithmetic, lognormal and median replicate predictors beyond the opened development datasets.",
+          "evidence": "docs/LEPIDIUM_ROBUST_SHRINKAGE_RESULT.md; results/additive_response/lepidium_robust_shrinkage/result.json; results/additive_response/lepidium_robust_shrinkage/audit.json",
+          "audit": "Frozen external gate failed on all 42 valid folds: robust/arithmetic SSE 0.9255, robust/lognormal 0.9270, but robust/median 1.0116; paired wins were 20/42 versus arithmetic and 21/42 versus median. Independent raw-data reconstruction passed and rerun was byte-identical.",
+          "scope": "Decisive for the fixed weight and frozen Lepidium protocol; it does not exclude data-adaptive or regime-specific robust-location rules. The prior O.mykiss and terbuthylazin attempts remain inconclusive before prediction."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "The apparent aggregate benefit of an interior mean-median weight can arise from pooling heterogeneous groups whose exact convex optima are usually pure endpoints.",
+          "evidence": "docs/MEAN_MEDIAN_WEIGHT_REGIME_MAP.md; results/additive_response/mean_median_weight_regime_map.json",
+          "audit": "Exact quadratic LOO analysis on 20 opened groups found 6 mean-boundary, 10 median-boundary and 4 interior optima. Dataset-level optimum median weights were 0.8371 for P.promelas, 0.6650 for nasturtium and 1.0 for lepidium.",
+          "scope": "Post-hoc opened-data failure mining; no frozen regime classifier, prospective prediction or novelty claim."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "Signed-Gaussian exact-LOO model selection is implementation-independent.",
+          "evidence": "docs/INDEPENDENT_ADDITIVE_FULL_RESULT.md",
+          "audit": "A clean implementation agrees on 116/120 paths but four noisy 4-D basin disagreements cause severe bidirectional extrapolation changes. A separately implemented standard-library aggregation audit verifies all counts, ratios and immutable input hashes.",
+          "provenance": "GitHub draft PR #101, commit 09a63b0c00185659037dff1bae02367eb7d0c7e8; stacked on unmodified PR #99 head 949d69b1de5284a106d6ce99ab6bc95f71bb2ab6.",
+          "scope": "Opened Gaussian evidence and same research process; not an external reproduction or fresh confirmation."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "At matched observations per parameter, adverse fitting risk increases with dimension and decreases with observation density in the tested Gaussian regime.",
+          "evidence": "docs/DIMENSION_DENSITY_RESULT.md"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In the frozen localized 6-D generator, additive versus equal-RMS multiplicative noise causally changes the catastrophic finite-endpoint tail but not strict termination availability.",
+          "evidence": "docs/FINITE_ENDPOINT_SUPPORT_RESULT.md"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A training-only warning can universally detect an unseen hidden peak without regularity assumptions or a nearby measurement.",
+          "evidence": "docs/HIDDEN_PEAK_IDENTIFIABILITY_BOUNDARY.md"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Under a valid Lipschitz constant, the McShane-Whitney envelope is an exact query certificate and its midpoint is minimax.",
+          "evidence": "docs/LIPSCHITZ_QUERY_CERTIFICATE.md",
+          "scope": "Classical theory converted into an executable capability; not a novelty claim."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Raw nearest-neighbor distance appears predictive only after pooling dimensions, but has weak or reversed discrimination within fixed dimension-density cells.",
+          "evidence": "Opened-data probe on the 640 folds from results/additive_response/dimension_density_map/raw",
+          "scope": "Post-hoc diagnostic only; not promoted as confirmation."
+        }
+      ],
+      "holdout_state": "All additive-response synthetic/NIST evidence named above is opened and cannot be reused as untouched confirmation.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION",
+        "action": "On opened replicate datasets, test whether training-only skewness and outlier-leverage diagnostics explain when the exact leave-one-out optimal mean-median weight lies at the mean, interior, or median boundary; freeze only a coarse regime prediction before any further external dataset is opened."
+      }
+    },
+    "NOESIS": {
+      "priority": 3,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "A current local evidence package is available for exact enumeration or automated counterexample generation.",
+          "scope": "No NOESIS repository is present in this execution workspace; absence is an infrastructure state, not scientific evidence."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Resume from the canonical repository/evidence package when available, then prioritize finite exhaustive theorem or counterexample search."
+      }
+    },
+    "LUCENT": {
+      "priority": 5,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "RGB-only active-state observability is sufficient for the intended product claim.",
+          "scope": "No exact active-state validation data or local repository is available in this workspace."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Use public paired RGB/reference data to establish the strongest self-verifiable calibration or observability boundary before making a product claim."
+      }
+    },
+    "VEKTOR": {
+      "priority": 6,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "A new architecture law or bottleneck has been verified in the current workspace.",
+          "scope": "No Vektor repository or synthesis evidence is present here; this is not a negative scientific result."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Resume reproducible RTL/synthesis/compiler sweeps from the canonical repository and promote the smallest robust architecture law."
+      }
+    }
+  }
+}
