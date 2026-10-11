@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "0464f68f6232ecb08c2300df659a760fed33e21d",
+      "head": "4f84988c96e77dd1c56ab20ff45d1de37b45099f",
       "claims": [
         {
           "state": "KNOWN",
@@ -117,6 +117,20 @@
           "evidence": "research/pcc-runtime-product/PREAPPROVAL_METADATA_CORRECTION_RESULT.md; research/pcc-runtime-product/preapproval_metadata_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "Safe release and bundle metadata now omit output size and realized `afterCandidates` / `totalKnowledgeBits` until consumption, while retaining pre-query candidate count and configured budget/capacity. The unchanged probe recovered 0/3 results, reran byte-identically with SHA-256 353fe2633f2f3b50f58c6ccd7dc5d042c9ac4a2d9fa2397399ea047c8644ef2f, and 15/15 focused plus 304/304 full tests passed.",
           "scope": "Closes the tested deterministic size and realized-accounting metadata channels. Timing, memory, compromised-runtime, malicious-contract, semantic and arbitrary side channels remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A privacy-firewall denial can be surfaced during PCC preparation without disclosing an unapproved private result.",
+          "evidence": "research/pcc-runtime-product/DENIAL_ORACLE_RESULT.md; research/pcc-runtime-product/denial_oracle_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For `secret == 500` over domain 0..1023, the true world exceeded the eight-bit posterior limit and threw an inference-denial during preparation, while the false world returned `decision: ask`. The control-flow difference revealed equality with zero approvals and zero consumptions. Frozen failure SHA-256: 24e04f4a53be8aa97103a3b7b6c149c16c4f4ed8ed433a9d11cb37f9d4b50c6e.",
+          "scope": "Agent-facing preparation response for a bounded integer equality query; no provider transmission was required."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Approval-bound generic firewall denial closes the tested PCC preparation control-flow oracle.",
+          "evidence": "research/pcc-runtime-product/DENIAL_ORACLE_CORRECTION_RESULT.md; research/pcc-runtime-product/denial_oracle_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Both secret=500 and secret=501 now produce the same prepared `ask` observation before approval. A withheld transaction cannot commit; after explicit approval it returns a generic one-shot denial without a constraint or posterior commit. The correction reran byte-identically with SHA-256 8651ab9a2e8de64c7dcdc47148d626dd51fc87e737bdc4e407048001c3943282; 15/15 focused and 304/304 full tests passed.",
+          "scope": "Response-level indistinguishability for the tested bounded equality case. Timing, standing prior consent, semantic privacy, arbitrary-program noninterference and covert channels remain unresolved."
         },
         {
           "state": "ANOMALOUS",
