@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "ab081412c3043477c43259df42be310dfbbc13f5",
+      "head": "f6d3c48d0f683c37d537811dbad46bb2e475a7d0",
       "claims": [
         {
           "state": "KNOWN",
@@ -59,7 +59,7 @@
           "state": "KNOWN",
           "claim": "Transactional realized-posterior accounting closes the tested PCC identification bypass without destroying the non-identifying scheduling capability.",
           "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/inference_firewall_correction.json; research/pcc-runtime-product/bundled_results_v4.json",
-          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later extractor-alias correction: 301/301 tests.",
+          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later field-alias correction: 303/303 tests.",
           "scope": "Applies to analyzable bounded safe-integer comparisons under declared-domain assumptions; non-integer, inaccurate-domain, malicious-contract, external-prior and covert-channel cases remain open."
         },
         {
@@ -71,10 +71,24 @@
         },
         {
           "state": "KNOWN",
-          "claim": "Opaque extracted-scalar identity closes the tested extractor-alias composition bypass and fails closed on conflicting declared domains.",
+          "claim": "Opaque extracted-scalar identity closes the tested extractor-syntax composition bypass and fails closed on conflicting declared domains.",
           "evidence": "research/pcc-runtime-product/EXTRACTOR_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/extractor_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
-          "audit": "The corrected replay keyed the posterior to a private scalar digest plus field identity, created one ledger across equivalent aliases, denied the second query, and retained 524 candidates rather than one. Conflicting declared domains for aliases of the same scalar are rejected. The correction replay was byte-identical with SHA-256 edf27db402c0c136ec49d4fba6752300faddd03add3b227f34a747cb64208208; 12/12 focused tests and 301/301 full tests passed.",
+          "audit": "The first corrected replay excluded extractor syntax, created one ledger across equivalent extractor aliases, denied the second query, and retained 524 candidates rather than one. It reproduced byte-identically with SHA-256 edf27db402c0c136ec49d4fba6752300faddd03add3b227f34a747cb64208208. A later field-alias counterexample showed that retaining field identity was still insufficient.",
           "scope": "Finite bounded-integer adversarial differential. It does not establish universal semantic equivalence, resistance to malicious trusted extractors, side-channel safety, external validation, or a field breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Trusted schema path and private-field syntax are safe identities for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/FIELD_ALIAS_RESULT.md; research/pcc-runtime-product/field_alias_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "A trusted record with `balance=500` and its schema alias `availableBalance=500` received two ledgers. The system approved `s >= 500` through one field and `s <= 500` through the other; the ledgers individually retained 524 and 501 candidates, but independent intersection reconstructed exactly `[500]`. Frozen failure SHA-256: 10191028ecb0f066008889cc4d2b604ee54a6bb542bb29ffd4f65d93c8b0d2db.",
+          "scope": "Assumes two trusted fields are declared aliases of one logical scalar. It is a local composition-identity counterexample, not a remote arbitrary-code exploit."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Scalar-only opaque posterior identity closes the tested extractor and duplicate-field alias bypasses.",
+          "evidence": "research/pcc-runtime-product/FIELD_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/field_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen field-alias replay denied the second query, used one ledger, and retained 524 candidates. Conflicting domains fail closed. The corrected replay was byte-identical with SHA-256 27466d87f549f7149f8eae10e6f8e0f60a78137f7488b623f0c5b4447534a523; 14/14 focused and 303/303 full tests passed.",
+          "scope": "Conservative finite-domain hardening: unrelated equal-valued fields may share accounting and lose utility. It does not establish arbitrary semantic canonicalization, malicious-contract resistance, side-channel safety, external validation, or a field breakthrough."
         },
         {
           "state": "ANOMALOUS",
