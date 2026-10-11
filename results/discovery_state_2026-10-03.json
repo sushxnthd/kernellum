@@ -40,6 +40,21 @@
       "evidence": "results/trend_factorial/development/traces.jsonl.gz: Franke5 seed930101 noise0 remove_only",
       "audit": "Second arithmetic reproduces the catastrophe with 2.669e-9 relative score discrepancy",
       "scope": "Finite computational counterexample; no universal reliability guarantee"
+    },
+    {
+      "state": "KNOWN",
+      "claim": "A clean same-process nonlinear implementation reproduces the signed-Gaussian exponential-only winner on a balanced 20-path slice",
+      "evidence": "results/additive_response/independent_replication/summary.json",
+      "audit": "20/20 family/sign agreement; floored independent/candidate NMSE 1.0000028 inside, 0.9999981 near shell and 0.9999957 far shell",
+      "scope": "Opened evidence, 20/120 Gaussian paths, exponential-only model; superseded for broad replication by the full 120-path audit"
+    },
+    {
+      "state": "CONFLICTING",
+      "claim": "The signed-Gaussian exponential-only selection is implementation-independent",
+      "evidence": "results/additive_response/independent_replication_full/summary.json",
+      "audit": "116/120 winner agreement but four noisy 4-D disagreements; floored independent/candidate NMSE 1.2926 inside, 1.6276 near shell and 2.5077 far shell",
+      "mechanism": "Fold-specific nonlinear optimizer basin changes alter LOO model selection; lower LOO CV can still produce catastrophic extrapolation",
+      "scope": "Opened same-process evidence; no external replication or new confirmation"
     }
   ],
   "field_breakthrough_established": false,
@@ -73,9 +88,19 @@
     "data_audit_arrays": 720,
     "separate_forward_scores": 11760,
     "partial_same_author_audit": true,
+    "independent_nonlinear_implementation": {
+      "status": "INCONCLUSIVE_SOLVER_DEPENDENT",
+      "paths": "120/120 Gaussian paths",
+      "winner_agreement": "116/120",
+      "inside_floored_nmse_ratio_to_candidate": 1.2926379441811169,
+      "near_shell_floored_nmse_ratio_to_candidate": 1.6276221582774606,
+      "far_shell_floored_nmse_ratio_to_candidate": 2.5077088675192547,
+      "evidence": "results/additive_response/independent_replication_full/summary.json",
+      "limitation": "Same research process and opened data; four noisy 4-D paths reveal fold-optimizer basin instability"
+    },
     "external_reproduction": false,
     "scientific_novelty_established": false,
     "field_breakthrough_established": false,
-    "next_decisive_action": "Clean independent nonlinear implementation from written specification; then freeze external conditions separating likelihood matching from selected function-family matching. Keep this active foothold and all failed gates; no retuning on opened tests."
+    "next_decisive_action": "Map deterministic basin occupancy on the four opened 4-D disagreements, then freeze shifted external conditions with an explicit solver-invariance and extrapolation-tail gate. Keep all failed gates; do not retune on opened outcomes."
   }
 }
