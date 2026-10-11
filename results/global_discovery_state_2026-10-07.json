@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "f6d3c48d0f683c37d537811dbad46bb2e475a7d0",
+      "head": "8901cc8b495f9cb98d005b58407e0d84f48ec62e",
       "claims": [
         {
           "state": "KNOWN",
@@ -59,7 +59,7 @@
           "state": "KNOWN",
           "claim": "Transactional realized-posterior accounting closes the tested PCC identification bypass without destroying the non-identifying scheduling capability.",
           "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/inference_firewall_correction.json; research/pcc-runtime-product/bundled_results_v4.json",
-          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later field-alias correction: 303/303 tests.",
+          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later diagnostic-digest correction: 304/304 tests.",
           "scope": "Applies to analyzable bounded safe-integer comparisons under declared-domain assumptions; non-integer, inaccurate-domain, malicious-contract, external-prior and covert-channel cases remain open."
         },
         {
@@ -89,6 +89,20 @@
           "evidence": "research/pcc-runtime-product/FIELD_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/field_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "The unchanged frozen field-alias replay denied the second query, used one ledger, and retained 524 candidates. Conflicting domains fail closed. The corrected replay was byte-identical with SHA-256 27466d87f549f7149f8eae10e6f8e0f60a78137f7488b623f0c5b4447534a523; 14/14 focused and 303/303 full tests passed.",
           "scope": "Conservative finite-domain hardening: unrelated equal-valued fields may share accounting and lose utility. It does not establish arbitrary semantic canonicalization, malicious-contract resistance, side-channel safety, external validation, or a field breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A plain SHA-256 identifier safely hides a bounded private scalar when exposed through metadata-only diagnostics.",
+          "evidence": "research/pcc-runtime-product/DIGEST_DICTIONARY_RESULT.md; research/pcc-runtime-product/digest_dictionary_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "The authenticated local partition footprint exposed SHA-256 of `{kind:number,value:500}`. An independent enumerator hashed all 1,024 declared candidates and recovered exactly 500 without reading the encrypted record. Collision resistance does not make a deterministic digest hiding on a small known domain. Frozen failure SHA-256: 2325869354c41e8b84c9056a324bdb04afe8cb5578301b561a4d03920c8dc503.",
+          "scope": "Authenticated local diagnostic/owner surface, not the remote model or provider boundary."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Public PCC diagnostics can retain aggregate posterior statistics without exposing the brute-forceable scalar identifier.",
+          "evidence": "research/pcc-runtime-product/DIGEST_DICTIONARY_CORRECTION_RESULT.md; research/pcc-runtime-product/digest_dictionary_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Public partition footprints now replace the internal key with `pcc:derived`; the unchanged 1,024-candidate enumerator found zero matches while candidate and knowledge statistics remained available. The replay was byte-identical with SHA-256 805f8db6f7ed504a47a48336f29606df611da42117db39964747e13380ccad80; 15/15 focused and 304/304 full tests passed.",
+          "scope": "Closes one deterministic-digest dictionary channel. Local runtime compromise, arbitrary side channels, semantic privacy, external validation and remote-model behavior remain open."
         },
         {
           "state": "ANOMALOUS",
