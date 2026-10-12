@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "c010d70e4117cd8eb291dea4ec203dbc82d221af",
+      "head": "e7d43defc51c6f1ae14fd81e75520477f9e39475",
       "claims": [
         {
           "state": "KNOWN",
@@ -210,6 +210,18 @@
           "scope": "Trusted adapter metadata in a deterministic generic-connector simulation. It does not discover aliases, prevent malicious or mistaken adapter key mutation/reuse, validate live-provider identity behavior, establish semantic privacy, or pass the breakthrough gate."
         },
         {
+          "state": "FALSIFIED",
+          "claim": "Hush can claim the broad mechanisms of compute-before-disclose, typed/scoped semantic declassification, or cumulative agent inference budgeting as new privacy primitives.",
+          "evidence": "research/pcc-runtime-product/PRIOR_ART_AUDIT_2026-10-12.md; OCELOT arXiv:2606.12341; MINIM arXiv:2606.13949; MNC arXiv:2608.01719; Jeeves POPL 2012 / PLAS 2013; adaptive QIF arXiv:1507.05766",
+          "mechanism": "OCELOT already combines runtime posterior-risk control, certified min-entropy charging, sink-weighted budgets and a tamper-evident ledger. MNC already combines application-authored typed task-sufficient disclosures, recipient/purpose/lifetime scopes, a reference monitor and history-aware inference control. MINIM, Jeeves and adaptive quantitative-information-flow work absorb further local-minimization, policy-selected-view and adaptive-composition components.",
+          "scope": "Primary-source conceptual audit as of 12 October 2026. It does not prove that an exact implementation matching all PCC runtime details already exists."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "Hush's exact combination of encrypted connector-backed context, bounded contracts, exact finite-domain feasible-branch authorization, lifecycle-stable composition, approval-bound one-shot actions and explicit falsification artifacts is a distinct system contribution against closest matched controls.",
+          "cheapest_next_experiment": "Implement or faithfully adapt OCELOT-style cumulative leakage budgeting and MNC-style scoped semantic declassification as matched controls on the same frozen external tasks, model, sink set and trace evaluator; compare task success, unnecessary disclosure, adaptive reconstruction, false denial, approvals and completed actions."
+        },
+        {
           "state": "ANOMALOUS",
           "claim": "Public output-size metadata can trigger exact-value collisions and may become a genuine size side channel even when derived values are otherwise bounded.",
           "evidence": "research/pcc-runtime-product/BUNDLED_FIRST_RUN_FAILURE.md; research/pcc-runtime-product/bundled_results.json",
@@ -231,7 +243,7 @@
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
-        "action": "Freeze an external scheduling set and pinned local model, retaining captured model, MCP, provider, receipt, error, retry and timing boundaries; score exact plus semantic/inference leakage against raw-context and exact semantic-minimization controls, including adaptive repeated-query and connector-identity mutation attacks."
+        "action": "Freeze an external task set and pinned local model, retaining every model/MCP/provider/receipt/error/retry/timing channel; compare PCC not only with raw and exact minimization but with faithfully matched OCELOT-style cumulative budgeting and MNC-style scoped declassification controls. Score task success, unnecessary disclosure, adaptive reconstruction, false denial, approvals and completed actions."
       }
     },
     "LATTICE": {
