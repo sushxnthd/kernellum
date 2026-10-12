@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "4f84988c96e77dd1c56ab20ff45d1de37b45099f",
+      "head": "c813a5a51ccd1c2193a9fe49c35fd2fdd69efccb",
       "claims": [
         {
           "state": "KNOWN",
@@ -131,6 +131,13 @@
           "evidence": "research/pcc-runtime-product/DENIAL_ORACLE_CORRECTION_RESULT.md; research/pcc-runtime-product/denial_oracle_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "Both secret=500 and secret=501 now produce the same prepared `ask` observation before approval. A withheld transaction cannot commit; after explicit approval it returns a generic one-shot denial without a constraint or posterior commit. The correction reran byte-identically with SHA-256 8651ab9a2e8de64c7dcdc47148d626dd51fc87e737bdc4e407048001c3943282; 15/15 focused and 304/304 full tests passed.",
           "scope": "Response-level indistinguishability for the tested bounded equality case. Timing, standing prior consent, semantic privacy, arbitrary-program noninterference and covert channels remain unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "No usable result-dependent PCC preparation timing signal was detected at the preregistered five-percent resolution in the tested in-process equality differential.",
+          "evidence": "research/pcc-runtime-product/TIMING_ORACLE_RESULT.md; research/pcc-runtime-product/timing_oracle_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "In the frozen 500-pair target/control differential, the adjusted median ratio was 1.00052, direction was 251/249, exact sign-test p=0.9643, block agreement was 2/5, and all four leakage gates failed. An independent 500-pair repeat also failed every gate at ratio 1.00510, direction 256/244 and p=0.6228. Frozen raw SHA-256: c7dd915c45159c5a240178331a2c4bfebbf7dc21e27b8c5ef03af8a62cfe490a.",
+          "scope": "Bounded negative result on one Linux x64 / Node.js v24.19.0 runtime, one equality predicate and one 1,024-value domain. It is not a constant-time guarantee and excludes network, cross-process, cache/CPU, other-domain and standing-consent channels."
         },
         {
           "state": "ANOMALOUS",
