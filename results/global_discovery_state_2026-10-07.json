@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "87083d46bfb9dbffbd7311a5101dd5360a50496d",
+      "head": "0dc0194c1e6908d8c7ecd61b31e80501c11072ca",
       "claims": [
         {
           "state": "KNOWN",
@@ -252,12 +252,19 @@
           "claim": "A boundary-matched, fail-closed evaluator is a prerequisite for any AgentDAM-derived PCC confirmation study.",
           "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EVALUATOR_AUDIT_2026-10-12.md; Hush research/pcc-runtime-product/verify_agentdam_evaluator_contract.py",
           "scope": "Capability gate only. No external comparative outcome or breakthrough claim has been produced."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A first fail-closed boundary evaluator preserves fixed case-arm denominators and detects protected data in normal, error and retry traces under synthetic adversarial dry runs.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_BOUNDARY_EVALUATOR_RESULT.md; Hush research/pcc-runtime-product/agentdam_boundary_dryrun.json",
+          "audit": "The frozen 12-case by six-arm dry run passed 11/11 gates; missing traces/boundaries remained in the denominator and failed privacy, duplicate records invalidated the protocol, retry/error leaks were detected, and an errored task remained a utility failure. A repeat was byte-identical. Result SHA-256: 523d8d8e34e4ff292790207120f7eadc8b7fb395455b8aaab2fad0ca3234d1f8. Focused tests 7/7; full Hush suite 320/320 after deterministically repairing an unrelated probabilistic ciphertext-tamper fixture.",
+          "scope": "Synthetic evaluator capability only. AgentDAM task outcomes remain unopened; actual adapter integration, local model, semantic/inference judge and faithful OCELOT/MNC implementations remain incomplete."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "CAPABILITY-BUILDING / DISCRIMINATION",
-        "action": "Before opening AgentDAM task outcomes, implement and synthetic-dry-run one fail-closed evaluator that preserves a fixed denominator and captures model, MCP, browser-action, provider, receipt, error, retry and timing boundaries. Then freeze one licensed noncommercial subset and compare raw context, AgentDAM's privacy prompt, strict redaction, PCC, OCELOT-style budgeting and MNC-style scoped declassification under the identical evaluator."
+        "action": "Implement the AgentDAM runner adapter against synthetic fixtures only, emitting the evaluator's model/tool/browser/provider/receipt/error/retry schema. Freeze adapter tests, local model revision, licensed noncommercial subset IDs/hashes and semantic-judge protocol before opening any task outcome; only then execute the matched six-arm study."
       }
     },
     "LATTICE": {
