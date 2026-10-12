@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "2773f9529acaaf3a05c55908fadab826e9289ffa",
+      "head": "ab11eff4b55f8a3327cb039ba147123c93e72550",
       "claims": [
         {
           "state": "KNOWN",
@@ -317,19 +317,45 @@
           "audit": "For prior (0.9, 0.1) and an exact deterministic reveal, cardinality reduction is 1.0 bit while statewise min-entropy reduction is log2(1/0.9)=0.15200309344505006 bits, a difference of 0.84799690655495 bits.",
           "scope": "Analytic boundary under one stated risk definition. Divergence may represent conservative protection or unnecessary denial; it is not automatically a PCC advantage.",
           "cheapest_next_experiment": "Freeze a skewed-prior development sweep comparing cardinality, calibrated posterior-risk and strongest matched operator-bound controls; measure denial, reconstruction and utility without opening the frozen AgentDAM cohort."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For finite non-uniform priors and deterministic observed branches, the exact PCC cardinality/min-entropy gap obeys C-L=log2(alpha/beta), where alpha=n*max(p) is global prior concentration and beta=k*max_B(p)/P(B) is within-branch concentration.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_PREREGISTRATION.md; Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md; Hush research/pcc-runtime-product/skewed_prior_regime_law_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The algebraic identity was preregistered before execution. Exhaustive enumeration covered 3,289 ordered positive rational priors and 189,222 prior/branch cases for n=2..7 and denominators n..12, with zero decomposition or exact-sign disagreements, zero disagreements over 388 uniform and 17,820 singleton cases, maximum numerical error 4.440892098500626e-16, and byte-identical repeats. File SHA-256 f42b8bd8284ee50be1d5926c38386a6dc149653f9bd57466ebe3e7786ba724f3.",
+          "scope": "Elementary exact decomposition and finite exhaustive verification for statewise min-entropy versus cardinality under deterministic set-valued releases. No historical novelty, learned-prior validity, semantic privacy, external utility or named-system superiority is claimed."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "PCC cardinality accounting is always conservative relative to realized statewise min-entropy reduction under skewed priors.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md; Hush research/pcc-runtime-product/skewed_prior_regime_law_result.json",
+          "mechanism": "Cardinality undercharges exactly when observed-branch concentration beta exceeds global prior concentration alpha. The smallest enumerated example used prior (1/5,2/5,2/5) and branch {0,1}: cardinality charged 0.584963 bits while statewise min-entropy reduction was 0.736966 bits.",
+          "scope": "One explicit risk definition under exact priors; an undercharge relative to this measure is not by itself an empirical privacy failure."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Skewed priors create a sharp two-sided accounting regime rather than a monotone conservative correction.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md",
+          "audit": "The frozen enumeration contained 161,635 overcharge, 7,246 equality and 20,341 undercharge cases. These are exhaustive counts for the stated rational grid, not population frequencies.",
+          "cheapest_next_experiment": "On synthetic development tasks only, freeze a prior-contract evaluator that perturbs calibrated priors and measures when alpha/beta sign errors change allow/deny decisions; compare distribution-free cardinality, calibrated posterior charge and fail-closed shift fallback."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "A provenance-bound calibrated-prior mode can improve Hush utility without increasing reconstruction or introducing unsafe behavior under prior shift.",
+          "cheapest_next_experiment": "Implement a development-only prior contract with calibration provenance, support floor and shift detection; preregister a sweep across correct, misspecified and adversarial priors before any external AgentDAM outcome is opened."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
-        "class": "DISCRIMINATION / CAPABILITY-BUILDING",
-        "action": "Create a frozen human-labeled semantic development calibration set and implement faithful OCELOT-style and MNC-style matched controls that exercise non-uniform calibration, calibrated operator bounds and recipient/lifetime scope enforcement rather than re-testing the equivalent uniform charge formula. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
+        "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
+        "action": "Freeze a development-only prior-contract evaluator using the exact alpha/beta law. Compare distribution-free cardinality, calibrated posterior charge and fail-closed shift fallback under correct, misspecified and adversarial priors, measuring utility, reconstruction and allow/deny reversals. Keep the 36 AgentDAM tasks unopened until semantic human calibration, faithful scope controls and zero-spend environment readiness also pass."
       }
     },
     "LATTICE": {
       "priority": 2,
       "repository": "/workspace/scratch/93c782ff9166/lattice",
-    "branch": "breakthrough-engine/codegen-factorial-v2-2-evaluator",
-    "head": "fcd9e23f5a423e344021792d2da38a1d70573431",
+      "branch": "breakthrough-engine/codegen-factorial-v2-2-evaluator",
+      "head": "fcd9e23f5a423e344021792d2da38a1d70573431",
       "claims": [
         {
           "state": "KNOWN",
@@ -361,11 +387,11 @@
           "scope": "Opened aggregate-only uncertainty audit; it bounds what can be inferred before raw per-domain artifact reconstruction and is not a new holdout result."
         },
         {
-      "state": "KNOWN",
-      "claim": "The violation-ordering effect survives exact token identity and is positive in both tested model families; transfer to repository-evolution tasks remains untested.",
-      "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
-      "audit": "Across twelve untouched task structures, evaluator-specific task-perfect classifications were identical: pooled ordering contrast +52.08 percentage points, Qwen +54.17, DeepSeek +50.00. Exact one-sided task-stratified sign-flip p-values were 0.0048828125 pooled, 0.0078125 Qwen and 0.02734375 DeepSeek. All four prompt conditions had exactly equal token counts per task and tokenizer before weights were loaded.",
-      "scope": "Two pinned 1.3B-1.5B code model families, greedy decoding, small policy-to-function synthesis tasks. One evaluator execution-path disagreement keeps the stricter protocol gate inconclusive."
+          "state": "KNOWN",
+          "claim": "The violation-ordering effect survives exact token identity and is positive in both tested model families; transfer to repository-evolution tasks remains untested.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+          "audit": "Across twelve untouched task structures, evaluator-specific task-perfect classifications were identical: pooled ordering contrast +52.08 percentage points, Qwen +54.17, DeepSeek +50.00. Exact one-sided task-stratified sign-flip p-values were 0.0048828125 pooled, 0.0078125 Qwen and 0.02734375 DeepSeek. All four prompt conditions had exactly equal token counts per task and tokenizer before weights were loaded.",
+          "scope": "Two pinned 1.3B-1.5B code model families, greedy decoding, small policy-to-function synthesis tasks. One evaluator execution-path disagreement keeps the stricter protocol gate inconclusive."
         },
         {
           "state": "CONFLICTING",
@@ -375,11 +401,11 @@
           "scope": "Broad prompt-structure novelty fails; only the exact controlled transformation remains a potential novelty candidate."
         },
         {
-      "state": "CONFLICTING",
+          "state": "CONFLICTING",
           "claim": "Violation ordering has a positive causal effect after redundant closed-world wording is independently controlled.",
-      "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
-      "audit": "The preregistered numerical mechanism prediction passed independently under both evaluator task-perfect classifications: +52.08 points pooled, positive in both models, pooled exact p=0.0048828125. The effect remained +41.67 points in each model without an explicit closed-world cue. However, exact dual-evaluator agreement was 95/96: evaluator B omitted the safe builtin isinstance and raised NameError on one non-perfect program that evaluator A scored 20/24. The program was non-perfect under both evaluators, leaving all contrasts invariant, but the protocol explicitly prevents a positive formal result after any disagreement.",
-      "scope": "Strong prospective foothold and mechanism-consistent evidence; formal gate INCONCLUSIVE_EVALUATOR_DISAGREEMENT, not a breakthrough."
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+          "audit": "The preregistered numerical mechanism prediction passed independently under both evaluator task-perfect classifications: +52.08 points pooled, positive in both models, pooled exact p=0.0048828125. The effect remained +41.67 points in each model without an explicit closed-world cue. However, exact dual-evaluator agreement was 95/96: evaluator B omitted the safe builtin isinstance and raised NameError on one non-perfect program that evaluator A scored 20/24. The program was non-perfect under both evaluators, leaving all contrasts invariant, but the protocol explicitly prevents a positive formal result after any disagreement.",
+          "scope": "Strong prospective foothold and mechanism-consistent evidence; formal gate INCONCLUSIVE_EVALUATOR_DISAGREEMENT, not a breakthrough."
         },
         {
           "state": "FALSIFIED",
@@ -394,13 +420,13 @@
           "evidence": "experiments/CODEGEN_FACTORIAL_V2_1_RENDERER_FREEZE.md; experiments/CODEGEN_FACTORIAL_V2_1_PREFLIGHT_RESULT.md; artifacts/codegen_factorial_v2_1_tokenizer_preflight.json",
           "audit": "All 8 development model-task gates passed. The same-cue permission-versus-violation gap was 3-5 Qwen tokens and 4-6 DeepSeek tokens; maximum inert padding was 6 and 7 tokens respectively. Every final four-condition token count was identical within task and model. Artifact sha256:b608f0dc54f0496fb49f14cd3f2798e223973782f4051239a191a8edffbf8b99.",
           "scope": "Pre-generation control/capability result only. No model weights, completions or holdout prompts were used; semantic polarity and logical connective still co-vary by design, and the causal correctness effect remains untested."
-      },
-      {
-        "state": "KNOWN",
-        "claim": "An independently implemented exec-free AST interpreter reproduces every v2.1a generated-program outcome.",
-        "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_EVALUATOR_RESULT.md; artifacts/codegen_factorial_v2_2_independent_evaluator_audit.json",
-        "audit": "The new evaluator imports neither frozen v2.1 evaluator and never compiles or executes generated Python. It matched evaluator A on all 2,848 case outcomes and all 96 task-perfect classifications, with zero unsupported-program errors. Audit sha256:dbbcbd1606acb2bbdbb76e2afbec873676443464f6d8cf277d548c2f1d54996d.",
-        "scope": "Opened-corpus internal replication and capability evidence only. It materially weakens evaluator artifact as an explanation for the +52.08-point contrast but cannot retroactively repair the preregistered 95/96 dual-evaluator gate or serve as a fresh holdout."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "An independently implemented exec-free AST interpreter reproduces every v2.1a generated-program outcome.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_EVALUATOR_RESULT.md; artifacts/codegen_factorial_v2_2_independent_evaluator_audit.json",
+          "audit": "The new evaluator imports neither frozen v2.1 evaluator and never compiles or executes generated Python. It matched evaluator A on all 2,848 case outcomes and all 96 task-perfect classifications, with zero unsupported-program errors. Audit sha256:dbbcbd1606acb2bbdbb76e2afbec873676443464f6d8cf277d548c2f1d54996d.",
+          "scope": "Opened-corpus internal replication and capability evidence only. It materially weakens evaluator artifact as an explanation for the +52.08-point contrast but cannot retroactively repair the preregistered 95/96 dual-evaluator gate or serve as a fresh holdout."
         },
         {
           "state": "FALSIFIED",
@@ -438,10 +464,10 @@
           "scope": "Minimal counterexample to the simple label-binding explanation; additional task-semantic or generation-state factors remain unisolated."
         }
       ],
-  "holdout_state": "The six CODEGEN-EQUAL-BUDGET-v1 holdout domains, all twelve CODEGEN-FACTORIAL-v2.1 tasks, and all twelve distinct CODEGEN-FACTORIAL-v2.2 tasks are permanently spent. v2.2 completed all 96 generations uninterrupted; the post-start frozen recovery procedure was not used.",
+      "holdout_state": "The six CODEGEN-EQUAL-BUDGET-v1 holdout domains, all twelve CODEGEN-FACTORIAL-v2.1 tasks, and all twelve distinct CODEGEN-FACTORIAL-v2.2 tasks are permanently spent. v2.2 completed all 96 generations uninterrupted; the post-start frozen recovery procedure was not used.",
       "next_decisive_action": {
-    "class": "DISCRIMINATION",
-    "action": "Measure token-level generation logits at the first rejection-payload token on opened model_publish, dataset_join and development media_release prompts. Derive a task-semantic boundary prediction only if rejected is selectively elevated for the first two; do not open another broad prompt family or reuse v2.1/v2.2 as fresh evidence."
+        "class": "DISCRIMINATION",
+        "action": "Measure token-level generation logits at the first rejection-payload token on opened model_publish, dataset_join and development media_release prompts. Derive a task-semantic boundary prediction only if rejected is selectively elevated for the first two; do not open another broad prompt family or reuse v2.1/v2.2 as fresh evidence."
       }
     },
     "THEORICA": {
