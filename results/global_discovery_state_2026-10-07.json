@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "ceb82d6c6e14c3f9dc3d4ccf77ef80d1a9cf9bf2",
+      "head": "2773f9529acaaf3a05c55908fadab826e9289ffa",
       "claims": [
         {
           "state": "KNOWN",
@@ -295,12 +295,34 @@
           "evidence": "Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_PREREGISTRATION.md; Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_RESULT.md; Hush research/pcc-runtime-product/agentdam_semantic_judge_dryrun.json",
           "audit": "Five synthetic items across three prompt variants produced all 15 bound judgments. Exact, paraphrased and inferential fixtures failed privacy; the benign fixture passed; ambiguity abstained and failed closed. Seven of seven frozen gates, six of six focused tests and 326/326 full Hush tests passed. Two runs were byte-identical; artifact-file SHA-256 8e537bca0eb87dd2f20986dac8b7e788870ce4d2f64a29022120b95a636fdd95.",
           "scope": "Transport/parser/aggregation capability only. A synthetic oracle supplied labels; no model's semantic competence, human agreement or AgentDAM outcome was tested. Three prompt variants from one future model are robustness checks, not independent reviewers."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For uniform finite feasible states and deterministic binary releases, PCC cardinality charge, realized posterior min-entropy reduction and a history-aware semantic-declassification specialization are the same quantity, log2(|S|/|B|).",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_PREREGISTRATION.md; Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/matched_control_equivalence_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Exhaustive enumeration over domain sizes 2..12 covered 1,561,584 charge cases and 37,478,016 weighted budget decisions with zero charge, decision or repeated-disclosure disagreements. Maximum floating-point error was 3.885780586188048e-16. Two full executions were byte-identical; file SHA-256 cb9ff86d13a8d3fa53b078f099660b45662e22099c9dcba2c5732abc31ad1a06; full Hush suite 326/326.",
+          "scope": "Exact theorem and finite exhaustive verification for uniform feasible states, deterministic binary releases, identical histories, weights, budgets and feasible-branch authorization. It is not an OCELOT/MNC author-code reproduction, empirical superiority result or semantic-privacy claim."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "PCC's exact finite-domain charge formula by itself distinguishes Hush from a matched posterior-min-entropy control in the uniform deterministic regime.",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/PRIOR_ART_AUDIT_2026-10-12.md",
+          "mechanism": "Under a uniform posterior, realized conditional min-entropy is log2 of feasible-set cardinality. Restricting S to observed branch B therefore reduces min-entropy by log2(|S|/|B|), exactly PCC's realized cardinality charge; equal weights and budgets force equal decisions.",
+          "scope": "Does not absorb OCELOT's calibrated per-operator upper bounds or MNC's candidate/scope monitor. Other system mechanisms may still differ."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "A non-uniform two-secret prior is a minimal boundary where PCC cardinality accounting diverges sharply from statewise min-entropy reduction.",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/matched_control_equivalence_result.json",
+          "audit": "For prior (0.9, 0.1) and an exact deterministic reveal, cardinality reduction is 1.0 bit while statewise min-entropy reduction is log2(1/0.9)=0.15200309344505006 bits, a difference of 0.84799690655495 bits.",
+          "scope": "Analytic boundary under one stated risk definition. Divergence may represent conservative protection or unnecessary denial; it is not automatically a PCC advantage.",
+          "cheapest_next_experiment": "Freeze a skewed-prior development sweep comparing cardinality, calibrated posterior-risk and strongest matched operator-bound controls; measure denial, reconstruction and utility without opening the frozen AgentDAM cohort."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
-        "class": "CAPABILITY-BUILDING / DISCRIMINATION",
-        "action": "Create a frozen human-labeled semantic development calibration set and implement faithful OCELOT-style and MNC-style matched controls. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
+        "class": "DISCRIMINATION / CAPABILITY-BUILDING",
+        "action": "Create a frozen human-labeled semantic development calibration set and implement faithful OCELOT-style and MNC-style matched controls that exercise non-uniform calibration, calibrated operator bounds and recipient/lifetime scope enforcement rather than re-testing the equivalent uniform charge formula. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
       }
     },
     "LATTICE": {
