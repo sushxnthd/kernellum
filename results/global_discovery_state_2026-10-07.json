@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "84eef9e0db01893c658cb7f9c0669472a678f4e7",
+      "head": "123b54e9c59f715dc55392cf0b5e2459b9643034",
       "claims": [
         {
           "state": "KNOWN",
@@ -180,6 +180,20 @@
           "evidence": "research/pcc-runtime-product/VALUE_IDENTITY_AUTHORIZATION_CORRECTION_RESULT.md; research/pcc-runtime-product/value_identity_authorization_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "The unchanged differential now returns `ask` in both equal and unequal worlds. Same-field extractor aliases compose automatically; cross-field aliases require a trusted public `privacyGroup`; persisted legacy value-derived ledgers fail closed. The corrected artifact reran byte-identically with SHA-256 3418a9cdadc96cfd64faed0ce8de35a7db6635242cbbb7404275f8e5295a7656; 29/29 focused and 310/310 full tests passed.",
           "scope": "The correction depends on accurate trusted structural grouping. It does not solve semantic alias discovery; incorrect or malicious `privacyGroup` metadata can under-compose or over-compose privacy state."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Encrypted storage-record identity is sufficiently stable for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/RECORD_RECREATION_RESULT.md; research/pcc-runtime-product/record_recreation_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "After `s >= 500` was released, deleting and recreating the unchanged logical path allocated a new record identifier and fresh ledger. The system then released `s <= 500`; the public intersection was exactly `[500]`. Unchanged and in-place-update controls denied the second query. Frozen failure SHA-256: 9231993abaf0580804406d10a1542f143d0dfccddf337f6eb4f452c58a1782a3.",
+          "scope": "Trusted local lifecycle operation on one bounded integer record. It does not establish that a remote model can delete context."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Logical-path/field identity closes the tested storage-lifecycle composition reset while preserving same-path composition and distinct-path independence.",
+          "evidence": "research/pcc-runtime-product/RECORD_RECREATION_CORRECTION_RESULT.md; research/pcc-runtime-product/record_recreation_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen differential now denies the identifying second query after restart, in-place update and remove/recreate. PCC v3 uses logical path plus field by default, explicit trusted grouping for cross-path aliases, and fails closed on older PCC identity namespaces. The corrected artifact reran byte-identically with SHA-256 f9e9a1e67ac0aa887ab54d40bb0f243b8276da43189e0dedea82aaae637b3497; 30/30 focused and 311/311 full tests passed.",
+          "scope": "Path reuse for a different logical secret may conservatively retain obsolete accounting; path renames need trusted grouping. Semantic alias discovery and external validation remain unresolved."
         },
         {
           "state": "ANOMALOUS",
