@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "738fe73f6706331047576566ffca6d369ff6b5c1",
+      "head": "c010d70e4117cd8eb291dea4ec203dbc82d221af",
       "claims": [
         {
           "state": "KNOWN",
@@ -203,6 +203,13 @@
           "scope": "Deterministic generic-connector simulation through actual normalization, replacement ingestion, encrypted restart and PCC runtime. It establishes a failure under identifier churn, not that named live providers currently rotate IDs this way."
         },
         {
+          "state": "KNOWN",
+          "claim": "A trusted adapter-supplied, value-independent durable privacy key closes the tested connector source-ID rotation composition reset and makes absent or duplicate continuity fail closed.",
+          "evidence": "research/pcc-runtime-product/CONNECTOR_PRIVACY_KEY_CORRECTION_RESULT.md; research/pcc-runtime-product/connector_privacy_key_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Under the prospectively frozen differential, stable and rotated provider IDs with the same durable privacyKey both denied the identifying second predicate. A missing key rejected connector-backed comparison preparation and duplicate keys rejected the snapshot. The prior ordinary record-recreation probe remained PASS. The result reran byte-identically with SHA-256 bc471f90dfb0067262433eab946af5d2751e2feb45f7fba63f4e8a363cf10082; 28/28 focused and 313/313 complete repository tests passed. PCC identity is versioned to v4 and earlier state fails closed.",
+          "scope": "Trusted adapter metadata in a deterministic generic-connector simulation. It does not discover aliases, prevent malicious or mistaken adapter key mutation/reuse, validate live-provider identity behavior, establish semantic privacy, or pass the breakthrough gate."
+        },
+        {
           "state": "ANOMALOUS",
           "claim": "Public output-size metadata can trigger exact-value collisions and may become a genuine size side channel even when derived values are otherwise bounded.",
           "evidence": "research/pcc-runtime-product/BUNDLED_FIRST_RUN_FAILURE.md; research/pcc-runtime-product/bundled_results.json",
@@ -224,7 +231,7 @@
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
-        "action": "Prospectively add an adapter-supplied value-independent durable privacy key and replay source-ID rotation while holding it fixed; then adversarially test missing, duplicated and changed keys with fail-closed ambiguity behavior before opening an external scheduling set."
+        "action": "Freeze an external scheduling set and pinned local model, retaining captured model, MCP, provider, receipt, error, retry and timing boundaries; score exact plus semantic/inference leakage against raw-context and exact semantic-minimization controls, including adaptive repeated-query and connector-identity mutation attacks."
       }
     },
     "LATTICE": {
