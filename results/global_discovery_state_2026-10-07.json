@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "e529039a11896718d1976f93c20c38e843f21a29",
+      "head": "819fd39e85c6e7438caef14b0b31de513a48fdca",
       "claims": [
         {
           "state": "KNOWN",
@@ -265,13 +265,20 @@
           "claim": "A source-pinned AgentDAM overlay emits the fail-closed model/action/provider/receipt/error/retry trace schema under synthetic runner doubles.",
           "evidence": "Hush research/pcc-runtime-product/AGENTDAM_TRACE_ADAPTER_RESULT.md; Hush research/pcc-runtime-product/agentdam_trace_adapter_result.json",
           "audit": "The preregistered raw/PCC integration passed 9/9 gates: 12/12 valid fixed-denominator traces, raw canary disclosure 6/6 versus PCC 0/6, equal 6/6 synthetic utility, and retained timeout/error/retry/two-attempt records in both arms. An independent invocation was byte-identical; canonical result digest df129bfc94be6dfbf45e27252239cad66f2c2a1a5b05847e0ff67d96dcb11f99. Python tests 3/3, boundary tests 7/7, complete Hush suite 320/320.",
-          "scope": "Capability-building only: the model module and Playwright-style page were synthetic doubles, the overlay has not completed a real runner-loop smoke test, and no AgentDAM task outcome was opened. Semantic scoring, pinned local model and faithful matched controls remain incomplete."
+          "scope": "Capability-building only: the model module and Playwright-style page were synthetic doubles and this dry run did not execute the released runner loop. The later runner-loop smoke is recorded separately. No AgentDAM task outcome was opened; semantic scoring, pinned local model and faithful matched controls remain incomplete."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The source-pinned boundary overlay attaches to AgentDAM's released test loop and PromptAgent retry control flow under benchmark-free dependency-isolated fixtures.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_RUNNER_LOOP_SMOKE_RESULT.md; Hush research/pcc-runtime-product/agentdam_runner_loop_smoke_result.json",
+          "audit": "Both raw and PCC arms executed the exact pinned run_agentdam.test() and PromptAgent.next_action() source. The deliberately malformed first model response triggered the released parse-retry loop. All 8/8 gates passed: two valid fixed-denominator traces, two model calls and one retry per arm, one action/provider/receipt per arm, raw disclosure 1/1 versus PCC 0/1, and task success 1/1 in both arms. The independent invocation was byte-identical; canonical evaluation digest 5b4d16b8d98b3e739a72aff549a89e9d254841dfcd50f67e06b2b0fe29e883eb. Full Hush suite 320/320.",
+          "scope": "Capability-building only. Browser, provider, prompt constructor, renderer and evaluator were deterministic local doubles loaded through dependency isolation. No benchmark outcome, live browser/provider, local model, semantic judge or timing study was opened."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "CAPABILITY-BUILDING / DISCRIMINATION",
-        "action": "Freeze licensed AgentDAM subset IDs/hashes, pinned local model, semantic-judge protocol and faithful matched-control specifications. Connect the verified overlay at the real runner loop and complete a no-outcome smoke test before opening any task outcome; only then execute the matched study."
+        "action": "Freeze licensed AgentDAM subset IDs/hashes, pinned local model, semantic-judge protocol, exact timing capture and faithful matched-control specifications. Complete one clean-environment dependency/browser startup check without opening task outcomes; only then execute the matched study."
       }
     },
     "LATTICE": {
