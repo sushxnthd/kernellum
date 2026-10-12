@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "123b54e9c59f715dc55392cf0b5e2459b9643034",
+      "head": "738fe73f6706331047576566ffca6d369ff6b5c1",
       "claims": [
         {
           "state": "KNOWN",
@@ -196,6 +196,13 @@
           "scope": "Path reuse for a different logical secret may conservatively retain obsolete accounting; path renames need trusted grouping. Semantic alias discovery and external validation remain unresolved."
         },
         {
+          "state": "FALSIFIED",
+          "claim": "Logical connector path plus private field is a sufficiently durable identity for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/CONNECTOR_ID_ROTATION_RESULT.md; research/pcc-runtime-product/connector_id_rotation_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Hush derives connector paths from provider, collection and provider-controlled source ID. After `s >= 500` was released, a replacement snapshot changing only source ID created one new path and removed the old path. After restart PCC allowed `s <= 500`; the transcript uniquely recovered `[500]`. The stable-ID control denied it. Frozen SHA-256: f9069ca31b060b4608fda48d9a05c783751deffe7179b62fcdbad1be8eb4dc18.",
+          "scope": "Deterministic generic-connector simulation through actual normalization, replacement ingestion, encrypted restart and PCC runtime. It establishes a failure under identifier churn, not that named live providers currently rotate IDs this way."
+        },
+        {
           "state": "ANOMALOUS",
           "claim": "Public output-size metadata can trigger exact-value collisions and may become a genuine size side channel even when derived values are otherwise bounded.",
           "evidence": "research/pcc-runtime-product/BUNDLED_FIRST_RUN_FAILURE.md; research/pcc-runtime-product/bundled_results.json",
@@ -217,7 +224,7 @@
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
-        "action": "Freeze a genuinely external scheduling set and pinned local model, exercising bounded task approval through captured model/MCP/provider/error/retry traces and semantic-inference leakage scoring against raw and exact semantic-minimization controls. Include adaptive repeated-query and observable length/timing attacks."
+        "action": "Prospectively add an adapter-supplied value-independent durable privacy key and replay source-ID rotation while holding it fixed; then adversarially test missing, duplicated and changed keys with fail-closed ambiguity behavior before opening an external scheduling set."
       }
     },
     "LATTICE": {
