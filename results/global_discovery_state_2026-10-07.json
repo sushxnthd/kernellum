@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "f47ede9eed91d7cc63bc5378ad178f1699b77658",
+      "head": "84eef9e0db01893c658cb7f9c0669472a678f4e7",
       "claims": [
         {
           "state": "KNOWN",
@@ -166,6 +166,20 @@
           "evidence": "research/pcc-runtime-product/LEDGER_CARDINALITY_CORRECTION_RESULT.md; research/pcc-runtime-product/ledger_cardinality_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "The unchanged probe now emits one identical aggregate row for equal and unequal worlds. It reports conservative extrema while withholding contributing-ledger count. The corrected artifact reran byte-identically with SHA-256 bd1b002dad13b318b7bfa18ecddd63889dcaed75f8b40a944a8eb77ce97ec18a; 18/18 focused and 307/307 full tests passed.",
           "scope": "Closes the frozen `partitionExposure()` cardinality channel. Aggregate statistics remain visible; other diagnostics, semantic privacy, malicious contracts and compromised-runtime attacks remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Automatic co-accounting by current recovered scalar value can be made transcript-private by hiding value-derived diagnostic identity and cardinality.",
+          "evidence": "research/pcc-runtime-product/VALUE_IDENTITY_AUTHORIZATION_RESULT.md; research/pcc-runtime-product/value_identity_authorization_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Two worlds released identical predicate results, but the second preparation was denied only when two structurally independent private fields held equal values. Current private equality therefore selected whether composition applied, exposing equality through authorization control flow. Frozen failure SHA-256: d8613654bf267efbffe88cf30811222a7cca3e21323fc01c2e1cfdd2b397ec34.",
+          "scope": "Trusted bounded-integer contracts over two local fields. This supersedes the earlier scalar-only identity correction; it is not a remote arbitrary-query exploit or universal PCC failure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent structural identity closes the frozen private-equality authorization oracle while preserving explicitly declared alias composition.",
+          "evidence": "research/pcc-runtime-product/VALUE_IDENTITY_AUTHORIZATION_CORRECTION_RESULT.md; research/pcc-runtime-product/value_identity_authorization_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged differential now returns `ask` in both equal and unequal worlds. Same-field extractor aliases compose automatically; cross-field aliases require a trusted public `privacyGroup`; persisted legacy value-derived ledgers fail closed. The corrected artifact reran byte-identically with SHA-256 3418a9cdadc96cfd64faed0ce8de35a7db6635242cbbb7404275f8e5295a7656; 29/29 focused and 310/310 full tests passed.",
+          "scope": "The correction depends on accurate trusted structural grouping. It does not solve semantic alias discovery; incorrect or malicious `privacyGroup` metadata can under-compose or over-compose privacy state."
         },
         {
           "state": "ANOMALOUS",
