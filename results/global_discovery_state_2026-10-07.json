@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "5599000266faece2b875bf244e46db3561872363",
+      "head": "ceb82d6c6e14c3f9dc3d4ccf77ef80d1a9cf9bf2",
       "claims": [
         {
           "state": "KNOWN",
@@ -288,12 +288,19 @@
           "audit": "The current environment fails closed: Python 3.12 is outside upstream's stated 3.10/3.11 support, and no GPU, Docker daemon, Playwright CLI, vLLM, PyTorch, OpenAI client, tiktoken or beartype is available. The released local path additionally requires standalone GitLab, Shopping and Reddit services; the README's 70B example uses eight GPUs.",
           "scope": "Infrastructure/control blocker, not a scientific failure. A smaller quantized model may be feasible but could change task capability and therefore must be frozen before outcomes.",
           "cheapest_next_experiment": "Implement the semantic judge and faithful OCELOT/MNC controls on synthetic/open development fixtures, then perform a no-outcome startup check in a genuinely compatible zero-spend environment."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A deterministic semantic-leakage judgment contract now binds every verdict to its exact input digest and fails privacy closed on malformed, missing, abstaining or disagreeing outputs.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_PREREGISTRATION.md; Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_RESULT.md; Hush research/pcc-runtime-product/agentdam_semantic_judge_dryrun.json",
+          "audit": "Five synthetic items across three prompt variants produced all 15 bound judgments. Exact, paraphrased and inferential fixtures failed privacy; the benign fixture passed; ambiguity abstained and failed closed. Seven of seven frozen gates, six of six focused tests and 326/326 full Hush tests passed. Two runs were byte-identical; artifact-file SHA-256 8e537bca0eb87dd2f20986dac8b7e788870ce4d2f64a29022120b95a636fdd95.",
+          "scope": "Transport/parser/aggregation capability only. A synthetic oracle supplied labels; no model's semantic competence, human agreement or AgentDAM outcome was tested. Three prompt variants from one future model are robustness checks, not independent reviewers."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "CAPABILITY-BUILDING / DISCRIMINATION",
-        "action": "Implement and freeze the semantic judge and faithful OCELOT-style and MNC-style matched controls on synthetic/open development fixtures. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
+        "action": "Create a frozen human-labeled semantic development calibration set and implement faithful OCELOT-style and MNC-style matched controls. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
       }
     },
     "LATTICE": {
