@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "c813a5a51ccd1c2193a9fe49c35fd2fdd69efccb",
+      "head": "8ac8aad3ae7ef37fc75b682d5737bfe9fce69370",
       "claims": [
         {
           "state": "KNOWN",
@@ -138,6 +138,20 @@
           "evidence": "research/pcc-runtime-product/TIMING_ORACLE_RESULT.md; research/pcc-runtime-product/timing_oracle_result.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "In the frozen 500-pair target/control differential, the adjusted median ratio was 1.00052, direction was 251/249, exact sign-test p=0.9643, block agreement was 2/5, and all four leakage gates failed. An independent 500-pair repeat also failed every gate at ratio 1.00510, direction 256/244 and p=0.6228. Frozen raw SHA-256: c7dd915c45159c5a240178331a2c4bfebbf7dc21e27b8c5ef03af8a62cfe490a.",
           "scope": "Bounded negative result on one Linux x64 / Node.js v24.19.0 runtime, one equality predicate and one 1,024-value domain. It is not a constant-time guarantee and excludes network, cross-process, cache/CPU, other-domain and standing-consent channels."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Delaying a result-dependent firewall refusal until consumption makes PCC transcript-private under standing consent.",
+          "evidence": "research/pcc-runtime-product/SELECTIVE_REFUSAL_RESULT.md; research/pcc-runtime-product/selective_refusal_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For `secret == 500` over domain 0..1023, both worlds prepared as `approved`, but the true world returned a generic privacy denial while the false world released `false`. With no new human interaction, allow-versus-refuse revealed the protected equality bit. Frozen corrected-run failure SHA-256: 4c17a2e2e50b1c2cea2ea4690f7e76f59fba1b73c39ba30518f40a3eb6fb5f6e.",
+          "scope": "Trusted bounded-integer equality contract under standing local consent; not a remote arbitrary-query exploit or universal PCC failure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent feasible-branch authorization closes the tested standing-consent selective-refusal oracle while preserving a balanced threshold comparison.",
+          "evidence": "research/pcc-runtime-product/SELECTIVE_REFUSAL_CORRECTION_RESULT.md; research/pcc-runtime-product/selective_refusal_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen probe now returns the same pre-consumption denial for secret=500 and secret=501. A balanced threshold whose branches each retain 512/1,024 candidates remains approved and releasable. The correction reran byte-identically with SHA-256 d40374163594537f3635ef4858ca276b373f76af10215188cde2ebf92442b0aa; 17/17 focused and 306/306 full tests passed.",
+          "scope": "Analyzable bounded-integer comparisons and bundles of at most four booleans under declared-domain assumptions. The conservative preflight denies the whole query when any feasible branch is unsafe; semantic privacy, malicious contracts and general side channels remain open."
         },
         {
           "state": "ANOMALOUS",
