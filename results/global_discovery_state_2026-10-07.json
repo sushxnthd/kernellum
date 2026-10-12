@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "e7d43defc51c6f1ae14fd81e75520477f9e39475",
+      "head": "87083d46bfb9dbffbd7311a5101dd5360a50496d",
       "claims": [
         {
           "state": "KNOWN",
@@ -238,12 +238,26 @@
           "claim": "The Hush PCC evidence is packaged as a concise HAA-facing proof-of-work chain with the claim, decisive table, falsified assumption, reproduction commands, limitations and next experiment.",
           "evidence": "research/pcc-runtime-product/HAA_EVIDENCE_BRIEF.md; https://github.com/sushxnthd/hush/pull/35",
           "scope": "Translation artifact only; it does not elevate the underlying INCONCLUSIVE scientific breakthrough gate."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The released AgentDAM privacy score can directly validate PCC's provider-boundary non-disclosure claim under a fixed-denominator, fail-closed protocol.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EVALUATOR_AUDIT_2026-10-12.md; facebookresearch/ai-agent-privacy revision 5d4068a404b624ed24ebbe5fb49ba5f644557912",
+          "mechanism": "The pinned runner sends rendered browser action strings, not outbound model/provider request payloads, to the privacy judge. The judge parser defaults unparseable output to score 0.0 ('no leakage'), while task exceptions are logged without appending a failure or leakage observation to the denominator.",
+          "audit": "A clean verifier checked the pinned revision and Git blob IDs, confirmed seven source-structural properties, and replayed six parser variants without opening benchmark tasks. Result SHA-256: 241c8c383902f6daeb5c05aec9a08a933c3bb5b51887d529236a2c57c34b75f4.",
+          "scope": "Evaluator-contract negative result, not an empirical claim about AgentDAM agents, its task set, or its published scores. The task outcomes remain unopened."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A boundary-matched, fail-closed evaluator is a prerequisite for any AgentDAM-derived PCC confirmation study.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EVALUATOR_AUDIT_2026-10-12.md; Hush research/pcc-runtime-product/verify_agentdam_evaluator_contract.py",
+          "scope": "Capability gate only. No external comparative outcome or breakthrough claim has been produced."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
-        "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
-        "action": "Freeze an external task set and pinned local model, retaining every model/MCP/provider/receipt/error/retry/timing channel; compare PCC not only with raw and exact minimization but with faithfully matched OCELOT-style cumulative budgeting and MNC-style scoped declassification controls. Score task success, unnecessary disclosure, adaptive reconstruction, false denial, approvals and completed actions."
+        "class": "CAPABILITY-BUILDING / DISCRIMINATION",
+        "action": "Before opening AgentDAM task outcomes, implement and synthetic-dry-run one fail-closed evaluator that preserves a fixed denominator and captures model, MCP, browser-action, provider, receipt, error, retry and timing boundaries. Then freeze one licensed noncommercial subset and compare raw context, AgentDAM's privacy prompt, strict redaction, PCC, OCELOT-style budgeting and MNC-style scoped declassification under the identical evaluator."
       }
     },
     "LATTICE": {
