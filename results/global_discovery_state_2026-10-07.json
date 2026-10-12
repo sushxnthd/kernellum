@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "819fd39e85c6e7438caef14b0b31de513a48fdca",
+      "head": "5599000266faece2b875bf244e46db3561872363",
       "claims": [
         {
           "state": "KNOWN",
@@ -273,12 +273,27 @@
           "evidence": "Hush research/pcc-runtime-product/AGENTDAM_RUNNER_LOOP_SMOKE_RESULT.md; Hush research/pcc-runtime-product/agentdam_runner_loop_smoke_result.json",
           "audit": "Both raw and PCC arms executed the exact pinned run_agentdam.test() and PromptAgent.next_action() source. The deliberately malformed first model response triggered the released parse-retry loop. All 8/8 gates passed: two valid fixed-denominator traces, two model calls and one retry per arm, one action/provider/receipt per arm, raw disclosure 1/1 versus PCC 0/1, and task success 1/1 in both arms. The independent invocation was byte-identical; canonical evaluation digest 5b4d16b8d98b3e739a72aff549a89e9d254841dfcd50f67e06b2b0fe29e883eb. Full Hush suite 320/320.",
           "scope": "Capability-building only. Browser, provider, prompt constructor, renderer and evaluator were deterministic local doubles loaded through dependency isolation. No benchmark outcome, live browser/provider, local model, semantic judge or timing study was opened."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A deterministic, revision-bound 36-case AgentDAM research cohort is frozen by task ID without opening task payloads or outcomes.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EXTERNAL_FREEZE_RESULT.md; Hush research/pcc-runtime-product/agentdam_external_freeze_manifest.json; Hush research/pcc-runtime-product/agentdam_external_freeze_result.json",
+          "audit": "At upstream revision 5d4068a404b624ed24ebbe5fb49ba5f644557912, the verifier reproduced every audited Git blob/content hash, source count, integer-ID uniqueness check and the SHA-256-ranked selection of 12 IDs each from GitLab, Reddit and Shopping. Two runs were byte-identical with canonical result SHA-256 b07a5863e614db04ccbeb432f86e89d971a4edb731de9dddd8ee49a89914a192. Full Hush suite 320/320.",
+          "scope": "Source/subset provenance only. The data are CC BY-NC 4.0 and the generated WebArena format also carries Llama 3.1 terms; the public package references IDs and hashes rather than redistributing task payloads. No external task outcome or PCC advantage was observed."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "The frozen AgentDAM cohort can be executed under the zero-spend constraint with a capable pinned local model and faithful semantic/OCELOT/MNC controls.",
+          "evidence": "Hush research/pcc-runtime-product/agentdam_external_freeze_result.json",
+          "audit": "The current environment fails closed: Python 3.12 is outside upstream's stated 3.10/3.11 support, and no GPU, Docker daemon, Playwright CLI, vLLM, PyTorch, OpenAI client, tiktoken or beartype is available. The released local path additionally requires standalone GitLab, Shopping and Reddit services; the README's 70B example uses eight GPUs.",
+          "scope": "Infrastructure/control blocker, not a scientific failure. A smaller quantized model may be feasible but could change task capability and therefore must be frozen before outcomes.",
+          "cheapest_next_experiment": "Implement the semantic judge and faithful OCELOT/MNC controls on synthetic/open development fixtures, then perform a no-outcome startup check in a genuinely compatible zero-spend environment."
         }
       ],
       "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
       "next_decisive_action": {
         "class": "CAPABILITY-BUILDING / DISCRIMINATION",
-        "action": "Freeze licensed AgentDAM subset IDs/hashes, pinned local model, semantic-judge protocol, exact timing capture and faithful matched-control specifications. Complete one clean-environment dependency/browser startup check without opening task outcomes; only then execute the matched study."
+        "action": "Implement and freeze the semantic judge and faithful OCELOT-style and MNC-style matched controls on synthetic/open development fixtures. Then perform a no-outcome startup check in a genuinely compatible zero-spend Python 3.10/3.11, Docker/Playwright, standalone-site and local-model environment before opening the 36 frozen AgentDAM cases."
       }
     },
     "LATTICE": {
