@@ -8,7 +8,7 @@
       "priority": 1,
       "repository": "/workspace/scratch/93c782ff9166/hush",
       "branch": "breakthrough-engine/pcc-cleanroom-replication",
-      "head": "8ac8aad3ae7ef37fc75b682d5737bfe9fce69370",
+      "head": "f47ede9eed91d7cc63bc5378ad178f1699b77658",
       "claims": [
         {
           "state": "KNOWN",
@@ -152,6 +152,20 @@
           "evidence": "research/pcc-runtime-product/SELECTIVE_REFUSAL_CORRECTION_RESULT.md; research/pcc-runtime-product/selective_refusal_correction.json; https://github.com/sushxnthd/hush/pull/35",
           "audit": "The unchanged frozen probe now returns the same pre-consumption denial for secret=500 and secret=501. A balanced threshold whose branches each retain 512/1,024 candidates remains approved and releasable. The correction reran byte-identically with SHA-256 d40374163594537f3635ef4858ca276b373f76af10215188cde2ebf92442b0aa; 17/17 focused and 306/306 full tests passed.",
           "scope": "Analyzable bounded-integer comparisons and bundles of at most four booleans under declared-domain assumptions. The conservative preflight denies the whole query when any feasible branch is unsafe; semantic privacy, malicious contracts and general side channels remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Replacing each value-derived PCC ledger identifier with a fixed public label is sufficient to hide private scalar identity in diagnostics.",
+          "evidence": "research/pcc-runtime-product/LEDGER_CARDINALITY_RESULT.md; research/pcc-runtime-product/ledger_cardinality_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Equal recovered scalars deliberately shared one internal ledger while unequal scalars created two. The public footprint redacted both identifiers to `pcc:derived` but preserved list cardinality: `(500,500)` exposed one row and `(500,501)` exposed two, revealing equality with zero approvals and consumptions. Frozen failure SHA-256: 7f0b1209fa154946f2b1b874cdde1851a17ad7e5082fda3c74828be9d559c52d.",
+          "scope": "Authenticated local diagnostic surface for two trusted bounded-integer fields; not remote model/provider disclosure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A single conservative public PCC diagnostic summary closes the tested ledger-cardinality equality oracle without changing internal per-scalar composition accounting.",
+          "evidence": "research/pcc-runtime-product/LEDGER_CARDINALITY_CORRECTION_RESULT.md; research/pcc-runtime-product/ledger_cardinality_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged probe now emits one identical aggregate row for equal and unequal worlds. It reports conservative extrema while withholding contributing-ledger count. The corrected artifact reran byte-identically with SHA-256 bd1b002dad13b318b7bfa18ecddd63889dcaed75f8b40a944a8eb77ce97ec18a; 18/18 focused and 307/307 full tests passed.",
+          "scope": "Closes the frozen `partitionExposure()` cardinality channel. Aggregate statistics remain visible; other diagnostics, semantic privacy, malicious contracts and compromised-runtime attacks remain open."
         },
         {
           "state": "ANOMALOUS",
