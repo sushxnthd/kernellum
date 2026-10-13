@@ -23,9 +23,16 @@ jobs:
             --records results/additive_response/independent_replication_full/records.json \
             --decisions sign-anchored-decisions.json \
             --output sign-anchored-result.json
+      - name: Independent aggregate audit
+        run: |
+          python scripts/audit_sign_anchored_dual_solver.py \
+            --records results/additive_response/independent_replication_full/records.json \
+            --result sign-anchored-result.json \
+            --output sign-anchored-audit.json
       - uses: actions/upload-artifact@v4
         with:
           name: sign-anchored-dual-solver
           path: |
             sign-anchored-decisions.json
             sign-anchored-result.json
+            sign-anchored-audit.json
