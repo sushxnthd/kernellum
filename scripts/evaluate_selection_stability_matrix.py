@@ -67,7 +67,7 @@ def main() -> None:
     matrix = []
     for row in scalar:
         key = (row["function"], row["seed"], float(row["noise"]))
-        cvs = sorted(float(model["original_cv"]) for model in candidate_models[key]
+        cvs = sorted(float(model["original_cv"]) for model in candidate_models[key])
         if len(cvs) < 2:
             raise ValueError(f"fewer than two candidate models for {key}")
         gap = max(cvs[1] - cvs[0], 0.0) / (abs(cvs[0]) + abs(cvs[1]) + 1e-12)
