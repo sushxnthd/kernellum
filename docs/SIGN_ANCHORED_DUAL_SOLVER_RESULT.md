@@ -47,6 +47,8 @@ The control chose the candidate on 43 paths and the independent implementation o
 - Paths: 120
 - Decision-table SHA-256: `dcd8d262684d16ad2d87bacd27b22dc54362f2716ba3ae1924ec91fdf09fba1c`
 - Canonical result SHA-256: `7ba0a64ab68c2d30bf61bad7e3aa9a36ef4d5e703c8f839476d3d9f13c1836bf`
-- Workflow run: `38467961113`
+- Audited workflow run: `38468280392`
+- Workflow artifact digest: `sha256:6badbf623c3c36eb1c141aeab1ad994144b2b4e6764d0aab2ebeb21d8937046c`
+- Independent aggregate audit: **PASS** across all 13 checks
 
 The decision table was written and hashed before the runner joined persisted test metrics. This prevents truth-conditioned decisions within the execution but does not change the post-hoc status of the rule.
