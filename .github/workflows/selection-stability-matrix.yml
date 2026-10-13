@@ -1,0 +1,30 @@
+name: selection-stability-matrix
+
+on:
+  push:
+    branches: [breakthrough-engine/basin-diagnostic-20261013]
+    paths:
+      - scripts/evaluate_selection_stability_matrix.py
+      - docs/SELECTION_STABILITY_MATRIX_PREREGISTRATION.md
+      - .github/workflows/selection-stability-matrix.yml
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize label-blind matrix and evaluate once
+        run: |
+          python scripts/evaluate_selection_stability_matrix.py \
+            --unlabeled selection-stability-matrix-unlabeled.json \
+            --output selection-stability-matrix-result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: selection-stability-matrix
+          path: |
+            selection-stability-matrix-unlabeled.json
+            selection-stability-matrix-result.json
