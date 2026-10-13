@@ -6,15 +6,16 @@ import argparse
 import hashlib
 import json
 import platform
+import sys
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import numpy as np
 import scipy
 
-from scripts import evaluate_fold_basin_diagnostic as core
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts import evaluate_fold_basin_diagnostic as core
 
 
 def score_batch(keys: list[tuple]) -> list[dict]:
