@@ -1,0 +1,31 @@
+name: sign-anchored-dual-solver
+
+on:
+  push:
+    branches: [breakthrough-engine/basin-diagnostic-20261013]
+    paths:
+      - scripts/evaluate_sign_anchored_dual_solver.py
+      - docs/SIGN_ANCHORED_DUAL_SOLVER_PROTOCOL.md
+      - .github/workflows/sign-anchored-dual-solver.yml
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize decisions, then join opened metrics
+        run: |
+          python scripts/evaluate_sign_anchored_dual_solver.py \
+            --records results/additive_response/independent_replication_full/records.json \
+            --decisions sign-anchored-decisions.json \
+            --output sign-anchored-result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sign-anchored-dual-solver
+          path: |
+            sign-anchored-decisions.json
+            sign-anchored-result.json
