@@ -67,10 +67,12 @@ def main() -> None:
     matrix = []
     for row in scalar:
         key = (row["function"], row["seed"], float(row["noise"]))
-        cvs = sorted(float(model["original_cv"]) for model in candidate_models[key])
-        if len(cvs) < 2:
-            raise ValueError(f"fewer than two candidate models for {key}")
-        gap = max(cvs[1] - cvs[0], 0.0) / (abs(cvs[0]) + abs(cvs[1]) + 1e-12)
+        # The immutable trace schema retains the selected model only. Use its
+        # normalized exact-LOO burden; do not silently reconstruct unavailable
+        # runner-up margins after labels are known.
+        if len(candidate_models[key]) != 1:
+            raise ValueError(f"expected one retained selected model for {key}")
+        selected_cv = float(candidate_models[key][0]["original_cv"])
         pair = by_pair[(row["seed"], row["noise"])]
         if len(pair) != 2:
             raise ValueError(f"expected signed pair for {key}")
@@ -80,11 +82,11 @@ def main() -> None:
             "within_prediction_dispersion": float(row["score"]),
             "within_objective_dispersion": float(row["max_objective_spread"]),
             "signed_pair_asymmetry": abs(pair_scores[0] - pair_scores[1]),
-            "cross_model_margin_risk": min(-math.log10(gap + 1e-12), 12.0),
+            "selected_model_cv_burden": math.log10(1.0 + max(selected_cv, 0.0)),
         })
 
     names = ["within_prediction_dispersion", "within_objective_dispersion",
-             "signed_pair_asymmetry", "cross_model_margin_risk"]
+             "signed_pair_asymmetry", "selected_model_cv_burden"]
     percentiles = {name: ranks([row[name] for row in matrix]) for name in names}
     for index, row in enumerate(matrix):
         row["component_percentiles"] = {name: percentiles[name][index] for name in names}

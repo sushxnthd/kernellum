@@ -20,9 +20,11 @@ For every path, compute without labels:
 1. existing within-family maximum held-out predictive dispersion;
 2. existing within-family maximum restart-objective dispersion;
 3. signed-pair asymmetry: absolute difference of `log10(1 + dispersion)` between the positive and negative response built from the same seed/noise;
-4. cross-model margin risk: `min(-log10(g + 1e-12), 12)`, where `g=(CV2-CV1)/(|CV1|+|CV2|+1e-12)` for the two best candidate family/sign models.
+4. selected-model CV burden: `log10(1 + max(CV,0))` for the single selected model retained by the immutable trace schema.
 
 Convert each component to its average-rank percentile over all 60 paths. The primary score is the equal-weight L4 norm of the four percentiles. No coefficients, thresholds, or components may change after labels are loaded. Report leave-one-component-out AUROC and top-ten recall as mechanism diagnostics, not tuning opportunities.
+
+The original protocol proposed a runner-up family/sign CV margin. The first executable attempt failed before label loading because the immutable trace stores only the selected model. Reconstructing runner-up margins would require expensive refitting and create a new implementation-dependent quantity. This pre-outcome amendment instead freezes the directly available selected-model CV burden. The failed workflow remains preserved as provenance.
 
 ## Consequence boundary
 
