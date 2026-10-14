@@ -1,0 +1,36 @@
+name: sign-anchor-shifted-confirmation
+on:
+  push:
+    branches: [breakthrough-engine/basin-diagnostic-20261013]
+    paths:
+      - docs/SIGN_ANCHORED_SHIFTED_PREREGISTRATION.md
+      - scripts/evaluate_sign_anchor_shifted.py
+      - scripts/audit_sign_anchor_shifted.py
+      - .github/workflows/sign-anchor-shifted.yml
+  workflow_dispatch:
+jobs:
+  shifted-confirmation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e .
+      - name: Execute frozen shifted study
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: python scripts/evaluate_sign_anchor_shifted.py --decisions shifted-decisions.json --output shifted-result.json
+      - name: Independent aggregate audit
+        run: python scripts/audit_sign_anchor_shifted.py --decisions shifted-decisions.json --result shifted-result.json --output shifted-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sign-anchor-shifted-confirmation
+          path: |
+            shifted-decisions.json
+            shifted-result.json
+            shifted-audit.json
+          if-no-files-found: warn
