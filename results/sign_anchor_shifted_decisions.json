@@ -1,0 +1,489 @@
+{
+  "rows": [
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.5060787058276324,
+      "candidate_family": "exp_affine",
+      "candidate_sign": 1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_cv": 1.4639397249075574,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 1.5060826636531843,
+      "independent_family": "exp_affine",
+      "independent_sign": 1,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 0.43180689666352523,
+      "candidate_family": "exp_concave",
+      "candidate_sign": 1,
+      "failed_model_attempts": [],
+      "globalized_cv": 0.4318070196771792,
+      "globalized_family": "exp_concave",
+      "globalized_sign": 1,
+      "independent_cv": 0.4318065903049317,
+      "independent_family": "exp_concave",
+      "independent_sign": 1,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.3462216592425356,
+      "candidate_family": "exp_affine",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "globalized_cv": 1.3462247387469262,
+      "globalized_family": "exp_affine",
+      "globalized_sign": -1,
+      "independent_cv": 1.346223184744798,
+      "independent_family": "exp_affine",
+      "independent_sign": -1,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.076790172094535,
+      "candidate_family": "exp_concave",
+      "candidate_sign": -1,
+      "failed_model_attempts": [],
+      "globalized_cv": 1.076806529284731,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 1.204197663085223,
+      "independent_family": "exp_concave",
+      "independent_sign": -1,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 1.271020395777581,
+      "candidate_family": "exp_affine",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "independent",
+          "family": "exp_concave",
+          "reason": "optimizer ceiling reached",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "globalized_cv": 1.2710203668042754,
+      "globalized_family": "exp_affine",
+      "globalized_sign": -1,
+      "independent_cv": 1.271020091198942,
+      "independent_family": "exp_affine",
+      "independent_sign": -1,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 921611.9232629562,
+      "candidate_family": "exp_concave",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_affine",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        },
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "globalized_cv": 1461111.5896928268,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 275970.06554122805,
+      "independent_family": "exp_concave",
+      "independent_sign": 1,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": true
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 0.3604839891896689,
+      "candidate_family": "exp_concave",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "globalized_cv": 0.285729727337039,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 26.152007160254037,
+      "independent_family": "exp_concave",
+      "independent_sign": -1,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 1.191029367666089,
+      "candidate_family": "exp_concave",
+      "candidate_sign": 1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_affine",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "globalized_cv": 1.1913856836555548,
+      "globalized_family": "exp_concave",
+      "globalized_sign": 1,
+      "independent_cv": 1.1910287888740356,
+      "independent_family": "exp_concave",
+      "independent_sign": 1,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 0.9012175004548812,
+      "candidate_family": "exp_concave",
+      "candidate_sign": 1,
+      "failed_model_attempts": [],
+      "globalized_cv": 0.8873383990716567,
+      "globalized_family": "exp_concave",
+      "globalized_sign": 1,
+      "independent_cv": 0.8368861435764382,
+      "independent_family": "exp_concave",
+      "independent_sign": 1,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 0.21461900594065705,
+      "candidate_family": "exp_concave",
+      "candidate_sign": 1,
+      "failed_model_attempts": [],
+      "globalized_cv": 0.21461893503037605,
+      "globalized_family": "exp_concave",
+      "globalized_sign": 1,
+      "independent_cv": 0.21461872958797562,
+      "independent_family": "exp_concave",
+      "independent_sign": 1,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 0.6912372114623333,
+      "candidate_family": "exp_concave",
+      "candidate_sign": -1,
+      "failed_model_attempts": [],
+      "globalized_cv": 0.6912376411435006,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 0.6912377981936825,
+      "independent_family": "exp_concave",
+      "independent_sign": -1,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "independent",
+      "candidate_cv": 0.5084237078444713,
+      "candidate_family": "exp_concave",
+      "candidate_sign": -1,
+      "failed_model_attempts": [],
+      "globalized_cv": 0.5084255662108792,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 0.5084234592412537,
+      "independent_family": "exp_concave",
+      "independent_sign": -1,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "naive_kind": "independent",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.5947188750153658,
+      "candidate_family": "exp_affine",
+      "candidate_sign": 1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "globalized_cv": 1.59471848034963,
+      "globalized_family": "exp_affine",
+      "globalized_sign": 1,
+      "independent_cv": 1.594718979322753,
+      "independent_family": "exp_affine",
+      "independent_sign": 1,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.7418597388922805,
+      "candidate_family": "exp_affine",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "globalized_cv": 1.741862534155701,
+      "globalized_family": "exp_concave",
+      "globalized_sign": -1,
+      "independent_cv": 1.7418604364482313,
+      "independent_family": "exp_affine",
+      "independent_sign": -1,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 1.6502463955311548,
+      "candidate_family": "exp_affine",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "globalized_cv": 1.6502544043820262,
+      "globalized_family": "exp_affine",
+      "globalized_sign": -1,
+      "independent_cv": 1.6502540616482015,
+      "independent_family": "exp_affine",
+      "independent_sign": -1,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    },
+    {
+      "anchor_kind": "candidate",
+      "candidate_cv": 2.0826107111140955,
+      "candidate_family": "exp_affine",
+      "candidate_sign": -1,
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "globalized_cv": 2.0826101810819617,
+      "globalized_family": "exp_affine",
+      "globalized_sign": -1,
+      "independent_cv": 2.082612614764322,
+      "independent_family": "exp_affine",
+      "independent_sign": -1,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "naive_kind": "candidate",
+      "sign_disagreement": false
+    }
+  ],
+  "schema": "kernellum.sign-anchor-shifted-decisions.v1"
+}

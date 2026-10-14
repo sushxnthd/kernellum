@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "916e2e34b1fd4bf6c2cba0b1f5ca6fe8ced9f8569eb827a924dc5f5a2715bf69",
+  "checks": 55,
+  "failures": 0,
+  "schema": "kernellum.sign-anchor-shifted-audit.v1",
+  "source_canonical_sha256": "14219ba90e667b67e16def4e865bc661b7524f16d586bf8222f8c1599b440b14",
+  "status": "PASS"
+}

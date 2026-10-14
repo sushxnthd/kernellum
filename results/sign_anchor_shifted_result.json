@@ -1,0 +1,594 @@
+{
+  "canonical_sha256": "14219ba90e667b67e16def4e865bc661b7524f16d586bf8222f8c1599b440b14",
+  "classification": "PROSPECTIVE_SHIFTED",
+  "conditional_anchor_wins": 0,
+  "decision_sha256": "6bdde39f15ec86df4aeb969fa52c3f726630e520e541b8663a1bb6109c6925c5",
+  "environment": {
+    "numpy": "2.5.4",
+    "python": "3.12.15",
+    "scipy": "1.18.1"
+  },
+  "gates": {
+    "anchor_no_excess_catastrophe": false,
+    "complete": true,
+    "conditional_win_rate": false,
+    "far_beats_naive": false,
+    "far_near_globalized": false,
+    "globalized_tail_control": false,
+    "inside_noninferior": false,
+    "two_disagreements": false
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "anchor": 8,
+        "candidate": 7,
+        "globalized": 7,
+        "independent": 8,
+        "naive": 8
+      },
+      "geometric_nmse": {
+        "anchor": 380804415123.4598,
+        "candidate": 17038684.398244172,
+        "globalized": 10196987934.329481,
+        "independent": 20970338158.856003,
+        "naive": 26724735059.406036
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "anchor": 3,
+        "candidate": 1,
+        "globalized": 3,
+        "independent": 3,
+        "naive": 3
+      },
+      "geometric_nmse": {
+        "anchor": 1520.3193196086022,
+        "candidate": 1.295816791109726,
+        "globalized": 4.1569414156318985,
+        "independent": 2600.2220157406587,
+        "naive": 2526.699247764046
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "anchor": 4,
+        "candidate": 3,
+        "globalized": 4,
+        "independent": 3,
+        "naive": 4
+      },
+      "geometric_nmse": {
+        "anchor": 1623953.941306439,
+        "candidate": 161.88235349573003,
+        "globalized": 1724.6661566435937,
+        "independent": 854933.6832378203,
+        "naive": 865402.9493799089
+      }
+    }
+  },
+  "paths": 16,
+  "ratios": {
+    "anchor_far_over_globalized": 37.34479412704142,
+    "anchor_far_over_naive": 14.249137148674253,
+    "anchor_inside_over_candidate": 1173.2517513580096
+  },
+  "records": [
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 10.34215150803535,
+          "candidate": 10.34215150803535,
+          "globalized": 96.75794473369365,
+          "independent": 10.342131051223184,
+          "naive": 10.34215150803535
+        },
+        "inside": {
+          "anchor": 0.10707125248760185,
+          "candidate": 0.10707125248760185,
+          "globalized": 0.6792613779613887,
+          "independent": 0.10707173715889118,
+          "naive": 0.10707125248760185
+        },
+        "near_shell": {
+          "anchor": 2.7409954662613285,
+          "candidate": 2.7409954662613285,
+          "globalized": 21.882280717858304,
+          "independent": 2.740989938615628,
+          "naive": 2.7409954662613285
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 1.3339684467211264,
+          "candidate": 1.3339463028284761,
+          "globalized": 1.3339854267554987,
+          "independent": 1.3339684467211264,
+          "naive": 1.3339684467211264
+        },
+        "inside": {
+          "anchor": -1.484090206835948,
+          "candidate": -1.4841011805629658,
+          "globalized": -1.4840816999204747,
+          "independent": -1.484090206835948,
+          "naive": -1.484090206835948
+        },
+        "near_shell": {
+          "anchor": 0.13572058992393732,
+          "candidate": 0.13570559222383327,
+          "globalized": 0.1357321214468703,
+          "independent": 0.13572058992393732,
+          "naive": 0.13572058992393732
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 13.433383063718512,
+          "candidate": 13.433383063718512,
+          "globalized": 13.433388201082192,
+          "independent": 13.433374861598534,
+          "naive": 13.433383063718512
+        },
+        "inside": {
+          "anchor": -0.00968075613226782,
+          "candidate": -0.00968075613226782,
+          "globalized": -0.009680652646155252,
+          "independent": -0.00968070190065129,
+          "naive": -0.00968075613226782
+        },
+        "near_shell": {
+          "anchor": 3.328219158174607,
+          "candidate": 3.328219158174607,
+          "globalized": 3.328220514071778,
+          "independent": 3.3282150951826934,
+          "naive": 3.328219158174607
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": -0.15994030963331163,
+          "candidate": -0.15994030963331163,
+          "globalized": -0.1599491732070728,
+          "independent": -0.15997086289283224,
+          "naive": -0.15994030963331163
+        },
+        "inside": {
+          "anchor": -2.8914056857853105,
+          "candidate": -2.8914056857853105,
+          "globalized": -2.8914061194609126,
+          "independent": -2.89140724384978,
+          "naive": -2.8914056857853105
+        },
+        "near_shell": {
+          "anchor": -1.525796117272102,
+          "candidate": -1.525796117272102,
+          "globalized": -1.525799346396357,
+          "independent": -1.52580717860081,
+          "naive": -1.525796117272102
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 180.21740333836343,
+          "candidate": 142.60259149390419,
+          "globalized": 144.45253221739242,
+          "independent": 180.21740333836343,
+          "naive": 180.21740333836343
+        },
+        "inside": {
+          "anchor": 10.629369704505928,
+          "candidate": 4.938003282179615,
+          "globalized": 5.1271884597633415,
+          "independent": 10.629369704505928,
+          "naive": 10.629369704505928
+        },
+        "near_shell": {
+          "anchor": 55.76096232744234,
+          "candidate": 43.0702374259604,
+          "globalized": 43.701067768395674,
+          "independent": 55.76096232744234,
+          "naive": 55.76096232744234
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 66.11099197390548,
+          "candidate": 66.11099197390548,
+          "globalized": 86.61621525482082,
+          "independent": 23.603850311327097,
+          "naive": 23.603850311327097
+        },
+        "inside": {
+          "anchor": 7.963821046241996,
+          "candidate": 7.963821046241996,
+          "globalized": 22.918112207130303,
+          "independent": 16.09171567523139,
+          "naive": 16.09171567523139
+        },
+        "near_shell": {
+          "anchor": 26.83435466067007,
+          "candidate": 26.83435466067007,
+          "globalized": 41.16838518703703,
+          "independent": 16.763571890138884,
+          "naive": 16.763571890138884
+        }
+      },
+      "sign_disagreement": true
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 13.81070758851697,
+          "candidate": 13.81070758851697,
+          "globalized": 7.257129045219557,
+          "independent": 9.93107608934789,
+          "naive": 13.81070758851697
+        },
+        "inside": {
+          "anchor": 4.516186201791169,
+          "candidate": 4.516186201791169,
+          "globalized": 7.450713526772452,
+          "independent": 4.97511464629117,
+          "naive": 4.516186201791169
+        },
+        "near_shell": {
+          "anchor": 5.131614144616264,
+          "candidate": 5.131614144616264,
+          "globalized": 8.874224223907726,
+          "independent": 4.936891416492667,
+          "naive": 5.131614144616264
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 122.623948487208,
+          "candidate": 0.005905079402165114,
+          "globalized": 0.09827236206878354,
+          "independent": 122.623948487208,
+          "naive": 122.623948487208
+        },
+        "inside": {
+          "anchor": 107.74386695424438,
+          "candidate": 0.3546820945587523,
+          "globalized": 0.3546821252854526,
+          "independent": 107.74386695424438,
+          "naive": 107.74386695424438
+        },
+        "near_shell": {
+          "anchor": 134.77932939719136,
+          "candidate": 0.05399152751760106,
+          "globalized": 0.0599116803023545,
+          "independent": 134.77932939719136,
+          "naive": 134.77932939719136
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": -0.3663589265118796,
+          "candidate": -0.36636011201363416,
+          "globalized": -0.36636011201363416,
+          "independent": -0.3663589265118796,
+          "naive": -0.3663589265118796
+        },
+        "inside": {
+          "anchor": -2.732133026465132,
+          "candidate": -2.7321262045631802,
+          "globalized": -2.7321262045631802,
+          "independent": -2.732133026465132,
+          "naive": -2.732133026465132
+        },
+        "near_shell": {
+          "anchor": -1.7801549688383806,
+          "candidate": -1.7801521717389939,
+          "globalized": -1.7801521717389939,
+          "independent": -1.7801549688383806,
+          "naive": -1.7801549688383806
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 0.497322055479243,
+          "candidate": 0.497321736262089,
+          "globalized": 0.4973219275243306,
+          "independent": 0.497322055479243,
+          "naive": 0.497322055479243
+        },
+        "inside": {
+          "anchor": -3.0437327755598793,
+          "candidate": -3.043733441136402,
+          "globalized": -3.0437330352631293,
+          "independent": -3.0437327755598793,
+          "naive": -3.0437327755598793
+        },
+        "near_shell": {
+          "anchor": -1.4259217807660542,
+          "candidate": -1.425923330848974,
+          "globalized": -1.4259223764597344,
+          "independent": -1.4259217807660542,
+          "naive": -1.4259217807660542
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": -0.12091402716263211,
+          "candidate": -0.12091402716263211,
+          "globalized": -0.12091402716263211,
+          "independent": -0.12091416781998987,
+          "naive": -0.12091402716263211
+        },
+        "inside": {
+          "anchor": -2.689971496171362,
+          "candidate": -2.689971496171362,
+          "globalized": -2.689971496171362,
+          "independent": -2.6899701546257666,
+          "naive": -2.689971496171362
+        },
+        "near_shell": {
+          "anchor": -0.9454396886508674,
+          "candidate": -0.9454396886508674,
+          "globalized": -0.9454396886508674,
+          "independent": -0.9454392548629444,
+          "naive": -0.9454396886508674
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 0.08786318306978025,
+          "candidate": 0.08786425315953128,
+          "globalized": 0.08786425315953128,
+          "independent": 0.08786318306978025,
+          "naive": 0.08786318306978025
+        },
+        "inside": {
+          "anchor": -2.853695785955265,
+          "candidate": -2.8536908451673075,
+          "globalized": -2.8536908451673075,
+          "independent": -2.853695785955265,
+          "naive": -2.853695785955265
+        },
+        "near_shell": {
+          "anchor": -0.9576194521612909,
+          "candidate": -0.9576162041521545,
+          "globalized": -0.9576162041521545,
+          "independent": -0.9576194521612909,
+          "naive": -0.9576194521612909
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 6.029309953690258,
+          "candidate": 6.029309953690258,
+          "globalized": 6.029309953690258,
+          "independent": 6.029311330106481,
+          "naive": 6.029309953690258
+        },
+        "inside": {
+          "anchor": -0.0021227472515770174,
+          "candidate": -0.0021227472515770174,
+          "globalized": -0.0021227472515770174,
+          "independent": -0.0021229821139634453,
+          "naive": -0.0021227472515770174
+        },
+        "near_shell": {
+          "anchor": 2.19339502708587,
+          "candidate": 2.19339502708587,
+          "globalized": 2.19339502708587,
+          "independent": 2.1933950883255324,
+          "naive": 2.19339502708587
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 0.6468204849246595,
+          "candidate": 0.6468204849246595,
+          "globalized": 0.6468204845286927,
+          "independent": 0.6468205679779704,
+          "naive": 0.6468204849246595
+        },
+        "inside": {
+          "anchor": 1.5576039994414934,
+          "candidate": 1.5576039994414934,
+          "globalized": 1.557604163901562,
+          "independent": 1.5576039994137871,
+          "naive": 1.5576039994414934
+        },
+        "near_shell": {
+          "anchor": 1.2719786130061488,
+          "candidate": 1.2719786130061488,
+          "globalized": 1.2719791450065783,
+          "independent": 1.2719786129376063,
+          "naive": 1.2719786130061488
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 7.275585185284898,
+          "candidate": 7.275585185284898,
+          "globalized": 7.275585185284898,
+          "independent": 7.275585962990231,
+          "naive": 7.275585185284898
+        },
+        "inside": {
+          "anchor": 0.246198577702176,
+          "candidate": 0.246198577702176,
+          "globalized": 0.246198577702176,
+          "independent": 0.24619857907810383,
+          "naive": 0.246198577702176
+        },
+        "near_shell": {
+          "anchor": 1.86583901421583,
+          "candidate": 1.86583901421583,
+          "globalized": 1.86583901421583,
+          "independent": 1.865839273970427,
+          "naive": 1.86583901421583
+        }
+      },
+      "sign_disagreement": false
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "anchor": 4.886585740521724,
+          "candidate": 4.886585740521724,
+          "globalized": 4.886585676297263,
+          "independent": 4.886585192928545,
+          "naive": 4.886585740521724
+        },
+        "inside": {
+          "anchor": 0.16952547121005423,
+          "candidate": 0.16952547121005423,
+          "globalized": 0.16952543756293537,
+          "independent": 0.16952535791843548,
+          "naive": 0.16952547121005423
+        },
+        "near_shell": {
+          "anchor": 1.3985146176939525,
+          "candidate": 1.3985146176939525,
+          "globalized": 1.3985148417521218,
+          "independent": 1.3985159081469405,
+          "naive": 1.3985146176939525
+        }
+      },
+      "sign_disagreement": false
+    }
+  ],
+  "schema": "kernellum.sign-anchor-shifted.v1",
+  "sign_disagreements": 1,
+  "status": "FAIL"
+}
