@@ -86,15 +86,20 @@ def main():
   for d in DIMS:
    for seed in SEEDS:
     for noise in NOISES:
-     x,y,tests=dataset(shape,d,seed,noise); cm=[]; im=[]; gm=[]
+     x,y,tests=dataset(shape,d,seed,noise); cm=[]; im=[]; gm=[]; failures=[]
      for sign in (1,-1):
       for family in ("exp_affine","exp_concave"):
-       cm.append(cfit(x,y,sign,family)); q=independent_fit(x,y,sign,family); q["kind"]="independent"; im.append(q); gm.append(gfit(x,y,sign,family))
+       for bank,fn in (("candidate",lambda:cfit(x,y,sign,family)),("independent",lambda:independent_fit(x,y,sign,family)),("globalized",lambda:gfit(x,y,sign,family))):
+        try:
+         q=fn(); q["kind"]=bank; {"candidate":cm,"independent":im,"globalized":gm}[bank].append(q)
+        except (FloatingPointError,ValueError,np.linalg.LinAlgError) as exc:
+         failures.append({"bank":bank,"sign":sign,"family":family,"reason":str(exc)})
+     if not cm or not im or not gm: raise RuntimeError(f"empty solver bank for {shape} {d} {seed} {noise}: {failures}")
      c=min(cm,key=lambda z:z["cv"]); i=min(im,key=lambda z:z["cv"]); g=min(gm,key=lambda z:z["cv"])
      naive=i if i["cv"]<c["cv"] else c; anchor=c if c["sign"]!=i["sign"] else naive
-     fitted.append({"key":[shape,d,seed,noise],"candidate":c,"independent":i,"globalized":g,"naive_kind":naive["kind"],"anchor_kind":anchor["kind"],"sign_disagreement":c["sign"]!=i["sign"],"tests":tests})
+     fitted.append({"key":[shape,d,seed,noise],"candidate":c,"independent":i,"globalized":g,"naive_kind":naive["kind"],"anchor_kind":anchor["kind"],"sign_disagreement":c["sign"]!=i["sign"],"failures":failures,"tests":tests})
      print(shape,d,seed,noise,"signs",c["sign"],i["sign"],"cv",c["cv"],i["cv"],flush=True)
- decisions={"schema":"kernellum.sign-anchor-shifted-decisions.v1","rows":[{"key":r["key"],"candidate_sign":r["candidate"]["sign"],"candidate_family":r["candidate"]["family"],"candidate_cv":r["candidate"]["cv"],"independent_sign":r["independent"]["sign"],"independent_family":r["independent"]["family"],"independent_cv":r["independent"]["cv"],"globalized_sign":r["globalized"]["sign"],"globalized_family":r["globalized"]["family"],"globalized_cv":r["globalized"]["cv"],"naive_kind":r["naive_kind"],"anchor_kind":r["anchor_kind"],"sign_disagreement":r["sign_disagreement"]} for r in fitted]}
+ decisions={"schema":"kernellum.sign-anchor-shifted-decisions.v1","rows":[{"key":r["key"],"candidate_sign":r["candidate"]["sign"],"candidate_family":r["candidate"]["family"],"candidate_cv":r["candidate"]["cv"],"independent_sign":r["independent"]["sign"],"independent_family":r["independent"]["family"],"independent_cv":r["independent"]["cv"],"globalized_sign":r["globalized"]["sign"],"globalized_family":r["globalized"]["family"],"globalized_cv":r["globalized"]["cv"],"naive_kind":r["naive_kind"],"anchor_kind":r["anchor_kind"],"sign_disagreement":r["sign_disagreement"],"failed_model_attempts":r["failures"]} for r in fitted]}
  a.decisions.write_text(json.dumps(decisions,indent=2,sort_keys=True)+"\n"); dsha=hashlib.sha256(a.decisions.read_bytes()).hexdigest()
  records=[]
  for r in fitted:
