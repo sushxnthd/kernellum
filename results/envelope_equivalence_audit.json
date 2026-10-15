@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "2abc8f86346c9ae7f491eba069288c5630ebda4f753def3ccf28dd9d1284143f",
+  "checks": 102,
+  "failures": 0,
+  "schema": "kernellum.envelope-equivalence-audit.v1",
+  "source_canonical_sha256": "aac897adec130bbda309b152a3a49cb612f3e1ca88499ef687596a4b1f9c95ed",
+  "status": "PASS"
+}
