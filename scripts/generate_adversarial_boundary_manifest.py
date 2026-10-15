@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from kernellum.discovery.solver_equivalence import certify_prediction_envelope
-from evaluate_sign_anchor_shifted import cfit, independent_fit, maximin, predict, shell
+from scripts.evaluate_sign_anchor_shifted import cfit, independent_fit, maximin, predict, shell
 
 FAMILIES = ("exp_affine", "exp_concave")
 SIGNS = (1, -1)
