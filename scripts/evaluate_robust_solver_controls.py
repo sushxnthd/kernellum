@@ -69,13 +69,18 @@ def predict_choice(choice,x,family):
  return prior.value_jacobian(choice["theta"],x,family,700)[0]
 
 def fit_family(x,y,sign,family,counter):
- amp,target,full,failures=fit_bank(x,y,sign,family,counter)
- loo_banks=[]
- for i in range(len(x)):
-  mask=np.arange(len(x))!=i
-  fa,ft,bank,failed=fit_bank(x[mask],y[mask],sign,family,counter)
-  failures.extend({"loo_index":i,**row} for row in failed)
-  loo_banks.append((i,fa,ft,bank))
+ failures=[]
+ try:
+  amp,target,full,failed=fit_bank(x,y,sign,family,counter)
+  failures.extend(failed); loo_banks=[]
+  for i in range(len(x)):
+   mask=np.arange(len(x))!=i
+   fa,ft,bank,failed=fit_bank(x[mask],y[mask],sign,family,counter)
+   failures.extend({"loo_index":i,**row} for row in failed)
+   loo_banks.append((i,fa,ft,bank))
+ except (FloatingPointError,ValueError,np.linalg.LinAlgError) as exc:
+  failures.append({"method":"all","reason":"family unavailable: "+str(exc)})
+  return {},failures
  scale=max(float(np.std(y)),1e-12); fitted={}
  for method in METHODS:
   try:
