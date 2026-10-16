@@ -70,20 +70,25 @@ def predict_choice(choice,x,family):
 
 def fit_family(x,y,sign,family,counter):
  amp,target,full,failures=fit_bank(x,y,sign,family,counter)
- choices={m:choose(full,target,family,m) for m in METHODS}
- loo={m:[] for m in METHODS}
+ loo_banks=[]
  for i in range(len(x)):
   mask=np.arange(len(x))!=i
   fa,ft,bank,failed=fit_bank(x[mask],y[mask],sign,family,counter)
   failures.extend({"loo_index":i,**row} for row in failed)
-  for method in METHODS:
-   c=choose(bank,ft,family,method)
-   value=float(predict_choice(c,x[i:i+1],family)[0])
-   loo[method].append(sign*fa*value)
- scale=max(float(np.std(y)),1e-12)
- return {m:{"sign":sign,"family":family,"amplitude":amp,"choice":choices[m],
-            "cv":float(np.mean(((y-np.asarray(loo[m]))/scale)**2))}
-         for m in METHODS},failures
+  loo_banks.append((i,fa,ft,bank))
+ scale=max(float(np.std(y)),1e-12); fitted={}
+ for method in METHODS:
+  try:
+   choice=choose(full,target,family,method); loo=[]
+   for i,fa,ft,bank in loo_banks:
+    c=choose(bank,ft,family,method)
+    value=float(predict_choice(c,x[i:i+1],family)[0])
+    loo.append(sign*fa*value)
+   fitted[method]={"sign":sign,"family":family,"amplitude":amp,"choice":choice,
+                   "cv":float(np.mean(((y-np.asarray(loo))/scale)**2))}
+  except (FloatingPointError,ValueError,np.linalg.LinAlgError) as exc:
+   failures.append({"method":method,"reason":"method unavailable: "+str(exc)})
+ return fitted,failures
 
 def model_prediction(model,x):
  return model["sign"]*model["amplitude"]*predict_choice(
@@ -102,7 +107,9 @@ def main():
       for family in ("exp_affine","exp_concave"):
        fitted,failed=fit_family(x,y,sign,family,counter)
        failures.extend({"sign":sign,"family":family,**row} for row in failed)
-       for method in METHODS: candidates[method].append(fitted[method])
+       for method,model in fitted.items(): candidates[method].append(model)
+     empty=[m for m in METHODS if not candidates[m]]
+     if empty: raise RuntimeError(f"empty method banks for {shape} {d} {seed} {noise}: {empty}; {failures}")
      winners={m:min(candidates[m],key=lambda q:q["cv"]) for m in METHODS}
      scores={}
      for domain,(z,truth) in tests.items():
