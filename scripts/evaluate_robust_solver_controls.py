@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Opened-cohort kill screen for deterministic robust solver controls."""
 from __future__ import annotations
-import argparse, hashlib, json, math, platform
+import argparse, hashlib, json, math, platform, sys
 from pathlib import Path
 import numpy as np
 import scipy
 
-from scripts import evaluate_sign_anchor_shifted as prior
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import evaluate_sign_anchor_shifted as prior
 
 METHODS=("single","globalized3","globalized9","ensemble9","stable9")
 DOMAINS=prior.DOMAINS
