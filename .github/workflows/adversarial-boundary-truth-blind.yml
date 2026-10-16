@@ -1,6 +1,13 @@
 name: adversarial-boundary-truth-blind
 
 on:
+  pull_request:
+    paths:
+      - docs/ADVERSARIAL_BOUNDARY_PREREGISTRATION.md
+      - docs/ADVERSARIAL_BOUNDARY_IMPLEMENTATION_ADDENDUM.md
+      - scripts/generate_adversarial_boundary_manifest.py
+      - kernellum/discovery/solver_equivalence.py
+      - .github/workflows/adversarial-boundary-truth-blind.yml
   push:
     branches: [breakthrough-engine/basin-diagnostic-20261013]
     paths:
