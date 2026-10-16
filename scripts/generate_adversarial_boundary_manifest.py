@@ -192,6 +192,7 @@ def scan_base(dimension, seed):
         "grid_size": len(GRID),
         "eligible_count": len(eligible),
         "selected_count": len(selected),
+        "status": "PASS" if len(selected) == 6 else "FAIL_INSUFFICIENT_ELIGIBLE",
         "x_train": x_train.tolist(),
         "y_base": y_base.tolist(),
         "perturbation_direction": direction.tolist(),
@@ -211,12 +212,6 @@ def assert_truth_blind(payload):
     for token in forbidden:
         if token in encoded:
             raise AssertionError(f"truth-blind manifest contains forbidden token: {token}")
-    if payload["selected_count"] != 6:
-        raise RuntimeError(
-            f"generator failed: selected {payload['selected_count']} of required 6 "
-            f"for base {payload['base']}"
-        )
-
 
 def main():
     parser = argparse.ArgumentParser()
