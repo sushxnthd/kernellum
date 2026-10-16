@@ -1,0 +1,118 @@
+{
+  "canonical_sha256": "fd2f6e41c35cccf15ddcf07768206573b2a53f7c792f90acb4ff231dba47a0a0",
+  "checked": [
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104202,
+        0.1
+      ],
+      "score": 5.7774421847487805
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104203,
+        0.01
+      ],
+      "score": 5.175548102928862
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104204,
+        0.1
+      ],
+      "score": 8.599063366764248
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104206,
+        0.1
+      ],
+      "score": 35.40656389645625
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104207,
+        0.1
+      ],
+      "score": 6.9646956372527535
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "gaussian_4d",
+        104209,
+        0.1
+      ],
+      "score": 1.4928283932351611
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104201,
+        0.01
+      ],
+      "score": 6.972729269906763
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104201,
+        0.1
+      ],
+      "score": 3.7654405771616615
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104203,
+        0.1
+      ],
+      "score": 8.190573168000492
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104205,
+        0.1
+      ],
+      "score": 6.631608197756533
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104207,
+        0.1
+      ],
+      "score": 1.2481154824416671
+    },
+    {
+      "absolute_delta": 0.0,
+      "key": [
+        "negative_gaussian_4d",
+        104210,
+        0.01
+      ],
+      "score": 5.3764280113257
+    }
+  ],
+  "metric_recalculation_match": true,
+  "score_mismatches": [],
+  "sequential_paths": 12,
+  "source_canonical_sha256": "650dc90f12670e2f124a63bf78c14df050816b6896cb54c10e5c80c22e6a6a40",
+  "status": "PASS"
+}

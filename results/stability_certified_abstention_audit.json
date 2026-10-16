@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "33fee6ac72a9e9f34c9c4604a5a71f3843bbc3a5cd813fc84903b4bb50258f5d",
+  "checks": 28,
+  "failures": 0,
+  "schema": "kernellum.stability-certified-abstention-audit.v1",
+  "source_canonical_sha256": "bf9524a57f998f746aaa532e43123a7ec74b012b9e2da6152d7a85d572c32dac",
+  "status": "PASS"
+}
