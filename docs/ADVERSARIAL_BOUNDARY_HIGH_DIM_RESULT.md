@@ -25,10 +25,9 @@ remaining shards can satisfy the protocol.
 | 5 | 6101 | 70 | 6 | PASS |
 | 7 | 6101 | 0 | 0 | FAIL |
 | 5 | 6107 | 60 | 6 | PASS |
-| 7 | 6107 | still running | — | non-decisive |
+| 7 | 6107 | 88 | 6 | PASS |
 
-The complete factorial should remain running for descriptive preservation, but
-its remaining results cannot repair this preregistered study.
+The complete factorial is now archived. Its final passing shard cannot repair the preregistered study because the design required all four bases.
 
 Artifact receipts:
 
@@ -44,6 +43,10 @@ Artifact receipts:
   `f069eca3eddc7b5c9420d44df4fc4a5344685a0001b3049010949a0fa9e39561`
 - 7-D/6101 workflow artifact digest:
   `sha256:2459b433343f0f236ad576d4bb3b4848e7a1814a71850c6b687e6a2022a02743`
+- 7-D/6107 canonical manifest SHA-256:
+  `26aaeac270e3d61fd82d89443fba294a8704687bad53051f3751277d23169cc9`
+- 7-D/6107 workflow artifact digest:
+  `sha256:17a7e1a14f57c3ace4eeaa58db470f2e8cb912fff64063d89c549a2b90bc2e40`
 
 Generation was executed twice per completed shard. The 5-D shard passed byte
 identity and the exact selected-count gate. The 7-D shard reached the scientific
@@ -58,7 +61,7 @@ first generator, observed eligible frequencies include:
 - original 3-D bases: 0/194;
 - original 5-D bases: 86/194;
 - new 5-D seeds: 130/194 (70/97 and 60/97);
-- new 7-D seed 6101: 0/97.
+- new 7-D seeds: 88/194 (0/97 and 88/97).
 
 The boundary-opportunity regime is not a simple increasing function of
 dimension. It is sharply base-dependent. Dimension is not a prospective
