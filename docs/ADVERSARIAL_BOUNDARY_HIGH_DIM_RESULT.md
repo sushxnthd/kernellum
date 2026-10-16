@@ -24,7 +24,7 @@ remaining shards can satisfy the protocol.
 |---:|---:|---:|---:|---|
 | 5 | 6101 | 70 | 6 | PASS |
 | 7 | 6101 | 0 | 0 | FAIL |
-| 5 | 6107 | still running | — | non-decisive |
+| 5 | 6107 | 60 | 6 | PASS |
 | 7 | 6107 | still running | — | non-decisive |
 
 The complete factorial should remain running for descriptive preservation, but
@@ -36,6 +36,10 @@ Artifact receipts:
   `eeca09d0a8b648f80b011175a10928f3e74a79de83487d6e6a8bf181075c0136`
 - 5-D/6101 workflow artifact digest:
   `sha256:bf988fc52126f9125e40e87b38da6dd2ac3726d0879b90bc79df1366a3361f79`
+- 5-D/6107 canonical manifest SHA-256:
+  `b14330c88cebd6ddee2811fbfe18a3f4f3cd5f3fbd038238de9e49c958324b5c`
+- 5-D/6107 workflow artifact digest:
+  `sha256:8fe6eb0a36a7be8bf6aac39e0bfff6fbb08df8e5982ce339a85f2d5d67bfcae8`
 - 7-D/6101 canonical manifest SHA-256:
   `f069eca3eddc7b5c9420d44df4fc4a5344685a0001b3049010949a0fa9e39561`
 - 7-D/6101 workflow artifact digest:
@@ -53,7 +57,7 @@ first generator, observed eligible frequencies include:
 
 - original 3-D bases: 0/194;
 - original 5-D bases: 86/194;
-- new 5-D seed 6101: 70/97;
+- new 5-D seeds: 130/194 (70/97 and 60/97);
 - new 7-D seed 6101: 0/97.
 
 The boundary-opportunity regime is not a simple increasing function of
