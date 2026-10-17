@@ -1,0 +1,4472 @@
+{
+  "canonical_sha256": "ce9b0b53c07d04817999b7f472cfc01e5ca31b4516eec998149ee09012c7c97b",
+  "classification": "OPENED_COHORT_DEVELOPMENT",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.17",
+    "scipy": "1.17.1"
+  },
+  "gates": {
+    "ensemble9": {
+      "complete": true,
+      "far_noninferior": false,
+      "half_total_catastrophes": false,
+      "inside_noninferior": true,
+      "near_noninferior": false,
+      "no_excess_catastrophe": false
+    },
+    "globalized3": {
+      "complete": true,
+      "far_noninferior": false,
+      "half_total_catastrophes": false,
+      "inside_noninferior": false,
+      "near_noninferior": false,
+      "no_excess_catastrophe": false
+    },
+    "globalized9": {
+      "complete": true,
+      "far_noninferior": false,
+      "half_total_catastrophes": false,
+      "inside_noninferior": false,
+      "near_noninferior": false,
+      "no_excess_catastrophe": false
+    },
+    "stable9": {
+      "complete": true,
+      "far_noninferior": false,
+      "half_total_catastrophes": false,
+      "inside_noninferior": false,
+      "near_noninferior": false,
+      "no_excess_catastrophe": false
+    }
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "ensemble9": 6,
+        "globalized3": 7,
+        "globalized9": 8,
+        "single": 7,
+        "stable9": 7
+      },
+      "geometric_nmse": {
+        "ensemble9": 115508262.92181139,
+        "globalized3": 10196988114.223131,
+        "globalized9": 191417421867617.84,
+        "single": 17038685.4209613,
+        "stable9": 141547393961.94916
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "ensemble9": 2,
+        "globalized3": 3,
+        "globalized9": 3,
+        "single": 1,
+        "stable9": 3
+      },
+      "geometric_nmse": {
+        "ensemble9": 1.0495796176028045,
+        "globalized3": 4.156941338257684,
+        "globalized9": 3.1971891142609525,
+        "single": 1.2958168139492736,
+        "stable9": 2.0063956442311643
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "ensemble9": 3,
+        "globalized3": 4,
+        "globalized9": 5,
+        "single": 3,
+        "stable9": 4
+      },
+      "geometric_nmse": {
+        "ensemble9": 181.8018047852646,
+        "globalized3": 1724.6661880214808,
+        "globalized9": 12033.335503590026,
+        "single": 161.88235508866174,
+        "stable9": 1793.1187280242698
+      }
+    }
+  },
+  "optimization_counts": {
+    "attempted": 11016,
+    "successful": 10475
+  },
+  "paths": 16,
+  "protocol_commit": "0955587c1f717143af35443e026fa2ad3c73605f",
+  "rows": [
+    {
+      "failed_fits": [
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "method": "single",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 86.3392012487345,
+          "globalized3": 96.75794470689353,
+          "globalized9": 124.71160307711297,
+          "single": 10.342151508035348,
+          "stable9": 104.81656859832677
+        },
+        "inside": {
+          "ensemble9": 0.677649240265993,
+          "globalized3": 0.6792613779711312,
+          "globalized9": 1.0380358245055696,
+          "single": 0.1070712524876023,
+          "stable9": 0.6774537299102175
+        },
+        "near_shell": {
+          "ensemble9": 17.551838350078533,
+          "globalized3": 21.88228071383724,
+          "globalized9": 34.876406978951586,
+          "single": 2.7409954662613276,
+          "stable9": 23.13108546122419
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.4639390231413694,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.4639397249075559,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.4639399532548902,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 1.4639390339285905,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 1.3339490183647058,
+          "globalized3": 1.3339854267555058,
+          "globalized9": 1.3339854267555058,
+          "single": 1.3339463028284815,
+          "stable9": 1.3339501889805927
+        },
+        "inside": {
+          "ensemble9": -1.484099828442095,
+          "globalized3": -1.4840816999204725,
+          "globalized9": -1.4840816999204725,
+          "single": -1.4841011805629627,
+          "stable9": -1.4840992455694026
+        },
+        "near_shell": {
+          "ensemble9": 0.13570743357937154,
+          "globalized3": 0.13573212144687385,
+          "globalized9": 0.13573212144687385,
+          "single": 0.13570559222383682,
+          "stable9": 0.13570822735213728
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.43180718546712676,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized3": {
+          "cv": 0.4318070196771792,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized9": {
+          "cv": 0.431806357908208,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "single": {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 0.43180707846087,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 13.43338584812402,
+          "globalized3": 13.433388201082183,
+          "globalized9": 13.433385609701764,
+          "single": 13.433383063718503,
+          "stable9": 13.433384384829404
+        },
+        "inside": {
+          "ensemble9": -0.009680700108338769,
+          "globalized3": -0.009680652646154808,
+          "globalized9": -0.009680506828577684,
+          "single": -0.009680756132267376,
+          "stable9": -0.009680708321551545
+        },
+        "near_shell": {
+          "ensemble9": 3.3282198403670344,
+          "globalized3": 3.328220514071777,
+          "globalized9": 3.3282177908821398,
+          "single": 3.3282191581746057,
+          "stable9": 3.3282193704388456
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.3462252331736941,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.3462247387469264,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.3462239077263911,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.3462254035301022,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": -0.15994972430274323,
+          "globalized3": -0.15994917320707458,
+          "globalized9": -0.15999046343275403,
+          "single": -0.15994030963331163,
+          "stable9": -0.15994917320707458
+        },
+        "inside": {
+          "ensemble9": -2.891406679362493,
+          "globalized3": -2.8914061194609135,
+          "globalized9": -2.8914083250707896,
+          "single": -2.8914056857853114,
+          "stable9": -2.8914061194609135
+        },
+        "near_shell": {
+          "ensemble9": -1.5258002627939558,
+          "globalized3": -1.5257993463963597,
+          "globalized9": -1.5258141844317894,
+          "single": -1.525796117272102,
+          "stable9": -1.5257993463963597
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.0768023986034163,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.076806529284731,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.0768024170820425,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.0768021400383052,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "single",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "globalized3",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 143.90038561943783,
+          "globalized3": 144.45253251412174,
+          "globalized9": 214.8840502173479,
+          "single": 142.60259246263314,
+          "stable9": 214.8840502173479
+        },
+        "inside": {
+          "ensemble9": 5.127188148550918,
+          "globalized3": 5.127188158081912,
+          "globalized9": 9.15917113206281,
+          "single": 4.938003565169866,
+          "stable9": 9.15917113206281
+        },
+        "near_shell": {
+          "ensemble9": 43.07088510775078,
+          "globalized3": 43.70106807034537,
+          "globalized9": 56.963516700855976,
+          "single": 43.07023758513758,
+          "stable9": 56.963516700855976
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.271020310146867,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.2710203668042428,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.2710199865544065,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.2710199988256892,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 0.25,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_affine",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "single",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "globalized3",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 33.22701176031876,
+          "globalized3": 86.61621526211154,
+          "globalized9": 39.91368784970114,
+          "single": 66.11099196543343,
+          "stable9": 50.214788930241056
+        },
+        "inside": {
+          "ensemble9": 5.211206085539322,
+          "globalized3": 22.918112210822656,
+          "globalized9": 14.299287048423718,
+          "single": 7.963821045270332,
+          "stable9": 7.232929009823636
+        },
+        "near_shell": {
+          "ensemble9": 16.845050490240922,
+          "globalized3": 41.16838518140109,
+          "globalized9": 23.388975907211552,
+          "single": 26.83435465897299,
+          "stable9": 27.279929028841067
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.0740322764322232,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1461111.4965273007,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 228903.84793154313,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "single": {
+          "cv": 921611.8269864824,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.0727418306377847,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 0.5,
+          "family": "exp_affine",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "single",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 0.021540653023315315,
+          "globalized3": 7.257129050268912,
+          "globalized9": 7.257129050268912,
+          "single": 13.810707588631987,
+          "stable9": 7.257129050268912
+        },
+        "inside": {
+          "ensemble9": 3.13702004137499,
+          "globalized3": 7.450713526939684,
+          "globalized9": 7.450713526939684,
+          "single": 4.5161862017821655,
+          "stable9": 7.450713526939684
+        },
+        "near_shell": {
+          "ensemble9": 2.1661887103114044,
+          "globalized3": 8.874224222712622,
+          "globalized9": 8.874224222712622,
+          "single": 5.131614144577077,
+          "stable9": 8.874224222712622
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.3451040952519283,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 0.28572972708798916,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 0.33743626234071705,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 0.360483989215805,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 0.32874365705103864,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_affine",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 7,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 8,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 14,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 17,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "method": "single",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "method": "globalized3",
+          "reason": "method unavailable: min() arg is an empty sequence",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 0.005905076029925738,
+          "globalized3": 0.09827236206892564,
+          "globalized9": 105.85563074282315,
+          "single": 0.005905079402165114,
+          "stable9": 0.09827236206892564
+        },
+        "inside": {
+          "ensemble9": 0.35468209441880383,
+          "globalized3": 0.3546821252854535,
+          "globalized9": 0.37211586217079873,
+          "single": 0.3546820945587532,
+          "stable9": 0.3546821252854535
+        },
+        "near_shell": {
+          "ensemble9": 0.05399152746315217,
+          "globalized3": 0.059911680302356274,
+          "globalized9": 22.664625609955436,
+          "single": 0.05399152751760106,
+          "stable9": 0.059911680302356274
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.191023626538453,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized3": {
+          "cv": 1.191385683655547,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized9": {
+          "cv": 1.1910223216643057,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "single": {
+          "cv": 1.1910293676659036,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 1.1910287001249105,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 6,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 9,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 10,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 11,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 12,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 13,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_affine",
+          "loo_index": 16,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_affine",
+          "loo_index": 18,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_affine",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_affine",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_affine",
+          "loo_index": 19,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": -0.36636022825767345,
+          "globalized3": -0.36636011201363416,
+          "globalized9": -0.36635965727628417,
+          "single": -0.36636011201363416,
+          "stable9": -0.36635970226773473
+        },
+        "inside": {
+          "ensemble9": -2.7321265280622016,
+          "globalized3": -2.7321262045631785,
+          "globalized9": -2.7321288495935936,
+          "single": -2.7321262045631785,
+          "stable9": -2.732128575000512
+        },
+        "near_shell": {
+          "ensemble9": -1.7801525914854626,
+          "globalized3": -1.780152171738993,
+          "globalized9": -1.7801532370606843,
+          "single": -1.780152171738993,
+          "stable9": -1.7801531350209423
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.9012186826976313,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized3": {
+          "cv": 0.8873383990716557,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized9": {
+          "cv": 0.8276897923255566,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "single": {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 0.9012189109027349,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "failed_fits": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 0.49732196949905294,
+          "globalized3": 0.4973219275243306,
+          "globalized9": 0.49732196865227074,
+          "single": 0.497321736262089,
+          "stable9": 0.49732196865227074
+        },
+        "inside": {
+          "ensemble9": -3.0437329560945785,
+          "globalized3": -3.0437330352631293,
+          "globalized9": -3.043732956994558,
+          "single": -3.043733441136403,
+          "stable9": -3.043732956994558
+        },
+        "near_shell": {
+          "ensemble9": -1.425922195369898,
+          "globalized3": -1.4259223764597353,
+          "globalized9": -1.4259222035841201,
+          "single": -1.425923330848975,
+          "stable9": -1.4259222035841201
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.2146190198023584,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized3": {
+          "cv": 0.21461893503037616,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized9": {
+          "cv": 0.2146186907869704,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "single": {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 0.21461895111917467,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "failed_fits": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": -0.12091412953925573,
+          "globalized3": -0.12091402716263211,
+          "globalized9": -0.1209141338890456,
+          "single": -0.12091402716263211,
+          "stable9": -0.1209141190709202
+        },
+        "inside": {
+          "ensemble9": -2.6899684742354366,
+          "globalized3": -2.689971496171361,
+          "globalized9": -2.6899692193705964,
+          "single": -2.689971496171361,
+          "stable9": -2.689968513681945
+        },
+        "near_shell": {
+          "ensemble9": -0.9454385891830368,
+          "globalized3": -0.9454396886508682,
+          "globalized9": -0.9454388713268109,
+          "single": -0.9454396886508682,
+          "stable9": -0.9454386090685531
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.6912376618581838,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 0.6912376411435006,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 0.6912370093747005,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 0.6912377293358276,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 5,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 15,
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 0.08786236511570156,
+          "globalized3": 0.08786425315953128,
+          "globalized9": 0.0878623804298666,
+          "single": 0.08786425315953128,
+          "stable9": 0.0878623804298666
+        },
+        "inside": {
+          "ensemble9": -2.8537003253828295,
+          "globalized3": -2.8536908451673084,
+          "globalized9": -2.853700262422938,
+          "single": -2.8536908451673084,
+          "stable9": -2.853700262422938
+        },
+        "near_shell": {
+          "ensemble9": -0.9576220792106929,
+          "globalized3": -0.9576162041521545,
+          "globalized9": -0.9576220372993953,
+          "single": -0.9576162041521545,
+          "stable9": -0.9576220372993953
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 0.5084228826496278,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 0.5084255662108788,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 0.5084241767256311,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 0.5084231378692669,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "family": "exp_concave",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 6.029309898887816,
+          "globalized3": 6.029309953690258,
+          "globalized9": 6.02931018266506,
+          "single": 6.029309953690258,
+          "stable9": 6.02931018266506
+        },
+        "inside": {
+          "ensemble9": -0.0021227506722851786,
+          "globalized3": -0.0021227472515779056,
+          "globalized9": -0.0021227864056516665,
+          "single": -0.0021227472515779056,
+          "stable9": -0.0021227864056516665
+        },
+        "near_shell": {
+          "ensemble9": 2.1933950160777975,
+          "globalized3": 2.193395027085871,
+          "globalized9": 2.193395045533638,
+          "single": 2.193395027085871,
+          "stable9": 2.193395045533638
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.594718111391124,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "globalized3": {
+          "cv": 1.5947184803496293,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "globalized9": {
+          "cv": 1.594718825358501,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "single": {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "stable9": {
+          "cv": 1.59471899140532,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 0,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 1,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 4.0,
+          "family": "exp_concave",
+          "loo_index": 2,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.75,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.25,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 2.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 3.0,
+          "family": "exp_concave",
+          "loo_index": 3,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 0.25,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.0,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "factor": 1.5,
+          "family": "exp_concave",
+          "loo_index": 4,
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 0.6468204849193304,
+          "globalized3": 0.6468204845286945,
+          "globalized9": 0.64876647442214,
+          "single": 0.6468204849246613,
+          "stable9": 0.6468204848148238
+        },
+        "inside": {
+          "ensemble9": 1.557603999440393,
+          "globalized3": 1.557604163901562,
+          "globalized9": 1.5681295182531243,
+          "single": 1.5576039994414934,
+          "stable9": 1.5576039994326227
+        },
+        "near_shell": {
+          "ensemble9": 1.2719786130040127,
+          "globalized3": 1.2719791450065783,
+          "globalized9": 1.2724780131261735,
+          "single": 1.2719786130061488,
+          "stable9": 1.271978612984264
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.7418597388772448,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.7418625341557015,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.7419463978474046,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.7418597388619552,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "family": "exp_concave",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 7.2755864851344345,
+          "globalized3": 7.275585185284898,
+          "globalized9": 7.2755874365995,
+          "single": 7.275585185284898,
+          "stable9": 7.275585583218713
+        },
+        "inside": {
+          "ensemble9": 0.2461987137967374,
+          "globalized3": 0.24619857770217557,
+          "globalized9": 0.24619861054518166,
+          "single": 0.24619857770217557,
+          "stable9": 0.2461986171029662
+        },
+        "near_shell": {
+          "ensemble9": 1.8658395123303144,
+          "globalized3": 1.86583901421583,
+          "globalized9": 1.865839851788777,
+          "single": 1.86583901421583,
+          "stable9": 1.8658391368037828
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 1.6502508455503868,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 1.6502544043820262,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 1.6502508724257177,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "single": {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 1.6502499718968202,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "failed_fits": [
+        {
+          "family": "exp_concave",
+          "method": "all",
+          "reason": "family unavailable: all deterministic starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3"
+      ],
+      "scores": {
+        "far_shell": {
+          "ensemble9": 4.886585667563262,
+          "globalized3": 4.886585676297262,
+          "globalized9": 4.886585664467062,
+          "single": 4.886585740521724,
+          "stable9": 4.886585664467062
+        },
+        "inside": {
+          "ensemble9": 0.16952543600489633,
+          "globalized3": 0.16952543756293537,
+          "globalized9": 0.16952543556712563,
+          "single": 0.16952547121005423,
+          "stable9": 0.16952543556712563
+        },
+        "near_shell": {
+          "ensemble9": 1.3985148609323472,
+          "globalized3": 1.3985148417521218,
+          "globalized9": 1.3985148673434233,
+          "single": 1.3985146176939525,
+          "stable9": 1.3985148673434233
+        }
+      },
+      "winner": {
+        "ensemble9": {
+          "cv": 2.0826113146582292,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized3": {
+          "cv": 2.082610181081961,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized9": {
+          "cv": 2.082609168962449,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "single": {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "stable9": {
+          "cv": 2.082611328337488,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    }
+  ],
+  "schema": "kernellum.robust-solver-control-development.v1",
+  "status": "KILL_SOLVER_BASIN_KERNEL",
+  "survivors": []
+}

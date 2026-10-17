@@ -1,0 +1,42 @@
+name: Support-distance abstention development
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/support-aware-abstention-20261016
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install numpy scipy
+      - name: Primary execution
+        run: |
+          python scripts/evaluate_support_distance_abstention.py \
+            --archived-result results/robust_solver_control_development.json \
+            --decisions /tmp/support-decisions.json \
+            --output /tmp/support-result.json
+          cmp /tmp/support-decisions.json results/support_distance_decisions.json
+          cmp /tmp/support-result.json results/support_distance_result.json
+      - name: Independent audit
+        run: |
+          python scripts/audit_support_distance_abstention.py \
+            --archived-result results/robust_solver_control_development.json \
+            --decisions /tmp/support-decisions.json \
+            --result /tmp/support-result.json \
+            --output /tmp/support-audit.json
+          cmp /tmp/support-audit.json results/support_distance_audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: support-distance-abstention-development
+          path: |
+            /tmp/support-decisions.json
+            /tmp/support-result.json
+            /tmp/support-audit.json

@@ -1,0 +1,75 @@
+name: adversarial-boundary-high-dim-truth-blind
+
+on:
+  pull_request:
+    paths:
+      - docs/ADVERSARIAL_BOUNDARY_HIGH_DIM_PREREGISTRATION.md
+      - scripts/generate_adversarial_boundary_high_dim_manifest.py
+      - kernellum/discovery/solver_equivalence.py
+      - .github/workflows/adversarial-boundary-high-dim-truth-blind.yml
+  push:
+    branches: [breakthrough-engine/basin-diagnostic-20261013]
+    paths:
+      - docs/ADVERSARIAL_BOUNDARY_HIGH_DIM_PREREGISTRATION.md
+      - scripts/generate_adversarial_boundary_high_dim_manifest.py
+      - kernellum/discovery/solver_equivalence.py
+      - .github/workflows/adversarial-boundary-high-dim-truth-blind.yml
+  workflow_dispatch:
+
+jobs:
+  generate-base-manifest:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {dimension: 5, seed: 6101}
+          - {dimension: 5, seed: 6107}
+          - {dimension: 7, seed: 6101}
+          - {dimension: 7, seed: 6107}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Syntax and truth-barrier smoke check
+        run: |
+          python -m py_compile scripts/generate_adversarial_boundary_high_dim_manifest.py
+          python - <<'PY'
+          from scripts.generate_adversarial_boundary_high_dim_manifest import base_instance
+          x, y, requests = base_instance(${{ matrix.dimension }}, ${{ matrix.seed }})
+          assert x.shape == (24, ${{ matrix.dimension }})
+          assert y.shape == (24,)
+          assert set(requests) == {"inside", "near_shell", "far_shell"}
+          assert all(v.shape == (192, ${{ matrix.dimension }}) for v in requests.values())
+          PY
+      - name: Generate twice and require byte identity
+        run: |
+          name="boundary-high-d${{ matrix.dimension }}-s${{ matrix.seed }}.json"
+          python scripts/generate_adversarial_boundary_high_dim_manifest.py --dimension ${{ matrix.dimension }} --seed ${{ matrix.seed }} --output "$name"
+          cp "$name" "/tmp/$name"
+          python scripts/generate_adversarial_boundary_high_dim_manifest.py --dimension ${{ matrix.dimension }} --seed ${{ matrix.seed }} --output "$name"
+          cmp "/tmp/$name" "$name"
+          python - "$name" <<'PY'
+          import json, sys
+          payload = json.load(open(sys.argv[1]))
+          probe = dict(payload)
+          probe.pop("forbidden_fields", None)
+          raw = json.dumps(probe, sort_keys=True)
+          assert payload["classification"] == "PROSPECTIVE_TRUTH_BLIND"
+          assert '"request_truth"' not in raw
+          assert '"scores"' not in raw
+          assert '"harmful_switch"' not in raw
+          assert payload["selected_count"] == 6, payload["status"]
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: adversarial-boundary-high-d${{ matrix.dimension }}-s${{ matrix.seed }}
+          path: boundary-high-d${{ matrix.dimension }}-s${{ matrix.seed }}.json

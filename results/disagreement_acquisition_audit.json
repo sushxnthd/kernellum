@@ -1,0 +1,9 @@
+{
+  "canonical_sha256": "935c30594cf1b6e9c5bd73410fd22c42f5b0d1a04588e64320fe6e56fd4ca503",
+  "checks": 319,
+  "decision_sha256": "8f2039f95b1138896448e5ac5e8f35ec902afd5632ff391f3402ef66ce9a1986",
+  "failures": [],
+  "passed": 319,
+  "schema": "kernellum.disagreement-acquisition-audit.v1",
+  "status": "PASS"
+}

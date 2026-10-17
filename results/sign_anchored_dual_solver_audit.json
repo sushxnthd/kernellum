@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "choice_counts": true,
+    "far_shell.catastrophic_counts": true,
+    "far_shell.geometric_nmse": true,
+    "far_shell.median_log_nmse": true,
+    "far_shell.paired_counts": true,
+    "inside.catastrophic_counts": true,
+    "inside.geometric_nmse": true,
+    "inside.median_log_nmse": true,
+    "inside.paired_counts": true,
+    "near_shell.catastrophic_counts": true,
+    "near_shell.geometric_nmse": true,
+    "near_shell.median_log_nmse": true,
+    "near_shell.paired_counts": true
+  },
+  "paths": 120,
+  "result_canonical_sha256": "7ba0a64ab68c2d30bf61bad7e3aa9a36ef4d5e703c8f839476d3d9f13c1836bf",
+  "schema": "kernellum.sign-anchored-dual-solver-audit.v1",
+  "status": "PASS"
+}

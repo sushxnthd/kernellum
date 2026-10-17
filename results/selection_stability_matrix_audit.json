@@ -1,0 +1,29 @@
+{
+  "audit_status": "PASS",
+  "checks": {
+    "auc_matches": true,
+    "canonical_sha256_matches": true,
+    "cover_threshold_matches": true,
+    "fpr_matches": true,
+    "gates_match": true,
+    "status_matches": true,
+    "top10_recall_matches": true
+  },
+  "computed_canonical_sha256": "d6b9b2c77538aa40927071cc716b1957532fe822e3e60988a9c6ca99e0a23c3c",
+  "gates": {
+    "auc_090": false,
+    "fpr_le_025": true,
+    "top10_all": false
+  },
+  "implementation": "independent_pairwise_audit",
+  "metrics": {
+    "auc": 0.8214285714285714,
+    "cover_threshold": 0.7081092561657719,
+    "false_positive_rate_at_full_recall": 0.25,
+    "paths": 60,
+    "positives": 4,
+    "top10_recall": 0.25
+  },
+  "recorded_canonical_sha256": "d6b9b2c77538aa40927071cc716b1957532fe822e3e60988a9c6ca99e0a23c3c",
+  "schema": "kernellum.selection_stability_matrix.audit.v1"
+}

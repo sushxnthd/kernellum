@@ -1,0 +1,59 @@
+name: robust-solver-control-development
+
+on:
+  pull_request:
+    paths:
+      - docs/ROBUST_SOLVER_CONTROL_DEVELOPMENT_PROTOCOL.md
+      - scripts/evaluate_robust_solver_controls.py
+      - scripts/evaluate_sign_anchor_shifted.py
+      - kernellum/discovery/additive_response.py
+      - .github/workflows/robust-solver-control-development.yml
+  push:
+    branches: [breakthrough-engine/basin-diagnostic-20261013]
+    paths:
+      - docs/ROBUST_SOLVER_CONTROL_DEVELOPMENT_PROTOCOL.md
+      - scripts/evaluate_robust_solver_controls.py
+      - scripts/evaluate_sign_anchor_shifted.py
+      - kernellum/discovery/additive_response.py
+      - .github/workflows/robust-solver-control-development.yml
+  workflow_dispatch:
+
+jobs:
+  control-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Syntax check
+        run: python -m py_compile scripts/evaluate_robust_solver_controls.py
+      - name: Execute frozen opened-cohort screen
+        run: |
+          python scripts/evaluate_robust_solver_controls.py --output robust-controls.json
+      - name: Deterministic rerun
+        run: |
+          cp robust-controls.json /tmp/robust-controls.json
+          python scripts/evaluate_robust_solver_controls.py --output robust-controls.json
+          cmp /tmp/robust-controls.json robust-controls.json
+      - name: Verify classification and terminal decision
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open("robust-controls.json"))
+          assert p["classification"]=="OPENED_COHORT_DEVELOPMENT"
+          assert p["paths"]==16
+          assert p["status"] in {"ADVANCE","KILL_SOLVER_BASIN_KERNEL"}
+          assert p["protocol_commit"]=="0955587c1f717143af35443e026fa2ad3c73605f"
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robust-solver-control-development
+          path: robust-controls.json
