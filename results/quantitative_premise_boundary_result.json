@@ -1,5 +1,5 @@
 {
-  "canonical_sha256": "7771f7785b329cc7f6ada7e599bed20bf06bf8c333350a6f3a2030de58b97e2c",
+  "canonical_sha256": "f9af0082af19e39402ca9712b1094c90bddbe5ec038458c0445132b813321a52",
   "classification": "EXACT_BOUNDARY_AND_OPENED_COHORT_DIAGNOSTIC",
   "conditional_law": "Given an independently verified global L, the McShane--Whitney interval is pointwise sharp.",
   "finite_sharpness": {
@@ -18,23 +18,23 @@
         "cells": 48,
         "cells_all_outside": 0,
         "cells_any_outside": 30,
-        "mean_normalized_width": 8.116828282815804,
-        "mean_outside_fraction": 0.06339518229166667
+        "mean_normalized_width": 8.116828282816,
+        "mean_outside_fraction": 0.063395182292
       },
       "by_domain": {
         "far_shell": {
           "cells_any_outside": 1,
-          "mean_normalized_width": 16.039654497042257,
+          "mean_normalized_width": 16.039654497042,
           "mean_outside_fraction": 0.000244140625
         },
         "inside": {
           "cells_any_outside": 16,
-          "mean_normalized_width": 2.8337913255541762,
+          "mean_normalized_width": 2.833791325554,
           "mean_outside_fraction": 0.17236328125
         },
         "near_shell": {
           "cells_any_outside": 13,
-          "mean_normalized_width": 5.4770390258509805,
+          "mean_normalized_width": 5.477039025851,
           "mean_outside_fraction": 0.017578125
         }
       },
@@ -42,8 +42,8 @@
         "cells": 11,
         "cells_all_outside": 0,
         "cells_any_outside": 4,
-        "mean_normalized_width": 12.260994514655918,
-        "mean_outside_fraction": 0.041193181818181816
+        "mean_normalized_width": 12.260994514656,
+        "mean_outside_fraction": 0.041193181818
       }
     },
     "10": {
@@ -51,23 +51,23 @@
         "cells": 48,
         "cells_all_outside": 0,
         "cells_any_outside": 0,
-        "mean_normalized_width": 91.49012398974271,
+        "mean_normalized_width": 91.490123989743,
         "mean_outside_fraction": 0.0
       },
       "by_domain": {
         "far_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 166.00256832257185,
+          "mean_normalized_width": 166.002568322572,
           "mean_outside_fraction": 0.0
         },
         "inside": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 44.60450015720498,
+          "mean_normalized_width": 44.604500157205,
           "mean_outside_fraction": 0.0
         },
         "near_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 63.863303489451354,
+          "mean_normalized_width": 63.863303489451,
           "mean_outside_fraction": 0.0
         }
       },
@@ -75,7 +75,7 @@
         "cells": 11,
         "cells_all_outside": 0,
         "cells_any_outside": 0,
-        "mean_normalized_width": 133.16604363981602,
+        "mean_normalized_width": 133.166043639816,
         "mean_outside_fraction": 0.0
       }
     },
@@ -84,23 +84,23 @@
         "cells": 48,
         "cells_all_outside": 0,
         "cells_any_outside": 6,
-        "mean_normalized_width": 17.846687484931298,
-        "mean_outside_fraction": 0.0005696614583333334
+        "mean_normalized_width": 17.846687484931,
+        "mean_outside_fraction": 0.000569661458
       },
       "by_domain": {
         "far_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 33.03344404625946,
+          "mean_normalized_width": 33.033444046259,
           "mean_outside_fraction": 0.0
         },
         "inside": {
           "cells_any_outside": 6,
-          "mean_normalized_width": 8.082966096760849,
+          "mean_normalized_width": 8.082966096761,
           "mean_outside_fraction": 0.001708984375
         },
         "near_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 12.42365231177359,
+          "mean_normalized_width": 12.423652311774,
           "mean_outside_fraction": 0.0
         }
       },
@@ -108,8 +108,8 @@
         "cells": 11,
         "cells_all_outside": 0,
         "cells_any_outside": 1,
-        "mean_normalized_width": 26.248815077252104,
-        "mean_outside_fraction": 0.0003551136363636364
+        "mean_normalized_width": 26.248815077252,
+        "mean_outside_fraction": 0.000355113636
       }
     },
     "5": {
@@ -117,23 +117,23 @@
         "cells": 48,
         "cells_all_outside": 0,
         "cells_any_outside": 0,
-        "mean_normalized_width": 45.608569348547725,
+        "mean_normalized_width": 45.608569348548,
         "mean_outside_fraction": 0.0
       },
       "by_domain": {
         "far_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 82.95889784283179,
+          "mean_normalized_width": 82.958897842832,
           "mean_outside_fraction": 0.0
         },
         "inside": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 22.03568640844088,
+          "mean_normalized_width": 22.035686408441,
           "mean_outside_fraction": 0.0
         },
         "near_shell": {
           "cells_any_outside": 0,
-          "mean_normalized_width": 31.831123794370505,
+          "mean_normalized_width": 31.831123794371,
           "mean_outside_fraction": 0.0
         }
       },
@@ -141,7 +141,7 @@
         "cells": 11,
         "cells_all_outside": 0,
         "cells_any_outside": 0,
-        "mean_normalized_width": 66.47724756082572,
+        "mean_normalized_width": 66.477247560826,
         "mean_outside_fraction": 0.0
       }
     }
@@ -150,7 +150,7 @@
   "rows": [
     {
       "catastrophic": false,
-      "empirical_constant": 0.681256564183765,
+      "empirical_constant": 0.681256564184,
       "key": [
         "skew_gaussian",
         3,
@@ -162,25 +162,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.1552972668036148,
+          "mean_normalized_width": 2.155297266804,
           "outside_fraction": 0.2109375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 31.693148848806196,
+          "mean_normalized_width": 31.693148848806,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.856906601246912,
+          "mean_normalized_width": 5.856906601247,
           "outside_fraction": 0.00390625
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 15.692832862028611,
+          "mean_normalized_width": 15.692832862029,
           "outside_fraction": 0.0
         }
       },
@@ -191,7 +191,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.681256564183765,
+      "empirical_constant": 0.681256564184,
       "key": [
         "skew_gaussian",
         3,
@@ -203,25 +203,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.197651048159534,
+          "mean_normalized_width": 4.19765104816,
           "outside_fraction": 0.02734375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 46.84954583091585,
+          "mean_normalized_width": 46.849545830916,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 9.141479287245053,
+          "mean_normalized_width": 9.141479287245,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 23.346731601377606,
+          "mean_normalized_width": 23.346731601378,
           "outside_fraction": 0.0
         }
       },
@@ -232,7 +232,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.681256564183765,
+      "empirical_constant": 0.681256564184,
       "key": [
         "skew_gaussian",
         3,
@@ -244,25 +244,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 13.543459814257654,
+          "mean_normalized_width": 13.543459814258,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 139.84636941217724,
+          "mean_normalized_width": 139.846369412177,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 27.802782421205528,
+          "mean_normalized_width": 27.802782421206,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 69.88869479170688,
+          "mean_normalized_width": 69.888694791707,
           "outside_fraction": 0.0
         }
       },
@@ -273,7 +273,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8873747236462306,
+      "empirical_constant": 0.887374723646,
       "key": [
         "skew_gaussian",
         3,
@@ -285,25 +285,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.0093838432651774,
+          "mean_normalized_width": 2.009383843265,
           "outside_fraction": 0.15234375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 33.220218677428804,
+          "mean_normalized_width": 33.220218677429,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 6.070385418104837,
+          "mean_normalized_width": 6.070385418105,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.423402631590655,
+          "mean_normalized_width": 16.423402631591,
           "outside_fraction": 0.0
         }
       },
@@ -314,7 +314,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8873747236462306,
+      "empirical_constant": 0.887374723646,
       "key": [
         "skew_gaussian",
         3,
@@ -326,25 +326,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.035526174181631,
+          "mean_normalized_width": 5.035526174182,
           "outside_fraction": 0.0078125
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 53.98352686791833,
+          "mean_normalized_width": 53.983526867918,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.672826274954424,
+          "mean_normalized_width": 10.672826274954,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 26.94803506240381,
+          "mean_normalized_width": 26.948035062404,
           "outside_fraction": 0.0
         }
       },
@@ -355,7 +355,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8873747236462306,
+      "empirical_constant": 0.887374723646,
       "key": [
         "skew_gaussian",
         3,
@@ -367,19 +367,19 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.829476443481688,
+          "mean_normalized_width": 14.829476443482,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 150.59512091073753,
+          "mean_normalized_width": 150.595120910738,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 30.029273829800662,
+          "mean_normalized_width": 30.029273829801,
           "outside_fraction": 0.0
         },
         "5": {
@@ -396,7 +396,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 1.0278199111203623,
+      "empirical_constant": 1.02781991112,
       "key": [
         "skew_gaussian",
         3,
@@ -408,25 +408,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 3.314610579927742,
+          "mean_normalized_width": 3.314610579928,
           "outside_fraction": 0.0546875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 42.36908271789188,
+          "mean_normalized_width": 42.369082717892,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 8.12535980980213,
+          "mean_normalized_width": 8.125359809802,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 21.08091910183871,
+          "mean_normalized_width": 21.080919101839,
           "outside_fraction": 0.0
         }
       },
@@ -437,7 +437,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 1.0278199111203623,
+      "empirical_constant": 1.02781991112,
       "key": [
         "skew_gaussian",
         3,
@@ -449,25 +449,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 6.530235889664183,
+          "mean_normalized_width": 6.530235889664,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 67.75109123031828,
+          "mean_normalized_width": 67.751091230318,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 13.450828041800555,
+          "mean_normalized_width": 13.450828041801,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 33.84162276654171,
+          "mean_normalized_width": 33.841622766542,
           "outside_fraction": 0.0
         }
       },
@@ -478,7 +478,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 1.0278199111203623,
+      "empirical_constant": 1.02781991112,
       "key": [
         "skew_gaussian",
         3,
@@ -490,25 +490,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 19.59426156256033,
+          "mean_normalized_width": 19.59426156256,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 197.47185999063657,
+          "mean_normalized_width": 197.471859990637,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 39.44210693986409,
+          "mean_normalized_width": 39.442106939864,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 98.72231919426314,
+          "mean_normalized_width": 98.722319194263,
           "outside_fraction": 0.0
         }
       },
@@ -519,7 +519,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7501484066340547,
+      "empirical_constant": 0.750148406634,
       "key": [
         "skew_gaussian",
         3,
@@ -531,25 +531,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 1.9051614535864907,
+          "mean_normalized_width": 1.905161453586,
           "outside_fraction": 0.18359375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 30.278288490201316,
+          "mean_normalized_width": 30.278288490201,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.510604606337969,
+          "mean_normalized_width": 5.510604606338,
           "outside_fraction": 0.00390625
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.996750632317722,
+          "mean_normalized_width": 14.996750632318,
           "outside_fraction": 0.0
         }
       },
@@ -560,7 +560,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7501484066340547,
+      "empirical_constant": 0.750148406634,
       "key": [
         "skew_gaussian",
         3,
@@ -572,25 +572,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.025367628963616,
+          "mean_normalized_width": 4.025367628964,
           "outside_fraction": 0.0234375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 45.05988422015403,
+          "mean_normalized_width": 45.059884220154,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 8.821342132690333,
+          "mean_normalized_width": 8.82134213269,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 22.46554676346839,
+          "mean_normalized_width": 22.465546763468,
           "outside_fraction": 0.0
         }
       },
@@ -601,7 +601,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7501484066340547,
+      "empirical_constant": 0.750148406634,
       "key": [
         "skew_gaussian",
         3,
@@ -613,25 +613,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 13.027607650718926,
+          "mean_normalized_width": 13.027607650719,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 134.42663382819552,
+          "mean_normalized_width": 134.426633828196,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 26.74074715907255,
+          "mean_normalized_width": 26.740747159073,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 67.18241016670471,
+          "mean_normalized_width": 67.182410166705,
           "outside_fraction": 0.0
         }
       },
@@ -642,7 +642,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.4947268183825931,
+      "empirical_constant": 0.494726818383,
       "key": [
         "skew_gaussian",
         5,
@@ -654,25 +654,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 3.422935370916673,
+          "mean_normalized_width": 3.422935370917,
           "outside_fraction": 0.18359375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 54.558500758827755,
+          "mean_normalized_width": 54.558500758828,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 9.854019623210595,
+          "mean_normalized_width": 9.854019623211,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 26.933831929879958,
+          "mean_normalized_width": 26.93383192988,
           "outside_fraction": 0.0
         }
       },
@@ -683,7 +683,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.4947268183825931,
+      "empirical_constant": 0.494726818383,
       "key": [
         "skew_gaussian",
         5,
@@ -695,25 +695,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 6.489060234451626,
+          "mean_normalized_width": 6.489060234452,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 76.30575884617075,
+          "mean_normalized_width": 76.305758846171,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.891454585405953,
+          "mean_normalized_width": 14.891454585406,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 38.052851985689955,
+          "mean_normalized_width": 38.05285198569,
           "outside_fraction": 0.0
         }
       },
@@ -724,7 +724,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.4947268183825931,
+      "empirical_constant": 0.494726818383,
       "key": [
         "skew_gaussian",
         5,
@@ -736,25 +736,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.706531775642027,
+          "mean_normalized_width": 16.706531775642,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 173.8689432228885,
+          "mean_normalized_width": 173.868943222889,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 34.572401765373336,
+          "mean_normalized_width": 34.572401765373,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 86.87951531343907,
+          "mean_normalized_width": 86.879515313439,
           "outside_fraction": 0.0
         }
       },
@@ -765,7 +765,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.39348656922699354,
+      "empirical_constant": 0.393486569227,
       "key": [
         "skew_gaussian",
         5,
@@ -777,25 +777,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.9945480192133447,
+          "mean_normalized_width": 2.994548019213,
           "outside_fraction": 0.390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 55.897619440383096,
+          "mean_normalized_width": 55.897619440383,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 9.767980099102624,
+          "mean_normalized_width": 9.767980099103,
           "outside_fraction": 0.00390625
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 27.52154400223927,
+          "mean_normalized_width": 27.521544002239,
           "outside_fraction": 0.0
         }
       },
@@ -806,7 +806,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.39348656922699354,
+      "empirical_constant": 0.393486569227,
       "key": [
         "skew_gaussian",
         5,
@@ -818,25 +818,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.7996208755009535,
+          "mean_normalized_width": 5.799620875501,
           "outside_fraction": 0.0546875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 75.82046639483498,
+          "mean_normalized_width": 75.820466394835,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.454299324076088,
+          "mean_normalized_width": 14.454299324076,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 37.67547788013586,
+          "mean_normalized_width": 37.675477880136,
           "outside_fraction": 0.0
         }
       },
@@ -847,7 +847,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.39348656922699354,
+      "empirical_constant": 0.393486569227,
       "key": [
         "skew_gaussian",
         5,
@@ -859,25 +859,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.86391501335097,
+          "mean_normalized_width": 16.863915013351,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 177.2807637589759,
+          "mean_normalized_width": 177.280763758976,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 35.236295891819765,
+          "mean_normalized_width": 35.23629589182,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 88.59645598893626,
+          "mean_normalized_width": 88.596455988936,
           "outside_fraction": 0.0
         }
       },
@@ -888,7 +888,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.4130053723365665,
+      "empirical_constant": 0.413005372337,
       "key": [
         "skew_gaussian",
         5,
@@ -900,25 +900,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 3.1397183680615814,
+          "mean_normalized_width": 3.139718368062,
           "outside_fraction": 0.23046875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 57.79384033819611,
+          "mean_normalized_width": 57.793840338196,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.095071578312488,
+          "mean_normalized_width": 10.095071578312,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 28.42212195386384,
+          "mean_normalized_width": 28.422121953864,
           "outside_fraction": 0.0
         }
       },
@@ -929,7 +929,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.4130053723365665,
+      "empirical_constant": 0.413005372337,
       "key": [
         "skew_gaussian",
         5,
@@ -941,19 +941,19 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 6.021033855239707,
+          "mean_normalized_width": 6.02103385524,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 75.43322000192437,
+          "mean_normalized_width": 75.433220001924,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.680607231008945,
+          "mean_normalized_width": 14.680607231009,
           "outside_fraction": 0.0
         },
         "5": {
@@ -970,7 +970,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.4130053723365665,
+      "empirical_constant": 0.413005372337,
       "key": [
         "skew_gaussian",
         5,
@@ -982,25 +982,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 17.375716826457914,
+          "mean_normalized_width": 17.375716826458,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 181.72472911777334,
+          "mean_normalized_width": 181.724729117773,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 36.26753258018608,
+          "mean_normalized_width": 36.267532580186,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 90.84844455602266,
+          "mean_normalized_width": 90.848444556023,
           "outside_fraction": 0.0
         }
       },
@@ -1011,7 +1011,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2741919286789741,
+      "empirical_constant": 0.274191928679,
       "key": [
         "skew_gaussian",
         5,
@@ -1023,25 +1023,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 3.548812236607047,
+          "mean_normalized_width": 3.548812236607,
           "outside_fraction": 0.2421875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 62.03863893360624,
+          "mean_normalized_width": 62.038638933606,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.917204618150324,
+          "mean_normalized_width": 10.91720461815,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 30.547279604606082,
+          "mean_normalized_width": 30.547279604606,
           "outside_fraction": 0.0
         }
       },
@@ -1052,7 +1052,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2741919286789741,
+      "empirical_constant": 0.274191928679,
       "key": [
         "skew_gaussian",
         5,
@@ -1064,25 +1064,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 6.70334810900971,
+          "mean_normalized_width": 6.70334810901,
           "outside_fraction": 0.0078125
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 81.2598875922658,
+          "mean_normalized_width": 81.259887592266,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 15.774788691887785,
+          "mean_normalized_width": 15.774788691888,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 40.54040452105706,
+          "mean_normalized_width": 40.540404521057,
           "outside_fraction": 0.0
         }
       },
@@ -1093,7 +1093,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2741919286789741,
+      "empirical_constant": 0.274191928679,
       "key": [
         "skew_gaussian",
         5,
@@ -1105,25 +1105,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 19.063784451396234,
+          "mean_normalized_width": 19.063784451396,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 198.14641065005426,
+          "mean_normalized_width": 198.146410650054,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 39.54021182634601,
+          "mean_normalized_width": 39.540211826346,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 99.06279778198444,
+          "mean_normalized_width": 99.062797781984,
           "outside_fraction": 0.0
         }
       },
@@ -1134,7 +1134,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7353897568466143,
+      "empirical_constant": 0.735389756847,
       "key": [
         "student_peak",
         3,
@@ -1146,25 +1146,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.464500725418377,
+          "mean_normalized_width": 2.464500725418,
           "outside_fraction": 0.1171875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 33.46789346962048,
+          "mean_normalized_width": 33.46789346962,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 6.265808131249164,
+          "mean_normalized_width": 6.265808131249,
           "outside_fraction": 0.0078125
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.608361850975488,
+          "mean_normalized_width": 16.608361850975,
           "outside_fraction": 0.0
         }
       },
@@ -1175,7 +1175,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7353897568466143,
+      "empirical_constant": 0.735389756847,
       "key": [
         "student_peak",
         3,
@@ -1187,25 +1187,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.488779538931121,
+          "mean_normalized_width": 4.488779538931,
           "outside_fraction": 0.01953125
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 49.5422224825641,
+          "mean_normalized_width": 49.542222482564,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 9.673586993127335,
+          "mean_normalized_width": 9.673586993127,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 24.69522058631051,
+          "mean_normalized_width": 24.695220586311,
           "outside_fraction": 0.0
         }
       },
@@ -1216,7 +1216,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.7353897568466143,
+      "empirical_constant": 0.735389756847,
       "key": [
         "student_peak",
         3,
@@ -1228,25 +1228,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.837638476889715,
+          "mean_normalized_width": 14.83763847689,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 152.73272417117167,
+          "mean_normalized_width": 152.732724171172,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 30.340927082515567,
+          "mean_normalized_width": 30.340927082516,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 76.30588756197017,
+          "mean_normalized_width": 76.30588756197,
           "outside_fraction": 0.0
         }
       },
@@ -1257,7 +1257,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6063841590825562,
+      "empirical_constant": 0.606384159083,
       "key": [
         "student_peak",
         3,
@@ -1269,25 +1269,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.316560000442402,
+          "mean_normalized_width": 2.316560000442,
           "outside_fraction": 0.16015625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 33.992670063625674,
+          "mean_normalized_width": 33.992670063626,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 6.323404170036488,
+          "mean_normalized_width": 6.323404170036,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.8420477924335,
+          "mean_normalized_width": 16.842047792434,
           "outside_fraction": 0.0
         }
       },
@@ -1298,7 +1298,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6063841590825562,
+      "empirical_constant": 0.606384159083,
       "key": [
         "student_peak",
         3,
@@ -1310,25 +1310,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 5.020351477855225,
+          "mean_normalized_width": 5.020351477855,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 54.67959021906632,
+          "mean_normalized_width": 54.679590219066,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.787640379659459,
+          "mean_normalized_width": 10.787640379659,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 27.29453567423722,
+          "mean_normalized_width": 27.294535674237,
           "outside_fraction": 0.0
         }
       },
@@ -1339,7 +1339,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6063841590825562,
+      "empirical_constant": 0.606384159083,
       "key": [
         "student_peak",
         3,
@@ -1351,19 +1351,19 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 15.709330639341774,
+          "mean_normalized_width": 15.709330639342,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 160.12676882659665,
+          "mean_normalized_width": 160.126768826597,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 31.90354994339633,
+          "mean_normalized_width": 31.903549943396,
           "outside_fraction": 0.0
         },
         "5": {
@@ -1380,7 +1380,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.905796912949123,
+      "empirical_constant": 0.905796912949,
       "key": [
         "student_peak",
         3,
@@ -1392,25 +1392,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.402104423066073,
+          "mean_normalized_width": 2.402104423066,
           "outside_fraction": 0.0234375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 34.78632243799595,
+          "mean_normalized_width": 34.786322437996,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 6.430681086940435,
+          "mean_normalized_width": 6.43068108694,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 17.206721148545423,
+          "mean_normalized_width": 17.206721148545,
           "outside_fraction": 0.0
         }
       },
@@ -1421,7 +1421,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.905796912949123,
+      "empirical_constant": 0.905796912949,
       "key": [
         "student_peak",
         3,
@@ -1433,25 +1433,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.306235604351674,
+          "mean_normalized_width": 5.306235604352,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 57.13756041191612,
+          "mean_normalized_width": 57.137560411916,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 11.303724570619421,
+          "mean_normalized_width": 11.303724570619,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 28.536934752124484,
+          "mean_normalized_width": 28.536934752124,
           "outside_fraction": 0.0
         }
       },
@@ -1462,7 +1462,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.905796912949123,
+      "empirical_constant": 0.905796912949,
       "key": [
         "student_peak",
         3,
@@ -1474,25 +1474,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.464728146712424,
+          "mean_normalized_width": 16.464728146712,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 166.91576469678944,
+          "mean_normalized_width": 166.915764696789,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 33.31981159365444,
+          "mean_normalized_width": 33.319811593654,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 83.43884587630932,
+          "mean_normalized_width": 83.438845876309,
           "outside_fraction": 0.0
         }
       },
@@ -1503,7 +1503,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8759810608495495,
+      "empirical_constant": 0.87598106085,
       "key": [
         "student_peak",
         3,
@@ -1515,25 +1515,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.712526879998676,
+          "mean_normalized_width": 2.712526879999,
           "outside_fraction": 0.0234375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 36.15755780231741,
+          "mean_normalized_width": 36.157557802317,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 6.796736508361276,
+          "mean_normalized_width": 6.796736508361,
           "outside_fraction": 0.00390625
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 17.948421665785954,
+          "mean_normalized_width": 17.948421665786,
           "outside_fraction": 0.0
         }
       },
@@ -1544,7 +1544,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8759810608495495,
+      "empirical_constant": 0.87598106085,
       "key": [
         "student_peak",
         3,
@@ -1556,25 +1556,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 5.100218968271664,
+          "mean_normalized_width": 5.100218968272,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 55.12190155978343,
+          "mean_normalized_width": 55.121901559783,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.85609290682214,
+          "mean_normalized_width": 10.856092906822,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 27.50383133286078,
+          "mean_normalized_width": 27.503831332861,
           "outside_fraction": 0.0
         }
       },
@@ -1585,7 +1585,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.8759810608495495,
+      "empirical_constant": 0.87598106085,
       "key": [
         "student_peak",
         3,
@@ -1597,25 +1597,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.009982443652728,
+          "mean_normalized_width": 16.009982443653,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 164.18687307473158,
+          "mean_normalized_width": 164.186873074732,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 32.653404740051045,
+          "mean_normalized_width": 32.653404740051,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 82.03281074867706,
+          "mean_normalized_width": 82.032810748677,
           "outside_fraction": 0.0
         }
       },
@@ -1626,7 +1626,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2603465550202097,
+      "empirical_constant": 0.26034655502,
       "key": [
         "student_peak",
         5,
@@ -1638,25 +1638,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 3.991991390809161,
+          "mean_normalized_width": 3.991991390809,
           "outside_fraction": 0.1484375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 57.05757185916672,
+          "mean_normalized_width": 57.057571859167,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 10.566475687417977,
+          "mean_normalized_width": 10.566475687418,
           "outside_fraction": 0.00390625
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 28.260607670954442,
+          "mean_normalized_width": 28.260607670954,
           "outside_fraction": 0.0
         }
       },
@@ -1667,7 +1667,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2603465550202097,
+      "empirical_constant": 0.26034655502,
       "key": [
         "student_peak",
         5,
@@ -1679,25 +1679,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 6.750133883068502,
+          "mean_normalized_width": 6.750133883069,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 79.30007125629238,
+          "mean_normalized_width": 79.300071256292,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 15.354317113925738,
+          "mean_normalized_width": 15.354317113926,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 39.508826347771475,
+          "mean_normalized_width": 39.508826347771,
           "outside_fraction": 0.0
         }
       },
@@ -1708,7 +1708,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.2603465550202097,
+      "empirical_constant": 0.26034655502,
       "key": [
         "student_peak",
         5,
@@ -1720,25 +1720,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 17.740453612810505,
+          "mean_normalized_width": 17.740453612811,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 184.13165968463807,
+          "mean_normalized_width": 184.131659684638,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 36.60122170630917,
+          "mean_normalized_width": 36.601221706309,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 92.01299657612057,
+          "mean_normalized_width": 92.012996576121,
           "outside_fraction": 0.0
         }
       },
@@ -1749,7 +1749,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6419101216235087,
+      "empirical_constant": 0.641910121624,
       "key": [
         "student_peak",
         5,
@@ -1761,25 +1761,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.3321698564542075,
+          "mean_normalized_width": 2.332169856454,
           "outside_fraction": 0.359375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 50.10987625437129,
+          "mean_normalized_width": 50.109876254371,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 8.553992727939665,
+          "mean_normalized_width": 8.55399272794,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 24.622221320058276,
+          "mean_normalized_width": 24.622221320058,
           "outside_fraction": 0.0
         }
       },
@@ -1790,7 +1790,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6419101216235087,
+      "empirical_constant": 0.641910121624,
       "key": [
         "student_peak",
         5,
@@ -1802,25 +1802,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.818784510415113,
+          "mean_normalized_width": 4.818784510415,
           "outside_fraction": 0.06640625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 64.7956834203786,
+          "mean_normalized_width": 64.795683420379,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 12.407312197012265,
+          "mean_normalized_width": 12.407312197012,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 32.25220682043483,
+          "mean_normalized_width": 32.252206820435,
           "outside_fraction": 0.0
         }
       },
@@ -1831,7 +1831,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.6419101216235087,
+      "empirical_constant": 0.641910121624,
       "key": [
         "student_peak",
         5,
@@ -1843,25 +1843,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 14.492736493666083,
+          "mean_normalized_width": 14.492736493666,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 154.83628483714878,
+          "mean_normalized_width": 154.836284837149,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 30.76021375022355,
+          "mean_normalized_width": 30.760213750224,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 77.3860271577859,
+          "mean_normalized_width": 77.386027157786,
           "outside_fraction": 0.0
         }
       },
@@ -1872,7 +1872,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2808892643497704,
+      "empirical_constant": 0.28088926435,
       "key": [
         "student_peak",
         5,
@@ -1884,25 +1884,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 2.2807024290414,
+          "mean_normalized_width": 2.280702429041,
           "outside_fraction": 0.21875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 40.618650227524064,
+          "mean_normalized_width": 40.618650227524,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 7.1381421028773495,
+          "mean_normalized_width": 7.138142102877,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 19.95852360825491,
+          "mean_normalized_width": 19.958523608255,
           "outside_fraction": 0.0
         }
       },
@@ -1913,7 +1913,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.2808892643497704,
+      "empirical_constant": 0.28088926435,
       "key": [
         "student_peak",
         5,
@@ -1925,25 +1925,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.171635865484561,
+          "mean_normalized_width": 4.171635865485,
           "outside_fraction": 0.0546875
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 55.43035616460802,
+          "mean_normalized_width": 55.430356164608,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 10.425202386406246,
+          "mean_normalized_width": 10.425202386406,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 27.496233502158375,
+          "mean_normalized_width": 27.496233502158,
           "outside_fraction": 0.0
         }
       },
@@ -1954,7 +1954,7 @@
     },
     {
       "catastrophic": true,
-      "empirical_constant": 0.2808892643497704,
+      "empirical_constant": 0.28088926435,
       "key": [
         "student_peak",
         5,
@@ -1966,25 +1966,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 11.742338071730055,
+          "mean_normalized_width": 11.74233807173,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 127.04509016757339,
+          "mean_normalized_width": 127.045090167573,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 25.020283305421565,
+          "mean_normalized_width": 25.020283305422,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 63.39665830104526,
+          "mean_normalized_width": 63.396658301045,
           "outside_fraction": 0.0
         }
       },
@@ -1995,7 +1995,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.32563242885499,
+      "empirical_constant": 0.325632428855,
       "key": [
         "student_peak",
         5,
@@ -2007,25 +2007,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 4.349638365254855,
+          "mean_normalized_width": 4.349638365255,
           "outside_fraction": 0.05859375
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 59.6321221953167,
+          "mean_normalized_width": 59.632122195317,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 11.054684779083336,
+          "mean_normalized_width": 11.054684779083,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 29.50539475968124,
+          "mean_normalized_width": 29.505394759681,
           "outside_fraction": 0.0
         }
       },
@@ -2036,7 +2036,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.32563242885499,
+      "empirical_constant": 0.325632428855,
       "key": [
         "student_peak",
         5,
@@ -2048,25 +2048,25 @@
         "1": {
           "all_outside": false,
           "any_outside": true,
-          "mean_normalized_width": 7.174640750066864,
+          "mean_normalized_width": 7.174640750067,
           "outside_fraction": 0.00390625
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 83.34208933211022,
+          "mean_normalized_width": 83.34208933211,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 16.082934871735695,
+          "mean_normalized_width": 16.082934871736,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 41.48475653387201,
+          "mean_normalized_width": 41.484756533872,
           "outside_fraction": 0.0
         }
       },
@@ -2077,7 +2077,7 @@
     },
     {
       "catastrophic": false,
-      "empirical_constant": 0.32563242885499,
+      "empirical_constant": 0.325632428855,
       "key": [
         "student_peak",
         5,
@@ -2089,25 +2089,25 @@
         "1": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 18.63251053000709,
+          "mean_normalized_width": 18.632510530007,
           "outside_fraction": 0.0
         },
         "10": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 192.70509681106103,
+          "mean_normalized_width": 192.705096811061,
           "outside_fraction": 0.0
         },
         "2": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 38.30434020491174,
+          "mean_normalized_width": 38.304340204912,
           "outside_fraction": 0.0
         },
         "5": {
           "all_outside": false,
           "any_outside": false,
-          "mean_normalized_width": 96.28316491781332,
+          "mean_normalized_width": 96.283164917813,
           "outside_fraction": 0.0
         }
       },

@@ -13,7 +13,7 @@
   },
   "passed": 10,
   "schema": "kernellum.quantitative-premise-boundary-audit.v1",
-  "source_canonical_sha256": "7771f7785b329cc7f6ada7e599bed20bf06bf8c333350a6f3a2030de58b97e2c",
+  "source_canonical_sha256": "f9af0082af19e39402ca9712b1094c90bddbe5ec038458c0445132b813321a52",
   "status": "PASS",
   "total": 10
 }

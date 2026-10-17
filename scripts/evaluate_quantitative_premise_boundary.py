@@ -25,6 +25,17 @@ from kernellum.discovery.quantitative_premise import (
 MULTIPLIERS = (1, 2, 5, 10)
 
 
+def stable_floats(value):
+    """Make result serialization reproducible across supported NumPy builds."""
+    if isinstance(value, float):
+        return round(value, 12)
+    if isinstance(value, list):
+        return [stable_floats(item) for item in value]
+    if isinstance(value, dict):
+        return {key: stable_floats(item) for key, item in value.items()}
+    return value
+
+
 def exhaustive_grid_sharpness(max_n: int = 5, bound: int = 2, constant: int = 1) -> dict:
     checks = transcripts = 0
     values = range(-bound, bound + 1)
@@ -137,6 +148,7 @@ def main():
         "scientific_gate": "PASS_PIVOT_TO_EXTERNAL_QUANTITATIVE_PREMISES",
         "smallest_claim": "A transcript-derived Lipschitz constant, including any fixed inflation, is not a certificate; only an independently justified constant makes the sharp interval conditional guarantee valid.",
     }
+    payload = stable_floats(payload)
     raw = json.dumps(payload, sort_keys=True, separators=(",", ":"), allow_nan=False)
     payload["canonical_sha256"] = hashlib.sha256(raw.encode()).hexdigest()
     args.output.write_text(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n")
