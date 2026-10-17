@@ -1,0 +1,30 @@
+{
+  "classification": "REPLICATION",
+  "source_commit": "949d69b1de5284a106d6ce99ab6bc95f71bb2ab6",
+  "candidate_functions_imported": false,
+  "paths_attempted": 120,
+  "paths_reproduced": 120,
+  "candidate_winner_agreement": 116,
+  "candidate_winner_trials": 120,
+  "by_domain": {
+    "inside": {
+      "independent_over_candidate_geometric_nmse": 1.2926379441811169,
+      "median_log_ratio": 0.0,
+      "paths": 120
+    },
+    "near_shell": {
+      "independent_over_candidate_geometric_nmse": 1.6276221582774606,
+      "median_log_ratio": 0.0,
+      "paths": 120
+    },
+    "far_shell": {
+      "independent_over_candidate_geometric_nmse": 2.5077088675192547,
+      "median_log_ratio": 0.0,
+      "paths": 120
+    }
+  },
+  "clean_inside_exact": 40,
+  "clean_paths": 40,
+  "elapsed_seconds": 718.2363612419999,
+  "field_breakthrough_established": false
+}

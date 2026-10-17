@@ -1,0 +1,986 @@
+{
+  "canonical_sha256": "acda2a92a37cb47286e31767701a326b22c3131c3ae34ff3548ee03cd2fc7208",
+  "classification": "EXACT_THEOREM_AND_OPENED_COHORT_DIAGNOSTIC",
+  "conditional_law": "If truth is pointwise inside [lower,upper], normalized RMSE(selected,truth) is at most RMS(max(selected-lower,upper-selected))/scale.",
+  "opened_cohort": {
+    "catastrophic_all_truth_outside": 3,
+    "catastrophic_cells": 11,
+    "catastrophic_truth_outside_envelope": 6,
+    "cells": 48,
+    "cells_all_truth_outside": 6,
+    "cells_truth_outside_envelope": 31,
+    "missing_provenance_refusals": 48,
+    "rows": [
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": 0.1070712524876023,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.2109375
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 2.7409954662613276,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 10.342151508035348,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": -1.4841011805629627,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.13671875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": 0.13570559222383682,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3101,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 1.3339463028284815,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": -0.009680756132267376,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.37890625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 3.3282191581746057,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.00390625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 13.433383063718503,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": -2.8914056857853114,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.4296875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": -1.525796117272102,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "skew_gaussian",
+          3,
+          3102,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": -0.15994030963331163,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": 4.938003565169866,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.59375
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 43.07023758513758,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.1484375
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 142.60259246263314,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.00390625
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": true,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": 7.963821045270332,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": true,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": 26.83435465897299,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": true,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3101,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 66.11099196543343,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": 4.5161862017821655,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.3515625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 5.131614144577077,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0390625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 13.810707588631987,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": false,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": 0.3546820945587532,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": false,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": 0.05399152751760106,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": true,
+        "candidate_models": 2,
+        "catastrophic": false,
+        "fit_failures": 2,
+        "key": [
+          "skew_gaussian",
+          5,
+          3102,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 0.005905079402165114,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 1.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": -2.7321262045631785,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.35546875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": -1.780152171738993,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.04296875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": -0.36636011201363416,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": -3.043733441136403,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.171875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": -1.425923330848975,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3101,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 0.497321736262089,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": -2.689971496171361,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.2109375
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": -0.9454396886508682,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": -0.12091402716263211,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": -2.8536908451673084,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.296875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": -0.9576162041521545,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0390625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 4,
+        "catastrophic": false,
+        "fit_failures": 0,
+        "key": [
+          "student_peak",
+          3,
+          3102,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 0.08786425315953128,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": -0.0021227472515779056,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.51953125
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 2.193395027085871,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0078125
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 6.029309953690258,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": 1.5576039994414934,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.69921875
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": 1.2719786130061488,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.27734375
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3101,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 0.6468204849246613,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.09765625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "inside"
+        ],
+        "log_nmse": 0.24619857770217557,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.7265625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "near_shell"
+        ],
+        "log_nmse": 1.86583901421583,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.19140625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": true,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "heteroscedastic_gaussian",
+          "far_shell"
+        ],
+        "log_nmse": 7.275585185284898,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "student_t3",
+          "inside"
+        ],
+        "log_nmse": 0.16952547121005423,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.6015625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "student_t3",
+          "near_shell"
+        ],
+        "log_nmse": 1.3985146176939525,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.06640625
+      },
+      {
+        "all_truth_outside": false,
+        "candidate_models": 3,
+        "catastrophic": false,
+        "fit_failures": 1,
+        "key": [
+          "student_peak",
+          5,
+          3102,
+          "student_t3",
+          "far_shell"
+        ],
+        "log_nmse": 4.886585740521724,
+        "runtime_without_provenance": {
+          "decision": "refuse",
+          "reason": "missing_verified_hypothesis_class_provenance",
+          "schema": "kernellum.envelope-decision.v1"
+        },
+        "truth_outside_fraction": 0.0
+      }
+    ]
+  },
+  "schema": "kernellum.version-space-certificate-boundary.v1",
+  "scientific_gate": "PASS_BOUNDARY_PIVOT",
+  "smallest_claim": "Finite fitted-candidate envelopes are conditional certificates only; training compatibility alone cannot certify unobserved unrestricted responses.",
+  "theorem": {
+    "boolean_exhaustive_max_domain": 6,
+    "checks": 8201,
+    "construction": "Preserve the transcript and set the requested value below the lower endpoint or above the upper endpoint.",
+    "indistinguishable_completion_pairs": 2005,
+    "statement": "Every finite training-only finite-valued interval is unsound for unrestricted responses at an unobserved request."
+  }
+}

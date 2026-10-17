@@ -1,0 +1,1284 @@
+{
+  "development_only": true,
+  "field_breakthrough_established": false,
+  "candidate_outcomes": 780,
+  "paired_paths": 390,
+  "published_comparisons_verified": 18,
+  "metadata_paired_controls": [
+    "representation",
+    "representation_stack",
+    "raw",
+    "raw_stack",
+    "median_stack",
+    "adaptive_stack",
+    "support_nonlinear_leverage_stack"
+  ],
+  "controls_without_archived_pairing_metadata": [
+    "nested_winner",
+    "noise_consistent"
+  ],
+  "descriptive_only": true,
+  "noise_foothold_diagnostic_passed": true,
+  "response_transform_availability_changes": [
+    {
+      "function": "Alemazkoor2D",
+      "seed": 930101
+    },
+    {
+      "function": "Alemazkoor2D",
+      "seed": 930102
+    },
+    {
+      "function": "Alemazkoor2D",
+      "seed": 930103
+    },
+    {
+      "function": "Alemazkoor2D",
+      "seed": 930104
+    },
+    {
+      "function": "Alemazkoor2D",
+      "seed": 930105
+    },
+    {
+      "function": "DetteExp",
+      "seed": 930101
+    },
+    {
+      "function": "DetteExp",
+      "seed": 930102
+    },
+    {
+      "function": "DetteExp",
+      "seed": 930103
+    },
+    {
+      "function": "DetteExp",
+      "seed": 930105
+    },
+    {
+      "function": "Franke2",
+      "seed": 930101
+    },
+    {
+      "function": "Franke2",
+      "seed": 930102
+    },
+    {
+      "function": "Franke2",
+      "seed": 930103
+    },
+    {
+      "function": "Franke2",
+      "seed": 930104
+    },
+    {
+      "function": "Franke2",
+      "seed": 930105
+    },
+    {
+      "function": "Franke5",
+      "seed": 930101
+    },
+    {
+      "function": "Franke5",
+      "seed": 930102
+    },
+    {
+      "function": "Franke5",
+      "seed": 930103
+    },
+    {
+      "function": "Franke5",
+      "seed": 930104
+    },
+    {
+      "function": "Franke5",
+      "seed": 930105
+    },
+    {
+      "function": "McLainS2",
+      "seed": 930101
+    },
+    {
+      "function": "McLainS2",
+      "seed": 930102
+    },
+    {
+      "function": "McLainS2",
+      "seed": 930103
+    },
+    {
+      "function": "McLainS2",
+      "seed": 930104
+    },
+    {
+      "function": "McLainS2",
+      "seed": 930105
+    },
+    {
+      "function": "McLainS3",
+      "seed": 930101
+    },
+    {
+      "function": "McLainS3",
+      "seed": 930102
+    },
+    {
+      "function": "McLainS3",
+      "seed": 930103
+    },
+    {
+      "function": "McLainS3",
+      "seed": 930104
+    },
+    {
+      "function": "McLainS3",
+      "seed": 930105
+    },
+    {
+      "function": "McLainS4",
+      "seed": 930101
+    },
+    {
+      "function": "McLainS4",
+      "seed": 930102
+    },
+    {
+      "function": "McLainS4",
+      "seed": 930103
+    },
+    {
+      "function": "McLainS4",
+      "seed": 930104
+    },
+    {
+      "function": "McLainS4",
+      "seed": 930105
+    },
+    {
+      "function": "Rosenbrock",
+      "seed": 930101
+    },
+    {
+      "function": "Rosenbrock",
+      "seed": 930102
+    },
+    {
+      "function": "Rosenbrock",
+      "seed": 930103
+    },
+    {
+      "function": "Rosenbrock",
+      "seed": 930104
+    },
+    {
+      "function": "Rosenbrock",
+      "seed": 930105
+    },
+    {
+      "function": "Webster2D",
+      "seed": 930102
+    }
+  ],
+  "comparisons": {
+    "representation": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.3989235716125334,
+          "raw_positive_error_ratio": 0.13128337657425454,
+          "wins": 23,
+          "median_function_ratio": 0.9757123451742125,
+          "without_genz_corner_peak": 1.4019937779287523,
+          "leave_one_function_out_range": [
+            1.2429520997869934,
+            1.4545071091395279
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.9470186936583332,
+            2.226432246440666
+          ],
+          "equal_source_family_ratio": 1.0125485020904075,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0060990684743738,
+            "Alemazkoor20D": 0.9905187221725821,
+            "Alemazkoor2D": 0.5007536058478629,
+            "Borehole": 0.9678534163546635,
+            "Cheng2D": 0.6021494493069259,
+            "DampedOscillator": 0.944338379518074,
+            "Dette8D": 0.771579075205334,
+            "DetteCurved": 0.3182462525621031,
+            "DetteExp": 0.8353932708264775,
+            "Flood": 0.8788417909729418,
+            "Franke1": 1.0331300539723813,
+            "Franke2": 0.4207496879584758,
+            "Franke3": 1.1290063797842447,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.853009197820114,
+            "Friedman6D": 0.9757123451742125,
+            "GenzCornerPeak": 1.2871058259263275,
+            "LimNonPoly": 0.9429586729971202,
+            "LimPoly": 0.45812147102005696,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 0.9910934429077423,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 73.69644462281317,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 124.93917191058945,
+            "McLainS5": 1.1333608544384417,
+            "OTLCircuit": 0.486492754686201,
+            "Piston": 0.9678938324297908,
+            "RobotArm": 0.9925506280897328,
+            "Rosenbrock": 0.8501865218382043,
+            "SolarCell": 0.8117039906816473,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 0.9672660583304343,
+            "Webster2D": 1.0,
+            "Welch1992": 0.9749371426033058,
+            "WingWeight": 0.9063269005032787
+          }
+        },
+        "0.02": {
+          "ratio": 0.9457418296756133,
+          "raw_positive_error_ratio": 0.9457418296756133,
+          "wins": 23,
+          "median_function_ratio": 0.9907732449794238,
+          "without_genz_corner_peak": 0.9933139484072506,
+          "leave_one_function_out_range": [
+            0.9247172661410074,
+            0.9933139484072506
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.8199069958891371,
+            1.0734551884555759
+          ],
+          "equal_source_family_ratio": 0.8482960148284984,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0073376333568391,
+            "Alemazkoor20D": 0.9908354753423361,
+            "Alemazkoor2D": 0.9888531834532458,
+            "Borehole": 0.5289331232973238,
+            "Cheng2D": 0.9968155022290756,
+            "DampedOscillator": 0.9500126547056535,
+            "Dette8D": 0.7784138114991075,
+            "DetteCurved": 0.9889750219100317,
+            "DetteExp": 0.5812868480384418,
+            "Flood": 0.8225696641867123,
+            "Franke1": 1.0434806643597523,
+            "Franke2": 0.9907732449794238,
+            "Franke3": 1.0612999098331357,
+            "Franke4": 2.08151784447561,
+            "Franke5": 1.212347577455146,
+            "Franke6": 0.9093967050146227,
+            "Friedman10D": 1.0062763040127352,
+            "Friedman6D": 0.9792527133720234,
+            "GenzCornerPeak": 0.14650182439776466,
+            "LimNonPoly": 0.8414213111641188,
+            "LimPoly": 1.0871693791553037,
+            "LinkletterDecCoeffs": 2.0769812924858253,
+            "LinkletterLinear": 2.2222380941705713,
+            "LinkletterSine": 0.966753255371495,
+            "McLainS1": 0.8617867965677529,
+            "McLainS2": 1.1536748320051375,
+            "McLainS3": 1.537486150014906,
+            "McLainS4": 1.0135312326171233,
+            "McLainS5": 1.1187158598603186,
+            "OTLCircuit": 0.707394487195607,
+            "Piston": 1.07135569643238,
+            "RobotArm": 0.9921099619922298,
+            "Rosenbrock": 0.9683886464402094,
+            "SolarCell": 0.49151817010512744,
+            "Sulfur": 0.7556700387891446,
+            "UndampedOscillator": 1.0194727259714866,
+            "Webster2D": 1.1873853266948158,
+            "Welch1992": 0.9750523213349898,
+            "WingWeight": 0.7600350399787904
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.676049677671426,
+      "functions_with_smaller_relative_error_under_noise": 19
+    },
+    "representation_stack": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.494297917413929,
+          "raw_positive_error_ratio": 0.1423066617299992,
+          "wins": 18,
+          "median_function_ratio": 1.0,
+          "without_genz_corner_peak": 1.4994127452535722,
+          "leave_one_function_out_range": [
+            1.3299991518801708,
+            1.5556752231077673
+          ],
+          "descriptive_function_bootstrap_interval": [
+            1.0226005169863452,
+            2.3573217974048046
+          ],
+          "equal_source_family_ratio": 1.0831706762688291,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.996425559532696,
+            "Alemazkoor20D": 1.0000000000000144,
+            "Alemazkoor2D": 1.136298405548337,
+            "Borehole": 0.8424593157211028,
+            "Cheng2D": 0.5977768961475542,
+            "DampedOscillator": 0.9959528895165921,
+            "Dette8D": 1.015203520362492,
+            "DetteCurved": 0.7918428016562081,
+            "DetteExp": 0.9645374735364942,
+            "Flood": 0.8926895718364991,
+            "Franke1": 0.9018175220143764,
+            "Franke2": 0.8356887608034929,
+            "Franke3": 0.6394623190346959,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 1.0607367661126395,
+            "Friedman6D": 1.0290124608175948,
+            "GenzCornerPeak": 1.3123356546461686,
+            "LimNonPoly": 0.7437800714398547,
+            "LimPoly": 0.3236912290014204,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 1.039144674543389,
+            "McLainS1": 0.968328925426151,
+            "McLainS2": 73.69644462281317,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 124.93917191058945,
+            "McLainS5": 1.0042648737200786,
+            "OTLCircuit": 0.7957370672210742,
+            "Piston": 0.9690063848041859,
+            "RobotArm": 1.001051934702233,
+            "Rosenbrock": 0.8631219166250155,
+            "SolarCell": 1.1967219492180687,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 0.9844094683093022,
+            "Webster2D": 1.0,
+            "Welch1992": 1.0022175138318525,
+            "WingWeight": 0.8964368342774057
+          }
+        },
+        "0.02": {
+          "ratio": 0.7535073564356409,
+          "raw_positive_error_ratio": 0.7535073564356409,
+          "wins": 24,
+          "median_function_ratio": 0.9833357723764679,
+          "without_genz_corner_peak": 0.9920201022237378,
+          "leave_one_function_out_range": [
+            0.7319732815754496,
+            0.9920201022237378
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.42320774076383666,
+            1.034810729193604
+          ],
+          "equal_source_family_ratio": 0.6085648401698763,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.9962531055162903,
+            "Alemazkoor20D": 1.0000000000000158,
+            "Alemazkoor2D": 1.0000000358000667,
+            "Borehole": 0.8094870290931515,
+            "Cheng2D": 0.9674852044137474,
+            "DampedOscillator": 0.9941037370384036,
+            "Dette8D": 1.0074220745651439,
+            "DetteCurved": 0.9653357275300141,
+            "DetteExp": 0.8256451214335048,
+            "Flood": 0.9733719518240861,
+            "Franke1": 0.8616222220162505,
+            "Franke2": 0.9449043900701488,
+            "Franke3": 0.7737801105236221,
+            "Franke4": 2.2677421713986363,
+            "Franke5": 0.9874832936723841,
+            "Franke6": 1.0027710833151475,
+            "Friedman10D": 1.123391472436675,
+            "Friedman6D": 1.0078148095137938,
+            "GenzCornerPeak": 2.1808932326419106e-05,
+            "LimNonPoly": 0.9448925209731205,
+            "LimPoly": 0.961094894373568,
+            "LinkletterDecCoeffs": 1.1139095733102236,
+            "LinkletterLinear": 1.1438313041007233,
+            "LinkletterSine": 1.0386143206235827,
+            "McLainS1": 0.9534251987997694,
+            "McLainS2": 0.9784805393436184,
+            "McLainS3": 1.1893682513962265,
+            "McLainS4": 0.972032187696444,
+            "McLainS5": 0.9770959634363249,
+            "OTLCircuit": 0.9833357723764679,
+            "Piston": 0.9925672836118847,
+            "RobotArm": 1.0009671147888568,
+            "Rosenbrock": 0.8192806651625298,
+            "SolarCell": 0.8932168564520683,
+            "Sulfur": 0.9557356838617196,
+            "UndampedOscillator": 1.015646040205435,
+            "Webster2D": 1.0156331024874183,
+            "Welch1992": 1.0024776243715603,
+            "WingWeight": 0.8488871509944097
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.5042551071339779,
+      "functions_with_smaller_relative_error_under_noise": 22
+    },
+    "raw": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 0.14917855656794318,
+          "raw_positive_error_ratio": 0.004690241423315027,
+          "wins": 29,
+          "median_function_ratio": 0.8437410643505229,
+          "without_genz_corner_peak": 0.14352645343704076,
+          "leave_one_function_out_range": [
+            0.14142659648080044,
+            0.21977167355377064
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.03770910798212639,
+            0.454927495405624
+          ],
+          "equal_source_family_ratio": 0.18966939187223494,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0060990684743738,
+            "Alemazkoor20D": 0.9905187221725821,
+            "Alemazkoor2D": 0.8332376964508835,
+            "Borehole": 0.0236559417301777,
+            "Cheng2D": 0.6021494493069259,
+            "DampedOscillator": 0.8437410643505229,
+            "Dette8D": 0.771579075205334,
+            "DetteCurved": 0.3182462525621031,
+            "DetteExp": 0.8353932708264775,
+            "Flood": 0.21500495249761975,
+            "Franke1": 1.0331300539723813,
+            "Franke2": 0.31609365470968703,
+            "Franke3": 1.1290063797842447,
+            "Franke4": 0.6742505636233619,
+            "Franke5": 0.00028568844959230764,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.90092625330176,
+            "Friedman6D": 1.0339943714405284,
+            "GenzCornerPeak": 0.6473443963553142,
+            "LimNonPoly": 0.9429586729971202,
+            "LimPoly": 0.45812147102005696,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 0.9910934429077423,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 3.462766507431707e-06,
+            "McLainS3": 0.0003758596983796007,
+            "McLainS4": 3.1269424828827513e-06,
+            "McLainS5": 1.1333608544384417,
+            "OTLCircuit": 0.21089944033285102,
+            "Piston": 0.3298292683609416,
+            "RobotArm": 0.9925506280897328,
+            "Rosenbrock": 0.8501865218382043,
+            "SolarCell": 0.8549544960729931,
+            "Sulfur": 6.020387470012429e-08,
+            "UndampedOscillator": 0.9672660583304343,
+            "Webster2D": 1.0,
+            "Welch1992": 0.9749371426033058,
+            "WingWeight": 0.05494661641696512
+          }
+        },
+        "0.02": {
+          "ratio": 0.6980689436148163,
+          "raw_positive_error_ratio": 0.6980689436148163,
+          "wins": 24,
+          "median_function_ratio": 0.9889750219100317,
+          "without_genz_corner_peak": 0.7077842445350784,
+          "leave_one_function_out_range": [
+            0.677117923709753,
+            0.7956089365497077
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.4869123652746785,
+            0.9236762846027754
+          ],
+          "equal_source_family_ratio": 0.5273008442530689,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0073376333568391,
+            "Alemazkoor20D": 0.9908354753423361,
+            "Alemazkoor2D": 0.9888531834532458,
+            "Borehole": 0.11431059863793543,
+            "Cheng2D": 0.9968155022290756,
+            "DampedOscillator": 0.8599535242231255,
+            "Dette8D": 0.7784138114991075,
+            "DetteCurved": 0.9889750219100317,
+            "DetteExp": 0.5812868480384418,
+            "Flood": 0.27492767757049863,
+            "Franke1": 1.0434806643597523,
+            "Franke2": 0.9907732449794238,
+            "Franke3": 1.0612999098331357,
+            "Franke4": 0.6299024111081055,
+            "Franke5": 1.212347577455146,
+            "Franke6": 0.9093967050146227,
+            "Friedman10D": 1.0660174015675015,
+            "Friedman6D": 1.0430746892924914,
+            "GenzCornerPeak": 0.4128578182404041,
+            "LimNonPoly": 0.8414213111641188,
+            "LimPoly": 1.0871693791553037,
+            "LinkletterDecCoeffs": 2.0769812924858253,
+            "LinkletterLinear": 2.2222380941705713,
+            "LinkletterSine": 0.966753255371495,
+            "McLainS1": 0.8933677414964871,
+            "McLainS2": 1.1536748320051375,
+            "McLainS3": 1.537486150014906,
+            "McLainS4": 1.0135312326171233,
+            "McLainS5": 1.1187158598603186,
+            "OTLCircuit": 0.4466008626783465,
+            "Piston": 0.33717218981320135,
+            "RobotArm": 0.9921099619922298,
+            "Rosenbrock": 0.9683886464402094,
+            "SolarCell": 0.39166430548216485,
+            "Sulfur": 0.004846715947480384,
+            "UndampedOscillator": 1.0194727259714866,
+            "Webster2D": 1.1873853266948158,
+            "Welch1992": 0.9750523213349898,
+            "WingWeight": 0.08253632207633521
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 4.679418809746171,
+      "functions_with_smaller_relative_error_under_noise": 11
+    },
+    "raw_stack": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 0.14640796869689907,
+          "raw_positive_error_ratio": 0.0046024317509937625,
+          "wins": 28,
+          "median_function_ratio": 0.8500665410475556,
+          "without_genz_corner_peak": 0.1408041214968888,
+          "leave_one_function_out_range": [
+            0.13887831152491767,
+            0.21476884561370777
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.03714165452723882,
+            0.45056987894689476
+          ],
+          "equal_source_family_ratio": 0.1926269981421912,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.993340092556629,
+            "Alemazkoor20D": 1.0000000000000144,
+            "Alemazkoor2D": 0.8500665410475556,
+            "Borehole": 0.025857161656774867,
+            "Cheng2D": 0.5977768957438083,
+            "DampedOscillator": 0.8474443185855604,
+            "Dette8D": 0.745279790520591,
+            "DetteCurved": 0.7918428025253158,
+            "DetteExp": 0.9655561870890339,
+            "Flood": 0.21461508267872145,
+            "Franke1": 0.9183314452706218,
+            "Franke2": 0.3146578307712358,
+            "Franke3": 0.9690930751125232,
+            "Franke4": 0.22560334294419776,
+            "Franke5": 0.00022605435525584587,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 1.069534764445876,
+            "Friedman6D": 1.0887185864497366,
+            "GenzCornerPeak": 0.6451191506028455,
+            "LimNonPoly": 0.8135312060405887,
+            "LimPoly": 0.40460557906828193,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 1.039144674543389,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 2.9417818489262324e-06,
+            "McLainS3": 0.00030723824597943494,
+            "McLainS4": 2.9713080369796637e-06,
+            "McLainS5": 0.9744802589469698,
+            "OTLCircuit": 0.22566366132820184,
+            "Piston": 0.32780587982086606,
+            "RobotArm": 1.0018942650382134,
+            "Rosenbrock": 0.8631219166257106,
+            "SolarCell": 0.8757674197125865,
+            "Sulfur": 6.95208614009382e-08,
+            "UndampedOscillator": 0.9708730380389997,
+            "Webster2D": 1.0,
+            "Welch1992": 1.0022175138318525,
+            "WingWeight": 0.056992155836763994
+          }
+        },
+        "0.02": {
+          "ratio": 0.6845655157638192,
+          "raw_positive_error_ratio": 0.6845655157638192,
+          "wins": 26,
+          "median_function_ratio": 0.9709200553726738,
+          "without_genz_corner_peak": 0.6932325235078849,
+          "leave_one_function_out_range": [
+            0.6728879190109402,
+            0.7792348202120095
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.483571550347235,
+            0.8852972024835802
+          ],
+          "equal_source_family_ratio": 0.530242148659796,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.9923014207085541,
+            "Alemazkoor20D": 1.0000000000000158,
+            "Alemazkoor2D": 1.0000000358000667,
+            "Borehole": 0.13560145181432473,
+            "Cheng2D": 0.9674852044155385,
+            "DampedOscillator": 0.8624415195640321,
+            "Dette8D": 0.7546791377189421,
+            "DetteCurved": 0.9670462674454658,
+            "DetteExp": 0.8292021723995088,
+            "Flood": 0.2828225783829255,
+            "Franke1": 0.9190895080756892,
+            "Franke2": 0.9916743286332194,
+            "Franke3": 1.0667766456819032,
+            "Franke4": 0.6842686513292725,
+            "Franke5": 0.9936098309336118,
+            "Franke6": 1.002771083381841,
+            "Friedman10D": 1.1392116274119375,
+            "Friedman6D": 1.1011061519782748,
+            "GenzCornerPeak": 0.4244107548075904,
+            "LimNonPoly": 0.9333940557351355,
+            "LimPoly": 0.9750712090842809,
+            "LinkletterDecCoeffs": 1.1134049837899846,
+            "LinkletterLinear": 1.2335806776846512,
+            "LinkletterSine": 1.0386143206235827,
+            "McLainS1": 1.0457921446703926,
+            "McLainS2": 0.9811201775830112,
+            "McLainS3": 1.3163213661149873,
+            "McLainS4": 0.9624601517319473,
+            "McLainS5": 0.9709200553726738,
+            "OTLCircuit": 0.484885477258132,
+            "Piston": 0.34998286543370066,
+            "RobotArm": 1.0016276159880981,
+            "Rosenbrock": 0.8192806651625298,
+            "SolarCell": 0.5593646509282889,
+            "Sulfur": 0.004986414545586152,
+            "UndampedOscillator": 0.9933808330570265,
+            "Webster2D": 0.9587656729115609,
+            "Welch1992": 1.0024776243715603,
+            "WingWeight": 0.0925063487890683
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 4.6757394550090385,
+      "functions_with_smaller_relative_error_under_noise": 9
+    },
+    "median_stack": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.4082806023700767,
+          "raw_positive_error_ratio": 0.1321614964497696,
+          "wins": 23,
+          "median_function_ratio": 0.9905187221725821,
+          "without_genz_corner_peak": 1.4231278634565956,
+          "leave_one_function_out_range": [
+            1.2514854114861276,
+            1.4644928218094055
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.9563381417834288,
+            2.2397323928165225
+          ],
+          "equal_source_family_ratio": 1.0151799371184658,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0060990684743738,
+            "Alemazkoor20D": 0.9905187221725821,
+            "Alemazkoor2D": 0.44071887724684294,
+            "Borehole": 0.9678534163546635,
+            "Cheng2D": 0.6021494493069259,
+            "DampedOscillator": 0.944338379518074,
+            "Dette8D": 0.771579075205334,
+            "DetteCurved": 0.3182462525621031,
+            "DetteExp": 0.8632779719899621,
+            "Flood": 0.8788417909729418,
+            "Franke1": 1.0331300539723813,
+            "Franke2": 0.5556868943870737,
+            "Franke3": 1.1290063797842447,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.8782200067917674,
+            "Friedman6D": 1.0014957959409314,
+            "GenzCornerPeak": 0.9453870931021459,
+            "LimNonPoly": 0.9429586729971202,
+            "LimPoly": 0.45812147102005696,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 0.9659235611206678,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 73.69644462281317,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 124.93917191058945,
+            "McLainS5": 1.1333608544384417,
+            "OTLCircuit": 0.6071030290931078,
+            "Piston": 0.993490811056562,
+            "RobotArm": 0.9956529419818066,
+            "Rosenbrock": 0.8501865218382043,
+            "SolarCell": 0.8864045183890525,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 0.9672660583304343,
+            "Webster2D": 1.0,
+            "Welch1992": 0.9916853872851021,
+            "WingWeight": 0.9063269005032787
+          }
+        },
+        "0.02": {
+          "ratio": 1.0061196045607896,
+          "raw_positive_error_ratio": 1.0061196045607896,
+          "wins": 23,
+          "median_function_ratio": 0.9908354753423361,
+          "without_genz_corner_peak": 1.0084357508195139,
+          "leave_one_function_out_range": [
+            0.9853562371721812,
+            1.0207703640160357
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.9272422465269754,
+            1.0995705093895232
+          ],
+          "equal_source_family_ratio": 0.9447603910922133,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0073376333568391,
+            "Alemazkoor20D": 0.9908354753423361,
+            "Alemazkoor2D": 0.9888531834532458,
+            "Borehole": 0.7301432465737085,
+            "Cheng2D": 0.9968155022290756,
+            "DampedOscillator": 0.9551418218213726,
+            "Dette8D": 0.7784138114991075,
+            "DetteCurved": 0.9889750219100317,
+            "DetteExp": 0.5808564866570944,
+            "Flood": 0.8346239781506094,
+            "Franke1": 1.0434806643597523,
+            "Franke2": 0.9907732449794238,
+            "Franke3": 1.0612999098331357,
+            "Franke4": 1.9143678339713868,
+            "Franke5": 1.212347577455146,
+            "Franke6": 0.9093967050146227,
+            "Friedman10D": 1.008978667336837,
+            "Friedman6D": 0.948002716092543,
+            "GenzCornerPeak": 0.921938524291241,
+            "LimNonPoly": 0.8282994304384799,
+            "LimPoly": 1.0871693791553037,
+            "LinkletterDecCoeffs": 2.0769812924858253,
+            "LinkletterLinear": 2.2222380941705713,
+            "LinkletterSine": 0.9676711930986737,
+            "McLainS1": 0.8933677414964871,
+            "McLainS2": 1.1536748320051375,
+            "McLainS3": 1.537486150014906,
+            "McLainS4": 1.0135312326171233,
+            "McLainS5": 1.1187158598603186,
+            "OTLCircuit": 0.8160045403263997,
+            "Piston": 1.0336437252073838,
+            "RobotArm": 0.9931331939689719,
+            "Rosenbrock": 0.9683886464402094,
+            "SolarCell": 0.6000199175947929,
+            "Sulfur": 0.7556700387891446,
+            "UndampedOscillator": 1.0194727259714866,
+            "Webster2D": 1.1873853266948158,
+            "Welch1992": 0.9920809384153421,
+            "WingWeight": 0.7600350399787904
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.7144312027500292,
+      "functions_with_smaller_relative_error_under_noise": 19
+    },
+    "adaptive_stack": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.4495442145038793,
+          "raw_positive_error_ratio": 0.1415759069036469,
+          "wins": 21,
+          "median_function_ratio": 0.9980353805489997,
+          "without_genz_corner_peak": 1.4659403068601227,
+          "leave_one_function_out_range": [
+            1.2891341719047613,
+            1.5041461147268136
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.988647274031085,
+            2.2928545175918353
+          ],
+          "equal_source_family_ratio": 1.0513675577151342,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0346812157692775,
+            "Alemazkoor20D": 0.9998516818861405,
+            "Alemazkoor2D": 0.445634486405148,
+            "Borehole": 0.9127794808776146,
+            "Cheng2D": 0.6003022977084387,
+            "DampedOscillator": 0.9870204005518016,
+            "Dette8D": 0.9955873920108222,
+            "DetteCurved": 0.7361156569524797,
+            "DetteExp": 0.8933650900849064,
+            "Flood": 0.9140420566145394,
+            "Franke1": 0.9084636352189477,
+            "Franke2": 0.8378690368531857,
+            "Franke3": 0.655531007297474,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.9947150125632582,
+            "Friedman6D": 1.0287921433855254,
+            "GenzCornerPeak": 0.945384187701093,
+            "LimNonPoly": 0.7601816007149169,
+            "LimPoly": 0.35563640524142187,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 1.0348405875468725,
+            "McLainS1": 1.0096506538781072,
+            "McLainS2": 73.69644462281317,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 124.93917191058945,
+            "McLainS5": 0.9980353805489997,
+            "OTLCircuit": 0.7449434777116383,
+            "Piston": 0.970493675321415,
+            "RobotArm": 1.0014949074694626,
+            "Rosenbrock": 0.8584782224409356,
+            "SolarCell": 1.195694632807837,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 1.0065436085523356,
+            "Webster2D": 1.0,
+            "Welch1992": 1.001907717903997,
+            "WingWeight": 0.9343259273187564
+          }
+        },
+        "0.02": {
+          "ratio": 0.9873091441100871,
+          "raw_positive_error_ratio": 0.9873091441100871,
+          "wins": 25,
+          "median_function_ratio": 0.9882506659391949,
+          "without_genz_corner_peak": 0.9903676265831034,
+          "leave_one_function_out_range": [
+            0.9658576518835206,
+            0.9938380609183629
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.9419224840372281,
+            1.0472945012481212
+          ],
+          "equal_source_family_ratio": 0.9585611550924237,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0323674324429197,
+            "Alemazkoor20D": 0.9997916911009773,
+            "Alemazkoor2D": 0.9924776007663385,
+            "Borehole": 0.8891164859563465,
+            "Cheng2D": 0.9823085372834306,
+            "DampedOscillator": 1.0033141145408835,
+            "Dette8D": 0.9882506659391949,
+            "DetteCurved": 0.9755262507609199,
+            "DetteExp": 0.8013810124905187,
+            "Flood": 0.9331603753762868,
+            "Franke1": 0.8713687500747935,
+            "Franke2": 0.9572713425472381,
+            "Franke3": 0.7813897170808617,
+            "Franke4": 2.2749636970661182,
+            "Franke5": 0.9383037979211698,
+            "Franke6": 0.9915817199728905,
+            "Friedman10D": 1.1196548386672103,
+            "Friedman6D": 1.0072975495675496,
+            "GenzCornerPeak": 0.8778264483969955,
+            "LimNonPoly": 0.9085635129294442,
+            "LimPoly": 0.9609908911493165,
+            "LinkletterDecCoeffs": 1.1189392444087223,
+            "LinkletterLinear": 1.1494397053527736,
+            "LinkletterSine": 1.0342450946671664,
+            "McLainS1": 0.9926436592009201,
+            "McLainS2": 1.1738583931288076,
+            "McLainS3": 1.1617755466386195,
+            "McLainS4": 0.9778337906330199,
+            "McLainS5": 0.9706214821455045,
+            "OTLCircuit": 0.9334338123780599,
+            "Piston": 0.9947121175656715,
+            "RobotArm": 1.0008728797993838,
+            "Rosenbrock": 0.7981830433443683,
+            "SolarCell": 0.8319334927132386,
+            "Sulfur": 0.768562992330382,
+            "UndampedOscillator": 1.0069037776245024,
+            "Webster2D": 1.0977401237587323,
+            "Welch1992": 1.0020711429252804,
+            "WingWeight": 0.8770179674191695
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.6811169567863119,
+      "functions_with_smaller_relative_error_under_noise": 22
+    },
+    "support_nonlinear_leverage_stack": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 0.9160130631515426,
+          "raw_positive_error_ratio": 0.05749291345247677,
+          "wins": 22,
+          "median_function_ratio": 0.968328925426151,
+          "without_genz_corner_peak": 0.9044135857358496,
+          "leave_one_function_out_range": [
+            0.8503476951422205,
+            0.9581777026522077
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.7464653635978346,
+            1.1540153846699084
+          ],
+          "equal_source_family_ratio": 0.8366577019881634,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.996425559532696,
+            "Alemazkoor20D": 1.0000000000000144,
+            "Alemazkoor2D": 0.885691754004469,
+            "Borehole": 0.1656588814570708,
+            "Cheng2D": 0.5977768961475542,
+            "DampedOscillator": 0.9956925561385973,
+            "Dette8D": 1.0104924973593177,
+            "DetteCurved": 0.7918428016562081,
+            "DetteExp": 0.9645374735364942,
+            "Flood": 0.8361844105474473,
+            "Franke1": 0.9044082222064069,
+            "Franke2": 0.8455518635800534,
+            "Franke3": 0.6392969271775882,
+            "Franke4": 15.470221791014408,
+            "Franke5": 0.5204611263790477,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 1.119505143806189,
+            "Friedman6D": 1.0272621814128495,
+            "GenzCornerPeak": 1.4866751167562924,
+            "LimNonPoly": 0.7362558311785576,
+            "LimPoly": 0.3236912290014204,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 1.039144674543389,
+            "McLainS1": 0.968328925426151,
+            "McLainS2": 6.683788657773031,
+            "McLainS3": 0.6454869915699202,
+            "McLainS4": 0.3898919316662597,
+            "McLainS5": 1.0042311442117444,
+            "OTLCircuit": 0.7974914145490417,
+            "Piston": 0.9569076436109352,
+            "RobotArm": 1.001051934702233,
+            "Rosenbrock": 0.8631219166250155,
+            "SolarCell": 1.1693814334391097,
+            "Sulfur": 0.33298447455909685,
+            "UndampedOscillator": 1.0222383301207023,
+            "Webster2D": 1.0,
+            "Welch1992": 1.0022175138318525,
+            "WingWeight": 0.8113040911465669
+          }
+        },
+        "0.02": {
+          "ratio": 0.9449820764034329,
+          "raw_positive_error_ratio": 0.9449820764034329,
+          "wins": 24,
+          "median_function_ratio": 0.9781633998029495,
+          "without_genz_corner_peak": 0.9664325404197417,
+          "leave_one_function_out_range": [
+            0.9259334515945177,
+            0.9664325404197417
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.8748346963485413,
+            1.0172855840638593
+          ],
+          "equal_source_family_ratio": 0.8949350388247876,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.9962531055162903,
+            "Alemazkoor20D": 1.0000000000000158,
+            "Alemazkoor2D": 1.0000000358000667,
+            "Borehole": 0.46579995498958193,
+            "Cheng2D": 0.9674852044137474,
+            "DampedOscillator": 0.9931278359852646,
+            "Dette8D": 1.00421345086998,
+            "DetteCurved": 0.9653357275300141,
+            "DetteExp": 0.8254319578057516,
+            "Flood": 0.9261393280032804,
+            "Franke1": 0.8640958078547982,
+            "Franke2": 0.962560616301796,
+            "Franke3": 0.7752009505751679,
+            "Franke4": 2.0487447569797514,
+            "Franke5": 0.9875240715826108,
+            "Franke6": 1.0027710833151475,
+            "Friedman10D": 1.1981713492164168,
+            "Friedman6D": 1.0066747861014207,
+            "GenzCornerPeak": 0.402717579843357,
+            "LimNonPoly": 0.934086296411266,
+            "LimPoly": 0.961094894373568,
+            "LinkletterDecCoeffs": 1.113944651468068,
+            "LinkletterLinear": 1.1442474450587918,
+            "LinkletterSine": 1.0386143206235827,
+            "McLainS1": 0.9563617896601891,
+            "McLainS2": 0.9781633998029495,
+            "McLainS3": 1.1893233554976024,
+            "McLainS4": 0.9720227371613768,
+            "McLainS5": 0.9770742831276799,
+            "OTLCircuit": 0.9800640208422309,
+            "Piston": 0.9775726617406143,
+            "RobotArm": 1.0009671147888568,
+            "Rosenbrock": 0.8192806651625298,
+            "SolarCell": 0.8753619276854631,
+            "Sulfur": 0.6995837539050206,
+            "UndampedOscillator": 1.013429616041682,
+            "Webster2D": 1.0243569192351094,
+            "Welch1992": 1.0024776243715603,
+            "WingWeight": 0.8334059608061645
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 1.0316251093103654,
+      "functions_with_smaller_relative_error_under_noise": 16
+    },
+    "nested_winner": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.52516377493122,
+          "raw_positive_error_ratio": 0.1437833100430346,
+          "wins": 19,
+          "median_function_ratio": 1.0,
+          "without_genz_corner_peak": 1.5097877796170338,
+          "leave_one_function_out_range": [
+            1.358201856992394,
+            1.5800271067034057
+          ],
+          "descriptive_function_bootstrap_interval": [
+            1.0439830421119234,
+            2.3945152485088936
+          ],
+          "equal_source_family_ratio": 1.1017259042706562,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.996425559532696,
+            "Alemazkoor20D": 0.987778430167749,
+            "Alemazkoor2D": 0.9233714853969872,
+            "Borehole": 0.8386514964556897,
+            "Cheng2D": 0.5981607756124956,
+            "DampedOscillator": 0.9789556409942486,
+            "Dette8D": 1.0115614523506729,
+            "DetteCurved": 0.6736237419828496,
+            "DetteExp": 0.9645374735364179,
+            "Flood": 0.8814504539675224,
+            "Franke1": 1.0494234458395575,
+            "Franke2": 0.7268785351642255,
+            "Franke3": 1.157266042521881,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.8762240787598629,
+            "Friedman6D": 1.1094046331806435,
+            "GenzCornerPeak": 2.2414980154488635,
+            "LimNonPoly": 0.7945750198604742,
+            "LimPoly": 0.39818999814951417,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 1.0068549749580116,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 73.69644462281317,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 124.93917191058945,
+            "McLainS5": 1.0327781271350398,
+            "OTLCircuit": 0.6897273634027218,
+            "Piston": 0.9960042549727891,
+            "RobotArm": 0.9993478499432028,
+            "Rosenbrock": 0.884404098738929,
+            "SolarCell": 1.100941720998389,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 1.0325870667021273,
+            "Webster2D": 1.0,
+            "Welch1992": 0.9995708089423493,
+            "WingWeight": 0.8964368342774057
+          }
+        },
+        "0.02": {
+          "ratio": 0.973592422481797,
+          "raw_positive_error_ratio": 0.973592422481797,
+          "wins": 26,
+          "median_function_ratio": 0.9870853528013833,
+          "without_genz_corner_peak": 1.0118042718176352,
+          "leave_one_function_out_range": [
+            0.9531664846654315,
+            1.0118042718176352
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.8733323185775429,
+            1.071236524804491
+          ],
+          "equal_source_family_ratio": 0.8986866050712243,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 0.9962531055162903,
+            "Alemazkoor20D": 0.9884248813980664,
+            "Alemazkoor2D": 0.989457065752675,
+            "Borehole": 0.7250549184266016,
+            "Cheng2D": 0.9519473169976042,
+            "DampedOscillator": 0.9870853528013833,
+            "Dette8D": 0.9372938020571662,
+            "DetteCurved": 0.9858118383160894,
+            "DetteExp": 0.8292021723995088,
+            "Flood": 0.8282650274197678,
+            "Franke1": 0.9792578239765367,
+            "Franke2": 0.9458594345567858,
+            "Franke3": 1.0612999098331357,
+            "Franke4": 2.1792006304326805,
+            "Franke5": 1.0590803637463468,
+            "Franke6": 0.9093967050146227,
+            "Friedman10D": 1.0195877643533964,
+            "Friedman6D": 1.0713649833650614,
+            "GenzCornerPeak": 0.22544618461799987,
+            "LimNonPoly": 1.0035399300484789,
+            "LimPoly": 0.9477005104923615,
+            "LinkletterDecCoeffs": 2.0769812924858253,
+            "LinkletterLinear": 1.6771206280406927,
+            "LinkletterSine": 1.0093336502741936,
+            "McLainS1": 0.9119304272175532,
+            "McLainS2": 1.0767896528222587,
+            "McLainS3": 1.2754988126628055,
+            "McLainS4": 0.9771091041330332,
+            "McLainS5": 0.9746182173052451,
+            "OTLCircuit": 0.9195047013805427,
+            "Piston": 1.058319388873418,
+            "RobotArm": 0.997358505604343,
+            "Rosenbrock": 0.9683886464402094,
+            "SolarCell": 0.7217696096660906,
+            "Sulfur": 0.7990506376991439,
+            "UndampedOscillator": 0.990492486964177,
+            "Webster2D": 0.9895398828091403,
+            "Welch1992": 1.0024776243715603,
+            "WingWeight": 0.7745049876086549
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.6383527057779109,
+      "functions_with_smaller_relative_error_under_noise": 23
+    },
+    "noise_consistent": {
+      "by_noise": {
+        "0.0": {
+          "ratio": 1.3648943334238517,
+          "raw_positive_error_ratio": 0.11886702248619681,
+          "wins": 21,
+          "median_function_ratio": 0.9925506280897328,
+          "without_genz_corner_peak": 1.3574146801965283,
+          "leave_one_function_out_range": [
+            1.2512063866410366,
+            1.4182064125164433
+          ],
+          "descriptive_function_bootstrap_interval": [
+            1.0052732575159378,
+            1.9352448048474753
+          ],
+          "equal_source_family_ratio": 1.0268637488970838,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0060990684743738,
+            "Alemazkoor20D": 0.9905187221725821,
+            "Alemazkoor2D": 3.9000278366564842,
+            "Borehole": 0.923502235295234,
+            "Cheng2D": 0.6021494493069259,
+            "DampedOscillator": 0.9339007525876063,
+            "Dette8D": 0.771579075205334,
+            "DetteCurved": 0.3182462525621031,
+            "DetteExp": 0.8353932708264775,
+            "Flood": 0.8788417909729418,
+            "Franke1": 1.0331300539723813,
+            "Franke2": 3.6589090779868325,
+            "Franke3": 1.1290063797842447,
+            "Franke4": 37.18450480580226,
+            "Franke5": 20.125508980068417,
+            "Franke6": 1.0000000228641586,
+            "Friedman10D": 0.8517457868395883,
+            "Friedman6D": 0.8142330084554047,
+            "GenzCornerPeak": 1.68184362677986,
+            "LimNonPoly": 0.9429586729971202,
+            "LimPoly": 0.45812147102005696,
+            "LinkletterDecCoeffs": 1.0,
+            "LinkletterLinear": 1.0,
+            "LinkletterSine": 0.9910934429077423,
+            "McLainS1": 1.0210075378161083,
+            "McLainS2": 6.802007574074827,
+            "McLainS3": 19.809380951556037,
+            "McLainS4": 8.886531437873982,
+            "McLainS5": 1.1333608544384417,
+            "OTLCircuit": 0.5045033935059373,
+            "Piston": 0.9799844065377731,
+            "RobotArm": 0.9925506280897328,
+            "Rosenbrock": 0.8501865218382043,
+            "SolarCell": 0.6350274266894491,
+            "Sulfur": 1.0,
+            "UndampedOscillator": 0.9672660583304343,
+            "Webster2D": 1.0,
+            "Welch1992": 0.9954622616816644,
+            "WingWeight": 0.9053317091705596
+          }
+        },
+        "0.02": {
+          "ratio": 1.0279236516186887,
+          "raw_positive_error_ratio": 1.0279236516186887,
+          "wins": 23,
+          "median_function_ratio": 0.9908354753423361,
+          "without_genz_corner_peak": 1.0851536561569672,
+          "leave_one_function_out_range": [
+            0.9703681085721533,
+            1.0851536561569672
+          ],
+          "descriptive_function_bootstrap_interval": [
+            0.8582716478586513,
+            1.2456891760966058
+          ],
+          "equal_source_family_ratio": 0.9577771678108269,
+          "source_families": 23,
+          "by_function": {
+            "Ackley": 1.0073376333568391,
+            "Alemazkoor20D": 0.9908354753423361,
+            "Alemazkoor2D": 0.9888531834532458,
+            "Borehole": 0.6337684179914389,
+            "Cheng2D": 0.9968155022290756,
+            "DampedOscillator": 0.939600055662263,
+            "Dette8D": 0.7784138114991075,
+            "DetteCurved": 0.9889750219100317,
+            "DetteExp": 0.5699946752808694,
+            "Flood": 0.8225696641867123,
+            "Franke1": 1.0434806643597523,
+            "Franke2": 0.9907732449794238,
+            "Franke3": 1.0612999098331357,
+            "Franke4": 3.9753941137588744,
+            "Franke5": 1.212347577455146,
+            "Franke6": 0.9093967050146227,
+            "Friedman10D": 1.0060016671019951,
+            "Friedman6D": 0.8153680726408987,
+            "GenzCornerPeak": 0.13116152379924556,
+            "LimNonPoly": 0.8414213111641188,
+            "LimPoly": 1.0871693791553037,
+            "LinkletterDecCoeffs": 2.121836140611746,
+            "LinkletterLinear": 2.25320451345786,
+            "LinkletterSine": 0.966753255371495,
+            "McLainS1": 0.8617867965677529,
+            "McLainS2": 1.1536748320051375,
+            "McLainS3": 1.537486150014906,
+            "McLainS4": 1.0135312326171233,
+            "McLainS5": 1.1187158598603186,
+            "OTLCircuit": 0.7204630984087381,
+            "Piston": 1.0454077241130988,
+            "RobotArm": 0.9945846450943916,
+            "Rosenbrock": 0.9683886464402094,
+            "SolarCell": 0.7567382883532162,
+            "Sulfur": 9.180914269187515,
+            "UndampedOscillator": 0.9450575218558159,
+            "Webster2D": 1.1873853266948158,
+            "Welch1992": 0.99563069350763,
+            "WingWeight": 0.6484283689422088
+          }
+        }
+      },
+      "paired_noise_interaction_ratio": 0.7531159199995588,
+      "functions_with_smaller_relative_error_under_noise": 19
+    }
+  }
+}

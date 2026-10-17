@@ -1,0 +1,776 @@
+{
+  "classification": "OPENED_COHORT_TRUTH_BLIND_SCORES",
+  "quantile": 0.95,
+  "rejection_budget": 16,
+  "rows": [
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.06474529274264607,
+        "deterministic_random": 0.12113883533909123,
+        "domain_order": 0.0,
+        "shell_radius": 1.1259317412481822,
+        "support_distance": 0.8041107137507859
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.742294476207985,
+        "deterministic_random": 0.18715851820336427,
+        "domain_order": 1.0,
+        "shell_radius": 1.7500706397614587,
+        "support_distance": 1.200796369577553
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.198174703793029,
+        "deterministic_random": 0.004776797361377189,
+        "domain_order": 2.0,
+        "shell_radius": 3.2919868112891457,
+        "support_distance": 3.475749082847197
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.03303057316209432,
+        "deterministic_random": 0.476366341496241,
+        "domain_order": 0.0,
+        "shell_radius": 1.2353400817758706,
+        "support_distance": 0.894742530277131
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.836092982569198,
+        "deterministic_random": 0.9022059439294846,
+        "domain_order": 1.0,
+        "shell_radius": 1.921682180337529,
+        "support_distance": 1.538361215684139
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.5421218209922207,
+        "deterministic_random": 0.9014178430895206,
+        "domain_order": 2.0,
+        "shell_radius": 3.7277345364643097,
+        "support_distance": 4.056648407578795
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.09863855258892382,
+        "deterministic_random": 0.25290813203619616,
+        "domain_order": 0.0,
+        "shell_radius": 1.342613454215883,
+        "support_distance": 0.8018867313812927
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.778662636923084,
+        "deterministic_random": 0.8992958492586499,
+        "domain_order": 1.0,
+        "shell_radius": 1.9577173236644505,
+        "support_distance": 1.289643703691652
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.39062412674087,
+        "deterministic_random": 0.2395616275838831,
+        "domain_order": 2.0,
+        "shell_radius": 3.8624834375192396,
+        "support_distance": 3.760866165976403
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.06401613547154986,
+        "deterministic_random": 0.9008595596226577,
+        "domain_order": 0.0,
+        "shell_radius": 1.1713984437266443,
+        "support_distance": 0.7123547986537432
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.7184827409895151,
+        "deterministic_random": 0.09760765572445095,
+        "domain_order": 1.0,
+        "shell_radius": 1.757662004241055,
+        "support_distance": 1.101018347270494
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.9878951562945804,
+        "deterministic_random": 0.18840789069957664,
+        "domain_order": 2.0,
+        "shell_radius": 3.47967588449995,
+        "support_distance": 3.2987764175580603
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.03284820094338003,
+        "deterministic_random": 0.8780375440475324,
+        "domain_order": 0.0,
+        "shell_radius": 1.1254951846721848,
+        "support_distance": 0.8650636327236602
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.5221002458050326,
+        "deterministic_random": 0.34729511989011674,
+        "domain_order": 1.0,
+        "shell_radius": 1.7069792214332358,
+        "support_distance": 1.2964154863466257
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.297229980985668,
+        "deterministic_random": 0.4623406020213628,
+        "domain_order": 2.0,
+        "shell_radius": 3.2874577580578004,
+        "support_distance": 2.8708270370545104
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.02350462981070076,
+        "deterministic_random": 0.9358501513378416,
+        "domain_order": 0.0,
+        "shell_radius": 1.1413214736814867,
+        "support_distance": 0.9320128490845533
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.5261604708878609,
+        "deterministic_random": 0.5887344185452102,
+        "domain_order": 1.0,
+        "shell_radius": 1.6692026058825067,
+        "support_distance": 1.31825488549847
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.3998724913088805,
+        "deterministic_random": 0.2508362721378942,
+        "domain_order": 2.0,
+        "shell_radius": 3.3361341478352022,
+        "support_distance": 2.911924599977426
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.02163074939722895,
+        "deterministic_random": 0.618141702040389,
+        "domain_order": 0.0,
+        "shell_radius": 1.0074529050783865,
+        "support_distance": 0.864634739219187
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.49734448107262585,
+        "deterministic_random": 0.7066862778983024,
+        "domain_order": 1.0,
+        "shell_radius": 1.5563379246741267,
+        "support_distance": 1.1857822080890377
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.21847790750577,
+        "deterministic_random": 0.15690326580903952,
+        "domain_order": 2.0,
+        "shell_radius": 3.097159886666017,
+        "support_distance": 2.73014391215179
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.03303270054700437,
+        "deterministic_random": 0.4627065646928894,
+        "domain_order": 0.0,
+        "shell_radius": 1.040210633647073,
+        "support_distance": 0.9037363886692399
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.5231567911534531,
+        "deterministic_random": 0.5647651156978811,
+        "domain_order": 1.0,
+        "shell_radius": 1.5922829024115883,
+        "support_distance": 1.2680205007457728
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.323133226886608,
+        "deterministic_random": 0.6728179210148798,
+        "domain_order": 2.0,
+        "shell_radius": 3.199754021889637,
+        "support_distance": 2.9418958848716645
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.00947224810990815,
+        "deterministic_random": 0.9300713406875145,
+        "domain_order": 0.0,
+        "shell_radius": 1.110420908247467,
+        "support_distance": 0.7856608531511126
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.6923495582200232,
+        "deterministic_random": 0.1520609212339761,
+        "domain_order": 1.0,
+        "shell_radius": 1.6671852513983356,
+        "support_distance": 1.1686409189227787
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.230168368199494,
+        "deterministic_random": 0.2822605681718852,
+        "domain_order": 2.0,
+        "shell_radius": 3.417658371360759,
+        "support_distance": 3.6745560032155025
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.01880817690901768,
+        "deterministic_random": 0.0281259256001289,
+        "domain_order": 0.0,
+        "shell_radius": 1.2348761097475753,
+        "support_distance": 0.8682937678007574
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.8215338978353208,
+        "deterministic_random": 0.6044496249776441,
+        "domain_order": 1.0,
+        "shell_radius": 1.9548767756050258,
+        "support_distance": 1.3743445520343676
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.4283533517915337,
+        "deterministic_random": 0.0031087128913741087,
+        "domain_order": 2.0,
+        "shell_radius": 3.721893459391141,
+        "support_distance": 3.859640934984012
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.03367215106022558,
+        "deterministic_random": 0.9177162017404085,
+        "domain_order": 0.0,
+        "shell_radius": 1.1935362311462883,
+        "support_distance": 0.8031899608340326
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.8239379821910746,
+        "deterministic_random": 0.4705561355230509,
+        "domain_order": 1.0,
+        "shell_radius": 1.8800776207805445,
+        "support_distance": 1.2948090379172221
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.4173139285712195,
+        "deterministic_random": 0.0024612003823623213,
+        "domain_order": 2.0,
+        "shell_radius": 3.573539576577769,
+        "support_distance": 3.7738669234983147
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.01684496067998255,
+        "deterministic_random": 0.02100529225823338,
+        "domain_order": 0.0,
+        "shell_radius": 1.325213523649576,
+        "support_distance": 0.8994877475942615
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.8016636108759017,
+        "deterministic_random": 0.1608995050977806,
+        "domain_order": 1.0,
+        "shell_radius": 1.9291523153246655,
+        "support_distance": 1.399194485705892
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 3.4106737637096503,
+        "deterministic_random": 0.1728871160621651,
+        "domain_order": 2.0,
+        "shell_radius": 3.7607706824535825,
+        "support_distance": 3.8869930119967333
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.0211060288504223,
+        "deterministic_random": 0.488253536499208,
+        "domain_order": 0.0,
+        "shell_radius": 1.1695065358467183,
+        "support_distance": 0.9047455013179063
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.5215639780862713,
+        "deterministic_random": 0.10645680369766417,
+        "domain_order": 1.0,
+        "shell_radius": 1.725221384733329,
+        "support_distance": 1.3250912027438804
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.2368879496103387,
+        "deterministic_random": 0.8737623474093097,
+        "domain_order": 2.0,
+        "shell_radius": 3.3908914113347466,
+        "support_distance": 2.9149181434411906
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.04614266184653294,
+        "deterministic_random": 0.30628591628870017,
+        "domain_order": 0.0,
+        "shell_radius": 1.089770472615506,
+        "support_distance": 0.8486717406531965
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.5089016727498556,
+        "deterministic_random": 0.34481556373385,
+        "domain_order": 1.0,
+        "shell_radius": 1.6066564687519715,
+        "support_distance": 1.1396642244903872
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.173034268473941,
+        "deterministic_random": 0.6585472265720146,
+        "domain_order": 2.0,
+        "shell_radius": 3.1566429174274537,
+        "support_distance": 2.721705957077699
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.0191744952394446,
+        "deterministic_random": 0.27591723891751596,
+        "domain_order": 0.0,
+        "shell_radius": 1.0374045225629303,
+        "support_distance": 0.8439083777741851
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.4831142259878235,
+        "deterministic_random": 0.022499772050393132,
+        "domain_order": 1.0,
+        "shell_radius": 1.589746306038766,
+        "support_distance": 1.2523939252281808
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.1423597830490033,
+        "deterministic_random": 0.8007293685236817,
+        "domain_order": 2.0,
+        "shell_radius": 3.1418008345395196,
+        "support_distance": 2.6911164679156543
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.024445887315905905,
+        "deterministic_random": 0.42271881406377027,
+        "domain_order": 0.0,
+        "shell_radius": 1.1320697242441902,
+        "support_distance": 0.8838343277543709
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 0.486987517319847,
+        "deterministic_random": 0.32055212745142037,
+        "domain_order": 1.0,
+        "shell_radius": 1.652035602614558,
+        "support_distance": 1.2261727687880914
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "coordinate_excursion": 2.0702689213374574,
+        "deterministic_random": 0.8711322743467678,
+        "domain_order": 2.0,
+        "shell_radius": 3.1502592898002386,
+        "support_distance": 2.661867147499739
+      }
+    }
+  ],
+  "schema": "kernellum.support-distance-decisions.v1"
+}

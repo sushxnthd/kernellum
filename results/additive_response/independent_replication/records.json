@@ -1,0 +1,1052 @@
+[
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.42353101068399385,
+        0.5107756779679831,
+        -2.5516132246972183,
+        2.0484508201203777,
+        -0.2514311092910628,
+        1.777851600786658
+      ],
+      "amplitude": 0.46798329699603325,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 4.548825073112083e-31,
+      "cv": 9.220374279867398e-32,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 9.263895971842833e-32
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -71.27125307615671,
+        "candidate_log_nmse": -71.53449546984888,
+        "max_abs_prediction": 0.5035513202274196
+      },
+      "near_shell": {
+        "independent_log_nmse": -68.82025688079443,
+        "candidate_log_nmse": -69.5912216243865,
+        "max_abs_prediction": 0.1418935640752897
+      },
+      "far_shell": {
+        "independent_log_nmse": -67.01086985807505,
+        "candidate_log_nmse": -67.24041217496344,
+        "max_abs_prediction": 0.0018712767555090976
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        0.44906134776143397,
+        0.9366928215759376,
+        0.5126367787531538,
+        -0.9730154612765577,
+        -2.092593860695648,
+        2.071839470200466,
+        -0.12048947665034218,
+        2.0211493015852566,
+        -0.048589124127779236,
+        -0.08820734582024804,
+        1.986515479919328,
+        -0.1791719263328626,
+        0.4855437998668957,
+        -0.43881801374116924,
+        1.7859588666527582
+      ],
+      "amplitude": 0.7832326744822677,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 3.8525256289236687e-26,
+      "cv": 1.5245431028610135e-27,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 4.604515122270275e-22
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -58.85523014328073,
+        "candidate_log_nmse": -48.91489584612142,
+        "max_abs_prediction": 1.4976346209756735
+      },
+      "near_shell": {
+        "independent_log_nmse": -59.567282763515365,
+        "candidate_log_nmse": -49.8319835088825,
+        "max_abs_prediction": 0.27772973322570216
+      },
+      "far_shell": {
+        "independent_log_nmse": -61.94906939819005,
+        "candidate_log_nmse": -45.42812198804745,
+        "max_abs_prediction": 0.0003293737648491481
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.42353101068399385,
+        0.5107756779679831,
+        -2.5516132246972183,
+        2.0484508201203777,
+        -0.2514311092910628,
+        1.777851600786658
+      ],
+      "amplitude": 0.46798329699603325,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 4.548825073112083e-31,
+      "cv": 9.220374279867398e-32,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 9.263895971842833e-32
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -71.27125307615671,
+        "candidate_log_nmse": -71.53449546984888,
+        "max_abs_prediction": 0.5035513202274196
+      },
+      "near_shell": {
+        "independent_log_nmse": -68.82025688079443,
+        "candidate_log_nmse": -69.5912216243865,
+        "max_abs_prediction": 0.1418935640752897
+      },
+      "far_shell": {
+        "independent_log_nmse": -67.01086985807505,
+        "candidate_log_nmse": -67.24041217496344,
+        "max_abs_prediction": 0.0018712767555090976
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        0.44906134776143397,
+        0.9366928215759376,
+        0.5126367787531538,
+        -0.9730154612765577,
+        -2.092593860695648,
+        2.071839470200466,
+        -0.12048947665034218,
+        2.0211493015852566,
+        -0.048589124127779236,
+        -0.08820734582024804,
+        1.986515479919328,
+        -0.1791719263328626,
+        0.4855437998668957,
+        -0.43881801374116924,
+        1.7859588666527582
+      ],
+      "amplitude": 0.7832326744822677,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 3.8525256289236687e-26,
+      "cv": 1.5245431028610135e-27,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 4.604515122270275e-22
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -58.85523014328073,
+        "candidate_log_nmse": -48.91489584612142,
+        "max_abs_prediction": 1.4976346209756735
+      },
+      "near_shell": {
+        "independent_log_nmse": -59.567282763515365,
+        "candidate_log_nmse": -49.8319835088825,
+        "max_abs_prediction": 0.27772973322570216
+      },
+      "far_shell": {
+        "independent_log_nmse": -61.94906939819005,
+        "candidate_log_nmse": -45.42812198804745,
+        "max_abs_prediction": 0.0003293737648491481
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        -0.42355464622787076,
+        0.5061804322348942,
+        -2.5520461325550077,
+        2.0479419516399764,
+        -0.25336451220692485,
+        1.7784060441325595
+      ],
+      "amplitude": 0.4679037514133069,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.00032994868621592126,
+      "cv": 8.157576215575943e-05,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 8.157576232625364e-05
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -11.988039605048478,
+        "candidate_log_nmse": -11.988039596593229,
+        "max_abs_prediction": 0.5031897543783075
+      },
+      "near_shell": {
+        "independent_log_nmse": -11.120319417855882,
+        "candidate_log_nmse": -11.120319432797697,
+        "max_abs_prediction": 0.14170557959255306
+      },
+      "far_shell": {
+        "independent_log_nmse": -9.247096762027478,
+        "candidate_log_nmse": -9.247096850602336,
+        "max_abs_prediction": 0.0018550412130485313
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        0.46380081131972917,
+        0.932095064323958,
+        0.5399846344864673,
+        -0.9918406149439231,
+        -2.1009597582599855,
+        2.0787598815012767,
+        -0.11672406476108192,
+        2.0314377163681474,
+        -0.033275482999546295,
+        -0.10339399221248173,
+        1.999247756362227,
+        -0.17360523855972243,
+        0.47233602199134267,
+        -0.42945302098419874,
+        1.7905497880366843
+      ],
+      "amplitude": 0.7821984617046512,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.00012452011003309817,
+      "cv": 0.00031652196048481565,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 0.0003165220156706387
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -8.167733891527021,
+        "candidate_log_nmse": -8.167734747534135,
+        "max_abs_prediction": 1.5204547481316626
+      },
+      "near_shell": {
+        "independent_log_nmse": -7.718424345110664,
+        "candidate_log_nmse": -7.718425493634864,
+        "max_abs_prediction": 0.2736493800735358
+      },
+      "far_shell": {
+        "independent_log_nmse": -7.041384381391168,
+        "candidate_log_nmse": -7.041383238208592,
+        "max_abs_prediction": 0.000329960207213781
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        -0.42350449484193814,
+        0.5153657047187074,
+        -2.551135749372162,
+        2.0489717517532013,
+        -0.249496598511574,
+        1.7772781967421332
+      ],
+      "amplitude": 0.4680628425787596,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.00032970391440011496,
+      "cv": 8.125462304268075e-05,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 8.125462306494102e-05
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -11.98723980665386,
+        "candidate_log_nmse": -11.987239766897773,
+        "max_abs_prediction": 0.5039105193920216
+      },
+      "near_shell": {
+        "independent_log_nmse": -11.10393265053289,
+        "candidate_log_nmse": -11.103932309077386,
+        "max_abs_prediction": 0.14208460024155967
+      },
+      "far_shell": {
+        "independent_log_nmse": -9.207437022738059,
+        "candidate_log_nmse": -9.207436473613566,
+        "max_abs_prediction": 0.0018878454605804834
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        0.4351474159325298,
+        0.9405913051808612,
+        0.48589364238314653,
+        -0.9549916353780152,
+        -2.0852166373098373,
+        2.0652970697500157,
+        -0.12450259078083113,
+        2.011326438641917,
+        -0.06299134184259654,
+        -0.07403396345564375,
+        1.9742776692398487,
+        -0.1847820225080393,
+        0.49908531228071823,
+        -0.4483131728077926,
+        1.781510266959999
+      ],
+      "amplitude": 0.7842668872598842,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.00012392079840887555,
+      "cv": 0.00028856778090581364,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 0.00028856762795355243
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -8.270162534077206,
+        "candidate_log_nmse": -8.270162623763541,
+        "max_abs_prediction": 1.4763428101940057
+      },
+      "near_shell": {
+        "independent_log_nmse": -7.770590208262933,
+        "candidate_log_nmse": -7.770590294616014,
+        "max_abs_prediction": 0.2816783260146211
+      },
+      "far_shell": {
+        "independent_log_nmse": -6.995735722954752,
+        "candidate_log_nmse": -6.99573567538593,
+        "max_abs_prediction": 0.0003281051510266319
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "winner": {
+      "theta": [
+        -0.4236274812023347,
+        0.46462163622308034,
+        -2.5538918371793056,
+        2.043903298130215,
+        -0.27074164872471773,
+        1.782535937304083
+      ],
+      "amplitude": 0.46718784116877,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.03310465937493841,
+      "cv": 0.008244088177602586,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 0.008244088354358187
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -7.3860491924749505,
+        "candidate_log_nmse": -7.386049068106334,
+        "max_abs_prediction": 0.5019525635116605
+      },
+      "near_shell": {
+        "independent_log_nmse": -6.583971978142343,
+        "candidate_log_nmse": -6.5839719419164355,
+        "max_abs_prediction": 0.14014916286684517
+      },
+      "far_shell": {
+        "independent_log_nmse": -4.817010036052263,
+        "candidate_log_nmse": -4.817010795000542,
+        "max_abs_prediction": 0.0017229291057256405
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "winner": {
+      "theta": [
+        0.6558477010003185,
+        0.8449507128877275,
+        0.8396350938765877,
+        -1.224933679607236,
+        -2.240387363245329,
+        2.167555694008524,
+        -0.09595521146415226,
+        2.1587172704115183,
+        0.1606716535488291,
+        -0.3058387120832477,
+        2.1464485660577144,
+        -0.12109164032640372,
+        0.3701444732593369,
+        -0.3474086744845397,
+        1.8446909716481414
+      ],
+      "amplitude": 0.7728905467061024,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.012715948355880243,
+      "cv": 0.1048786140917162,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 0.10487825916001309
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -2.874802316605091,
+        "candidate_log_nmse": -2.8748086618491553,
+        "max_abs_prediction": 1.8468205660961685
+      },
+      "near_shell": {
+        "independent_log_nmse": -2.7766368903926946,
+        "candidate_log_nmse": -2.7766413831792605,
+        "max_abs_prediction": 0.22890552952782606
+      },
+      "far_shell": {
+        "independent_log_nmse": -2.558568571204372,
+        "candidate_log_nmse": -2.5585782801099732,
+        "max_abs_prediction": 0.0003033878190419884
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104201,
+    "noise": 0.1,
+    "winner": {
+      "theta": [
+        -0.4305596623237987,
+        0.5564085415417848,
+        -2.544876546416583,
+        2.0542039560922802,
+        -0.23201142714283404,
+        1.771270507138678
+      ],
+      "amplitude": 0.4722669056936494,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.03237627935444717,
+      "cv": 0.007927346236099085,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 0.007927346256265986
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -7.378072105386255,
+        "candidate_log_nmse": -7.378072123827471,
+        "max_abs_prediction": 0.5070384600429484
+      },
+      "near_shell": {
+        "independent_log_nmse": -6.420484387720886,
+        "candidate_log_nmse": -6.420484664315816,
+        "max_abs_prediction": 0.14394292503677367
+      },
+      "far_shell": {
+        "independent_log_nmse": -4.420251959426054,
+        "candidate_log_nmse": -4.420252521767534,
+        "max_abs_prediction": 0.002053055856944722
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104201,
+    "noise": 0.1,
+    "winner": {
+      "theta": [
+        0.3394108789275952,
+        0.9549502868945117,
+        0.2673144993847061,
+        -0.8222493697656178,
+        -2.052217641165774,
+        2.021497964665834,
+        -0.17151284883723333,
+        1.9409322139303011,
+        -0.15648494740202,
+        0.013038994276966588,
+        1.8840135778614227,
+        -0.24072083334045286,
+        0.6361912810734502,
+        -0.5368401523005962,
+        1.7436541869045907
+      ],
+      "amplitude": 0.7935748022584331,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.012131839172463325,
+      "cv": 0.022652984711235318,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 0.02265289884679971
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -4.032751634124617,
+        "candidate_log_nmse": -4.032752761002623,
+        "max_abs_prediction": 1.3371113693907941
+      },
+      "near_shell": {
+        "independent_log_nmse": -3.3447531763848133,
+        "candidate_log_nmse": -3.3447603214054666,
+        "max_abs_prediction": 0.31246489737069294
+      },
+      "far_shell": {
+        "independent_log_nmse": -2.177622898588755,
+        "candidate_log_nmse": -2.1775901113669285,
+        "max_abs_prediction": 0.0002942350924367557
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.1904339318264425,
+        -1.1768577602048604,
+        -0.46208233171430474,
+        1.4419016182369657,
+        -0.015134795605221456,
+        1.4584421835545385
+      ],
+      "amplitude": 2.4989500999467493,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 1.8310243071300947e-28,
+      "cv": 4.201759145472996e-29,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 8.54417402477628e-30
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -65.22814820969279,
+        "candidate_log_nmse": -65.71661435927496,
+        "max_abs_prediction": 2.453184988487019
+      },
+      "near_shell": {
+        "independent_log_nmse": -63.96472585666859,
+        "candidate_log_nmse": -65.52687761862944,
+        "max_abs_prediction": 0.8179658651454997
+      },
+      "far_shell": {
+        "independent_log_nmse": -63.49291488980105,
+        "candidate_log_nmse": -65.57105516526681,
+        "max_abs_prediction": 0.08511843396005374
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.059056589136219834,
+        -2.9926811276249583,
+        -2.5757786497682,
+        -0.29604018339579685,
+        0.9543962679916899,
+        2.60989146724256,
+        0.11198846726999073,
+        2.5646842103058707,
+        -0.02910636422038864,
+        0.2743261764532934,
+        2.388417548815199,
+        -0.17021140782848837,
+        0.19754897771804944,
+        -0.1673624668472199,
+        2.4437857137258665
+      ],
+      "amplitude": 0.5233041654535778,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 1.9976871401199102e-32,
+      "cv": 3.808147043292995e-23,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 1.1232665339598351e-21
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -70.00376536286083,
+        "candidate_log_nmse": -69.69174218160532,
+        "max_abs_prediction": 0.6640220665836635
+      },
+      "near_shell": {
+        "independent_log_nmse": -65.3786152582601,
+        "candidate_log_nmse": -65.70145045443414,
+        "max_abs_prediction": 0.0006381656209095375
+      },
+      "far_shell": {
+        "independent_log_nmse": -65.1715046104039,
+        "candidate_log_nmse": -65.22468573050162,
+        "max_abs_prediction": 3.538134735287734e-10
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104202,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.1904339318264425,
+        -1.1768577602048604,
+        -0.46208233171430474,
+        1.4419016182369657,
+        -0.015134795605221456,
+        1.4584421835545385
+      ],
+      "amplitude": 2.4989500999467493,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 1.8310243071300947e-28,
+      "cv": 4.201759145472996e-29,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 8.54417402477628e-30
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -65.22814820969279,
+        "candidate_log_nmse": -65.71661435927496,
+        "max_abs_prediction": 2.453184988487019
+      },
+      "near_shell": {
+        "independent_log_nmse": -63.96472585666859,
+        "candidate_log_nmse": -65.52687761862944,
+        "max_abs_prediction": 0.8179658651454997
+      },
+      "far_shell": {
+        "independent_log_nmse": -63.49291488980105,
+        "candidate_log_nmse": -65.57105516526681,
+        "max_abs_prediction": 0.08511843396005374
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104202,
+    "noise": 0.0,
+    "winner": {
+      "theta": [
+        -0.059056589136219834,
+        -2.9926811276249583,
+        -2.5757786497682,
+        -0.29604018339579685,
+        0.9543962679916899,
+        2.60989146724256,
+        0.11198846726999073,
+        2.5646842103058707,
+        -0.02910636422038864,
+        0.2743261764532934,
+        2.388417548815199,
+        -0.17021140782848837,
+        0.19754897771804944,
+        -0.1673624668472199,
+        2.4437857137258665
+      ],
+      "amplitude": 0.5233041654535778,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 1.9976871401199102e-32,
+      "cv": 3.808147043292995e-23,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 1.1232665339598351e-21
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -70.00376536286083,
+        "candidate_log_nmse": -69.69174218160532,
+        "max_abs_prediction": 0.6640220665836635
+      },
+      "near_shell": {
+        "independent_log_nmse": -65.3786152582601,
+        "candidate_log_nmse": -65.70145045443414,
+        "max_abs_prediction": 0.0006381656209095375
+      },
+      "far_shell": {
+        "independent_log_nmse": -65.1715046104039,
+        "candidate_log_nmse": -65.22468573050162,
+        "max_abs_prediction": 3.538134735287734e-10
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        -0.19129706230433569,
+        -1.1752075148444312,
+        -0.4577048370315937,
+        1.4412259915192973,
+        -0.017775184598836084,
+        1.4595433758378376
+      ],
+      "amplitude": 2.5008138738922527,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.00038511924105564805,
+      "cv": 0.00010861536277667852,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 0.00010861536300518134
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -11.838904983180651,
+        "candidate_log_nmse": -11.8389048824943,
+        "max_abs_prediction": 2.4506235974040025
+      },
+      "near_shell": {
+        "independent_log_nmse": -11.017282283055135,
+        "candidate_log_nmse": -11.017282293917848,
+        "max_abs_prediction": 0.8186255576222771
+      },
+      "far_shell": {
+        "independent_log_nmse": -10.982812656677035,
+        "candidate_log_nmse": -10.982812511344049,
+        "max_abs_prediction": 0.08539464304151188
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "gaussian_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        0.2722473507228666,
+        -3.341764820344523,
+        -2.5176346879461233,
+        -0.23062481773127577,
+        1.2506636191516158,
+        3.0764752062956746,
+        -0.05074329459801225,
+        2.656716037472733,
+        0.036246720026090244,
+        0.30544446557319455,
+        2.377160897047778,
+        -0.49205923870545265,
+        0.16885045506343935,
+        -0.11787446443224049,
+        2.561346123819943
+      ],
+      "amplitude": 0.5234771483071481,
+      "sign": 1,
+      "family": "exp_concave",
+      "objective": 0.00021241820227115135,
+      "cv": 0.042140292664925916,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": 1,
+      "cv": 0.04213695419016557
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -2.9558686345789598,
+        "candidate_log_nmse": -2.955935201517696,
+        "max_abs_prediction": 0.7439884282428423
+      },
+      "near_shell": {
+        "independent_log_nmse": -0.24833238829733517,
+        "candidate_log_nmse": -0.24834891840741236,
+        "max_abs_prediction": 0.00011052393156726697
+      },
+      "far_shell": {
+        "independent_log_nmse": -0.09435627481526154,
+        "candidate_log_nmse": -0.0943648567768065,
+        "max_abs_prediction": 1.857901268635028e-11
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_2d",
+    "seed": 104202,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        -0.1895689783876316,
+        -1.178504076479435,
+        -0.4664435242345165,
+        1.4425756395380427,
+        -0.0125214509553418,
+        1.45734660163685
+      ],
+      "amplitude": 2.497086326001246,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.00038631820719247755,
+      "cv": 0.0001078512578546466,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 0.00010785125819617503
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -11.842954432192569,
+        "candidate_log_nmse": -11.842954432196164,
+        "max_abs_prediction": 2.455748497098721
+      },
+      "near_shell": {
+        "independent_log_nmse": -11.017464198108211,
+        "candidate_log_nmse": -11.017464198108748,
+        "max_abs_prediction": 0.8173172721008171
+      },
+      "far_shell": {
+        "independent_log_nmse": -10.987567200923385,
+        "candidate_log_nmse": -10.987567200912862,
+        "max_abs_prediction": 0.08484477651140751
+      }
+    },
+    "failures": []
+  },
+  {
+    "function": "negative_gaussian_4d",
+    "seed": 104202,
+    "noise": 0.01,
+    "winner": {
+      "theta": [
+        -0.1436619369626542,
+        -2.827827982308017,
+        -2.5921241411394207,
+        -0.3389815538310734,
+        0.8323277246355456,
+        2.4695266814374883,
+        0.13666090987712562,
+        2.5285221586124544,
+        -0.12782562961823352,
+        0.28886284224124925,
+        2.4467716969602726,
+        -0.031499836181482575,
+        0.18010703682983725,
+        -0.1354466611648048,
+        2.3743393629486724
+      ],
+      "amplitude": 0.5231311826000076,
+      "sign": -1,
+      "family": "exp_concave",
+      "objective": 0.00021668255120590844,
+      "cv": 0.060794151661606545,
+      "solver": "numerical-3point-least-squares",
+      "fold_solvers": {
+        "numerical-3point-least-squares": 64
+      }
+    },
+    "candidate_winner": {
+      "family": "exp_concave",
+      "sign": -1,
+      "cv": 0.06079293868351038
+    },
+    "winner_agrees": true,
+    "scores": {
+      "inside": {
+        "independent_log_nmse": -4.979059018970198,
+        "candidate_log_nmse": -4.979040779138727,
+        "max_abs_prediction": 0.6355993233618034
+      },
+      "near_shell": {
+        "independent_log_nmse": 0.5834119889819398,
+        "candidate_log_nmse": 0.583478348882938,
+        "max_abs_prediction": 0.0016407989654971746
+      },
+      "far_shell": {
+        "independent_log_nmse": 3.9263155913000958,
+        "candidate_log_nmse": 3.926385680218438,
+        "max_abs_prediction": 2.6738359415125556e-09
+      }
+    },
+    "failures": []
+  }
+]

@@ -1,0 +1,44 @@
+name: envelope-equivalence-prospective
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/basin-diagnostic-20261013
+    paths:
+      - docs/ENVELOPE_EQUIVALENCE_PROSPECTIVE_PREREGISTRATION.md
+      - scripts/evaluate_envelope_equivalence_prospective.py
+      - scripts/audit_envelope_equivalence_prospective.py
+      - kernellum/discovery/solver_equivalence.py
+      - tests/test_solver_equivalence.py
+      - .github/workflows/envelope-equivalence-prospective.yml
+  workflow_dispatch:
+
+jobs:
+  prospective-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q tests/test_solver_equivalence.py
+      - name: Execute twice and require byte identity
+        run: |
+          python scripts/evaluate_envelope_equivalence_prospective.py --decisions envelope-decisions.json --output envelope-result.json
+          cp envelope-decisions.json /tmp/envelope-decisions-first.json
+          cp envelope-result.json /tmp/envelope-result-first.json
+          python scripts/evaluate_envelope_equivalence_prospective.py --decisions envelope-decisions.json --output envelope-result.json
+          cmp /tmp/envelope-decisions-first.json envelope-decisions.json
+          cmp /tmp/envelope-result-first.json envelope-result.json
+      - name: Independent audit
+        run: python scripts/audit_envelope_equivalence_prospective.py --decisions envelope-decisions.json --result envelope-result.json --output envelope-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: envelope-equivalence-prospective
+          path: |
+            envelope-decisions.json
+            envelope-result.json
+            envelope-audit.json

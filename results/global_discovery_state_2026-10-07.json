@@ -1,0 +1,704 @@
+{
+  "date": "2026-10-12",
+  "classification": "GLOBAL_RESEARCH_STATE",
+  "spend_usd": 0,
+  "field_breakthrough_established": false,
+  "programs": {
+    "HUSH": {
+      "priority": 1,
+      "repository": "/workspace/scratch/93c782ff9166/hush",
+      "branch": "breakthrough-engine/pcc-cleanroom-replication",
+      "head": "ab11eff4b55f8a3327cb039ba147123c93e72550",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "A clean-room Python implementation reproduced the bounded numeric PCC mechanism across 114,688 exhaustive cases with zero oracle disagreements, exact protected-canary disclosures, or equivalence-class violations.",
+          "evidence": "research/pcc-cleanroom/RESULTS_V2.md; research/pcc-cleanroom/results_v2.json",
+          "audit": "The implementation imports neither the Hush JavaScript PCC compiler nor its evaluators. The first frozen version failed on digits in unrelated canaries; that counterexample is preserved. A separately frozen contract-bound extractor then passed every gate and reran byte-identically with result SHA-256 80d40aa9ae0efa4b3eb9a04835f10076b29e91ecd021828ee40400ad8e81a26f.",
+          "scope": "Internal second implementation on a finite synthetic numeric domain; not a third-party reproduction, external holdout, semantic-privacy result, or breakthrough-gate pass."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A globally unique bounded number is a safe typed extractor for fused private prose.",
+          "evidence": "research/pcc-cleanroom/FIRST_RUN_FAILURE.md",
+          "mechanism": "Digits in an unrelated sensitive canary created extra numeric candidates. Extraction must be bound to an intended field or trusted anchor, not merely a scalar type."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In a 512-case production-faithful scheduling simulation, contract-bound PCC matched raw-context decisions while exposing zero exact protected canaries at the simulated model/provider boundary; raw context exposed 512/512 and coarse redaction solved 162/512.",
+          "evidence": "research/pcc-cleanroom/RESULTS_V2.md; research/pcc-cleanroom/results_v2.json",
+          "scope": "Product-translation foothold only. The model/provider boundary is simulated and no live connector, external task set, latency, errors, retries, or semantic inference evaluator was used."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Individually bounded predicate releases are not composition-safe: unbudgeted binary queries reconstructed all 4,096 secrets, while a five-bit cumulative guard reconstructed none and left at least 128 candidates in every case.",
+          "evidence": "research/pcc-cleanroom/results_v2.json",
+          "scope": "Independent finite-domain reproduction of an already recognized Hush composition boundary; not a novel information-theory theorem."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Through Hush's actual encrypted ContextKernel, approval-gated PCC releases, ActionBroker and Calendar adapter, PCC completed 256/256 scheduling actions while exposing neither exact source field at the model boundary; raw context exposed both fields in 256/256 and exact semantic minimization exposed the cutoff in 256/256.",
+          "evidence": "research/pcc-runtime-product/RESULTS.md; research/pcc-runtime-product/results.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "All eight frozen gates passed. Provider payloads and receipts contained zero source-field disclosures. A second complete run reproduced the discrete outcome SHA-256 98735b9f6dbe1c819e6701b6ed2f0000614bc89e9a1ab2693c4d12eaaca3ac9a. Strict redaction protected both fields but completed 0/256 tasks.",
+          "scope": "Production-faithful internal product translation with simulated Google endpoint and deterministic model proxy; not external holdout, live-provider reliability, semantic privacy, named-competitor superiority, third-party reproduction, or field breakthrough."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the tested bounded-integer scheduling workflow, posterior-aware PCC bundling reduced approvals from 3.0 to 2.0 per completed action while preserving task success, exact-value non-disclosure, and a 30-candidate final posterior.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/bundled_results_v4.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "On untouched case IDs 768-1023, separate and bundled PCC each completed 256/256 tasks/actions with zero tested model/provider/receipt source matches. Every constraint receipt recorded realized-partition accounting; every final posterior retained exactly 30 candidates; replay was denied in all cases. Approvals fell from 768 to 512; all seven frozen gates passed; a full rerun reproduced discrete SHA-256 acf2651226ff29b03308c40e531589aa0d29219f2a1a986b028b38cfe8ba30fb.",
+          "scope": "Synthetic deterministic product translation with a simulated provider endpoint and declared integer domains. It is not arbitrary semantic privacy, external validation, historical novelty or a scientific breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A two-bit PCC bundle ceiling guarantees that no observed result conveys more than two bits of realized knowledge.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_RESULT.md; research/pcc-runtime-product/inference_firewall_probe.json",
+          "mechanism": "The vector `(s >= 500, s <= 500)` uniquely identified `s=500` in a 1,024-value domain. PCC released it under nominal two-bit accounting and left the posterior unchanged, while native Hush denied the equivalent exact predicate at 10 realized bits. Output cardinality does not bound knowledge when output preimages are imbalanced."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Transactional realized-posterior accounting closes the tested PCC identification bypass without destroying the non-identifying scheduling capability.",
+          "evidence": "research/pcc-runtime-product/INFERENCE_FIREWALL_CORRECTION_RESULT.md; research/pcc-runtime-product/inference_firewall_correction.json; research/pcc-runtime-product/bundled_results_v4.json",
+          "audit": "Corrected PCC denied the identifying pair before approval, emitted no booleans, and left 1,024 candidates uncommitted. The prospectively predicted non-identifying scheduling posterior retained exactly 30 candidates in all 512 arm-cases. Posterior changes commit only on one-shot consumption and stale concurrent preparations are rejected. Full suite after the later diagnostic-digest correction: 304/304 tests.",
+          "scope": "Applies to analyzable bounded safe-integer comparisons under declared-domain assumptions; non-integer, inaccurate-domain, malicious-contract, external-prior and covert-channel cases remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Extractor-contract syntax is a safe identity for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/EXTRACTOR_ALIAS_RESULT.md; research/pcc-runtime-product/extractor_alias_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For secret 500 in domain 0..1023, two semantically equivalent numeric extractors differing only by an irrelevant anchor created separate posterior ledgers. The system approved both `s >= 500` and `s <= 500`; independent intersection reconstructed exactly `[500]`. The shared-extractor control denied the second disclosure. Frozen failure SHA-256: 131cc51c966652bce212b57dc9b0e1f076b6cc4c0da01c1571ece0d5fa7eea28.",
+          "scope": "Trusted-local contract registration is assumed, so this is a composition-accounting counterexample for separately authored trusted contracts, not a remote arbitrary-code exploit."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Opaque extracted-scalar identity closes the tested extractor-syntax composition bypass and fails closed on conflicting declared domains.",
+          "evidence": "research/pcc-runtime-product/EXTRACTOR_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/extractor_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The first corrected replay excluded extractor syntax, created one ledger across equivalent extractor aliases, denied the second query, and retained 524 candidates rather than one. It reproduced byte-identically with SHA-256 edf27db402c0c136ec49d4fba6752300faddd03add3b227f34a747cb64208208. A later field-alias counterexample showed that retaining field identity was still insufficient.",
+          "scope": "Finite bounded-integer adversarial differential. It does not establish universal semantic equivalence, resistance to malicious trusted extractors, side-channel safety, external validation, or a field breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Trusted schema path and private-field syntax are safe identities for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/FIELD_ALIAS_RESULT.md; research/pcc-runtime-product/field_alias_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "A trusted record with `balance=500` and its schema alias `availableBalance=500` received two ledgers. The system approved `s >= 500` through one field and `s <= 500` through the other; the ledgers individually retained 524 and 501 candidates, but independent intersection reconstructed exactly `[500]`. Frozen failure SHA-256: 10191028ecb0f066008889cc4d2b604ee54a6bb542bb29ffd4f65d93c8b0d2db.",
+          "scope": "Assumes two trusted fields are declared aliases of one logical scalar. It is a local composition-identity counterexample, not a remote arbitrary-code exploit."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Scalar-only opaque posterior identity closes the tested extractor and duplicate-field alias bypasses.",
+          "evidence": "research/pcc-runtime-product/FIELD_ALIAS_CORRECTION_RESULT.md; research/pcc-runtime-product/field_alias_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen field-alias replay denied the second query, used one ledger, and retained 524 candidates. Conflicting domains fail closed. The corrected replay was byte-identical with SHA-256 27466d87f549f7149f8eae10e6f8e0f60a78137f7488b623f0c5b4447534a523; 14/14 focused and 303/303 full tests passed.",
+          "scope": "Conservative finite-domain hardening: unrelated equal-valued fields may share accounting and lose utility. It does not establish arbitrary semantic canonicalization, malicious-contract resistance, side-channel safety, external validation, or a field breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A plain SHA-256 identifier safely hides a bounded private scalar when exposed through metadata-only diagnostics.",
+          "evidence": "research/pcc-runtime-product/DIGEST_DICTIONARY_RESULT.md; research/pcc-runtime-product/digest_dictionary_probe.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "The authenticated local partition footprint exposed SHA-256 of `{kind:number,value:500}`. An independent enumerator hashed all 1,024 declared candidates and recovered exactly 500 without reading the encrypted record. Collision resistance does not make a deterministic digest hiding on a small known domain. Frozen failure SHA-256: 2325869354c41e8b84c9056a324bdb04afe8cb5578301b561a4d03920c8dc503.",
+          "scope": "Authenticated local diagnostic/owner surface, not the remote model or provider boundary."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Public PCC diagnostics can retain aggregate posterior statistics without exposing the brute-forceable scalar identifier.",
+          "evidence": "research/pcc-runtime-product/DIGEST_DICTIONARY_CORRECTION_RESULT.md; research/pcc-runtime-product/digest_dictionary_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Public partition footprints now replace the internal key with `pcc:derived`; the unchanged 1,024-candidate enumerator found zero matches while candidate and knowledge statistics remained available. The replay was byte-identical with SHA-256 805f8db6f7ed504a47a48336f29606df611da42117db39964747e13380ccad80; 15/15 focused and 304/304 full tests passed.",
+          "scope": "Closes one deterministic-digest dictionary channel. Local runtime compromise, arbitrary side channels, semantic privacy, external validation and remote-model behavior remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Hiding the compiled statement and value is sufficient to make PCC preparation metadata non-disclosing before approval.",
+          "evidence": "research/pcc-runtime-product/PREAPPROVAL_METADATA_RESULT.md; research/pcc-runtime-product/preapproval_metadata_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "With decision `ask` and zero approvals/consumptions, realized `afterCandidates` identified `secret >= 500` from 524 versus 500 candidates; a balanced 512/512 predicate still leaked through serialized size (108 versus 132 bytes); bundle `afterCandidates=300` recovered both predicate results. Result-dependent metadata is itself a disclosure. Frozen failure SHA-256: 6387be722bbaed07d631b30a062af900134784f6b68970a5e007e34e69fcabb8.",
+          "scope": "Agent-facing local preparation boundary; not evidence of provider-boundary transmission, timing leakage, or arbitrary covert-channel resistance."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent PCC preparation metadata closes the tested single and bundled pre-approval inference channels.",
+          "evidence": "research/pcc-runtime-product/PREAPPROVAL_METADATA_CORRECTION_RESULT.md; research/pcc-runtime-product/preapproval_metadata_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Safe release and bundle metadata now omit output size and realized `afterCandidates` / `totalKnowledgeBits` until consumption, while retaining pre-query candidate count and configured budget/capacity. The unchanged probe recovered 0/3 results, reran byte-identically with SHA-256 353fe2633f2f3b50f58c6ccd7dc5d042c9ac4a2d9fa2397399ea047c8644ef2f, and 15/15 focused plus 304/304 full tests passed.",
+          "scope": "Closes the tested deterministic size and realized-accounting metadata channels. Timing, memory, compromised-runtime, malicious-contract, semantic and arbitrary side channels remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A privacy-firewall denial can be surfaced during PCC preparation without disclosing an unapproved private result.",
+          "evidence": "research/pcc-runtime-product/DENIAL_ORACLE_RESULT.md; research/pcc-runtime-product/denial_oracle_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For `secret == 500` over domain 0..1023, the true world exceeded the eight-bit posterior limit and threw an inference-denial during preparation, while the false world returned `decision: ask`. The control-flow difference revealed equality with zero approvals and zero consumptions. Frozen failure SHA-256: 24e04f4a53be8aa97103a3b7b6c149c16c4f4ed8ed433a9d11cb37f9d4b50c6e.",
+          "scope": "Agent-facing preparation response for a bounded integer equality query; no provider transmission was required."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Approval-bound generic firewall denial closes the tested PCC preparation control-flow oracle.",
+          "evidence": "research/pcc-runtime-product/DENIAL_ORACLE_CORRECTION_RESULT.md; research/pcc-runtime-product/denial_oracle_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Both secret=500 and secret=501 now produce the same prepared `ask` observation before approval. A withheld transaction cannot commit; after explicit approval it returns a generic one-shot denial without a constraint or posterior commit. The correction reran byte-identically with SHA-256 8651ab9a2e8de64c7dcdc47148d626dd51fc87e737bdc4e407048001c3943282; 15/15 focused and 304/304 full tests passed.",
+          "scope": "Response-level indistinguishability for the tested bounded equality case. Timing, standing prior consent, semantic privacy, arbitrary-program noninterference and covert channels remain unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "No usable result-dependent PCC preparation timing signal was detected at the preregistered five-percent resolution in the tested in-process equality differential.",
+          "evidence": "research/pcc-runtime-product/TIMING_ORACLE_RESULT.md; research/pcc-runtime-product/timing_oracle_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "In the frozen 500-pair target/control differential, the adjusted median ratio was 1.00052, direction was 251/249, exact sign-test p=0.9643, block agreement was 2/5, and all four leakage gates failed. An independent 500-pair repeat also failed every gate at ratio 1.00510, direction 256/244 and p=0.6228. Frozen raw SHA-256: c7dd915c45159c5a240178331a2c4bfebbf7dc21e27b8c5ef03af8a62cfe490a.",
+          "scope": "Bounded negative result on one Linux x64 / Node.js v24.19.0 runtime, one equality predicate and one 1,024-value domain. It is not a constant-time guarantee and excludes network, cross-process, cache/CPU, other-domain and standing-consent channels."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Delaying a result-dependent firewall refusal until consumption makes PCC transcript-private under standing consent.",
+          "evidence": "research/pcc-runtime-product/SELECTIVE_REFUSAL_RESULT.md; research/pcc-runtime-product/selective_refusal_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "For `secret == 500` over domain 0..1023, both worlds prepared as `approved`, but the true world returned a generic privacy denial while the false world released `false`. With no new human interaction, allow-versus-refuse revealed the protected equality bit. Frozen corrected-run failure SHA-256: 4c17a2e2e50b1c2cea2ea4690f7e76f59fba1b73c39ba30518f40a3eb6fb5f6e.",
+          "scope": "Trusted bounded-integer equality contract under standing local consent; not a remote arbitrary-query exploit or universal PCC failure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent feasible-branch authorization closes the tested standing-consent selective-refusal oracle while preserving a balanced threshold comparison.",
+          "evidence": "research/pcc-runtime-product/SELECTIVE_REFUSAL_CORRECTION_RESULT.md; research/pcc-runtime-product/selective_refusal_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen probe now returns the same pre-consumption denial for secret=500 and secret=501. A balanced threshold whose branches each retain 512/1,024 candidates remains approved and releasable. The correction reran byte-identically with SHA-256 d40374163594537f3635ef4858ca276b373f76af10215188cde2ebf92442b0aa; 17/17 focused and 306/306 full tests passed.",
+          "scope": "Analyzable bounded-integer comparisons and bundles of at most four booleans under declared-domain assumptions. The conservative preflight denies the whole query when any feasible branch is unsafe; semantic privacy, malicious contracts and general side channels remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Replacing each value-derived PCC ledger identifier with a fixed public label is sufficient to hide private scalar identity in diagnostics.",
+          "evidence": "research/pcc-runtime-product/LEDGER_CARDINALITY_RESULT.md; research/pcc-runtime-product/ledger_cardinality_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Equal recovered scalars deliberately shared one internal ledger while unequal scalars created two. The public footprint redacted both identifiers to `pcc:derived` but preserved list cardinality: `(500,500)` exposed one row and `(500,501)` exposed two, revealing equality with zero approvals and consumptions. Frozen failure SHA-256: 7f0b1209fa154946f2b1b874cdde1851a17ad7e5082fda3c74828be9d559c52d.",
+          "scope": "Authenticated local diagnostic surface for two trusted bounded-integer fields; not remote model/provider disclosure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A single conservative public PCC diagnostic summary closes the tested ledger-cardinality equality oracle without changing internal per-scalar composition accounting.",
+          "evidence": "research/pcc-runtime-product/LEDGER_CARDINALITY_CORRECTION_RESULT.md; research/pcc-runtime-product/ledger_cardinality_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged probe now emits one identical aggregate row for equal and unequal worlds. It reports conservative extrema while withholding contributing-ledger count. The corrected artifact reran byte-identically with SHA-256 bd1b002dad13b318b7bfa18ecddd63889dcaed75f8b40a944a8eb77ce97ec18a; 18/18 focused and 307/307 full tests passed.",
+          "scope": "Closes the frozen `partitionExposure()` cardinality channel. Aggregate statistics remain visible; other diagnostics, semantic privacy, malicious contracts and compromised-runtime attacks remain open."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Automatic co-accounting by current recovered scalar value can be made transcript-private by hiding value-derived diagnostic identity and cardinality.",
+          "evidence": "research/pcc-runtime-product/VALUE_IDENTITY_AUTHORIZATION_RESULT.md; research/pcc-runtime-product/value_identity_authorization_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Two worlds released identical predicate results, but the second preparation was denied only when two structurally independent private fields held equal values. Current private equality therefore selected whether composition applied, exposing equality through authorization control flow. Frozen failure SHA-256: d8613654bf267efbffe88cf30811222a7cca3e21323fc01c2e1cfdd2b397ec34.",
+          "scope": "Trusted bounded-integer contracts over two local fields. This supersedes the earlier scalar-only identity correction; it is not a remote arbitrary-query exploit or universal PCC failure."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Result-independent structural identity closes the frozen private-equality authorization oracle while preserving explicitly declared alias composition.",
+          "evidence": "research/pcc-runtime-product/VALUE_IDENTITY_AUTHORIZATION_CORRECTION_RESULT.md; research/pcc-runtime-product/value_identity_authorization_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged differential now returns `ask` in both equal and unequal worlds. Same-field extractor aliases compose automatically; cross-field aliases require a trusted public `privacyGroup`; persisted legacy value-derived ledgers fail closed. The corrected artifact reran byte-identically with SHA-256 3418a9cdadc96cfd64faed0ce8de35a7db6635242cbbb7404275f8e5295a7656; 29/29 focused and 310/310 full tests passed.",
+          "scope": "The correction depends on accurate trusted structural grouping. It does not solve semantic alias discovery; incorrect or malicious `privacyGroup` metadata can under-compose or over-compose privacy state."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Encrypted storage-record identity is sufficiently stable for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/RECORD_RECREATION_RESULT.md; research/pcc-runtime-product/record_recreation_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "After `s >= 500` was released, deleting and recreating the unchanged logical path allocated a new record identifier and fresh ledger. The system then released `s <= 500`; the public intersection was exactly `[500]`. Unchanged and in-place-update controls denied the second query. Frozen failure SHA-256: 9231993abaf0580804406d10a1542f143d0dfccddf337f6eb4f452c58a1782a3.",
+          "scope": "Trusted local lifecycle operation on one bounded integer record. It does not establish that a remote model can delete context."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Logical-path/field identity closes the tested storage-lifecycle composition reset while preserving same-path composition and distinct-path independence.",
+          "evidence": "research/pcc-runtime-product/RECORD_RECREATION_CORRECTION_RESULT.md; research/pcc-runtime-product/record_recreation_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The unchanged frozen differential now denies the identifying second query after restart, in-place update and remove/recreate. PCC v3 uses logical path plus field by default, explicit trusted grouping for cross-path aliases, and fails closed on older PCC identity namespaces. The corrected artifact reran byte-identically with SHA-256 f9e9a1e67ac0aa887ab54d40bb0f243b8276da43189e0dedea82aaae637b3497; 30/30 focused and 311/311 full tests passed.",
+          "scope": "Path reuse for a different logical secret may conservatively retain obsolete accounting; path renames need trusted grouping. Semantic alias discovery and external validation remain unresolved."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Logical connector path plus private field is a sufficiently durable identity for persistent PCC composition accounting.",
+          "evidence": "research/pcc-runtime-product/CONNECTOR_ID_ROTATION_RESULT.md; research/pcc-runtime-product/connector_id_rotation_failure.json; https://github.com/sushxnthd/hush/pull/35",
+          "mechanism": "Hush derives connector paths from provider, collection and provider-controlled source ID. After `s >= 500` was released, a replacement snapshot changing only source ID created one new path and removed the old path. After restart PCC allowed `s <= 500`; the transcript uniquely recovered `[500]`. The stable-ID control denied it. Frozen SHA-256: f9069ca31b060b4608fda48d9a05c783751deffe7179b62fcdbad1be8eb4dc18.",
+          "scope": "Deterministic generic-connector simulation through actual normalization, replacement ingestion, encrypted restart and PCC runtime. It establishes a failure under identifier churn, not that named live providers currently rotate IDs this way."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A trusted adapter-supplied, value-independent durable privacy key closes the tested connector source-ID rotation composition reset and makes absent or duplicate continuity fail closed.",
+          "evidence": "research/pcc-runtime-product/CONNECTOR_PRIVACY_KEY_CORRECTION_RESULT.md; research/pcc-runtime-product/connector_privacy_key_correction.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Under the prospectively frozen differential, stable and rotated provider IDs with the same durable privacyKey both denied the identifying second predicate. A missing key rejected connector-backed comparison preparation and duplicate keys rejected the snapshot. The prior ordinary record-recreation probe remained PASS. The result reran byte-identically with SHA-256 bc471f90dfb0067262433eab946af5d2751e2feb45f7fba63f4e8a363cf10082; 28/28 focused and 313/313 complete repository tests passed. PCC identity is versioned to v4 and earlier state fails closed.",
+          "scope": "Trusted adapter metadata in a deterministic generic-connector simulation. It does not discover aliases, prevent malicious or mistaken adapter key mutation/reuse, validate live-provider identity behavior, establish semantic privacy, or pass the breakthrough gate."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Hush can claim the broad mechanisms of compute-before-disclose, typed/scoped semantic declassification, or cumulative agent inference budgeting as new privacy primitives.",
+          "evidence": "research/pcc-runtime-product/PRIOR_ART_AUDIT_2026-10-12.md; OCELOT arXiv:2606.12341; MINIM arXiv:2606.13949; MNC arXiv:2608.01719; Jeeves POPL 2012 / PLAS 2013; adaptive QIF arXiv:1507.05766",
+          "mechanism": "OCELOT already combines runtime posterior-risk control, certified min-entropy charging, sink-weighted budgets and a tamper-evident ledger. MNC already combines application-authored typed task-sufficient disclosures, recipient/purpose/lifetime scopes, a reference monitor and history-aware inference control. MINIM, Jeeves and adaptive quantitative-information-flow work absorb further local-minimization, policy-selected-view and adaptive-composition components.",
+          "scope": "Primary-source conceptual audit as of 12 October 2026. It does not prove that an exact implementation matching all PCC runtime details already exists."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "Hush's exact combination of encrypted connector-backed context, bounded contracts, exact finite-domain feasible-branch authorization, lifecycle-stable composition, approval-bound one-shot actions and explicit falsification artifacts is a distinct system contribution against closest matched controls.",
+          "cheapest_next_experiment": "Implement or faithfully adapt OCELOT-style cumulative leakage budgeting and MNC-style scoped semantic declassification as matched controls on the same frozen external tasks, model, sink set and trace evaluator; compare task success, unnecessary disclosure, adaptive reconstruction, false denial, approvals and completed actions."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Public output-size metadata can trigger exact-value collisions and may become a genuine size side channel even when derived values are otherwise bounded.",
+          "evidence": "research/pcc-runtime-product/BUNDLED_FIRST_RUN_FAILURE.md; research/pcc-runtime-product/bundled_results.json",
+          "audit": "The first frozen bundle run failed 1/256 receipt checks because private cutoff 203 collided with outputBytes 203. Output size was constant and therefore did not causally encode the cutoff in that cohort, but the FAIL was preserved. Public bundle size metadata was removed before the untouched correction cohort.",
+          "cheapest_next_experiment": "Under an external model-based task set, vary statement/value encodings adversarially and measure observable length, timing, retry and semantic-inference channels rather than exact equality alone."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "The runtime PCC advantage survives a pinned model and external scheduling tasks with semantic/inference leakage scoring.",
+          "cheapest_next_experiment": "Freeze an external scheduling task set and pinned local model while retaining captured model, MCP, provider, receipt, error and retry boundaries."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The Hush PCC evidence is packaged as a concise HAA-facing proof-of-work chain with the claim, decisive table, falsified assumption, reproduction commands, limitations and next experiment.",
+          "evidence": "research/pcc-runtime-product/HAA_EVIDENCE_BRIEF.md; https://github.com/sushxnthd/hush/pull/35",
+          "scope": "Translation artifact only; it does not elevate the underlying INCONCLUSIVE scientific breakthrough gate."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The released AgentDAM privacy score can directly validate PCC's provider-boundary non-disclosure claim under a fixed-denominator, fail-closed protocol.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EVALUATOR_AUDIT_2026-10-12.md; facebookresearch/ai-agent-privacy revision 5d4068a404b624ed24ebbe5fb49ba5f644557912",
+          "mechanism": "The pinned runner sends rendered browser action strings, not outbound model/provider request payloads, to the privacy judge. The judge parser defaults unparseable output to score 0.0 ('no leakage'), while task exceptions are logged without appending a failure or leakage observation to the denominator.",
+          "audit": "A clean verifier checked the pinned revision and Git blob IDs, confirmed seven source-structural properties, and replayed six parser variants without opening benchmark tasks. Result SHA-256: 241c8c383902f6daeb5c05aec9a08a933c3bb5b51887d529236a2c57c34b75f4.",
+          "scope": "Evaluator-contract negative result, not an empirical claim about AgentDAM agents, its task set, or its published scores. The task outcomes remain unopened."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A boundary-matched, fail-closed evaluator is a prerequisite for any AgentDAM-derived PCC confirmation study.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EVALUATOR_AUDIT_2026-10-12.md; Hush research/pcc-runtime-product/verify_agentdam_evaluator_contract.py",
+          "scope": "Capability gate only. No external comparative outcome or breakthrough claim has been produced."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A first fail-closed boundary evaluator preserves fixed case-arm denominators and detects protected data in normal, error and retry traces under synthetic adversarial dry runs.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_BOUNDARY_EVALUATOR_RESULT.md; Hush research/pcc-runtime-product/agentdam_boundary_dryrun.json",
+          "audit": "The frozen 12-case by six-arm dry run passed 11/11 gates; missing traces/boundaries remained in the denominator and failed privacy, duplicate records invalidated the protocol, retry/error leaks were detected, and an errored task remained a utility failure. A repeat was byte-identical. Result SHA-256: 523d8d8e34e4ff292790207120f7eadc8b7fb395455b8aaab2fad0ca3234d1f8. Focused tests 7/7; full Hush suite 320/320 after deterministically repairing an unrelated probabilistic ciphertext-tamper fixture.",
+          "scope": "Synthetic evaluator capability only. AgentDAM task outcomes remain unopened; actual adapter integration, local model, semantic/inference judge and faithful OCELOT/MNC implementations remain incomplete."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A source-pinned AgentDAM overlay emits the fail-closed model/action/provider/receipt/error/retry trace schema under synthetic runner doubles.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_TRACE_ADAPTER_RESULT.md; Hush research/pcc-runtime-product/agentdam_trace_adapter_result.json",
+          "audit": "The preregistered raw/PCC integration passed 9/9 gates: 12/12 valid fixed-denominator traces, raw canary disclosure 6/6 versus PCC 0/6, equal 6/6 synthetic utility, and retained timeout/error/retry/two-attempt records in both arms. An independent invocation was byte-identical; canonical result digest df129bfc94be6dfbf45e27252239cad66f2c2a1a5b05847e0ff67d96dcb11f99. Python tests 3/3, boundary tests 7/7, complete Hush suite 320/320.",
+          "scope": "Capability-building only: the model module and Playwright-style page were synthetic doubles and this dry run did not execute the released runner loop. The later runner-loop smoke is recorded separately. No AgentDAM task outcome was opened; semantic scoring, pinned local model and faithful matched controls remain incomplete."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The source-pinned boundary overlay attaches to AgentDAM's released test loop and PromptAgent retry control flow under benchmark-free dependency-isolated fixtures.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_RUNNER_LOOP_SMOKE_RESULT.md; Hush research/pcc-runtime-product/agentdam_runner_loop_smoke_result.json",
+          "audit": "Both raw and PCC arms executed the exact pinned run_agentdam.test() and PromptAgent.next_action() source. The deliberately malformed first model response triggered the released parse-retry loop. All 8/8 gates passed: two valid fixed-denominator traces, two model calls and one retry per arm, one action/provider/receipt per arm, raw disclosure 1/1 versus PCC 0/1, and task success 1/1 in both arms. The independent invocation was byte-identical; canonical evaluation digest 5b4d16b8d98b3e739a72aff549a89e9d254841dfcd50f67e06b2b0fe29e883eb. Full Hush suite 320/320.",
+          "scope": "Capability-building only. Browser, provider, prompt constructor, renderer and evaluator were deterministic local doubles loaded through dependency isolation. No benchmark outcome, live browser/provider, local model, semantic judge or timing study was opened."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A deterministic, revision-bound 36-case AgentDAM research cohort is frozen by task ID without opening task payloads or outcomes.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_EXTERNAL_FREEZE_RESULT.md; Hush research/pcc-runtime-product/agentdam_external_freeze_manifest.json; Hush research/pcc-runtime-product/agentdam_external_freeze_result.json",
+          "audit": "At upstream revision 5d4068a404b624ed24ebbe5fb49ba5f644557912, the verifier reproduced every audited Git blob/content hash, source count, integer-ID uniqueness check and the SHA-256-ranked selection of 12 IDs each from GitLab, Reddit and Shopping. Two runs were byte-identical with canonical result SHA-256 b07a5863e614db04ccbeb432f86e89d971a4edb731de9dddd8ee49a89914a192. Full Hush suite 320/320.",
+          "scope": "Source/subset provenance only. The data are CC BY-NC 4.0 and the generated WebArena format also carries Llama 3.1 terms; the public package references IDs and hashes rather than redistributing task payloads. No external task outcome or PCC advantage was observed."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "The frozen AgentDAM cohort can be executed under the zero-spend constraint with a capable pinned local model and faithful semantic/OCELOT/MNC controls.",
+          "evidence": "Hush research/pcc-runtime-product/agentdam_external_freeze_result.json",
+          "audit": "The current environment fails closed: Python 3.12 is outside upstream's stated 3.10/3.11 support, and no GPU, Docker daemon, Playwright CLI, vLLM, PyTorch, OpenAI client, tiktoken or beartype is available. The released local path additionally requires standalone GitLab, Shopping and Reddit services; the README's 70B example uses eight GPUs.",
+          "scope": "Infrastructure/control blocker, not a scientific failure. A smaller quantized model may be feasible but could change task capability and therefore must be frozen before outcomes.",
+          "cheapest_next_experiment": "Implement the semantic judge and faithful OCELOT/MNC controls on synthetic/open development fixtures, then perform a no-outcome startup check in a genuinely compatible zero-spend environment."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "A deterministic semantic-leakage judgment contract now binds every verdict to its exact input digest and fails privacy closed on malformed, missing, abstaining or disagreeing outputs.",
+          "evidence": "Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_PREREGISTRATION.md; Hush research/pcc-runtime-product/AGENTDAM_SEMANTIC_JUDGE_RESULT.md; Hush research/pcc-runtime-product/agentdam_semantic_judge_dryrun.json",
+          "audit": "Five synthetic items across three prompt variants produced all 15 bound judgments. Exact, paraphrased and inferential fixtures failed privacy; the benign fixture passed; ambiguity abstained and failed closed. Seven of seven frozen gates, six of six focused tests and 326/326 full Hush tests passed. Two runs were byte-identical; artifact-file SHA-256 8e537bca0eb87dd2f20986dac8b7e788870ce4d2f64a29022120b95a636fdd95.",
+          "scope": "Transport/parser/aggregation capability only. A synthetic oracle supplied labels; no model's semantic competence, human agreement or AgentDAM outcome was tested. Three prompt variants from one future model are robustness checks, not independent reviewers."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For uniform finite feasible states and deterministic binary releases, PCC cardinality charge, realized posterior min-entropy reduction and a history-aware semantic-declassification specialization are the same quantity, log2(|S|/|B|).",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_PREREGISTRATION.md; Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/matched_control_equivalence_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "Exhaustive enumeration over domain sizes 2..12 covered 1,561,584 charge cases and 37,478,016 weighted budget decisions with zero charge, decision or repeated-disclosure disagreements. Maximum floating-point error was 3.885780586188048e-16. Two full executions were byte-identical; file SHA-256 cb9ff86d13a8d3fa53b078f099660b45662e22099c9dcba2c5732abc31ad1a06; full Hush suite 326/326.",
+          "scope": "Exact theorem and finite exhaustive verification for uniform feasible states, deterministic binary releases, identical histories, weights, budgets and feasible-branch authorization. It is not an OCELOT/MNC author-code reproduction, empirical superiority result or semantic-privacy claim."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "PCC's exact finite-domain charge formula by itself distinguishes Hush from a matched posterior-min-entropy control in the uniform deterministic regime.",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/PRIOR_ART_AUDIT_2026-10-12.md",
+          "mechanism": "Under a uniform posterior, realized conditional min-entropy is log2 of feasible-set cardinality. Restricting S to observed branch B therefore reduces min-entropy by log2(|S|/|B|), exactly PCC's realized cardinality charge; equal weights and budgets force equal decisions.",
+          "scope": "Does not absorb OCELOT's calibrated per-operator upper bounds or MNC's candidate/scope monitor. Other system mechanisms may still differ."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "A non-uniform two-secret prior is a minimal boundary where PCC cardinality accounting diverges sharply from statewise min-entropy reduction.",
+          "evidence": "Hush research/pcc-runtime-product/MATCHED_CONTROL_EQUIVALENCE_RESULT.md; Hush research/pcc-runtime-product/matched_control_equivalence_result.json",
+          "audit": "For prior (0.9, 0.1) and an exact deterministic reveal, cardinality reduction is 1.0 bit while statewise min-entropy reduction is log2(1/0.9)=0.15200309344505006 bits, a difference of 0.84799690655495 bits.",
+          "scope": "Analytic boundary under one stated risk definition. Divergence may represent conservative protection or unnecessary denial; it is not automatically a PCC advantage.",
+          "cheapest_next_experiment": "Freeze a skewed-prior development sweep comparing cardinality, calibrated posterior-risk and strongest matched operator-bound controls; measure denial, reconstruction and utility without opening the frozen AgentDAM cohort."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For finite non-uniform priors and deterministic observed branches, the exact PCC cardinality/min-entropy gap obeys C-L=log2(alpha/beta), where alpha=n*max(p) is global prior concentration and beta=k*max_B(p)/P(B) is within-branch concentration.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_PREREGISTRATION.md; Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md; Hush research/pcc-runtime-product/skewed_prior_regime_law_result.json; https://github.com/sushxnthd/hush/pull/35",
+          "audit": "The algebraic identity was preregistered before execution. Exhaustive enumeration covered 3,289 ordered positive rational priors and 189,222 prior/branch cases for n=2..7 and denominators n..12, with zero decomposition or exact-sign disagreements, zero disagreements over 388 uniform and 17,820 singleton cases, maximum numerical error 4.440892098500626e-16, and byte-identical repeats. File SHA-256 f42b8bd8284ee50be1d5926c38386a6dc149653f9bd57466ebe3e7786ba724f3.",
+          "scope": "Elementary exact decomposition and finite exhaustive verification for statewise min-entropy versus cardinality under deterministic set-valued releases. No historical novelty, learned-prior validity, semantic privacy, external utility or named-system superiority is claimed."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "PCC cardinality accounting is always conservative relative to realized statewise min-entropy reduction under skewed priors.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md; Hush research/pcc-runtime-product/skewed_prior_regime_law_result.json",
+          "mechanism": "Cardinality undercharges exactly when observed-branch concentration beta exceeds global prior concentration alpha. The smallest enumerated example used prior (1/5,2/5,2/5) and branch {0,1}: cardinality charged 0.584963 bits while statewise min-entropy reduction was 0.736966 bits.",
+          "scope": "One explicit risk definition under exact priors; an undercharge relative to this measure is not by itself an empirical privacy failure."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Skewed priors create a sharp two-sided accounting regime rather than a monotone conservative correction.",
+          "evidence": "Hush research/pcc-runtime-product/SKEWED_PRIOR_REGIME_LAW_RESULT.md",
+          "audit": "The frozen enumeration contained 161,635 overcharge, 7,246 equality and 20,341 undercharge cases. These are exhaustive counts for the stated rational grid, not population frequencies.",
+          "cheapest_next_experiment": "On synthetic development tasks only, freeze a prior-contract evaluator that perturbs calibrated priors and measures when alpha/beta sign errors change allow/deny decisions; compare distribution-free cardinality, calibrated posterior charge and fail-closed shift fallback."
+        },
+        {
+          "state": "UNTESTED",
+          "claim": "A provenance-bound calibrated-prior mode can improve Hush utility without increasing reconstruction or introducing unsafe behavior under prior shift.",
+          "cheapest_next_experiment": "Implement a development-only prior contract with calibration provenance, support floor and shift detection; preregister a sweep across correct, misspecified and adversarial priors before any external AgentDAM outcome is opened."
+        }
+      ],
+      "holdout_state": "The clean-room v1/v2 domains, 512 proxy scheduling cases, 256 runtime product cases, bundle cohorts 0-255 and 256-511, incomplete firewall cohort 512-767, and fully gated firewall cohort 768-1023 are opened evidence and may not be presented as fresh holdouts. POLAR P1-P5 and the AgentCIBench v1 50-case confirmation are already spent.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION / PRODUCT-TRANSLATION",
+        "action": "Freeze a development-only prior-contract evaluator using the exact alpha/beta law. Compare distribution-free cardinality, calibrated posterior charge and fail-closed shift fallback under correct, misspecified and adversarial priors, measuring utility, reconstruction and allow/deny reversals. Keep the 36 AgentDAM tasks unopened until semantic human calibration, faithful scope controls and zero-spend environment readiness also pass."
+      }
+    },
+    "LATTICE": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/lattice",
+      "branch": "breakthrough-engine/codegen-factorial-v2-2-evaluator",
+      "head": "fcd9e23f5a423e344021792d2da38a1d70573431",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "The frozen matched-budget candidate-effect gate passed on a fresh holdout: violation-normal prompts scored 59/72 hidden tests versus 28/72 for strong prose.",
+          "evidence": "experiments/CODEGEN_EQUAL_BUDGET_V1_RESULT.md; GitHub Actions run 37311055552",
+          "audit": "Development selected violation-normal at 43/72 versus 26/72. The fresh holdout advantage was 31/72 = 43.06 percentage points, with two versus zero perfect programs. Every domain passed the preregistered <=5% token-gap gate before generation.",
+          "scope": "Qwen2.5-Coder-1.5B-Instruct, greedy decoding, six development and six holdout lexical variants of one small-function schema; not a field-level breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Extra prompt-token budget is necessary for the earlier Qwen 1.5B representation effect.",
+          "evidence": "The violation-normal condition was slightly shorter on average in both splits yet retained a large prospective advantage."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Closed-world violation organization is causally relevant to generated-program correctness in the frozen task family.",
+          "scope": "The run does not distinguish closed-world cue strength, violation ordering, syntactic regularity, or model-specific pretraining familiarity."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The aggregate effect is implementation-independent.",
+          "evidence": "The immutable artifact was uploaded with digest sha256:751b43da8785fdb9da0ac8a9104e6d9896a6657c74ea2a7dcb8a72b3aef25327, but its raw generations have not yet been rescored by a clean evaluator."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "The large aggregate holdout advantage need not imply improvement on a majority of independent domain programs.",
+          "evidence": "results/codegen_equal_budget_v1_aggregate_bounds.json",
+          "audit": "Every matched-test contingency table consistent with 59/72 versus 28/72 has exact McNemar p < 4.711e-5, but exact domain-allocation enumeration permits three improved and three degraded domains while preserving the two-versus-zero perfect-program counts.",
+          "scope": "Opened aggregate-only uncertainty audit; it bounds what can be inferred before raw per-domain artifact reconstruction and is not a new holdout result."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The violation-ordering effect survives exact token identity and is positive in both tested model families; transfer to repository-evolution tasks remains untested.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+          "audit": "Across twelve untouched task structures, evaluator-specific task-perfect classifications were identical: pooled ordering contrast +52.08 percentage points, Qwen +54.17, DeepSeek +50.00. Exact one-sided task-stratified sign-flip p-values were 0.0048828125 pooled, 0.0078125 Qwen and 0.02734375 DeepSeek. All four prompt conditions had exactly equal token counts per task and tokenizer before weights were loaded.",
+          "scope": "Two pinned 1.3B-1.5B code model families, greedy decoding, small policy-to-function synthesis tasks. One evaluator execution-path disagreement keeps the stricter protocol gate inconclusive."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The exact violation-normal transformation is historically novel.",
+          "evidence": "experiments/CODEGEN_EQUAL_BUDGET_V1_PRIOR_ART_AUDIT.md",
+          "audit": "Structured code prompting, multi-constraint ordering effects, under-specification reversals, and fine-grained guard/constraint syntax effects are established. No exact prospective equal-information violation-normal antecedent was located in the bounded search.",
+          "scope": "Broad prompt-structure novelty fails; only the exact controlled transformation remains a potential novelty candidate."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "Violation ordering has a positive causal effect after redundant closed-world wording is independently controlled.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1A_RESULT.md; artifacts/codegen_factorial_v2_1a_raw.json; artifacts/codegen_factorial_v2_1a_analysis.json",
+          "audit": "The preregistered numerical mechanism prediction passed independently under both evaluator task-perfect classifications: +52.08 points pooled, positive in both models, pooled exact p=0.0048828125. The effect remained +41.67 points in each model without an explicit closed-world cue. However, exact dual-evaluator agreement was 95/96: evaluator B omitted the safe builtin isinstance and raised NameError on one non-perfect program that evaluator A scored 20/24. The program was non-perfect under both evaluators, leaving all contrasts invariant, but the protocol explicitly prevents a positive formal result after any disagreement.",
+          "scope": "Strong prospective foothold and mechanism-consistent evidence; formal gate INCONCLUSIVE_EVALUATOR_DISAGREEMENT, not a breakthrough."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The frozen CODEGEN-FACTORIAL-v2 renderer can satisfy exact token identity under both model tokenizers using at most eight inert padding tokens.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_PREFLIGHT_RESULT.md; artifacts/codegen_factorial_v2_tokenizer_preflight.json",
+          "audit": "All 8 model-task preflight gates failed before model loading. Violation rendering cost 8-16 extra Qwen tokens and 11-21 extra DeepSeek tokens; the explicit closed-world cue cost exactly one token in every pair. Artifact sha256:64923557b29a76986b681f8d87a98429405eed48a4d26b7917e91455cf4b35c9.",
+          "scope": "Renderer/control failure only. No model weights, completions or holdout prompts were used, so the scientific mechanism remains untested."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "The symmetric CODEGEN-FACTORIAL-v2.1 renderer attains exact four-condition token identity under both pinned tokenizer families within the preregistered eight-token padding cap.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_1_RENDERER_FREEZE.md; experiments/CODEGEN_FACTORIAL_V2_1_PREFLIGHT_RESULT.md; artifacts/codegen_factorial_v2_1_tokenizer_preflight.json",
+          "audit": "All 8 development model-task gates passed. The same-cue permission-versus-violation gap was 3-5 Qwen tokens and 4-6 DeepSeek tokens; maximum inert padding was 6 and 7 tokens respectively. Every final four-condition token count was identical within task and model. Artifact sha256:b608f0dc54f0496fb49f14cd3f2798e223973782f4051239a191a8edffbf8b99.",
+          "scope": "Pre-generation control/capability result only. No model weights, completions or holdout prompts were used; semantic polarity and logical connective still co-vary by design, and the causal correctness effect remains untested."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "An independently implemented exec-free AST interpreter reproduces every v2.1a generated-program outcome.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_EVALUATOR_RESULT.md; artifacts/codegen_factorial_v2_2_independent_evaluator_audit.json",
+          "audit": "The new evaluator imports neither frozen v2.1 evaluator and never compiles or executes generated Python. It matched evaluator A on all 2,848 case outcomes and all 96 task-perfect classifications, with zero unsupported-program errors. Audit sha256:dbbcbd1606acb2bbdbb76e2afbec873676443464f6d8cf277d548c2f1d54996d.",
+          "scope": "Opened-corpus internal replication and capability evidence only. It materially weakens evaluator artifact as an explanation for the +52.08-point contrast but cannot retroactively repair the preregistered 95/96 dual-evaluator gate or serve as a fresh holdout."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The exact-token violation-ordering benefit is positive across both frozen model families on a distinct task family.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md; artifacts/codegen_factorial_v2_2_raw.json; artifacts/codegen_factorial_v2_2_analysis.json",
+          "audit": "On twelve fresh tasks and 96 frozen generations, Qwen's marginal task-perfect ordering contrast was -8.33 percentage points while DeepSeek's was +37.50 points. The pooled +14.58-point contrast had exact one-sided task-stratified p=0.15625. All 2,304 case outcomes agreed between isolated subprocess execution and the exec-free AST interpreter.",
+          "scope": "The preregistered cross-model mechanism gate is INCONCLUSIVE rather than PASS; broad model-family invariance is unsupported. Raw sha256:0f26b3286f51d3278126b8bc8196629dce0d2bf6d174abe04f30a23a414ab078."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Pinned DeepSeek-Coder-1.3B retains a positive exact-token violation-ordering effect on the fresh v2.2 family without the explicit closed-world cue.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md; artifacts/codegen_factorial_v2_2_analysis.json",
+          "audit": "DeepSeek improved from 7/24 to 16/24 task-perfect programs marginally (+37.50 points; exact one-sided p=0.03125), and from 4/12 to 8/12 under the implicit cue alone (+33.33 points). Its closed-world contrast was -4.17 points, much smaller than the ordering effect.",
+          "scope": "Model-specific empirical foothold only; mechanism, novelty, larger-model transfer and repository-scale utility remain unresolved."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Exact-token policy representation exhibits a reproducible model-by-ordering regime split.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_RESULT.md",
+          "mechanism": "Qwen reversed on backup_restore and exam_schedule while DeepSeek improved on six tasks and reversed only on lab_entry; cue removal did not remove either model's direction.",
+          "cheapest_next_experiment": "On opened/development tasks, classify generated control-flow omissions for reversal versus shared-positive tasks, derive one prediction separating semantic-prior conflict from negation/branch-planning sensitivity, then freeze a small boundary-focused replication."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Qwen's negative v2.2 exact task-perfect contrast is not a negative semantic accept/reject contrast.",
+          "evidence": "artifacts/codegen_factorial_v2_2_error_topology.json; experiments/CODEGEN_FACTORIAL_V2_2_LABEL_BINDING_RESULT.md",
+          "audit": "At both cue levels, Qwen decision-perfect programs tied 8/12 permission versus 8/12 violation. Semantic case accuracy increased by 2.78 points under the implicit cue and 0.69 points under the explicit cue. All 72 payload-only errors were the literal rejected substituted for required blocked on model_publish and dataset_join.",
+          "scope": "Post-hoc decomposition on permanently opened evidence; it localizes the anomaly but cannot replace the frozen task-perfect estimand or repair the INCONCLUSIVE gate."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Rejection-oriented wording plus a required blocked payload is sufficient to cause Qwen's rejected-for-blocked substitution.",
+          "evidence": "experiments/CODEGEN_FACTORIAL_V2_2_LABEL_BINDING_RESULT.md; artifacts/codegen_factorial_v2_2_label_binding_probe.json",
+          "audit": "The frozen development prediction failed: both violation-first media_release completions returned blocked correctly on all cases, while the hold-label specificity control also passed. Evaluators agreed on all 192 cases. Probe sha256:97cb581cf9f6fefb86eeb04d449023880a0f4f333392cee0851ff59e49496d62.",
+          "scope": "Minimal counterexample to the simple label-binding explanation; additional task-semantic or generation-state factors remain unisolated."
+        }
+      ],
+      "holdout_state": "The six CODEGEN-EQUAL-BUDGET-v1 holdout domains, all twelve CODEGEN-FACTORIAL-v2.1 tasks, and all twelve distinct CODEGEN-FACTORIAL-v2.2 tasks are permanently spent. v2.2 completed all 96 generations uninterrupted; the post-start frozen recovery procedure was not used.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION",
+        "action": "Measure token-level generation logits at the first rejection-payload token on opened model_publish, dataset_join and development media_release prompts. Derive a task-semantic boundary prediction only if rejected is selectively elevated for the first two; do not open another broad prompt family or reuse v2.1/v2.2 as fresh evidence."
+      }
+    },
+    "THEORICA": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/theorica",
+      "branch": "breakthrough-engine/robust-translation-audit",
+      "head": "8064457b4e936500b03540e1067cf23f47642d0f",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "A single robust coordinate set is exactly a 2e-deletion-resilient permutation-group base and an exact support multicover.",
+          "evidence": "docs/ROBUST_BASE_MULTICOVER.md; results/robust_base_multicover_verification.json"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Using permutation-group bases for Hamming-error decoding is broadly novel.",
+          "evidence": "docs/ROBUST_BASE_PRIOR_ART_AUDIT.md",
+          "mechanism": "Uncoverings-by-bases and permutation-group decoding are established prior art."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Independent copied actions have additive robust-base cost, whereas synchronized copies obey a capacitated multicover and can cross a sharp feasibility boundary.",
+          "evidence": "results/robust_base_coupling_law_verification.json; results/robust_base_coupling_pairwise_replication.json"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For blockwise synchronized copies, robust-base cost is the sum of the diagonal-copy costs of independently varying blocks.",
+          "evidence": "results/robust_base_partition_transition_verification.json",
+          "audit": "Frozen 10-case C3/S3 prediction passed with zero disagreements and a byte-identical rerun."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "The coupling and partition laws have standalone publication novelty.",
+          "evidence": "docs/ROBUST_BASE_PRIOR_ART_AUDIT.md",
+          "scope": "No exact source was found in a bounded search, but the partition result is a short corollary of the product and diagonal laws and priority is unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the natural A_n action on r synchronized copies, feasibility is exactly 3r >= 2e+1 and the minimum robust-base size has a closed form determined by (2e+1) modulo 3.",
+          "evidence": "docs/ROBUST_BASE_ALTERNATING_RESULT.md; results/robust_base_alternating_law_verification.json",
+          "audit": "The preregistered formula passed two exhaustive routes on all 24 frozen cases for n=3,4,5 and e=1,2,3; a clean rerun was byte-identical.",
+          "scope": "Exact theorem-level foothold for natural alternating actions; historical priority remains unresolved and no field-level breakthrough is claimed."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Minimum support size controls the synchronized-copy feasibility threshold when every minimum-size support occurs in the group.",
+          "evidence": "Natural S_n and A_n closed forms and frozen finite checks",
+          "scope": "The feasibility statement holds generally, but minimum support alone does not determine optimal cost."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For the natural even-dihedral action D_n with n=2k, synchronized robust-base cost is ceil(k(2e+1)/(k-1)) exactly when r(n-2) >= 2e+1.",
+          "evidence": "docs/ROBUST_BASE_DIHEDRAL_RESULT.md; results/robust_base_dihedral_law_verification.json; docs/ROBUST_BASE_DIHEDRAL_REPLICATION.md; results/robust_base_dihedral_generator_replication.json",
+          "audit": "Two original exhaustive routes and a clean generator-only reimplementation passed all 23 frozen D_4, D_6 and D_8 cases. The replication used subgroup closure, pairwise codeword disagreements and multiset search, matched every original row, and reran byte-identically.",
+          "scope": "Exact theorem-level foothold; historical priority remains unresolved."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "For every natural dihedral action D_n on r synchronized copies, feasibility is exactly r mu_n >= 2e+1 and robust-base cost is ceil(n(2e+1)/mu_n), where mu_n=n-1 for odd n and n-2 for even n.",
+          "evidence": "docs/ROBUST_BASE_DIHEDRAL_PARITY_RESULT.md; results/robust_base_dihedral_parity_verification.json",
+          "audit": "The preregistered odd-degree extension passed two exact routes on all 21 frozen D_5, D_7 and D_9 cases; a clean rerun was byte-identical with SHA-256 ec2735777efcfde7bb48c3e636ac9e4f835bcb9a5c283d5bd135558dc7d307e6.",
+          "mechanism": "Odd reflections fix one vertex whereas even reflections can fix an opposite pair, changing the support hypergraph and producing the exact nonmonotone D_5-to-D_6 cost transition 4-to-5 at e=1,r=1.",
+          "scope": "Exact theorem-level natural-dihedral law and parity-regime foothold; historical priority and external specialist review remain unresolved."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Support-hypergraph symmetry forces synchronized robust-base cost to lie within a degree-independent additive constant of its fractional multicover optimum.",
+          "evidence": "docs/ROBUST_BASE_FRACTIONAL_GAP_RESULT.md; results/robust_base_fractional_gap_verification.json",
+          "audit": "The new n=6,...,10 predictions passed exhaustive triple-support enumeration; explicit even-permutation support enumeration independently confirmed A_6 and A_7; the rerun was byte-identical with SHA-256 3d6efc42038b621ab118eeb5e316bca5e46381278bafed44d4d92e5d329e60b7.",
+          "mechanism": "At e=3,r=3, integrality forces multiplicities (2,2,3,...,3), costing 3n-2, while uniform fractional weight 7/3 attains 7n/3. The exact additive gap 2n/3-2 is unbounded despite complete triple symmetry.",
+          "scope": "Exact scoped counterexample family, but x_i=m_i-2 maps it directly to the standard complete 3-uniform-hypergraph transversal gap; standalone novelty is falsified.",
+          "prior_art_state": "REDISCOVERY"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "Degree and minimum nonidentity support size determine synchronized robust-base cost.",
+          "evidence": "Natural D_4 and S_4 both have degree four and minimum support two, but at r=2 and e=1 their exact costs are 6 and 7 respectively.",
+          "mechanism": "D_4 has only two disjoint minimum supports, while S_4 has every vertex pair; the support hypergraph changes the integer-cover optimum."
+        }
+      ],
+      "holdout_state": "All located translation-action challenges are already opened; none may be reused as fresh evidence.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION",
+        "action": "Obtain external specialist proof and priority review of the dihedral parity law, while excluding complete-uniform-hypergraph consequences from novelty candidates and targeting genuinely group-specific support geometries."
+      }
+    },
+    "KERNELLUM": {
+      "priority": 2,
+      "repository": "/workspace/scratch/93c782ff9166/kernellum-independent",
+      "branch": "research/independent-additive-replication",
+      "head": "09a63b0c00185659037dff1bae02367eb7d0c7e8",
+      "pull_request": "https://github.com/sushxnthd/kernellum/pull/101",
+      "claims": [
+        {
+          "state": "KNOWN",
+          "claim": "Direct response-scale exponential least squares preserves negative additive-noise observations and strongly improves the frozen inside-Gaussian regime.",
+          "evidence": "docs/ADDITIVE_RESPONSE_RESULT.md",
+          "scope": "Scoped mechanism gate only; broad synthetic and NIST transfer gates failed."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "With the latent Gaussian mean family held exact, changing additive Gaussian noise to multiplicative lognormal noise reverses the ranking of response NLS and bias-corrected log OLS.",
+          "evidence": "docs/NOISE_LIKELIHOOD_CROSSOVER_RESULT.md; results/additive_response/noise_likelihood_crossover/result.json",
+          "audit": "Frozen ten-seed gate passed: response/log geometric NMSE ratio 0.1112 with additive noise and 5.4728 with multiplicative noise; byte-identical rerun and independent aggregation audit.",
+          "scope": "Prospective two-dimensional synthetic mechanism result; established estimators, no field-level novelty claim."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Under frozen two-peak topology misspecification, the likelihood-driven estimator ordering retained its direction at separations 0.3, 0.7 and 1.1, but the preregistered robustness margin and universal monotone weakening prediction failed.",
+          "evidence": "docs/NOISE_LIKELIHOOD_TOPOLOGY_SHIFT_RESULT.md; results/additive_response/noise_likelihood_topology_shift/result.json",
+          "audit": "Primary FAIL: the multiplicative response/log ratio was 1.2046 at separation 1.1 versus the frozen minimum 1.25. Directional ordering held in all six aggregates; response won 27/30 additive trials and log OLS won 22/30 multiplicative trials. Byte-identical rerun and independent aggregation audit.",
+          "scope": "Finite synthetic boundary result; no threshold revision, novelty claim or field-level breakthrough."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In the frozen additive-noise two-peak regime, response-scale fitting rather than retention of negative observations is the dominant tested mechanism behind the response-NLS advantage over log OLS.",
+          "evidence": "docs/RESPONSE_SCALE_CENSORING_RESULT.md; results/additive_response/response_scale_censoring/result.json",
+          "audit": "Prospective gate passed after removing 50 negative observations: censored/full response geometric NMSE ratios 0.957--0.973, censored response/log ratios 0.0616--0.3255, and censored response won 29/30 trials. Byte-identical rerun and independent aggregation audit.",
+          "scope": "Falsifies a signed-retention-dominant explanation only in the frozen synthetic regime; established estimators and no field-level novelty claim."
+        },
+        {
+          "state": "BELIEVED",
+          "claim": "Positive-subset selection bias is not the main residual explanation for censored response NLS performance in the two-peak development regime.",
+          "evidence": "results/additive_response/response_scale_censoring/development_truncated_probe.json",
+          "audit": "An oracle truncated-Gaussian likelihood using the true simulation noise scale had geometric NMSE ratios 1.040, 1.003 and 1.008 versus naive censored response NLS across 90 opened development conditions.",
+          "scope": "Opened-seed exploratory evidence with an oracle noise scale; not prospective confirmation or a deployable estimator."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "The synthetic likelihood-crossover mechanism transfers as a material lognormal-estimator advantage to replicated fathead-minnow dry-weight measurements.",
+          "evidence": "docs/PROMELAS_REPLICATE_LIKELIHOOD_RESULT.md; results/additive_response/promelas_replicate_likelihood/result.json",
+          "audit": "Frozen external gate failed all conditions: lognormal/arithmetic SSE ratio 0.9869, lognormal/median ratio 1.0465, and 13/24 paired wins. Dataset, protocol and evaluator were frozen before response inspection; byte-identical rerun and independent raw-data audit.",
+          "scope": "Decisive only for the 24-observation P.promelas replicate protocol; it does not falsify the synthetic crossover."
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A fixed 75%-median/25%-mean robust shrinkage estimator reliably dominates arithmetic, lognormal and median replicate predictors beyond the opened development datasets.",
+          "evidence": "docs/LEPIDIUM_ROBUST_SHRINKAGE_RESULT.md; results/additive_response/lepidium_robust_shrinkage/result.json; results/additive_response/lepidium_robust_shrinkage/audit.json",
+          "audit": "Frozen external gate failed on all 42 valid folds: robust/arithmetic SSE 0.9255, robust/lognormal 0.9270, but robust/median 1.0116; paired wins were 20/42 versus arithmetic and 21/42 versus median. Independent raw-data reconstruction passed and rerun was byte-identical.",
+          "scope": "Decisive for the fixed weight and frozen Lepidium protocol; it does not exclude data-adaptive or regime-specific robust-location rules. The prior O.mykiss and terbuthylazin attempts remain inconclusive before prediction."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "The apparent aggregate benefit of an interior mean-median weight can arise from pooling heterogeneous groups whose exact convex optima are usually pure endpoints.",
+          "evidence": "docs/MEAN_MEDIAN_WEIGHT_REGIME_MAP.md; results/additive_response/mean_median_weight_regime_map.json",
+          "audit": "Exact quadratic LOO analysis on 20 opened groups found 6 mean-boundary, 10 median-boundary and 4 interior optima. Dataset-level optimum median weights were 0.8371 for P.promelas, 0.6650 for nasturtium and 1.0 for lepidium.",
+          "scope": "Post-hoc opened-data failure mining; no frozen regime classifier, prospective prediction or novelty claim."
+        },
+        {
+          "state": "CONFLICTING",
+          "claim": "Signed-Gaussian exact-LOO model selection is implementation-independent.",
+          "evidence": "docs/INDEPENDENT_ADDITIVE_FULL_RESULT.md",
+          "audit": "A clean implementation agrees on 116/120 paths but four noisy 4-D basin disagreements cause severe bidirectional extrapolation changes. A separately implemented standard-library aggregation audit verifies all counts, ratios and immutable input hashes.",
+          "provenance": "GitHub draft PR #101, commit 09a63b0c00185659037dff1bae02367eb7d0c7e8; stacked on unmodified PR #99 head 949d69b1de5284a106d6ce99ab6bc95f71bb2ab6.",
+          "scope": "Opened Gaussian evidence and same research process; not an external reproduction or fresh confirmation."
+        },
+        {
+          "state": "KNOWN",
+          "claim": "At matched observations per parameter, adverse fitting risk increases with dimension and decreases with observation density in the tested Gaussian regime.",
+          "evidence": "docs/DIMENSION_DENSITY_RESULT.md"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "In the frozen localized 6-D generator, additive versus equal-RMS multiplicative noise causally changes the catastrophic finite-endpoint tail but not strict termination availability.",
+          "evidence": "docs/FINITE_ENDPOINT_SUPPORT_RESULT.md"
+        },
+        {
+          "state": "FALSIFIED",
+          "claim": "A training-only warning can universally detect an unseen hidden peak without regularity assumptions or a nearby measurement.",
+          "evidence": "docs/HIDDEN_PEAK_IDENTIFIABILITY_BOUNDARY.md"
+        },
+        {
+          "state": "KNOWN",
+          "claim": "Under a valid Lipschitz constant, the McShane-Whitney envelope is an exact query certificate and its midpoint is minimax.",
+          "evidence": "docs/LIPSCHITZ_QUERY_CERTIFICATE.md",
+          "scope": "Classical theory converted into an executable capability; not a novelty claim."
+        },
+        {
+          "state": "ANOMALOUS",
+          "claim": "Raw nearest-neighbor distance appears predictive only after pooling dimensions, but has weak or reversed discrimination within fixed dimension-density cells.",
+          "evidence": "Opened-data probe on the 640 folds from results/additive_response/dimension_density_map/raw",
+          "scope": "Post-hoc diagnostic only; not promoted as confirmation."
+        }
+      ],
+      "holdout_state": "All additive-response synthetic/NIST evidence named above is opened and cannot be reused as untouched confirmation.",
+      "next_decisive_action": {
+        "class": "DISCRIMINATION",
+        "action": "On opened replicate datasets, test whether training-only skewness and outlier-leverage diagnostics explain when the exact leave-one-out optimal mean-median weight lies at the mean, interior, or median boundary; freeze only a coarse regime prediction before any further external dataset is opened."
+      }
+    },
+    "NOESIS": {
+      "priority": 3,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "A current local evidence package is available for exact enumeration or automated counterexample generation.",
+          "scope": "No NOESIS repository is present in this execution workspace; absence is an infrastructure state, not scientific evidence."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Resume from the canonical repository/evidence package when available, then prioritize finite exhaustive theorem or counterexample search."
+      }
+    },
+    "LUCENT": {
+      "priority": 5,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "RGB-only active-state observability is sufficient for the intended product claim.",
+          "scope": "No exact active-state validation data or local repository is available in this workspace."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Use public paired RGB/reference data to establish the strongest self-verifiable calibration or observability boundary before making a product claim."
+      }
+    },
+    "VEKTOR": {
+      "priority": 6,
+      "claims": [
+        {
+          "state": "UNTESTED",
+          "claim": "A new architecture law or bottleneck has been verified in the current workspace.",
+          "scope": "No Vektor repository or synthesis evidence is present here; this is not a negative scientific result."
+        }
+      ],
+      "next_decisive_action": {
+        "class": "CAPABILITY-BUILDING",
+        "action": "Resume reproducible RTL/synthesis/compiler sweeps from the canonical repository and promote the smallest robust architecture law."
+      }
+    }
+  }
+}

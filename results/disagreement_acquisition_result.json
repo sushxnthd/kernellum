@@ -1,0 +1,4373 @@
+{
+  "canonical_sha256": "51a247c49d2784363d8e2666a48d6fe187cea91fbe75cfd64ed9eb3c8eb47b6f",
+  "cells": 48,
+  "classification": "OPENED_COHORT_DEVELOPMENT",
+  "decision_sha256": "8f2039f95b1138896448e5ac5e8f35ec902afd5632ff391f3402ef66ce9a1986",
+  "environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  },
+  "fit_failures": [
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_affine",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": 1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "disagreement",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "deterministic_random",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "nearest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    },
+    {
+      "family": "exp_concave",
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "method": "farthest_support",
+      "reason": "nonlinear optimizer failed",
+      "sign": -1
+    }
+  ],
+  "gates": {
+    "beats_each_control_by_two": false,
+    "decisions_complete_and_prehashed": true,
+    "far_beats_best_control": false,
+    "halves_catastrophes": false,
+    "inside_noninferior": true,
+    "near_beats_best_control": true,
+    "no_domain_excess": false,
+    "post_acquisition_complete": true
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "deterministic_random": 9,
+        "disagreement": 8,
+        "farthest_support": 6,
+        "nearest_support": 7,
+        "no_acquisition": 7
+      },
+      "geometric_nmse": {
+        "deterministic_random": 4616819219.103679,
+        "disagreement": 225705362472.5836,
+        "farthest_support": 5176009.024277053,
+        "nearest_support": 681267935.487593,
+        "no_acquisition": 17038685.420961365
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "deterministic_random": 0,
+        "disagreement": 0,
+        "farthest_support": 2,
+        "nearest_support": 1,
+        "no_acquisition": 1
+      },
+      "geometric_nmse": {
+        "deterministic_random": 0.6687183319743775,
+        "disagreement": 0.44788404603530313,
+        "farthest_support": 4.115079758024272,
+        "nearest_support": 3.8156655239574198,
+        "no_acquisition": 1.2958168139492736
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "deterministic_random": 2,
+        "disagreement": 1,
+        "farthest_support": 3,
+        "nearest_support": 2,
+        "no_acquisition": 3
+      },
+      "geometric_nmse": {
+        "deterministic_random": 122.8009336131189,
+        "disagreement": 25.263432818684343,
+        "farthest_support": 441040.56346922077,
+        "nearest_support": 135.27911694910222,
+        "no_acquisition": 161.8823550886616
+      }
+    }
+  },
+  "rows": [
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -1.51651143194024,
+        "disagreement": 0.10041512041257628,
+        "farthest_support": -1.6492957015765564,
+        "nearest_support": 0.11183699029891159,
+        "no_acquisition": 0.1070712524876023
+      },
+      "selected_indices": {
+        "deterministic_random": 237,
+        "disagreement": 58,
+        "farthest_support": 140,
+        "nearest_support": 154
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.8389940380143834,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.440856036655969,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.8383335397615898,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.498831785026726,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 2.6618516123830998,
+        "disagreement": 2.278312605845411,
+        "farthest_support": 17.290233271822004,
+        "nearest_support": 0.03737203654719856,
+        "no_acquisition": 2.7409954662613276
+      },
+      "selected_indices": {
+        "deterministic_random": 244,
+        "disagreement": 132,
+        "farthest_support": 81,
+        "nearest_support": 20
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.1796506350007614,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.544728413146046,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.4323210942217988,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.8833855176989512,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 87.40213712922312,
+        "disagreement": 82.57224202760996,
+        "farthest_support": 125.67372146175028,
+        "nearest_support": 41.02185284718258,
+        "no_acquisition": 10.342151508035348
+      },
+      "selected_indices": {
+        "deterministic_random": 209,
+        "disagreement": 77,
+        "farthest_support": 141,
+        "nearest_support": 13
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.4323001358403706,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.4320523742307014,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.4323009823708692,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.433403826500517,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -2.3156779416783384,
+        "disagreement": -1.6967605370594967,
+        "farthest_support": -1.4786002635855082,
+        "nearest_support": -1.6537968653393174,
+        "no_acquisition": -1.4841011805629627
+      },
+      "selected_indices": {
+        "deterministic_random": 41,
+        "disagreement": 46,
+        "farthest_support": 8,
+        "nearest_support": 15
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.34386692708629996,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.42021537858103436,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.3722144203751303,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.35394426647019356,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -0.1289920504246984,
+        "disagreement": -0.018603026938663447,
+        "farthest_support": 0.13764215695418702,
+        "nearest_support": 0.14171234154606616,
+        "no_acquisition": 0.13570559222383682
+      },
+      "selected_indices": {
+        "deterministic_random": 32,
+        "disagreement": 245,
+        "farthest_support": 244,
+        "nearest_support": 135
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.40596653477627387,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.37692468289845904,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.4085318850254932,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.38609361675755494,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 1.3341710564523233,
+        "disagreement": 0.7169166302506671,
+        "farthest_support": 1.3342490825160418,
+        "nearest_support": 1.188494680437989,
+        "no_acquisition": 1.3339463028284815
+      },
+      "selected_indices": {
+        "deterministic_random": 49,
+        "disagreement": 240,
+        "farthest_support": 188,
+        "nearest_support": 133
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.40903624799207383,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.39147740258807395,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.7384582489854843,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.3890237472948597,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -0.006420514150855983,
+        "disagreement": 0.0028125426806187015,
+        "farthest_support": 0.002838224092923003,
+        "nearest_support": -0.004177600221090039,
+        "no_acquisition": -0.009680756132267376
+      },
+      "selected_indices": {
+        "deterministic_random": 84,
+        "disagreement": 157,
+        "farthest_support": 103,
+        "nearest_support": 239
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.3516745602051856,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.3103413364638496,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.2541486718345518,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.3139896026164721,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 3.211690784393159,
+        "disagreement": 3.2559188677519795,
+        "farthest_support": 3.3458212710030244,
+        "nearest_support": 3.341124784326397,
+        "no_acquisition": 3.3282191581746057
+      },
+      "selected_indices": {
+        "deterministic_random": 115,
+        "disagreement": 129,
+        "farthest_support": 177,
+        "nearest_support": 122
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.293333905542071,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.3195013531818818,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.309475532422623,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.3369259647494915,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 13.456735412878581,
+        "disagreement": 13.497546464641886,
+        "farthest_support": 13.546678479813234,
+        "nearest_support": 13.461658698534443,
+        "no_acquisition": 13.433383063718503
+      },
+      "selected_indices": {
+        "deterministic_random": 183,
+        "disagreement": 53,
+        "farthest_support": 165,
+        "nearest_support": 197
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.2954500892828582,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.3007591448616782,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.299034523332902,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.3428508242834187,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -2.887508583955899,
+        "disagreement": -2.9274526001980887,
+        "farthest_support": -3.194334332906884,
+        "nearest_support": -2.8824119849277055,
+        "no_acquisition": -2.8914056857853114
+      },
+      "selected_indices": {
+        "deterministic_random": 197,
+        "disagreement": 247,
+        "farthest_support": 113,
+        "nearest_support": 182
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.6098167197970906,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.5119709795152363,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.0788800293884626,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.7924370528842063,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -1.5367770439651824,
+        "disagreement": -1.5186276207679121,
+        "farthest_support": -1.5234430009816533,
+        "nearest_support": -1.5255265622632237,
+        "no_acquisition": -1.525796117272102
+      },
+      "selected_indices": {
+        "deterministic_random": 162,
+        "disagreement": 212,
+        "farthest_support": 254,
+        "nearest_support": 123
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.9944563370853745,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.996881479393602,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.0220771017449963,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.047328245747966,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": -0.15999688312085603,
+        "disagreement": 6.326778648223406,
+        "farthest_support": -0.15975960891740115,
+        "nearest_support": -0.15467211042035345,
+        "no_acquisition": -0.15994030963331163
+      },
+      "selected_indices": {
+        "deterministic_random": 5,
+        "disagreement": 69,
+        "farthest_support": 253,
+        "nearest_support": 55
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.0165331880145014,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.9488947271643193,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.019728146894863,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.0128866946832644,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 4.809167620394274,
+        "disagreement": 0.30751526701885146,
+        "farthest_support": 5.187769911476263,
+        "nearest_support": 0.3276981814141955,
+        "no_acquisition": 4.938003565169866
+      },
+      "selected_indices": {
+        "deterministic_random": 15,
+        "disagreement": 213,
+        "farthest_support": 90,
+        "nearest_support": 220
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.2801283779551884,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.286554658609305,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.25830799487071,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.3099554336064252,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 43.26823812654747,
+        "disagreement": 3.308597251543441,
+        "farthest_support": 1.6661411564279192,
+        "nearest_support": 42.51045393971118,
+        "no_acquisition": 43.07023758513758
+      },
+      "selected_indices": {
+        "deterministic_random": 163,
+        "disagreement": 9,
+        "farthest_support": 169,
+        "nearest_support": 239
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.2549814101403067,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 2.479409600633026,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.2756991040251597,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.2570391689333942,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 146.35779217011003,
+        "disagreement": 0.006136849938801703,
+        "farthest_support": 0.006136849965699298,
+        "nearest_support": 145.05719519809753,
+        "no_acquisition": 142.60259246263314
+      },
+      "selected_indices": {
+        "deterministic_random": 103,
+        "disagreement": 248,
+        "farthest_support": 224,
+        "nearest_support": 158
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.2548260201928005,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.3505591433732085,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.3456487428647557,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.2549598155900827,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 4.318907068050432,
+        "disagreement": 0.2097745649775673,
+        "farthest_support": 32.81039820255335,
+        "nearest_support": 34.33112113582266,
+        "no_acquisition": 7.963821045270332
+      },
+      "selected_indices": {
+        "deterministic_random": 126,
+        "disagreement": 25,
+        "farthest_support": 51,
+        "nearest_support": 188
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.0731935174732694,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1073397613480377.1,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 218952963172907.8,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.2846634941819238e+18,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 25.66600068309132,
+        "disagreement": 40.724704896543344,
+        "farthest_support": 160.27433392464596,
+        "nearest_support": 29.981174180044484,
+        "no_acquisition": 26.83435465897299
+      },
+      "selected_indices": {
+        "deterministic_random": 163,
+        "disagreement": 193,
+        "farthest_support": 140,
+        "nearest_support": 65
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 392114.22923526453,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 5.115936166379814e+67,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 9013199132910646.0,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 8269486.748803892,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 13.10727902776537,
+        "disagreement": 151.89321461587107,
+        "farthest_support": 69.86600753082448,
+        "nearest_support": 67.48379922893213,
+        "no_acquisition": 66.11099196543343
+      },
+      "selected_indices": {
+        "deterministic_random": 229,
+        "disagreement": 145,
+        "farthest_support": 228,
+        "nearest_support": 83
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 139592.74771602094,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.0688245473118834,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.0831035734256307,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 440338.5264909741,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 0.17299858932164547,
+        "disagreement": 0.1775208175736136,
+        "farthest_support": 0.17065214215557756,
+        "nearest_support": 0.17795857969258488,
+        "no_acquisition": 4.5161862017821655
+      },
+      "selected_indices": {
+        "deterministic_random": 16,
+        "disagreement": 182,
+        "farthest_support": 125,
+        "nearest_support": 2
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.1471481909755672,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.1406387775114686,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.1468456004350744,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.1393732412519118,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 2.450314577269121,
+        "disagreement": 2.036441991078597,
+        "farthest_support": 23.91279680642795,
+        "nearest_support": 2.4486139212247426,
+        "no_acquisition": 5.131614144577077
+      },
+      "selected_indices": {
+        "deterministic_random": 42,
+        "disagreement": 205,
+        "farthest_support": 183,
+        "nearest_support": 146
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.136350088535281,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.1299815277402852,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.6057409316896605,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.1485491938469234,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 17.95039778943803,
+        "disagreement": 17.031756168335654,
+        "farthest_support": 18.099836628978412,
+        "nearest_support": 35.61094839476943,
+        "no_acquisition": 13.810707588631987
+      },
+      "selected_indices": {
+        "deterministic_random": 246,
+        "disagreement": 16,
+        "farthest_support": 129,
+        "nearest_support": 209
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.1417478536859316,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.2195810347902556,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.1430656467903906,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.2682434145663767,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 0.35556276218453053,
+        "disagreement": 0.35627074011568727,
+        "farthest_support": 0.35635169802672984,
+        "nearest_support": 0.35407627926771923,
+        "no_acquisition": 0.3546820945587532
+      },
+      "selected_indices": {
+        "deterministic_random": 166,
+        "disagreement": 78,
+        "farthest_support": 92,
+        "nearest_support": 24
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.188404879054826,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.181114556680318,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.1802991153160147,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.2046632685814507,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 0.05419900582793602,
+        "disagreement": 0.05420860223824597,
+        "farthest_support": 0.05420910179486249,
+        "nearest_support": 0.052536418338105406,
+        "no_acquisition": 0.05399152751760106
+      },
+      "selected_indices": {
+        "deterministic_random": 215,
+        "disagreement": 172,
+        "farthest_support": 186,
+        "nearest_support": 118
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.1803181993042802,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.180287235830779,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.1802869939681369,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.1851582185279954,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 54.1174462200422,
+        "disagreement": 127.35548528630434,
+        "farthest_support": 0.005928644758053991,
+        "nearest_support": 2.7432799987181085,
+        "no_acquisition": 0.005905079402165114
+      },
+      "selected_indices": {
+        "deterministic_random": 235,
+        "disagreement": 46,
+        "farthest_support": 68,
+        "nearest_support": 165
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.1802859522388753,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.1802861399296265,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.180285957500053,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.1803773021284665,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -2.6676934317353393,
+        "disagreement": -2.834632746870901,
+        "farthest_support": -2.8688649385370795,
+        "nearest_support": -2.7303840713595138,
+        "no_acquisition": -2.7321262045631785
+      },
+      "selected_indices": {
+        "deterministic_random": 173,
+        "disagreement": 43,
+        "farthest_support": 69,
+        "nearest_support": 200
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.7712336047678148,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.5911002851265174,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.8507838575737802,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.5770778337687746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -1.8745728341121568,
+        "disagreement": -1.813955557713407,
+        "farthest_support": -0.15260243993209333,
+        "nearest_support": -1.7753115799991335,
+        "no_acquisition": -1.780152171738993
+      },
+      "selected_indices": {
+        "deterministic_random": 86,
+        "disagreement": 248,
+        "farthest_support": 168,
+        "nearest_support": 148
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.9034481702604952,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.6783616283016111,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.7920859838166924,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.7644096982542756,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 2.2731615881647835,
+        "disagreement": -0.29266788749743267,
+        "farthest_support": -0.3631166971149673,
+        "nearest_support": -0.3694128092965361,
+        "no_acquisition": -0.36636011201363416
+      },
+      "selected_indices": {
+        "deterministic_random": 177,
+        "disagreement": 72,
+        "farthest_support": 225,
+        "nearest_support": 211
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.6311617799380738,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.7259609282041012,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.8056707753952136,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.838386953561933,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -3.0795786265085634,
+        "disagreement": -2.956791276689131,
+        "farthest_support": -3.1913514728684635,
+        "nearest_support": -3.048054953129683,
+        "no_acquisition": -3.043733441136403
+      },
+      "selected_indices": {
+        "deterministic_random": 230,
+        "disagreement": 144,
+        "farthest_support": 74,
+        "nearest_support": 102
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.13783905343338398,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.2121480770785722,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.20632397960698617,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.18136036204664313,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -1.415468187341447,
+        "disagreement": -1.2902403261901192,
+        "farthest_support": -1.4224971958720527,
+        "nearest_support": -1.4203335891412507,
+        "no_acquisition": -1.425923330848975
+      },
+      "selected_indices": {
+        "deterministic_random": 19,
+        "disagreement": 50,
+        "farthest_support": 209,
+        "nearest_support": 69
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.2030931611059401,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.17804937663715809,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.1981071563315267,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.20240102945635097,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 0.4960079006614695,
+        "disagreement": 0.5536177606460271,
+        "farthest_support": 0.5009148768170792,
+        "nearest_support": 0.4906651113164724,
+        "no_acquisition": 0.497321736262089
+      },
+      "selected_indices": {
+        "deterministic_random": 173,
+        "disagreement": 24,
+        "farthest_support": 184,
+        "nearest_support": 140
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.19593934449766257,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 0.20269103262370963,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 0.1949199135314347,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 0.19923529462921102,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -2.6990148495968,
+        "disagreement": -2.7186345718916987,
+        "farthest_support": -2.743499570988178,
+        "nearest_support": -2.689219038403263,
+        "no_acquisition": -2.689971496171361
+      },
+      "selected_indices": {
+        "deterministic_random": 78,
+        "disagreement": 48,
+        "farthest_support": 139,
+        "nearest_support": 136
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.6433239014638297,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.6729161011641951,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.6284431234271878,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.6617370773906914,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -0.9880100964724443,
+        "disagreement": -0.9222400823557821,
+        "farthest_support": -0.9409014258490398,
+        "nearest_support": -0.9475053438323275,
+        "no_acquisition": -0.9454396886508682
+      },
+      "selected_indices": {
+        "deterministic_random": 73,
+        "disagreement": 211,
+        "farthest_support": 223,
+        "nearest_support": 123
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.6121566392990431,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.673679556415128,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.618248092113086,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.6201844578548918,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": -0.1230653465759124,
+        "disagreement": -0.009377937269249514,
+        "farthest_support": -0.11674661426134225,
+        "nearest_support": -0.14240293766657341,
+        "no_acquisition": -0.12091402716263211
+      },
+      "selected_indices": {
+        "deterministic_random": 39,
+        "disagreement": 189,
+        "farthest_support": 66,
+        "nearest_support": 57
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.6114848478239597,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.5724763521689631,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.6025496932434388,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.6461864392387653,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -2.8472235294772195,
+        "disagreement": -2.876082418265275,
+        "farthest_support": -2.802939644362473,
+        "nearest_support": -2.849887663749219,
+        "no_acquisition": -2.8536908451673084
+      },
+      "selected_indices": {
+        "deterministic_random": 159,
+        "disagreement": 145,
+        "farthest_support": 51,
+        "nearest_support": 144
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.3486831388174118,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.43060708744362314,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.42495834234269353,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.3601528722921657,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": -0.9597933442339741,
+        "disagreement": -0.8911529502495821,
+        "farthest_support": -1.1610537412163415,
+        "nearest_support": -0.9927849471248029,
+        "no_acquisition": -0.9576162041521545
+      },
+      "selected_indices": {
+        "deterministic_random": 13,
+        "disagreement": 77,
+        "farthest_support": 179,
+        "nearest_support": 52
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.4668687284244813,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.4472378520469129,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.48002400745845675,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.4643940481480009,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 0.08850653060808522,
+        "disagreement": 0.11359532588319254,
+        "farthest_support": 0.08807297453256346,
+        "nearest_support": 0.07189741379830306,
+        "no_acquisition": 0.08786425315953128
+      },
+      "selected_indices": {
+        "deterministic_random": 159,
+        "disagreement": 23,
+        "farthest_support": 49,
+        "nearest_support": 253
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 0.4592160182482084,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 0.4254913669465442,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 0.45976002199205235,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 0.45497886998848086,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": -0.0006168123548384585,
+        "disagreement": 0.021659706873944806,
+        "farthest_support": 0.015965953749958572,
+        "nearest_support": -0.016951002440376506,
+        "no_acquisition": -0.0021227472515779056
+      },
+      "selected_indices": {
+        "deterministic_random": 118,
+        "disagreement": 226,
+        "farthest_support": 186,
+        "nearest_support": 235
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.5858805043018207,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.4883631793382843,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.485854320903836,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.591480229675446,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 2.0894230868495427,
+        "disagreement": 2.081773502569873,
+        "farthest_support": 2.009427524310235,
+        "nearest_support": 2.1746270656529623,
+        "no_acquisition": 2.193395027085871
+      },
+      "selected_indices": {
+        "deterministic_random": 34,
+        "disagreement": 192,
+        "farthest_support": 237,
+        "nearest_support": 216
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.5106489070931968,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.4656729823557337,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 1.6428592640589468,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.5337206049980587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 6.1317947709117835,
+        "disagreement": 6.016168795961546,
+        "farthest_support": 5.907927966266282,
+        "nearest_support": 6.060023521538448,
+        "no_acquisition": 6.029309953690258
+      },
+      "selected_indices": {
+        "deterministic_random": 210,
+        "disagreement": 106,
+        "farthest_support": 104,
+        "nearest_support": 216
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.4258981153570571,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "disagreement": {
+          "cv": 1.3713942501602148,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "farthest_support": {
+          "cv": 2.0167876361521797,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "nearest_support": {
+          "cv": 1.4457028092659532,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "no_acquisition": {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 1.5537409086675948,
+        "disagreement": 1.5540687258391515,
+        "farthest_support": 1.5558631734392243,
+        "nearest_support": 1.5557938316701017,
+        "no_acquisition": 1.5576039994414934
+      },
+      "selected_indices": {
+        "deterministic_random": 75,
+        "disagreement": 129,
+        "farthest_support": 19,
+        "nearest_support": 206
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.8183732726099766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.8119664989086846,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.7924920412972776,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.7931267627811402,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 1.2778263052063021,
+        "disagreement": 1.2710907437406993,
+        "farthest_support": 1.2755803805987007,
+        "nearest_support": 1.2681323118611916,
+        "no_acquisition": 1.2719786130061488
+      },
+      "selected_indices": {
+        "deterministic_random": 216,
+        "disagreement": 113,
+        "farthest_support": 69,
+        "nearest_support": 103
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.6964053132706065,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.7258798682864598,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.7048016887820001,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.7631590155494905,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 0.6458091410277724,
+        "disagreement": 0.6439076008688795,
+        "farthest_support": 0.6488548429861538,
+        "nearest_support": 0.651124704610802,
+        "no_acquisition": 0.6468204849246613
+      },
+      "selected_indices": {
+        "deterministic_random": 158,
+        "disagreement": 231,
+        "farthest_support": 17,
+        "nearest_support": 194
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.6895988035878902,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.694429375699534,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.6844984728625723,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.719579348176224,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 0.2599510078946925,
+        "disagreement": 0.2380339618156695,
+        "farthest_support": 0.2828356102439633,
+        "nearest_support": 0.28862719155790106,
+        "no_acquisition": 0.24619857770217557
+      },
+      "selected_indices": {
+        "deterministic_random": 186,
+        "disagreement": 167,
+        "farthest_support": 187,
+        "nearest_support": 116
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.5734823750281874,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.6014313149734998,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.4991412291078425,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.6298067060203905,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 1.869377894568498,
+        "disagreement": 1.823214651980754,
+        "farthest_support": 1.8817151542308665,
+        "nearest_support": 1.8832450524529705,
+        "no_acquisition": 1.86583901421583
+      },
+      "selected_indices": {
+        "deterministic_random": 161,
+        "disagreement": 61,
+        "farthest_support": 20,
+        "nearest_support": 135
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.6208837074953113,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.5901239800939488,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.5172099142809305,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.6072977372004862,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 7.932158004705629,
+        "disagreement": 7.034418163041121,
+        "farthest_support": 7.355832589659434,
+        "nearest_support": 7.319710384956453,
+        "no_acquisition": 7.275585185284898
+      },
+      "selected_indices": {
+        "deterministic_random": 76,
+        "disagreement": 148,
+        "farthest_support": 191,
+        "nearest_support": 38
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.6386931610172866,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.5547704790813401,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.466974518832291,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.4983862642954517,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "scores": {
+        "deterministic_random": 0.11164038968228063,
+        "disagreement": 0.1907482095486852,
+        "farthest_support": 0.18074246840110764,
+        "nearest_support": 0.15361257048474997,
+        "no_acquisition": 0.16952547121005423
+      },
+      "selected_indices": {
+        "deterministic_random": 39,
+        "disagreement": 106,
+        "farthest_support": 7,
+        "nearest_support": 61
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 2.1907424926051036,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.6297508248347885,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.6174007178744945,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 2.0384709142190323,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "scores": {
+        "deterministic_random": 1.323725374762831,
+        "disagreement": 1.290284564243736,
+        "farthest_support": 1.3028711493130904,
+        "nearest_support": 1.3399128024945073,
+        "no_acquisition": 1.3985146176939525
+      },
+      "selected_indices": {
+        "deterministic_random": 58,
+        "disagreement": 131,
+        "farthest_support": 101,
+        "nearest_support": 205
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 2.184767140827308,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.539294717920808,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.532675949011524,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 2.215218058702081,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    },
+    {
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "scores": {
+        "deterministic_random": 5.03721467514576,
+        "disagreement": 4.820201963691453,
+        "farthest_support": 4.9581787297636115,
+        "nearest_support": 4.9372973691533,
+        "no_acquisition": 4.886585740521724
+      },
+      "selected_indices": {
+        "deterministic_random": 95,
+        "disagreement": 111,
+        "farthest_support": 118,
+        "nearest_support": 171
+      },
+      "winners": {
+        "deterministic_random": {
+          "cv": 1.8190032489412857,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "disagreement": {
+          "cv": 1.5713845547499883,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "farthest_support": {
+          "cv": 1.5015514627271522,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "nearest_support": {
+          "cv": 1.9025634509930525,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "no_acquisition": {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      }
+    }
+  ],
+  "schema": "kernellum.disagreement-acquisition-result.v1",
+  "status": "KILL_ONE_POINT_DISAGREEMENT",
+  "total_catastrophes": {
+    "deterministic_random": 11,
+    "disagreement": 9,
+    "farthest_support": 11,
+    "nearest_support": 10,
+    "no_acquisition": 11
+  }
+}
