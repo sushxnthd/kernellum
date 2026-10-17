@@ -150,12 +150,20 @@ def main():
         rows.append({"key": key, "selected_indices": indices, "scores": scores, "winners": winners})
         print(key, scores, flush=True)
 
+    raw_geometric = {}
     metrics = {}
     for domain in DOMAINS:
         domain_rows = [row for row in rows if row["key"][-1] == domain]
+        raw_geometric[domain] = {
+            method: (
+                geomean_log([row["scores"][method] for row in domain_rows])
+                if all(method in row["scores"] for row in domain_rows)
+                else math.inf
+            ) for method in METHODS
+        }
         metrics[domain] = {
             "geometric_nmse": {
-                method: geomean_log([row["scores"].get(method, math.inf) for row in domain_rows])
+                method: (raw_geometric[domain][method] if math.isfinite(raw_geometric[domain][method]) else None)
                 for method in METHODS
             },
             "catastrophic": {
@@ -173,29 +181,32 @@ def main():
         "beats_each_acquisition_control_by_two": all(total[locked] <= total[c] - 2 for c in controls),
         "no_domain_excess": all(metrics[d]["catastrophic"][locked] <= metrics[d]["catastrophic"]["no_acquisition"] for d in DOMAINS),
         "halves_far_shell_catastrophes": metrics["far_shell"]["catastrophic"][locked] <= 3,
-        "inside_noninferior": metrics["inside"]["geometric_nmse"][locked] <= 1.10 * metrics["inside"]["geometric_nmse"]["no_acquisition"],
-        "near_no_worse_than_best_control": metrics["near_shell"]["geometric_nmse"][locked] <= min(metrics["near_shell"]["geometric_nmse"][c] for c in controls),
-        "far_no_worse_than_best_control": metrics["far_shell"]["geometric_nmse"][locked] <= min(metrics["far_shell"]["geometric_nmse"][c] for c in controls),
+        "inside_noninferior": raw_geometric["inside"][locked] <= 1.10 * raw_geometric["inside"]["no_acquisition"],
+        "near_no_worse_than_best_control": raw_geometric["near_shell"][locked] <= min(raw_geometric["near_shell"][c] for c in controls),
+        "far_no_worse_than_best_control": raw_geometric["far_shell"][locked] <= min(raw_geometric["far_shell"][c] for c in controls),
     }
     transitions = {
         method: sum(
-            row["winners"].get(method, {}) .get("sign") != row["winners"]["no_acquisition"]["sign"]
-            or row["winners"].get(method, {}) .get("family") != row["winners"]["no_acquisition"]["family"]
-            for row in rows
+            method in row["winners"] and (
+                row["winners"][method]["sign"] != row["winners"]["no_acquisition"]["sign"]
+                or row["winners"][method]["family"] != row["winners"]["no_acquisition"]["family"]
+            ) for row in rows
         ) for method in METHODS
     }
+    unavailable = {method: sum(method not in row["scores"] for row in rows) for method in METHODS}
     payload = {
         "schema": "kernellum.transition-constrained-batch-result.v1",
         "classification": "OPENED_COHORT_DEVELOPMENT",
         "decision_sha256": decision_sha,
         "environment": {"python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__},
         "cells": len(rows), "total_catastrophes": total, "model_class_transitions": transitions,
+        "unavailable_cells": unavailable,
         "metrics": metrics, "gates": gates, "fit_failures": fit_failures, "rows": rows,
         "status": "ADVANCE_TO_PROSPECTIVE" if all(gates.values()) else "KILL_TRANSITION_LOCKED_BATCH",
     }
     payload["canonical_sha256"] = canonical(payload)
     args.output.write_text(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n")
-    print(json.dumps({k: payload[k] for k in ("status", "canonical_sha256", "decision_sha256", "total_catastrophes", "model_class_transitions", "metrics", "gates")}, indent=2))
+    print(json.dumps({k: payload[k] for k in ("status", "canonical_sha256", "decision_sha256", "total_catastrophes", "model_class_transitions", "unavailable_cells", "metrics", "gates")}, indent=2))
 
 
 if __name__ == "__main__":

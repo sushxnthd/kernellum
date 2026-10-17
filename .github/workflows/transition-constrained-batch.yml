@@ -20,3 +20,23 @@ jobs:
           python scripts/evaluate_transition_constrained_batch.py \
             --decisions results/transition_constrained_batch_decisions.json \
             --output results/transition_constrained_batch_result.json
+      - name: Independent full-refit audit
+        run: |
+          python scripts/audit_transition_constrained_batch.py \
+            --decisions results/transition_constrained_batch_decisions.json \
+            --result results/transition_constrained_batch_result.json \
+            --output results/transition_constrained_batch_audit.json
+      - name: Byte-identical fresh-process rerun
+        run: |
+          python scripts/evaluate_transition_constrained_batch.py \
+            --decisions results/transition_constrained_batch_decisions_repeat.json \
+            --output results/transition_constrained_batch_result_repeat.json
+          cmp results/transition_constrained_batch_decisions.json results/transition_constrained_batch_decisions_repeat.json
+          cmp results/transition_constrained_batch_result.json results/transition_constrained_batch_result_repeat.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transition-constrained-batch-evidence
+          path: |
+            results/transition_constrained_batch_decisions.json
+            results/transition_constrained_batch_result.json
+            results/transition_constrained_batch_audit.json
