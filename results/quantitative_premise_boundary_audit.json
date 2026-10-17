@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "all_empirical_calls_refused": true,
+    "canonical_digest": true,
+    "catastrophic_subset_complete": true,
+    "empirical_shortcut_collides": true,
+    "finite_sharpness_nontrivial": true,
+    "fivefold_coverage_is_wide": true,
+    "frozen_protocol": true,
+    "schema": true,
+    "terminal_gate": true,
+    "twofold_inflation_still_collides": true
+  },
+  "passed": 10,
+  "schema": "kernellum.quantitative-premise-boundary-audit.v1",
+  "source_canonical_sha256": "7771f7785b329cc7f6ada7e599bed20bf06bf8c333350a6f3a2030de58b97e2c",
+  "status": "PASS",
+  "total": 10
+}
