@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "71057713ed0117a8c9319bc39f1e665feffbe4f869589a3bea2f88166337cd8e",
+  "checks": 207,
+  "failures": 0,
+  "schema": "kernellum.perturbation-basin-audit.v1",
+  "source_canonical_sha256": "395711c42ca8d11405b6387d588f5f2559e4c7fe17888bd2b2ef6729238d0553",
+  "status": "PASS"
+}

@@ -1,0 +1,2497 @@
+{
+  "boundary_radii": [
+    0.25,
+    0.35,
+    0.5
+  ],
+  "classification": "PROSPECTIVE_UNSEEN",
+  "rows": [
+    {
+      "candidate_medoid_distance": 0.06886569138263789,
+      "components": {
+        "0.25": {
+          "basins": 3,
+          "component": [
+            1,
+            2,
+            3,
+            6,
+            8,
+            11
+          ],
+          "dispersion": 0.10830832513736112,
+          "medoid": 8
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.23729860833089814,
+          "medoid": 8
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.23729860833089814,
+          "medoid": 8
+        }
+      },
+      "dispersion": 0.23729860833089814,
+      "failed_attempts": [],
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7301,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 0.13228063456284947,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.4931277897196609,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.7908023073679556,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.5911213064098778,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.1599519243630558,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.08061149261908197,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.31047866433132826,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 0.21478719317570416,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.9919892647907949,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 0.11687533477118807,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.320222736639497,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.6111007974706645,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.0473608570274833,
+      "selected": "candidate",
+      "stability_margin": -0.38113430861736214
+    },
+    {
+      "candidate_medoid_distance": 0.04306794397560719,
+      "components": {
+        "0.25": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08196544225552767,
+          "medoid": 8
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08196544225552767,
+          "medoid": 8
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08196544225552767,
+          "medoid": 8
+        }
+      },
+      "dispersion": 0.08196544225552767,
+      "failed_attempts": [],
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7301,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 0.17831652757066685,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.22252093240396054,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.23163489283345629,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.20792589787938018,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.2193241287590403,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.24100327891475637,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.15284508898446145,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 0.3275108294675472,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.2695982477955952,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 0.2270931271081658,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.23341066390857876,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.19986231594022005,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.032560666058504,
+      "selected": "candidate",
+      "stability_margin": -0.4069320560243928
+    },
+    {
+      "candidate_medoid_distance": 0.0360181446030055,
+      "components": {
+        "0.25": {
+          "basins": 4,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            10
+          ],
+          "dispersion": 0.08654648289167632,
+          "medoid": 5
+        },
+        "0.35": {
+          "basins": 2,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            10,
+            11
+          ],
+          "dispersion": 0.11196604723076654,
+          "medoid": 5
+        },
+        "0.5": {
+          "basins": 2,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            10,
+            11
+          ],
+          "dispersion": 0.11196604723076654,
+          "medoid": 5
+        }
+      },
+      "dispersion": 0.11196604723076654,
+      "failed_attempts": [],
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7307,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 1.0609512012273925,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 0.9347969843523196,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 0.8469863853042586,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.8853269308769489,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 1.0885502096886401,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 0.8064130392693359,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 1.1689670162456138,
+          "family": "exp_affine",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 1.1983312559119863,
+          "family": "exp_affine",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 0.8371008522703608,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 1.191976752000069,
+          "family": "exp_affine",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 1.1046131538715764,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 0.7091987941900291,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 0.75,
+      "override": false,
+      "residual_ratio": 1.019692676695399,
+      "selected": "candidate",
+      "stability_margin": -0.4139818553969945
+    },
+    {
+      "candidate_medoid_distance": 0.038774134507949205,
+      "components": {
+        "0.25": {
+          "basins": 2,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            6,
+            7,
+            9
+          ],
+          "dispersion": 0.08688593322675989,
+          "medoid": 3
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.19525715595191054,
+          "medoid": 3
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.19525715595191054,
+          "medoid": 3
+        }
+      },
+      "dispersion": 0.19525715595191054,
+      "failed_attempts": [],
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7307,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 0.413208410024626,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 0.3695014994421599,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 0.31477627722847235,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.3960659162294872,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 0.2872729919720918,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 0.2115197453907456,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 0.48916640233569497,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.3857356274176307,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 0.35884602344498134,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 0.35664634248659605,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 0.349102702495623,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 0.29908423048260574,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.0355237825117374,
+      "selected": "candidate",
+      "stability_margin": -0.4112258654920508
+    },
+    {
+      "candidate_medoid_distance": 1.2346708141329634,
+      "components": {
+        "0.25": {
+          "basins": 11,
+          "component": [
+            0,
+            1
+          ],
+          "dispersion": 0.08025527161377978,
+          "medoid": 0
+        },
+        "0.35": {
+          "basins": 10,
+          "component": [
+            0,
+            1
+          ],
+          "dispersion": 0.08025527161377978,
+          "medoid": 0
+        },
+        "0.5": {
+          "basins": 4,
+          "component": [
+            0,
+            1,
+            3,
+            4,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.4248593995339999,
+          "medoid": 1
+        }
+      },
+      "dispersion": 0.08025527161377978,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7301,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 1.0769365093022252,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.7395166608639151,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 1.9258227377672863,
+          "family": "exp_affine",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.81539899822129,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.9136290238619851,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 1.0224940282205683,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 1.852587768263738,
+          "family": "exp_affine",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.9226770198094779,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.8729734099275953,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 1.6933145072701297,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.8487909202828793,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.9137753844639073,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.16666666666666666,
+      "override": false,
+      "residual_ratio": 0.10728856241568129,
+      "selected": "candidate",
+      "stability_margin": -0.5
+    },
+    {
+      "candidate_medoid_distance": 0.20480484389888784,
+      "components": {
+        "0.25": {
+          "basins": 12,
+          "component": [
+            0
+          ],
+          "dispersion": 0.0,
+          "medoid": 0
+        },
+        "0.35": {
+          "basins": 12,
+          "component": [
+            0
+          ],
+          "dispersion": 0.0,
+          "medoid": 0
+        },
+        "0.5": {
+          "basins": 2,
+          "component": [
+            0,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.48337843648245665,
+          "medoid": 2
+        }
+      },
+      "dispersion": 0.0,
+      "failed_attempts": [],
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7301,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 1.0491952292851625,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.559844492216886,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.8466999425180434,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.8879612398778557,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.6689150324106441,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.7292609000689835,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.9735241673655263,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 1.2160793361863933,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.8564492096862106,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 0.6414461289964971,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.6049398582303551,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.8395619973544051,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.08333333333333333,
+      "override": false,
+      "residual_ratio": 3431733773.5104504,
+      "selected": "candidate",
+      "stability_margin": -3431733772.3104506
+    },
+    {
+      "candidate_medoid_distance": 1.3919410839661282e-10,
+      "components": {
+        "0.25": {
+          "basins": 3,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            11
+          ],
+          "dispersion": 9.116349346342049e-10,
+          "medoid": 0
+        },
+        "0.35": {
+          "basins": 3,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            11
+          ],
+          "dispersion": 9.116349346342049e-10,
+          "medoid": 0
+        },
+        "0.5": {
+          "basins": 3,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            11
+          ],
+          "dispersion": 9.116349346342049e-10,
+          "medoid": 0
+        }
+      },
+      "dispersion": 9.116349346342049e-10,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7307,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 1.8129934146063995,
+          "family": "exp_affine",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 1.9474084796091768,
+          "family": "exp_affine",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 1.7868372257545868,
+          "family": "exp_affine",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 1.7804316858968716,
+          "family": "exp_affine",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 3.8282241479296935,
+          "family": "exp_affine",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 1.876079864169878,
+          "family": "exp_affine",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 1.8282160621247001,
+          "family": "exp_affine",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 1.8806353947622452,
+          "family": "exp_affine",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 1.1716038958313835,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 3.384754660080118,
+          "family": "exp_affine",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 1.781047100379939,
+          "family": "exp_affine",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 1.8159444685894135,
+          "family": "exp_affine",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.8333333333333334,
+      "override": false,
+      "residual_ratio": 0.9999999999037767,
+      "selected": "candidate",
+      "stability_margin": -0.4499999998608059
+    },
+    {
+      "candidate_medoid_distance": 1.180802249701982e-10,
+      "components": {
+        "0.25": {
+          "basins": 10,
+          "component": [
+            0,
+            4,
+            9
+          ],
+          "dispersion": 2.1838836313926976e-10,
+          "medoid": 9
+        },
+        "0.35": {
+          "basins": 7,
+          "component": [
+            0,
+            4,
+            9
+          ],
+          "dispersion": 2.1838836313926976e-10,
+          "medoid": 9
+        },
+        "0.5": {
+          "basins": 7,
+          "component": [
+            0,
+            4,
+            9
+          ],
+          "dispersion": 2.1838836313926976e-10,
+          "medoid": 9
+        }
+      },
+      "dispersion": 2.1838836313926976e-10,
+      "failed_attempts": [
+        {
+          "family": "exp_affine",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7307,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 2.3749941156588643,
+          "family": "exp_affine",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.7092461085937183,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 1.3732243011413034,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.905827684806705,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 2.3421498685248907,
+          "family": "exp_affine",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 2.29764189869933,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 1.7106280282474327,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 1.938371102514733,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 1.7927161502291054,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 2.3791949661078,
+          "family": "exp_affine",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 1.2914042552821174,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 2.039962903102158,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 0.25,
+      "override": false,
+      "residual_ratio": 1.0000000000076523,
+      "selected": "candidate",
+      "stability_margin": -0.4499999998819198
+    },
+    {
+      "candidate_medoid_distance": 0.030558366224716516,
+      "components": {
+        "0.25": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08977513730570114,
+          "medoid": 10
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08977513730570114,
+          "medoid": 10
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08977513730570114,
+          "medoid": 10
+        }
+      },
+      "dispersion": 0.08977513730570114,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7301,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 0.15605763985002663,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.3537413392999364,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.34778402599263475,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.3169943706914144,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.3991505469946455,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.44991144399862865,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.18636340325579695,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 0.5096702722460006,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.3294975265967483,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 0.37191403561790093,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.5284821538277902,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.292356484524128,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.0363336142757822,
+      "selected": "candidate",
+      "stability_margin": -0.4194416337752835
+    },
+    {
+      "candidate_medoid_distance": 0.020743962736851345,
+      "components": {
+        "0.25": {
+          "basins": 3,
+          "component": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08524670443563162,
+          "medoid": 6
+        },
+        "0.35": {
+          "basins": 2,
+          "component": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.10817249593422491,
+          "medoid": 6
+        },
+        "0.5": {
+          "basins": 2,
+          "component": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.10817249593422491,
+          "medoid": 6
+        }
+      },
+      "dispersion": 0.10817249593422491,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7301,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 1.1810258054875227,
+          "family": "exp_affine",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.4670958630444357,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.4174755100210439,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.49016537978001135,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.5122098178958789,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.5818472887224624,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.5875798359543247,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 0.38518179081931997,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.38755716485337866,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 0.5146454002591243,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 0.48162101123543594,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.5096348081109824,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.9166666666666666,
+      "override": false,
+      "residual_ratio": 1.0104307074036125,
+      "selected": "candidate",
+      "stability_margin": -0.42925603726314865
+    },
+    {
+      "candidate_medoid_distance": 0.02466559050802928,
+      "components": {
+        "0.25": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.0701214621762402,
+          "medoid": 10
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.0701214621762402,
+          "medoid": 10
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.0701214621762402,
+          "medoid": 10
+        }
+      },
+      "dispersion": 0.0701214621762402,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7307,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 0.20323746366043283,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 0.28435301919814227,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 0.11616697593749276,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.13117751535859393,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 0.09702945198359932,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 0.0917688617732784,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 0.09352154430218396,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.18186585917090126,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 0.1691273319178792,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 0.12476640159665346,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 0.16159623721909178,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 0.11425815218528357,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.0388282807627207,
+      "selected": "candidate",
+      "stability_margin": -0.4253344094919707
+    },
+    {
+      "candidate_medoid_distance": 0.07008059860644812,
+      "components": {
+        "0.25": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08083911785253035,
+          "medoid": 8
+        },
+        "0.35": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08083911785253035,
+          "medoid": 8
+        },
+        "0.5": {
+          "basins": 1,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.08083911785253035,
+          "medoid": 8
+        }
+      },
+      "dispersion": 0.08083911785253035,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7307,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 0.3796950191178347,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 0.2657829599653782,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 0.32681423346963046,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.4056918392811659,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 0.37987120864070745,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 0.5355904977144423,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 0.4341274793961523,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.4220157770857578,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 0.3521846026045732,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 0.41407099017959653,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 0.2991896139460297,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 0.4400940004759187,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 1.0,
+      "override": false,
+      "residual_ratio": 1.2019864074307225,
+      "selected": "candidate",
+      "stability_margin": -0.3799194013935519
+    },
+    {
+      "candidate_medoid_distance": 1.8464638925798658e-10,
+      "components": {
+        "0.25": {
+          "basins": 5,
+          "component": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9
+          ],
+          "dispersion": 7.702258723180946e-09,
+          "medoid": 0
+        },
+        "0.35": {
+          "basins": 4,
+          "component": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9
+          ],
+          "dispersion": 7.702258723180946e-09,
+          "medoid": 0
+        },
+        "0.5": {
+          "basins": 3,
+          "component": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9
+          ],
+          "dispersion": 7.702258723180946e-09,
+          "medoid": 0
+        }
+      },
+      "dispersion": 7.702258723180946e-09,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7301,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 1.765429459945496,
+          "family": "exp_affine",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 1.8110163348340287,
+          "family": "exp_affine",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 1.6173594795868256,
+          "family": "exp_affine",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 1.7155124660115775,
+          "family": "exp_affine",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 1.6184755057409348,
+          "family": "exp_affine",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 1.7388325983265565,
+          "family": "exp_affine",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 1.7260932522983221,
+          "family": "exp_affine",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.8339393500656554,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 1.7099588506114516,
+          "family": "exp_affine",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 1.6422234103994355,
+          "family": "exp_affine",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 1.8456298563154452,
+          "family": "exp_affine",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 1.1724883955339909,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.6666666666666666,
+      "override": false,
+      "residual_ratio": 1.0000000000033773,
+      "selected": "candidate",
+      "stability_margin": -0.4499999998153536
+    },
+    {
+      "candidate_medoid_distance": 0.1352626022497243,
+      "components": {
+        "0.25": {
+          "basins": 7,
+          "component": [
+            0,
+            2,
+            5,
+            11
+          ],
+          "dispersion": 0.16156530317511741,
+          "medoid": 0
+        },
+        "0.35": {
+          "basins": 4,
+          "component": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11
+          ],
+          "dispersion": 0.2851923094362979,
+          "medoid": 3
+        },
+        "0.5": {
+          "basins": 2,
+          "component": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11
+          ],
+          "dispersion": 0.3052770778585867,
+          "medoid": 5
+        }
+      },
+      "dispersion": 0.2851923094362979,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7301,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 0.9676523276774454,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 0.8169513143500504,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 0.6742054283859069,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 0.9405827400837931,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 0.7483133613279577,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 0.7039407515054075,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 0.9902875093318227,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 0.764962236756583,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 0.7576146572612665,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": 1
+        },
+        {
+          "cv": 1.0004913780006979,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 1.9206580844262398,
+          "family": "exp_affine",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 0.9811279286998121,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.75,
+      "override": false,
+      "residual_ratio": 21014825620.354824,
+      "selected": "candidate",
+      "stability_margin": -21014825619.154823
+    },
+    {
+      "candidate_medoid_distance": 0.2669695503532652,
+      "components": {
+        "0.25": {
+          "basins": 3,
+          "component": [
+            0,
+            2,
+            3,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.22267140156939982,
+          "medoid": 10
+        },
+        "0.35": {
+          "basins": 2,
+          "component": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.2455573799253261,
+          "medoid": 11
+        },
+        "0.5": {
+          "basins": 2,
+          "component": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "dispersion": 0.2455573799253261,
+          "medoid": 11
+        }
+      },
+      "dispersion": 0.2455573799253261,
+      "failed_attempts": [],
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7307,
+        "symmetric_t"
+      ],
+      "member_models": [
+        {
+          "cv": 0.7117212399817908,
+          "family": "exp_concave",
+          "perturbation": 0,
+          "sign": -1
+        },
+        {
+          "cv": 0.8219187867005386,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": -1
+        },
+        {
+          "cv": 0.9187753413898873,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": -1
+        },
+        {
+          "cv": 0.8403470109312513,
+          "family": "exp_concave",
+          "perturbation": 3,
+          "sign": -1
+        },
+        {
+          "cv": 0.86373298473921,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": -1
+        },
+        {
+          "cv": 0.7486451261830883,
+          "family": "exp_concave",
+          "perturbation": 5,
+          "sign": -1
+        },
+        {
+          "cv": 0.9418618847148524,
+          "family": "exp_concave",
+          "perturbation": 6,
+          "sign": -1
+        },
+        {
+          "cv": 0.7262320486332036,
+          "family": "exp_concave",
+          "perturbation": 7,
+          "sign": -1
+        },
+        {
+          "cv": 0.784457869467531,
+          "family": "exp_concave",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 0.9304869914533098,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": -1
+        },
+        {
+          "cv": 0.7065131099790062,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": -1
+        },
+        {
+          "cv": 0.8919767917079686,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": -1
+        }
+      ],
+      "occupancy": 0.8333333333333334,
+      "override": false,
+      "residual_ratio": 62017264048.37738,
+      "selected": "candidate",
+      "stability_margin": -62017264047.17738
+    },
+    {
+      "candidate_medoid_distance": 4.663606811034364e-05,
+      "components": {
+        "0.25": {
+          "basins": 6,
+          "component": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            10,
+            11
+          ],
+          "dispersion": 0.0056231458341799755,
+          "medoid": 5
+        },
+        "0.35": {
+          "basins": 6,
+          "component": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            10,
+            11
+          ],
+          "dispersion": 0.0056231458341799755,
+          "medoid": 5
+        },
+        "0.5": {
+          "basins": 6,
+          "component": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            10,
+            11
+          ],
+          "dispersion": 0.0056231458341799755,
+          "medoid": 5
+        }
+      },
+      "dispersion": 0.0056231458341799755,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "independent",
+          "reason": "optimizer ceiling reached",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "perturbed",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7307,
+        "leverage_spikes"
+      ],
+      "member_models": [
+        {
+          "cv": 2.055701407585822,
+          "family": "exp_affine",
+          "perturbation": 0,
+          "sign": 1
+        },
+        {
+          "cv": 1.6003770775162627,
+          "family": "exp_concave",
+          "perturbation": 1,
+          "sign": 1
+        },
+        {
+          "cv": 1.4969695181103786,
+          "family": "exp_concave",
+          "perturbation": 2,
+          "sign": 1
+        },
+        {
+          "cv": 1.8929680145717314,
+          "family": "exp_affine",
+          "perturbation": 3,
+          "sign": 1
+        },
+        {
+          "cv": 1.5436999400719913,
+          "family": "exp_concave",
+          "perturbation": 4,
+          "sign": 1
+        },
+        {
+          "cv": 1.5911542421670746,
+          "family": "exp_affine",
+          "perturbation": 5,
+          "sign": 1
+        },
+        {
+          "cv": 1.560933708161567,
+          "family": "exp_affine",
+          "perturbation": 6,
+          "sign": 1
+        },
+        {
+          "cv": 1.856556631807728,
+          "family": "exp_affine",
+          "perturbation": 7,
+          "sign": 1
+        },
+        {
+          "cv": 1.7051192545299647,
+          "family": "exp_affine",
+          "perturbation": 8,
+          "sign": -1
+        },
+        {
+          "cv": 1.6023456748542884,
+          "family": "exp_concave",
+          "perturbation": 9,
+          "sign": 1
+        },
+        {
+          "cv": 1.6859866054952832,
+          "family": "exp_concave",
+          "perturbation": 10,
+          "sign": 1
+        },
+        {
+          "cv": 1.5115069166193429,
+          "family": "exp_concave",
+          "perturbation": 11,
+          "sign": 1
+        }
+      ],
+      "occupancy": 0.5833333333333334,
+      "override": false,
+      "residual_ratio": 1.0010621414518002,
+      "selected": "candidate",
+      "stability_margin": -0.44995336393188967
+    }
+  ],
+  "schema": "kernellum.perturbation-basin-decisions.v1",
+  "thresholds": {
+    "graph_radius": 0.35,
+    "max_dispersion": 0.2,
+    "max_residual_ratio": 1.2,
+    "members": 12,
+    "min_candidate_separation": 0.45,
+    "min_component": 8
+  }
+}
