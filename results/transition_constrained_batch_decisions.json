@@ -1,0 +1,2965 @@
+{
+  "classification": "OPENED_COHORT_TRUTH_BLIND_SELECTIONS",
+  "protocol_commit": "441de576a32128f53f353587799cc7cdbadc6882",
+  "rows": [
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2615216263694469,
+        "initial_nearest_max": 0.7423652566193265
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5060787058276326,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          58,
+          202,
+          112
+        ],
+        "batch_farthest_support": [
+          140,
+          210,
+          138
+        ],
+        "one_point_disagreement": [
+          58
+        ],
+        "transition_locked_batch": [
+          58,
+          202,
+          112
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.8391290171264313,
+        "initial_nearest_max": 1.219492132261372
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5060787058276326,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          132,
+          105,
+          75
+        ],
+        "batch_farthest_support": [
+          81,
+          98,
+          139
+        ],
+        "one_point_disagreement": [
+          132
+        ],
+        "transition_locked_batch": [
+          132,
+          105,
+          75
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.7342867622640303,
+        "initial_nearest_max": 3.4764567339979835
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5060787058276326,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          77,
+          170,
+          70
+        ],
+        "batch_farthest_support": [
+          141,
+          72,
+          25
+        ],
+        "one_point_disagreement": [
+          77
+        ],
+        "transition_locked_batch": [
+          77,
+          170,
+          70
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.7919898528532129,
+        "initial_nearest_max": 0.737433400677519
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.4318068966635253,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          46,
+          185,
+          87
+        ],
+        "batch_farthest_support": [
+          8,
+          219,
+          130
+        ],
+        "one_point_disagreement": [
+          46
+        ],
+        "transition_locked_batch": [
+          46,
+          185,
+          87
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.6142603220801708,
+        "initial_nearest_max": 1.3747389380593535
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.4318068966635253,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          245,
+          239,
+          254
+        ],
+        "batch_farthest_support": [
+          244,
+          216,
+          84
+        ],
+        "one_point_disagreement": [
+          245
+        ],
+        "transition_locked_batch": [
+          245,
+          239,
+          254
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.14182457529820205,
+        "initial_nearest_max": 3.6121178831110563
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.4318068966635253,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          240,
+          239,
+          91
+        ],
+        "batch_farthest_support": [
+          188,
+          50,
+          172
+        ],
+        "one_point_disagreement": [
+          240
+        ],
+        "transition_locked_batch": [
+          240,
+          239,
+          91
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.013594649504604e-10,
+        "initial_nearest_max": 0.7188574481290364
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.3462216592425358,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          157,
+          91,
+          159
+        ],
+        "batch_farthest_support": [
+          103,
+          3,
+          127
+        ],
+        "one_point_disagreement": [
+          157
+        ],
+        "transition_locked_batch": [
+          157,
+          91,
+          159
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.661865197005182e-10,
+        "initial_nearest_max": 1.3281703083736396
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.3462216592425358,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          129,
+          249,
+          212
+        ],
+        "batch_farthest_support": [
+          177,
+          175,
+          249
+        ],
+        "one_point_disagreement": [
+          129
+        ],
+        "transition_locked_batch": [
+          129,
+          249,
+          212
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.0976594215678645e-09,
+        "initial_nearest_max": 3.5475464898841125
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.3462216592425358,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          53,
+          17,
+          78
+        ],
+        "batch_farthest_support": [
+          165,
+          198,
+          85
+        ],
+        "one_point_disagreement": [
+          53
+        ],
+        "transition_locked_batch": [
+          53,
+          17,
+          78
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.060481930938944,
+        "initial_nearest_max": 0.7498949849807891
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.076790172094534,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          247,
+          206,
+          113
+        ],
+        "batch_farthest_support": [
+          113,
+          214,
+          54
+        ],
+        "one_point_disagreement": [
+          247
+        ],
+        "transition_locked_batch": [
+          247,
+          206,
+          113
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 334.7102339742922,
+        "initial_nearest_max": 1.3571491081321196
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.076790172094534,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          212,
+          178,
+          27
+        ],
+        "batch_farthest_support": [
+          254,
+          250,
+          107
+        ],
+        "one_point_disagreement": [
+          212
+        ],
+        "transition_locked_batch": [
+          212,
+          178,
+          27
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 22864298946065.164,
+        "initial_nearest_max": 3.328470039784411
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.076790172094534,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          69,
+          196,
+          42
+        ],
+        "batch_farthest_support": [
+          253,
+          191,
+          27
+        ],
+        "one_point_disagreement": [
+          69
+        ],
+        "transition_locked_batch": [
+          69,
+          196,
+          42
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.12031092500497893,
+        "initial_nearest_max": 1.379688394301752
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.271020395777549,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          213,
+          217,
+          249
+        ],
+        "batch_farthest_support": [
+          90,
+          199,
+          138
+        ],
+        "one_point_disagreement": [
+          213
+        ],
+        "transition_locked_batch": [
+          213,
+          217,
+          249
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.8180974384264104,
+        "initial_nearest_max": 2.022111484575333
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.271020395777549,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          9,
+          217,
+          225
+        ],
+        "batch_farthest_support": [
+          169,
+          23,
+          22
+        ],
+        "one_point_disagreement": [
+          9
+        ],
+        "transition_locked_batch": [
+          9,
+          217,
+          225
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 18.79060375854329,
+        "initial_nearest_max": 4.345317602460243
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.271020395777549,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          248,
+          136,
+          226
+        ],
+        "batch_farthest_support": [
+          224,
+          253,
+          142
+        ],
+        "one_point_disagreement": [
+          248
+        ],
+        "transition_locked_batch": [
+          248,
+          136,
+          226
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 38396060.28369846,
+        "initial_nearest_max": 1.36398360876489
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 921611.9091621846,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          25,
+          227,
+          46
+        ],
+        "batch_farthest_support": [
+          51,
+          119,
+          159
+        ],
+        "one_point_disagreement": [
+          25
+        ],
+        "transition_locked_batch": [
+          25,
+          227,
+          46
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.6020944946605406e+34,
+        "initial_nearest_max": 2.1092548373855915
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 921611.9091621846,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          193,
+          86,
+          93
+        ],
+        "batch_farthest_support": [
+          140,
+          202,
+          186
+        ],
+        "one_point_disagreement": [
+          193
+        ],
+        "transition_locked_batch": [
+          193,
+          86,
+          93
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 9.02431512711431e+103,
+        "initial_nearest_max": 4.6504982622652085
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 921611.9091621846,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          145,
+          0,
+          233
+        ],
+        "batch_farthest_support": [
+          228,
+          74,
+          135
+        ],
+        "one_point_disagreement": [
+          145
+        ],
+        "transition_locked_batch": [
+          145,
+          0,
+          233
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.33450842347671905,
+        "initial_nearest_max": 1.5066457808111675
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.36048398919385816,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          182,
+          43,
+          140
+        ],
+        "batch_farthest_support": [
+          125,
+          191,
+          11
+        ],
+        "one_point_disagreement": [
+          182
+        ],
+        "transition_locked_batch": [
+          182,
+          43,
+          140
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.5282097243333765,
+        "initial_nearest_max": 1.9204775841708293
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.36048398919385816,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          205,
+          134,
+          229
+        ],
+        "batch_farthest_support": [
+          183,
+          134,
+          173
+        ],
+        "one_point_disagreement": [
+          205
+        ],
+        "transition_locked_batch": [
+          205,
+          134,
+          229
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.260440927209073,
+        "initial_nearest_max": 4.640235845613768
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.36048398919385816,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          16,
+          237,
+          153
+        ],
+        "batch_farthest_support": [
+          129,
+          148,
+          231
+        ],
+        "one_point_disagreement": [
+          16
+        ],
+        "transition_locked_batch": [
+          16,
+          237,
+          153
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.4807842765406215e-08,
+        "initial_nearest_max": 1.4463080831066395
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.1910293676658217,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          78,
+          96,
+          92
+        ],
+        "batch_farthest_support": [
+          92,
+          105,
+          154
+        ],
+        "one_point_disagreement": [
+          78
+        ],
+        "transition_locked_batch": [
+          78,
+          96,
+          92
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 4.4616031391006066e-08,
+        "initial_nearest_max": 2.1477221166397276
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.1910293676658217,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          172,
+          99,
+          211
+        ],
+        "batch_farthest_support": [
+          186,
+          12,
+          240
+        ],
+        "one_point_disagreement": [
+          172
+        ],
+        "transition_locked_batch": [
+          172,
+          99,
+          211
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.313525400545116e-05,
+        "initial_nearest_max": 4.905481029053574
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.1910293676658217,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          46,
+          210,
+          76
+        ],
+        "batch_farthest_support": [
+          68,
+          133,
+          157
+        ],
+        "one_point_disagreement": [
+          46
+        ],
+        "transition_locked_batch": [
+          46,
+          210,
+          76
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2610139404299998,
+        "initial_nearest_max": 0.7825292009047587
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.9012175004548746,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          43,
+          40,
+          105
+        ],
+        "batch_farthest_support": [
+          69,
+          40,
+          126
+        ],
+        "one_point_disagreement": [
+          43
+        ],
+        "transition_locked_batch": [
+          43,
+          40,
+          105
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.165383176023258,
+        "initial_nearest_max": 1.2151925270778465
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.9012175004548746,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          248,
+          86,
+          60
+        ],
+        "batch_farthest_support": [
+          168,
+          94,
+          39
+        ],
+        "one_point_disagreement": [
+          248
+        ],
+        "transition_locked_batch": [
+          248,
+          86,
+          60
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.4918568523985094,
+        "initial_nearest_max": 3.6243359278750975
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.9012175004548746,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          72,
+          25,
+          7
+        ],
+        "batch_farthest_support": [
+          225,
+          206,
+          69
+        ],
+        "one_point_disagreement": [
+          72
+        ],
+        "transition_locked_batch": [
+          72,
+          25,
+          7
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0313074725026408,
+        "initial_nearest_max": 0.808387176806483
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.2146190059406569,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          144,
+          209,
+          178
+        ],
+        "batch_farthest_support": [
+          74,
+          129,
+          166
+        ],
+        "one_point_disagreement": [
+          144
+        ],
+        "transition_locked_batch": [
+          144,
+          209,
+          178
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.9734294003458887,
+        "initial_nearest_max": 1.2194647860624723
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.2146190059406569,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          50,
+          80,
+          194
+        ],
+        "batch_farthest_support": [
+          209,
+          30,
+          9
+        ],
+        "one_point_disagreement": [
+          50
+        ],
+        "transition_locked_batch": [
+          50,
+          80,
+          194
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.08944956413789366,
+        "initial_nearest_max": 3.3828822313507625
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.2146190059406569,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          24,
+          30,
+          75
+        ],
+        "batch_farthest_support": [
+          184,
+          135,
+          154
+        ],
+        "one_point_disagreement": [
+          24
+        ],
+        "transition_locked_batch": [
+          24,
+          30,
+          75
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0853727886019675,
+        "initial_nearest_max": 0.8217790994702017
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.6912372114623333,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          48,
+          68,
+          20
+        ],
+        "batch_farthest_support": [
+          139,
+          156,
+          174
+        ],
+        "one_point_disagreement": [
+          48
+        ],
+        "transition_locked_batch": [
+          48,
+          68,
+          20
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0654283975545908,
+        "initial_nearest_max": 1.25845968101281
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.6912372114623333,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          211,
+          85,
+          238
+        ],
+        "batch_farthest_support": [
+          223,
+          115,
+          95
+        ],
+        "one_point_disagreement": [
+          211
+        ],
+        "transition_locked_batch": [
+          211,
+          85,
+          238
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.4600481294418473,
+        "initial_nearest_max": 3.4800984214464887
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.6912372114623333,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          189,
+          167,
+          99
+        ],
+        "batch_farthest_support": [
+          66,
+          203,
+          143
+        ],
+        "one_point_disagreement": [
+          189
+        ],
+        "transition_locked_batch": [
+          189,
+          167,
+          99
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2104136706129063,
+        "initial_nearest_max": 0.8111607237709897
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.5084237078444712,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          145,
+          105,
+          36
+        ],
+        "batch_farthest_support": [
+          51,
+          5,
+          2
+        ],
+        "one_point_disagreement": [
+          145
+        ],
+        "transition_locked_batch": [
+          145,
+          105,
+          36
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.1673343608757245,
+        "initial_nearest_max": 1.2396796061351751
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.5084237078444712,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          77,
+          241,
+          57
+        ],
+        "batch_farthest_support": [
+          179,
+          146,
+          19
+        ],
+        "one_point_disagreement": [
+          77
+        ],
+        "transition_locked_batch": [
+          77,
+          241,
+          57
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.259433038970681,
+        "initial_nearest_max": 3.635633894364988
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 0.5084237078444712,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          23,
+          72,
+          239
+        ],
+        "batch_farthest_support": [
+          49,
+          188,
+          102
+        ],
+        "one_point_disagreement": [
+          23
+        ],
+        "transition_locked_batch": [
+          23,
+          72,
+          239
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.5335850992497936e-07,
+        "initial_nearest_max": 1.3688263534134004
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5947188750153654,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          226,
+          207,
+          183
+        ],
+        "batch_farthest_support": [
+          186,
+          126,
+          10
+        ],
+        "one_point_disagreement": [
+          226
+        ],
+        "transition_locked_batch": [
+          226,
+          207,
+          183
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.7939506205555566e-07,
+        "initial_nearest_max": 2.290882798298072
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5947188750153654,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          192,
+          230,
+          30
+        ],
+        "batch_farthest_support": [
+          237,
+          150,
+          195
+        ],
+        "one_point_disagreement": [
+          192
+        ],
+        "transition_locked_batch": [
+          192,
+          230,
+          30
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 3.498497286226229e-08,
+        "initial_nearest_max": 4.351952355784469
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.5947188750153654,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          106,
+          213,
+          0
+        ],
+        "batch_farthest_support": [
+          104,
+          246,
+          152
+        ],
+        "one_point_disagreement": [
+          106
+        ],
+        "transition_locked_batch": [
+          106,
+          213,
+          0
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 6.337227590836107e-05,
+        "initial_nearest_max": 1.4110392136691365
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.7418597388922805,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          129,
+          92,
+          251
+        ],
+        "batch_farthest_support": [
+          19,
+          105,
+          135
+        ],
+        "one_point_disagreement": [
+          129
+        ],
+        "transition_locked_batch": [
+          129,
+          92,
+          251
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.000680396909188389,
+        "initial_nearest_max": 2.2058923736696494
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.7418597388922805,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          113,
+          251,
+          213
+        ],
+        "batch_farthest_support": [
+          69,
+          116,
+          167
+        ],
+        "one_point_disagreement": [
+          113
+        ],
+        "transition_locked_batch": [
+          113,
+          251,
+          213
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 8.392802084278852e-08,
+        "initial_nearest_max": 4.320850137884338
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.7418597388922805,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          231,
+          68,
+          50
+        ],
+        "batch_farthest_support": [
+          17,
+          80,
+          137
+        ],
+        "one_point_disagreement": [
+          231
+        ],
+        "transition_locked_batch": [
+          231,
+          68,
+          50
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 3.7261671945429056e-08,
+        "initial_nearest_max": 1.440357470749057
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.650246395531155,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          167,
+          101,
+          59
+        ],
+        "batch_farthest_support": [
+          187,
+          214,
+          204
+        ],
+        "one_point_disagreement": [
+          167
+        ],
+        "transition_locked_batch": [
+          167,
+          101,
+          59
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0946511707341455e-07,
+        "initial_nearest_max": 2.148382946151896
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.650246395531155,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          61,
+          205,
+          253
+        ],
+        "batch_farthest_support": [
+          20,
+          95,
+          40
+        ],
+        "one_point_disagreement": [
+          61
+        ],
+        "transition_locked_batch": [
+          61,
+          205,
+          253
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.8302264286064403e-07,
+        "initial_nearest_max": 4.7426667350516105
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 1.650246395531155,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          148,
+          147,
+          139
+        ],
+        "batch_farthest_support": [
+          191,
+          4,
+          147
+        ],
+        "one_point_disagreement": [
+          148
+        ],
+        "transition_locked_batch": [
+          148,
+          147,
+          139
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.05210024094648557,
+        "initial_nearest_max": 1.429078456570703
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 2.082610711114095,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          106,
+          52,
+          228
+        ],
+        "batch_farthest_support": [
+          7,
+          140,
+          65
+        ],
+        "one_point_disagreement": [
+          106
+        ],
+        "transition_locked_batch": [
+          106,
+          52,
+          228
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 5.074745951860693,
+        "initial_nearest_max": 2.230512035300828
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 2.082610711114095,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          131,
+          101,
+          225
+        ],
+        "batch_farthest_support": [
+          101,
+          7,
+          192
+        ],
+        "one_point_disagreement": [
+          131
+        ],
+        "transition_locked_batch": [
+          131,
+          101,
+          225
+        ]
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.0282660180868857,
+        "initial_nearest_max": 4.397710200421589
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "pre_acquisition_winner": {
+        "cv": 2.082610711114095,
+        "family": "exp_affine",
+        "sign": -1
+      },
+      "selected_indices": {
+        "batch_disagreement_diversity": [
+          111,
+          4,
+          239
+        ],
+        "batch_farthest_support": [
+          118,
+          88,
+          128
+        ],
+        "one_point_disagreement": [
+          111
+        ],
+        "transition_locked_batch": [
+          111,
+          4,
+          239
+        ]
+      }
+    }
+  ],
+  "schema": "kernellum.transition-constrained-batch-decisions.v1"
+}

@@ -1,0 +1,56 @@
+name: Affine trend bounded correction development and arithmetic audit
+on:
+  pull_request:
+    paths:
+      - 'kernellum/discovery/trend_revision.py'
+      - 'experiments/trend_revision/**'
+      - 'scripts/audit_trend_revision.py'
+      - 'scripts/rebuild_trend_inputs.py'
+      - 'results/trend_revision/**'
+      - 'tests/test_trend_revision.py'
+      - 'docs/TREND_REVISION_PROTOCOL.md'
+      - '.github/workflows/trend-revision.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screen-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: '.'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 scipy==1.17.0 uqtestfuns==0.6.0 pytest
+      - run: python -m pytest -q
+      - name: Compute the development screen when no snapshot exists
+        if: hashFiles('results/trend_revision/development/manifest.json') == ''
+        run: python experiments/trend_revision/develop.py --out build/trend_revision
+      - name: Copy the frozen compact evidence
+        if: hashFiles('results/trend_revision/development/manifest.json') != ''
+        run: |
+          mkdir -p build/trend_revision
+          cp results/trend_revision/development/* build/trend_revision/
+      - name: Reproduce the exact input and truth archive
+        run: |
+          if test -f build/trend_revision/inputs_and_truth.npz; then
+            mv build/trend_revision/inputs_and_truth.npz build/original_trend_inputs.npz
+          fi
+          python scripts/rebuild_trend_inputs.py --folder build/trend_revision
+          if test -f build/original_trend_inputs.npz; then
+            cmp build/original_trend_inputs.npz build/trend_revision/inputs_and_truth.npz
+          fi
+      - run: python scripts/audit_trend_revision.py --folder build/trend_revision --out build/trend_revision/audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trend-revision-evidence
+          path: build/trend_revision
+          if-no-files-found: error

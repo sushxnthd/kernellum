@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "second_arithmetic_outcomes": 1560,
+  "aggregate_comparisons": 36,
+  "max_absolute_nmse_difference": 1.4920415394995896e+18,
+  "max_scaled_simplex_kkt": 2.0577469473605987e-09,
+  "ridge_choice_numerical_ties": 28,
+  "same_author_verification": true,
+  "aggregate_win_numerical_ties": [
+    {
+      "arm": "original",
+      "control": "representation_stack",
+      "functions": [
+        "Alemazkoor2D"
+      ],
+      "recorded_wins": 7,
+      "second_wins": 6
+    }
+  ],
+  "recorded_criterion": {
+    "original": false,
+    "remove_only": false,
+    "add_only": false,
+    "both": false
+  },
+  "second_criterion": {
+    "original": false,
+    "remove_only": false,
+    "add_only": false,
+    "both": false
+  },
+  "audit_source_sha256": {
+    "scripts/audit_trend_factorial.py": "406b73f395ce4d3e22e7613af7e9fdbad2bbbde8a10ded4afe50033d11e2408c",
+    "scripts/audit_trend_revision.py": "675bac8ea9061a8f311461f775d2ae7902816a48fab6774a93fe2646733f021d",
+    "scripts/audit_representation_revision.py": "92b8f77b61e19aec5ad2a2176b73220a79d566732f22ceb5bd40971dc837b9b3"
+  },
+  "independently_refitted_simplex_weights": false,
+  "external_reproduction": false
+}

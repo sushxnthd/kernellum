@@ -1,0 +1,2102 @@
+{
+  "classification": "OPENED_COHORT_TRUTH_BLIND_SELECTIONS",
+  "evaluation_addendum_commit": "413dc742349c07c92bc98cbfdca0ee0d46582cf3",
+  "protocol_commit": "c6318557d635b19598b80037554740f23eae6fd8",
+  "rows": [
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2615216263694469,
+        "nearest_distance_max": 0.7423652566193265,
+        "nearest_distance_min": 0.11150609876956119
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 237,
+        "disagreement": 58,
+        "farthest_support": 140,
+        "nearest_support": 154
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.8391290171264313,
+        "nearest_distance_max": 1.219492132261372,
+        "nearest_distance_min": 0.20579377812738878
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 244,
+        "disagreement": 132,
+        "farthest_support": 81,
+        "nearest_support": 20
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5060787058276326,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.835244175635685,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 14873.378410477491,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.7342867622640303,
+        "nearest_distance_max": 3.4764567339979835,
+        "nearest_distance_min": 0.6039808696663157
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 209,
+        "disagreement": 77,
+        "farthest_support": 141,
+        "nearest_support": 13
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.7919898528532129,
+        "nearest_distance_max": 0.737433400677519,
+        "nearest_distance_min": 0.09816660295584918
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 41,
+        "disagreement": 46,
+        "farthest_support": 8,
+        "nearest_support": 15
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.6142603220801708,
+        "nearest_distance_max": 1.3747389380593535,
+        "nearest_distance_min": 0.14639875950106446
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 32,
+        "disagreement": 245,
+        "farthest_support": 244,
+        "nearest_support": 135
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.2372626947994765,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.4318068966635253,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.1666304290856453,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 2.166630428943909,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.14182457529820205,
+        "nearest_distance_max": 3.6121178831110563,
+        "nearest_distance_min": 0.6471339385239423
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 49,
+        "disagreement": 240,
+        "farthest_support": 188,
+        "nearest_support": 133
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.013594649504604e-10,
+        "nearest_distance_max": 0.7188574481290364,
+        "nearest_distance_min": 0.05996001896112907
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 84,
+        "disagreement": 157,
+        "farthest_support": 103,
+        "nearest_support": 239
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.661865197005182e-10,
+        "nearest_distance_max": 1.3281703083736396,
+        "nearest_distance_min": 0.18129507525947217
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 115,
+        "disagreement": 129,
+        "farthest_support": 177,
+        "nearest_support": 122
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5190253416491977,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.519025341746865,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3462216592425358,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.0976594215678645e-09,
+        "nearest_distance_max": 3.5475464898841125,
+        "nearest_distance_min": 0.6270529885096867
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 183,
+        "disagreement": 53,
+        "farthest_support": 165,
+        "nearest_support": 197
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.060481930938944,
+        "nearest_distance_max": 0.7498949849807891,
+        "nearest_distance_min": 0.05243401570773911
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 197,
+        "disagreement": 247,
+        "farthest_support": 113,
+        "nearest_support": 182
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 334.7102339742922,
+        "nearest_distance_max": 1.3571491081321196,
+        "nearest_distance_min": 0.17187575701636706
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 162,
+        "disagreement": 212,
+        "farthest_support": 254,
+        "nearest_support": 123
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.1250116707081554,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.1248510123383935,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3165130140899766,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.076790172094534,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 22864298946065.164,
+        "nearest_distance_max": 3.328470039784411,
+        "nearest_distance_min": 0.6436246334601436
+      },
+      "failed_candidates": [],
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 5,
+        "disagreement": 69,
+        "farthest_support": 253,
+        "nearest_support": 55
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.12031092500497893,
+        "nearest_distance_max": 1.379688394301752,
+        "nearest_distance_min": 0.2896618635421218
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 15,
+        "disagreement": 213,
+        "farthest_support": 90,
+        "nearest_support": 220
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.8180974384264104,
+        "nearest_distance_max": 2.022111484575333,
+        "nearest_distance_min": 0.3055138960311534
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 163,
+        "disagreement": 9,
+        "farthest_support": 169,
+        "nearest_support": 239
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.381359108301804,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.271020395777549,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.470983838030185,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 18.79060375854329,
+        "nearest_distance_max": 4.345317602460243,
+        "nearest_distance_min": 1.2126986015346908
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 103,
+        "disagreement": 248,
+        "farthest_support": 224,
+        "nearest_support": 158
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 38396060.28369846,
+        "nearest_distance_max": 1.36398360876489,
+        "nearest_distance_min": 0.21510986700288207
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 126,
+        "disagreement": 25,
+        "farthest_support": 51,
+        "nearest_support": 188
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.6020944946605406e+34,
+        "nearest_distance_max": 2.1092548373855915,
+        "nearest_distance_min": 0.3446987266127784
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 163,
+        "disagreement": 193,
+        "farthest_support": 140,
+        "nearest_support": 65
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 160933879579074.03,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 921611.9091621846,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 9.02431512711431e+103,
+        "nearest_distance_max": 4.6504982622652085,
+        "nearest_distance_min": 1.2280690430604075
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 229,
+        "disagreement": 145,
+        "farthest_support": 228,
+        "nearest_support": 83
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.33450842347671905,
+        "nearest_distance_max": 1.5066457808111675,
+        "nearest_distance_min": 0.19415454618973121
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 16,
+        "disagreement": 182,
+        "farthest_support": 125,
+        "nearest_support": 2
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.5282097243333765,
+        "nearest_distance_max": 1.9204775841708293,
+        "nearest_distance_min": 0.2979224413320683
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 42,
+        "disagreement": 205,
+        "farthest_support": 183,
+        "nearest_support": 146
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 26569216526683.14,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.150013087873361,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.36048398919385816,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.260440927209073,
+        "nearest_distance_max": 4.640235845613768,
+        "nearest_distance_min": 1.0215310896486676
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 246,
+        "disagreement": 16,
+        "farthest_support": 129,
+        "nearest_support": 209
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.4807842765406215e-08,
+        "nearest_distance_max": 1.4463080831066395,
+        "nearest_distance_min": 0.2778831266982199
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 166,
+        "disagreement": 78,
+        "farthest_support": 92,
+        "nearest_support": 24
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 4.4616031391006066e-08,
+        "nearest_distance_max": 2.1477221166397276,
+        "nearest_distance_min": 0.39956115616941007
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 215,
+        "disagreement": 172,
+        "farthest_support": 186,
+        "nearest_support": 118
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 197.97781533404756,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.1910293676658217,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.313525400545116e-05,
+        "nearest_distance_max": 4.905481029053574,
+        "nearest_distance_min": 1.0890934635520044
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_affine",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 235,
+        "disagreement": 46,
+        "farthest_support": 68,
+        "nearest_support": 165
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2610139404299998,
+        "nearest_distance_max": 0.7825292009047587,
+        "nearest_distance_min": 0.07170156824105438
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 173,
+        "disagreement": 43,
+        "farthest_support": 69,
+        "nearest_support": 200
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.165383176023258,
+        "nearest_distance_max": 1.2151925270778465,
+        "nearest_distance_min": 0.1680944832639269
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 86,
+        "disagreement": 248,
+        "farthest_support": 168,
+        "nearest_support": 148
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.3211453902209178,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.9012175004548746,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.9664273072322147,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.966433339288811,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.4918568523985094,
+        "nearest_distance_max": 3.6243359278750975,
+        "nearest_distance_min": 0.7007671827466863
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 177,
+        "disagreement": 72,
+        "farthest_support": 225,
+        "nearest_support": 211
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0313074725026408,
+        "nearest_distance_max": 0.808387176806483,
+        "nearest_distance_min": 0.08094856004791505
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 230,
+        "disagreement": 144,
+        "farthest_support": 74,
+        "nearest_support": 102
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.9734294003458887,
+        "nearest_distance_max": 1.2194647860624723,
+        "nearest_distance_min": 0.13369468582933428
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 19,
+        "disagreement": 50,
+        "farthest_support": 209,
+        "nearest_support": 69
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.163640036394105,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 0.2146190059406569,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 3.162898049795735,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 3.162900880469262,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.08944956413789366,
+        "nearest_distance_max": 3.3828822313507625,
+        "nearest_distance_min": 0.7382496427911673
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 173,
+        "disagreement": 24,
+        "farthest_support": 184,
+        "nearest_support": 140
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0853727886019675,
+        "nearest_distance_max": 0.8217790994702017,
+        "nearest_distance_min": 0.09109135705870787
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 78,
+        "disagreement": 48,
+        "farthest_support": 139,
+        "nearest_support": 136
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0654283975545908,
+        "nearest_distance_max": 1.25845968101281,
+        "nearest_distance_min": 0.1338829302062947
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 73,
+        "disagreement": 211,
+        "farthest_support": 223,
+        "nearest_support": 123
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 4.132704562758444,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.132704562658896,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.3451013658967832,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.6912372114623333,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.4600481294418473,
+        "nearest_distance_max": 3.4800984214464887,
+        "nearest_distance_min": 0.6147190580826777
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 39,
+        "disagreement": 189,
+        "farthest_support": 66,
+        "nearest_support": 57
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.2104136706129063,
+        "nearest_distance_max": 0.8111607237709897,
+        "nearest_distance_min": 0.1056868977106725
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 159,
+        "disagreement": 145,
+        "farthest_support": 51,
+        "nearest_support": 144
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.1673343608757245,
+        "nearest_distance_max": 1.2396796061351751,
+        "nearest_distance_min": 0.1982729829347048
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 13,
+        "disagreement": 77,
+        "farthest_support": 179,
+        "nearest_support": 52
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.4244955931754717,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.4244955935148114,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.2896610549949572,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 0.5084237078444712,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.259433038970681,
+        "nearest_distance_max": 3.635633894364988,
+        "nearest_distance_min": 0.7243411785087371
+      },
+      "failed_candidates": [],
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 159,
+        "disagreement": 23,
+        "farthest_support": 49,
+        "nearest_support": 253
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.5335850992497936e-07,
+        "nearest_distance_max": 1.3688263534134004,
+        "nearest_distance_min": 0.2022448617817236
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 118,
+        "disagreement": 226,
+        "farthest_support": 186,
+        "nearest_support": 235
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.7939506205555566e-07,
+        "nearest_distance_max": 2.290882798298072,
+        "nearest_distance_min": 0.3583770490207065
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 34,
+        "disagreement": 192,
+        "farthest_support": 237,
+        "nearest_support": 216
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1.5947188750153654,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 4.490269332831093,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 4.490270400127309,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 3.498497286226229e-08,
+        "nearest_distance_max": 4.351952355784469,
+        "nearest_distance_min": 1.0608822573007533
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 210,
+        "disagreement": 106,
+        "farthest_support": 104,
+        "nearest_support": 216
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 6.337227590836107e-05,
+        "nearest_distance_max": 1.4110392136691365,
+        "nearest_distance_min": 0.33349612856344385
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 75,
+        "disagreement": 129,
+        "farthest_support": 19,
+        "nearest_support": 206
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.000680396909188389,
+        "nearest_distance_max": 2.2058923736696494,
+        "nearest_distance_min": 0.42069324865006
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 216,
+        "disagreement": 113,
+        "farthest_support": 69,
+        "nearest_support": 103
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 1633843310538705.0,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 1.7418597388922805,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        {
+          "cv": 1.741862975079431,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 8.392802084278852e-08,
+        "nearest_distance_max": 4.320850137884338,
+        "nearest_distance_min": 1.160414069022403
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 158,
+        "disagreement": 231,
+        "farthest_support": 17,
+        "nearest_support": 194
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 3.7261671945429056e-08,
+        "nearest_distance_max": 1.440357470749057,
+        "nearest_distance_min": 0.16182580267914715
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 186,
+        "disagreement": 167,
+        "farthest_support": 187,
+        "nearest_support": 116
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.0946511707341455e-07,
+        "nearest_distance_max": 2.148382946151896,
+        "nearest_distance_min": 0.2944720610771424
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 161,
+        "disagreement": 61,
+        "farthest_support": 20,
+        "nearest_support": 135
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 2.8288513443358587,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 2.8288517062808216,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 1.650246395531155,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 1.8302264286064403e-07,
+        "nearest_distance_max": 4.7426667350516105,
+        "nearest_distance_min": 0.8269780780534577
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 76,
+        "disagreement": 148,
+        "farthest_support": 191,
+        "nearest_support": 38
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 0.05210024094648557,
+        "nearest_distance_max": 1.429078456570703,
+        "nearest_distance_min": 0.2628283683202907
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "selected_indices": {
+        "deterministic_random": 39,
+        "disagreement": 106,
+        "farthest_support": 7,
+        "nearest_support": 61
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 5.074745951860693,
+        "nearest_distance_max": 2.230512035300828,
+        "nearest_distance_min": 0.42138262041989155
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 58,
+        "disagreement": 131,
+        "farthest_support": 101,
+        "nearest_support": 205
+      }
+    },
+    {
+      "available_candidates": [
+        {
+          "cv": 3.124771514552538,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        {
+          "cv": 3.125022988127019,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        {
+          "cv": 2.082610711114095,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      ],
+      "diagnostics": {
+        "disagreement_max": 2.0282660180868857,
+        "nearest_distance_max": 4.397710200421589,
+        "nearest_distance_min": 1.263550436003207
+      },
+      "failed_candidates": [
+        {
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "selected_indices": {
+        "deterministic_random": 95,
+        "disagreement": 111,
+        "farthest_support": 118,
+        "nearest_support": 171
+      }
+    }
+  ],
+  "schema": "kernellum.disagreement-acquisition-decisions.v1"
+}

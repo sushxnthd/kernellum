@@ -1,0 +1,27 @@
+{
+  "development_only": true,
+  "source_hashes": {
+    "kernellum/discovery/adaptive_revision.py": "f12fb395ce5952270ea12cdc5561ad4bae2d8978c935f6b5cfbf8b9474b7bbbc",
+    "experiments/adaptive_revision/develop.py": "9ac21a2096ecfcb59c18d84f3b6fc726397e932f3950cf7c6572947169c156fc",
+    "tests/test_adaptive_revision.py": "2e6a100c0db2434cefdf33d48353d69a27d850e8d7e2f0e8ce01cf0b5e070f13",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/robust_revision.py": "17bdfec58189a909576809e2c4ce8d1fdb905acb9b4a3f873709adaaac1d7731",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/robust_revision/development/traces.jsonl.gz": "791a96f479b2324a03aba8a06e207a2659543c51d600431a548ecbb0a8f954e5",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "uqtestfuns": "0.6.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_hashes": {
+    "results/adaptive_revision/development/summary.json": "8597207e95db273e9a74fd9a128221f53b5fefc08218e5bd2bbc26650840b882",
+    "results/adaptive_revision/development/traces.jsonl.gz": "6c4c0b57e2798d5bdcc2d105446f2a53419406b2b6138fdbe72a455e0d6f8241"
+  }
+}

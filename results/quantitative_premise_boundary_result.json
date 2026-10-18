@@ -1,0 +1,2128 @@
+{
+  "canonical_sha256": "f9af0082af19e39402ca9712b1094c90bddbe5ec038458c0445132b813321a52",
+  "classification": "EXACT_BOUNDARY_AND_OPENED_COHORT_DIAGNOSTIC",
+  "conditional_law": "Given an independently verified global L, the McShane--Whitney interval is pointwise sharp.",
+  "finite_sharpness": {
+    "bounded_values": [
+      -2,
+      2
+    ],
+    "checks": 27974,
+    "constant": 1,
+    "max_domain": 5,
+    "transcript_requests": 2774
+  },
+  "opened_summary": {
+    "1": {
+      "all": {
+        "cells": 48,
+        "cells_all_outside": 0,
+        "cells_any_outside": 30,
+        "mean_normalized_width": 8.116828282816,
+        "mean_outside_fraction": 0.063395182292
+      },
+      "by_domain": {
+        "far_shell": {
+          "cells_any_outside": 1,
+          "mean_normalized_width": 16.039654497042,
+          "mean_outside_fraction": 0.000244140625
+        },
+        "inside": {
+          "cells_any_outside": 16,
+          "mean_normalized_width": 2.833791325554,
+          "mean_outside_fraction": 0.17236328125
+        },
+        "near_shell": {
+          "cells_any_outside": 13,
+          "mean_normalized_width": 5.477039025851,
+          "mean_outside_fraction": 0.017578125
+        }
+      },
+      "catastrophic": {
+        "cells": 11,
+        "cells_all_outside": 0,
+        "cells_any_outside": 4,
+        "mean_normalized_width": 12.260994514656,
+        "mean_outside_fraction": 0.041193181818
+      }
+    },
+    "10": {
+      "all": {
+        "cells": 48,
+        "cells_all_outside": 0,
+        "cells_any_outside": 0,
+        "mean_normalized_width": 91.490123989743,
+        "mean_outside_fraction": 0.0
+      },
+      "by_domain": {
+        "far_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 166.002568322572,
+          "mean_outside_fraction": 0.0
+        },
+        "inside": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 44.604500157205,
+          "mean_outside_fraction": 0.0
+        },
+        "near_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 63.863303489451,
+          "mean_outside_fraction": 0.0
+        }
+      },
+      "catastrophic": {
+        "cells": 11,
+        "cells_all_outside": 0,
+        "cells_any_outside": 0,
+        "mean_normalized_width": 133.166043639816,
+        "mean_outside_fraction": 0.0
+      }
+    },
+    "2": {
+      "all": {
+        "cells": 48,
+        "cells_all_outside": 0,
+        "cells_any_outside": 6,
+        "mean_normalized_width": 17.846687484931,
+        "mean_outside_fraction": 0.000569661458
+      },
+      "by_domain": {
+        "far_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 33.033444046259,
+          "mean_outside_fraction": 0.0
+        },
+        "inside": {
+          "cells_any_outside": 6,
+          "mean_normalized_width": 8.082966096761,
+          "mean_outside_fraction": 0.001708984375
+        },
+        "near_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 12.423652311774,
+          "mean_outside_fraction": 0.0
+        }
+      },
+      "catastrophic": {
+        "cells": 11,
+        "cells_all_outside": 0,
+        "cells_any_outside": 1,
+        "mean_normalized_width": 26.248815077252,
+        "mean_outside_fraction": 0.000355113636
+      }
+    },
+    "5": {
+      "all": {
+        "cells": 48,
+        "cells_all_outside": 0,
+        "cells_any_outside": 0,
+        "mean_normalized_width": 45.608569348548,
+        "mean_outside_fraction": 0.0
+      },
+      "by_domain": {
+        "far_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 82.958897842832,
+          "mean_outside_fraction": 0.0
+        },
+        "inside": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 22.035686408441,
+          "mean_outside_fraction": 0.0
+        },
+        "near_shell": {
+          "cells_any_outside": 0,
+          "mean_normalized_width": 31.831123794371,
+          "mean_outside_fraction": 0.0
+        }
+      },
+      "catastrophic": {
+        "cells": 11,
+        "cells_all_outside": 0,
+        "cells_any_outside": 0,
+        "mean_normalized_width": 66.477247560826,
+        "mean_outside_fraction": 0.0
+      }
+    }
+  },
+  "protocol_commit": "08cd22be8d5da22cd7faf91298ebd6a263372d62",
+  "rows": [
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.681256564184,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.155297266804,
+          "outside_fraction": 0.2109375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 31.693148848806,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.856906601247,
+          "outside_fraction": 0.00390625
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 15.692832862029,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.681256564184,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.19765104816,
+          "outside_fraction": 0.02734375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 46.849545830916,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 9.141479287245,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 23.346731601378,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.681256564184,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 13.543459814258,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 139.846369412177,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 27.802782421206,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 69.888694791707,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.887374723646,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.009383843265,
+          "outside_fraction": 0.15234375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 33.220218677429,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 6.070385418105,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.423402631591,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.887374723646,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.035526174182,
+          "outside_fraction": 0.0078125
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 53.983526867918,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.672826274954,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 26.948035062404,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.887374723646,
+      "key": [
+        "skew_gaussian",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.829476443482,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 150.595120910738,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 30.029273829801,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 75.275151548089,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 1.02781991112,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 3.314610579928,
+          "outside_fraction": 0.0546875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 42.369082717892,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 8.125359809802,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 21.080919101839,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 1.02781991112,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 6.530235889664,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 67.751091230318,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 13.450828041801,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 33.841622766542,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 1.02781991112,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 19.59426156256,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 197.471859990637,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 39.442106939864,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 98.722319194263,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.750148406634,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 1.905161453586,
+          "outside_fraction": 0.18359375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 30.278288490201,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.510604606338,
+          "outside_fraction": 0.00390625
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.996750632318,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.750148406634,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.025367628964,
+          "outside_fraction": 0.0234375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 45.059884220154,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 8.82134213269,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 22.465546763468,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.750148406634,
+      "key": [
+        "skew_gaussian",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 13.027607650719,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 134.426633828196,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 26.740747159073,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 67.182410166705,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.494726818383,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 3.422935370917,
+          "outside_fraction": 0.18359375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 54.558500758828,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 9.854019623211,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 26.93383192988,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.494726818383,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 6.489060234452,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 76.305758846171,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.891454585406,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 38.05285198569,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.494726818383,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.706531775642,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 173.868943222889,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 34.572401765373,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 86.879515313439,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.393486569227,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.994548019213,
+          "outside_fraction": 0.390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 55.897619440383,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 9.767980099103,
+          "outside_fraction": 0.00390625
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 27.521544002239,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.393486569227,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.799620875501,
+          "outside_fraction": 0.0546875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 75.820466394835,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.454299324076,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 37.675477880136,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.393486569227,
+      "key": [
+        "skew_gaussian",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.863915013351,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 177.280763758976,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 35.23629589182,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 88.596455988936,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.413005372337,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 3.139718368062,
+          "outside_fraction": 0.23046875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 57.793840338196,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.095071578312,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 28.422121953864,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.413005372337,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 6.02103385524,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 75.433220001924,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.680607231009,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 37.654764579484,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.413005372337,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 17.375716826458,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 181.724729117773,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 36.267532580186,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 90.848444556023,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.274191928679,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 3.548812236607,
+          "outside_fraction": 0.2421875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 62.038638933606,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.91720461815,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 30.547279604606,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.274191928679,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 6.70334810901,
+          "outside_fraction": 0.0078125
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 81.259887592266,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 15.774788691888,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 40.540404521057,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.274191928679,
+      "key": [
+        "skew_gaussian",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 19.063784451396,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 198.146410650054,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 39.540211826346,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 99.062797781984,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.735389756847,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.464500725418,
+          "outside_fraction": 0.1171875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 33.46789346962,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 6.265808131249,
+          "outside_fraction": 0.0078125
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.608361850975,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.735389756847,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.488779538931,
+          "outside_fraction": 0.01953125
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 49.542222482564,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 9.673586993127,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 24.695220586311,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.735389756847,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.83763847689,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 152.732724171172,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 30.340927082516,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 76.30588756197,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.606384159083,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.316560000442,
+          "outside_fraction": 0.16015625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 33.992670063626,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 6.323404170036,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.842047792434,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.606384159083,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 5.020351477855,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 54.679590219066,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.787640379659,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 27.294535674237,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.606384159083,
+      "key": [
+        "student_peak",
+        3,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 15.709330639342,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 160.126768826597,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 31.903549943396,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 80.030185004441,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.905796912949,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.402104423066,
+          "outside_fraction": 0.0234375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 34.786322437996,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 6.43068108694,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 17.206721148545,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.905796912949,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.306235604352,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 57.137560411916,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 11.303724570619,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 28.536934752124,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.905796912949,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.464728146712,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 166.915764696789,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 33.319811593654,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 83.438845876309,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.87598106085,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.712526879999,
+          "outside_fraction": 0.0234375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 36.157557802317,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 6.796736508361,
+          "outside_fraction": 0.00390625
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 17.948421665786,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.87598106085,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 5.100218968272,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 55.121901559783,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.856092906822,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 27.503831332861,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.87598106085,
+      "key": [
+        "student_peak",
+        3,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.009982443653,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 164.186873074732,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 32.653404740051,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 82.032810748677,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.26034655502,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 3.991991390809,
+          "outside_fraction": 0.1484375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 57.057571859167,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 10.566475687418,
+          "outside_fraction": 0.00390625
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 28.260607670954,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.26034655502,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 6.750133883069,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 79.300071256292,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 15.354317113926,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 39.508826347771,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.26034655502,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 17.740453612811,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 184.131659684638,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 36.601221706309,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 92.012996576121,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.641910121624,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.332169856454,
+          "outside_fraction": 0.359375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 50.109876254371,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 8.55399272794,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 24.622221320058,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.641910121624,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.818784510415,
+          "outside_fraction": 0.06640625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 64.795683420379,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 12.407312197012,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 32.252206820435,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.641910121624,
+      "key": [
+        "student_peak",
+        5,
+        3101,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 14.492736493666,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 154.836284837149,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 30.760213750224,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 77.386027157786,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.28088926435,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 2.280702429041,
+          "outside_fraction": 0.21875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 40.618650227524,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 7.138142102877,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 19.958523608255,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.28088926435,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.171635865485,
+          "outside_fraction": 0.0546875
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 55.430356164608,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 10.425202386406,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 27.496233502158,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": true,
+      "empirical_constant": 0.28088926435,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "heteroscedastic_gaussian",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 11.74233807173,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 127.045090167573,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 25.020283305422,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 63.396658301045,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.325632428855,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "inside"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 4.349638365255,
+          "outside_fraction": 0.05859375
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 59.632122195317,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 11.054684779083,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 29.505394759681,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.325632428855,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "near_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": true,
+          "mean_normalized_width": 7.174640750067,
+          "outside_fraction": 0.00390625
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 83.34208933211,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 16.082934871736,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 41.484756533872,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    },
+    {
+      "catastrophic": false,
+      "empirical_constant": 0.325632428855,
+      "key": [
+        "student_peak",
+        5,
+        3102,
+        "student_t3",
+        "far_shell"
+      ],
+      "metrics": {
+        "1": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 18.632510530007,
+          "outside_fraction": 0.0
+        },
+        "10": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 192.705096811061,
+          "outside_fraction": 0.0
+        },
+        "2": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 38.304340204912,
+          "outside_fraction": 0.0
+        },
+        "5": {
+          "all_outside": false,
+          "any_outside": false,
+          "mean_normalized_width": 96.283164917813,
+          "outside_fraction": 0.0
+        }
+      },
+      "runtime": {
+        "decision": "refuse",
+        "reason": "empirical constant is only a lower bound"
+      }
+    }
+  ],
+  "runtime_empirical_refusals": 48,
+  "schema": "kernellum.quantitative-premise-boundary.v1",
+  "scientific_gate": "PASS_PIVOT_TO_EXTERNAL_QUANTITATIVE_PREMISES",
+  "smallest_claim": "A transcript-derived Lipschitz constant, including any fixed inflation, is not a certificate; only an independently justified constant makes the sharp interval conditional guarantee valid.",
+  "theorem": {
+    "construction": "Keep every observed value and assign the request above the finite upper endpoint; the completion then has a larger finite Lipschitz constant on the augmented finite domain.",
+    "statement": "For every finite multiplier of the transcript's empirical Lipschitz lower bound, an unrestricted completion can agree on the transcript and leave the resulting interval at an unobserved request."
+  }
+}

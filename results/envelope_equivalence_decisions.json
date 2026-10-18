@@ -1,0 +1,479 @@
+{
+  "classification": "PROSPECTIVE_SHIFTED",
+  "rows": [
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.5398007820260531,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.5398003772979336,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "anisotropic_laplace",
+        2,
+        4101,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 2.640129359723443e-06,
+      "normalized_delta_sum_squares": 4.3223411025359535e-10,
+      "prediction_max": 2.640129359723443e-06,
+      "prediction_rms": 7.502031931812667e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "independent",
+      "y_scale": 0.21107261671947986
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.24312933158264105,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.24312940226378935,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "anisotropic_laplace",
+        2,
+        4101,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 1.337816736160826e-06,
+      "normalized_delta_sum_squares": 1.4719952518935518e-10,
+      "prediction_max": 1.337816736160826e-06,
+      "prediction_rms": 4.3779681180159317e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.18860743092204538
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.6025877327841166,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.6025877729057553,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "anisotropic_laplace",
+        2,
+        4103,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 1.5559370793912243e-06,
+      "normalized_delta_sum_squares": 3.0711874075318806e-10,
+      "prediction_max": 1.5559370793912243e-06,
+      "prediction_rms": 6.32371879268083e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.2150732010548865
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.5045030885049652,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.5045038073275202,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "anisotropic_laplace",
+        2,
+        4103,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 2.7039619969240287e-06,
+      "normalized_delta_sum_squares": 6.01040829380855e-10,
+      "prediction_max": 2.7039619969240287e-06,
+      "prediction_rms": 8.846497875372236e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.20057932818414126
+    },
+    {
+      "accepted": false,
+      "candidate": {
+        "cv": 1.0870095701214302,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "independent": {
+        "cv": 0.40569328006584526,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "anisotropic_laplace",
+        4,
+        4101,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 31.038759998247663,
+      "normalized_delta_sum_squares": 5377.346355007216,
+      "prediction_max": 31.038759998247663,
+      "prediction_rms": 2.6460825887367245,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": null,
+      "y_scale": 0.11642923543626628
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.6086208155707561,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.608621370583687,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "anisotropic_laplace",
+        4,
+        4101,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 1.473965334376646e-06,
+      "normalized_delta_sum_squares": 8.674055131437423e-11,
+      "prediction_max": 1.473965334376646e-06,
+      "prediction_rms": 3.3607056727805165e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.06362439119135116
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.8426855055920089,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.8426852908431552,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "anisotropic_laplace",
+        4,
+        4103,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 6.1179800650150515e-06,
+      "normalized_delta_sum_squares": 9.270232118068975e-10,
+      "prediction_max": 6.1179800650150515e-06,
+      "prediction_rms": 1.0986634942997322e-06,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "independent",
+      "y_scale": 0.12080467053293131
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.25992720223764515,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.25992746565282615,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "anisotropic_laplace",
+        4,
+        4103,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 4.964942903049036e-07,
+      "normalized_delta_sum_squares": 9.74186541413452e-12,
+      "prediction_max": 4.964942903049036e-07,
+      "prediction_rms": 1.1262646487980074e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.08526606384003022
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.909715017589134,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.9097170880968267,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "rational_ridge",
+        2,
+        4101,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 5.841162270412924e-06,
+      "normalized_delta_sum_squares": 3.0218205868974186e-09,
+      "prediction_max": 5.841162270412924e-06,
+      "prediction_rms": 1.9835983017039213e-06,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.23230407365309425
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.2408166544419965,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.24081668335295361,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "rational_ridge",
+        2,
+        4101,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 3.8970947173501115e-07,
+      "normalized_delta_sum_squares": 1.3264270876921523e-11,
+      "prediction_max": 3.8970947173501115e-07,
+      "prediction_rms": 1.3141988448350665e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.24470547654881808
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.264675718934584,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.26467569127576357,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "rational_ridge",
+        2,
+        4103,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 9.81287904022305e-07,
+      "normalized_delta_sum_squares": 5.897677574276174e-11,
+      "prediction_max": 9.81287904022305e-07,
+      "prediction_rms": 2.77114916142e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "independent",
+      "y_scale": 0.24010003957176068
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.2353021261471796,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.23530255314995463,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "rational_ridge",
+        2,
+        4103,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 2.5770385041362228e-06,
+      "normalized_delta_sum_squares": 3.3900015331167907e-10,
+      "prediction_max": 2.5770385041362228e-06,
+      "prediction_rms": 6.643842635287068e-07,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.23714056266166172
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.8214442648019923,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.8214450603678226,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "key": [
+        "rational_ridge",
+        4,
+        4101,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 5.765046679074919e-05,
+      "normalized_delta_sum_squares": 3.448667130428778e-08,
+      "prediction_max": 5.765046679074919e-05,
+      "prediction_rms": 6.701083489067872e-06,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.12566456288813901
+    },
+    {
+      "accepted": false,
+      "candidate": {
+        "cv": 1.1428245142186817,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "independent": {
+        "cv": 0.7940533189816282,
+        "family": "exp_concave",
+        "sign": 1
+      },
+      "key": [
+        "rational_ridge",
+        4,
+        4101,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 10.758284451393727,
+      "normalized_delta_sum_squares": 1438.3894398010343,
+      "prediction_max": 10.758284451393727,
+      "prediction_rms": 1.368540432872773,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": null,
+      "y_scale": 0.11330132660939442
+    },
+    {
+      "accepted": false,
+      "candidate": {
+        "cv": 1.3176276053168303,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "independent": {
+        "cv": 1.3176270127276828,
+        "family": "exp_affine",
+        "sign": 1
+      },
+      "key": [
+        "rational_ridge",
+        4,
+        4103,
+        "contaminated_gaussian"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 1.299704405283902e+37,
+      "normalized_delta_sum_squares": 2.6298475836498015e+74,
+      "prediction_max": 1.299704405283902e+37,
+      "prediction_rms": 5.851735390358441e+35,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": null,
+      "y_scale": 0.24468540761298477
+    },
+    {
+      "accepted": true,
+      "candidate": {
+        "cv": 0.055446376994615916,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "failed_model_attempts": [],
+      "independent": {
+        "cv": 0.05544641588048815,
+        "family": "exp_concave",
+        "sign": -1
+      },
+      "key": [
+        "rational_ridge",
+        4,
+        4103,
+        "multiplicative_lognormal"
+      ],
+      "normalized_delta_count": 768,
+      "normalized_delta_max": 3.939132528989588e-07,
+      "normalized_delta_sum_squares": 6.40339644609041e-12,
+      "prediction_max": 3.939132528989588e-07,
+      "prediction_rms": 9.131131249292292e-08,
+      "scope": "solver_invariance_not_model_correctness",
+      "selected_solver": "candidate",
+      "y_scale": 0.06711683144688917
+    }
+  ],
+  "schema": "kernellum.envelope-equivalence-decisions.v1",
+  "thresholds": {
+    "maximum": 4.0,
+    "rms": 0.5
+  }
+}
