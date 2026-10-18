@@ -1,0 +1,622 @@
+{
+  "canonical_sha256": "12cf4d1fb3e15bcda09286300a27ee3ad4e25b87990affe403c7d3eb89d91f9b",
+  "classification": "PROSPECTIVE_UNSEEN",
+  "decision_sha256": "d4ece31a0e791cd28f5843c3cc5079217b5991c6a6955825443a632a9f26cd81",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.17",
+    "scipy": "1.17.1"
+  },
+  "gates": {
+    "complete": true,
+    "far_improves": false,
+    "halves_one_domain_catastrophes": false,
+    "inside_noninferior": true,
+    "no_excess_catastrophe": true,
+    "two_overrides": false
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "candidate": 5,
+        "globalized": 5,
+        "independent": 6,
+        "naive": 4,
+        "selected": 5
+      },
+      "geometric_nmse": {
+        "candidate": 10.528840326010636,
+        "globalized": 10.528806360646154,
+        "independent": 128812.33746749531,
+        "naive": 7.471378224608029,
+        "selected": 10.528840326010636
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 0,
+        "naive": 0,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 0.38830456332994534,
+        "globalized": 0.3883044055086576,
+        "independent": 0.3623951582408699,
+        "naive": 0.3708619171747654,
+        "selected": 0.38830456332994534
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 1,
+        "naive": 0,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 2.098816865361331,
+        "globalized": 2.0988139310456844,
+        "independent": 4.1575927618013155,
+        "naive": 1.9169575562735632,
+        "selected": 2.098816865361331
+      }
+    }
+  },
+  "overrides": 0,
+  "paths": 16,
+  "ratios": {
+    "far_over_candidate": 1.0,
+    "inside_over_candidate": 1.0
+  },
+  "records": [
+    {
+      "consensus_margin": -3.4864689855952144e-07,
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.184466453779545,
+          "globalized": 1.184466453779545,
+          "independent": 1.1844669742638168,
+          "naive": 1.184466453779545,
+          "selected": 1.184466453779545
+        },
+        "inside": {
+          "candidate": -1.1098319107611134,
+          "globalized": -1.1098319107611134,
+          "independent": -1.1098308212259793,
+          "naive": -1.1098319107611134,
+          "selected": -1.1098319107611134
+        },
+        "near_shell": {
+          "candidate": 1.397742274031569,
+          "globalized": 1.397742274031569,
+          "independent": 1.3977434631865666,
+          "naive": 1.397742274031569,
+          "selected": 1.397742274031569
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 1.7972501381393712e-07,
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5201,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.3581020092211196,
+          "globalized": 1.3581017221458138,
+          "independent": 1.3581018249771937,
+          "naive": 1.3581017221458138,
+          "selected": 1.3581020092211196
+        },
+        "inside": {
+          "candidate": -2.9459586248377247,
+          "globalized": -2.9459570620703293,
+          "independent": -2.9459577605599954,
+          "naive": -2.9459570620703293,
+          "selected": -2.9459586248377247
+        },
+        "near_shell": {
+          "candidate": 0.3413821186936872,
+          "globalized": 0.3413795919627569,
+          "independent": 0.341380559034115,
+          "naive": 0.3413795919627569,
+          "selected": 0.3413821186936872
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -3.3155965326840986e-07,
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.8663204118581183,
+          "globalized": 0.8663205185242919,
+          "independent": 0.8663208674307468,
+          "naive": 0.8663204118581183,
+          "selected": 0.8663204118581183
+        },
+        "inside": {
+          "candidate": -2.1766347159118555,
+          "globalized": -2.1766350219807085,
+          "independent": -2.176635938307751,
+          "naive": -2.1766347159118555,
+          "selected": -2.1766347159118555
+        },
+        "near_shell": {
+          "candidate": -0.16581986438630114,
+          "globalized": -0.16581944117545877,
+          "independent": -0.16581804513162268,
+          "naive": -0.16581986438630114,
+          "selected": -0.16581986438630114
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 5.161026173218898e-08,
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5207,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.2001611377597428,
+          "globalized": 1.2001613726741462,
+          "independent": 1.2001612617496784,
+          "naive": 1.2001611377597428,
+          "selected": 1.2001611377597428
+        },
+        "inside": {
+          "candidate": -2.582277099735329,
+          "globalized": -2.582278104086776,
+          "independent": -2.582277616186855,
+          "naive": -2.582277099735329,
+          "selected": -2.582277099735329
+        },
+        "near_shell": {
+          "candidate": 0.30155901728493184,
+          "globalized": 0.30156058536621533,
+          "independent": 0.30155984629080823,
+          "naive": 0.30155901728493184,
+          "selected": 0.30155901728493184
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.1358697339343635e-06,
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.346965494200526,
+          "globalized": 5.346965494200526,
+          "independent": 5.346965338276562,
+          "naive": 5.346965494200526,
+          "selected": 5.346965494200526
+        },
+        "inside": {
+          "candidate": 0.17893609230394691,
+          "globalized": 0.17893609230394691,
+          "independent": 0.1789362880107559,
+          "naive": 0.17893609230394691,
+          "selected": 0.17893609230394691
+        },
+        "near_shell": {
+          "candidate": 1.948456909746219,
+          "globalized": 1.948456909746219,
+          "independent": 1.9484569629475592,
+          "naive": 1.948456909746219,
+          "selected": 1.948456909746219
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 2.629576962826852e-06,
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5201,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.543917085610113,
+          "globalized": 5.543911215480218,
+          "independent": 5.543912803465159,
+          "naive": 5.543911215480218,
+          "selected": 5.543917085610113
+        },
+        "inside": {
+          "candidate": 0.17205458689882036,
+          "globalized": 0.1720564223275911,
+          "independent": 0.17205587625534147,
+          "naive": 0.1720564223275911,
+          "selected": 0.17205458689882036
+        },
+        "near_shell": {
+          "candidate": 2.276958678323048,
+          "globalized": 2.276956086300941,
+          "independent": 2.276957455368599,
+          "naive": 2.276956086300941,
+          "selected": 2.276958678323048
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -2.6368197447106327,
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 7.122091651856911,
+          "globalized": 7.122091651856911,
+          "independent": 1.6335188528837108,
+          "naive": 1.6335188528837108,
+          "selected": 7.122091651856911
+        },
+        "inside": {
+          "candidate": 0.3011107068909773,
+          "globalized": 0.3011107068909773,
+          "independent": -0.4342474758603485,
+          "naive": -0.4342474758603485,
+          "selected": 0.3011107068909773
+        },
+        "near_shell": {
+          "candidate": 1.9527727643334432,
+          "globalized": 1.9527727643334432,
+          "independent": 0.5026448688556426,
+          "naive": 0.5026448688556426,
+          "selected": 1.9527727643334432
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 4.364879127125995e-06,
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5207,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.9651293479924785,
+          "globalized": 5.965123147639423,
+          "independent": 5.965124606228736,
+          "naive": 5.9651293479924785,
+          "selected": 5.9651293479924785
+        },
+        "inside": {
+          "candidate": 0.09451786623224656,
+          "globalized": 0.09451820234344055,
+          "independent": 0.09451813368196937,
+          "naive": 0.09451786623224656,
+          "selected": 0.09451786623224656
+        },
+        "near_shell": {
+          "candidate": 1.6598222321801153,
+          "globalized": 1.6598192258401872,
+          "independent": 1.6598199290151054,
+          "naive": 1.6598222321801153,
+          "selected": 1.6598222321801153
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -9.565244290051034e-07,
+      "key": [
+        "tilted_matern",
+        2,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.2913217300442348,
+          "globalized": -0.2913217300442348,
+          "independent": -0.2913198098590737,
+          "naive": -0.2913217300442348,
+          "selected": -0.2913217300442348
+        },
+        "inside": {
+          "candidate": -1.5115116729121811,
+          "globalized": -1.5115116729121811,
+          "independent": -1.511507984517292,
+          "naive": -1.5115116729121811,
+          "selected": -1.5115116729121811
+        },
+        "near_shell": {
+          "candidate": -0.7552886881380152,
+          "globalized": -0.7552886881380152,
+          "independent": -0.7552822539515098,
+          "naive": -0.7552886881380152,
+          "selected": -0.7552886881380152
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 2.7478643320560396e-08,
+      "key": [
+        "tilted_matern",
+        2,
+        5201,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.07245677753709856,
+          "globalized": -0.07245662789996032,
+          "independent": -0.07245668629652258,
+          "naive": -0.07245677753709856,
+          "selected": -0.07245677753709856
+        },
+        "inside": {
+          "candidate": -3.4567028753244706,
+          "globalized": -3.4567031275668727,
+          "independent": -3.4567031679259896,
+          "naive": -3.4567028753244706,
+          "selected": -3.4567028753244706
+        },
+        "near_shell": {
+          "candidate": -0.6195096318418605,
+          "globalized": -0.6195094597995476,
+          "independent": -0.6195095910344639,
+          "naive": -0.6195096318418605,
+          "selected": -0.6195096318418605
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 5.417356600762625e-07,
+      "key": [
+        "tilted_matern",
+        2,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.3516902285663708,
+          "globalized": 0.351688985790493,
+          "independent": 0.35168917886155704,
+          "naive": 0.351688985790493,
+          "selected": 0.3516902285663708
+        },
+        "inside": {
+          "candidate": -2.0453641216091256,
+          "globalized": -2.0453704208882435,
+          "independent": -2.0453691013831916,
+          "naive": -2.0453704208882435,
+          "selected": -2.0453641216091256
+        },
+        "near_shell": {
+          "candidate": 0.010075981504340525,
+          "globalized": 0.010073751808134634,
+          "independent": 0.010074119746414478,
+          "naive": 0.010073751808134634,
+          "selected": 0.010075981504340525
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 8.623290213304827e-08,
+      "key": [
+        "tilted_matern",
+        2,
+        5207,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.1384869595377154,
+          "globalized": -0.13848610709118958,
+          "independent": -0.13848560980814462,
+          "naive": -0.1384869595377154,
+          "selected": -0.1384869595377154
+        },
+        "inside": {
+          "candidate": -3.3001822840969455,
+          "globalized": -3.30018276223781,
+          "independent": -3.300183042161927,
+          "naive": -3.3001822840969455,
+          "selected": -3.3001822840969455
+        },
+        "near_shell": {
+          "candidate": -0.6308118404871905,
+          "globalized": -0.6308098160608484,
+          "independent": -0.6308086357662157,
+          "naive": -0.6308118404871905,
+          "selected": -0.6308118404871905
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.0579886741878716e-05,
+      "key": [
+        "tilted_matern",
+        6,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.12381022629308447,
+          "globalized": 0.1238102261614511,
+          "independent": 0.12381048446403753,
+          "naive": 0.12381048446403753,
+          "selected": 0.12381022629308447
+        },
+        "inside": {
+          "candidate": 1.1702854902011537,
+          "globalized": 1.1702854901980988,
+          "independent": 1.1702854901571658,
+          "naive": 1.1702854901571658,
+          "selected": 1.1702854902011537
+        },
+        "near_shell": {
+          "candidate": 0.6043381207742362,
+          "globalized": 0.6043381207604757,
+          "independent": 0.60433812058029,
+          "naive": 0.60433812058029,
+          "selected": 0.6043381207742362
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -9.496126465646172e+30,
+      "key": [
+        "tilted_matern",
+        6,
+        5201,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.09053573607796217,
+          "globalized": 0.0905357359991168,
+          "independent": 151.83357615838403,
+          "naive": 0.09053573607796217,
+          "selected": 0.09053573607796217
+        },
+        "inside": {
+          "candidate": 1.1338061647168454,
+          "globalized": 1.1338061647131035,
+          "independent": 1.133889120862797,
+          "naive": 1.1338061647168454,
+          "selected": 1.1338061647168454
+        },
+        "near_shell": {
+          "candidate": 0.5604555743648367,
+          "globalized": 0.5604555743510424,
+          "independent": 13.206303326257547,
+          "naive": 0.5604555743648367,
+          "selected": 0.5604555743648367
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 6.338557805864086e-07,
+      "key": [
+        "tilted_matern",
+        6,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 6.7274514894422515,
+          "globalized": 6.727412131264231,
+          "independent": 6.727431591924354,
+          "naive": 6.727412131264231,
+          "selected": 6.7274514894422515
+        },
+        "inside": {
+          "candidate": 0.45237105056945026,
+          "globalized": 0.452369153360471,
+          "independent": 0.4523700405609654,
+          "naive": 0.452369153360471,
+          "selected": 0.45237105056945026
+        },
+        "near_shell": {
+          "candidate": 1.1377612879324372,
+          "globalized": 1.137745085679306,
+          "independent": 1.137753224816489,
+          "naive": 1.137745085679306,
+          "selected": 1.1377612879324372
+        }
+      },
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.297889804650456,
+      "key": [
+        "tilted_matern",
+        6,
+        5207,
+        "variance_ramp"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 2.287515228024933,
+          "globalized": 2.287515228024933,
+          "independent": 6.624972176752504,
+          "naive": 2.287515228024933,
+          "selected": 2.287515228024933
+        },
+        "inside": {
+          "candidate": 0.4899367035261588,
+          "globalized": 0.4899367035261588,
+          "independent": 0.12033691595933416,
+          "naive": 0.4899367035261588,
+          "selected": 0.4899367035261588
+        },
+        "near_shell": {
+          "candidate": 1.842085681915135,
+          "globalized": 1.842085681915135,
+          "independent": 1.5833665498578728,
+          "naive": 1.842085681915135,
+          "selected": 1.842085681915135
+        }
+      },
+      "selected_solver": "candidate"
+    }
+  ],
+  "schema": "kernellum.consensus-medoid-result.v1",
+  "status": "FAIL"
+}

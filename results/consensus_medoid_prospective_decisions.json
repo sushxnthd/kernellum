@@ -1,0 +1,840 @@
+{
+  "classification": "PROSPECTIVE_UNSEEN",
+  "rows": [
+    {
+      "consensus_margin": -3.4864689855952144e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0,
+          "rms": 0.0
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 9.604290005869001e-07,
+          "rms": 3.4864689855952144e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 9.604290005869001e-07,
+          "rms": 3.4864689855952144e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.4538968951943958,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 0.4538969625736707,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 0.45389726391461904,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 1.7972501381393712e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 2.0657712119024565e-06,
+          "rms": 5.941933741505109e-07
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 1.382938512897915e-06,
+          "rms": 3.930553902280319e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 7.503353802946847e-07,
+          "rms": 2.133303764140948e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5201,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.1721393193030225,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 0.1721320320163322,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 0.43887250234650166,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      },
+      "naive_solver": "globalized",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -3.3155965326840986e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 4.569742230300677e-07,
+          "rms": 1.4528828976178441e-07
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 1.979867270659191e-06,
+          "rms": 6.219008084319817e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 1.5228930476291233e-06,
+          "rms": 4.768479430301943e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.34539924157422536,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 0.3453995910748029,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 0.34539936692317696,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 5.161026173218898e-08,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 1.0194965884096138e-06,
+          "rms": 3.5336037283250713e-07
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 5.85723352250183e-07,
+          "rms": 2.0477500495181192e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 4.67621903319703e-07,
+          "rms": 1.5316474321962294e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "oscillatory_cauchy",
+        2,
+        5207,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.13419254399962252,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 0.13419258822795163,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 0.1341925596136304,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.1358697339343635e-06,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0,
+          "rms": 0.0
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 5.660927996202793e-06,
+          "rms": 1.1358697339343635e-06
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 5.660927996202793e-06,
+          "rms": 1.1358697339343635e-06
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.4379581448298377,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 1.4379583002709257,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 1.4379583421311617,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 2.629576962826852e-06,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 7.314972310345933e-05,
+          "rms": 7.921042980728263e-06
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 4.3940087488402065e-05,
+          "rms": 5.910749473500419e-06
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 3.590329329687279e-05,
+          "rms": 3.281172510673567e-06
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5201,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.3894227404791029,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 1.3894216309084442,
+          "family": "exp_affine",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 1.3894225006959724,
+          "family": "exp_affine",
+          "sign": 1
+        }
+      },
+      "naive_solver": "globalized",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -2.6368197447106327,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0,
+          "rms": 0.0
+        },
+        "candidate_independent": {
+          "admissible": false,
+          "maximum": 23.255115434097437,
+          "rms": 2.6368197447106327
+        },
+        "independent_globalized": {
+          "admissible": false,
+          "maximum": 23.255115434097437,
+          "rms": 2.6368197447106327
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 2.656616012607319,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 2.6566164074074563,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 2.3206954018044095,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      },
+      "naive_solver": "independent",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 4.364879127125995e-06,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 7.592131078644124e-05,
+          "rms": 8.426735232170217e-06
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 5.7808635009629446e-05,
+          "rms": 6.397424623665115e-06
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 1.8112675776811793e-05,
+          "rms": 2.0325454965391203e-06
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "oscillatory_cauchy",
+        6,
+        5207,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.1431874182997817,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 1.1431876103543923,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 1.1431880913543107,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -9.565244290051034e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0,
+          "rms": 0.0
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 3.1532239616824576e-06,
+          "rms": 9.565244290051034e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 3.1532239616824576e-06,
+          "rms": 9.565244290051034e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "tilted_matern",
+        2,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.6910661745108785,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 0.6910667718083047,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 0.6910677873857823,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 2.7478643320560396e-08,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 2.3687382087446293e-07,
+          "rms": 6.110197820112402e-08
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 2.1358949785856382e-07,
+          "rms": 4.922616284584668e-08
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 6.707131066679915e-08,
+          "rms": 2.1747519525286287e-08
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "tilted_matern",
+        2,
+        5201,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.09185904313123579,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "globalized": {
+          "cv": 0.09185907495024619,
+          "family": "exp_concave",
+          "sign": 1
+        },
+        "independent": {
+          "cv": 0.09185906981742607,
+          "family": "exp_concave",
+          "sign": 1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 5.417356600762625e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 2.8481032557267483e-06,
+          "rms": 9.844758380308185e-07
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 2.2632462314187374e-06,
+          "rms": 7.651504496935501e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 5.848570243080109e-07,
+          "rms": 2.2341478961728754e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "tilted_matern",
+        2,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.4002475487774451,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 0.40024719580938584,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 0.4002473369642489,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      },
+      "naive_solver": "globalized",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 8.623290213304827e-08,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 7.576179720628848e-07,
+          "rms": 2.0691849598157362e-07
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 1.1995903694899376e-06,
+          "rms": 3.2760402426591496e-07
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 4.419723974270527e-07,
+          "rms": 1.2068559384852535e-07
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "tilted_matern",
+        2,
+        5207,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.20339374016076717,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 0.20339374194031193,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 0.20339378214546044,
+          "family": "exp_concave",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.0579886741878716e-05,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 3.3105048674502737e-09,
+          "rms": 1.8365200392226097e-10
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 0.00029310629487228014,
+          "rms": 1.05800206862698e-05
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 0.00029310764585857503,
+          "rms": 1.0580070393882638e-05
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "tilted_matern",
+        6,
+        5201,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.6929131033291742,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 1.6929131033199496,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 1.6929131033141918,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      },
+      "naive_solver": "independent",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -9.496126465646172e+30,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 4.7649880956823234e-11,
+          "rms": 5.4611211014455675e-12
+        },
+        "candidate_independent": {
+          "admissible": false,
+          "maximum": 2.6316437606107058e+32,
+          "rms": 9.496126465646172e+30
+        },
+        "independent_globalized": {
+          "admissible": false,
+          "maximum": 2.6316437606107058e+32,
+          "rms": 9.496126465646172e+30
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "key": [
+        "tilted_matern",
+        6,
+        5201,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.660764361899722,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 1.6607649702528462,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 1.6607644844552552,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": 6.338557805864086e-07,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0003086198655930888,
+          "rms": 3.227190871867689e-05
+        },
+        "candidate_independent": {
+          "admissible": true,
+          "maximum": 0.00015727723983567863,
+          "rms": 1.6454190536426076e-05
+        },
+        "independent_globalized": {
+          "admissible": true,
+          "maximum": 0.00015134262575741016,
+          "rms": 1.5820334755839667e-05
+        }
+      },
+      "failed_model_attempts": [
+        {
+          "bank": "candidate",
+          "family": "exp_concave",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "bank": "globalized",
+          "family": "exp_concave",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "key": [
+        "tilted_matern",
+        6,
+        5207,
+        "asymmetric_contamination"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 1.6684934097883488,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 1.6684837496216325,
+          "family": "exp_affine",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 1.6684877718855369,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      },
+      "naive_solver": "globalized",
+      "override": false,
+      "selected_solver": "candidate"
+    },
+    {
+      "consensus_margin": -1.297889804650456,
+      "edges": {
+        "candidate_globalized": {
+          "admissible": true,
+          "maximum": 0.0,
+          "rms": 0.0
+        },
+        "candidate_independent": {
+          "admissible": false,
+          "maximum": 7.8155163576234195,
+          "rms": 1.297889804650456
+        },
+        "independent_globalized": {
+          "admissible": false,
+          "maximum": 7.8155163576234195,
+          "rms": 1.297889804650456
+        }
+      },
+      "failed_model_attempts": [],
+      "key": [
+        "tilted_matern",
+        6,
+        5207,
+        "variance_ramp"
+      ],
+      "models": {
+        "candidate": {
+          "cv": 0.8540279081982627,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "globalized": {
+          "cv": 1.159016906933242,
+          "family": "exp_concave",
+          "sign": -1
+        },
+        "independent": {
+          "cv": 1.3530623117612366,
+          "family": "exp_affine",
+          "sign": -1
+        }
+      },
+      "naive_solver": "candidate",
+      "override": false,
+      "selected_solver": "candidate"
+    }
+  ],
+  "schema": "kernellum.consensus-medoid-decisions.v1",
+  "thresholds": {
+    "maximum": 4.0,
+    "rms": 0.5
+  }
+}
