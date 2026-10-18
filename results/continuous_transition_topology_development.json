@@ -1,0 +1,1071 @@
+{
+  "canonical_sha256": "f24d283ae251814087083e13d0a7554c80b1f79e6d82f539f65b72d6059b2dd9",
+  "classification": "OPENED_COHORT_LEAVE_ONE_FAMILY_OUT_DEVELOPMENT",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.17"
+  },
+  "families": [
+    "anisotropic_bump",
+    "oscillatory_cauchy",
+    "rational_mixture",
+    "warped_cauchy",
+    "warped_laplace"
+  ],
+  "features": [
+    "switch08",
+    "switch16",
+    "switch24",
+    "switch32",
+    "meanDist08",
+    "meanDist16",
+    "meanDist24",
+    "meanDist32",
+    "globalizedDistance",
+    "logResidualRatio"
+  ],
+  "inputs": {
+    "basin_transition_confirmatory": {
+      "decisions_sha256": "8aa90c32e41efc17d7461858650101ca7ed04d84bf15c27a5db88eec4c6da26a",
+      "result_sha256": "f38df0be4a99b1b4c3fa260e036e2167c540240f20cdbb6c56b68c7a8baa555a"
+    },
+    "basin_transition_continuation": {
+      "decisions_sha256": "88e37533afa6cf0192fe8c242f48ebd6279eb9221c8b67e7fabae398fcb78a33",
+      "result_sha256": "25a157bfd75dab3d85276321230a6df5676cc243f23205da3cada1b43f8fb41b"
+    }
+  },
+  "paths": 40,
+  "ridge_lambda": 10.0,
+  "schema": "kernellum.continuous-transition-topology-development.v1",
+  "smallest_claim": "On the opened 40-path archive, no tested full transition-topology ridge operating point met the predeclared precision/tail/static-ablation gate under leave-one-family-out evaluation; no prospective claim is made.",
+  "static_operating_points": [
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "family_routes": {
+        "anisotropic_bump": 2,
+        "oscillatory_cauchy": 7,
+        "rational_mixture": 5,
+        "warped_cauchy": 4,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.7227325497652897,
+      "precision": 0.5714285714285714,
+      "routes": 21,
+      "selected_catastrophes": 12,
+      "threshold": 0.1
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "family_routes": {
+        "anisotropic_bump": 2,
+        "oscillatory_cauchy": 2,
+        "rational_mixture": 1,
+        "warped_cauchy": 4,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.7231299123523568,
+      "precision": 0.75,
+      "routes": 12,
+      "selected_catastrophes": 12,
+      "threshold": 0.15
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "family_routes": {
+        "anisotropic_bump": 1,
+        "oscillatory_cauchy": 2,
+        "rational_mixture": 1,
+        "warped_cauchy": 2,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.7415208876806686,
+      "precision": 0.7777777777777778,
+      "routes": 9,
+      "selected_catastrophes": 12,
+      "threshold": 0.2
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "family_routes": {
+        "anisotropic_bump": 1,
+        "oscillatory_cauchy": 2,
+        "rational_mixture": 1,
+        "warped_cauchy": 2,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.7415208876806686,
+      "precision": 0.7777777777777778,
+      "routes": 9,
+      "selected_catastrophes": 12,
+      "threshold": 0.25
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 1,
+      "family_routes": {
+        "anisotropic_bump": 1,
+        "oscillatory_cauchy": 1,
+        "rational_mixture": 1,
+        "warped_cauchy": 2,
+        "warped_laplace": 2
+      },
+      "far_geometric_ratio": 0.756211611307905,
+      "precision": 0.8571428571428571,
+      "routes": 7,
+      "selected_catastrophes": 13,
+      "threshold": 0.3
+    }
+  ],
+  "static_predictions": [
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -7.4399806075931e-06,
+      "score": 0.09063664713081765
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": -3.651585700481519e-10,
+      "score": 0.09062930271754928
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 2.7802846780389245e-07,
+      "score": 0.09062930817782003
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 1.5958513088776272e-07,
+      "score": 0.09062935917351896
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 4.945377440890297e-12,
+      "score": 0.0906292754774023
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.09062927547701996
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 1.0462695452631667,
+      "score": 0.16988610846434607
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 2.1014195188589664,
+      "score": 0.3411740046388888
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.10755734596225856
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.462990640912267e-07,
+      "score": 0.10755810461312681
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": -1.128187606447284e-06,
+      "score": 0.10755842873954687
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.10755734596225856
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.17902090348807143,
+      "score": 0.29945769504909836
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.005353663789655294
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.1783640325067033,
+      "score": 0.7491377938265832
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.02199218492722821,
+      "score": 0.12099938237151131
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -1.798028929300699e-06,
+      "score": 0.11018300766907393
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.11017894144355074
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -3.7372301475713243e-06,
+      "score": 0.11018318158711274
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.22884174508431e-07,
+      "score": 0.11018138959297596
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.01944905937985364
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.01944905937985364
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.21081306491688068,
+      "score": 0.5256225728318709
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.01944905937985364
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 4.893604632627557e-08,
+      "score": 0.06717253812183732
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 1.3620005782858193,
+      "score": 0.37786199795725717
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -3.7104485608452364e-06,
+      "score": 0.06717405185094663
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.6081336798332586e-06,
+      "score": 0.06717610567290488
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.12502361819428032,
+      "score": 0.16998260244405003
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.11163096744333778,
+      "score": 0.6993924202200299
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.005882194976848887
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.08333165390803465,
+      "score": 0.17533587124705996
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.08873029009588618
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.08873029009588618
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.08873029009588618
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 7.587621562094313,
+      "score": 1.0907871799873998
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.04713771902444108,
+      "score": 0.341604089524173
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": -2.7680968628374103e-10,
+      "score": 0.08873029078909592
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.9637375224206881,
+      "score": 0.28530464090071117
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.012428022752521695
+    }
+  ],
+  "status": "KILL_TOPOLOGY_NO_TRANSFER_GATE",
+  "target_clip": [
+    -2.0,
+    2.0
+  ],
+  "thresholds": [
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3
+  ],
+  "topology_operating_points": [
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "dominated_by_nearby_static": false,
+      "family_routes": {
+        "anisotropic_bump": 4,
+        "oscillatory_cauchy": 4,
+        "rational_mixture": 2,
+        "warped_cauchy": 6,
+        "warped_laplace": 5
+      },
+      "far_geometric_ratio": 0.7227324355513687,
+      "gates": {
+        "eight_routes": true,
+        "far_improves": true,
+        "no_excess_catastrophe": true,
+        "not_static_dominated": true,
+        "precision": false,
+        "removes_two_catastrophes": true
+      },
+      "passes": false,
+      "precision": 0.5714285714285714,
+      "routes": 21,
+      "selected_catastrophes": 12,
+      "threshold": 0.1
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "dominated_by_nearby_static": false,
+      "family_routes": {
+        "anisotropic_bump": 3,
+        "oscillatory_cauchy": 4,
+        "rational_mixture": 2,
+        "warped_cauchy": 5,
+        "warped_laplace": 4
+      },
+      "far_geometric_ratio": 0.7227324364355604,
+      "gates": {
+        "eight_routes": true,
+        "far_improves": true,
+        "no_excess_catastrophe": true,
+        "not_static_dominated": true,
+        "precision": false,
+        "removes_two_catastrophes": true
+      },
+      "passes": false,
+      "precision": 0.6111111111111112,
+      "routes": 18,
+      "selected_catastrophes": 12,
+      "threshold": 0.15
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "dominated_by_nearby_static": true,
+      "family_routes": {
+        "anisotropic_bump": 2,
+        "oscillatory_cauchy": 3,
+        "rational_mixture": 2,
+        "warped_cauchy": 3,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.7399776865094546,
+      "gates": {
+        "eight_routes": true,
+        "far_improves": true,
+        "no_excess_catastrophe": true,
+        "not_static_dominated": false,
+        "precision": false,
+        "removes_two_catastrophes": true
+      },
+      "passes": false,
+      "precision": 0.6923076923076923,
+      "routes": 13,
+      "selected_catastrophes": 12,
+      "threshold": 0.2
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "dominated_by_nearby_static": true,
+      "family_routes": {
+        "anisotropic_bump": 1,
+        "oscillatory_cauchy": 3,
+        "rational_mixture": 1,
+        "warped_cauchy": 3,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.739977691652826,
+      "gates": {
+        "eight_routes": true,
+        "far_improves": true,
+        "no_excess_catastrophe": true,
+        "not_static_dominated": false,
+        "precision": false,
+        "removes_two_catastrophes": true
+      },
+      "passes": false,
+      "precision": 0.7272727272727273,
+      "routes": 11,
+      "selected_catastrophes": 12,
+      "threshold": 0.25
+    },
+    {
+      "candidate_catastrophes": 14,
+      "catastrophes_removed": 2,
+      "dominated_by_nearby_static": true,
+      "family_routes": {
+        "anisotropic_bump": 1,
+        "oscillatory_cauchy": 3,
+        "rational_mixture": 1,
+        "warped_cauchy": 3,
+        "warped_laplace": 3
+      },
+      "far_geometric_ratio": 0.739977691652826,
+      "gates": {
+        "eight_routes": true,
+        "far_improves": true,
+        "no_excess_catastrophe": true,
+        "not_static_dominated": false,
+        "precision": false,
+        "removes_two_catastrophes": true
+      },
+      "passes": false,
+      "precision": 0.7272727272727273,
+      "routes": 11,
+      "selected_catastrophes": 12,
+      "threshold": 0.3
+    }
+  ],
+  "topology_predictions": [
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -7.4399806075931e-06,
+      "score": 0.046685844864628026
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": -3.651585700481519e-10,
+      "score": -0.001016902222135574
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 2.7802846780389245e-07,
+      "score": 0.2112306608593733
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 1.5958513088776272e-07,
+      "score": -0.0010168545808487417
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 4.945377440890297e-12,
+      "score": 0.08782675400077973
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.11101941873003375
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 1.0462695452631667,
+      "score": 0.15694973694236738
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 2.1014195188589664,
+      "score": 0.3124992183304509
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.18245343786391968
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.462990640912267e-07,
+      "score": -0.18245287156182896
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": -1.128187606447284e-06,
+      "score": -0.14201766728008927
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.7479324656913188
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.17902090348807143,
+      "score": 0.7884642439078384
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.017672110030789806
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.1783640325067033,
+      "score": 0.4761184687625576
+    },
+    {
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.02199218492722821,
+      "score": 0.18147204472648348
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -1.798028929300699e-06,
+      "score": -0.016269130441651514
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.20235547124199965
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -3.7372301475713243e-06,
+      "score": -0.06203718377217454
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.22884174508431e-07,
+      "score": 0.05516116613772759
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.005289643950091905
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.1559704884633097
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.21081306491688068,
+      "score": 0.4373533712417029
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.015985699751793758
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": 4.893604632627557e-08,
+      "score": 0.12265572599666799
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 1.3620005782858193,
+      "score": 0.4020460557051666
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": -3.7104485608452364e-06,
+      "score": -0.05850171122544595
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 3.6081336798332586e-06,
+      "score": 0.08282415195046104
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "raw_gain": -0.12502361819428032,
+      "score": 0.16912508928482817
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.11163096744333778,
+      "score": 0.7382043046552624
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.15550499694373038
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.08333165390803465,
+      "score": 0.31867733928578457
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": -0.05006200705421249
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.14364280833665222
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.16672727939288673
+    },
+    {
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 7.587621562094313,
+      "score": 1.00044493384882
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.04713771902444108,
+      "score": 0.41327753134623424
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "raw_gain": -2.7680968628374103e-10,
+      "score": -3.0502759665702827e+26
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "raw_gain": 0.9637375224206881,
+      "score": 0.39545780251876017
+    },
+    {
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "raw_gain": 0.0,
+      "score": 0.0539889932205288
+    }
+  ]
+}
