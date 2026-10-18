@@ -29,14 +29,11 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install -e '.[test]'
-      - name: Execute frozen prospective evaluation twice
+      - name: Execute frozen prospective shards
         run: |
-          python scripts/evaluate_validation_aware_stacking.py --decisions /tmp/decisions-1.json --output /tmp/result-1.json
-          python scripts/evaluate_validation_aware_stacking.py --decisions /tmp/decisions-2.json --output /tmp/result-2.json
-          cmp /tmp/decisions-1.json /tmp/decisions-2.json
-          cmp /tmp/result-1.json /tmp/result-2.json
-          cp /tmp/decisions-1.json results/validation_aware_stacking_decisions.json
-          cp /tmp/result-1.json results/validation_aware_stacking_result.json
+          mkdir -p /tmp/stacking-shards
+          seq 0 23 | xargs -P 24 -I{} bash -c 'python scripts/run_validation_aware_stacking_shard.py --index {} --output /tmp/stacking-shards/shard-$(printf "%02d" {}).json'
+          python scripts/merge_validation_aware_stacking_shards.py --shard-dir /tmp/stacking-shards --decisions results/validation_aware_stacking_decisions.json --output results/validation_aware_stacking_result.json
       - name: Independent audit
         run: python scripts/audit_validation_aware_stacking.py --decisions results/validation_aware_stacking_decisions.json --result results/validation_aware_stacking_result.json --output results/validation_aware_stacking_audit.json
       - name: Preserve exact result
@@ -53,4 +50,6 @@ jobs:
         if: always()
         with:
           name: validation-aware-stacking
-          path: results/validation_aware_stacking_*.json
+          path: |
+            results/validation_aware_stacking_*.json
+            /tmp/stacking-shards/*.json
