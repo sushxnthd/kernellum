@@ -5,7 +5,7 @@ on:
     branches:
       - breakthrough-engine/consensus-medoid-prospective-20261018
     paths:
-      - docs/CONSENSUS_MEDOID_PROSPECTIVE_*.md
+      - docs/CONSENSUS_MEDOID_PROSPECTIVE_PROTOCOL.md
       - scripts/evaluate_consensus_medoid_prospective.py
       - scripts/audit_consensus_medoid_prospective.py
       - .github/workflows/consensus-medoid-prospective.yml
@@ -43,8 +43,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add results/consensus_medoid_prospective_decisions.json results/consensus_medoid_prospective_result.json results/consensus_medoid_prospective_audit.json
-          git commit -m "research: record consensus-medoid prospective result"
-          git push origin HEAD:$GITHUB_REF_NAME
+          if git diff --cached --quiet; then
+            echo "Frozen artifacts are already current."
+          else
+            git commit -m "research: record consensus-medoid prospective result"
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
