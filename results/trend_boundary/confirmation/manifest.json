@@ -1,0 +1,31 @@
+{
+  "public_freeze": "f6c279f962033721a70aa5e7c44b1cd7b380c748",
+  "local_freeze": "09f336162193132221359c2ea47829995dce2562",
+  "source_sha256": {
+    "experiments/trend_boundary/run.py": "92e1cfd1b5fd48c3c21d6c5afb87a04d092b24f355af61b359f288873965d8b2",
+    "experiments/trend_boundary/spec.json": "eff04ac78578e23bd941f7e78e54a18cfaa8d649af4649bf2c07f46c2033b9eb",
+    "docs/TREND_BOUNDARY_PROTOCOL.md": "9dc065fe52a6d024a9652b47c6d18fb701bdf60bc50ea3ceb1abe6421c378754",
+    "experiments/trend_factorial/develop.py": "dcdafb4fc5fe6ada325ffe85e9824808136933b60a60f3d5a192a9a93293f5c0",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/trend_revision.py": "2e77e79efab76c25f7150cff6b59af6126bb0156d9fed868f7a0a203950ff3a2",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "kernellum/discovery/robust_revision.py": "17bdfec58189a909576809e2c4ce8d1fdb905acb9b4a3f873709adaaac1d7731",
+    "kernellum/discovery/adaptive_revision.py": "f12fb395ce5952270ea12cdc5561ad4bae2d8978c935f6b5cfbf8b9474b7bbbc",
+    "kernellum/discovery/support_revision.py": "dbbfc9a99c34fb22a377951c8e3fe2d3378614a13c851a9cac41d19722c946ab"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_sha256": {
+    "sign_availability.json": "df067c12188c0136afefdfd33c135efa6880af2ccd1526027b25005d87a4ae8d",
+    "summary.json": "af376c13c15440958cf8785999084d0c6c1d68dae71e6d2a3477c1a60153eb68",
+    "inputs_and_truth.npz": "46740e448351f42b48a0ba93378d37384094909e3519b6669c7ca880d699e942",
+    "traces.jsonl.gz": "966086d46993315bbbe5ba0e05f58a717a2aeff5b64f477131b902099ae8095c"
+  }
+}

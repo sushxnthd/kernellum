@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "all_runtime_calls_refused_without_provenance": true,
+    "catastrophic_witness_present": true,
+    "completion_pairs": true,
+    "enumeration_checks": true,
+    "misspecification_witness_present": true,
+    "opened_cells_complete": true,
+    "schema": true,
+    "terminal_gate": true
+  },
+  "passed": 8,
+  "schema": "kernellum.version-space-certificate-boundary-audit.v1",
+  "status": "PASS",
+  "total": 8
+}

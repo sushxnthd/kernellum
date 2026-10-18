@@ -1,0 +1,29 @@
+{
+  "post_outcome_descriptive_analysis": true,
+  "gate_unchanged": true,
+  "repetitions": 20000,
+  "seed": 832014531,
+  "clusters": "Predetermined seed, jointly across families, dimensions, paired signs, noise levels and domains.",
+  "scope": "Conditional on these selected forms. NIST intervals describe split variation on six fixed datasets; overlapping splits are not independent physical experiments.",
+  "comparisons_to_adaptive": {
+    "all": {
+      "ratio": 0.9618339391732919,
+      "seed_block_bootstrap_95_percentile_interval": [
+        0.8715741023396983,
+        1.044434750292728
+      ],
+      "seed_log_ratios": {
+        "104401": 0.17494413313701904,
+        "104402": 0.08033369841670002,
+        "104403": 0.0,
+        "104404": 0.0,
+        "104405": 0.0,
+        "104406": -0.34306398766702806,
+        "104407": -0.00228794067732796,
+        "104408": 0.0,
+        "104409": 0.0,
+        "104410": -0.2990605393996672
+      }
+    }
+  }
+}

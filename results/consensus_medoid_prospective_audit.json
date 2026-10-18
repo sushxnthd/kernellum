@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "1432f29c2d466fc8c155740925f1eac03c6d3160a8af62f3d6dade957c911b4d",
+  "checks": 103,
+  "failures": 0,
+  "schema": "kernellum.consensus-medoid-audit.v1",
+  "source_canonical_sha256": "12cf4d1fb3e15bcda09286300a27ee3ad4e25b87990affe403c7d3eb89d91f9b",
+  "status": "PASS"
+}

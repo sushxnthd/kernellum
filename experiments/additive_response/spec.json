@@ -1,0 +1,13 @@
+{
+  "seeds": [104201,104202,104203,104204,104205,104206,104207,104208,104209,104210],
+  "families": ["gaussian","negative_gaussian","exp_affine","power_law","convex_exponential","rational_peak","sine","signed_cubic","gaussian_mixture"],
+  "dimensions": [2,4],
+  "noise_fractions": [0.0,0.01,0.1],
+  "pool_size":256,"initial":16,"budget":64,
+  "tests":{"inside":512,"near_shell":256,"far_shell":256},
+  "methods":["original","add_only","adaptive_stack","median_stack","support_nonlinear_leverage_stack","exponential_only","augmented_winner","augmented_adaptive"],
+  "primary":"augmented_adaptive","error_floor":1e-8,
+  "gate":{"ratio_max":0.8,"win_fraction_min":0.6,"each_noise_and_domain_ratio_max":1.0},
+  "mechanism_gate":{"noisy_gaussian_vs_adaptive_ratio_max":0.25,"noisy_gaussian_inside_seed_win_fraction_min":0.8,"clean_gaussian_inside_exact_fraction_min":0.9},
+  "semantics":"Prospective selected synthetic mechanism test; no field breakthrough or novelty of nonlinear regression implied"
+}

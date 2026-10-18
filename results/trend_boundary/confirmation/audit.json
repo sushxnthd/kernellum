@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "second_predictor_scores": 3360,
+  "paired_trace_rows": 5880,
+  "aggregate_comparisons": 6,
+  "max_floor_scaled_nmse_discrepancy": 0.0001702401588790896,
+  "max_scaled_simplex_kkt": 1.8776505100193337e-09,
+  "nmse_tolerance": {
+    "rtol": 2e-05,
+    "atol": 1e-07
+  },
+  "controls_prediction_arithmetic_reconstructed": false,
+  "control_pairing_and_aggregation_checked": true,
+  "external_reproduction": false,
+  "independently_refitted_simplex_weights": false,
+  "audit_sources": {
+    "scripts/audit_trend_boundary.py": "3d170d93f97c89bbb9362b25e5a69d4ace380726c7068b7b52560bae670a969f",
+    "scripts/audit_trend_revision.py": "675bac8ea9061a8f311461f775d2ae7902816a48fab6774a93fe2646733f021d",
+    "scripts/audit_representation_revision.py": "92b8f77b61e19aec5ad2a2176b73220a79d566732f22ceb5bd40971dc837b9b3"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "source_commit": "283d846852113e5128fdbc05f55981b4e3be74e2",
+  "protocol_local_freeze": "191aeee",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "input_sha256": {
+    "results/trend_revision/development/traces.jsonl.gz": "643b3c0c0814fff4267beb5977e99de45fbe7199373787c7fa519d5cec4f5c91",
+    "results/representation_revision/confirmation/traces.jsonl.gz": "d20f7e014ee56a08580f6b360f49e06a75811f296e7e10d9613d2e11d4026993",
+    "results/robust_revision/development/traces.jsonl.gz": "791a96f479b2324a03aba8a06e207a2659543c51d600431a548ecbb0a8f954e5",
+    "results/support_revision/development/traces.jsonl.gz": "544b6b95f0d66d642316f7f85287bad4977639140060f4537e03328c772534a3",
+    "results/adaptive_revision/development/traces.jsonl.gz": "6c4c0b57e2798d5bdcc2d105446f2a53419406b2b6138fdbe72a455e0d6f8241",
+    "results/crossfit_revision/development/traces.jsonl.gz": "fcbb1132cbed54d1ada7dd9bacef6ee49e1e7632250c87cefd50fff59737c990",
+    "results/noise_revision/development/traces.jsonl.gz": "071b6c51485798eee8ddbf5d340ac6193c7b0a312577cefc7aa47fd95c3e0b98",
+    "results/trend_revision/development/summary.json": "af184e5aea20bc269a29e9bab1344a4f3935f88f574ded9ddc456afdfd5188bd",
+    "experiments/representation_revision/spec.json": "801d831dd946258ec8bc373cc1338172209b773f8da61bd742c4c09190e2f902",
+    "scripts/diagnose_noise_regime.py": "6379cd11a7497ff5b3fc60b3105e8e83863c53dbab0bfcb726e75cdf6e864824",
+    "docs/NOISE_REGIME_DIAGNOSIS_PROTOCOL.md": "677294e8e9736f5411dba6e3fc61dfaba27d5c1381825ed396737e4821a23f29"
+  },
+  "output_sha256": {
+    "paired_rows.csv": "889cd26dad1901bced8bf4587fee63dfda6b962f9edfb6506d213bf3ce6583bb",
+    "summary.json": "dfce2b12642fc7186acb1b6bd0ca08e0a563b17e44b834226cae54743866002d",
+    "by_function.csv": "aefef3c3ca6fa2b41ebd2cadd1f5a84b1dff309ad348479ae7a05e72ec70a90d"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "merged_shards": 6,
+  "shard_manifests_identical": true,
+  "source_manifest": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "input_sha256": {
+      "traces.jsonl.gz": "64290ce6972052e33444f397e2c44eaaea59918f9a0e91f26f1f82822670be47",
+      "inputs_and_truth.npz": "a4d02cbebd5b89dea194d34b7b1bef799d0861abf6334734a769e6194108670d"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "checks": 336,
+  "decision_sha256": "e9d0fcd70ecd227055bd0d1e551f373bd04d579ada32f03469c4666f9db34750",
+  "failures": [],
+  "result_canonical_sha256": "840286b5adfa6a0723a718dc7a25f5308173c30f72464d39eb5a18cd85fdcaf4",
+  "schema": "kernellum.transition-constrained-batch-audit.v1",
+  "status": "PASS"
+}
