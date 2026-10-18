@@ -1,0 +1,861 @@
+{
+  "canonical_sha256": "02e4c7b0dfdb7073c573a17c27a6bbd85f101165141d9c6dd037a96676151854",
+  "classification": "PROSPECTIVE_CONFIRMATORY",
+  "decision_sha256": "8aa90c32e41efc17d7461858650101ca7ed04d84bf15c27a5db88eec4c6da26a",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.17",
+    "scipy": "1.17.1"
+  },
+  "family_route_precision": {
+    "anisotropic_bump": null,
+    "rational_mixture": null,
+    "warped_cauchy": 1.0
+  },
+  "family_routes": {
+    "anisotropic_bump": 0,
+    "rational_mixture": 0,
+    "warped_cauchy": 1
+  },
+  "gates": {
+    "complete": true,
+    "family_precision": true,
+    "far_improves": false,
+    "four_routes": false,
+    "halves_one_domain_catastrophes": false,
+    "inside_noninferior": true,
+    "no_excess_catastrophe": true,
+    "route_precision": true,
+    "two_routed_families": false
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "candidate": 4,
+        "globalized": 4,
+        "independent": 4,
+        "naive": 4,
+        "selected": 4
+      },
+      "geometric_nmse": {
+        "candidate": 11.09447127704209,
+        "globalized": 9.248056577716838,
+        "independent": 15.011309720122249,
+        "naive": 9.309212380393816,
+        "selected": 10.482391788938346
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 0,
+        "naive": 0,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 0.732962810841843,
+        "globalized": 0.7680597448625152,
+        "independent": 0.7759549384078027,
+        "naive": 0.7307852045611515,
+        "selected": 0.7247760713739403
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 0,
+        "naive": 0,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 1.8219448854701243,
+        "globalized": 1.8045735734628863,
+        "independent": 2.1224360142010217,
+        "naive": 1.7589683348200371,
+        "selected": 1.771882098193327
+      }
+    }
+  },
+  "paths": 24,
+  "ratios": {
+    "far_over_candidate": 0.9448302246389761,
+    "inside_over_candidate": 0.9888306209444653
+  },
+  "records": [
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.9734250130457864,
+          "globalized": 0.9734250130457864,
+          "independent": 0.9734251010887629,
+          "naive": 0.9734251010887629,
+          "selected": 0.9734250130457864
+        },
+        "inside": {
+          "candidate": -0.936645072346451,
+          "globalized": -0.936645072346451,
+          "independent": -0.9366468917379347,
+          "naive": -0.9366468917379347,
+          "selected": -0.936645072346451
+        },
+        "near_shell": {
+          "candidate": 0.40459108816655753,
+          "globalized": 0.40459108816655753,
+          "independent": 0.4045896986464754,
+          "naive": 0.4045896986464754,
+          "selected": 0.40459108816655753
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.868197908789259,
+          "globalized": 5.868199706818189,
+          "independent": 5.868199112165356,
+          "naive": 5.868197908789259,
+          "selected": 5.868197908789259
+        },
+        "inside": {
+          "candidate": 0.11039563405575503,
+          "globalized": 0.11039538048184117,
+          "independent": 0.11039548219176787,
+          "naive": 0.11039563405575503,
+          "selected": 0.11039563405575503
+        },
+        "near_shell": {
+          "candidate": 1.929817983466065,
+          "globalized": 1.9298192349994956,
+          "independent": 1.929818798093164,
+          "naive": 1.929817983466065,
+          "selected": 1.929817983466065
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 4.717408326920035,
+          "globalized": 4.71740800403586,
+          "independent": 4.717408105606712,
+          "naive": 4.717408105606712,
+          "selected": 4.717408326920035
+        },
+        "inside": {
+          "candidate": 0.15866445894265535,
+          "globalized": 0.15866414257639683,
+          "independent": 0.1586642478064526,
+          "naive": 0.1586642478064526,
+          "selected": 0.15866445894265535
+        },
+        "near_shell": {
+          "candidate": 1.3801038322125354,
+          "globalized": 1.3801039238164812,
+          "independent": 1.3801039237729817,
+          "naive": 1.3801039237729817,
+          "selected": 1.3801038322125354
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 4.669440497587761,
+          "globalized": 4.669444234817909,
+          "independent": 4.669443306083901,
+          "naive": 4.669440497587761,
+          "selected": 4.669440497587761
+        },
+        "inside": {
+          "candidate": 0.25783784792661724,
+          "globalized": 0.2578377239389198,
+          "independent": 0.25783776531263847,
+          "naive": 0.25783784792661724,
+          "selected": 0.25783784792661724
+        },
+        "near_shell": {
+          "candidate": 1.2087557075618802,
+          "globalized": 1.2087572853714317,
+          "independent": 1.208756874066868,
+          "naive": 1.2087557075618802,
+          "selected": 1.2087557075618802
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.1643748654383863,
+          "globalized": 1.1643748654383863,
+          "independent": 1.1936496029977484,
+          "naive": 1.1643748654383863,
+          "selected": 1.1643748654383863
+        },
+        "inside": {
+          "candidate": -0.14741142901309257,
+          "globalized": -0.14741142901309257,
+          "independent": -0.1346072778229015,
+          "naive": -0.14741142901309257,
+          "selected": -0.14741142901309257
+        },
+        "near_shell": {
+          "candidate": 0.588683682306594,
+          "globalized": 0.588683682306594,
+          "independent": 0.7407219689509708,
+          "naive": 0.588683682306594,
+          "selected": 0.588683682306594
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 2.1942426622344016,
+          "globalized": 2.1942426622344016,
+          "independent": 1.88024435892269,
+          "naive": 2.1942426622344016,
+          "selected": 2.1942426622344016
+        },
+        "inside": {
+          "candidate": 0.21102442592856097,
+          "globalized": 0.21102442592856097,
+          "independent": 0.2818280655865717,
+          "naive": 0.21102442592856097,
+          "selected": 0.21102442592856097
+        },
+        "near_shell": {
+          "candidate": 1.212654058765482,
+          "globalized": 1.212654058765482,
+          "independent": 1.3532285108428095,
+          "naive": 1.212654058765482,
+          "selected": 1.212654058765482
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 2.009988076015924,
+          "globalized": 2.009988076015924,
+          "independent": 3.5125545885881486,
+          "naive": 2.009988076015924,
+          "selected": 2.009988076015924
+        },
+        "inside": {
+          "candidate": -0.26596719383071576,
+          "globalized": -0.26596719383071576,
+          "independent": -0.1427542381120519,
+          "naive": -0.26596719383071576,
+          "selected": -0.26596719383071576
+        },
+        "near_shell": {
+          "candidate": 0.8574083335898894,
+          "globalized": 0.8574083335898894,
+          "independent": 1.5322314347619974,
+          "naive": 0.8574083335898894,
+          "selected": 0.8574083335898894
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_mixture",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.5605951220338756,
+          "globalized": 1.7714081869507563,
+          "independent": 2.012300564976238,
+          "naive": 1.7714081869507563,
+          "selected": 1.5605951220338756
+        },
+        "inside": {
+          "candidate": -0.1646050851772447,
+          "globalized": -0.37281167588179365,
+          "independent": -0.08823807665993666,
+          "naive": -0.37281167588179365,
+          "selected": -0.1646050851772447
+        },
+        "near_shell": {
+          "candidate": 0.2923201691514503,
+          "globalized": 0.656878653672651,
+          "independent": 0.9516679430677941,
+          "naive": 0.656878653672651,
+          "selected": 0.2923201691514503
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.35416241010006644,
+          "globalized": -0.35416240973490787,
+          "independent": -0.3541623541532051,
+          "naive": -0.35416240973490787,
+          "selected": -0.35416241010006644
+        },
+        "inside": {
+          "candidate": -1.5525739615152299,
+          "globalized": -1.5525740218388249,
+          "independent": -1.5525746342071942,
+          "naive": -1.5525740218388249,
+          "selected": -1.5525739615152299
+        },
+        "near_shell": {
+          "candidate": -1.0540213341669862,
+          "globalized": -1.054021409450658,
+          "independent": -1.0540221565447814,
+          "naive": -1.054021409450658,
+          "selected": -1.0540213341669862
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 4.788223165350625,
+          "globalized": 4.788230605331233,
+          "independent": 4.7882279513245525,
+          "naive": 4.788230605331233,
+          "selected": 4.788223165350625
+        },
+        "inside": {
+          "candidate": 0.2019495220617351,
+          "globalized": 0.20194977632915911,
+          "independent": 0.20194969593017742,
+          "naive": 0.20194977632915911,
+          "selected": 0.2019495220617351
+        },
+        "near_shell": {
+          "candidate": 0.6290386260996446,
+          "globalized": 0.6290386368581036,
+          "independent": 0.6290387579302292,
+          "naive": 0.6290386368581036,
+          "selected": 0.6290386260996446
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.4855399637834523,
+          "globalized": -0.4855401233685832,
+          "independent": -0.4855401258520313,
+          "naive": -0.4855401258520313,
+          "selected": -0.4855399637834523
+        },
+        "inside": {
+          "candidate": -1.7325648717408182,
+          "globalized": -1.7325649796626,
+          "independent": -1.7325650646185906,
+          "naive": -1.7325650646185906,
+          "selected": -1.7325648717408182
+        },
+        "near_shell": {
+          "candidate": -1.5253024043755579,
+          "globalized": -1.5253029165154368,
+          "independent": -1.5253029804689566,
+          "naive": -1.5253029804689566,
+          "selected": -1.5253024043755579
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.03874246336725129,
+          "globalized": -0.038742741395719094,
+          "independent": 2.3730138473605535,
+          "naive": -0.038742741395719094,
+          "selected": -0.03874246336725129
+        },
+        "inside": {
+          "candidate": -1.1209516780237925,
+          "globalized": -1.1209518175407158,
+          "independent": -0.7423846704563939,
+          "naive": -1.1209518175407158,
+          "selected": -1.1209516780237925
+        },
+        "near_shell": {
+          "candidate": -0.7561816511479371,
+          "globalized": -0.7561818415960948,
+          "independent": -0.09453843318056432,
+          "naive": -0.7561818415960948,
+          "selected": -0.7561816511479371
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 7.9952761178015725,
+          "globalized": 7.9952761178015725,
+          "independent": 7.995287563864768,
+          "naive": 7.9952761178015725,
+          "selected": 7.9952761178015725
+        },
+        "inside": {
+          "candidate": 0.16186844705599857,
+          "globalized": 0.16186844705599857,
+          "independent": 0.16186960626596036,
+          "naive": 0.16186844705599857,
+          "selected": 0.16186844705599857
+        },
+        "near_shell": {
+          "candidate": 1.6101294147904,
+          "globalized": 1.6101294147904,
+          "independent": 1.6101348503907937,
+          "naive": 1.6101294147904,
+          "selected": 1.6101294147904
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.13423023209895035,
+          "globalized": 0.13423023209400498,
+          "independent": 0.13429186588453312,
+          "naive": 0.13429186588453312,
+          "selected": 0.13423023209895035
+        },
+        "inside": {
+          "candidate": 1.1976323709815482,
+          "globalized": 1.1976323709813528,
+          "independent": 1.197632370969071,
+          "naive": 1.197632370969071,
+          "selected": 1.1976323709815482
+        },
+        "near_shell": {
+          "candidate": 0.7453216996116243,
+          "globalized": 0.7453216996108889,
+          "independent": 0.7453216995703524,
+          "naive": 0.7453216995703524,
+          "selected": 0.7453216996116243
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.6209031722131968,
+          "globalized": -1.4805163466457696,
+          "independent": 2.0436806960215463,
+          "naive": -1.4805163466457696,
+          "selected": 0.6209031722131968
+        },
+        "inside": {
+          "candidate": -0.7721705245964019,
+          "globalized": -0.5462111327058521,
+          "independent": -0.6874574627852406,
+          "naive": -0.5462111327058521,
+          "selected": -0.7721705245964019
+        },
+        "near_shell": {
+          "candidate": 0.43741096212147035,
+          "globalized": -0.15314580240273834,
+          "independent": 0.6993511490637632,
+          "naive": -0.15314580240273834,
+          "selected": 0.43741096212147035
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_bump",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.1014795720456387,
+          "globalized": 0.055210026782472,
+          "independent": 3.477989274391753,
+          "naive": 0.055210026782472,
+          "selected": 1.1014795720456387
+        },
+        "inside": {
+          "candidate": -0.1520695070221887,
+          "globalized": -0.2786264015638533,
+          "independent": 0.08959677084706019,
+          "naive": -0.2786264015638533,
+          "selected": -0.1520695070221887
+        },
+        "near_shell": {
+          "candidate": 0.5691336460179546,
+          "globalized": -0.14293367914863708,
+          "independent": 1.2095779802506188,
+          "naive": -0.14293367914863708,
+          "selected": 0.5691336460179546
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "symmetric_t"
+      ],
+      "route": true,
+      "scores": {
+        "far_shell": {
+          "candidate": 2.2975343673421857,
+          "globalized": 0.9355337890563664,
+          "independent": 0.935533470441559,
+          "naive": 0.935533470441559,
+          "selected": 0.9355337890563664
+        },
+        "inside": {
+          "candidate": -0.09625644980344017,
+          "globalized": -0.36582984919289263,
+          "independent": -0.36583139025246325,
+          "naive": -0.36583139025246325,
+          "selected": -0.36582984919289263
+        },
+        "near_shell": {
+          "candidate": 1.2475896364756505,
+          "globalized": 0.5788959976348034,
+          "independent": 0.5788933882278045,
+          "naive": 0.5788933882278045,
+          "selected": 0.5788959976348034
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.5910041771760195,
+          "globalized": 0.5910041282399732,
+          "independent": 0.5910040803036409,
+          "naive": 0.5910040803036409,
+          "selected": 0.5910041771760195
+        },
+        "inside": {
+          "candidate": -1.4481258376917268,
+          "globalized": -1.4481259887206441,
+          "independent": -1.4481261272252341,
+          "naive": -1.4481261272252341,
+          "selected": -1.4481258376917268
+        },
+        "near_shell": {
+          "candidate": -1.0422755838676094,
+          "globalized": -1.0422754189173196,
+          "independent": -1.0422752567320082,
+          "naive": -1.0422752567320082,
+          "selected": -1.0422755838676094
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.923867283422494,
+          "globalized": 5.923863675288814,
+          "independent": 5.9238601613627715,
+          "naive": 5.923867283422494,
+          "selected": 5.923867283422494
+        },
+        "inside": {
+          "candidate": 0.11194489170197386,
+          "globalized": 0.11194483887500661,
+          "independent": 0.11194481881878238,
+          "naive": 0.11194489170197386,
+          "selected": 0.11194489170197386
+        },
+        "near_shell": {
+          "candidate": 1.6023854743560406,
+          "globalized": 1.6023849839548103,
+          "independent": 1.602384482006896,
+          "naive": 1.6023854743560406,
+          "selected": 1.6023854743560406
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        5,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 5.978033218135581,
+          "globalized": 5.9780369285841415,
+          "independent": 5.978043078254544,
+          "naive": 5.978033218135581,
+          "selected": 5.978033218135581
+        },
+        "inside": {
+          "candidate": 0.24774781654861755,
+          "globalized": 0.24774810021361748,
+          "independent": 0.24774858922579135,
+          "naive": 0.24774781654861755,
+          "selected": 0.24774781654861755
+        },
+        "near_shell": {
+          "candidate": 1.6819699080835475,
+          "globalized": 1.6819705413267538,
+          "independent": 1.681971588127328,
+          "naive": 1.6819699080835475,
+          "selected": 1.6819699080835475
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.3238458777074449,
+          "globalized": 1.212214910264107,
+          "independent": 1.493157131544434,
+          "naive": 1.3238458777074449,
+          "selected": 1.3238458777074449
+        },
+        "inside": {
+          "candidate": -0.03358224754413275,
+          "globalized": 1.039353056104626,
+          "independent": 0.1450541371799856,
+          "naive": -0.03358224754413275,
+          "selected": -0.03358224754413275
+        },
+        "near_shell": {
+          "candidate": 0.6621571766630137,
+          "globalized": 1.2220156097035941,
+          "independent": 0.9530765141059341,
+          "naive": 0.6621571766630137,
+          "selected": 0.6621571766630137
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9103,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.1178214334472845,
+          "globalized": 1.2428450516415648,
+          "independent": 2.341252777952983,
+          "naive": 1.2428450516415648,
+          "selected": 1.1178214334472845
+        },
+        "inside": {
+          "candidate": -0.8122581222392142,
+          "globalized": -0.564278648639486,
+          "independent": -0.4789336319725894,
+          "naive": -0.564278648639486,
+          "selected": -0.8122581222392142
+        },
+        "near_shell": {
+          "candidate": 0.14476798242528233,
+          "globalized": 0.675409658973618,
+          "independent": 0.6635564978037847,
+          "naive": 0.675409658973618,
+          "selected": 0.14476798242528233
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "symmetric_t"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 2.863253159307959,
+          "globalized": 2.7799215053999244,
+          "independent": 2.245236216404507,
+          "naive": 2.863253159307959,
+          "selected": 2.863253159307959
+        },
+        "inside": {
+          "candidate": -0.40571562717788456,
+          "globalized": -0.22571085537576163,
+          "independent": -0.3272393993636049,
+          "naive": -0.40571562717788456,
+          "selected": -0.40571562717788456
+        },
+        "near_shell": {
+          "candidate": 1.2997338873594675,
+          "globalized": 1.5860649818924033,
+          "independent": 1.399871768897654,
+          "naive": 1.2997338873594675,
+          "selected": 1.2997338873594675
+        }
+      }
+    },
+    {
+      "key": [
+        "warped_cauchy",
+        9,
+        9109,
+        "leverage_spikes"
+      ],
+      "route": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.7400262151598529,
+          "globalized": 0.7400262151598529,
+          "independent": 0.7031931846849115,
+          "naive": 0.7031931846849115,
+          "selected": 0.7400262151598529
+        },
+        "inside": {
+          "candidate": -0.4740153418632067,
+          "globalized": -0.4740153418632067,
+          "independent": -0.4150225940505594,
+          "naive": -0.4150225940505594,
+          "selected": -0.4740153418632067
+        },
+        "near_shell": {
+          "candidate": 0.27151687823815784,
+          "globalized": 0.27151687823815784,
+          "independent": 0.5033888139882219,
+          "naive": 0.5033888139882219,
+          "selected": 0.27151687823815784
+        }
+      }
+    }
+  ],
+  "route_precision": 1.0,
+  "routed_families": 1,
+  "routes": 1,
+  "schema": "kernellum.basin-transition-confirmatory-result.v1",
+  "status": "FAIL"
+}
