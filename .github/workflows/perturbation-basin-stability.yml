@@ -1,0 +1,62 @@
+name: perturbation-basin-stability
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/perturbation-basin-stability-20261018
+    paths:
+      - docs/PERTURBATION_BASIN_STABILITY_*.md
+      - scripts/evaluate_perturbation_basin_stability.py
+      - scripts/audit_perturbation_basin_stability.py
+      - .github/workflows/perturbation-basin-stability.yml
+  pull_request:
+    paths:
+      - docs/PERTURBATION_BASIN_STABILITY_*.md
+      - scripts/evaluate_perturbation_basin_stability.py
+      - scripts/audit_perturbation_basin_stability.py
+      - .github/workflows/perturbation-basin-stability.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prospective:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Execute frozen prospective selector twice
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          OMP_NUM_THREADS: "1"
+          MKL_NUM_THREADS: "1"
+        run: |
+          python scripts/evaluate_perturbation_basin_stability.py --decisions results/perturbation_basin_stability_decisions.json --output results/perturbation_basin_stability_result.json
+          cp results/perturbation_basin_stability_decisions.json /tmp/decisions-first.json
+          cp results/perturbation_basin_stability_result.json /tmp/result-first.json
+          python scripts/evaluate_perturbation_basin_stability.py --decisions results/perturbation_basin_stability_decisions.json --output results/perturbation_basin_stability_result.json
+          cmp /tmp/decisions-first.json results/perturbation_basin_stability_decisions.json
+          cmp /tmp/result-first.json results/perturbation_basin_stability_result.json
+      - name: Independent audit
+        run: python scripts/audit_perturbation_basin_stability.py --decisions results/perturbation_basin_stability_decisions.json --result results/perturbation_basin_stability_result.json --output results/perturbation_basin_stability_audit.json
+      - name: Preserve raw results
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/perturbation_basin_stability_decisions.json results/perturbation_basin_stability_result.json results/perturbation_basin_stability_audit.json
+          git commit -m "research: record perturbation-basin prospective result"
+          git push origin HEAD:$GITHUB_REF_NAME
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: perturbation-basin-stability
+          path: |
+            results/perturbation_basin_stability_decisions.json
+            results/perturbation_basin_stability_result.json
+            results/perturbation_basin_stability_audit.json
