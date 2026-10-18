@@ -12,7 +12,8 @@ DIMS=(5,9); SEEDS=(9103,9109); NOISES=("symmetric_t","leverage_spikes")
 ALPHAS=(0.0,.08,.16,.24,.32); DIRECTIONS=8
 
 def dataset(family,dimension,seed,noise):
-    family_offset={"rational_mixture":0,"anisotropic_bump":23000,"warped_cauchy":46000}[family]\n    offset=seed+103*dimension+family_offset+(0 if noise==NOISES[0] else 53000)
+    family_offset={"rational_mixture":0,"anisotropic_bump":23000,"warped_cauchy":46000}[family]
+    offset=seed+103*dimension+family_offset+(0 if noise==NOISES[0] else 53000)
     rng=np.random.default_rng(offset)
     center=rng.uniform(-.3,.3,dimension)
     q=np.linalg.qr(rng.normal(size=(dimension,dimension)))[0]
