@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "d243a914df9725fc5af72b3d34d0857d48af3bf6e5e3d9568c60563500176eb3",
+  "checks": 503,
+  "failures": 0,
+  "schema": "kernellum.basin-transition-audit.v1",
+  "source_canonical_sha256": "fee774eb7b02c5db35940a4b5f148037dda165238e076329ca8aeeb15475ad3c",
+  "status": "PASS"
+}

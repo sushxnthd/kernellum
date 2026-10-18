@@ -1,0 +1,34 @@
+{
+  "public_freeze": "f606378c8c474d40b803330af322491956b313c9",
+  "local_freeze": "2486ffba2dedd3aac74631846eb030631b9b275a",
+  "source_sha256": {
+    "experiments/additive_response/run.py": "2cff891ec1a35c2f0d252963c8df8484ec81bb69d1966e724c4a7b749a0c007c",
+    "experiments/additive_response/spec.json": "534b3912a9cc52514cd5ab6f8a89af93f3d86388417334ac2d18a9f0a3ce972c",
+    "docs/ADDITIVE_RESPONSE_PROTOCOL.md": "64687ae37a7f58e784ffb48d3d33c1769f42f40b30b18747f186e6a431519724",
+    "kernellum/discovery/additive_response.py": "16598b10753127e9b42ab6b3cc31161a0df678c1f71112478f25c858cca70c6f",
+    "experiments/trend_boundary/run.py": "92e1cfd1b5fd48c3c21d6c5afb87a04d092b24f355af61b359f288873965d8b2",
+    "experiments/representation_revision/run.py": "d0d1593b7d028a0235f973420f3aa57bfe05da02f3116bff302644c5d924fce6",
+    "experiments/trend_factorial/develop.py": "dcdafb4fc5fe6ada325ffe85e9824808136933b60a60f3d5a192a9a93293f5c0",
+    "kernellum/discovery/representation.py": "74c4dcaa8ab3907f90e98c1b9384ab98ab886609fcc992b9809c1d91a1361285",
+    "kernellum/discovery/trend_revision.py": "2e77e79efab76c25f7150cff6b59af6126bb0156d9fed868f7a0a203950ff3a2",
+    "kernellum/discovery/revision.py": "42e5a4ad3653bbaa6dd20a0c7bc56770065ec605dd593aca7d24a387a550df14",
+    "kernellum/discovery/aggregation.py": "aaa689f9057182788af2f10fc921ee148a1d44ca951dea18c37ac7252ac4ff3d",
+    "kernellum/discovery/robust_revision.py": "17bdfec58189a909576809e2c4ce8d1fdb905acb9b4a3f873709adaaac1d7731",
+    "kernellum/discovery/adaptive_revision.py": "f12fb395ce5952270ea12cdc5561ad4bae2d8978c935f6b5cfbf8b9474b7bbbc",
+    "kernellum/discovery/support_revision.py": "dbbfc9a99c34fb22a377951c8e3fe2d3378614a13c851a9cac41d19722c946ab"
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "output_sha256": {
+    "parameters.json": "663b0209f6b984c0def8c8a928bab3513abd67e6c3772deb6be75768f81de585",
+    "summary.json": "4428b3569fcdfd38d6abd0586b9d84e44b408fc6e78e625368ea8d7243e5bbb3",
+    "inputs_and_truth.npz": "a4d02cbebd5b89dea194d34b7b1bef799d0861abf6334734a769e6194108670d",
+    "optimizer_failures.json": "d9ef8092353d0a091387d2716c7caad3ef8921c254858dd2409090c152dab723",
+    "traces.jsonl.gz": "64290ce6972052e33444f397e2c44eaaea59918f9a0e91f26f1f82822670be47"
+  }
+}

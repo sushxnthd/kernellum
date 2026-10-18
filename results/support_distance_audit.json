@@ -1,0 +1,8 @@
+{
+  "canonical_sha256": "32e93737de3ce8527f73d433abdb26c254c8f4d357f158c83571b49c14136297",
+  "checks": 261,
+  "failed": [],
+  "passed": 261,
+  "schema": "kernellum.support-distance-audit.v1",
+  "status": "PASS"
+}

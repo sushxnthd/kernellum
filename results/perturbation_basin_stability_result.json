@@ -1,0 +1,646 @@
+{
+  "canonical_sha256": "395711c42ca8d11405b6387d588f5f2559e4c7fe17888bd2b2ef6729238d0553",
+  "classification": "PROSPECTIVE_UNSEEN",
+  "decision_sha256": "720c16b7ac00236fb1d17f80ecb0e75803aad03f4eb8557c71dde3df62e702f8",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.17",
+    "scipy": "1.17.1"
+  },
+  "gates": {
+    "complete": true,
+    "far_improves": false,
+    "halves_one_domain_catastrophes": false,
+    "inside_noninferior": true,
+    "no_excess_catastrophe": true,
+    "override_precision": false,
+    "two_overrides": false
+  },
+  "metrics": {
+    "far_shell": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 1,
+        "independent": 1,
+        "medoid": 0,
+        "naive": 1,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 1.7819986889064818,
+        "globalized": 2.296805152570738,
+        "independent": 193212.24498327432,
+        "medoid": 1.962477896101371,
+        "naive": 158062.93620390986,
+        "selected": 1.7819986889064818
+      }
+    },
+    "inside": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 0,
+        "medoid": 0,
+        "naive": 0,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 0.447527359356064,
+        "globalized": 0.4406969291398989,
+        "independent": 0.4727337569621442,
+        "medoid": 0.4495560671270893,
+        "naive": 0.4494659340029249,
+        "selected": 0.447527359356064
+      }
+    },
+    "near_shell": {
+      "catastrophic": {
+        "candidate": 0,
+        "globalized": 0,
+        "independent": 1,
+        "medoid": 0,
+        "naive": 1,
+        "selected": 0
+      },
+      "geometric_nmse": {
+        "candidate": 1.6284134971554467,
+        "globalized": 1.6245399579283724,
+        "independent": 11.665278405570838,
+        "medoid": 1.7706023261620087,
+        "naive": 11.222086038665028,
+        "selected": 1.6284134971554467
+      }
+    }
+  },
+  "override_precision": 0.0,
+  "overrides": 0,
+  "paths": 16,
+  "ratios": {
+    "far_over_candidate": 1.0,
+    "inside_over_candidate": 1.0
+  },
+  "records": [
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7301,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.380772363602727,
+          "globalized": -0.03712696450050945,
+          "independent": 1.3807733830823237,
+          "medoid": 1.337083620069138,
+          "naive": -0.03712696450050945,
+          "selected": 1.380772363602727
+        },
+        "inside": {
+          "candidate": -2.555527675691711,
+          "globalized": -3.0459068625848644,
+          "independent": -2.5555276887988736,
+          "medoid": -2.4620636118297554,
+          "naive": -3.0459068625848644,
+          "selected": -2.555527675691711
+        },
+        "near_shell": {
+          "candidate": -0.8210363076968878,
+          "globalized": -1.1216608618505193,
+          "independent": -0.8210351310614721,
+          "medoid": -0.7611314665809568,
+          "naive": -1.1216608618505193,
+          "selected": -0.8210363076968878
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7301,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.7003026175795553,
+          "globalized": 0.700302762688378,
+          "independent": 0.7003030238514008,
+          "medoid": 0.6552408224463324,
+          "naive": 0.7003030238514008,
+          "selected": 0.7003026175795553
+        },
+        "inside": {
+          "candidate": -2.656686746370423,
+          "globalized": -2.656686815549034,
+          "independent": -2.656686949734987,
+          "medoid": -2.6048236209364823,
+          "naive": -2.656686949734987,
+          "selected": -2.656686746370423
+        },
+        "near_shell": {
+          "candidate": -0.24967944899446692,
+          "globalized": -0.249678992613247,
+          "independent": -0.2496781799310659,
+          "medoid": -0.35273952158819455,
+          "naive": -0.2496781799310659,
+          "selected": -0.24967944899446692
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7307,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.47077583049466476,
+          "globalized": 0.47077583049466476,
+          "independent": 0.47077654678403924,
+          "medoid": 0.4976594326301642,
+          "naive": 0.47077583049466476,
+          "selected": 0.47077583049466476
+        },
+        "inside": {
+          "candidate": -2.4709984754478325,
+          "globalized": -2.4709984754478325,
+          "independent": -2.471001157057802,
+          "medoid": -2.495786516060296,
+          "naive": -2.4709984754478325,
+          "selected": -2.4709984754478325
+        },
+        "near_shell": {
+          "candidate": -0.4614050801032894,
+          "globalized": -0.4614050801032894,
+          "independent": -0.4614046825788325,
+          "medoid": -0.4243247749409065,
+          "naive": -0.4614050801032894,
+          "selected": -0.4614050801032894
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        3,
+        7307,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.9925123522779433,
+          "globalized": 0.9925123433775038,
+          "independent": 0.99251233631235,
+          "medoid": 1.0053830918694793,
+          "naive": 0.99251233631235,
+          "selected": 0.9925123522779433
+        },
+        "inside": {
+          "candidate": -1.7012804360822114,
+          "globalized": -1.701281299198842,
+          "independent": -1.7012819935280246,
+          "medoid": -1.6681706251320816,
+          "naive": -1.7012819935280246,
+          "selected": -1.7012804360822114
+        },
+        "near_shell": {
+          "candidate": 0.5345168054525589,
+          "globalized": 0.5345171475451922,
+          "independent": 0.5345174241804438,
+          "medoid": 0.5920247817839801,
+          "naive": 0.5345174241804438,
+          "selected": 0.5345168054525589
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7301,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.3587748492859575,
+          "globalized": 1.3587748492859575,
+          "independent": 1.358774846504831,
+          "medoid": 1.4356404402944793,
+          "naive": 1.358774846504831,
+          "selected": 1.3587748492859575
+        },
+        "inside": {
+          "candidate": 1.418024309632556,
+          "globalized": 1.418024309632556,
+          "independent": 1.4180243095384322,
+          "medoid": 0.7677874338950463,
+          "naive": 1.4180243095384322,
+          "selected": 1.418024309632556
+        },
+        "near_shell": {
+          "candidate": 1.6322245523616417,
+          "globalized": 1.6322245523616417,
+          "independent": 1.6322245519718193,
+          "medoid": 2.3785060206572437,
+          "naive": 1.6322245519718193,
+          "selected": 1.6322245523616417
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7301,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 3.1191405197456783,
+          "globalized": 2.2850939539289996,
+          "independent": 2.67474031603307,
+          "medoid": 3.6570706117188356,
+          "naive": 3.1191405197456783,
+          "selected": 3.1191405197456783
+        },
+        "inside": {
+          "candidate": 0.44287168693380696,
+          "globalized": 0.12976335019835084,
+          "independent": 0.6433428216066037,
+          "medoid": 0.40119068253646617,
+          "naive": 0.44287168693380696,
+          "selected": 0.44287168693380696
+        },
+        "near_shell": {
+          "candidate": 3.0009269884418677,
+          "globalized": 2.224672020375067,
+          "independent": 2.776576137371218,
+          "medoid": 3.11407562786973,
+          "naive": 3.0009269884418677,
+          "selected": 3.0009269884418677
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7307,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 1.1892034108661704,
+          "globalized": 1.189203408356141,
+          "independent": 1.1892035030788648,
+          "medoid": 1.1892034085284724,
+          "naive": 1.1892035030788648,
+          "selected": 1.1892034108661704
+        },
+        "inside": {
+          "candidate": 1.2710311555717198,
+          "globalized": 1.2710311554721887,
+          "independent": 1.2710311554579263,
+          "medoid": 1.2710311554744749,
+          "naive": 1.2710311554579263,
+          "selected": 1.2710311555717198
+        },
+        "near_shell": {
+          "candidate": 1.4950055108197242,
+          "globalized": 1.4950055104526134,
+          "independent": 1.4950055104013087,
+          "medoid": 1.4950055104665827,
+          "naive": 1.4950055104013087,
+          "selected": 1.4950055108197242
+        }
+      }
+    },
+    {
+      "key": [
+        "rational_quadratic_ripple",
+        7,
+        7307,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.9563043796829565,
+          "globalized": 0.9563043796829565,
+          "independent": 0.9563043789740036,
+          "medoid": 0.9563043799764355,
+          "naive": 0.9563043789740036,
+          "selected": 0.9563043796829565
+        },
+        "inside": {
+          "candidate": 1.4981408576011606,
+          "globalized": 1.4981408576011606,
+          "independent": 1.4981408575188233,
+          "medoid": 1.498140857609473,
+          "naive": 1.4981408575188233,
+          "selected": 1.4981408576011606
+        },
+        "near_shell": {
+          "candidate": 1.1586615804457807,
+          "globalized": 1.1586615804457807,
+          "independent": 1.158661580215134,
+          "medoid": 1.1586615804718292,
+          "naive": 1.158661580215134,
+          "selected": 1.1586615804457807
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7301,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.11667672252763595,
+          "globalized": 0.116676418355258,
+          "independent": 0.11667654448223885,
+          "medoid": 0.12230608807744048,
+          "naive": 0.11667672252763595,
+          "selected": 0.11667672252763595
+        },
+        "inside": {
+          "candidate": -1.9972635063742041,
+          "globalized": -1.997264538796344,
+          "independent": -1.99726411595456,
+          "medoid": -2.0291115462150255,
+          "naive": -1.9972635063742041,
+          "selected": -1.9972635063742041
+        },
+        "near_shell": {
+          "candidate": -0.2767749157909405,
+          "globalized": -0.27677480040875135,
+          "independent": -0.27677483624963806,
+          "medoid": -0.2689199993784843,
+          "naive": -0.2767749157909405,
+          "selected": -0.2767749157909405
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7301,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.26098944420403924,
+          "globalized": 0.2609897504286476,
+          "independent": 0.260990169925698,
+          "medoid": 0.25565202679466914,
+          "naive": 0.26098944420403924,
+          "selected": 0.26098944420403924
+        },
+        "inside": {
+          "candidate": -2.012444356165344,
+          "globalized": -2.012444574648568,
+          "independent": -2.0124448714718017,
+          "medoid": -1.9444852966067696,
+          "naive": -2.012444356165344,
+          "selected": -2.012444356165344
+        },
+        "near_shell": {
+          "candidate": 0.46242580309527703,
+          "globalized": 0.46242603083991174,
+          "independent": 0.4624263394520858,
+          "medoid": 0.4578151021216659,
+          "naive": 0.46242580309527703,
+          "selected": 0.46242580309527703
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7307,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.2084589462480988,
+          "globalized": -0.2084588536819929,
+          "independent": -0.20845886560045912,
+          "medoid": -0.23240613162748147,
+          "naive": -0.2084589462480988,
+          "selected": -0.2084589462480988
+        },
+        "inside": {
+          "candidate": -2.6290820861787285,
+          "globalized": -2.6290815672638423,
+          "independent": -2.6290814672695237,
+          "medoid": -2.547275591716481,
+          "naive": -2.6290820861787285,
+          "selected": -2.6290820861787285
+        },
+        "near_shell": {
+          "candidate": -0.9126070858050257,
+          "globalized": -0.9126066024932165,
+          "independent": -0.9126065838967117,
+          "medoid": -0.9560962584907085,
+          "naive": -0.9126070858050257,
+          "selected": -0.9126070858050257
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        3,
+        7307,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.24521129226919314,
+          "globalized": 0.24521133625860259,
+          "independent": 0.24521141095363497,
+          "medoid": 0.25311116025378944,
+          "naive": 0.24521129226919314,
+          "selected": 0.24521129226919314
+        },
+        "inside": {
+          "candidate": -1.7282233832894374,
+          "globalized": -1.7282231415213491,
+          "independent": -1.7282227593349822,
+          "medoid": -1.599237208193827,
+          "naive": -1.7282233832894374,
+          "selected": -1.7282233832894374
+        },
+        "near_shell": {
+          "candidate": -0.32682638824390065,
+          "globalized": -0.3268261606516534,
+          "independent": -0.3268257758168085,
+          "medoid": -0.2930739971696177,
+          "naive": -0.32682638824390065,
+          "selected": -0.32682638824390065
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7301,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.12395796407663795,
+          "globalized": 0.1239579637753927,
+          "independent": 0.1241922315502233,
+          "medoid": 0.12395796504872614,
+          "naive": 0.1239579637753927,
+          "selected": 0.12395796407663795
+        },
+        "inside": {
+          "candidate": 0.8212365031868796,
+          "globalized": 0.8212365031857471,
+          "independent": 0.8212516695627059,
+          "medoid": 0.8212365031904056,
+          "naive": 0.8212365031857471,
+          "selected": 0.8212365031868796
+        },
+        "near_shell": {
+          "candidate": 0.6014626425459149,
+          "globalized": 0.6014626425382428,
+          "independent": 0.6015442637623778,
+          "medoid": 0.6014626425654281,
+          "naive": 0.6014626425382428,
+          "selected": 0.6014626425459149
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7301,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -0.22045139618634657,
+          "globalized": -0.22045139618634657,
+          "independent": 3.488127978723437,
+          "medoid": 0.15782784779733028,
+          "naive": -0.22045139618634657,
+          "selected": -0.22045139618634657
+        },
+        "inside": {
+          "candidate": -0.9593697516008444,
+          "globalized": -0.9593697516008444,
+          "independent": -0.28040715423615215,
+          "medoid": -0.8503196037009619,
+          "naive": -0.9593697516008444,
+          "selected": -0.9593697516008444
+        },
+        "near_shell": {
+          "candidate": -0.17431144000019216,
+          "globalized": -0.17431144000019216,
+          "independent": 1.0343182661424377,
+          "medoid": 0.12491010332079,
+          "naive": -0.17431144000019216,
+          "selected": -0.17431144000019216
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7307,
+        "symmetric_t"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": -1.3640413168465724,
+          "globalized": -0.1600758091852672,
+          "independent": -1.629654811331461,
+          "medoid": -0.7488014825342635,
+          "naive": -0.1600758091852672,
+          "selected": -1.3640413168465724
+        },
+        "inside": {
+          "candidate": -0.751552064210701,
+          "globalized": -0.1943027911538433,
+          "independent": -0.7565717603469935,
+          "medoid": -0.4968638382756829,
+          "naive": -0.1943027911538433,
+          "selected": -0.751552064210701
+        },
+        "near_shell": {
+          "candidate": 1.5664396549254027,
+          "globalized": 2.6004015284589315,
+          "independent": 1.9351406763329093,
+          "medoid": 1.7022646247181141,
+          "naive": 2.6004015284589315,
+          "selected": 1.5664396549254027
+        }
+      }
+    },
+    {
+      "key": [
+        "anisotropic_laplace",
+        7,
+        7307,
+        "leverage_spikes"
+      ],
+      "override": false,
+      "scores": {
+        "far_shell": {
+          "candidate": 0.12209940555796805,
+          "globalized": 5.23061551798653,
+          "independent": 182.6242402639998,
+          "medoid": 0.1220932383034512,
+          "naive": 182.6242402639998,
+          "selected": 0.12209940555796805
+        },
+        "inside": {
+          "candidate": 1.1468422899213015,
+          "globalized": 1.1469976368706298,
+          "independent": 1.1491322135792608,
+          "medoid": 1.1468356156929884,
+          "naive": 1.1491322135792608,
+          "selected": 1.1468422899213015
+        },
+        "near_shell": {
+          "candidate": 0.572676747936125,
+          "globalized": 0.5774876912990905,
+          "independent": 30.723778790629037,
+          "medoid": 0.5726765996043337,
+          "naive": 30.723778790629037,
+          "selected": 0.572676747936125
+        }
+      }
+    }
+  ],
+  "schema": "kernellum.perturbation-basin-result.v1",
+  "status": "FAIL"
+}

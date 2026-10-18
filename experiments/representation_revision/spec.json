@@ -1,0 +1,325 @@
+{
+  "cohort_rule": "All UQTestFuns 0.6.0 default instances tagged metamodeling, scalar output, 2 through 20 input dimensions",
+  "cohort": [
+    {
+      "name": "Ackley",
+      "dimension": 2,
+      "input_id": "Ackley1987",
+      "source_module": "uqtestfuns.test_functions.ackley",
+      "source_sha256": "f326af685a668f1b62a3d94476f7459951fc54e393850aba1c293f473a366f69"
+    },
+    {
+      "name": "Alemazkoor20D",
+      "dimension": 20,
+      "input_id": "Alemazkoor2018",
+      "source_module": "uqtestfuns.test_functions.alemazkoor",
+      "source_sha256": "59a520361781d464481a5f1ced8ee1df979fc82b10fd4297541fd1aaf6e0ea1d"
+    },
+    {
+      "name": "Alemazkoor2D",
+      "dimension": 2,
+      "input_id": "Alemazkoor2018",
+      "source_module": "uqtestfuns.test_functions.alemazkoor",
+      "source_sha256": "59a520361781d464481a5f1ced8ee1df979fc82b10fd4297541fd1aaf6e0ea1d"
+    },
+    {
+      "name": "Borehole",
+      "dimension": 8,
+      "input_id": "Harper1983",
+      "source_module": "uqtestfuns.test_functions.borehole",
+      "source_sha256": "d7298904f4f8b4db231c340d0ff50aeee4c24972b88e71f2266791338218d16e"
+    },
+    {
+      "name": "Cheng2D",
+      "dimension": 2,
+      "input_id": "Cheng2010",
+      "source_module": "uqtestfuns.test_functions.cheng2010",
+      "source_sha256": "a9289e2eb2d352f70e04db27c20d00fa7bd819d1ce5beb35ce57371868de8edc"
+    },
+    {
+      "name": "DampedOscillator",
+      "dimension": 7,
+      "input_id": "DerKiureghian1991",
+      "source_module": "uqtestfuns.test_functions.damped_oscillator",
+      "source_sha256": "a57d118b61cc51b4a1366e62948830a1f12a2ac4a29deac91796e1ca7e8d10dc"
+    },
+    {
+      "name": "Dette8D",
+      "dimension": 8,
+      "input_id": "Dette2010",
+      "source_module": "uqtestfuns.test_functions.dette",
+      "source_sha256": "7dd6e025a6bde9d5f8fe8581e1cd937f811be2e10381052e12b1ccf2cad09426"
+    },
+    {
+      "name": "DetteCurved",
+      "dimension": 3,
+      "input_id": "Dette2010",
+      "source_module": "uqtestfuns.test_functions.dette",
+      "source_sha256": "7dd6e025a6bde9d5f8fe8581e1cd937f811be2e10381052e12b1ccf2cad09426"
+    },
+    {
+      "name": "DetteExp",
+      "dimension": 3,
+      "input_id": "Dette2010",
+      "source_module": "uqtestfuns.test_functions.dette",
+      "source_sha256": "7dd6e025a6bde9d5f8fe8581e1cd937f811be2e10381052e12b1ccf2cad09426"
+    },
+    {
+      "name": "Flood",
+      "dimension": 8,
+      "input_id": "Iooss2015",
+      "source_module": "uqtestfuns.test_functions.flood",
+      "source_sha256": "a94f5763c2fd244f015bc72a8aec1c0cb55f76409118492e01d9e1f86fa6f42c"
+    },
+    {
+      "name": "Franke1",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Franke2",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Franke3",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Franke4",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Franke5",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Franke6",
+      "dimension": 2,
+      "input_id": "Franke1979",
+      "source_module": "uqtestfuns.test_functions.franke",
+      "source_sha256": "c67dab01ed03f97af378dcc46335bd1249225ba7032ccd79d9ccf7dc2515f56f"
+    },
+    {
+      "name": "Friedman10D",
+      "dimension": 10,
+      "input_id": "Friedman1983",
+      "source_module": "uqtestfuns.test_functions.friedman",
+      "source_sha256": "3c3d38a9d5b2fa41cdc5788823e3355a4519b4641dfa28ddc0043a42fb31e200"
+    },
+    {
+      "name": "Friedman6D",
+      "dimension": 6,
+      "input_id": "Friedman1983",
+      "source_module": "uqtestfuns.test_functions.friedman",
+      "source_sha256": "3c3d38a9d5b2fa41cdc5788823e3355a4519b4641dfa28ddc0043a42fb31e200"
+    },
+    {
+      "name": "GenzCornerPeak",
+      "dimension": 2,
+      "input_id": "Genz1984",
+      "source_module": "uqtestfuns.test_functions.genz",
+      "source_sha256": "51b64b10a8b1876d7e71e3f15b7d058565d4c63b9b77fa6c94569f74a78e7145"
+    },
+    {
+      "name": "LimNonPoly",
+      "dimension": 2,
+      "input_id": "Lim2002",
+      "source_module": "uqtestfuns.test_functions.lim",
+      "source_sha256": "391bbdfcbf2099a20fac8d6121ec4086995059affa2af39e8bb8638f4d4de70c"
+    },
+    {
+      "name": "LimPoly",
+      "dimension": 2,
+      "input_id": "Lim2002",
+      "source_module": "uqtestfuns.test_functions.lim",
+      "source_sha256": "391bbdfcbf2099a20fac8d6121ec4086995059affa2af39e8bb8638f4d4de70c"
+    },
+    {
+      "name": "LinkletterDecCoeffs",
+      "dimension": 10,
+      "input_id": "Linkletter2006",
+      "source_module": "uqtestfuns.test_functions.linkletter",
+      "source_sha256": "91727ac1900c72fd3b14044fc806c01efc24f9453c45759cb0b72a4116bac9f3"
+    },
+    {
+      "name": "LinkletterLinear",
+      "dimension": 10,
+      "input_id": "Linkletter2006",
+      "source_module": "uqtestfuns.test_functions.linkletter",
+      "source_sha256": "91727ac1900c72fd3b14044fc806c01efc24f9453c45759cb0b72a4116bac9f3"
+    },
+    {
+      "name": "LinkletterSine",
+      "dimension": 10,
+      "input_id": "Linkletter2006",
+      "source_module": "uqtestfuns.test_functions.linkletter",
+      "source_sha256": "91727ac1900c72fd3b14044fc806c01efc24f9453c45759cb0b72a4116bac9f3"
+    },
+    {
+      "name": "McLainS1",
+      "dimension": 2,
+      "input_id": "McLain1974",
+      "source_module": "uqtestfuns.test_functions.mclain",
+      "source_sha256": "109c1dbd8546cc47b5320f7f0287298f7a7f7476a198799b531893a1108bc1ba"
+    },
+    {
+      "name": "McLainS2",
+      "dimension": 2,
+      "input_id": "McLain1974",
+      "source_module": "uqtestfuns.test_functions.mclain",
+      "source_sha256": "109c1dbd8546cc47b5320f7f0287298f7a7f7476a198799b531893a1108bc1ba"
+    },
+    {
+      "name": "McLainS3",
+      "dimension": 2,
+      "input_id": "McLain1974",
+      "source_module": "uqtestfuns.test_functions.mclain",
+      "source_sha256": "109c1dbd8546cc47b5320f7f0287298f7a7f7476a198799b531893a1108bc1ba"
+    },
+    {
+      "name": "McLainS4",
+      "dimension": 2,
+      "input_id": "McLain1974",
+      "source_module": "uqtestfuns.test_functions.mclain",
+      "source_sha256": "109c1dbd8546cc47b5320f7f0287298f7a7f7476a198799b531893a1108bc1ba"
+    },
+    {
+      "name": "McLainS5",
+      "dimension": 2,
+      "input_id": "McLain1974",
+      "source_module": "uqtestfuns.test_functions.mclain",
+      "source_sha256": "109c1dbd8546cc47b5320f7f0287298f7a7f7476a198799b531893a1108bc1ba"
+    },
+    {
+      "name": "OTLCircuit",
+      "dimension": 6,
+      "input_id": "BenAri2007",
+      "source_module": "uqtestfuns.test_functions.otl_circuit",
+      "source_sha256": "33f5d8aabf8e4796c47dc07a7c90c016b8614a6b355699d5c3534ff1c0f2ff5c"
+    },
+    {
+      "name": "Piston",
+      "dimension": 7,
+      "input_id": "BenAri2007",
+      "source_module": "uqtestfuns.test_functions.piston",
+      "source_sha256": "8dc6bcfab49402a248c0ac15753b0e502acf16ae1f487ac8bc1e34e19c1270c8"
+    },
+    {
+      "name": "RobotArm",
+      "dimension": 8,
+      "input_id": "An2001",
+      "source_module": "uqtestfuns.test_functions.robot_arm",
+      "source_sha256": "77202b6ce8de684ac7a47e078daf89df09c5480dfba830dc8846c35f3284cb8f"
+    },
+    {
+      "name": "Rosenbrock",
+      "dimension": 2,
+      "input_id": "Picheny2013",
+      "source_module": "uqtestfuns.test_functions.rosenbrock",
+      "source_sha256": "7eb5ad9f0e345a1781c078031e7d891f21663cabf79a22886f1570270d6d214d"
+    },
+    {
+      "name": "SolarCell",
+      "dimension": 5,
+      "input_id": "Constantine2015",
+      "source_module": "uqtestfuns.test_functions.solar_cell",
+      "source_sha256": "6801dc2706aa2190fd82d2e796ac6a063da13e53cd5ec55882cc6993e32b6d5f"
+    },
+    {
+      "name": "Sulfur",
+      "dimension": 9,
+      "input_id": "Penner1994",
+      "source_module": "uqtestfuns.test_functions.sulfur",
+      "source_sha256": "57ae0432b451f88b53bf4ef61d964f55797ee386d6be27f9351c968c687e27fc"
+    },
+    {
+      "name": "UndampedOscillator",
+      "dimension": 6,
+      "input_id": "Gayton2003",
+      "source_module": "uqtestfuns.test_functions.undamped_oscillator",
+      "source_sha256": "9356957cfee537768ba95164cbefebf6e0e2f40b6cb1775086197dd6d5ba0ce0"
+    },
+    {
+      "name": "Webster2D",
+      "dimension": 2,
+      "input_id": "Webster1996",
+      "source_module": "uqtestfuns.test_functions.webster",
+      "source_sha256": "b148c3f8f563f3e71d78c0c9afbe3fe540c76a787bf08278f619cfce4af5bbf4"
+    },
+    {
+      "name": "Welch1992",
+      "dimension": 20,
+      "input_id": "Welch1992",
+      "source_module": "uqtestfuns.test_functions.welch1992",
+      "source_sha256": "f9f8ab117a2b7cb708074bab1d50f696b5a6bb857192c2e9f1ccefbe1c2a8b72"
+    },
+    {
+      "name": "WingWeight",
+      "dimension": 10,
+      "input_id": "Forrester2008",
+      "source_module": "uqtestfuns.test_functions.wing_weight",
+      "source_sha256": "274ffaac9aaaeed190d6f7dc6441d08bb1ef2f0f1051b7b4cadd2a17429411f9"
+    }
+  ],
+  "uqtestfuns": "0.6.0",
+  "seeds": [
+    930101,
+    930102,
+    930103,
+    930104,
+    930105
+  ],
+  "noise_fractions": [
+    0.0,
+    0.02
+  ],
+  "pool_size": 192,
+  "test_size": 2048,
+  "initial": 16,
+  "budget": 64,
+  "checkpoints": [
+    32,
+    64
+  ],
+  "methods": [
+    "representation",
+    "raw",
+    "raw_stack",
+    "input_only",
+    "output_only",
+    "log_linear",
+    "representation_stack"
+  ],
+  "primary": "representation_stack",
+  "baselines": [
+    "representation",
+    "raw",
+    "raw_stack",
+    "input_only",
+    "output_only",
+    "log_linear"
+  ],
+  "gates": {
+    "ratio_max": 0.8,
+    "win_fraction_min": 0.6,
+    "each_noise_ratio_max": 1.0
+  },
+  "error_floor": 1e-08,
+  "input_distribution": "Unmodified package-default joint distribution, sampled pool then separate test set",
+  "acquisition": "Common label-independent maximin in pool-min/max-normalized original coordinates",
+  "invalid_trial": "Abort and preserve failure; no exclusions or replacement functions"
+}

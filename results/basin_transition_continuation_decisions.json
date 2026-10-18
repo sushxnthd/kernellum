@@ -1,0 +1,6425 @@
+{
+  "classification": "PROSPECTIVE_UNSEEN",
+  "cohort": {
+    "dimensions": [
+      4,
+      8
+    ],
+    "families": [
+      "oscillatory_cauchy",
+      "warped_laplace"
+    ],
+    "noises": [
+      "symmetric_t",
+      "leverage_spikes"
+    ],
+    "seeds": [
+      8123,
+      8129
+    ]
+  },
+  "rows": [
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 9.958694197186537e-07,
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.4,
+      "residual_ratio": 0.9999999999978564,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5053820708346374,
+            "distance": 0.05220312760143709,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.4725075430576384,
+            "distance": 0.10255989226791942,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.4715032159066747,
+            "distance": 0.15122301943352034,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5004129863605373,
+            "distance": 0.19832365721134415,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5461324228228975,
+            "distance": 0.07591566960197531,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5330819196962444,
+            "distance": 0.1483850875106726,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5309616208447777,
+            "distance": 0.22015927565010077,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5389309817315405,
+            "distance": 0.2937602474896767,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.567079362948827,
+            "distance": 0.06198931467555174,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5652606992542412,
+            "distance": 0.12688621745388295,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5579217506731189,
+            "distance": 0.19598590021039153,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5481414607456819,
+            "distance": 0.2712877952539013,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.642475841870406,
+            "distance": 0.05264685280945942,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7247553807233564,
+            "distance": 0.10617711476586139,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8175616202004155,
+            "distance": 0.16107907314179098,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9190462323258252,
+            "distance": 0.21744920933944106,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6681484778061928,
+            "distance": 0.0643694764847923,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7690437110385202,
+            "distance": 0.13607982261250792,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8819509509004889,
+            "distance": 0.21938131333505795,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0029720262181239,
+            "distance": 0.3244092158616817,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5790767304794697,
+            "distance": 0.03839000413384027,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6309323365594064,
+            "distance": 0.07835933420201285,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7206244350426949,
+            "distance": 0.12030924847298752,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8155101646914625,
+            "distance": 0.16474439759432485,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5793883696100243,
+            "distance": 0.043020320220238474,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6014074112927911,
+            "distance": 0.08577446544281406,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6337447646661024,
+            "distance": 0.12864330370855845,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6738627454792246,
+            "distance": 0.17196878597255358,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5710316885276913,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5568325998441968,
+            "distance": 0.057525627019363486,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5620788644632575,
+            "distance": 0.11242416356668336,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5833416566915978,
+            "distance": 0.1652908032508536,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6173888766118123,
+            "distance": 0.21663972957335423,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 0.0,
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.4,
+      "residual_ratio": 1.0,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5845258355282806,
+            "distance": 0.050854941621492566,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6059023717367036,
+            "distance": 0.10669847310290245,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6293778712116348,
+            "distance": 0.16853444325738842,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6557280387720734,
+            "distance": 0.23703956532630133,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.49946644924695865,
+            "distance": 0.04146544448657538,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.4594359784738933,
+            "distance": 0.0827576634095947,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.44785677828063625,
+            "distance": 0.12404625794830731,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.4624479579282426,
+            "distance": 0.16546000386887058,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5792604186482897,
+            "distance": 0.055908133565904586,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6140748669583195,
+            "distance": 0.11059060744869433,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6762686216185857,
+            "distance": 0.16497135684259506,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7714872931635196,
+            "distance": 0.21991557697105726,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6303282540035954,
+            "distance": 0.04083626887784728,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7264176439035669,
+            "distance": 0.08351501451510177,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8625027218540495,
+            "distance": 0.1287507354734014,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.046743957059873,
+            "distance": 0.17775579855615112,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5921703601555394,
+            "distance": 0.04520504853463838,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6287865806113992,
+            "distance": 0.09001755872887304,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.681149369212754,
+            "distance": 0.13454534725634035,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7502083699390584,
+            "distance": 0.17885580877498153,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5823244217682091,
+            "distance": 0.044907179997770906,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6499211132593504,
+            "distance": 0.08984525357038975,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7733465876666887,
+            "distance": 0.13643919880637415,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9565632264951361,
+            "distance": 0.1877007034261429,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6311885981378733,
+            "distance": 0.04924373294912924,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7234989786353326,
+            "distance": 0.10132626802053683,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8438919274163138,
+            "distance": 0.15748876953952076,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9985851469811489,
+            "distance": 0.2193155765626463,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5694973285390574,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6132326225193878,
+            "distance": 0.06943712188041476,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6851231256793271,
+            "distance": 0.14061344901346545,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7772345723784418,
+            "distance": 0.21422923744051361,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8722533662457449,
+            "distance": 0.29134313673450424,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "early_switch_fraction": 1.0,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 0.0,
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "margin": -0.25,
+      "median_transition_amplitude": 0.08,
+      "residual_ratio": 1.0,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2067222747961288,
+            "distance": 0.07465645169401953,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8732299676697318,
+            "distance": 1.5245521768413743,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8981417178991203,
+            "distance": 1.5228677001713846,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.000573844762723,
+            "distance": 1.5271177109352627,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7384617926175409,
+            "distance": 1.5419059033407434,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.85017924915075,
+            "distance": 1.5500347191383403,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.0145054606662351,
+            "distance": 1.5592164593463738,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1519036250552623,
+            "distance": 0.1929496030985625,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.1967345693256481,
+            "distance": 0.08882699476850373,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7538889298475022,
+            "distance": 1.5362680164956668,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.815601225722139,
+            "distance": 1.539411879705689,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8711970032956381,
+            "distance": 1.545009632981001,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7197624800190583,
+            "distance": 1.5545184055807417,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7944889019845358,
+            "distance": 1.5752434359752046,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8728331713652338,
+            "distance": 1.6002924989069294,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9646620477362561,
+            "distance": 1.6327207230312828,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.624796421731284,
+            "distance": 1.5297292218931453,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6168045726367463,
+            "distance": 1.5261201901817978,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7032530999626854,
+            "distance": 1.5239624252666506,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7973534490557895,
+            "distance": 1.523070061307597,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.176012501529311,
+            "distance": 0.04500774960205551,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.862252615391201,
+            "distance": 1.5170564425568411,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.0351964738690755,
+            "distance": 1.50731688397874,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.187127539833925,
+            "distance": 0.17564462780520843,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8764185949754145,
+            "distance": 1.540416315903446,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8341648742483143,
+            "distance": 1.5532653637815788,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9752569994709216,
+            "distance": 1.5659530569447742,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.202455153777369,
+            "distance": 1.579663405682876,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.1805573703372876,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6800211416765698,
+            "distance": 1.5333655125916674,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7289956120557396,
+            "distance": 1.532242251753106,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7863829474721394,
+            "distance": 1.5341697719386658,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.834060300952413,
+            "distance": 1.5406011223945335,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.16,
+        0.08,
+        0.16,
+        0.08,
+        0.08,
+        0.16,
+        0.08,
+        0.08
+      ]
+    },
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 1.421345233085444e-06,
+      "key": [
+        "oscillatory_cauchy",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.4,
+      "residual_ratio": 0.9999999999954671,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6361064792629523,
+            "distance": 0.05127103722133746,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6424596760540854,
+            "distance": 0.1041535628873823,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6729885400842672,
+            "distance": 0.15920314047816223,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7244499151593395,
+            "distance": 0.21708826347666416,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6120938199732194,
+            "distance": 0.057285233743806244,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5812519654522694,
+            "distance": 0.11745099616906438,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5626661418416969,
+            "distance": 0.18138119897195384,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5500435928986728,
+            "distance": 0.2503670185022237,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.723784584098327,
+            "distance": 0.06106451260936001,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8082130377733334,
+            "distance": 0.1201137176091805,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9058358848979383,
+            "distance": 0.17767034146845104,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.01171666539803,
+            "distance": 0.2341609074633772,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7392202310637119,
+            "distance": 0.025635054360377277,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8437401398463517,
+            "distance": 0.05154981340466776,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9655047116907757,
+            "distance": 0.0780465383866542,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.091989240528478,
+            "distance": 2.0129913670214457,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.628888454027593,
+            "distance": 0.06333367666194421,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6101425499920342,
+            "distance": 0.12570350053957766,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6006714734457279,
+            "distance": 0.18716516551238752,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6011204915826696,
+            "distance": 0.2479159345190295,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.646521494574858,
+            "distance": 0.05470711192899905,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6556985696041121,
+            "distance": 0.10982816291914729,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6813056439525685,
+            "distance": 0.16558799763472082,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7204604401652772,
+            "distance": 0.22218481949448793,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7415883727393761,
+            "distance": 0.049108407717001513,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8401175953197746,
+            "distance": 0.09763396975948226,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9473088603341447,
+            "distance": 0.14574203979666103,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0593653766473887,
+            "distance": 0.19356319850584358,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6561296259968559,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7030952782239173,
+            "distance": 0.05369011875174826,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7562686474512251,
+            "distance": 0.10689365229712482,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.813710609662739,
+            "distance": 0.15979511000797778,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8734491850290985,
+            "distance": 0.21258774245096254,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.4,
+        0.4,
+        0.4,
+        0.32,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 0.0,
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.32,
+      "residual_ratio": 5.9912122293537744e-18,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8954504714672259,
+            "distance": 0.1092996812926399,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9381716294226944,
+            "distance": 0.2123834864863679,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9923434858566237,
+            "distance": 0.3136067340196983,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0285080197146705,
+            "distance": 0.416632011986434,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8632581523836699,
+            "distance": 0.08809077389417459,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8270047564130013,
+            "distance": 0.17872900248551407,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7955081834391989,
+            "distance": 0.26647582754592547,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7813121856419395,
+            "distance": 0.36797976527066867,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8337532746286497,
+            "distance": 0.07830124852417164,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8068494292413809,
+            "distance": 0.1600723854589564,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7758014354825791,
+            "distance": 0.24818100479216126,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7864766999340559,
+            "distance": 0.3426259532220647,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8334834606183573,
+            "distance": 0.10751059953815646,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7576232949339039,
+            "distance": 0.2120163615247392,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7338201336967684,
+            "distance": 0.3137599375178625,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7276050258485572,
+            "distance": 0.43577445472257426,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8460932660952284,
+            "distance": 0.09314933616289434,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8110573140806517,
+            "distance": 0.19683558298125314,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7807070122697427,
+            "distance": 0.3169188276774835,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.713202126572345,
+            "distance": 0.4633686906551589,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8071476639878423,
+            "distance": 0.10731102557264477,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6786048658581109,
+            "distance": 0.23578711142349895,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6072191440281351,
+            "distance": 0.3987750982650857,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5527370199406706,
+            "distance": 0.7855482551849,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8427146754765196,
+            "distance": 0.0811333069747068,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7751340281094039,
+            "distance": 0.1658852492784111,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7435915204619211,
+            "distance": 0.25658109396886314,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6913408400835015,
+            "distance": 0.35127984579705246,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8853179675148906,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9233147295332382,
+            "distance": 0.09807495328893145,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9064368881364707,
+            "distance": 0.19431308957249357,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8588436320775712,
+            "distance": 0.2955761749425973,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8688328888928718,
+            "distance": 0.41051139266288905,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.32,
+        0.32,
+        0.4,
+        0.32,
+        0.32,
+        0.24,
+        0.32,
+        0.32
+      ]
+    },
+    {
+      "early_switch_fraction": 0.875,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "globalized_distance": 0.38606587052443553,
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "margin": 0.04000000000000001,
+      "median_transition_amplitude": 0.12,
+      "residual_ratio": 2.330682368303585e-15,
+      "route": true,
+      "selected": "globalized",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 2.211851021843797,
+            "distance": 1.6043454058325923,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.306103331642469,
+            "distance": 1.5861078601599028,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.262044883219653,
+            "distance": 1.5861078601631018,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.2068936721659456,
+            "distance": 1.5861078601653436,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 2.1416907940713736,
+            "distance": 1.6820028584694244,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.1595772698944913,
+            "distance": 1.7991120308563229,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.149501938085695,
+            "distance": 1.586107860190117,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.0729504452194756,
+            "distance": 1.586107860160446,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9857073985050312,
+            "distance": 0.40600050295353796,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6131680272359454,
+            "distance": 0.9197495245785944,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.2039101544818247,
+            "distance": 1.5861078601479939,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.1368942296326003,
+            "distance": 1.5861078601508882,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 2.1250857984240445,
+            "distance": 1.5090585465703923,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.122135478864379,
+            "distance": 1.4629143089923478,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.1182748060154135,
+            "distance": 1.4491797383162162,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.1142357736126973,
+            "distance": 1.461649287393931,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8891973849119191,
+            "distance": 0.25595271748206105,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7211971914624862,
+            "distance": 0.37636477523199613,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7996849044687175,
+            "distance": 0.47031443863745465,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7599910146143024,
+            "distance": 0.5624613944283723,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.29050389245516,
+            "distance": 0.33315402978862907,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.065996232952239,
+            "distance": 1.6847753989984005,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.0269280545148285,
+            "distance": 1.7479607444646554,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.984918129070592,
+            "distance": 1.8266441769838633,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9070652001256038,
+            "distance": 0.10654379101336332,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8266500104521748,
+            "distance": 0.21522050597359083,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7540779565508975,
+            "distance": 0.3354912798046757,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8403832406833041,
+            "distance": 0.5582331960190204,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.0120574502352013,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9960102409822863,
+            "distance": 0.26370168418243606,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.5323270173402184,
+            "distance": 0.481410582985976,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.9931014066106945,
+            "distance": 1.7610089939182114,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.9822139667748437,
+            "distance": 1.9016253843536968,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.16,
+        0.16,
+        0.32,
+        0.16
+      ]
+    },
+    {
+      "early_switch_fraction": 0.5,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 0.15180636873808445,
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "margin": -0.09819363126191555,
+      "median_transition_amplitude": 0.2,
+      "residual_ratio": 6.778599146597231e-13,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.3568008750920804,
+            "distance": 0.09107182795284365,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4427670992962152,
+            "distance": 1.6120821450354414,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4536999142003577,
+            "distance": 1.6033700549974585,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.4700589181716388,
+            "distance": 1.60270274698151,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.140846320465304,
+            "distance": 0.08083404408295411,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.2573866617142684,
+            "distance": 0.16208985077999608,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4253319640867659,
+            "distance": 0.2445697507727307,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5331112121172425,
+            "distance": 1.7071603770324704,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2861986291113099,
+            "distance": 0.0835256535560401,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4635766277663504,
+            "distance": 1.6758778632725995,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.48221197061687,
+            "distance": 1.694209243586643,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5031044974701306,
+            "distance": 1.7183942449111433,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.1703485544958783,
+            "distance": 0.10691306814754294,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3265013155661307,
+            "distance": 0.21537223049933374,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4640395354156688,
+            "distance": 1.671333345131051,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.4740076441620467,
+            "distance": 1.6921122156469661,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9508076138799393,
+            "distance": 0.07871870814926686,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8666391628117082,
+            "distance": 0.15721127000470214,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7871747021423989,
+            "distance": 0.23554545510868738,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7779953226149515,
+            "distance": 0.31451031414598957,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.261804875150499,
+            "distance": 0.09826098458952881,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3786290839903865,
+            "distance": 1.779985515997021,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.3496238754720475,
+            "distance": 1.8705429277418304,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3222486890601308,
+            "distance": 1.98214704127098,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9859505853390137,
+            "distance": 0.09190029552049399,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.947349220089957,
+            "distance": 0.18262417308054882,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.0207678196572503,
+            "distance": 0.27574118740850173,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0715275867786727,
+            "distance": 0.3727050060648784,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.096644525019954,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2391033829540443,
+            "distance": 0.12835307289004727,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4515015528691242,
+            "distance": 1.6947191760659945,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4655391731918732,
+            "distance": 1.7218029541661504,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.482716903424452,
+            "distance": 1.7537118755227756,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.16,
+        0.32,
+        0.16,
+        0.24,
+        0.4,
+        0.16,
+        0.32,
+        0.16
+      ]
+    },
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 0.976354069052723,
+      "key": [
+        "oscillatory_cauchy",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.32,
+      "residual_ratio": 4.4664575212938195e-13,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7649743481710186,
+            "distance": 0.09716973693789015,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7326463702021832,
+            "distance": 0.19277531738723552,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7121171385819671,
+            "distance": 0.29096044689716644,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6821620284462284,
+            "distance": 0.3957017298669848,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7567184742411494,
+            "distance": 0.10377943401302762,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6946700805917889,
+            "distance": 0.20571669331471398,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6491393059307972,
+            "distance": 0.3089809635247609,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5965511944422949,
+            "distance": 0.41644386363745967,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8970699255129924,
+            "distance": 0.0887618564338595,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9520910149627648,
+            "distance": 0.17643065110267733,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.0020665840695966,
+            "distance": 0.2689947256105793,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9899034365059108,
+            "distance": 0.35823331489816557,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8894035928558279,
+            "distance": 0.07270078883662287,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9491361054725473,
+            "distance": 0.14688517226308717,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.015460335150116,
+            "distance": 0.2226330992932081,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0966482554495514,
+            "distance": 0.30348943538340917,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7247508444241135,
+            "distance": 0.07863024302184572,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.648917725563954,
+            "distance": 0.16035912138132627,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5741927416996158,
+            "distance": 0.24847432256697258,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5136802318434014,
+            "distance": 0.3320222855793818,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8663954680066422,
+            "distance": 0.09160103082292419,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9386329184049007,
+            "distance": 0.1893306299804841,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9997131375175953,
+            "distance": 0.32918989816190825,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2534114150651905,
+            "distance": 0.5778884172812331,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8753594080728677,
+            "distance": 0.10021235030425145,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.0205529270107234,
+            "distance": 0.20595170703451646,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1025474019917,
+            "distance": 0.29037282630438727,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2416559594960421,
+            "distance": 0.4087741564107556,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8324987688617115,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8644813598274775,
+            "distance": 0.09353782026037182,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.923563842520061,
+            "distance": 0.18778099416746785,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9454666898002236,
+            "distance": 0.28669601353492163,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9456403040274126,
+            "distance": 0.3936740703999232,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.32,
+        0.32,
+        0.32,
+        0.4,
+        0.4,
+        0.32,
+        0.32,
+        0.32
+      ]
+    },
+    {
+      "early_switch_fraction": 0.5,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "globalized_distance": 0.0,
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "symmetric_t"
+      ],
+      "margin": -0.25,
+      "median_transition_amplitude": 0.24,
+      "residual_ratio": 1.0,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7859207729369636,
+            "distance": 0.08396241762149935,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8740613450798834,
+            "distance": 0.39768638786319416,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1712795087621137,
+            "distance": 1.2047611794467725,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1792565350695268,
+            "distance": 1.2126863146329692,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8878373325543113,
+            "distance": 0.04330093966675139,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.1647363899594825,
+            "distance": 1.1855774075779397,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.171905457989415,
+            "distance": 1.1794714631653227,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1804667573398473,
+            "distance": 1.1745705356836202,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8410696753523245,
+            "distance": 0.05795381038272132,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9431836899761054,
+            "distance": 0.12087079844259914,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.0768255694679196,
+            "distance": 0.323676613733493,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0823818190697334,
+            "distance": 1.372486559936035,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.4957764551601374,
+            "distance": 0.07001253129683685,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5246982118778099,
+            "distance": 0.14265556487485562,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5361749315019085,
+            "distance": 0.21852174450991443,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5846057814176077,
+            "distance": 0.29887308438404836,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8153515191180694,
+            "distance": 0.05600157729050903,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9501151872547376,
+            "distance": 0.10901679024611824,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9038435300573304,
+            "distance": 0.16030085271804875,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0876867719442442,
+            "distance": 0.4087311719017862,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9013828367222008,
+            "distance": 0.0588776050515292,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6394565948107179,
+            "distance": 0.11689576082620033,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6146002754292053,
+            "distance": 0.17399932585650912,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7933098697667766,
+            "distance": 0.23060981083466647,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7033787373665229,
+            "distance": 0.09580069145685469,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8068661475003277,
+            "distance": 0.475904960688619,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.4099083544505128,
+            "distance": 0.2707103904153749,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.548352659271894,
+            "distance": 0.3475942980356365,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6595242865835359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7788821054493773,
+            "distance": 0.061331190443243144,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.166916106940377,
+            "distance": 1.2184519547368202,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1742190489438034,
+            "distance": 1.2320885894019236,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1827198289899472,
+            "distance": 1.2493079830653158,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.16,
+        0.16,
+        0.32,
+        0.4,
+        0.32,
+        0.4,
+        0.16,
+        0.16
+      ]
+    },
+    {
+      "early_switch_fraction": 0.0,
+      "failed_attempts": [],
+      "globalized_distance": 0.0,
+      "key": [
+        "warped_laplace",
+        4,
+        8123,
+        "leverage_spikes"
+      ],
+      "margin": -0.5,
+      "median_transition_amplitude": 0.4,
+      "residual_ratio": 1.0,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.21744856249057656,
+            "distance": 0.05060413525054441,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.23559775011996542,
+            "distance": 0.10198313196151401,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5227470215765515,
+            "distance": 0.15554695131476343,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3034913201642733,
+            "distance": 1.9674984591604554,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.24247349046913863,
+            "distance": 0.06700619770227324,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.23391673269615082,
+            "distance": 0.13667946338979653,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.2335466168161648,
+            "distance": 0.2091409705451952,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.24596259928494899,
+            "distance": 0.284940074990411,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.1251492381477889,
+            "distance": 0.06616888556553478,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.10927409300125775,
+            "distance": 0.13381573906534,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.20385872001582822,
+            "distance": 0.20303685554261994,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.40019819310915156,
+            "distance": 0.2758791525231004,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.3109676821053228,
+            "distance": 0.05129105817496812,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.3753067591646928,
+            "distance": 0.10534284322973053,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.456278142082783,
+            "distance": 0.1627823040013522,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.76141549431644,
+            "distance": 0.22361214186826922,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.2740263746997695,
+            "distance": 0.03844524060259753,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.30508330232321507,
+            "distance": 0.07800041692054523,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.3452200972260868,
+            "distance": 0.11928105826061526,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5583374042877928,
+            "distance": 0.16301357588649254,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.18328921071400792,
+            "distance": 0.05232105940125366,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.1614117819310893,
+            "distance": 0.10113773863083891,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.19368901185695148,
+            "distance": 0.14818913271923828,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.25490603319060934,
+            "distance": 0.19553112676467446,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.2238757030374134,
+            "distance": 0.05521401674957417,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.23159169895412324,
+            "distance": 0.11440204775432339,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.28447885495374803,
+            "distance": 0.17887182675452162,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.3911126851418602,
+            "distance": 0.25040919185528493,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.25871800180295046,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.27733897440664484,
+            "distance": 0.061038673807838485,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.5364348574759705,
+            "distance": 0.12014662976621614,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5919814162577186,
+            "distance": 0.177318510677366,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0383853735559399,
+            "distance": 0.23231978866327044,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.32,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "early_switch_fraction": 0.625,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 1.8756659772458606,
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "symmetric_t"
+      ],
+      "margin": 0.0,
+      "median_transition_amplitude": 0.16,
+      "residual_ratio": 0.033091528868910355,
+      "route": true,
+      "selected": "globalized",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.40676844411935686,
+            "distance": 1.7869974560562147,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.2570968082700738,
+            "distance": 1.7956577611024513,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1007597364148363,
+            "distance": 1.868622204864759,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9680915989251714,
+            "distance": 1.8702655578133385,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.3039281582682563,
+            "distance": 0.11644487312461306,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.2457421467593766,
+            "distance": 1.889060464800929,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.18213675307450145,
+            "distance": 1.897637321708865,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.28841257820710475,
+            "distance": 1.907462732303131,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6306793363828834,
+            "distance": 1.8354713826005813,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.2040284396631833,
+            "distance": 1.84757366825204,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.3737913308905674,
+            "distance": 0.292417401711587,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.400165334414911,
+            "distance": 0.3790045906147726,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2842950024761006,
+            "distance": 0.11298245587837856,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.35599495423582056,
+            "distance": 1.8964423762372975,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5895085022976048,
+            "distance": 1.9131885310501986,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.9211329610367975,
+            "distance": 1.9371803636423754,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.2056357935942753,
+            "distance": 1.8669156528717785,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.32980222870419856,
+            "distance": 1.8601282355300273,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.6045030860336928,
+            "distance": 1.855040925048764,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.7926193702225761,
+            "distance": 1.9009113764285073,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2987644332713544,
+            "distance": 0.09975117323435355,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.303228865341182,
+            "distance": 0.193441150476527,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.3060651355355621,
+            "distance": 0.282238279140339,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3071157119440795,
+            "distance": 0.3671303410665944,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.3088532300667854,
+            "distance": 0.07792150858595152,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3228384034880518,
+            "distance": 0.15175193422340497,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.5529926568054122,
+            "distance": 1.897494023435367,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.8688712468675848,
+            "distance": 1.9073142008704442,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.292953834481177,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.2789022907599013,
+            "distance": 0.11541185749350631,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.265993490016789,
+            "distance": 0.21811150941848859,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.2542384856075115,
+            "distance": 0.3105335898016697,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.0690956517843788,
+            "distance": 1.944713370404999,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.08,
+        0.16,
+        0.08,
+        0.16,
+        0.08,
+        0.32,
+        0.24,
+        0.32
+      ]
+    },
+    {
+      "early_switch_fraction": 0.125,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 0.0,
+      "key": [
+        "warped_laplace",
+        4,
+        8129,
+        "leverage_spikes"
+      ],
+      "margin": -0.375,
+      "median_transition_amplitude": 0.32,
+      "residual_ratio": 1.0,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.3531324476224253,
+            "distance": 0.05703465700475238,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.2529924986839754,
+            "distance": 0.11215949825492319,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.20704460261169783,
+            "distance": 0.16699370340484107,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.2141480159165549,
+            "distance": 0.22303237898396766,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.7078002918229852,
+            "distance": 0.07923995047288376,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.2630208705863872,
+            "distance": 1.3732464032034082,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.258982610370213,
+            "distance": 1.379800490436376,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2530337976561658,
+            "distance": 1.3951826135445566,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.6153209577227816,
+            "distance": 0.06813733668268326,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8739868397010544,
+            "distance": 0.1335856170551892,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1617486643145243,
+            "distance": 0.2047934788784069,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2538924567918222,
+            "distance": 1.9465480398367718,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.704528607653114,
+            "distance": 0.06868358121939415,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.9868995352450715,
+            "distance": 0.14243192080503558,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.187730300957699,
+            "distance": 1.4068263397604381,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1683283712358767,
+            "distance": 1.4231092259154492,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.396204466826268,
+            "distance": 0.07384668283778367,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.3454988813108248,
+            "distance": 0.146643457271104,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.3701887637897397,
+            "distance": 0.2176200302817085,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.5354168932873399,
+            "distance": 0.2872080611001362,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5973206374236072,
+            "distance": 0.048876922307282966,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7669797685796909,
+            "distance": 0.09402607383412061,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1081356841346879,
+            "distance": 0.13585159032452573,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3396582151300995,
+            "distance": 1.2279972581971152,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5887759726320244,
+            "distance": 0.04941561178129299,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6770434867837193,
+            "distance": 0.09958952602799363,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.8102987548409311,
+            "distance": 0.15333418765643334,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2612782300072505,
+            "distance": 1.3528749593952094,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.5223886404111916,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5598661967378636,
+            "distance": 0.06560251179024391,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6822822335567865,
+            "distance": 0.13305157357367636,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.9372972789104765,
+            "distance": 0.21154126784917038,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3587818301808021,
+            "distance": 1.2446124497187636,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.4,
+        0.16,
+        0.32,
+        0.24,
+        0.4,
+        0.32,
+        0.32,
+        0.32
+      ]
+    },
+    {
+      "early_switch_fraction": 0.625,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "independent",
+          "reason": "optimizer ceiling reached",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "globalized_distance": 1.2816096724518428e-09,
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "symmetric_t"
+      ],
+      "margin": -0.24999999871839032,
+      "median_transition_amplitude": 0.16,
+      "residual_ratio": 0.9999999999987562,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.6457067108231018,
+            "distance": 6.6925971280582085e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6337205495236684,
+            "distance": 0.004493732783543581,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6145059311986396,
+            "distance": 2.5007799621379096e-05,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5895566026723718,
+            "distance": 1.3624808733059647e+41,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.652265016068045,
+            "distance": 2.0479774168711093e-05,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6464063650484866,
+            "distance": 3.77802859522712e+29,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6326670740387144,
+            "distance": 1.0078656658812991e+43,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.6120316520872038,
+            "distance": 2.593351266487511e+41,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.6723056405419814,
+            "distance": 5.526326267374311e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6870130247639803,
+            "distance": 3.214289393017634e+28,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.694504760957765,
+            "distance": 0.1723360778867223,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.6935252306028628,
+            "distance": 0.4569028241922762,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.6623645331360766,
+            "distance": 9.001353819621365e-08,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6666549768542356,
+            "distance": 1.8927011627651607e-05,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6620447497795985,
+            "distance": 8.199948043694515e-07,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.649190281316681,
+            "distance": 2.849261140148424e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.656869079070682,
+            "distance": 2.1556428227760395e+27,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6555123520036321,
+            "distance": 2.2567398979365006e+30,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6463178369298224,
+            "distance": 0.024447445758764712,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.6289147268055721,
+            "distance": 3.7313803525694376e+36,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.646367821492852,
+            "distance": 1.8877717779850216e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6349255233046485,
+            "distance": 1.8573718083538264e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6163072738066522,
+            "distance": 2.0063546951813235e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5917703017220766,
+            "distance": 2.074739310889788e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.638726376295112,
+            "distance": 8.336712923084117e-10,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6203452002840417,
+            "distance": 2.1052792209920905e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.5959151967562322,
+            "distance": 6.342724514661024e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.566933038692206,
+            "distance": 5.375087133929322e+25,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6498052413079607,
+            "distance": 0.0,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.632974236355041,
+            "distance": 9.930145809390158e-10,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6095845972257365,
+            "distance": 1.235143414303895e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.5811345072368632,
+            "distance": 3.2651502097615598e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5499630277858039,
+            "distance": 1.6932538245290405e-09,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": false
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.16,
+        0.16,
+        0.16,
+        0.16,
+        0.08,
+        0.4,
+        0.32,
+        0.4
+      ]
+    },
+    {
+      "early_switch_fraction": 0.625,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        }
+      ],
+      "globalized_distance": 0.6545320575028375,
+      "key": [
+        "warped_laplace",
+        8,
+        8123,
+        "leverage_spikes"
+      ],
+      "margin": 0.0,
+      "median_transition_amplitude": 0.16,
+      "residual_ratio": 2.4559112049819677e-15,
+      "route": true,
+      "selected": "globalized",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.0811684292377677,
+            "distance": 0.21233283653854063,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3990896283439915,
+            "distance": 0.41428980834505813,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.3279938404822744,
+            "distance": 0.6715784305923432,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.5506581873630987,
+            "distance": 3.2950843774360203,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.3215931554015425,
+            "distance": 0.17773347178967674,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6843850146704178,
+            "distance": 1.9163257852252151,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.7355788160933139,
+            "distance": 1.807573006366935,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.7850111049379958,
+            "distance": 1.721079183901569,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.057399012247411,
+            "distance": 0.15254359651318264,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.8375783198089325,
+            "distance": 0.3581643437031826,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.606554758314088,
+            "distance": 0.5619233932207821,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6205021947962219,
+            "distance": 0.6546605946666768,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.4598202535720752,
+            "distance": 0.171023412862664,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.5013762698648079,
+            "distance": 0.3449508424867556,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.5264664500911491,
+            "distance": 2.6397303644115464,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.4954771455079785,
+            "distance": 2.837040966431424,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9912588115094719,
+            "distance": 0.2755550448123275,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3395082452226086,
+            "distance": 0.2926217223376923,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7716171021956113,
+            "distance": 0.43764631990825503,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3879206014315735,
+            "distance": 0.9413542256748981,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.1677414673734665,
+            "distance": 0.30520462092692685,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4556664999925109,
+            "distance": 0.6740534170203487,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.412458361493521,
+            "distance": 2.4082575864343334,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3667798436722869,
+            "distance": 2.481399337327899,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.0087279027061027,
+            "distance": 0.16727467436039528,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.7245434300646707,
+            "distance": 0.4732477769267387,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 0.7230926641147609,
+            "distance": 0.6705763869717694,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 0.6515293852351134,
+            "distance": 0.9487629469038334,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.8940377107566359,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.9931671930629128,
+            "distance": 0.1406578933681125,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.0567215018769973,
+            "distance": 0.2883238064743572,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.162955588467589,
+            "distance": 0.439510254313381,
+            "family": "exp_concave",
+            "sign": 1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.2964507697703167,
+            "distance": 2.9086686254406793,
+            "family": "exp_affine",
+            "sign": 1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.16,
+        0.16,
+        0.16,
+        0.24,
+        0.24,
+        0.16,
+        0.16,
+        0.24
+      ]
+    },
+    {
+      "early_switch_fraction": 0.5,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 0.0,
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "symmetric_t"
+      ],
+      "margin": -0.25,
+      "median_transition_amplitude": 0.2,
+      "residual_ratio": 4.991891947292947e-18,
+      "route": false,
+      "selected": "candidate",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.713092180510499,
+            "distance": 0.09693741995543646,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4886558804534924,
+            "distance": 0.2007916226343145,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.1789792755330935,
+            "distance": 0.30030849586773867,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.1389012506309917,
+            "distance": 0.3843021081101748,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 2.017032122294357,
+            "distance": 0.11082554649392108,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.241047581701476,
+            "distance": 5.9573209439039125,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.269623256428171,
+            "distance": 0.36203101932476056,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.495270480523019,
+            "distance": 7.524629756558135,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.4490679841556997,
+            "distance": 0.10990546068169628,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.3303191673278798,
+            "distance": 0.23777927386327097,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.2009369300999133,
+            "distance": 0.392817542284654,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.0536433995441987,
+            "distance": 0.6613727216554329,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.94116991371749,
+            "distance": 0.12206840341385872,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.2666828553921174,
+            "distance": 7.260248219926648,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.4234332928989937,
+            "distance": 8.860722996203139,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.693889426992759,
+            "distance": 10.802737244411889,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.8382442189111041,
+            "distance": 0.16268325988792043,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.075891723432962,
+            "distance": 0.41744934800247696,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.2337069562345713,
+            "distance": 5.513348835324858,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.277207433196089,
+            "distance": 6.004103591765452,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.6514101228313636,
+            "distance": 0.07022236905686302,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.6173108433044199,
+            "distance": 0.14192464604144717,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4882295796291451,
+            "distance": 0.21784371871873848,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.3909003581419672,
+            "distance": 0.29821575310975806,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.6904819399468514,
+            "distance": 0.09681343442270207,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.8215594933672308,
+            "distance": 0.20260444115416065,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.1764985631501776,
+            "distance": 0.331982295068825,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.32,
+            "cv": 2.5888804683175124,
+            "distance": 0.534317168594403,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 1.6672979935510084,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.8443789361181189,
+            "distance": 0.08904927580548791,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 2.054849432271245,
+            "distance": 5.587533525233694,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 2.001363597713572,
+            "distance": 6.19387830109185,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.9404297299434647,
+            "distance": 6.997610436828217,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.32,
+        0.16,
+        0.24,
+        0.16,
+        0.16,
+        0.4,
+        0.32,
+        0.16
+      ]
+    },
+    {
+      "early_switch_fraction": 0.625,
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "continuation",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        }
+      ],
+      "globalized_distance": 0.5105783463832845,
+      "key": [
+        "warped_laplace",
+        8,
+        8129,
+        "leverage_spikes"
+      ],
+      "margin": 0.0,
+      "median_transition_amplitude": 0.16,
+      "residual_ratio": 3.6146836466352583e-10,
+      "route": true,
+      "selected": "globalized",
+      "traces": [
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5756750440357562,
+            "distance": 0.12195657229753203,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.6378114451196927,
+            "distance": 0.30917114459086803,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.6610530194115982,
+            "distance": 2.228597000077533,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.7004599398778095,
+            "distance": 2.5254999105343785,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 1.043061947543945,
+            "distance": 0.18231837476362742,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.4159304452465733,
+            "distance": 0.40154128634150754,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.800471509622198,
+            "distance": 1.5429484084181377,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.9146699681345551,
+            "distance": 1.4815328453934213,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.49101088490555517,
+            "distance": 0.1436535081876981,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.3284970429918378,
+            "distance": 0.39955633956278386,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.777183603584225,
+            "distance": 2.05439060964831,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.908340064654784,
+            "distance": 2.1567702174052394,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.48433145371721154,
+            "distance": 0.17187714021021522,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 0.45816107454093935,
+            "distance": 0.46139182630854236,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.7259175917142189,
+            "distance": 3.154245336854654,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.9364975614197746,
+            "distance": 4.108945759013742,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8682147393523759,
+            "distance": 0.11077024247035608,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.1743654232835967,
+            "distance": 0.2603936673777477,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.5712459648915216,
+            "distance": 0.3629369343538349,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.99538216641422,
+            "distance": 0.4899944350270779,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.8323940302318467,
+            "distance": 0.14230047955646552,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.2237355873697175,
+            "distance": 0.3382578129746959,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.5932049677195232,
+            "distance": 2.2454991245167153,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.6232286935789257,
+            "distance": 2.4941584550957074,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.37211111784949763,
+            "distance": 0.32515071015405045,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.522961524452488,
+            "distance": 1.6069647262920204,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.4955702200899135,
+            "distance": 1.5667293162477045,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.4759673494908345,
+            "distance": 1.5603588360669736,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ],
+        [
+          {
+            "alpha": 0.0,
+            "cv": 0.6430428886186068,
+            "distance": 0.0,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.08,
+            "cv": 0.5453743179811058,
+            "distance": 0.26432999832155263,
+            "family": "exp_concave",
+            "sign": -1,
+            "switched": false
+          },
+          {
+            "alpha": 0.16,
+            "cv": 1.495806327915674,
+            "distance": 1.917371917047202,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.24,
+            "cv": 1.467543227455253,
+            "distance": 1.9937619141453393,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          },
+          {
+            "alpha": 0.32,
+            "cv": 1.4555677451389613,
+            "distance": 2.0885228219661327,
+            "family": "exp_affine",
+            "sign": -1,
+            "switched": true
+          }
+        ]
+      ],
+      "transition_amplitudes": [
+        0.24,
+        0.16,
+        0.16,
+        0.16,
+        0.24,
+        0.24,
+        0.16,
+        0.16
+      ]
+    }
+  ],
+  "schema": "kernellum.basin-transition-decisions.v1",
+  "thresholds": {
+    "alphas": [
+      0.0,
+      0.08,
+      0.16,
+      0.24,
+      0.32
+    ],
+    "directions": 8,
+    "max_median_transition": 0.16,
+    "max_residual_ratio": 1.15,
+    "min_early_fraction": 0.5,
+    "min_globalized_distance": 0.25,
+    "switch_distance": 0.35
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "paired_rows": 12960,
+  "separate_forward_scores": 11340,
+  "aggregate_comparisons": 7,
+  "max_floor_scaled_nmse_discrepancy": 0.00023997531960074587,
+  "max_scaled_simplex_kkt": 1.1186902937618603e-09,
+  "nmse_tolerance": {
+    "rtol": 2e-05,
+    "atol": 1e-07
+  },
+  "discrepancies": [],
+  "second_clean_exact_trials": 40,
+  "nonlinear_full_fit_optimizer_checks": 617,
+  "nonlinear_second_optimizer_unsuccessful": 4,
+  "max_nonlinear_relative_objective_improvement": 7.323434015488779e-09,
+  "verification_limits": "Same author. Kernel augmented systems and separate exponential forward/ensemble arithmetic. Reuses candidate fit_exp only for nonlinear LOO coefficient optimization. Full nonlinear optimizer cross-check starts at recorded theta, so it tests local stationarity, not global optimality. Support-control pairing/aggregates checked, prediction rule not reconstructed. Stored weights checked by KKT, not independently refit. No external reproduction.",
+  "source_sha256": {
+    "scripts/audit_additive_response.py": "f44dd3a742e15f93fffb5b72d49f80356370e69b2bc66852986dc635492d96dc",
+    "scripts/audit_trend_revision.py": "675bac8ea9061a8f311461f775d2ae7902816a48fab6774a93fe2646733f021d",
+    "scripts/audit_representation_revision.py": "92b8f77b61e19aec5ad2a2176b73220a79d566732f22ceb5bd40971dc837b9b3"
+  }
+}

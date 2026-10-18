@@ -1,0 +1,982 @@
+[
+  {
+    "function": "Eckerle4",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.3930015614826586e-15
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": false,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.551974794312446e-14
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.8294121782280077e-15
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.502691058696571e-15
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Eckerle4",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.8804371850199e-13
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.1917358331533793e-11
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 8.079749041379262e-14
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 4.57196258137227e-13
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.771134488523345e-13
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.6102108098450033e-11
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 7.436000436186944e-12
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.3133334901297344e-12
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 7.946343395619618e-13
+  },
+  {
+    "function": "Gauss1",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.115698169025804e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.4367684294921465e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.4326444862406377e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 5.541364027303342e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 7.123194639017872e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.937927900592972e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 9.654785482588061e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.4760346478872556e-11
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 6.934200055686158e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.6765339326396862e-12
+  },
+  {
+    "function": "Gauss2",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.856759330543436e-12
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.575543118469752e-16
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_affine",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_affine",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Lanczos3",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "identity",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 5.590538613142126e-15
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 9.004116354521664e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.207316342175797e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 7.34842028790316e-15
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 8.693151764905139e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.815327521286897e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 9.061645615854784e-15
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 1.4965306376107736e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 2.7597645390909172e-14
+  },
+  {
+    "function": "Hahn1",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_positive",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 3.2214169896463642e-15
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104401,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104402,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104403,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104404,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104405,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104406,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104407,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104408,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104409,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  },
+  {
+    "function": "Bennett5",
+    "seed": 104410,
+    "noise": 0.0,
+    "key": [
+      "log",
+      "additive_negative",
+      "exp_concave",
+      0.0,
+      "constant"
+    ],
+    "success": true,
+    "relative_objective_improvement": 0.0
+  }
+]

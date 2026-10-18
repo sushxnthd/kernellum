@@ -1,0 +1,80 @@
+{
+  "status": "post-hoc descriptive diagnostic, not a new acceptance gate",
+  "model_revision_vs_rbf_equations": {
+    "wins": 22,
+    "ties_within_1e-8": 9,
+    "losses": 17,
+    "best_five": [
+      [
+        "I.11.19",
+        0.0020873484846890508
+      ],
+      [
+        "I.13.4",
+        0.006519360323225244
+      ],
+      [
+        "III.4.33",
+        0.19935200624776309
+      ],
+      [
+        "III.10.19",
+        0.5146720290820666
+      ],
+      [
+        "I.24.6",
+        0.7233066882008968
+      ]
+    ],
+    "worst_five": [
+      [
+        "II.34.29b",
+        1.095053805933617
+      ],
+      [
+        "III.21.20",
+        1.1068226855588787
+      ],
+      [
+        "I.38.12",
+        1.106890759391658
+      ],
+      [
+        "II.11.27",
+        1.1298612173175062
+      ],
+      [
+        "I.43.43",
+        1.1563261216948406
+      ]
+    ],
+    "ratio_after_removing_two_largest_gains": 0.9395243072474343,
+    "median_equation_ratio": 1.0
+  },
+  "selected_family_counts": {
+    "maximin": {
+      "linear": 4,
+      "quadratic": 17,
+      "cubic": 106,
+      "rbf_short": 10,
+      "rbf_medium": 49,
+      "rbf_long": 102
+    },
+    "mixture_ivr": {
+      "linear": 3,
+      "quadratic": 9,
+      "cubic": 101,
+      "rbf_short": 16,
+      "rbf_medium": 72,
+      "rbf_long": 87
+    },
+    "rbf_maximin": {
+      "linear": 0,
+      "quadratic": 0,
+      "cubic": 0,
+      "rbf_short": 12,
+      "rbf_medium": 59,
+      "rbf_long": 217
+    }
+  }
+}

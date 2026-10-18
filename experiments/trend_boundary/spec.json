@@ -1,0 +1,14 @@
+{
+  "seeds": [104001,104002,104003,104004,104005,104006,104007,104008,104009,104010],
+  "functions": ["log_affine","log_quadratic","peaked_log_quadratic","shifted_gaussian","rational_peak","signed_cubic","power_law"],
+  "noise_fractions": [0.0,0.002,0.02,0.1],
+  "pool_size": 192,
+  "initial": 16,
+  "budget": 64,
+  "tests": {"inside":512,"near_shell":256,"far_shell":256},
+  "methods": ["original","remove_only","add_only","both","adaptive_stack","median_stack","support_nonlinear_leverage_stack"],
+  "primary": "add_only",
+  "error_floor": 1e-8,
+  "gate": {"ratio_max":0.8,"win_fraction_min":0.6,"each_noise_and_domain_ratio_max":1.0},
+  "semantics": "Synthetic mechanism test, not external benchmark or new physical-law discovery"
+}

@@ -1,0 +1,37 @@
+name: stability-certified-abstention
+
+on:
+  push:
+    paths:
+      - scripts/evaluate_stability_certified_abstention.py
+      - scripts/audit_stability_certified_abstention.py
+      - docs/STABILITY_CERTIFIED_ABSTENTION_*.md
+      - .github/workflows/stability-certified-abstention.yml
+  workflow_dispatch:
+
+jobs:
+  opened-development:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Execute frozen certificate study
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          OMP_NUM_THREADS: "1"
+        run: |
+          python scripts/evaluate_stability_certified_abstention.py --decisions stability-decisions.json --output stability-result.json
+      - name: Independent aggregation audit
+        run: |
+          python scripts/audit_stability_certified_abstention.py --decisions stability-decisions.json --result stability-result.json --output stability-audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stability-certified-abstention
+          path: |
+            stability-decisions.json
+            stability-result.json
+            stability-audit.json
+
