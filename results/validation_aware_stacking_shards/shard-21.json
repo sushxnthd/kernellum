@@ -1,0 +1,79 @@
+{
+  "canonical_sha256": "b96438f4fcdc6f26605824b894fd6cc78b81eca4852ba68007b08d9c822911bf",
+  "decision": {
+    "failed_attempts": [],
+    "fold_nmse": [
+      0.8147450858635118,
+      5.008808738128647,
+      0.8725996280686305,
+      0.9702539469714986
+    ],
+    "hard_fold_nmse": [
+      0.8147450858635117,
+      5.070073599464844,
+      1.0496162794449824,
+      0.9702539469714985
+    ],
+    "hard_method": "candidate",
+    "key": [
+      "asymmetric_ridge",
+      10,
+      12011,
+      "leverage_spikes"
+    ],
+    "oof_sha256": "6007adf6774bfed6a4c0f807961e6c1f83c464a4ee78a7bbb318c7f6ad4ad089",
+    "predicted_active": true,
+    "request_disagreement": 0.23853910202828385,
+    "weights": [
+      0.8,
+      0.2,
+      0.0
+    ]
+  },
+  "index": 21,
+  "key": [
+    "asymmetric_ridge",
+    10,
+    12011,
+    "leverage_spikes"
+  ],
+  "record": {
+    "key": [
+      "asymmetric_ridge",
+      10,
+      12011,
+      "leverage_spikes"
+    ],
+    "predicted_active": true,
+    "scores": {
+      "far_shell": {
+        "candidate": 0.35810286587237705,
+        "equal_average": 0.5318388557355114,
+        "globalized": 0.35810286587237705,
+        "hard_validation": 0.35810286587237705,
+        "independent": 1.0884151757546707,
+        "naive": 0.35810286587237705,
+        "stack": 0.35810286587237705
+      },
+      "inside": {
+        "candidate": -0.6584853053272797,
+        "equal_average": -0.6308419160718088,
+        "globalized": -0.6584853053272797,
+        "hard_validation": -0.6584853053272797,
+        "independent": -0.4603095270449318,
+        "naive": -0.6584853053272797,
+        "stack": -0.6584853053272797
+      },
+      "near_shell": {
+        "candidate": -0.26484165123238057,
+        "equal_average": -0.06893951265788978,
+        "globalized": -0.26484165123238057,
+        "hard_validation": -0.26484165123238057,
+        "independent": 0.4185358241186865,
+        "naive": -0.26484165123238057,
+        "stack": -0.26484165123238057
+      }
+    }
+  },
+  "schema": "kernellum.validation-aware-stacking-shard.v1"
+}

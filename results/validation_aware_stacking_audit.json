@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "active_binding": true,
+    "active_count": true,
+    "active_precision": true,
+    "complete": true,
+    "decision_hash": true,
+    "grid_bound": true,
+    "metrics": true,
+    "status": true,
+    "unique_keys": true,
+    "weights_simplex": true
+  },
+  "passed": 10,
+  "schema": "kernellum.validation-aware-stacking-audit.v1",
+  "status": "PASS",
+  "total": 10
+}

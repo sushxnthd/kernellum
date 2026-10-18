@@ -1,0 +1,980 @@
+{
+  "classification": "PROSPECTIVE_UNSEEN_SYNTHETIC_FAMILIES",
+  "cohort": {
+    "dimensions": [
+      6,
+      10
+    ],
+    "families": [
+      "damped_chirp",
+      "rotated_student",
+      "asymmetric_ridge"
+    ],
+    "noises": [
+      "symmetric_t",
+      "leverage_spikes"
+    ],
+    "seeds": [
+      12011,
+      12017
+    ]
+  },
+  "mechanism": {
+    "active_disagreement": 0.1,
+    "active_non_candidate_weight": 0.2,
+    "candidate_weight_floor": 0.5,
+    "folds": 4,
+    "grid_step": 0.1
+  },
+  "rows": [
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "fold_nmse": [
+        0.5185761842787032,
+        1.6854572452097423,
+        0.6979826540177893,
+        1.4130333230642482
+      ],
+      "hard_fold_nmse": [
+        0.5980436075500947,
+        1.6631109726335762,
+        0.6317683455851187,
+        1.5667236941409548
+      ],
+      "hard_method": "independent",
+      "key": [
+        "damped_chirp",
+        6,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "7bae0f81a55e35664417c653352c22ac5fcefc060cd866a9c62ef56b26c07938",
+      "predicted_active": true,
+      "request_disagreement": 2.1904386169286214,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "fold_nmse": [
+        1.1220463449073514,
+        0.8699748273683344,
+        1.8839292801360463,
+        1.1047941196450108
+      ],
+      "hard_fold_nmse": [
+        1.1220463453329537,
+        0.8699759319059046,
+        1.8684957658280292,
+        1.1057026311117877
+      ],
+      "hard_method": "independent",
+      "key": [
+        "damped_chirp",
+        6,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "117c10db699de0681981220ded85796aabafcc07320d8cbd55c07ced2996823b",
+      "predicted_active": true,
+      "request_disagreement": 1.8032502160656547,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "fold_nmse": [
+        1.5742068733244357,
+        1.1178297356514248,
+        1.6582251130448593,
+        3.5040834664366423
+      ],
+      "hard_fold_nmse": [
+        2.5460481066508747,
+        1.1178310847705324,
+        1.9518486818201382,
+        3.4705118892335354
+      ],
+      "hard_method": "independent",
+      "key": [
+        "damped_chirp",
+        6,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "3e1d80091b3a2a2eb6c9931bb5a03d17c8286f89c3c5e8d87d689287909e62ca",
+      "predicted_active": false,
+      "request_disagreement": 2.208366719496712e-06,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "fold_nmse": [
+        1.2944416307085678,
+        4.93312944819312,
+        2.82009766351677,
+        6.293211284185617
+      ],
+      "hard_fold_nmse": [
+        1.2944416307085678,
+        4.93312944819312,
+        2.82009766351677,
+        6.293211284185617
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "damped_chirp",
+        6,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "8417102c31fd641299f5b25c75bafe17d7e332dcb6aa9b56222794f0a2547bdf",
+      "predicted_active": false,
+      "request_disagreement": 1.8614173804907834,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.689583033296536,
+        0.6967298835949364,
+        1.0719074764319405,
+        3.113473149567023
+      ],
+      "hard_fold_nmse": [
+        0.689583033296536,
+        0.6967298835949364,
+        1.0719074764319405,
+        3.113473149567023
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "damped_chirp",
+        10,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "91adcafcc8f14b7c8ed59beea16661a199a580dc904cd000bdc770b89dfa0b66",
+      "predicted_active": false,
+      "request_disagreement": 0.3874662352790916,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.845240663640222,
+        0.3786678690849338,
+        1.127353868247683,
+        1.9529229206257568
+      ],
+      "hard_fold_nmse": [
+        0.7541296799454643,
+        0.3786678690849338,
+        1.1273538682476831,
+        1.9529229206257572
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "damped_chirp",
+        10,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "3e4485be5dacdc5aef1d66388b11c6d943372237b7519e48af3de5328b977ff9",
+      "predicted_active": true,
+      "request_disagreement": 0.3534114830156286,
+      "weights": [
+        0.7,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.7628988264523806,
+        1.3757843564039463,
+        0.5605727494102304,
+        0.5071059582317206
+      ],
+      "hard_fold_nmse": [
+        0.857647803203754,
+        1.3757843564039467,
+        0.6275824538902598,
+        0.5823903760561002
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "damped_chirp",
+        10,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "fef5e337957b6bd4d2a1456be0be37fc26bea7ddc1a681cb66c2d27c09d02239",
+      "predicted_active": true,
+      "request_disagreement": 0.7176527300374603,
+      "weights": [
+        0.7,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.8919531973086651,
+        4.731589476076979,
+        1.0366632666487845,
+        6.581506948045842
+      ],
+      "hard_fold_nmse": [
+        0.8919531973086651,
+        4.731589476076979,
+        1.0366632666487845,
+        6.581506948045842
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "damped_chirp",
+        10,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "fe8d269b0509ff93565ce0b85a697291d2e98d74a95b6161f61daecd86d538c4",
+      "predicted_active": false,
+      "request_disagreement": 0.2558328168417452,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.6697579774246415,
+        0.8116247855596613,
+        1.4918718762488177,
+        1.2853607438402044
+      ],
+      "hard_fold_nmse": [
+        0.6760151862673346,
+        0.7985214822854314,
+        2.1973532307667862,
+        0.7179512197467104
+      ],
+      "hard_method": "independent",
+      "key": [
+        "rotated_student",
+        6,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "b811466ed78003667ae0a7d2415f7e5e95860da0cb142d60d251f4ae12a01879",
+      "predicted_active": false,
+      "request_disagreement": 1.5546922249778158e-07,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "fold_nmse": [
+        1.0483239188241897,
+        0.7249191840834542,
+        1.8547645187538013,
+        4.547236389517747
+      ],
+      "hard_fold_nmse": [
+        1.0483239188241897,
+        0.7249191840834542,
+        1.8547645187538013,
+        4.547236389517747
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "rotated_student",
+        6,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "350c2e2bd9f812187bdca86fac52282f97704e8d989a2d6f6b0d05b9ad516d47",
+      "predicted_active": false,
+      "request_disagreement": 1.0908898386772665e-05,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "fold_nmse": [
+        0.7915407289451444,
+        4.034030868078825,
+        4.502287918137812,
+        3.632266853774407
+      ],
+      "hard_fold_nmse": [
+        0.7908175683788661,
+        1.676011213156864,
+        6.225400765963293,
+        3.632277511298395
+      ],
+      "hard_method": "independent",
+      "key": [
+        "rotated_student",
+        6,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "fe27627332e817ed68f1177d70d053561a3505d7434fd0b381ea7a5ad3ae6d4b",
+      "predicted_active": false,
+      "request_disagreement": 6.9245504193485706e-06,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.36856015533727404,
+        3.6448966538084595,
+        1.0733629739188753,
+        0.48842321378643955
+      ],
+      "hard_fold_nmse": [
+        0.36856015533727393,
+        3.64489665380846,
+        1.0733629739188753,
+        0.48842321378643955
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "rotated_student",
+        6,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "61860be1cd024a6491db60a01ad6615a61e4981436958be06f55054e6ba952ed",
+      "predicted_active": false,
+      "request_disagreement": 2.044973972671154e-08,
+      "weights": [
+        0.7,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.8975157657635568,
+        2.254935653645444,
+        2.655995973620838,
+        0.7180067033412401
+      ],
+      "hard_fold_nmse": [
+        0.8975157657635568,
+        2.254935653645444,
+        2.655995973620838,
+        0.7180067033412401
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "rotated_student",
+        10,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "904cdd1d365db8cd88c194d1824015724ba505a945c08af50b31f407e6a14ede",
+      "predicted_active": false,
+      "request_disagreement": 0.7885059130658839,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        1.1203232394855624,
+        3.4336291922770137,
+        1.5619032525203669,
+        1.500012927088898
+      ],
+      "hard_fold_nmse": [
+        1.3140248276878104,
+        9.71785333882059,
+        5.043985061397686,
+        5.349978042400932
+      ],
+      "hard_method": "independent",
+      "key": [
+        "rotated_student",
+        10,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "36bfee029dcf1535e4093e8558e935b8f8ce8ba6ec5128bdc81add7cb34399eb",
+      "predicted_active": true,
+      "request_disagreement": 1.036128691043112,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.8793054246411498,
+        2.1856243082761364,
+        1.1720469536264166,
+        3.0222571783531507
+      ],
+      "hard_fold_nmse": [
+        0.8793054246411498,
+        2.1856243082761377,
+        1.1720469536264166,
+        3.0222571783531507
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "rotated_student",
+        10,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "880bd2dfdb59ff35e367f2cd385589873f5edd4bc4b9b3b28f0113a9e8a6acfd",
+      "predicted_active": true,
+      "request_disagreement": 0.3792895432494656,
+      "weights": [
+        0.7,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.6140644020720365,
+        0.41814018817602444,
+        0.3600639782816698,
+        0.8137360228352951
+      ],
+      "hard_fold_nmse": [
+        0.8628799385633491,
+        0.6164611464820571,
+        0.3305179455224415,
+        0.816186943245139
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "rotated_student",
+        10,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "d2e598cb578c5731ba19c7498e0bf8cf4465f422d87f2d2780e46482558082cd",
+      "predicted_active": true,
+      "request_disagreement": 0.4187535782115885,
+      "weights": [
+        0.8,
+        0.2,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "fold_nmse": [
+        1.4952049933537086,
+        2.1245937350421213,
+        7.5761002396098265,
+        1.51037770749069
+      ],
+      "hard_fold_nmse": [
+        1.4404269316847624,
+        2.3545584143013194,
+        8.471922359957137,
+        1.510378132875668
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "asymmetric_ridge",
+        6,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "a8199bc1e4f894cf706a81a4fc119cb88e257cdb996ce55794add441b7e24c5f",
+      "predicted_active": true,
+      "request_disagreement": 1.593320334803248,
+      "weights": [
+        0.8,
+        0.0,
+        0.2
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": 1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": 1
+        }
+      ],
+      "fold_nmse": [
+        1.4273583466637287,
+        2.386095088381513,
+        2.4191123584670984,
+        0.9847289117166491
+      ],
+      "hard_fold_nmse": [
+        1.4273583702984798,
+        3.6271617463357546,
+        1.8248000541928338,
+        0.9740103629363965
+      ],
+      "hard_method": "globalized",
+      "key": [
+        "asymmetric_ridge",
+        6,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "bc15aff243d0b8e284962c544486990d9df89cdf30a1655b2e672c3abb5e0cec",
+      "predicted_active": false,
+      "request_disagreement": 6.859885980716763e-07,
+      "weights": [
+        0.5,
+        0.1,
+        0.4
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        1.2842699969794764,
+        2.6188798439099554,
+        2.0772594392455255,
+        1.2872034286581227
+      ],
+      "hard_fold_nmse": [
+        1.284270061034807,
+        1.9838485408561137,
+        2.0772596755222588,
+        1.1159122682761038
+      ],
+      "hard_method": "independent",
+      "key": [
+        "asymmetric_ridge",
+        6,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "cd1b4d48efb26e3a5fdf1edc121cabcc8380e33da394e165970248f1339186ad",
+      "predicted_active": false,
+      "request_disagreement": 4.0959850892758945e-08,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_concave",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_concave",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "fold_nmse": [
+        0.9179470295545011,
+        4.830165680328828,
+        2.7592718901535696,
+        0.5092085089672942
+      ],
+      "hard_fold_nmse": [
+        1.0072911469596224,
+        4.830165679339387,
+        3.2503005743037874,
+        0.7092768994395016
+      ],
+      "hard_method": "independent",
+      "key": [
+        "asymmetric_ridge",
+        6,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "07bcd15f0dce0b31a6d5178dd9b898e8e1c9d4ee7e088be3abc423226f4cba9c",
+      "predicted_active": false,
+      "request_disagreement": 7.727408720897764e-07,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        1.0070021681576153,
+        1.0886994934534384,
+        0.7897787398060603,
+        2.280043714133278
+      ],
+      "hard_fold_nmse": [
+        1.0500929878597716,
+        1.1333127534286354,
+        1.170505910317795,
+        2.283818581968552
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "asymmetric_ridge",
+        10,
+        12011,
+        "symmetric_t"
+      ],
+      "oof_sha256": "8064b9ddc45e6e020e292546e39065b28b0e5aee3ad0707d24f4b22158a13daf",
+      "predicted_active": false,
+      "request_disagreement": 0.4228507303098652,
+      "weights": [
+        0.9,
+        0.1,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.8147450858635118,
+        5.008808738128647,
+        0.8725996280686305,
+        0.9702539469714986
+      ],
+      "hard_fold_nmse": [
+        0.8147450858635117,
+        5.070073599464844,
+        1.0496162794449824,
+        0.9702539469714985
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "asymmetric_ridge",
+        10,
+        12011,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "6007adf6774bfed6a4c0f807961e6c1f83c464a4ee78a7bbb318c7f6ad4ad089",
+      "predicted_active": true,
+      "request_disagreement": 0.23853910202828385,
+      "weights": [
+        0.8,
+        0.2,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [],
+      "fold_nmse": [
+        0.973327400498484,
+        4.490894876900859,
+        0.977981326568284,
+        2.1449659457164523
+      ],
+      "hard_fold_nmse": [
+        1.4307041758300705,
+        4.490894876900861,
+        0.9779813265682838,
+        2.2335997037084265
+      ],
+      "hard_method": "globalized",
+      "key": [
+        "asymmetric_ridge",
+        10,
+        12017,
+        "symmetric_t"
+      ],
+      "oof_sha256": "11ff2656680486b19a6a6cac2606c83e135a67f13350afbaec0aeaab8359f21c",
+      "predicted_active": true,
+      "request_disagreement": 2.4064478030351806,
+      "weights": [
+        0.7,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "failed_attempts": [
+        {
+          "family": "exp_affine",
+          "kind": "candidate",
+          "reason": "nonlinear optimizer failed",
+          "sign": -1
+        },
+        {
+          "family": "exp_affine",
+          "kind": "globalized",
+          "reason": "all globalized starts failed",
+          "sign": -1
+        }
+      ],
+      "fold_nmse": [
+        0.5663340074033464,
+        1.8753401374594996,
+        0.7932922350242735,
+        1.0967856244133571
+      ],
+      "hard_fold_nmse": [
+        0.5663340074033464,
+        1.8753401374594996,
+        0.7932922350242735,
+        1.0967856244133571
+      ],
+      "hard_method": "candidate",
+      "key": [
+        "asymmetric_ridge",
+        10,
+        12017,
+        "leverage_spikes"
+      ],
+      "oof_sha256": "ba6e118537b44f03c6f212faaacbc4fcf23c03de2a1283b33051fae517ba1da5",
+      "predicted_active": false,
+      "request_disagreement": 0.6227443521621326,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "schema": "kernellum.validation-aware-stacking-decisions.v1",
+  "shard_sha256": [
+    "96ea770274c2b8efca226e92bf39b68142f458c99812723b407ae12ae12debbd",
+    "4f5758b80be564e5a73878e72fc29936eea97ac4693e79768d819f4ddad6c04b",
+    "371e13db45a938c35a0ddc49c78ef17587845f765c156a55f9587223246c181d",
+    "56194ab4759c746d7a8468aba67612adc61daf734f1a02234ab9343f1370e630",
+    "bcf4772e618d9b259e71a610ecde025969e5b4f6635f66bbae855ec3c9ffc501",
+    "659d7711d09f36095dd478232af604cf4b6cdadb66dcfbfa0418e15040b99bef",
+    "f5c0d5bfae22e6e1315935f24d75b58431015b2679d3e45f7cbc54ea496ab968",
+    "3a1fb1054d54c6a7be93590a98aa418546ee2cb5bfefdbd2b89124527daba031",
+    "99ac9b3efa4460244d81d66da03ec0408a4ff506c2b9821979113ea426d1b4ae",
+    "c2c09c6ebefda6f38aadddfc6213136507a1e107b7846437cb5a37ee9ef6c9ff",
+    "709da6516859fc3cf8f8892f464605fd5c91f3626fa2b14b949eada3d5b2294e",
+    "960d5811cedbff67b57a58a26271f681279b03f39a14c776677b02cf3c54097f",
+    "ecdc934eac8c025307bec4c38a4534bb13163f88bf0c1e7b04d730af12b6d6ea",
+    "eafd24d808e7f8306a0e11ab00c090ff6a1254f159d017faba013ccfff12ab68",
+    "08b6e7f02034b195e85d00cce1262d2201da5a09efa8709c9513d3572ec558f5",
+    "f709a4a6cb750ecf9364a99d09fc05eef3c4d2eb03c531ef29b1dcf981d0d9c9",
+    "bf3efca64d2152f2ce77dac205cb80972e1c34739df99a0aa798c09c439a5d06",
+    "15f9158df2a8c62de335f3281bb9d39fcece8e1f381e7f6d494aad74a1931bac",
+    "d18f72ae23f91cea49d3099f99d2400227b27c1b70fb92623d0d0a59cce1907f",
+    "6a0005612b45dcea93056bac208ccba7c18120fb91c65bbfb5d0f5b8b7865fde",
+    "82b65de9b22b6412a7937928e1fc2c97d76a61983932c5f98da8aa7c39aa59cd",
+    "b96438f4fcdc6f26605824b894fd6cc78b81eca4852ba68007b08d9c822911bf",
+    "47eb39b809597db7a5669c64a18398633e550b16c342326b3f36d77b99bbbf8d",
+    "26a29c9434a6c4bf7dc0730fa618fd28904fa72ca2696df82b9bfb68f61f7b20"
+  ]
+}
