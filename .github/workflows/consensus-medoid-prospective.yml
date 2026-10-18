@@ -11,6 +11,9 @@ on:
       - .github/workflows/consensus-medoid-prospective.yml
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   prospective:
     runs-on: ubuntu-latest
@@ -27,19 +30,26 @@ jobs:
           OMP_NUM_THREADS: "1"
           MKL_NUM_THREADS: "1"
         run: |
-          python scripts/evaluate_consensus_medoid_prospective.py --decisions consensus-decisions.json --output consensus-result.json
-          cp consensus-decisions.json /tmp/consensus-decisions-first.json
-          cp consensus-result.json /tmp/consensus-result-first.json
-          python scripts/evaluate_consensus_medoid_prospective.py --decisions consensus-decisions.json --output consensus-result.json
-          cmp /tmp/consensus-decisions-first.json consensus-decisions.json
-          cmp /tmp/consensus-result-first.json consensus-result.json
+          python scripts/evaluate_consensus_medoid_prospective.py --decisions results/consensus_medoid_prospective_decisions.json --output results/consensus_medoid_prospective_result.json
+          cp results/consensus_medoid_prospective_decisions.json /tmp/consensus-decisions-first.json
+          cp results/consensus_medoid_prospective_result.json /tmp/consensus-result-first.json
+          python scripts/evaluate_consensus_medoid_prospective.py --decisions results/consensus_medoid_prospective_decisions.json --output results/consensus_medoid_prospective_result.json
+          cmp /tmp/consensus-decisions-first.json results/consensus_medoid_prospective_decisions.json
+          cmp /tmp/consensus-result-first.json results/consensus_medoid_prospective_result.json
       - name: Independent aggregation audit
-        run: python scripts/audit_consensus_medoid_prospective.py --decisions consensus-decisions.json --result consensus-result.json --output consensus-audit.json
+        run: python scripts/audit_consensus_medoid_prospective.py --decisions results/consensus_medoid_prospective_decisions.json --result results/consensus_medoid_prospective_result.json --output results/consensus_medoid_prospective_audit.json
+      - name: Preserve frozen raw results on branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/consensus_medoid_prospective_decisions.json results/consensus_medoid_prospective_result.json results/consensus_medoid_prospective_audit.json
+          git commit -m "research: record consensus-medoid prospective result"
+          git push origin HEAD:$GITHUB_REF_NAME
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: consensus-medoid-prospective
           path: |
-            consensus-decisions.json
-            consensus-result.json
-            consensus-audit.json
+            results/consensus_medoid_prospective_decisions.json
+            results/consensus_medoid_prospective_result.json
+            results/consensus_medoid_prospective_audit.json
