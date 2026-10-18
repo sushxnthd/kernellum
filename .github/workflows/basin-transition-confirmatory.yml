@@ -1,0 +1,62 @@
+name: basin-transition-confirmatory
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/basin-transition-confirmatory-20261018
+    paths:
+      - docs/BASIN_TRANSITION_CONFIRMATORY_*.md
+      - scripts/evaluate_basin_transition_confirmatory.py
+      - scripts/audit_basin_transition_confirmatory.py
+      - .github/workflows/basin-transition-confirmatory.yml
+  pull_request:
+    paths:
+      - docs/BASIN_TRANSITION_CONFIRMATORY_*.md
+      - scripts/evaluate_basin_transition_confirmatory.py
+      - scripts/audit_basin_transition_confirmatory.py
+      - .github/workflows/basin-transition-confirmatory.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prospective-confirmatory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Execute frozen confirmatory selector twice
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          OMP_NUM_THREADS: "1"
+          MKL_NUM_THREADS: "1"
+        run: |
+          python scripts/evaluate_basin_transition_confirmatory.py --decisions results/basin_transition_confirmatory_decisions.json --output results/basin_transition_confirmatory_result.json
+          cp results/basin_transition_confirmatory_decisions.json /tmp/confirmatory-decisions-first.json
+          cp results/basin_transition_confirmatory_result.json /tmp/confirmatory-result-first.json
+          python scripts/evaluate_basin_transition_confirmatory.py --decisions results/basin_transition_confirmatory_decisions.json --output results/basin_transition_confirmatory_result.json
+          cmp /tmp/confirmatory-decisions-first.json results/basin_transition_confirmatory_decisions.json
+          cmp /tmp/confirmatory-result-first.json results/basin_transition_confirmatory_result.json
+      - name: Independent audit
+        run: python scripts/audit_basin_transition_confirmatory.py --decisions results/basin_transition_confirmatory_decisions.json --result results/basin_transition_confirmatory_result.json --output results/basin_transition_confirmatory_audit.json
+      - name: Preserve raw results
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/basin_transition_confirmatory_decisions.json results/basin_transition_confirmatory_result.json results/basin_transition_confirmatory_audit.json
+          git commit -m "research: record basin-transition confirmatory result"
+          git push origin HEAD:$GITHUB_REF_NAME
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: basin-transition-confirmatory
+          path: |
+            results/basin_transition_confirmatory_decisions.json
+            results/basin_transition_confirmatory_result.json
+            results/basin_transition_confirmatory_audit.json
