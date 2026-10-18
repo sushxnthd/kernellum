@@ -1,0 +1,79 @@
+{
+  "canonical_sha256": "08b6e7f02034b195e85d00cce1262d2201da5a09efa8709c9513d3572ec558f5",
+  "decision": {
+    "failed_attempts": [],
+    "fold_nmse": [
+      0.8793054246411498,
+      2.1856243082761364,
+      1.1720469536264166,
+      3.0222571783531507
+    ],
+    "hard_fold_nmse": [
+      0.8793054246411498,
+      2.1856243082761377,
+      1.1720469536264166,
+      3.0222571783531507
+    ],
+    "hard_method": "candidate",
+    "key": [
+      "rotated_student",
+      10,
+      12017,
+      "symmetric_t"
+    ],
+    "oof_sha256": "880bd2dfdb59ff35e367f2cd385589873f5edd4bc4b9b3b28f0113a9e8a6acfd",
+    "predicted_active": true,
+    "request_disagreement": 0.3792895432494656,
+    "weights": [
+      0.7,
+      0.3,
+      0.0
+    ]
+  },
+  "index": 14,
+  "key": [
+    "rotated_student",
+    10,
+    12017,
+    "symmetric_t"
+  ],
+  "record": {
+    "key": [
+      "rotated_student",
+      10,
+      12017,
+      "symmetric_t"
+    ],
+    "predicted_active": true,
+    "scores": {
+      "far_shell": {
+        "candidate": 0.41073709156584925,
+        "equal_average": 0.745389872309282,
+        "globalized": 0.41073709156584925,
+        "hard_validation": 0.41073709156584925,
+        "independent": 1.8901392110651223,
+        "naive": 0.41073709156584925,
+        "stack": 0.41073709156584925
+      },
+      "inside": {
+        "candidate": -0.45094968549600356,
+        "equal_average": -0.40014549207484684,
+        "globalized": -0.45094968549600356,
+        "hard_validation": -0.45094968549600356,
+        "independent": -0.22284588232666902,
+        "naive": -0.45094968549600356,
+        "stack": -0.45094968549600356
+      },
+      "near_shell": {
+        "candidate": 0.4787167514423931,
+        "equal_average": 0.5388944219266607,
+        "globalized": 0.4787167514423931,
+        "hard_validation": 0.4787167514423931,
+        "independent": 0.8784739020764416,
+        "naive": 0.4787167514423931,
+        "stack": 0.4787167514423931
+      }
+    }
+  },
+  "schema": "kernellum.validation-aware-stacking-shard.v1"
+}

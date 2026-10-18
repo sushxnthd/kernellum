@@ -1,0 +1,104 @@
+{
+  "canonical_sha256": "4f5758b80be564e5a73878e72fc29936eea97ac4693e79768d819f4ddad6c04b",
+  "decision": {
+    "failed_attempts": [
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": 1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": 1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": 1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": 1
+      }
+    ],
+    "fold_nmse": [
+      1.1220463449073514,
+      0.8699748273683344,
+      1.8839292801360463,
+      1.1047941196450108
+    ],
+    "hard_fold_nmse": [
+      1.1220463453329537,
+      0.8699759319059046,
+      1.8684957658280292,
+      1.1057026311117877
+    ],
+    "hard_method": "independent",
+    "key": [
+      "damped_chirp",
+      6,
+      12011,
+      "leverage_spikes"
+    ],
+    "oof_sha256": "117c10db699de0681981220ded85796aabafcc07320d8cbd55c07ced2996823b",
+    "predicted_active": true,
+    "request_disagreement": 1.8032502160656547,
+    "weights": [
+      0.5,
+      0.0,
+      0.5
+    ]
+  },
+  "index": 1,
+  "key": [
+    "damped_chirp",
+    6,
+    12011,
+    "leverage_spikes"
+  ],
+  "record": {
+    "key": [
+      "damped_chirp",
+      6,
+      12011,
+      "leverage_spikes"
+    ],
+    "predicted_active": true,
+    "scores": {
+      "far_shell": {
+        "candidate": 5.3655357026332515,
+        "equal_average": 4.539281933017701,
+        "globalized": 5.365540095304397,
+        "hard_validation": -0.2363168234263604,
+        "independent": -0.2363168234263604,
+        "naive": -0.2363168234263604,
+        "stack": 3.9502528538406443
+      },
+      "inside": {
+        "candidate": 0.08261595728320792,
+        "equal_average": -0.48622425168919836,
+        "globalized": 0.08261611639543709,
+        "hard_validation": -0.7915394854756235,
+        "independent": -0.7915394854756235,
+        "naive": -0.7915394854756235,
+        "stack": -0.7403981872598768
+      },
+      "near_shell": {
+        "candidate": 1.5145048606911544,
+        "equal_average": 0.8044932643263811,
+        "globalized": 1.514505935729801,
+        "hard_validation": 0.23936415337077666,
+        "independent": 0.23936415337077666,
+        "naive": 0.23936415337077666,
+        "stack": 0.4298457960096602
+      }
+    }
+  },
+  "schema": "kernellum.validation-aware-stacking-shard.v1"
+}

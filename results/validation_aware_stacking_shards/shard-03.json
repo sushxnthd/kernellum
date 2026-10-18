@@ -1,0 +1,116 @@
+{
+  "canonical_sha256": "56194ab4759c746d7a8468aba67612adc61daf734f1a02234ab9343f1370e630",
+  "decision": {
+    "failed_attempts": [
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": -1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": -1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": -1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": -1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": -1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": -1
+      }
+    ],
+    "fold_nmse": [
+      1.2944416307085678,
+      4.93312944819312,
+      2.82009766351677,
+      6.293211284185617
+    ],
+    "hard_fold_nmse": [
+      1.2944416307085678,
+      4.93312944819312,
+      2.82009766351677,
+      6.293211284185617
+    ],
+    "hard_method": "candidate",
+    "key": [
+      "damped_chirp",
+      6,
+      12017,
+      "leverage_spikes"
+    ],
+    "oof_sha256": "8417102c31fd641299f5b25c75bafe17d7e332dcb6aa9b56222794f0a2547bdf",
+    "predicted_active": false,
+    "request_disagreement": 1.8614173804907834,
+    "weights": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "index": 3,
+  "key": [
+    "damped_chirp",
+    6,
+    12017,
+    "leverage_spikes"
+  ],
+  "record": {
+    "key": [
+      "damped_chirp",
+      6,
+      12017,
+      "leverage_spikes"
+    ],
+    "predicted_active": false,
+    "scores": {
+      "far_shell": {
+        "candidate": 5.1290463207828445,
+        "equal_average": 4.283275003570571,
+        "globalized": 5.129046709584758,
+        "hard_validation": 5.1290463207828445,
+        "independent": 0.5230571389359158,
+        "naive": 0.5230571389359158,
+        "stack": 5.1290463207828445
+      },
+      "inside": {
+        "candidate": 0.24168725113155443,
+        "equal_average": -0.5057813970000664,
+        "globalized": 0.24168724132758168,
+        "hard_validation": 0.24168725113155443,
+        "independent": -1.1084897701583136,
+        "naive": -1.1084897701583136,
+        "stack": 0.24168725113155443
+      },
+      "near_shell": {
+        "candidate": 1.1735314408482953,
+        "equal_average": 0.3152939483042454,
+        "globalized": 1.1735314947010407,
+        "hard_validation": 1.1735314408482953,
+        "independent": -0.35432565072513533,
+        "naive": -0.35432565072513533,
+        "stack": 1.1735314408482953
+      }
+    }
+  },
+  "schema": "kernellum.validation-aware-stacking-shard.v1"
+}

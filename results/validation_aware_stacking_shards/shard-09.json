@@ -1,0 +1,92 @@
+{
+  "canonical_sha256": "c2c09c6ebefda6f38aadddfc6213136507a1e107b7846437cb5a37ee9ef6c9ff",
+  "decision": {
+    "failed_attempts": [
+      {
+        "family": "exp_concave",
+        "kind": "candidate",
+        "reason": "nonlinear optimizer failed",
+        "sign": 1
+      },
+      {
+        "family": "exp_concave",
+        "kind": "globalized",
+        "reason": "all globalized starts failed",
+        "sign": 1
+      }
+    ],
+    "fold_nmse": [
+      1.0483239188241897,
+      0.7249191840834542,
+      1.8547645187538013,
+      4.547236389517747
+    ],
+    "hard_fold_nmse": [
+      1.0483239188241897,
+      0.7249191840834542,
+      1.8547645187538013,
+      4.547236389517747
+    ],
+    "hard_method": "candidate",
+    "key": [
+      "rotated_student",
+      6,
+      12011,
+      "leverage_spikes"
+    ],
+    "oof_sha256": "350c2e2bd9f812187bdca86fac52282f97704e8d989a2d6f6b0d05b9ad516d47",
+    "predicted_active": false,
+    "request_disagreement": 1.0908898386772665e-05,
+    "weights": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "index": 9,
+  "key": [
+    "rotated_student",
+    6,
+    12011,
+    "leverage_spikes"
+  ],
+  "record": {
+    "key": [
+      "rotated_student",
+      6,
+      12011,
+      "leverage_spikes"
+    ],
+    "predicted_active": false,
+    "scores": {
+      "far_shell": {
+        "candidate": 4.986851577943182,
+        "equal_average": 4.986850970140829,
+        "globalized": 4.986850648941081,
+        "hard_validation": 4.986851577943182,
+        "independent": 4.986850683600879,
+        "naive": 4.986850648941081,
+        "stack": 4.986851577943182
+      },
+      "inside": {
+        "candidate": 0.06509156225504853,
+        "equal_average": 0.06509073248290331,
+        "globalized": 0.06509004297361631,
+        "hard_validation": 0.06509156225504853,
+        "independent": 0.06509059223019165,
+        "naive": 0.06509004297361631,
+        "stack": 0.06509156225504853
+      },
+      "near_shell": {
+        "candidate": 0.9533728291108732,
+        "equal_average": 0.9533714832957152,
+        "globalized": 0.9533704186204641,
+        "hard_validation": 0.9533728291108732,
+        "independent": 0.9533712021888139,
+        "naive": 0.9533704186204641,
+        "stack": 0.9533728291108732
+      }
+    }
+  },
+  "schema": "kernellum.validation-aware-stacking-shard.v1"
+}

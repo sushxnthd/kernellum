@@ -1,0 +1,55 @@
+name: validation-aware-stacking
+
+on:
+  push:
+    branches: [breakthrough-engine/validation-aware-stacking-20261019]
+    paths:
+      - docs/VALIDATION_AWARE_STACKING_*.md
+      - scripts/evaluate_validation_aware_stacking.py
+      - scripts/audit_validation_aware_stacking.py
+      - .github/workflows/validation-aware-stacking.yml
+  pull_request:
+    paths:
+      - docs/VALIDATION_AWARE_STACKING_*.md
+      - scripts/evaluate_validation_aware_stacking.py
+      - scripts/audit_validation_aware_stacking.py
+      - .github/workflows/validation-aware-stacking.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prospective-stacking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e '.[test]'
+      - name: Execute frozen prospective shards
+        run: |
+          mkdir -p /tmp/stacking-shards
+          seq 0 23 | xargs -P 24 -I{} bash -c 'python scripts/run_validation_aware_stacking_shard.py --index {} --output /tmp/stacking-shards/shard-$(printf "%02d" {}).json'
+          python scripts/merge_validation_aware_stacking_shards.py --shard-dir /tmp/stacking-shards --decisions results/validation_aware_stacking_decisions.json --output results/validation_aware_stacking_result.json
+      - name: Independent audit
+        run: python scripts/audit_validation_aware_stacking.py --decisions results/validation_aware_stacking_decisions.json --result results/validation_aware_stacking_result.json --output results/validation_aware_stacking_audit.json
+      - name: Preserve exact result
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/validation_aware_stacking_*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: record prospective validation-aware stacking result"
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-aware-stacking
+          path: |
+            results/validation_aware_stacking_*.json
+            /tmp/stacking-shards/*.json
