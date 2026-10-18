@@ -1,0 +1,20 @@
+{
+  "all_pass": true,
+  "checks": {
+    "canonical_hash": true,
+    "five_family_folds": true,
+    "forty_paths": true,
+    "opened_classification": true,
+    "prediction_counts": true,
+    "static_viable_point_exists": true,
+    "status_kills_kernel": true,
+    "threshold_grid": true,
+    "topology_has_no_passing_point": true,
+    "topology_precision_below_gate": true,
+    "topology_tail_gain_present": true
+  },
+  "passed": 11,
+  "result_sha256": "97fae8d55b07a9e4ec29676400b0dc728790fef84286ea9541aaf78b1f2ce624",
+  "schema": "kernellum.continuous-transition-topology-development.audit.v1",
+  "total": 11
+}
