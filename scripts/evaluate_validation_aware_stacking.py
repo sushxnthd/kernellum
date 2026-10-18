@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import itertools
 import json
@@ -174,39 +175,52 @@ def rms_disagreement(predictions, scale):
     return max(values)
 
 
+def evaluate_path(key):
+    family, dim, seed, noise = key
+    x, y, requests, truth, _ = dataset(family, dim, seed, noise)
+    plan, failures = validation_plan(x, y)
+    models, ff = fit_three(x, y)
+    failures.extend(ff)
+    naive = min(models.values(), key=lambda m: (m["cv"], METHODS.index(m["kind"])))
+    all_z = np.concatenate([requests[d] for d in DOMAINS])
+    full_pred = {name: predict(models[name], all_z) for name in METHODS}
+    disagreement = rms_disagreement(list(full_pred.values()), max(float(np.std(y)), 1e-12))
+    noncandidate = 1.0 - plan["weights"][0]
+    active = noncandidate >= 0.2 - 1e-12 and disagreement > 0.10
+    scores = {}
+    for domain, z in requests.items():
+        target = truth(z)
+        preds = {name: predict(models[name], z) for name in METHODS}
+        derived = {
+            "naive": predict(naive, z),
+            "equal_average": sum(preds.values()) / 3,
+            "hard_validation": preds[plan["hard_method"]],
+            "stack": sum(w * preds[name] for w, name in zip(plan["weights"], METHODS)),
+        }
+        scores[domain] = {name: log_nmse(pred, target) for name, pred in {**preds, **derived}.items()}
+    decision = {
+        "key": list(key), "weights": plan["weights"], "fold_nmse": plan["fold_nmse"],
+        "hard_method": plan["hard_method"], "hard_fold_nmse": plan["hard_fold_nmse"],
+        "oof_sha256": plan["oof_sha256"], "request_disagreement": disagreement,
+        "predicted_active": active, "failed_attempts": failures,
+    }
+    record = {"key": list(key), "predicted_active": active, "scores": scores}
+    return decision, record
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--decisions", type=Path, required=True)
     ap.add_argument("--output", type=Path, required=True)
     args = ap.parse_args()
-    rows = []
-    for family in FAMILIES:
-        for dim in DIMS:
-            for seed in SEEDS:
-                for noise in NOISES:
-                    x, y, requests, truth, _ = dataset(family, dim, seed, noise)
-                    plan, failures = validation_plan(x, y)
-                    models, ff = fit_three(x, y)
-                    failures.extend(ff)
-                    naive = min(models.values(), key=lambda m: (m["cv"], METHODS.index(m["kind"])))
-                    all_z = np.concatenate([requests[d] for d in DOMAINS])
-                    full_pred = {name: predict(models[name], all_z) for name in METHODS}
-                    disagreement = rms_disagreement(list(full_pred.values()), max(float(np.std(y)), 1e-12))
-                    noncandidate = 1.0 - plan["weights"][0]
-                    active = noncandidate >= 0.2 - 1e-12 and disagreement > 0.10
-                    rows.append({
-                        "key": [family, dim, seed, noise],
-                        "requests": requests,
-                        "truth": truth,
-                        "models": models,
-                        "naive": naive,
-                        "plan": plan,
-                        "disagreement": disagreement,
-                        "active": active,
-                        "failures": failures,
-                    })
-                    print(family, dim, seed, noise, "weights", plan["weights"],
-                          "disagreement", disagreement, "active", active, flush=True)
+    keys = [(family, dim, seed, noise) for family in FAMILIES for dim in DIMS for seed in SEEDS for noise in NOISES]
+    with concurrent.futures.ProcessPoolExecutor(max_workers=min(6, len(keys))) as pool:
+        evaluated = list(pool.map(evaluate_path, keys))
+    decision_rows = [row[0] for row in evaluated]
+    records = [row[1] for row in evaluated]
+    for row in decision_rows:
+        print(*row["key"], "weights", row["weights"], "disagreement", row["request_disagreement"],
+              "active", row["predicted_active"], flush=True)
 
     decisions = {
         "schema": "kernellum.validation-aware-stacking-decisions.v1",
@@ -214,31 +228,10 @@ def main():
         "cohort": {"families": list(FAMILIES), "dimensions": list(DIMS), "seeds": list(SEEDS), "noises": list(NOISES)},
         "mechanism": {"folds": FOLDS, "grid_step": GRID_STEP, "candidate_weight_floor": CANDIDATE_FLOOR,
                       "active_non_candidate_weight": 0.2, "active_disagreement": 0.10},
-        "rows": [{
-            "key": r["key"], "weights": r["plan"]["weights"], "fold_nmse": r["plan"]["fold_nmse"],
-            "hard_method": r["plan"]["hard_method"], "hard_fold_nmse": r["plan"]["hard_fold_nmse"],
-            "oof_sha256": r["plan"]["oof_sha256"], "request_disagreement": r["disagreement"],
-            "predicted_active": r["active"], "failed_attempts": r["failures"],
-        } for r in rows],
+        "rows": decision_rows,
     }
     args.decisions.write_text(canonical(decisions))
     decision_sha = hashlib.sha256(args.decisions.read_bytes()).hexdigest()
-
-    records = []
-    for r in rows:
-        scores = {}
-        weights = r["plan"]["weights"]
-        for domain, z in r["requests"].items():
-            target = r["truth"](z)
-            preds = {name: predict(r["models"][name], z) for name in METHODS}
-            derived = {
-                "naive": predict(r["naive"], z),
-                "equal_average": sum(preds.values()) / 3,
-                "hard_validation": preds[r["plan"]["hard_method"]],
-                "stack": sum(w * preds[name] for w, name in zip(weights, METHODS)),
-            }
-            scores[domain] = {name: log_nmse(pred, target) for name, pred in {**preds, **derived}.items()}
-        records.append({"key": r["key"], "predicted_active": r["active"], "scores": scores})
 
     methods = (*METHODS, "naive", "equal_average", "hard_validation", "stack")
     metrics = {}
