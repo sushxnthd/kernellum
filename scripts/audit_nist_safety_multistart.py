@@ -5,13 +5,14 @@ root=Path(__file__).resolve().parents[1]
 d=json.loads(Path(sys.argv[1] if len(sys.argv)>1 else root/'results/nist_safety_multistart.json').read_text())
 checks=[]
 def ck(name,x): checks.append((name,bool(x)))
+def source_bytes(path): return path.read_bytes().rstrip(b'\r\n')+b'\n'
 ck('schema',d['schema']=='kernellum.nist-safety-multistart.v1')
 ck('pinned source',d['source']['commit']=='e270500e3efb4ff9cce91416b3f55678d6271811')
 ck('twelve cases',len(d['rows'])==12)
 ck('four confirmation',sum(r['partition']=='confirmation' for r in d['rows'])==4)
 for r in d['rows']:
  p=root/'external/nist_strd'/f"{r['name']}.dat"
- ck(f"hash:{r['name']}",hashlib.sha256(p.read_bytes()).hexdigest()==r['sha256'])
+ ck(f"hash:{r['name']}",hashlib.sha256(source_bytes(p)).hexdigest()==r['sha256'])
  ck(f"failure:{r['name']}",r['incumbent']['failure']==(r['incumbent']['parameter_error']>1e-3))
  ck(f"route:{r['name']}",r['diagnostic']['routed']==(r['diagnostic']['disagreement'] is None or r['diagnostic']['disagreement']>0.25))
  ck(f"safety:{r['name']}",r['intervention']['rss']<=r['incumbent']['rss']*(1+1e-12))
