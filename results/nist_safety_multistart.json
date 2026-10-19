@@ -1,0 +1,350 @@
+{
+  "confirmation": {
+    "cases": 4,
+    "diagnostic_precision": 0,
+    "incumbent_failures": 0,
+    "intervention_failures": 0,
+    "max_incumbent_error": 2.814211551394964e-07,
+    "max_intervention_error": 2.814211551394964e-07,
+    "overrides": 0,
+    "routed": 0,
+    "routed_failures": 0,
+    "routed_failures_removed": 0,
+    "rss_worsenings": 0
+  },
+  "development": {
+    "cases": 8,
+    "diagnostic_precision": 0,
+    "incumbent_failures": 0,
+    "intervention_failures": 0,
+    "max_incumbent_error": 4.7620126472970366e-07,
+    "max_intervention_error": 4.7620126472970366e-07,
+    "overrides": 0,
+    "routed": 0,
+    "routed_failures": 0,
+    "routed_failures_removed": 0,
+    "rss_worsenings": 0
+  },
+  "gates": {
+    "all_complete": true,
+    "half_routed_failures_removed": false,
+    "max_error_not_worse": true,
+    "no_nonrouted_override": true,
+    "no_rss_worsening": true,
+    "precision": false,
+    "route_count": false
+  },
+  "rows": [
+    {
+      "certified_rss": 0.12455138894,
+      "diagnostic": {
+        "disagreement": 2.0208777239914572e-08,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.195642114726183e-07,
+        "rss": 0.12455138894554817
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.195642114726183e-07,
+        "rss": 0.12455138894554817
+      },
+      "name": "Misra1a",
+      "partition": "development",
+      "sha256": "e9e8a28bf2831ae9b7aa9da743d33511b1f60e22f39d9f595cb97808707979d1",
+      "start2": {
+        "parameter_error": 9.935543624055562e-08,
+        "rss": 0.12455138894519878
+      }
+    },
+    {
+      "certified_rss": 0.075464681533,
+      "diagnostic": {
+        "disagreement": 1.1548720892828296e-12,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.9820529069931994e-07,
+        "rss": 0.07546468153621151
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.9820529069931994e-07,
+        "rss": 0.07546468153621151
+      },
+      "name": "Misra1b",
+      "partition": "development",
+      "sha256": "14a85931be72cfe48e8eda57a44f4a92ee52967eed322f24997270d6dbdcd500",
+      "start2": {
+        "parameter_error": 1.9820413582745956e-07,
+        "rss": 0.07546468153620071
+      }
+    },
+    {
+      "certified_rss": 0.040966836971,
+      "diagnostic": {
+        "disagreement": 1.358839573317055e-10,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 4.7620126472970366e-07,
+        "rss": 0.04096683698508089
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 4.7620126472970366e-07,
+        "rss": 0.04096683698508089
+      },
+      "name": "Misra1c",
+      "partition": "development",
+      "sha256": "6a172a6bce7fbeba05a919017f3bd4cd9f0c3c74f159ebd617134b4ee46442cc",
+      "start2": {
+        "parameter_error": 4.7606538083706165e-07,
+        "rss": 0.04096683698508693
+      }
+    },
+    {
+      "certified_rss": 8786.404908,
+      "diagnostic": {
+        "disagreement": 3.7778065851853346e-09,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.903786756559666e-08,
+        "rss": 8786.404907963146
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.903786756559666e-08,
+        "rss": 8786.404907963146
+      },
+      "name": "Rat43",
+      "partition": "development",
+      "sha256": "69c04a6777562554e1db14cd369837a2e0472379d8230e4fe848dcc8823bab7e",
+      "start2": {
+        "parameter_error": 2.28156742369752e-08,
+        "rss": 8786.40490796314
+      }
+    },
+    {
+      "certified_rss": 1.4307867721e-25,
+      "diagnostic": {
+        "disagreement": 3.6726177649909043e-13,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 2.7732705018548364e-11,
+        "rss": 1.4277219642814989e-25
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 2.7732705018548364e-11,
+        "rss": 1.4277219642814989e-25
+      },
+      "name": "Lanczos1",
+      "partition": "development",
+      "sha256": "2f2820d6d1acd0ba7810ceb7d33f6b542a9933f8d8272e687736ed513f39fabe",
+      "start2": {
+        "parameter_error": 2.7365443242039087e-11,
+        "rss": 1.441281152906139e-25
+      }
+    },
+    {
+      "certified_rss": 1.6117193594e-08,
+      "diagnostic": {
+        "disagreement": 1.757079768349712e-07,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 8.982588450834328e-09,
+        "rss": 1.611719359356997e-08
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 8.982588450834328e-09,
+        "rss": 1.611719359356997e-08
+      },
+      "name": "Lanczos3",
+      "partition": "development",
+      "sha256": "42ee3cb7ef5be5e5331306478636bb7e70634669c6f6a4c6845f9785c9e62b4e",
+      "start2": {
+        "parameter_error": 1.8469056528580552e-07,
+        "rss": 1.6117193593562788e-08
+      }
+    },
+    {
+      "certified_rss": 0.00030750560385,
+      "diagnostic": {
+        "disagreement": 1.7840920388256798e-07,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.0236073455516248e-07,
+        "rss": 0.00030750560384925767
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.0236073455516248e-07,
+        "rss": 0.00030750560384925767
+      },
+      "name": "MGH09",
+      "partition": "development",
+      "sha256": "4ec347ed661d9c0b3d36f6c70c681b803ff8364df64768c881d02d6aa0a8555a",
+      "start2": {
+        "parameter_error": 7.60484693274055e-08,
+        "rss": 0.0003075056038492482
+      }
+    },
+    {
+      "certified_rss": 87.945855171,
+      "diagnostic": {
+        "disagreement": 1.5934025244532707e-11,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 2.1598197074769703e-11,
+        "rss": 87.94585517042138
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 2.1598197074769703e-11,
+        "rss": 87.94585517042138
+      },
+      "name": "MGH10",
+      "partition": "development",
+      "sha256": "5388d442568529193823aadc4e723813774eb6dc151af5582f90bad0bb987bc5",
+      "start2": {
+        "parameter_error": 1.2000022906070253e-11,
+        "rss": 87.9458551705477
+      }
+    },
+    {
+      "certified_rss": 2.2299428125e-11,
+      "diagnostic": {
+        "disagreement": 2.7049820643296164e-10,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 8.77663576937774e-10,
+        "rss": 2.2299428122394884e-11
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 8.77663576937774e-10,
+        "rss": 2.2299428122394884e-11
+      },
+      "name": "Lanczos2",
+      "partition": "confirmation",
+      "sha256": "086c97112d3fb2e66b732e6ef8b913c527a3831dd2c02cc3684f7cbc5e6c36ab",
+      "start2": {
+        "parameter_error": 6.07165370267406e-10,
+        "rss": 2.2299428123939912e-11
+      }
+    },
+    {
+      "certified_rss": 5.4648946975e-05,
+      "diagnostic": {
+        "disagreement": 6.815485797830983e-09,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.8330690648169832e-08,
+        "rss": 5.4648946974830226e-05
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.8330690648169832e-08,
+        "rss": 5.4648946974830226e-05
+      },
+      "name": "MGH17",
+      "partition": "confirmation",
+      "sha256": "08b52c95772c423ef2a4e6d11ea093f93744df7b2863eca1c4caf1e60829686a",
+      "start2": {
+        "parameter_error": 1.1515204725406288e-08,
+        "rss": 5.464894697483067e-05
+      }
+    },
+    {
+      "certified_rss": 0.056419295283,
+      "diagnostic": {
+        "disagreement": 2.791736082152721e-07,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 2.814211551394964e-07,
+        "rss": 0.05641929528799156
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 2.814211551394964e-07,
+        "rss": 0.05641929528799156
+      },
+      "name": "Misra1d",
+      "partition": "confirmation",
+      "sha256": "37c9b091a16f9f29cccdab0b9b43caaf09b3bb6c79a185aa2388d6939353735e",
+      "start2": {
+        "parameter_error": 2.2475475516802935e-09,
+        "rss": 0.05641929528265639
+      }
+    },
+    {
+      "certified_rss": 8.0565229338,
+      "diagnostic": {
+        "disagreement": 1.9068524858022027e-09,
+        "routed": false
+      },
+      "incumbent": {
+        "failure": false,
+        "parameter_error": 1.6533091311547164e-10,
+        "rss": 8.056522933811284
+      },
+      "intervention": {
+        "failure": false,
+        "override": false,
+        "parameter_error": 1.6533091311547164e-10,
+        "rss": 8.056522933811284
+      },
+      "name": "Rat42",
+      "partition": "confirmation",
+      "sha256": "4e1a8145cb35732e83894edf1c91c3e07a1da725c7a5deb9487b14ea4f598799",
+      "start2": {
+        "parameter_error": 2.0721833986024126e-09,
+        "rss": 8.056522933811296
+      }
+    }
+  ],
+  "rule": {
+    "disagreement_threshold": 0.25,
+    "parameter_failure_threshold": 0.001,
+    "perturbations": 32
+  },
+  "schema": "kernellum.nist-safety-multistart.v1",
+  "source": {
+    "commit": "e270500e3efb4ff9cce91416b3f55678d6271811",
+    "repository": "lmfit/lmfit-py"
+  },
+  "status": "FAIL"
+}
