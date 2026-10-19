@@ -34,3 +34,7 @@ Do not continue tuning disagreement thresholds on NIST StRD. The benchmark is re
 ## Claim boundary
 
 Multistart and trust-region methods are classical. The smallest supported claim is a prospective external-benchmark falsification of this specific start-disagreement router, plus evidence that these pinned NIST problems are regression tests rather than a useful catastrophic-tail cohort for the current SciPy solver.
+
+## Reproducibility and provenance
+
+The independent audit passes 56/56 checks and a duplicate execution is byte-identical. The first CI run is intentionally preserved: it failed all twelve source-hash checks because the local source fetch retained two terminal newline bytes while the pinned upstream Git blobs contain one. The follow-up changes only the provenance representation, canonicalizing terminal CR/LF bytes to exactly one LF before hashing. Dataset values, partitions, solver settings, diagnostic threshold, success gates, and every numerical result are unchanged.
