@@ -4,6 +4,9 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares
 
+def source_bytes(path):
+ return path.read_bytes().rstrip(b'\r\n')+b'\n'
+
 ROOT=Path(__file__).resolve().parents[1]
 NAMES=['Misra1a','Misra1b','Misra1c','Rat43','Lanczos1','Lanczos3','MGH09','MGH10','Lanczos2','MGH17','Misra1d','Rat42']
 CONFIRM={'Lanczos2','MGH17','Misra1d','Rat42'}
@@ -35,7 +38,7 @@ def parse(name):
   except ValueError: continue
   if len(vals)>=2:data.append(vals)
  a=np.array(data,float)
- return {'x':a[:,1],'y':a[:,0],'starts':[np.array(s,float) for s in starts],'cert':np.array(cert,float),'cert_rss':rss,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+ return {'x':a[:,1],'y':a[:,0],'starts':[np.array(s,float) for s in starts],'cert':np.array(cert,float),'cert_rss':rss,'sha256':hashlib.sha256(source_bytes(p)).hexdigest()}
 
 def fit(name,x,y,start):
  def resid(b):
