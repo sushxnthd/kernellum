@@ -1,0 +1,26 @@
+name: residual-root-lattice
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/residual-root-lattice-20261020
+  pull_request:
+    paths:
+      - "experiments/residual_root_lattice/**"
+      - "tests/test_residual_root_lattice.py"
+      - "docs/RESIDUAL_ROOT_LATTICE_*"
+      - ".github/workflows/residual-root-lattice.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install "numpy==2.3.5" "scipy==1.17.0" "pytest==8.4.2"
+      - run: python experiments/residual_root_lattice/run.py --output /tmp/reproduced.json
+      - run: cmp results/residual_root_lattice.json /tmp/reproduced.json
+      - run: python experiments/residual_root_lattice/check.py /tmp/reproduced.json
+      - run: pytest -q tests/test_residual_root_lattice.py
