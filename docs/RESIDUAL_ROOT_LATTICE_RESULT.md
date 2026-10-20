@@ -11,9 +11,9 @@ The source residuals factor along `u=x+y` and `v=x-y`. Their real factor roots g
 | Equal-budget method | Trials | Full 42-minimum coverage | Mean coverage | Mean function evaluations |
 |---|---:|---:|---:|---:|
 | Residual-root lattice | 9 | 9 | 100.0% | 218.6 |
-| Generic 7-by-6 grid | 9 | 0 | 66.4% | 431.8 |
-| Latin hypercube | 9 | 0 | 63.5% | 391.8 |
-| Uniform random | 9 | 0 | 59.8% | 390.3 |
+| Generic 7-by-6 grid | 9 | 0 | 66.7% | 431.8 |
+| Latin hypercube | 9 | 0 | 62.4% | 391.8 |
+| Uniform random | 9 | 0 | 60.6% | 390.3 |
 | All controls | 27 | 0 | 63.2% | 404.6 |
 
 The identity objective was development. The frozen prediction then survived eight fixed rotation/translation/anisotropic-scaling metamorphs. The transformations changed optimizer conditioning but not the underlying minima, so this is a mechanism/invariance test rather than eight independent scientific datasets.
