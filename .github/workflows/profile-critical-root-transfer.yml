@@ -1,0 +1,29 @@
+name: profile-critical-root-transfer
+
+on:
+  push:
+    branches: [breakthrough-engine/profile-critical-root-transfer-20261020]
+  pull_request:
+    paths:
+      - "experiments/profile_critical_root_transfer/**"
+      - "results/profile_critical_root_transfer.json"
+      - "tests/test_profile_critical_root_transfer.py"
+      - "docs/PROFILE_CRITICAL_ROOT_TRANSFER_*.md"
+      - ".github/workflows/profile-critical-root-transfer.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[test]"
+      - run: python experiments/profile_critical_root_transfer/run.py --output /tmp/run-1.json
+      - run: python experiments/profile_critical_root_transfer/run.py --output /tmp/run-2.json
+      - run: cmp /tmp/run-1.json /tmp/run-2.json
+      - run: cmp /tmp/run-1.json results/profile_critical_root_transfer.json
+      - run: python experiments/profile_critical_root_transfer/check.py /tmp/run-1.json
+      - run: pytest -q tests/test_profile_critical_root_transfer.py
