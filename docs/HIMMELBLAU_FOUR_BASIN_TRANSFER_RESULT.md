@@ -52,6 +52,18 @@ of superior catastrophic-tail suppression.
 - Focused tests passed 2/2.
 - Full Python suite passed 184 tests plus 36 subtests.
 
+### Reproducibility incident preserved
+
+The first dedicated CI attempt (run `39479387600`) failed its byte-for-byte
+artifact comparison after the unpinned dependency resolver selected NumPy
+2.4.6 instead of the NumPy 2.3.5 environment used for the frozen artifact.
+Coverage, catastrophes, and the scientific gate were unchanged, but Latin-
+hypercube solver evaluation counts shifted slightly. This was an environment-
+provenance failure, not a scientific-gate failure. The workflow now pins the
+artifact-generating numerical stack exactly (NumPy 2.3.5, SciPy 1.17.0) and
+asserts both versions before reproduction. The failed run remains part of the
+audit trail.
+
 ## Priority boundary
 
 Himmelblau's function, polynomial substitution/elimination, numerical root
