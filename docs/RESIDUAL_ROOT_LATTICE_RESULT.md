@@ -36,7 +36,9 @@ The independent checker does not import the runner. It:
 3. verifies every center has a positive-definite finite-difference Hessian;
 4. recomputes trial and budget invariants from the raw JSON.
 
-Duplicate generation is required to be byte-identical. The result payload records its own canonical SHA-256.
+Duplicate generation on the pinned local runtime is byte-identical. The result payload records its own canonical SHA-256. Cross-host CI compares scientific invariants (basin count, best objective within numerical tolerance, evaluation-count stability, provenance) rather than serialized floating-point coordinates.
+
+The first documentation-only follow-up triggered workflow run `39386305313`, which failed only at a raw `cmp` of two JSON files. The solver run itself completed. That failure is preserved as evidence that byte equality was an invalid cross-host gate; the subsequent commit replaces it without changing the benchmark, seeds, transforms, methods, thresholds, or result artifact.
 
 ## SCIENCE ledger
 

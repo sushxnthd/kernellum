@@ -21,6 +21,6 @@ jobs:
           python-version: "3.11"
       - run: pip install "numpy==2.3.5" "scipy==1.17.0" "pytest==8.4.2"
       - run: python experiments/residual_root_lattice/run.py --output /tmp/reproduced.json
-      - run: cmp results/residual_root_lattice.json /tmp/reproduced.json
+      - run: python experiments/residual_root_lattice/compare.py results/residual_root_lattice.json /tmp/reproduced.json
       - run: python experiments/residual_root_lattice/check.py /tmp/reproduced.json
       - run: pytest -q tests/test_residual_root_lattice.py
