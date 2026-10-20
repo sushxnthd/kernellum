@@ -1,0 +1,41 @@
+name: himmelblau-four-basin-transfer
+
+on:
+  push:
+    branches: [breakthrough-engine/himmelblau-four-basin-transfer-20261021]
+  pull_request:
+    paths:
+      - experiments/himmelblau_four_basin_transfer/**
+      - tests/test_himmelblau_four_basin_transfer.py
+      - docs/HIMMELBLAU_FOUR_BASIN_TRANSFER_*.md
+      - results/himmelblau_four_basin_transfer.json
+      - .github/workflows/himmelblau-four-basin-transfer.yml
+  workflow_dispatch:
+
+jobs:
+  frozen-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install frozen numerical stack
+        run: |
+          python -m pip install pytest
+          python -m pip install -e .
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+          python -c 'import numpy, scipy; assert numpy.__version__ == "2.3.5"; assert scipy.__version__ == "1.17.0"'
+      - name: Reproduce twice
+        run: |
+          python experiments/himmelblau_four_basin_transfer/run.py --output /tmp/himmelblau-1.json
+          python experiments/himmelblau_four_basin_transfer/run.py --output /tmp/himmelblau-2.json
+          cmp /tmp/himmelblau-1.json /tmp/himmelblau-2.json
+          cmp /tmp/himmelblau-1.json results/himmelblau_four_basin_transfer.json
+      - name: Independent audit
+        run: python experiments/himmelblau_four_basin_transfer/check.py results/himmelblau_four_basin_transfer.json
+      - name: Focused tests
+        run: python -m pytest -q tests/test_himmelblau_four_basin_transfer.py
+      - name: Full suite
+        run: python -m pytest -q
