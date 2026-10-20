@@ -21,7 +21,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install pytest && python -m pip install -e .
+      - name: Install frozen numerical stack
+        run: |
+          python -m pip install pytest
+          python -m pip install -e .
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+          python -c 'import numpy, scipy; assert numpy.__version__ == "2.3.5"; assert scipy.__version__ == "1.17.0"'
       - name: Reproduce twice
         run: |
           python experiments/himmelblau_four_basin_transfer/run.py --output /tmp/himmelblau-1.json
