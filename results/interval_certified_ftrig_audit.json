@@ -1,0 +1,18 @@
+{
+  "passed": 10,
+  "schema": "interval-certified-ftrig-audit-v1",
+  "status": "PASS",
+  "tests": {
+    "all_primary_gates": true,
+    "fleet_safety": true,
+    "fleet_savings": true,
+    "independent_decimal_boxes": true,
+    "independent_disjointness": true,
+    "payload_hash": true,
+    "primary_certificate": true,
+    "prospective_controls": true,
+    "prospective_root_coverage": true,
+    "prospective_savings": true
+  },
+  "total": 10
+}
