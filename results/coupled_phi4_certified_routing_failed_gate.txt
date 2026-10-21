@@ -1,0 +1,7 @@
+KILL_OR_REFORMULATE
+required_work_reduction=0.25
+observed_work_reduction=0.20512820512820518
+exact_observed_work_reduction=8/39
+structured_capped_catastrophes=0
+tensor_corner_capped_catastrophes=17
+reason=end_to_end_value_gate_failed_after_charging_certificate_overhead
