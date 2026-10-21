@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "evaluation_totals": true,
+    "family_counts": true,
+    "gate": true,
+    "no_coverage_loss": true,
+    "no_objective_loss": true,
+    "payload_digest": true,
+    "protocol": true,
+    "reduction": true,
+    "routes": true,
+    "transform_count": true,
+    "trial_count": true
+  },
+  "passed": 11,
+  "schema": "certificate-conditioned-selector-audit-v1",
+  "status": "pass",
+  "total": 11
+}
