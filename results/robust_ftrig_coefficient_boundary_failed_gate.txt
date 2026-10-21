@@ -1,0 +1,13 @@
+Frozen scientific gate: KILL
+
+Failed obligation: catastrophe_reduction.
+
+Unconditional root-lattice reuse had 0/48 catastrophes. The point-certificate
+fail-closed route also had 0/48 catastrophes, so it could not strictly reduce
+the catastrophic tail as preregistered. This is not converted to a pass by
+post-hoc non-inferiority.
+
+The common uncertainty envelope passed through rho=2^-19 and failed at 2^-18,
+but all 16 exact point draws at 2^-18 certified 42/42 boxes independently.
+Thus the common-radius boundary was conservative rather than predictive.
+

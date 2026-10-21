@@ -1,0 +1,36 @@
+name: robust-ftrig-coefficient-boundary
+
+on:
+  push:
+    branches: [breakthrough-engine/robust-ftrig-coefficient-boundary-20261021]
+  pull_request:
+    paths:
+      - experiments/robust_ftrig_coefficient_boundary/**
+      - scripts/audit_robust_ftrig_coefficient_boundary.py
+      - tests/test_robust_ftrig_coefficient_boundary.py
+      - docs/ROBUST_FTRIG_COEFFICIENT_BOUNDARY_*.md
+      - results/robust_ftrig_coefficient_boundary*
+      - .github/workflows/robust-ftrig-coefficient-boundary.yml
+  workflow_dispatch:
+
+jobs:
+  reproduce-negative-result:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy==2.3.5 scipy==1.17.0 pytest
+      - name: Deterministic killed-gate reproduction
+        run: |
+          python experiments/robust_ftrig_coefficient_boundary/run.py --output /tmp/one.json || test $? -eq 1
+          python experiments/robust_ftrig_coefficient_boundary/run.py --output /tmp/two.json || test $? -eq 1
+          cmp /tmp/one.json /tmp/two.json
+          cmp /tmp/one.json results/robust_ftrig_coefficient_boundary.json
+      - name: Independent Decimal audit
+        run: |
+          python scripts/audit_robust_ftrig_coefficient_boundary.py --primary /tmp/one.json --output /tmp/audit.json
+          cmp /tmp/audit.json results/robust_ftrig_coefficient_boundary_audit.json
+      - run: pytest -q tests/test_robust_ftrig_coefficient_boundary.py
