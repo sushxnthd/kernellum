@@ -1,0 +1,36 @@
+name: interval-certified-ftrig
+
+on:
+  push:
+    branches: [breakthrough-engine/interval-certified-ftrig-20261021]
+  pull_request:
+    paths:
+      - experiments/interval_certified_ftrig/**
+      - scripts/audit_interval_certified_ftrig.py
+      - tests/test_interval_certified_ftrig.py
+      - docs/INTERVAL_CERTIFIED_FTRIG_*.md
+      - results/interval_certified_ftrig*.json
+      - .github/workflows/interval-certified-ftrig.yml
+  workflow_dispatch:
+
+jobs:
+  reproduce-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy==2.3.5 scipy==1.17.0 pytest
+      - name: Deterministic reproduction
+        run: |
+          python experiments/interval_certified_ftrig/run.py --output /tmp/one.json
+          python experiments/interval_certified_ftrig/run.py --output /tmp/two.json
+          cmp /tmp/one.json /tmp/two.json
+          cmp /tmp/one.json results/interval_certified_ftrig.json
+      - name: Independent Decimal interval audit
+        run: |
+          python scripts/audit_interval_certified_ftrig.py --primary /tmp/one.json --output /tmp/audit.json
+          cmp /tmp/audit.json results/interval_certified_ftrig_audit.json
+      - run: pytest -q tests/test_interval_certified_ftrig.py

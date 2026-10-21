@@ -1,0 +1,9 @@
+Initial adversarial unit gate: FAIL
+
+The wide-radius perturbation test changed the module-level `RADIUS`, but
+`expanded(center, radius=RADIUS)` had captured the original Fraction in its
+default argument. The production certificate and frozen radius-1/200 result
+were unaffected; the adversarial test itself did not exercise the intended
+path. The helper was corrected to resolve `RADIUS` at call time. With that
+testability correction, radius 1/100 fails the certificate as predicted while
+the frozen radius 1/200 certificate and all result bytes remain unchanged.
