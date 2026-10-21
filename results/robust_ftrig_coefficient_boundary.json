@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 55420)
-Total output lines: 8211
-
 {
   "boundary_gate": "KILL",
   "gates": {
@@ -3386,7 +3383,831 @@ Total output lines: 8211
           "6397155048448/252549697176365",
           "281475224964096/2778046668940015",
           "1125902256017408/2778046668940015",
-          "14073740…5420 tokens truncated… "passed": false
+          "140737403537408/8681395840437547",
+          "140737659268608/3125302502557517"
+        ],
+        "draw": 13,
+        "fail_closed": {
+          "best_objective": 100.24668238275214,
+          "catastrophe": false,
+          "coverage": 42,
+          "method": "root_lattice",
+          "nfev": 188,
+          "objective_loss": false,
+          "route": "root_lattice"
+        },
+        "level": "double",
+        "outcomes": {
+          "greedy_maximin": {
+            "best_objective": 100.24668238275214,
+            "catastrophe": true,
+            "coverage": 25,
+            "method": "greedy_maximin",
+            "nfev": 410,
+            "objective_loss": false
+          },
+          "grid": {
+            "best_objective": 101.23673063422251,
+            "catastrophe": true,
+            "coverage": 28,
+            "method": "grid",
+            "nfev": 420,
+            "objective_loss": true
+          },
+          "optimized_lhs": {
+            "best_objective": 100.24668238275213,
+            "catastrophe": true,
+            "coverage": 31,
+            "method": "optimized_lhs",
+            "nfev": 382,
+            "objective_loss": false
+          },
+          "root_lattice": {
+            "best_objective": 100.24668238275214,
+            "catastrophe": false,
+            "coverage": 42,
+            "method": "root_lattice",
+            "nfev": 188,
+            "objective_loss": false
+          }
+        },
+        "point_certificate_passed": true,
+        "point_passing_boxes": 42,
+        "relative_deltas": [
+          "96099/137438953472",
+          "-37739/68719476736",
+          "242435/274877906944",
+          "573529/274877906944",
+          "-41415/68719476736",
+          "333815/274877906944"
+        ]
+      },
+      {
+        "coefficients": [
+          "35184366418688/3125302502557517",
+          "14073727192832/555609333788003",
+          "56294808441856/555609333788003",
+          "1125899537309696/2778046668940015",
+          "140737173938688/8681395840437547",
+          "140736984534528/3125302502557517"
+        ],
+        "draw": 14,
+        "fail_closed": {
+          "best_objective": 100.2466829783872,
+          "catastrophe": false,
+          "coverage": 42,
+          "method": "root_lattice",
+          "nfev": 184,
+          "objective_loss": false,
+          "route": "root_lattice"
+        },
+        "level": "double",
+        "outcomes": {
+          "greedy_maximin": {
+            "best_objective": 100.24668297838721,
+            "catastrophe": true,
+            "coverage": 24,
+            "method": "greedy_maximin",
+            "nfev": 402,
+            "objective_loss": false
+          },
+          "grid": {
+            "best_objective": 101.23673540150966,
+            "catastrophe": true,
+            "coverage": 28,
+            "method": "grid",
+            "nfev": 428,
+            "objective_loss": true
+          },
+          "optimized_lhs": {
+            "best_objective": 100.24668297838721,
+            "catastrophe": true,
+            "coverage": 29,
+            "method": "optimized_lhs",
+            "nfev": 387,
+            "objective_loss": false
+          },
+          "root_lattice": {
+            "best_objective": 100.2466829783872,
+            "catastrophe": false,
+            "coverage": 42,
+            "method": "root_lattice",
+            "nfev": 184,
+            "objective_loss": false
+          }
+        },
+        "point_certificate_passed": true,
+        "point_passing_boxes": 42,
+        "relative_deltas": [
+          "-22149/137438953472",
+          "-422709/274877906944",
+          "-912599/274877906944",
+          "-45109/137438953472",
+          "-614095/274877906944",
+          "-984025/274877906944"
+        ]
+      },
+      {
+        "coefficients": [
+          "35184378309632/3125302502557517",
+          "70368676210176/2778046668940015",
+          "281474910946304/2778046668940015",
+          "1125900149702656/2778046668940015",
+          "140737092700160/8681395840437547",
+          "140737836768768/3125302502557517"
+        ],
+        "draw": 15,
+        "fail_closed": {
+          "best_objective": 100.24668284397586,
+          "catastrophe": false,
+          "coverage": 42,
+          "method": "root_lattice",
+          "nfev": 196,
+          "objective_loss": false,
+          "route": "root_lattice"
+        },
+        "level": "double",
+        "outcomes": {
+          "greedy_maximin": {
+            "best_objective": 100.24668284397588,
+            "catastrophe": true,
+            "coverage": 23,
+            "method": "greedy_maximin",
+            "nfev": 416,
+            "objective_loss": false
+          },
+          "grid": {
+            "best_objective": 101.23673220459135,
+            "catastrophe": true,
+            "coverage": 28,
+            "method": "grid",
+            "nfev": 437,
+            "objective_loss": true
+          },
+          "optimized_lhs": {
+            "best_objective": 100.24668284397586,
+            "catastrophe": true,
+            "coverage": 29,
+            "method": "optimized_lhs",
+            "nfev": 380,
+            "objective_loss": false
+          },
+          "root_lattice": {
+            "best_objective": 100.24668284397586,
+            "catastrophe": false,
+            "coverage": 42,
+            "method": "root_lattice",
+            "nfev": 196,
+            "objective_loss": false
+          }
+        },
+        "point_certificate_passed": true,
+        "point_passing_boxes": 42,
+        "relative_deltas": [
+          "6075/34359738368",
+          "-132749/137438953472",
+          "-64223/274877906944",
+          "14823/68719476736",
+          "-193191/68719476736",
+          "680495/274877906944"
+        ]
+      }
+    ],
+    "seed": 20261024,
+    "summary": {
+      "fail_closed_catastrophes": 0,
+      "fail_closed_total_nfev": 10148,
+      "point_certificate_passes": 48,
+      "root_total_nfev": 10148,
+      "safe_route_retention": 1.0,
+      "trials": 48,
+      "unconditional_root_catastrophes": 0
+    }
+  },
+  "schema": "robust-ftrig-coefficient-boundary-v1",
+  "sweep": [
+    {
+      "box_count": 42,
+      "boxes": [
+        {
+          "id": "u0-v0",
+          "minimum_signed_slack": -12385082.344317405,
+          "passed": false
+        },
+        {
+          "id": "u0-v1",
+          "minimum_signed_slack": -12385082.348262105,
+          "passed": false
+        },
+        {
+          "id": "u0-v2",
+          "minimum_signed_slack": -184015794.11792266,
+          "passed": false
+        },
+        {
+          "id": "u0-v3",
+          "minimum_signed_slack": -184015794.11792266,
+          "passed": false
+        },
+        {
+          "id": "u0-v4",
+          "minimum_signed_slack": -12385082.348262105,
+          "passed": false
+        },
+        {
+          "id": "u0-v5",
+          "minimum_signed_slack": -12385082.344317405,
+          "passed": false
+        },
+        {
+          "id": "u1-v0",
+          "minimum_signed_slack": -1349315.5193769445,
+          "passed": false
+        },
+        {
+          "id": "u1-v1",
+          "minimum_signed_slack": -336764.6780625044,
+          "passed": false
+        },
+        {
+          "id": "u1-v2",
+          "minimum_signed_slack": -5001940.965577815,
+          "passed": false
+        },
+        {
+          "id": "u1-v3",
+          "minimum_signed_slack": -5001940.965577815,
+          "passed": false
+        },
+        {
+          "id": "u1-v4",
+          "minimum_signed_slack": -336764.6780625044,
+          "passed": false
+        },
+        {
+          "id": "u1-v5",
+          "minimum_signed_slack": -1349315.5193769445,
+          "passed": false
+        },
+        {
+          "id": "u2-v0",
+          "minimum_signed_slack": -1349315.5223346842,
+          "passed": false
+        },
+        {
+          "id": "u2-v1",
+          "minimum_signed_slack": -34083.988399939044,
+          "passed": false
+        },
+        {
+          "id": "u2-v2",
+          "minimum_signed_slack": -39422.00777002222,
+          "passed": false
+        },
+        {
+          "id": "u2-v3",
+          "minimum_signed_slack": -39422.00777002222,
+          "passed": false
+        },
+        {
+          "id": "u2-v4",
+          "minimum_signed_slack": -34083.988399939044,
+          "passed": false
+        },
+        {
+          "id": "u2-v5",
+          "minimum_signed_slack": -1349315.5223346842,
+          "passed": false
+        },
+        {
+          "id": "u3-v0",
+          "minimum_signed_slack": -270129417.54458284,
+          "passed": false
+        },
+        {
+          "id": "u3-v1",
+          "minimum_signed_slack": -6823390.544122676,
+          "passed": false
+        },
+        {
+          "id": "u3-v2",
+          "minimum_signed_slack": -100.63292304557773,
+          "passed": false
+        },
+        {
+          "id": "u3-v3",
+          "minimum_signed_slack": -100.63292304557773,
+          "passed": false
+        },
+        {
+          "id": "u3-v4",
+          "minimum_signed_slack": -6823390.544122676,
+          "passed": false
+        },
+        {
+          "id": "u3-v5",
+          "minimum_signed_slack": -270129417.54458284,
+          "passed": false
+        },
+        {
+          "id": "u4-v0",
+          "minimum_signed_slack": -1349315.5223346842,
+          "passed": false
+        },
+        {
+          "id": "u4-v1",
+          "minimum_signed_slack": -34083.988399939044,
+          "passed": false
+        },
+        {
+          "id": "u4-v2",
+          "minimum_signed_slack": -39422.00777002222,
+          "passed": false
+        },
+        {
+          "id": "u4-v3",
+          "minimum_signed_slack": -39422.00777002222,
+          "passed": false
+        },
+        {
+          "id": "u4-v4",
+          "minimum_signed_slack": -34083.988399939044,
+          "passed": false
+        },
+        {
+          "id": "u4-v5",
+          "minimum_signed_slack": -1349315.5223346842,
+          "passed": false
+        },
+        {
+          "id": "u5-v0",
+          "minimum_signed_slack": -1349315.5193769445,
+          "passed": false
+        },
+        {
+          "id": "u5-v1",
+          "minimum_signed_slack": -336764.6780625044,
+          "passed": false
+        },
+        {
+          "id": "u5-v2",
+          "minimum_signed_slack": -5001940.965577815,
+          "passed": false
+        },
+        {
+          "id": "u5-v3",
+          "minimum_signed_slack": -5001940.965577815,
+          "passed": false
+        },
+        {
+          "id": "u5-v4",
+          "minimum_signed_slack": -336764.6780625044,
+          "passed": false
+        },
+        {
+          "id": "u5-v5",
+          "minimum_signed_slack": -1349315.5193769445,
+          "passed": false
+        },
+        {
+          "id": "u6-v0",
+          "minimum_signed_slack": -12385082.344317405,
+          "passed": false
+        },
+        {
+          "id": "u6-v1",
+          "minimum_signed_slack": -12385082.348262105,
+          "passed": false
+        },
+        {
+          "id": "u6-v2",
+          "minimum_signed_slack": -184015794.11792266,
+          "passed": false
+        },
+        {
+          "id": "u6-v3",
+          "minimum_signed_slack": -184015794.11792266,
+          "passed": false
+        },
+        {
+          "id": "u6-v4",
+          "minimum_signed_slack": -12385082.348262105,
+          "passed": false
+        },
+        {
+          "id": "u6-v5",
+          "minimum_signed_slack": -12385082.344317405,
+          "passed": false
+        }
+      ],
+      "minimum_signed_slack": -270129417.54458284,
+      "passed": false,
+      "passing_boxes": 0,
+      "rho": "1/16",
+      "rho_float": 0.0625
+    },
+    {
+      "box_count": 42,
+      "boxes": [
+        {
+          "id": "u0-v0",
+          "minimum_signed_slack": -6135781.035280225,
+          "passed": false
+        },
+        {
+          "id": "u0-v1",
+          "minimum_signed_slack": -6135781.039224925,
+          "passed": false
+        },
+        {
+          "id": "u0-v2",
+          "minimum_signed_slack": -754758849.4800851,
+          "passed": false
+        },
+        {
+          "id": "u0-v3",
+          "minimum_signed_slack": -754758849.4800851,
+          "passed": false
+        },
+        {
+          "id": "u0-v4",
+          "minimum_signed_slack": -6135781.039224925,
+          "passed": false
+        },
+        {
+          "id": "u0-v5",
+          "minimum_signed_slack": -6135781.035280225,
+          "passed": false
+        },
+        {
+          "id": "u1-v0",
+          "minimum_signed_slack": -661991.0830157729,
+          "passed": false
+        },
+        {
+          "id": "u1-v1",
+          "minimum_signed_slack": -167206.21583337046,
+          "passed": false
+        },
+        {
+          "id": "u1-v2",
+          "minimum_signed_slack": -20567114.787340544,
+          "passed": false
+        },
+        {
+          "id": "u1-v3",
+          "minimum_signed_slack": -20567114.787340544,
+          "passed": false
+        },
+        {
+          "id": "u1-v4",
+          "minimum_signed_slack": -167206.21583337046,
+          "passed": false
+        },
+        {
+          "id": "u1-v5",
+          "minimum_signed_slack": -661991.0830157729,
+          "passed": false
+        },
+        {
+          "id": "u2-v0",
+          "minimum_signed_slack": -661991.0859735126,
+          "passed": false
+        },
+        {
+          "id": "u2-v1",
+          "minimum_signed_slack": -16578.18740060577,
+          "passed": false
+        },
+        {
+          "id": "u2-v2",
+          "minimum_signed_slack": -142953.92210585042,
+          "passed": false
+        },
+        {
+          "id": "u2-v3",
+          "minimum_signed_slack": -142953.92210585042,
+          "passed": false
+        },
+        {
+          "id": "u2-v4",
+          "minimum_signed_slack": -16578.18740060577,
+          "passed": false
+        },
+        {
+          "id": "u2-v5",
+          "minimum_signed_slack": -661991.0859735126,
+          "passed": false
+        },
+        {
+          "id": "u3-v0",
+          "minimum_signed_slack": -132529045.0045451,
+          "passed": false
+        },
+        {
+          "id": "u3-v1",
+          "minimum_signed_slack": -3318848.586065074,
+          "passed": false
+        },
+        {
+          "id": "u3-v2",
+          "minimum_signed_slack": -49.637072515618655,
+          "passed": false
+        },
+        {
+          "id": "u3-v3",
+          "minimum_signed_slack": -49.637072515618655,
+          "passed": false
+        },
+        {
+          "id": "u3-v4",
+          "minimum_signed_slack": -3318848.586065074,
+          "passed": false
+        },
+        {
+          "id": "u3-v5",
+          "minimum_signed_slack": -132529045.0045451,
+          "passed": false
+        },
+        {
+          "id": "u4-v0",
+          "minimum_signed_slack": -661991.0859735126,
+          "passed": false
+        },
+        {
+          "id": "u4-v1",
+          "minimum_signed_slack": -16578.18740060577,
+          "passed": false
+        },
+        {
+          "id": "u4-v2",
+          "minimum_signed_slack": -142953.92210585042,
+          "passed": false
+        },
+        {
+          "id": "u4-v3",
+          "minimum_signed_slack": -142953.92210585042,
+          "passed": false
+        },
+        {
+          "id": "u4-v4",
+          "minimum_signed_slack": -16578.18740060577,
+          "passed": false
+        },
+        {
+          "id": "u4-v5",
+          "minimum_signed_slack": -661991.0859735126,
+          "passed": false
+        },
+        {
+          "id": "u5-v0",
+          "minimum_signed_slack": -661991.0830157729,
+          "passed": false
+        },
+        {
+          "id": "u5-v1",
+          "minimum_signed_slack": -167206.21583337046,
+          "passed": false
+        },
+        {
+          "id": "u5-v2",
+          "minimum_signed_slack": -20567114.787340544,
+          "passed": false
+        },
+        {
+          "id": "u5-v3",
+          "minimum_signed_slack": -20567114.787340544,
+          "passed": false
+        },
+        {
+          "id": "u5-v4",
+          "minimum_signed_slack": -167206.21583337046,
+          "passed": false
+        },
+        {
+          "id": "u5-v5",
+          "minimum_signed_slack": -661991.0830157729,
+          "passed": false
+        },
+        {
+          "id": "u6-v0",
+          "minimum_signed_slack": -6135781.035280225,
+          "passed": false
+        },
+        {
+          "id": "u6-v1",
+          "minimum_signed_slack": -6135781.039224925,
+          "passed": false
+        },
+        {
+          "id": "u6-v2",
+          "minimum_signed_slack": -754758849.4800851,
+          "passed": false
+        },
+        {
+          "id": "u6-v3",
+          "minimum_signed_slack": -754758849.4800851,
+          "passed": false
+        },
+        {
+          "id": "u6-v4",
+          "minimum_signed_slack": -6135781.039224925,
+          "passed": false
+        },
+        {
+          "id": "u6-v5",
+          "minimum_signed_slack": -6135781.035280225,
+          "passed": false
+        }
+      ],
+      "minimum_signed_slack": -754758849.4800851,
+      "passed": false,
+      "passing_boxes": 0,
+      "rho": "1/32",
+      "rho_float": 0.03125
+    },
+    {
+      "box_count": 42,
+      "boxes": [
+        {
+          "id": "u0-v0",
+          "minimum_signed_slack": -3035690.3103707028,
+          "passed": false
+        },
+        {
+          "id": "u0-v1",
+          "minimum_signed_slack": -3035690.314315403,
+          "passed": false
+        },
+        {
+          "id": "u0-v2",
+          "minimum_signed_slack": -537088764.2621772,
+          "passed": false
+        },
+        {
+          "id": "u0-v3",
+          "minimum_signed_slack": -537088764.2621772,
+          "passed": false
+        },
+        {
+          "id": "u0-v4",
+          "minimum_signed_slack": -3035690.314315403,
+          "passed": false
+        },
+        {
+          "id": "u0-v5",
+          "minimum_signed_slack": -3035690.3103707028,
+          "passed": false
+        },
+        {
+          "id": "u1-v0",
+          "minimum_signed_slack": -320286.67399987095,
+          "passed": false
+        },
+        {
+          "id": "u1-v1",
+          "minimum_signed_slack": -82955.24083671065,
+          "passed": false
+        },
+        {
+          "id": "u1-v2",
+          "minimum_signed_slack": -14676426.86971739,
+          "passed": false
+        },
+        {
+          "id": "u1-v3",
+          "minimum_signed_slack": -14676426.86971739,
+          "passed": false
+        },
+        {
+          "id": "u1-v4",
+          "minimum_signed_slack": -82955.24083671065,
+          "passed": false
+        },
+        {
+          "id": "u1-v5",
+          "minimum_signed_slack": -320286.67399987095,
+          "passed": false
+        },
+        {
+          "id": "u2-v0",
+          "minimum_signed_slack": -320286.6769576107,
+          "passed": false
+        },
+        {
+          "id": "u2-v1",
+          "minimum_signed_slack": -7881.582189804445,
+          "passed": false
+        },
+        {
+          "id": "u2-v2",
+          "minimum_signed_slack": -74008.02062078175,
+          "passed": false
+        },
+        {
+          "id": "u2-v3",
+          "minimum_signed_slack": -74008.02062078175,
+          "passed": false
+        },
+        {
+          "id": "u2-v4",
+          "minimum_signed_slack": -7881.582189804445,
+          "passed": false
+        },
+        {
+          "id": "u2-v5",
+          "minimum_signed_slack": -320286.6769576107,
+          "passed": false
+        },
+        {
+          "id": "u3-v0",
+          "minimum_signed_slack": -64120674.43939424,
+          "passed": false
+        },
+        {
+          "id": "u3-v1",
+          "minimum_signed_slack": -1577844.1804817533,
+          "passed": false
+        },
+        {
+          "id": "u3-v2",
+          "minimum_signed_slack": -24.227724595986466,
+          "passed": false
+        },
+        {
+          "id": "u3-v3",
+          "minimum_signed_slack": -24.227724595986466,
+          "passed": false
+        },
+        {
+          "id": "u3-v4",
+          "minimum_signed_slack": -1577844.1804817533,
+          "passed": false
+        },
+        {
+          "id": "u3-v5",
+          "minimum_signed_slack": -64120674.43939424,
+          "passed": false
+        },
+        {
+          "id": "u4-v0",
+          "minimum_signed_slack": -320286.6769576107,
+          "passed": false
+        },
+        {
+          "id": "u4-v1",
+          "minimum_signed_slack": -7881.582189804445,
+          "passed": false
+        },
+        {
+          "id": "u4-v2",
+          "minimum_signed_slack": -74008.02062078175,
+          "passed": false
+        },
+        {
+          "id": "u4-v3",
+          "minimum_signed_slack": -74008.02062078175,
+          "passed": false
+        },
+        {
+          "id": "u4-v4",
+          "minimum_signed_slack": -7881.582189804445,
+          "passed": false
+        },
+        {
+          "id": "u4-v5",
+          "minimum_signed_slack": -320286.6769576107,
+          "passed": false
+        },
+        {
+          "id": "u5-v0",
+          "minimum_signed_slack": -320286.67399987095,
+          "passed": false
+        },
+        {
+          "id": "u5-v1",
+          "minimum_signed_slack": -82955.24083671065,
+          "passed": false
+        },
+        {
+          "id": "u5-v2",
+          "minimum_signed_slack": -14676426.86971739,
+          "passed": false
+        },
+        {
+          "id": "u5-v3",
+          "minimum_signed_slack": -14676426.86971739,
+          "passed": false
+        },
+        {
+          "id": "u5-v4",
+          "minimum_signed_slack": -82955.24083671065,
+          "passed": false
+        },
+        {
+          "id": "u5-v5",
+          "minimum_signed_slack": -320286.67399987095,
+          "passed": false
         },
         {
           "id": "u6-v0",
