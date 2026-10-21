@@ -1,0 +1,38 @@
+name: certificate-conditioned-selector
+
+on:
+  push:
+    branches: [breakthrough-engine/certificate-conditioned-selector-20261021]
+  pull_request:
+    paths:
+      - experiments/certificate_conditioned_selector/**
+      - scripts/audit_certificate_conditioned_selector.py
+      - tests/test_certificate_conditioned_selector.py
+      - docs/CERTIFICATE_CONDITIONED_SELECTOR_*.md
+      - results/certificate_conditioned_selector*.json
+      - .github/workflows/certificate-conditioned-selector.yml
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy==2.3.5 scipy==1.17.0 pytest
+      - name: Reproduce twice
+        run: |
+          python experiments/certificate_conditioned_selector/run.py --output /tmp/one.json
+          python experiments/certificate_conditioned_selector/run.py --output /tmp/two.json
+          cmp /tmp/one.json /tmp/two.json
+          cmp /tmp/one.json results/certificate_conditioned_selector.json
+      - name: Independent audit
+        run: |
+          python scripts/audit_certificate_conditioned_selector.py \
+            --primary results/certificate_conditioned_selector.json \
+            --output /tmp/audit.json
+          cmp /tmp/audit.json results/certificate_conditioned_selector_audit.json
+      - run: pytest -q tests/test_certificate_conditioned_selector.py
