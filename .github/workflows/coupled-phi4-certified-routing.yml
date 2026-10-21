@@ -1,0 +1,24 @@
+name: coupled-phi4-certified-routing
+
+on:
+  push:
+    branches: ["breakthrough-engine/coupled-phi4-certified-routing-*"]
+  pull_request:
+    paths:
+      - "experiments/coupled_phi4_certified_routing/**"
+      - "scripts/audit_coupled_phi4_certified_routing.py"
+      - "tests/test_coupled_phi4_certified_routing.py"
+      - ".github/workflows/coupled-phi4-certified-routing.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install numpy==2.3.5 scipy==1.17.0 pytest
+      - run: python experiments/coupled_phi4_certified_routing/run.py
+      - run: python scripts/audit_coupled_phi4_certified_routing.py
+      - run: PYTHONPATH=. python -m pytest -q tests/test_coupled_phi4_certified_routing.py
