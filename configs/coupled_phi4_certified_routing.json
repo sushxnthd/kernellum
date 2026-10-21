@@ -1,0 +1,13 @@
+{
+  "dimension": 5,
+  "sign_boxes": 32,
+  "box_absolute_bounds": [0.75, 1.25],
+  "edge_weight_numerators": [1, 2, 3, 4],
+  "edge_weight_denominator": 64,
+  "prospective_seed": 20261021,
+  "prospective_regimes": 16,
+  "identity_regimes": 1,
+  "starts_per_method": 32,
+  "capped_max_nfev": 4,
+  "required_work_reduction": 0.25
+}

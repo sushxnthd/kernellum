@@ -1,0 +1,16 @@
+{
+  "exact_work_reduction": "8/39",
+  "exact_work_reduction_percent": 20.512820512820515,
+  "independent_checks": {
+    "all_544_boxes_checked": true,
+    "corner_full_but_capped_failure": true,
+    "decision_preserved": true,
+    "frozen_25_percent_gate_fails": true,
+    "reported_reduction_recomputed": true,
+    "strict_face_margin": true,
+    "strict_jacobian_margin": true,
+    "structured_full_and_capped_complete": true,
+    "work_counts_recomputed": true
+  },
+  "status": "pass"
+}
