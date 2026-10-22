@@ -1,0 +1,2178 @@
+{
+  "batched_unbatched_behavior_identical": true,
+  "best_complete_control_work": 7308,
+  "decision": "SURVIVES",
+  "disjoint_from_predecessor": true,
+  "gate_pass": true,
+  "identity_checks": 608,
+  "max_start_mismatch": 0.0,
+  "orbit_batched_work_reduction": 0.2939244663382594,
+  "pre_digest_sha256": "b52ee302edc2298e6e2d60322f2c3c3ebbb2aee7e9bc6765ea3181cb3d656a35",
+  "protocol": "kernellum.phi4-orbit-certificate-amortization.v1",
+  "regimes": [
+    [
+      2,
+      1,
+      3,
+      3
+    ],
+    [
+      1,
+      3,
+      4,
+      1
+    ],
+    [
+      3,
+      4,
+      4,
+      4
+    ],
+    [
+      1,
+      2,
+      4,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      2
+    ],
+    [
+      4,
+      1,
+      3,
+      1
+    ],
+    [
+      2,
+      1,
+      1,
+      4
+    ],
+    [
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      2,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      3,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      4,
+      3
+    ],
+    [
+      1,
+      1,
+      3,
+      1
+    ],
+    [
+      4,
+      3,
+      2,
+      4
+    ],
+    [
+      4,
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      1,
+      3,
+      2
+    ],
+    [
+      2,
+      4,
+      2,
+      2
+    ],
+    [
+      1,
+      4,
+      1,
+      3
+    ],
+    [
+      2,
+      3,
+      4,
+      1
+    ],
+    [
+      2,
+      2,
+      4,
+      1
+    ]
+  ],
+  "rows": [
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.738051917213106e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 462,
+      "full": {
+        "best_objective": 2.4344958203269903e-33,
+        "coverage": 2,
+        "evaluations": 462
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.959770589282126e-37,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 427,
+      "full": {
+        "best_objective": 1.959770589282126e-37,
+        "coverage": 20,
+        "evaluations": 427
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 264,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 296,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.278605260861628e-13,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 463,
+      "full": {
+        "best_objective": 6.019159712153673e-34,
+        "coverage": 3,
+        "evaluations": 463
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.7205084954401047e-39,
+        "coverage": 0,
+        "evaluations": 245
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 421,
+      "full": {
+        "best_objective": 1.7205084954401047e-39,
+        "coverage": 20,
+        "evaluations": 421
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 300,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 268
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 332,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 268
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 396,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 396
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.0331452854618775e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 462,
+      "full": {
+        "best_objective": 6.2592723192585165e-34,
+        "coverage": 2,
+        "evaluations": 462
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.5145700195493628e-37,
+        "coverage": 0,
+        "evaluations": 248
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 406,
+      "full": {
+        "best_objective": 1.5145700195493628e-37,
+        "coverage": 20,
+        "evaluations": 406
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 264,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 296,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.23733650378182e-13,
+        "coverage": 0,
+        "evaluations": 233
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 469,
+      "full": {
+        "best_objective": 2.1262341817673536e-34,
+        "coverage": 3,
+        "evaluations": 469
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.0111984019705146e-39,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 421,
+      "full": {
+        "best_objective": 3.0111984019705146e-39,
+        "coverage": 20,
+        "evaluations": 421
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 9.541173402055191e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 468,
+      "full": {
+        "best_objective": 3.1416732217816785e-33,
+        "coverage": 3,
+        "evaluations": 468
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.332643074920219e-38,
+        "coverage": 0,
+        "evaluations": 242
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 424,
+      "full": {
+        "best_objective": 2.332643074920219e-38,
+        "coverage": 20,
+        "evaluations": 424
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 264,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 296,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.6732133073807433e-13,
+        "coverage": 0,
+        "evaluations": 233
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 465,
+      "full": {
+        "best_objective": 2.082423553229955e-33,
+        "coverage": 2,
+        "evaluations": 465
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.8256611330538076e-38,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 421,
+      "full": {
+        "best_objective": 1.8256611330538076e-38,
+        "coverage": 20,
+        "evaluations": 421
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 236
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 268,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 236
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 236
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 300,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 236
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.3690738932602696e-14,
+        "coverage": 0,
+        "evaluations": 231
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 468,
+      "full": {
+        "best_objective": 5.416677968589101e-34,
+        "coverage": 2,
+        "evaluations": 468
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.4439236875777527e-36,
+        "coverage": 0,
+        "evaluations": 242
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 424,
+      "full": {
+        "best_objective": 1.4439236875777527e-36,
+        "coverage": 20,
+        "evaluations": 424
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 276,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 308,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.5179093814921207e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 465,
+      "full": {
+        "best_objective": 1.1593195485549728e-33,
+        "coverage": 2,
+        "evaluations": 465
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 7.827904445761304e-38,
+        "coverage": 0,
+        "evaluations": 246
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 416,
+      "full": {
+        "best_objective": 7.827904445761304e-38,
+        "coverage": 20,
+        "evaluations": 416
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.596234223903017e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 465,
+      "full": {
+        "best_objective": 1.9259299444993397e-34,
+        "coverage": 2,
+        "evaluations": 465
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.6309938862125774e-37,
+        "coverage": 0,
+        "evaluations": 242
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 424,
+      "full": {
+        "best_objective": 2.6309938862125774e-37,
+        "coverage": 20,
+        "evaluations": 424
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 276,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 308,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.2977863873858493e-13,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 453,
+      "full": {
+        "best_objective": 1.2518544638517033e-33,
+        "coverage": 2,
+        "evaluations": 453
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.0468099512582357e-38,
+        "coverage": 0,
+        "evaluations": 245
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 419,
+      "full": {
+        "best_objective": 3.0468099512582357e-38,
+        "coverage": 20,
+        "evaluations": 419
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.8450745044134735e-14,
+        "coverage": 0,
+        "evaluations": 236
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 463,
+      "full": {
+        "best_objective": 4.81482486096809e-35,
+        "coverage": 3,
+        "evaluations": 463
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 7.567927395963032e-38,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 423,
+      "full": {
+        "best_objective": 7.567927395963032e-38,
+        "coverage": 20,
+        "evaluations": 423
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 224
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 256,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 224
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 224
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 288,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 224
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.037232086900728e-13,
+        "coverage": 0,
+        "evaluations": 233
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 464,
+      "full": {
+        "best_objective": 4.454183222834404e-34,
+        "coverage": 3,
+        "evaluations": 464
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 8.679628990257012e-39,
+        "coverage": 0,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 432,
+      "full": {
+        "best_objective": 8.679628990257012e-39,
+        "coverage": 20,
+        "evaluations": 432
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 276,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 308,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 8.326003778403343e-14,
+        "coverage": 0,
+        "evaluations": 235
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 459,
+      "full": {
+        "best_objective": 3.088280985540243e-33,
+        "coverage": 2,
+        "evaluations": 459
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 6.085458685300143e-37,
+        "coverage": 0,
+        "evaluations": 246
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 418,
+      "full": {
+        "best_objective": 6.085458685300143e-37,
+        "coverage": 20,
+        "evaluations": 418
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 8.63484751396792e-14,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 465,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 465
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.396031387818056e-37,
+        "coverage": 0,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 420,
+      "full": {
+        "best_objective": 2.396031387818056e-37,
+        "coverage": 20,
+        "evaluations": 420
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        4,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.0614859953053632e-13,
+        "coverage": 0,
+        "evaluations": 233
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 459,
+      "full": {
+        "best_objective": 1.3120397746138044e-33,
+        "coverage": 2,
+        "evaluations": 459
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.992838927571081e-38,
+        "coverage": 0,
+        "evaluations": 241
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 425,
+      "full": {
+        "best_objective": 3.992838927571081e-38,
+        "coverage": 20,
+        "evaluations": 425
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 276,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 308,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 244
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 7.97204524760916e-14,
+        "coverage": 0,
+        "evaluations": 235
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 460,
+      "full": {
+        "best_objective": 9.62964972193618e-35,
+        "coverage": 2,
+        "evaluations": 460
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.4668590568828633e-38,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 423,
+      "full": {
+        "best_objective": 1.4668590568828633e-38,
+        "coverage": 20,
+        "evaluations": 423
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 264,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 296,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 232
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.3371437310664635e-14,
+        "coverage": 0,
+        "evaluations": 237
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 452,
+      "full": {
+        "best_objective": 4.816000355318912e-35,
+        "coverage": 3,
+        "evaluations": 452
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 1.0830034375513197e-37,
+        "coverage": 0,
+        "evaluations": 243
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 427,
+      "full": {
+        "best_objective": 1.0830034375513197e-37,
+        "coverage": 20,
+        "evaluations": 427
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.383382857020189e-13,
+        "coverage": 0,
+        "evaluations": 234
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 450,
+      "full": {
+        "best_objective": 1.2054300224806493e-33,
+        "coverage": 2,
+        "evaluations": 450
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.503299583344059e-39,
+        "coverage": 0,
+        "evaluations": 245
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 423,
+      "full": {
+        "best_objective": 2.503299583344059e-39,
+        "coverage": 20,
+        "evaluations": 423
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 32,
+      "end_to_end_evaluations": 272,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "orbit_batched_certified",
+      "weights_numerators": [
+        2,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "certificate_start_overhead": 64,
+      "end_to_end_evaluations": 304,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 240
+      },
+      "method": "unbatched_certified",
+      "weights_numerators": [
+        2,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 2.0374160312215027e-08,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 384,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "weights_numerators": [
+        2,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.346324072375314e-13,
+        "coverage": 0,
+        "evaluations": 231
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 462,
+      "full": {
+        "best_objective": 6.680569494593224e-34,
+        "coverage": 2,
+        "evaluations": 462
+      },
+      "method": "optimized_lhs",
+      "weights_numerators": [
+        2,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 3.9980844374574397e-39,
+        "coverage": 0,
+        "evaluations": 244
+      },
+      "certificate_start_overhead": 0,
+      "end_to_end_evaluations": 422,
+      "full": {
+        "best_objective": 3.9980844374574397e-39,
+        "coverage": 20,
+        "evaluations": 422
+      },
+      "method": "greedy_maximin",
+      "weights_numerators": [
+        2,
+        2,
+        4,
+        1
+      ]
+    }
+  ],
+  "seed": 20261022,
+  "summary": {
+    "greedy_maximin": {
+      "capped_catastrophes": 19,
+      "capped_complete": 0,
+      "full_complete": 0,
+      "regimes": 19,
+      "total_end_to_end_evaluations": 8016,
+      "total_overhead": 0,
+      "total_solver_evaluations": 8016,
+      "worst_best_objective": 1.4439236875777527e-36
+    },
+    "optimized_lhs": {
+      "capped_catastrophes": 19,
+      "capped_complete": 0,
+      "full_complete": 0,
+      "regimes": 19,
+      "total_end_to_end_evaluations": 8774,
+      "total_overhead": 0,
+      "total_solver_evaluations": 8774,
+      "worst_best_objective": 3.1416732217816785e-33
+    },
+    "orbit_batched_certified": {
+      "capped_catastrophes": 0,
+      "capped_complete": 19,
+      "full_complete": 19,
+      "regimes": 19,
+      "total_end_to_end_evaluations": 5160,
+      "total_overhead": 608,
+      "total_solver_evaluations": 4552,
+      "worst_best_objective": 0.0
+    },
+    "tensor_corners": {
+      "capped_catastrophes": 19,
+      "capped_complete": 0,
+      "full_complete": 19,
+      "regimes": 19,
+      "total_end_to_end_evaluations": 7308,
+      "total_overhead": 0,
+      "total_solver_evaluations": 7308,
+      "worst_best_objective": 0.0
+    },
+    "unbatched_certified": {
+      "capped_catastrophes": 0,
+      "capped_complete": 19,
+      "full_complete": 19,
+      "regimes": 19,
+      "total_end_to_end_evaluations": 5768,
+      "total_overhead": 1216,
+      "total_solver_evaluations": 4552,
+      "worst_best_objective": 0.0
+    }
+  }
+}
