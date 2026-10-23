@@ -1,0 +1,14 @@
+{
+  "status": "opened calibration only",
+  "seed": 20261023,
+  "regimes": 20,
+  "family": "coupled quintic path residual",
+  "summary": {
+    "orbit_batched": {"full_complete":20,"capped_complete":20,"total_work":4768},
+    "unbatched": {"full_complete":20,"capped_complete":20,"total_work":5408},
+    "tensor_corners": {"full_complete":20,"capped_complete":0,"total_work":8108},
+    "optimized_lhs": {"full_complete":0,"capped_complete":0,"total_work":15444},
+    "greedy_maximin": {"full_complete":0,"capped_complete":0,"total_work":11636}
+  },
+  "use": "design calibration only; excluded from prospective claim"
+}
