@@ -12,3 +12,9 @@ the frozen numerical-zero tolerance. Decisions, coverage, costs, and gates were
 identical, but byte comparison failed. Both the new and predecessor runners now
 canonicalize objectives below 1e-20 to 0.0 before serialization. No scientific
 input or outcome changed; the failed hosted runs remain in GitHub provenance.
+
+A second hosted run showed the primary digest still varied because nonzero
+diagnostic residual objectives retained BLAS-dependent digits far below any
+decision boundary. The quintic runner now serializes objective diagnostics to
+12 significant digits before applying the numerical-zero rule. Coverage,
+convergence, work, starts, exact reduction, and every frozen gate are unchanged.

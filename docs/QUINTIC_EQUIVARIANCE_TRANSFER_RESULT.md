@@ -76,6 +76,9 @@ The independent checker does not import the experiment. It:
 - recomputes the primary artifact digest.
 
 All nine checks passed, and duplicate primary artifacts were byte-identical.
+Floating objective diagnostics are canonicalized to 12 significant digits
+before serialization; this is substantially tighter than any frozen threshold
+and does not affect convergence, coverage, routing, or work accounting.
 
 ## Project consequence
 
