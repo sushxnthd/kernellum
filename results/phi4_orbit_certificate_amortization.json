@@ -7,7 +7,7 @@
   "identity_checks": 608,
   "max_start_mismatch": 0.0,
   "orbit_batched_work_reduction": 0.2939244663382594,
-  "pre_digest_sha256": "b52ee302edc2298e6e2d60322f2c3c3ebbb2aee7e9bc6765ea3181cb3d656a35",
+  "pre_digest_sha256": "771531fb9c6c0afaf7812d9ec54526422fe8e4df5ec52f6e38b3ced09e08262f",
   "protocol": "kernellum.phi4-orbit-certificate-amortization.v1",
   "regimes": [
     [
@@ -198,7 +198,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 462,
       "full": {
-        "best_objective": 2.4344958203269903e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 462
       },
@@ -212,14 +212,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.959770589282126e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 427,
       "full": {
-        "best_objective": 1.959770589282126e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 427
       },
@@ -303,7 +303,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 463,
       "full": {
-        "best_objective": 6.019159712153673e-34,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 463
       },
@@ -317,14 +317,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.7205084954401047e-39,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 245
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 421,
       "full": {
-        "best_objective": 1.7205084954401047e-39,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 421
       },
@@ -408,7 +408,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 462,
       "full": {
-        "best_objective": 6.2592723192585165e-34,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 462
       },
@@ -422,14 +422,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.5145700195493628e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 248
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 406,
       "full": {
-        "best_objective": 1.5145700195493628e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 406
       },
@@ -513,7 +513,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 469,
       "full": {
-        "best_objective": 2.1262341817673536e-34,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 469
       },
@@ -527,14 +527,14 @@
     },
     {
       "capped": {
-        "best_objective": 3.0111984019705146e-39,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 421,
       "full": {
-        "best_objective": 3.0111984019705146e-39,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 421
       },
@@ -618,7 +618,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 468,
       "full": {
-        "best_objective": 3.1416732217816785e-33,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 468
       },
@@ -632,14 +632,14 @@
     },
     {
       "capped": {
-        "best_objective": 2.332643074920219e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 242
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 424,
       "full": {
-        "best_objective": 2.332643074920219e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 424
       },
@@ -723,7 +723,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 465,
       "full": {
-        "best_objective": 2.082423553229955e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 465
       },
@@ -737,14 +737,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.8256611330538076e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 421,
       "full": {
-        "best_objective": 1.8256611330538076e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 421
       },
@@ -828,7 +828,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 468,
       "full": {
-        "best_objective": 5.416677968589101e-34,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 468
       },
@@ -842,14 +842,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.4439236875777527e-36,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 242
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 424,
       "full": {
-        "best_objective": 1.4439236875777527e-36,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 424
       },
@@ -933,7 +933,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 465,
       "full": {
-        "best_objective": 1.1593195485549728e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 465
       },
@@ -947,14 +947,14 @@
     },
     {
       "capped": {
-        "best_objective": 7.827904445761304e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 246
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 416,
       "full": {
-        "best_objective": 7.827904445761304e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 416
       },
@@ -1038,7 +1038,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 465,
       "full": {
-        "best_objective": 1.9259299444993397e-34,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 465
       },
@@ -1052,14 +1052,14 @@
     },
     {
       "capped": {
-        "best_objective": 2.6309938862125774e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 242
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 424,
       "full": {
-        "best_objective": 2.6309938862125774e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 424
       },
@@ -1143,7 +1143,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 453,
       "full": {
-        "best_objective": 1.2518544638517033e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 453
       },
@@ -1157,14 +1157,14 @@
     },
     {
       "capped": {
-        "best_objective": 3.0468099512582357e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 245
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 419,
       "full": {
-        "best_objective": 3.0468099512582357e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 419
       },
@@ -1248,7 +1248,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 463,
       "full": {
-        "best_objective": 4.81482486096809e-35,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 463
       },
@@ -1262,14 +1262,14 @@
     },
     {
       "capped": {
-        "best_objective": 7.567927395963032e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 423,
       "full": {
-        "best_objective": 7.567927395963032e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 423
       },
@@ -1353,7 +1353,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 464,
       "full": {
-        "best_objective": 4.454183222834404e-34,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 464
       },
@@ -1367,14 +1367,14 @@
     },
     {
       "capped": {
-        "best_objective": 8.679628990257012e-39,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 240
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 432,
       "full": {
-        "best_objective": 8.679628990257012e-39,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 432
       },
@@ -1458,7 +1458,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 459,
       "full": {
-        "best_objective": 3.088280985540243e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 459
       },
@@ -1472,14 +1472,14 @@
     },
     {
       "capped": {
-        "best_objective": 6.085458685300143e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 246
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 418,
       "full": {
-        "best_objective": 6.085458685300143e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 418
       },
@@ -1577,14 +1577,14 @@
     },
     {
       "capped": {
-        "best_objective": 2.396031387818056e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 244
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 420,
       "full": {
-        "best_objective": 2.396031387818056e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 420
       },
@@ -1668,7 +1668,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 459,
       "full": {
-        "best_objective": 1.3120397746138044e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 459
       },
@@ -1682,14 +1682,14 @@
     },
     {
       "capped": {
-        "best_objective": 3.992838927571081e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 241
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 425,
       "full": {
-        "best_objective": 3.992838927571081e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 425
       },
@@ -1773,7 +1773,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 460,
       "full": {
-        "best_objective": 9.62964972193618e-35,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 460
       },
@@ -1787,14 +1787,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.4668590568828633e-38,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 423,
       "full": {
-        "best_objective": 1.4668590568828633e-38,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 423
       },
@@ -1878,7 +1878,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 452,
       "full": {
-        "best_objective": 4.816000355318912e-35,
+        "best_objective": 0.0,
         "coverage": 3,
         "evaluations": 452
       },
@@ -1892,14 +1892,14 @@
     },
     {
       "capped": {
-        "best_objective": 1.0830034375513197e-37,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 243
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 427,
       "full": {
-        "best_objective": 1.0830034375513197e-37,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 427
       },
@@ -1983,7 +1983,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 450,
       "full": {
-        "best_objective": 1.2054300224806493e-33,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 450
       },
@@ -1997,14 +1997,14 @@
     },
     {
       "capped": {
-        "best_objective": 2.503299583344059e-39,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 245
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 423,
       "full": {
-        "best_objective": 2.503299583344059e-39,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 423
       },
@@ -2088,7 +2088,7 @@
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 462,
       "full": {
-        "best_objective": 6.680569494593224e-34,
+        "best_objective": 0.0,
         "coverage": 2,
         "evaluations": 462
       },
@@ -2102,14 +2102,14 @@
     },
     {
       "capped": {
-        "best_objective": 3.9980844374574397e-39,
+        "best_objective": 0.0,
         "coverage": 0,
         "evaluations": 244
       },
       "certificate_start_overhead": 0,
       "end_to_end_evaluations": 422,
       "full": {
-        "best_objective": 3.9980844374574397e-39,
+        "best_objective": 0.0,
         "coverage": 20,
         "evaluations": 422
       },
@@ -2132,7 +2132,7 @@
       "total_end_to_end_evaluations": 8016,
       "total_overhead": 0,
       "total_solver_evaluations": 8016,
-      "worst_best_objective": 1.4439236875777527e-36
+      "worst_best_objective": 0.0
     },
     "optimized_lhs": {
       "capped_catastrophes": 19,
@@ -2142,7 +2142,7 @@
       "total_end_to_end_evaluations": 8774,
       "total_overhead": 0,
       "total_solver_evaluations": 8774,
-      "worst_best_objective": 3.1416732217816785e-33
+      "worst_best_objective": 0.0
     },
     "orbit_batched_certified": {
       "capped_catastrophes": 0,

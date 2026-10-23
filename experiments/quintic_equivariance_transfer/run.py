@@ -150,6 +150,8 @@ def evaluate(starts, weights, budget):
         point, calls, converged = solve(start, weights, budget)
         evaluations += calls
         objective = float(np.dot(residual(point, weights), residual(point, weights)))
+        if objective < 1e-20:
+            objective = 0.0
         best_objective = min(best_objective, objective)
         if converged:
             label = box_label(point)

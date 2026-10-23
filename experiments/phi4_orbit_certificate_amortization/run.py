@@ -79,6 +79,12 @@ def main():
         for name, starts in methods.items():
             full = evaluate(starts, weights, roots, 100)
             capped = evaluate(starts, weights, roots, 4)
+            # Canonicalize numerical zero so BLAS-level roundoff does not alter
+            # the committed scientific artifact across hosted platforms.
+            if full["best_objective"] < 1e-20:
+                full["best_objective"] = 0.0
+            if capped["best_objective"] < 1e-20:
+                capped["best_objective"] = 0.0
             overhead = 32 if name == "orbit_batched_certified" else (
                 64 if name == "unbatched_certified" else 0)
             rows.append({

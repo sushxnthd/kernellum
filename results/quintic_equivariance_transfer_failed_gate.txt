@@ -6,3 +6,9 @@ All four focused test functions were then imported and executed directly; each
 passed. Python byte-compilation, duplicate artifact comparison, and the
 independent rational checker also passed. Hosted GitHub CI remains the
 authoritative pytest and full-regression gate.
+
+The first hosted reproduction exposed platform-dependent floating tails below
+the frozen numerical-zero tolerance. Decisions, coverage, costs, and gates were
+identical, but byte comparison failed. Both the new and predecessor runners now
+canonicalize objectives below 1e-20 to 0.0 before serialization. No scientific
+input or outcome changed; the failed hosted runs remain in GitHub provenance.
