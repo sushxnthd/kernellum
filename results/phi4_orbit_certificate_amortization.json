@@ -6,8 +6,8 @@
   "gate_pass": true,
   "identity_checks": 608,
   "max_start_mismatch": 0.0,
-  "orbit_batched_work_reduction": 0.2939244663382594,
-  "pre_digest_sha256": "771531fb9c6c0afaf7812d9ec54526422fe8e4df5ec52f6e38b3ced09e08262f",
+  "orbit_batched_work_reduction": 0.293924466338259,
+  "pre_digest_sha256": "e0e100b0030d6ae8e40b625ceac596275edcc17fc1ed47c76bd28aa8ea6a6469",
   "protocol": "kernellum.phi4-orbit-certificate-amortization.v1",
   "regimes": [
     [
@@ -170,7 +170,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -191,7 +191,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.738051917213106e-14,
+        "best_objective": 3.73805191721311e-14,
         "coverage": 0,
         "evaluations": 234
       },
@@ -275,7 +275,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -296,7 +296,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.278605260861628e-13,
+        "best_objective": 3.27860526086163e-13,
         "coverage": 0,
         "evaluations": 234
       },
@@ -380,7 +380,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -401,7 +401,7 @@
     },
     {
       "capped": {
-        "best_objective": 5.0331452854618775e-14,
+        "best_objective": 5.03314528546188e-14,
         "coverage": 0,
         "evaluations": 234
       },
@@ -485,7 +485,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -590,7 +590,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -611,7 +611,7 @@
     },
     {
       "capped": {
-        "best_objective": 9.541173402055191e-14,
+        "best_objective": 9.54117340205519e-14,
         "coverage": 0,
         "evaluations": 234
       },
@@ -695,7 +695,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -716,7 +716,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.6732133073807433e-13,
+        "best_objective": 2.67321330738074e-13,
         "coverage": 0,
         "evaluations": 233
       },
@@ -800,7 +800,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -821,7 +821,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.3690738932602696e-14,
+        "best_objective": 3.36907389326027e-14,
         "coverage": 0,
         "evaluations": 231
       },
@@ -905,7 +905,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -926,7 +926,7 @@
     },
     {
       "capped": {
-        "best_objective": 5.5179093814921207e-14,
+        "best_objective": 5.51790938149212e-14,
         "coverage": 0,
         "evaluations": 234
       },
@@ -1010,7 +1010,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1031,7 +1031,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.596234223903017e-14,
+        "best_objective": 3.59623422390302e-14,
         "coverage": 0,
         "evaluations": 234
       },
@@ -1115,7 +1115,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1136,7 +1136,7 @@
     },
     {
       "capped": {
-        "best_objective": 1.2977863873858493e-13,
+        "best_objective": 1.29778638738585e-13,
         "coverage": 0,
         "evaluations": 234
       },
@@ -1220,7 +1220,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1241,7 +1241,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.8450745044134735e-14,
+        "best_objective": 2.84507450441347e-14,
         "coverage": 0,
         "evaluations": 236
       },
@@ -1325,7 +1325,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1346,7 +1346,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.037232086900728e-13,
+        "best_objective": 2.03723208690073e-13,
         "coverage": 0,
         "evaluations": 233
       },
@@ -1430,7 +1430,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1451,7 +1451,7 @@
     },
     {
       "capped": {
-        "best_objective": 8.326003778403343e-14,
+        "best_objective": 8.32600377840334e-14,
         "coverage": 0,
         "evaluations": 235
       },
@@ -1535,7 +1535,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1640,7 +1640,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1661,7 +1661,7 @@
     },
     {
       "capped": {
-        "best_objective": 1.0614859953053632e-13,
+        "best_objective": 1.06148599530536e-13,
         "coverage": 0,
         "evaluations": 233
       },
@@ -1745,7 +1745,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1850,7 +1850,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1871,7 +1871,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.3371437310664635e-14,
+        "best_objective": 2.33714373106646e-14,
         "coverage": 0,
         "evaluations": 237
       },
@@ -1955,7 +1955,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -1976,7 +1976,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.383382857020189e-13,
+        "best_objective": 3.38338285702019e-13,
         "coverage": 0,
         "evaluations": 234
       },
@@ -2060,7 +2060,7 @@
     },
     {
       "capped": {
-        "best_objective": 2.0374160312215027e-08,
+        "best_objective": 2.0374160312215e-08,
         "coverage": 0,
         "evaluations": 256
       },
@@ -2081,7 +2081,7 @@
     },
     {
       "capped": {
-        "best_objective": 3.346324072375314e-13,
+        "best_objective": 3.34632407237531e-13,
         "coverage": 0,
         "evaluations": 231
       },

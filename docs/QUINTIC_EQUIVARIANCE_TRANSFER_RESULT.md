@@ -98,6 +98,9 @@ broken obligations remain fail-closed.
 - Approximate symmetry is intentionally rejected; no perturbative error bound
   is claimed.
 - The calibration pilot is not prospective evidence and is retained separately.
+- Reproducibility serialization canonicalizes diagnostic floats before hashing;
+  this affects provenance representation only and leaves all gates and exact
+  quantities unchanged.
 
 ## Novelty audit
 

@@ -142,6 +142,19 @@ def box_label(point):
     return tuple(1 if value > 0 else -1 for value in point)
 
 
+def canonicalize(value):
+    """Map diagnostic floats to a platform-independent evidence format."""
+    if isinstance(value, float):
+        if abs(value) < 1e-14:
+            return 0.0
+        return float(f"{value:.15g}")
+    if isinstance(value, list):
+        return [canonicalize(item) for item in value]
+    if isinstance(value, dict):
+        return {key: canonicalize(item) for key, item in value.items()}
+    return value
+
+
 def evaluate(starts, weights, budget):
     covered = set()
     evaluations = 0
@@ -298,6 +311,7 @@ def main():
         "gate_pass": gate,
         "decision": "TRANSFER_SURVIVES" if gate else "KILL_OR_REFORMULATE",
     }
+    result = canonicalize(result)
     without_digest = json.dumps(result, indent=2, sort_keys=True) + "\n"
     result["pre_digest_sha256"] = hashlib.sha256(without_digest.encode()).hexdigest()
     target = ROOT / "results/quintic_equivariance_transfer.json"
