@@ -1,0 +1,52 @@
+name: quintic-equivariance-transfer
+
+on:
+  push:
+    branches: ["breakthrough-engine/phi4-orbit-certificate-amortization-*"]
+    paths:
+      - "experiments/quintic_equivariance_transfer/**"
+      - "kernellum/discovery/symmetry_orbit_starts.py"
+      - "scripts/audit_quintic_equivariance_transfer.py"
+      - "tests/test_quintic_equivariance_transfer.py"
+      - "docs/QUINTIC_EQUIVARIANCE_TRANSFER_*.md"
+      - "results/quintic_equivariance_transfer*"
+      - ".github/workflows/quintic-equivariance-transfer.yml"
+  pull_request:
+    paths:
+      - "experiments/quintic_equivariance_transfer/**"
+      - "kernellum/discovery/symmetry_orbit_starts.py"
+      - "scripts/audit_quintic_equivariance_transfer.py"
+      - "tests/test_quintic_equivariance_transfer.py"
+      - "docs/QUINTIC_EQUIVARIANCE_TRANSFER_*.md"
+      - "results/quintic_equivariance_transfer*"
+      - ".github/workflows/quintic-equivariance-transfer.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install numpy==2.3.5 pytest
+      - name: Reproduce primary artifact twice
+        run: |
+          cp results/quintic_equivariance_transfer.json /tmp/expected.json
+          python experiments/quintic_equivariance_transfer/run.py
+          cmp results/quintic_equivariance_transfer.json /tmp/expected.json
+          cp results/quintic_equivariance_transfer.json /tmp/first.json
+          python experiments/quintic_equivariance_transfer/run.py
+          cmp results/quintic_equivariance_transfer.json /tmp/first.json
+      - name: Independent rational checker
+        run: |
+          cp results/quintic_equivariance_transfer_audit.json /tmp/expected-audit.json
+          python scripts/audit_quintic_equivariance_transfer.py
+          cmp results/quintic_equivariance_transfer_audit.json /tmp/expected-audit.json
+      - name: Focused and predecessor tests
+        run: |
+          PYTHONPATH=. python -m pytest -q \
+            tests/test_quintic_equivariance_transfer.py \
+            tests/test_phi4_orbit_certificate_amortization.py \
+            tests/test_symmetry_orbit_starts.py

@@ -1,0 +1,8 @@
+The first local pytest command stopped before collection because the configured
+container Python does not include pytest. No scientific input, threshold,
+holdout regime, solver output, or artifact was changed.
+
+All four focused test functions were then imported and executed directly; each
+passed. Python byte-compilation, duplicate artifact comparison, and the
+independent rational checker also passed. Hosted GitHub CI remains the
+authoritative pytest and full-regression gate.

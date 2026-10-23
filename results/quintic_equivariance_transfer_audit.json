@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "all_aggregates_recomputed": true,
+    "exact_box_margins": true,
+    "exact_equivariance_on_unseen_rationals": true,
+    "exact_fleet_gate": true,
+    "forced_regimes_abstain_pre_evaluation": true,
+    "holdout_frozen_and_disjoint": true,
+    "primary_digest_recomputed": true,
+    "reported_gate_consistent": true,
+    "safety_and_ablation": true
+  },
+  "exact_work_reduction": "477/1165",
+  "exact_work_reduction_percent": 40.94420600858369,
+  "protocol": "kernellum.quintic-equivariance-transfer.audit.v1",
+  "status": "pass"
+}
