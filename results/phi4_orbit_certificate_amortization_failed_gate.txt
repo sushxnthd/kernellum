@@ -1,0 +1,11 @@
+First execution failed before opening any prospective regime or solver outcome.
+Python placed the experiment directory, rather than the repository root, on
+`sys.path`, so the predecessor experiment module could not be imported. The
+runner now inserts its resolved repository root before importing shared frozen
+functions. No protocol, seed, regime, threshold, mechanism, or outcome changed.
+
+The first local pytest invocation then stopped before collection because this
+fresh worktree's configured Python runtime does not include pytest. The exact
+runner, duplicate comparison, and independent audit had already passed. Focused
+test functions were subsequently executed directly; hosted CI remains the
+authoritative pytest/full-suite gate. No scientific input or result changed.
