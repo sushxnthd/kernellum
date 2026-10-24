@@ -1,0 +1,29 @@
+The first local pytest command stopped before collection because the configured
+container Python does not include pytest. No scientific input, threshold,
+holdout regime, solver output, or artifact was changed.
+
+All four focused test functions were then imported and executed directly; each
+passed. Python byte-compilation, duplicate artifact comparison, and the
+independent rational checker also passed. Hosted GitHub CI remains the
+authoritative pytest and full-regression gate.
+
+The first hosted reproduction exposed platform-dependent floating tails below
+the frozen numerical-zero tolerance. Decisions, coverage, costs, and gates were
+identical, but byte comparison failed. Both the new and predecessor runners now
+canonicalize objectives below 1e-20 to 0.0 before serialization. No scientific
+input or outcome changed; the failed hosted runs remain in GitHub provenance.
+
+A second hosted run showed the primary digest still varied because nonzero
+diagnostic residual objectives retained BLAS-dependent digits far below any
+decision boundary. The quintic runner now serializes objective diagnostics to
+12 significant digits before applying the numerical-zero rule. Coverage,
+convergence, work, starts, exact reduction, and every frozen gate are unchanged.
+
+A third hosted run reproduced every scientific summary but showed that the
+artifact digest itself still exposed platform-sensitive diagnostic floats; the
+same refreshed runner image also exposed this in the predecessor phi4 artifact.
+Both runners now canonicalize all serialized diagnostic floats (numerical zero
+below 1e-14, otherwise 15 significant digits) before computing the digest.
+Objective values retain the stricter 12-significant-digit rule above. Both
+independent digest audits pass locally, duplicate runs are byte-identical, and
+no scientific input, outcome, threshold, or gate changed.

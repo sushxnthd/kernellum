@@ -1,0 +1,16 @@
+{
+  "exact_work_reduction": "179/609",
+  "exact_work_reduction_percent": 29.392446633825944,
+  "independent_checks": {
+    "all_aggregates_recomputed": true,
+    "all_exact_orbit_identities": true,
+    "exact_25_percent_gate_passes": true,
+    "nineteen_disjoint_regimes": true,
+    "overhead_halved_only": true,
+    "primary_digest_recomputed": true,
+    "safety_and_control_boundary": true,
+    "starts_and_behavior_identical": true
+  },
+  "protocol": "kernellum.phi4-orbit-certificate-amortization.audit.v1",
+  "status": "pass"
+}

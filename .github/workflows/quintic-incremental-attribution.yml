@@ -1,0 +1,25 @@
+name: Kernellum quintic incremental attribution audit
+on:
+  push:
+    branches:
+      - breakthrough-engine/phi4-orbit-certificate-amortization-20261021
+    paths:
+      - scripts/audit_quintic_incremental_attribution.py
+      - .github/workflows/quintic-incremental-attribution.yml
+  workflow_dispatch:
+
+jobs:
+  independent-attribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Adversarial self-test
+        run: python3 scripts/audit_quintic_incremental_attribution.py --self-test
+      - name: Audit frozen prospective holdout without rerunning solvers
+        run: python3 scripts/audit_quintic_incremental_attribution.py > quintic-incremental-attribution.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quintic-incremental-attribution
+          path: quintic-incremental-attribution.json
+          retention-days: 30

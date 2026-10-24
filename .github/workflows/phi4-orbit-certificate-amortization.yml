@@ -1,0 +1,75 @@
+name: phi4-orbit-certificate-amortization
+
+on:
+  push:
+    branches: ["breakthrough-engine/phi4-orbit-certificate-amortization-*"]
+  pull_request:
+    paths:
+      - "experiments/phi4_orbit_certificate_amortization/**"
+      - "kernellum/discovery/symmetry_orbit_starts.py"
+      - "scripts/audit_phi4_orbit_certificate_amortization.py"
+      - "tests/test_phi4_orbit_certificate_amortization.py"
+      - "tests/test_symmetry_orbit_starts.py"
+      - "docs/PHI4_ORBIT_CERTIFICATE_AMORTIZATION_*.md"
+      - "results/phi4_orbit_certificate_amortization*"
+      - ".github/workflows/phi4-orbit-certificate-amortization.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install numpy==2.3.5 scipy==1.17.0 pytest
+      - name: Reproduce primary artifact twice
+        run: |
+          cp results/phi4_orbit_certificate_amortization.json /tmp/expected.json
+          python experiments/phi4_orbit_certificate_amortization/run.py
+          python - <<'PY'
+          import json
+          import math
+
+          expected = json.load(open("/tmp/expected.json"))
+          actual = json.load(open("results/phi4_orbit_certificate_amortization.json"))
+
+          def compare(a, b, path="root"):
+              if path.endswith(".pre_digest_sha256"):
+                  return
+              if isinstance(a, bool) or isinstance(b, bool):
+                  assert a == b, f"{path}: {a!r} != {b!r}"
+                  return
+              if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (
+                      f"{path}: {a!r} != {b!r}"
+                  )
+                  return
+              assert type(a) is type(b), f"{path}: type mismatch {type(a)} != {type(b)}"
+              if isinstance(a, dict):
+                  assert set(a) == set(b), f"{path}: key mismatch"
+                  for key in a:
+                      if key == "pre_digest_sha256":
+                          continue
+                      compare(a[key], b[key], f"{path}.{key}")
+              elif isinstance(a, list):
+                  assert len(a) == len(b), f"{path}: length mismatch"
+                  for i, (left, right) in enumerate(zip(a, b)):
+                      compare(left, right, f"{path}[{i}]")
+              else:
+                  assert a == b, f"{path}: {a!r} != {b!r}"
+
+          compare(expected, actual)
+          print("Committed and reproduced scientific evidence agree within 1e-12.")
+          PY
+          cp results/phi4_orbit_certificate_amortization.json /tmp/first.json
+          python experiments/phi4_orbit_certificate_amortization/run.py
+          cmp results/phi4_orbit_certificate_amortization.json /tmp/first.json
+      - name: Run independent exact checker
+        run: |
+          cp results/phi4_orbit_certificate_amortization_audit.json /tmp/expected-audit.json
+          python scripts/audit_phi4_orbit_certificate_amortization.py
+          cmp results/phi4_orbit_certificate_amortization_audit.json /tmp/expected-audit.json
+      - name: Run focused tests
+        run: PYTHONPATH=. python -m pytest -q tests/test_phi4_orbit_certificate_amortization.py tests/test_coupled_phi4_certified_routing.py tests/test_symmetry_orbit_starts.py

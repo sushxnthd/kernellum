@@ -1,0 +1,2867 @@
+{
+  "batched_unbatched_behavior_identical": true,
+  "best_complete_control_work": 9320,
+  "decision": "TRANSFER_SURVIVES",
+  "diagnostic": {
+    "certified_root_boxes_per_regime": 32,
+    "face_margin": "1063/3072",
+    "jacobian_even": true,
+    "monotonicity_margin": "149/256",
+    "residual_odd": true
+  },
+  "exact_work_reduction": "477/1165",
+  "gate_pass": true,
+  "holdout_disjoint_from_pilot": true,
+  "holdout_regimes": [
+    [
+      3,
+      2,
+      2,
+      1
+    ],
+    [
+      4,
+      4,
+      1,
+      3
+    ],
+    [
+      3,
+      2,
+      2,
+      2
+    ],
+    [
+      4,
+      3,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      3,
+      3,
+      2
+    ],
+    [
+      3,
+      3,
+      3,
+      4
+    ],
+    [
+      3,
+      4,
+      1,
+      2
+    ],
+    [
+      4,
+      2,
+      3,
+      3
+    ],
+    [
+      1,
+      3,
+      3,
+      2
+    ],
+    [
+      2,
+      1,
+      3,
+      3
+    ],
+    [
+      1,
+      4,
+      4,
+      4
+    ],
+    [
+      4,
+      3,
+      2,
+      4
+    ],
+    [
+      3,
+      3,
+      2,
+      1
+    ],
+    [
+      4,
+      2,
+      4,
+      3
+    ],
+    [
+      2,
+      2,
+      1,
+      2
+    ],
+    [
+      1,
+      3,
+      4,
+      2
+    ],
+    [
+      4,
+      3,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      3,
+      1
+    ],
+    [
+      3,
+      1,
+      1,
+      4
+    ],
+    [
+      4,
+      1,
+      2,
+      2
+    ],
+    [
+      3,
+      2,
+      3,
+      1
+    ],
+    [
+      1,
+      1,
+      3,
+      4
+    ]
+  ],
+  "holdout_seed": 20261024,
+  "identity_checks": 736,
+  "max_start_mismatch": 0.0,
+  "negative_controls": [
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "2/1000",
+      "forcing": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "4/1000",
+      "forcing": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "6/1000",
+      "forcing": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "8/1000",
+      "forcing": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "10/1000",
+      "forcing": [
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "12/1000",
+      "forcing": [
+        6,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "14/1000",
+      "forcing": [
+        7,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    },
+    {
+      "activated": false,
+      "construction_calls": 0,
+      "exact_oddness_defect": "16/1000",
+      "forcing": [
+        8,
+        0,
+        0,
+        0,
+        0
+      ],
+      "forcing_denominator": 1000,
+      "reason": "FAILED_PROOF_OBLIGATION"
+    }
+  ],
+  "pilot_regimes": [
+    [
+      2,
+      1,
+      2,
+      1
+    ],
+    [
+      2,
+      3,
+      2,
+      2
+    ],
+    [
+      4,
+      4,
+      2,
+      4
+    ],
+    [
+      3,
+      3,
+      2,
+      4
+    ],
+    [
+      4,
+      4,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      1,
+      4,
+      3
+    ],
+    [
+      4,
+      2,
+      3,
+      4
+    ],
+    [
+      4,
+      2,
+      1,
+      2
+    ],
+    [
+      4,
+      2,
+      2,
+      4
+    ],
+    [
+      2,
+      3,
+      4,
+      3
+    ],
+    [
+      3,
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      4,
+      4
+    ],
+    [
+      3,
+      2,
+      4,
+      4
+    ],
+    [
+      1,
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      4,
+      4
+    ],
+    [
+      3,
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      4,
+      4,
+      1
+    ]
+  ],
+  "pilot_seed": 20261023,
+  "pre_digest_sha256": "c61cf798a811a022c6c65650813b5a78f0b5d493af140ed0e6df03222766afae",
+  "protocol": "kernellum.quintic-equivariance-transfer.v1",
+  "rows": [
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 204
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 204
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 236,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 204
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 204
+      },
+      "method": "unbatched_certified",
+      "total_work": 268,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 820
+      },
+      "method": "optimized_lhs",
+      "total_work": 820,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 452
+      },
+      "method": "greedy_maximin",
+      "total_work": 452,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        4,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        4,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        4,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 748
+      },
+      "method": "optimized_lhs",
+      "total_work": 748,
+      "weights_numerators": [
+        4,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        4,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 212
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 212
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 244,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 212
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 212
+      },
+      "method": "unbatched_certified",
+      "total_work": 276,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 802
+      },
+      "method": "optimized_lhs",
+      "total_work": 802,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 768
+      },
+      "method": "optimized_lhs",
+      "total_work": 768,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 184
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 184
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 216,
+      "weights_numerators": [
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 184
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 184
+      },
+      "method": "unbatched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "total_work": 384,
+      "weights_numerators": [
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 824
+      },
+      "method": "optimized_lhs",
+      "total_work": 824,
+      "weights_numerators": [
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 782
+      },
+      "method": "optimized_lhs",
+      "total_work": 782,
+      "weights_numerators": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 730
+      },
+      "method": "optimized_lhs",
+      "total_work": 730,
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 460
+      },
+      "method": "greedy_maximin",
+      "total_work": 460,
+      "weights_numerators": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 816
+      },
+      "method": "optimized_lhs",
+      "total_work": 816,
+      "weights_numerators": [
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 766
+      },
+      "method": "optimized_lhs",
+      "total_work": 766,
+      "weights_numerators": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 780
+      },
+      "method": "optimized_lhs",
+      "total_work": 780,
+      "weights_numerators": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 232,
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "unbatched_certified",
+      "total_work": 264,
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 828
+      },
+      "method": "optimized_lhs",
+      "total_work": 828,
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 458
+      },
+      "method": "greedy_maximin",
+      "total_work": 458,
+      "weights_numerators": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 704
+      },
+      "method": "optimized_lhs",
+      "total_work": 704,
+      "weights_numerators": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 462
+      },
+      "method": "greedy_maximin",
+      "total_work": 462,
+      "weights_numerators": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 710
+      },
+      "method": "optimized_lhs",
+      "total_work": 710,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        4,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 804
+      },
+      "method": "optimized_lhs",
+      "total_work": 804,
+      "weights_numerators": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 248,
+      "weights_numerators": [
+        4,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 216
+      },
+      "method": "unbatched_certified",
+      "total_work": 280,
+      "weights_numerators": [
+        4,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 416
+      },
+      "method": "tensor_corners",
+      "total_work": 416,
+      "weights_numerators": [
+        4,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 760
+      },
+      "method": "optimized_lhs",
+      "total_work": 760,
+      "weights_numerators": [
+        4,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        4,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 192
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 192
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 224,
+      "weights_numerators": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 192
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 192
+      },
+      "method": "unbatched_certified",
+      "total_work": 256,
+      "weights_numerators": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 384
+      },
+      "method": "tensor_corners",
+      "total_work": 384,
+      "weights_numerators": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 822
+      },
+      "method": "optimized_lhs",
+      "total_work": 822,
+      "weights_numerators": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 452
+      },
+      "method": "greedy_maximin",
+      "total_work": 452,
+      "weights_numerators": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 774
+      },
+      "method": "optimized_lhs",
+      "total_work": 774,
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 232,
+      "weights_numerators": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "unbatched_certified",
+      "total_work": 264,
+      "weights_numerators": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 776
+      },
+      "method": "optimized_lhs",
+      "total_work": 776,
+      "weights_numerators": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 446
+      },
+      "method": "greedy_maximin",
+      "total_work": 446,
+      "weights_numerators": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 794
+      },
+      "method": "optimized_lhs",
+      "total_work": 794,
+      "weights_numerators": [
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 232,
+      "weights_numerators": [
+        3,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "unbatched_certified",
+      "total_work": 264,
+      "weights_numerators": [
+        3,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        3,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 798
+      },
+      "method": "optimized_lhs",
+      "total_work": 798,
+      "weights_numerators": [
+        3,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        3,
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        4,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        4,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        4,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 786
+      },
+      "method": "optimized_lhs",
+      "total_work": 786,
+      "weights_numerators": [
+        4,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 454
+      },
+      "method": "greedy_maximin",
+      "total_work": 454,
+      "weights_numerators": [
+        4,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 240,
+      "weights_numerators": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 208
+      },
+      "method": "unbatched_certified",
+      "total_work": 272,
+      "weights_numerators": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 408
+      },
+      "method": "tensor_corners",
+      "total_work": 408,
+      "weights_numerators": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 800
+      },
+      "method": "optimized_lhs",
+      "total_work": 800,
+      "weights_numerators": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 456
+      },
+      "method": "greedy_maximin",
+      "total_work": 456,
+      "weights_numerators": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 32,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "orbit_batched_certified",
+      "total_work": 232,
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "construction_overhead": 64,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 200
+      },
+      "method": "unbatched_certified",
+      "total_work": 264,
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 5.97915355435e-11,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 32,
+        "evaluations": 400
+      },
+      "method": "tensor_corners",
+      "total_work": 400,
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 2,
+        "evaluations": 772
+      },
+      "method": "optimized_lhs",
+      "total_work": 772,
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "capped": {
+        "best_objective": 0.0,
+        "coverage": 0,
+        "evaluations": 256
+      },
+      "construction_overhead": 0,
+      "full": {
+        "best_objective": 0.0,
+        "coverage": 12,
+        "evaluations": 462
+      },
+      "method": "greedy_maximin",
+      "total_work": 462,
+      "weights_numerators": [
+        1,
+        1,
+        3,
+        4
+      ]
+    }
+  ],
+  "summary": {
+    "greedy_maximin": {
+      "capped_catastrophes": 23,
+      "capped_complete": 0,
+      "construction_overhead": 0,
+      "full_complete": 0,
+      "regimes": 23,
+      "solver_evaluations": 10476,
+      "total_work": 10476,
+      "worst_best_objective": 0.0
+    },
+    "optimized_lhs": {
+      "capped_catastrophes": 23,
+      "capped_complete": 0,
+      "construction_overhead": 0,
+      "full_complete": 0,
+      "regimes": 23,
+      "solver_evaluations": 17964,
+      "total_work": 17964,
+      "worst_best_objective": 0.0
+    },
+    "orbit_batched_certified": {
+      "capped_catastrophes": 0,
+      "capped_complete": 23,
+      "construction_overhead": 736,
+      "full_complete": 23,
+      "regimes": 23,
+      "solver_evaluations": 4768,
+      "total_work": 5504,
+      "worst_best_objective": 0.0
+    },
+    "tensor_corners": {
+      "capped_catastrophes": 23,
+      "capped_complete": 0,
+      "construction_overhead": 0,
+      "full_complete": 23,
+      "regimes": 23,
+      "solver_evaluations": 9320,
+      "total_work": 9320,
+      "worst_best_objective": 0.0
+    },
+    "unbatched_certified": {
+      "capped_catastrophes": 0,
+      "capped_complete": 23,
+      "construction_overhead": 1472,
+      "full_complete": 23,
+      "regimes": 23,
+      "solver_evaluations": 4768,
+      "total_work": 6240,
+      "worst_best_objective": 0.0
+    }
+  },
+  "work_reduction": 0.409442060085837
+}
