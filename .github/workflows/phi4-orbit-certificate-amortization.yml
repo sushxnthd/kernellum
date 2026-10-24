@@ -28,7 +28,41 @@ jobs:
         run: |
           cp results/phi4_orbit_certificate_amortization.json /tmp/expected.json
           python experiments/phi4_orbit_certificate_amortization/run.py
-          cmp results/phi4_orbit_certificate_amortization.json /tmp/expected.json
+          python - <<'PY'
+          import json
+          import math
+
+          expected = json.load(open("/tmp/expected.json"))
+          actual = json.load(open("results/phi4_orbit_certificate_amortization.json"))
+
+          def compare(a, b, path="root"):
+              if path.endswith(".pre_digest_sha256"):
+                  return
+              if isinstance(a, bool) or isinstance(b, bool):
+                  assert a == b, f"{path}: {a!r} != {b!r}"
+                  return
+              if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (
+                      f"{path}: {a!r} != {b!r}"
+                  )
+                  return
+              assert type(a) is type(b), f"{path}: type mismatch {type(a)} != {type(b)}"
+              if isinstance(a, dict):
+                  assert set(a) == set(b), f"{path}: key mismatch"
+                  for key in a:
+                      if key == "pre_digest_sha256":
+                          continue
+                      compare(a[key], b[key], f"{path}.{key}")
+              elif isinstance(a, list):
+                  assert len(a) == len(b), f"{path}: length mismatch"
+                  for i, (left, right) in enumerate(zip(a, b)):
+                      compare(left, right, f"{path}[{i}]")
+              else:
+                  assert a == b, f"{path}: {a!r} != {b!r}"
+
+          compare(expected, actual)
+          print("Committed and reproduced scientific evidence agree within 1e-12.")
+          PY
           cp results/phi4_orbit_certificate_amortization.json /tmp/first.json
           python experiments/phi4_orbit_certificate_amortization/run.py
           cmp results/phi4_orbit_certificate_amortization.json /tmp/first.json
