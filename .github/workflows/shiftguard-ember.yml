@@ -1,12 +1,6 @@
 name: ShiftGuard EMBER2024 temporal
 
 on:
-  push:
-    branches:
-      - research/shiftguard-ember
-    paths:
-      - "research/shiftguard/**"
-      - ".github/workflows/shiftguard-ember.yml"
   workflow_dispatch:
 
 permissions:
