@@ -1,0 +1,28 @@
+{
+  "dataset":{"name":"Elec2 / NSW Electricity Market concept-drift benchmark","rows":27549,"features":7,"source_repo":"vlosing/incrementalLearning","source_commit":"4ee6b377a6710fa352e8fef1bbe3cbe29e7bcc57","protocol":"chronological 60% train / 20% calibration / 20% untouched future"},
+  "counts":{"train":16529,"calibration":5510,"future":5510,"stored_keys":13197,"calibration_negatives":2109,"future_negatives":2603},
+  "classifier":{"train_auc":0.77358,"future_auc":0.892596,"serialized_bytes":604},
+  "regions":{"k":8,"overall_future_tv":0.248514,"max_short_block_tv":0.435018,
+    "short_blocks":[
+      {"block":1,"n":319,"tv":0.377292,"static_ratio":0.2074},{"block":2,"n":305,"tv":0.39204,"static_ratio":0.2655},
+      {"block":3,"n":307,"tv":0.382973,"static_ratio":0.3224},{"block":4,"n":258,"tv":0.435018,"static_ratio":0.5859},
+      {"block":5,"n":255,"tv":0.193094,"static_ratio":0.6801},{"block":6,"n":264,"tv":0.348426,"static_ratio":0.3413},
+      {"block":7,"n":196,"tv":0.300783,"static_ratio":1.166},{"block":8,"n":214,"tv":0.338904,"static_ratio":1.4322},
+      {"block":9,"n":236,"tv":0.362229,"static_ratio":1.2053},{"block":10,"n":249,"tv":0.32285,"static_ratio":0.5929}]},
+  "static_plbf":{
+    "0.01":{"calibration_expected_fpr":0.01,"future_expected_fpr":0.0062539377,"future_ratio":0.6254,"saving_pct":18.583},
+    "0.003":{"calibration_expected_fpr":0.003,"future_expected_fpr":0.0018761813,"future_ratio":0.6254,"saving_pct":14.731},
+    "0.001":{"calibration_expected_fpr":0.001,"future_expected_fpr":0.00062539377,"future_ratio":0.6254,"saving_pct":12.389}},
+  "audit_recentered_shiftguard":{"audit_n":500,"holdout_n":500,"confidence":0.95,"rho95":0.09237459900087538,
+    "window_1":{"naive_recentered_holdout_ratio_at_1pct":2.1559,"naive_recentered_saving_pct_at_1pct":75.168,
+      "targets":{"0.01":{"certified_worst_fpr":0.01,"holdout_ratio":0.6338692058,"saving_pct":31.56892376},
+                 "0.003":{"certified_worst_fpr":0.003,"holdout_ratio":0.6338692058,"saving_pct":25.02611259},
+                 "0.001":{"certified_worst_fpr":0.001,"holdout_ratio":0.6338692058,"saving_pct":21.04594917}}},
+    "window_2":{"naive_recentered_holdout_ratio_at_1pct":1.6246,"naive_recentered_saving_pct_at_1pct":33.356,
+      "targets":{"0.01":{"certified_worst_fpr":0.01,"holdout_ratio":0.9597835538,"saving_pct":17.82978404},
+                 "0.003":{"certified_worst_fpr":0.003,"holdout_ratio":0.9597835551,"saving_pct":14.13447561},
+                 "0.001":{"certified_worst_fpr":0.001,"holdout_ratio":0.9597835538,"saving_pct":11.88652270}}}},
+  "short_spike":{"block":8,"n":214,"static_full_block_ratio":1.43216064,"audit_n":107,"holdout_n":107,"rho95":0.1996851088913636,
+    "result_at_1pct":{"shiftguard_holdout_ratio":0.6710560418,"saving_pct":-1.253162567,"fallback_recommended":true}},
+  "decision":{"temporal_failure_exists":true,"max_static_violation_ratio":1.4322,"500_query_certified_memory_gate_pass":true,"naive_adaptation_overfit_detected":true,"short_window_fallback_behavior_observed":true,"verdict":"PROMOTE_TO_FULL_ENTRY"}
+}
