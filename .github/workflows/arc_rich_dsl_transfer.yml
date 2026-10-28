@@ -1,0 +1,91 @@
+name: ARC rich typed-DSL independent transfer
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/RICH_DSL_RUN_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {id: 0, start: 0, end: 50}
+          - {id: 1, start: 50, end: 100}
+          - {id: 2, start: 100, end: 150}
+          - {id: 3, start: 150, end: 200}
+          - {id: 4, start: 200, end: 250}
+          - {id: 5, start: 250, end: 300}
+          - {id: 6, start: 300, end: 350}
+          - {id: 7, start: 350, end: 400}
+          - {id: 8, start: 400, end: 450}
+          - {id: 9, start: 450, end: 500}
+          - {id: 10, start: 500, end: 550}
+          - {id: 11, start: 550, end: 600}
+          - {id: 12, start: 600, end: 650}
+          - {id: 13, start: 650, end: 700}
+          - {id: 14, start: 700, end: 750}
+          - {id: 15, start: 750, end: 800}
+          - {id: 16, start: 800, end: 850}
+          - {id: 17, start: 850, end: 900}
+          - {id: 18, start: 900, end: 950}
+          - {id: 19, start: 950, end: 1000}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy pyyaml
+      - name: Fetch pinned independent typed DSL
+        run: |
+          git clone https://github.com/sirPhoebus/challenge-ARC-AGI.git /tmp/richdsl
+          cd /tmp/richdsl
+          git checkout 15c39778f9c36e511053b00fe69658bb3dc5be4d
+      - name: Run fixed-budget typed-DSL transfer shard
+        env:
+          PYTHONPATH: /tmp/richdsl
+          RICH_DSL_ROOT: /tmp/richdsl
+          TASK_START: ${{ matrix.start }}
+          TASK_END: ${{ matrix.end }}
+          OUT_FILE: rich_dsl_transfer_${{ matrix.id }}.json
+        run: python research/arc_reboot/rich_dsl_transfer.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rich-dsl-transfer-shard-${{ matrix.id }}
+          path: rich_dsl_transfer_${{ matrix.id }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: rich-dsl-transfer-shard-*
+          path: rich_dsl_shards
+          merge-multiple: true
+      - name: Aggregate frozen rich-DSL transfer
+        env:
+          SHARD_DIR: rich_dsl_shards
+          OUT_FILE: rich_dsl_transfer_aggregated.json
+        run: python research/arc_reboot/aggregate_rich_dsl_transfer.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rich-dsl-transfer-aggregated
+          path: rich_dsl_transfer_aggregated.json
