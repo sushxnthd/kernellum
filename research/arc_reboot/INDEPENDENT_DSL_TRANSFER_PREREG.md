@@ -98,3 +98,11 @@ Failure would imply the strong Stage B effect may depend materially on the local
 ## Frozen grid-equivalence normalization
 
 The quickstart `rot90` primitive returns rows as Python tuples, while JSON task grids load as lists. This is a container-type artifact, not a semantic grid distinction. Before execution, all program outputs and target grids are canonicalized to rectangular tuples of integer tuples. Equality is canonical grid equality; list-vs-tuple representation never changes correctness.
+
+
+## Frozen tie rules
+
+- centrality ties: choose the semantic class whose canonical representative has minimum composition depth, then lexicographically smallest program string;
+- semantic-plurality output ties: choose the canonically serialized grid with lexicographically smallest serialization;
+- invalid/nonrectangular program outputs are retained as invalid behavior for semantic signatures but cannot be selected as a valid held-out grid;
+- all task and fold ordering is deterministic by ARC task id then held-out demonstration index.
