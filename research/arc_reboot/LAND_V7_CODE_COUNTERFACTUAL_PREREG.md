@@ -26,7 +26,7 @@ For every public-evaluation task/test case represented in the released V7 logs:
 3. require Land's own training verification status to be PASS, or independently reverify exact correctness on every demonstration if verification metadata is absent;
 4. deduplicate byte-identical code before execution;
 5. exclude judge/synthesis outputs from the candidate pool;
-6. exclude any candidate that references the hidden/public test answer explicitly in source text or cannot execute under the frozen sandbox.
+6. exclude candidates that cannot execute under the frozen sandbox. Test-answer leakage is NOT used to filter the primary pool because detecting it requires the held-out answer. After the frozen primary is scored, perform a contamination audit for literal answer embedding or equivalent hard-coding and report a sensitivity analysis excluding contaminated cases.
 
 The original Land candidate order, modality label, model identity, vote count, judge score, and test correctness are stored for later analysis but are **not available to the primary selector**.
 
@@ -152,3 +152,22 @@ the Stage B signal is candidate-generator-specific and the centrality mechanism 
 
 COVERAGE FAIL:
 the released trace corpus contains too few verified, semantically distinct code hypotheses to adjudicate the claim.
+
+
+## Frozen probe sampling implementation detail
+
+For each task/test case, construct the candidate probe list in this order:
+1. all unique D4 transforms of every demonstration input;
+2. three deterministic nonzero-color permutations per demonstration input, preserving zero;
+3. row and column cyclic rolls by +1 and -1.
+
+Canonical-grid deduplicate the full list, then deterministically shuffle using seed 20261028 mixed with SHA256(task_id:test_index), and keep the first 24. D4-only uses canonical deduplication of D4 transforms in generation order and keeps the first 12.
+
+## Frozen invalid-execution centrality rule
+
+For each probe:
+- if a class representative returns a valid grid, its agreement contribution is the fraction of **valid-output classes** on that probe that return exactly the same grid;
+- if the representative is invalid/timeout/exception on that probe, its agreement contribution is exactly 0;
+- if no class returns a valid output on a probe, every class receives 0 for that probe.
+
+Class centrality is the arithmetic mean across all frozen probes, including zero-contribution invalid probes. Thus crashes cannot gain agreement by sharing an invalid sentinel.
