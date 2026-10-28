@@ -607,3 +607,105 @@ Released-label diagnostic, computed only after the selector test was preregister
 Thus the released LLM hypothesis corpus has substantial real selection headroom and easily clears the preregistered raw coverage requirement.
 
 The first sandbox execution attempt is invalid as science because 159/160 cases failed only when the isolated container could not write `/output/results.json`; the remaining case hit the outer infrastructure timeout. No selector result was produced. The output-mount permission was fixed without changing candidate extraction, probes, selectors, thresholds, or aggregation, and the frozen experiment was re-triggered.
+
+
+## Independent Land V7 real-LLM transfer — primary fails, weighted secondary discovery
+
+The corrected sandboxed experiment completed on the exact Johan Land V7 public Version 27 trace release.
+
+Execution integrity:
+- extracted verified code candidates: **1,136**
+- static-safe candidates: **1,121 (98.7%)**
+- cases represented: **160**
+- final usable cases after independent demo re-verification, semantic quotienting, and requiring >=2 distinct test outputs: **97**
+- distinct ARC tasks represented: **77**
+- released correctness cross-check agreement with independently recomputed ARC-AGI-2 truth: **100%**
+- one case remained infrastructure-failed; 62 others failed preregistered usability gates rather than being scored.
+
+### Preregistered primary D — FAIL
+
+Duplicate-invariant semantic-class plurality B:
+- top-1: **48.45%**
+- pass@2: **63.92%**
+
+Single highest-centrality class D:
+- top-1: **46.39%**
+- pass@2: **59.79%**
+- D-B: **-2.06 pp**
+- task-bootstrap 95% CI: **[-10.39, +7.79] pp**
+- task directions: 7 positive, 9 negative, 61 tied
+
+Oracle-positive:
+- B: 67.14%
+- D: 64.29%
+- D-B: -2.86 pp
+
+Minority-correct:
+- 30 cases
+- B: 30.0%
+- D: 26.67%
+- D-B: -3.33 pp
+
+The single-central-mechanism practical hypothesis therefore fails again on independent real LLM-generated hypotheses.
+
+### Mechanism endpoint — STRONG POSITIVE ASSOCIATION
+
+Despite D failing as a decision rule, counterfactual class centrality predicts actual test correctness:
+
+- case-macro AUC: **0.669**
+- median case AUC: **0.729**
+- cases with defined AUC: 70
+- AUC > 0.5 in **48/70**
+
+This is a genuine independent transfer of the *mechanism-quality signal* from ARC-TGI mutants to real LLM code hypotheses.
+
+A syntactic negative control does not explain it:
+- AST-structural-central candidate accuracy: **58.8%**
+- raw candidate plurality: **63.4%**
+- AST-centrality case-macro correctness AUC: **0.488**
+
+Thus behavioral centrality carries information not reproduced by simple source-code structural consensus.
+
+### Secondary W_all — discovery result, not retroactive primary
+
+The preregistered secondary centrality-weighted predictive vote W_all achieved:
+
+- top-1: **54.64%**
+- pass@2: **64.95%**
+- B_cls top-1: 48.45%
+- W-B: **+6.19 pp**
+- raw duplicate-sensitive candidate plurality: 51.55%
+- W-Raw: **+3.09 pp**
+
+Post-discovery task bootstrap for W-B:
+- 95% CI: **[+2.60, +14.29] pp**
+- task directions: **6 positive, 0 negative, 71 tied**
+- case directions: **6 wins, 0 losses, 91 ties**
+
+Oracle-positive subset:
+- B: **67.14%**
+- W: **75.71%**
+- gain: **+8.57 pp**
+
+Minority-correct subset:
+- B: **30.0%**
+- W: **46.67%**
+- gain: **+16.67 pp**
+
+Five of the six W wins occur on minority-correct cases. Correct semantic-class support in those wins includes:
+- 1/7
+- 2/5
+- 1/3
+- 1/5
+- 1/9
+
+Example winning cases include:
+- 581f7754:1
+- 7491f3cf:1
+- 7b5033c1:1
+- 7b80bb43:1
+- 8698868d:1
+
+The corresponding within-case centrality AUCs are high (including 1.0 on 581f7754:1 and 8698868d:1), consistent with W rescuing a correct but numerically minority mechanism.
+
+**Interpretation discipline:** V7 is discovery-only evidence for W because W was secondary. It cannot retroactively make the V7 preregistered primary pass. An independent V6 replication with W as the frozen primary was preregistered before inspecting V6 candidate-level outcomes.
