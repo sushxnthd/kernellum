@@ -1,12 +1,6 @@
 name: ARC proposal collapse probe
 
 on:
-  push:
-    branches:
-      - research/arc-proposal-collapse-probe
-    paths:
-      - "research/arc_reboot/**"
-      - ".github/workflows/arc_proposal_collapse_probe.yml"
   workflow_dispatch:
 
 permissions:
