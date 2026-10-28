@@ -1,0 +1,40 @@
+name: ARC V6 Kaggle metadata probe
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/V6_METADATA_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub>=1.0.0"
+      - name: Query public kernel metadata only
+        run: |
+          python - <<'PY'
+          import json
+          from kagglehub.clients import build_kaggle_client
+          from kagglesdk.kernels.types.kernels_api_service import ApiGetKernelRequest
+          with build_kaggle_client() as client:
+              req=ApiGetKernelRequest()
+              req.user_name="johanland"
+              req.kernel_slug="johan-land-solver-v6-public"
+              resp=client.kernels.kernels_api_client.get_kernel(req)
+              try:
+                  print("KERNEL_RESPONSE="+json.dumps(resp.to_dict(),default=str,sort_keys=True))
+              except Exception:
+                  print("KERNEL_RESPONSE_RAW",resp)
+              print("KERNEL_API_METHODS="+json.dumps(sorted([x for x in dir(client.kernels.kernels_api_client) if "version" in x.lower() or "kernel" in x.lower()])))
+          PY
