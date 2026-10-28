@@ -68,6 +68,18 @@ This is an exact identity, not an ARC-specific heuristic. The practical estimato
 
 This decomposition gives two explicit failure modes: **posterior misspecification** (the candidate pool is a biased representation of plausible programs) and **probe-distribution misspecification** (counterfactual probes do not approximate the behaviorally relevant future-input distribution). The empirical program should test these separately.
 
+### Misspecification bound
+
+Let the practical candidate distribution and probe distribution be \(\tilde Q\) and \(\tilde P\), with total-variation deviations \(\eta_Q=\mathrm{TV}(Q,\tilde Q)\) and \(\eta_P=\mathrm{TV}(P,\tilde P)\). Let empirical centrality over a finite probe set approximate \(C_{\tilde Q,\tilde P}\) uniformly to error \(\epsilon\). If \(\hat h\) maximizes empirical centrality and \(h^*\) minimizes ideal posterior disagreement risk among the same candidates, then the standard plug-in argument gives
+
+\[
+R_{Q,P}(\hat h)-R_{Q,P}(h^*)
+\le 2(\eta_Q+\eta_P+\epsilon).
+\]
+
+This is intentionally a diagnostic bound rather than a claim that the current probes are IID from the true query distribution. It turns the empirical agenda into three falsifiable components: candidate-posterior quality, probe-distribution quality, and finite-probe estimation error.
+
+
 ## Frozen Stage B gate
 
 The practical mechanism survives only if all are true on the ARC-TGI Train replication:
