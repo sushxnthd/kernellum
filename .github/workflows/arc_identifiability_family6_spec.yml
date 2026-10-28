@@ -38,4 +38,8 @@ jobs:
           for i,(spec,tree) in enumerate(core.mutations(cls.transform_input,500)):
               if 10 <= i < 20:
                   print("MUTANT",i,repr(spec))
+                  if i==13:
+                      node=core.locate(tree,"bool",1)
+                      print("MUTANT13_TREE", __import__("ast").unparse(tree))
+                      print("MUTANT13_BOOL", __import__("ast").unparse(node) if node is not None else "NONE")
           PY
