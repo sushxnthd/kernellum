@@ -1,0 +1,82 @@
+name: ARC Land V7 counterfactual full test
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_FULL_TEST_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install host dependencies
+        run: python -m pip install "kagglehub>=1.0.0"
+      - name: Download exact V27 logs
+        run: |
+          mkdir -p /tmp/land /tmp/land_logs
+          python - <<'PY'
+          import kagglehub
+          p=kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v7-public/versions/27",
+              path="logs.tgz",
+              output_dir="/tmp/land"
+          )
+          print("LOGS_ARCHIVE",p)
+          PY
+          tar -xzf /tmp/land/logs.tgz -C /tmp/land_logs
+      - name: Extract and safety-filter verified code candidates
+        run: |
+          python research/arc_reboot/land_v7_extract_candidates.py /tmp/land_logs land_v7_candidates.json
+          python research/arc_reboot/land_v7_static_safety.py land_v7_candidates.json land_v7_safe_candidates.json
+      - name: Fetch pinned ARC-AGI-2 evaluation data
+        run: |
+          git clone https://github.com/arcprize/ARC-AGI-2.git /tmp/arc2
+          cd /tmp/arc2
+          git checkout f3283f727488ad98fe575ea6a5ac981e4a188e49
+      - name: Build isolated candidate runtime
+        run: |
+          mkdir -p /tmp/land_runtime
+          cp research/arc_reboot/land_v7_case_runner.py /tmp/land_runtime/runner.py
+          cat >/tmp/land_runtime/Dockerfile <<'EOF'
+          FROM python:3.11-slim
+          RUN python -m pip install --no-cache-dir numpy scipy opencv-python-headless
+          COPY runner.py /runner/runner.py
+          ENTRYPOINT ["python","/runner/runner.py"]
+          EOF
+          docker build -t land-v7-runtime:latest /tmp/land_runtime
+      - name: Run eight deterministic shards, four-way parallel
+        env:
+          LAND_RUNTIME_IMAGE: land-v7-runtime:latest
+          N_SHARDS: "8"
+        run: |
+          mkdir -p land_shards
+          seq 0 7 | xargs -P4 -I{} bash -lc '
+            export SHARD_ID={}
+            python research/arc_reboot/land_v7_counterfactual_shard.py               land_v7_safe_candidates.json               /tmp/arc2/data/evaluation               land_shards/shard_{}.json
+          '
+      - name: Aggregate frozen primary
+        env:
+          SHARD_DIR: land_shards
+          OUT_FILE: land_v7_counterfactual_aggregate.json
+        run: |
+          python research/arc_reboot/aggregate_land_v7_counterfactual.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: land-v7-counterfactual-results
+          path: |
+            land_v7_counterfactual_aggregate.json
+            land_shards/*.json
+            land_v7_safe_candidates.json
+          if-no-files-found: warn
