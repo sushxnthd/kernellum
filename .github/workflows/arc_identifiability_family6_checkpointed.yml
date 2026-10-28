@@ -17,7 +17,17 @@ jobs:
       fail-fast: false
       max-parallel: 10
       matrix:
-        chunk: [0,1,2,3,4,5,6,7,8,9]
+        include:
+          - {chunk: 0, start: 0, end: 50}
+          - {chunk: 1, start: 50, end: 100}
+          - {chunk: 2, start: 100, end: 150}
+          - {chunk: 3, start: 150, end: 200}
+          - {chunk: 4, start: 200, end: 250}
+          - {chunk: 5, start: 250, end: 300}
+          - {chunk: 6, start: 300, end: 350}
+          - {chunk: 7, start: 350, end: 400}
+          - {chunk: 8, start: 400, end: 450}
+          - {chunk: 9, start: 450, end: 500}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -33,8 +43,8 @@ jobs:
           PYTHONPATH: /tmp/ARC-TGI
           FAMILY_INDEX: "6"
           MODE: screen
-          CHUNK_START: ${{ matrix.chunk * 50 }}
-          CHUNK_END: ${{ matrix.chunk * 50 + 50 }}
+          CHUNK_START: ${{ matrix.start }}
+          CHUNK_END: ${{ matrix.end }}
           OUT_FILE: screen_${{ matrix.chunk }}.json
         run: python research/arc_reboot/identifiability_family_checkpointed.py
       - uses: actions/upload-artifact@v4
