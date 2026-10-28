@@ -1,0 +1,60 @@
+name: ARC proposal collapse escalation
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_proposal_collapse_escalation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: qwen25-1p5b-n20
+            model: Qwen/Qwen2.5-1.5B-Instruct
+            tasks: 20
+            tokens: 160
+          - tag: qwen25-3b-n12
+            model: Qwen/Qwen2.5-3B-Instruct
+            tasks: 12
+            tokens: 160
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch
+          python -m pip install "transformers>=4.46,<4.48" sentencepiece safetensors
+      - name: Fetch ARC-AGI-2
+        run: git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git
+      - name: Run matched actual-model probe
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: |
+          python research/arc_reboot/proposal_collapse_probe.py \
+            --arc-dir ARC-AGI-2/data/training \
+            --model "${{ matrix.model }}" \
+            --tasks "${{ matrix.tasks }}" \
+            --max-new-tokens "${{ matrix.tokens }}" \
+            --out "proposal_collapse_${{ matrix.tag }}.json"
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "arc-proposal-collapse-${{ matrix.tag }}"
+          path: "proposal_collapse_${{ matrix.tag }}.json"
+          if-no-files-found: warn
