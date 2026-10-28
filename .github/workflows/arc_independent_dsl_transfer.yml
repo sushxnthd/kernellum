@@ -1,0 +1,89 @@
+name: ARC independent DSL centrality transfer
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/INDEPENDENT_DSL_RUN_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {id: 0, start: 0, end: 20}
+          - {id: 1, start: 20, end: 40}
+          - {id: 2, start: 40, end: 60}
+          - {id: 3, start: 60, end: 80}
+          - {id: 4, start: 80, end: 100}
+          - {id: 5, start: 100, end: 120}
+          - {id: 6, start: 120, end: 140}
+          - {id: 7, start: 140, end: 160}
+          - {id: 8, start: 160, end: 180}
+          - {id: 9, start: 180, end: 200}
+          - {id: 10, start: 200, end: 220}
+          - {id: 11, start: 220, end: 240}
+          - {id: 12, start: 240, end: 260}
+          - {id: 13, start: 260, end: 280}
+          - {id: 14, start: 280, end: 300}
+          - {id: 15, start: 300, end: 320}
+          - {id: 16, start: 320, end: 340}
+          - {id: 17, start: 340, end: 360}
+          - {id: 18, start: 360, end: 380}
+          - {id: 19, start: 380, end: 400}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch pinned independent quickstart/data source
+        run: |
+          git clone https://github.com/hackos-team/arc-agi-quickstart.git /tmp/arc-agi-quickstart
+          cd /tmp/arc-agi-quickstart
+          git checkout 2ea62d01162b436854b089a80715728cad2f2a3f
+      - name: Run leave-one-demo-out transfer shard
+        env:
+          QUICKSTART_ROOT: /tmp/arc-agi-quickstart
+          TASK_START: ${{ matrix.start }}
+          TASK_END: ${{ matrix.end }}
+          OUT_FILE: dsl_transfer_${{ matrix.id }}.json
+        run: python research/arc_reboot/independent_dsl_transfer.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dsl-transfer-shard-${{ matrix.id }}
+          path: dsl_transfer_${{ matrix.id }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: dsl-transfer-shard-*
+          path: dsl_shards
+          merge-multiple: true
+      - name: Aggregate frozen transfer test
+        env:
+          SHARD_DIR: dsl_shards
+          OUT_FILE: independent_dsl_transfer_aggregated.json
+        run: python research/arc_reboot/aggregate_independent_dsl_transfer.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: independent-dsl-transfer-aggregated
+          path: independent_dsl_transfer_aggregated.json
