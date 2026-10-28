@@ -1,6 +1,6 @@
 # ARC Reboot Stage C — Query Identifiability Preregistration
 
-Status: CONDITIONAL. Do not execute unless the frozen 55-family Stage B replication passes all three gates without modification.
+Status: UNLOCKED AFTER STAGE B PASS. The pinned ARC-TGI Train directory contains 55 raw files; the frozen loader exposes 51 generator classes. Four raw files are structurally excluded because their class names do not end in `Generator`: task17cae0c1, task18447a8d, task195ba7dc, task1c02dbbe. All 51 loadable families are accounted for.
 
 ## Stage B gates
 1. At least 6 usable ARC-TGI Train families with >=3 distinct demo-perfect mutants.
@@ -52,3 +52,17 @@ Mechanism identifiability alone is not sufficient. ARC only requires query corre
 
 ## Frozen execution validity
 A candidate program that raises an exception, returns a non-2D/empty/>60 grid, or fails to terminate within 2.0 seconds on a single evaluation is invalid for that evaluation. This operational rule was fixed before any Stage C execution and exists only to prevent malformed AST mutants from killing a family-level run.
+
+
+## Stage B gate result fixed before Stage C execution
+
+- raw Train files: 55
+- loadable under frozen loader: 51
+- accounted loadable families: 51
+- usable families with >=3 distinct demo-perfect mutants: 10
+- median agnostic Spearman: 0.6510764405
+- median agnostic selector gain over mean demo-perfect mutant: 0.1036111111
+- macro selector accuracy: 0.9000000000
+- macro mean-mutant accuracy: 0.7887614943
+
+All three frozen Stage B gates pass. No Stage C result had been observed when this block was committed.
