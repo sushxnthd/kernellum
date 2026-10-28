@@ -118,8 +118,8 @@ def auc_binary(scores,labels):
 def run_container(bundle,image):
     with tempfile.TemporaryDirectory() as td:
         td=Path(td)
-        inp=td/"bundle.json";outdir=td/"out";outdir.mkdir()
-        inp.write_text(json.dumps(bundle))
+        inp=td/"bundle.json";outdir=td/"out";outdir.mkdir();outdir.chmod(0o777)
+        inp.write_text(json.dumps(bundle));inp.chmod(0o644)
         cmd=[
             "docker","run","--rm",
             "--network","none","--read-only","--cap-drop","ALL",
