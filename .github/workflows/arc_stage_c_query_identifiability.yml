@@ -47,9 +47,17 @@ jobs:
           from pathlib import Path
           sys.path.insert(0,"research/arc_reboot")
           import identifiability_kill_test_train_shard as core
-          gens=core.load_generators(Path("/tmp/ARC-TGI"))
-          print("GENERATOR_COUNT",len(gens))
-          assert len(gens)==55, [g[0] for g in gens]
+          root=Path("/tmp/ARC-TGI")
+          raw=sorted((root/"Generators/ARC-AGI-2/Train").glob("task*.py"))
+          gens=core.load_generators(root)
+          loaded={g[0] for g in gens}
+          excluded=sorted(p.stem for p in raw if p.stem not in loaded)
+          print("RAW_FILE_COUNT",len(raw))
+          print("LOADED_GENERATOR_COUNT",len(gens))
+          print("EXCLUDED",excluded)
+          assert len(raw)==55
+          assert len(gens)==51
+          assert excluded==["task17cae0c1","task18447a8d","task195ba7dc","task1c02dbbe"]
           PY
       - name: Run frozen Stage C shard
         env:
