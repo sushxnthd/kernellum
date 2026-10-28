@@ -1,0 +1,66 @@
+name: ARC validate Land V7 code candidate coverage
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_CODE_EXTRACT_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub==1.0.3"
+      - name: Download exact V7 paper run
+        run: |
+          python - <<'PY'
+          import kagglehub, pathlib
+          out=pathlib.Path("/tmp/land_v27")
+          out.mkdir(parents=True,exist_ok=True)
+          kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v7-public/versions/27",
+              output_dir=str(out),
+              force_download=True
+          )
+          PY
+      - name: Extract independent code candidates
+        run: |
+          python research/arc_reboot/extract_land_v7_codegen.py             --logs /tmp/land_v27/ARC-AGI/logs             --out land_v27_codegen_candidates.jsonl
+      - name: Validate public truth availability
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path("/tmp/land_v27/ARC-AGI/evaluation")
+          files=sorted(root.glob("*.json"))
+          tests=with_output=0
+          missing=[]
+          for p in files:
+              d=json.loads(p.read_text())
+              for i,t in enumerate(d.get("test",[]),1):
+                  tests+=1
+                  if "output" in t: with_output+=1
+                  else: missing.append(f"{p.stem}:{i}")
+          print("TRUTH_SUMMARY="+json.dumps({
+              "task_files":len(files),
+              "test_cases":tests,
+              "test_cases_with_output":with_output,
+              "missing_output_count":len(missing),
+              "missing_sample":missing[:20]
+          },sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: land-v27-code-candidate-index
+          path: |
+            land_v27_codegen_candidates.jsonl
+            land_v27_codegen_candidates.jsonl.summary.json
