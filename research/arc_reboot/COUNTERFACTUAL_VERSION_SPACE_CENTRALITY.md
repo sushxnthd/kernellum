@@ -25,6 +25,49 @@ with semantic duplicate handling as frozen in the experiment.
 
 The hypothesis is **not** that consensus is always correct. It is that, after conditioning on exact demonstration fit, location in the behavioral geometry of the version space contains information about out-of-demonstration generalization.
 
+
+## Decision-theoretic interpretation
+
+Let (Q(H\mid D)) be a distribution over programs that remain plausible after observing the demonstrations, and let (P(X)) be the distribution of future task inputs. For any candidate program (h), define posterior predictive centrality
+
+[
+C_{Q,P}(h)
+=
+\mathbb E_{X\sim P}
+\Pr_{H\sim Q}\left[H(X)=h(X)\right].
+]
+
+Under exact-output disagreement loss,
+
+[
+\ell(h,H,X)=\mathbf 1\{h(X)\neq H(X)\},
+]
+
+the posterior expected risk is
+
+[
+R_{Q,P}(h)
+=
+\mathbb E_{H\sim Q,X\sim P}\ell(h,H,X)
+=
+1-C_{Q,P}(h).
+]
+
+Therefore
+
+[
+\arg\max_{h\in V_D} C_{Q,P}(h)
+=
+\arg\min_{h\in V_D} R_{Q,P}(h).
+]
+
+This is an exact identity, not an ARC-specific heuristic. The practical estimator replaces:
+
+- the unknown posterior (Q) with a semantically quotiented set of demo-perfect candidate programs; and
+- the unknown future-input distribution (P) with label-free counterfactual probes constructed from the demonstrations.
+
+This decomposition gives two explicit failure modes: **posterior misspecification** (the candidate pool is a biased representation of plausible programs) and **probe-distribution misspecification** (counterfactual probes do not approximate the behaviorally relevant future-input distribution). The empirical program should test these separately.
+
 ## Frozen Stage B gate
 
 The practical mechanism survives only if all are true on the ARC-TGI Train replication:
