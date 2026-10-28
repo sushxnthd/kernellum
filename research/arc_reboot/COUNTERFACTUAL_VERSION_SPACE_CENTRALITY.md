@@ -556,3 +556,54 @@ Pass@2:
 - W4 **66.32%**
 
 Interpretation: W4 is promising but post-discovery on V27. It requires a separately preregistered candidate-generation rerun before any practical claim is made.
+
+
+## Independent rich typed-DSL transfer — coverage-inconclusive
+
+A second preregistered transfer used the independently implemented `sirPhoebus/challenge-ARC-AGI` typed DSL, pinned at commit `15c39778f9c36e511053b00fe69658bb3dc5be4d`, with the source solver's own first-20,000-program configured search budget across all 1,000 ARC-AGI-2 training tasks.
+
+Result:
+- usable folds: **1**
+- distinct tasks: **1**
+- required coverage: >=20 folds / >=10 tasks — **FAIL**
+- D: 0%
+- semantic plurality B: 0%
+- uniform semantic-class expected correctness U: 5.26%
+- D-U: -5.26 pp
+- oracle: 100% on the single usable fold
+
+Verdict: **INCONCLUSIVE_COVERAGE**. As with the tiny quickstart DSL, the bounded enumerative search does not create enough expressible ambiguous demo-perfect version spaces to adjudicate transfer.
+
+This closes enumerative DSLs as the immediate transfer vehicle.
+
+## Independent real-LLM hypothesis transfer — Land V7
+
+The next transfer uses the released Johan Land V7 public-evaluation traces, a hypothesis source developed independently of this project.
+
+Exact release:
+- Kaggle notebook `johanland/johan-land-solver-v7-public`
+- historical Version **27**
+- public output size: ~544 MB
+- released `logs.tgz`: ~51.6 MB
+- includes raw prompts/responses, codegen verification, extracted grids, finish candidates, and evaluation tasks.
+
+Frozen candidate inventory before probe execution:
+- independently verified code source candidates extracted: **1,136**
+- task/test cases represented: **160**
+- cases with >=3 distinct source candidates: **153**
+- distinct ARC task IDs with >=3 candidates: **111**
+
+Static execution-safety gate:
+- retained: **1,121 / 1,136 = 98.7%**
+- excluded: 15
+- exclusions: 6 `time` imports, 4 `sys`, 3 `fractions`, 2 `sklearn`
+- cases with >=3 safe candidates remain **153 across 111 tasks**
+
+Released-label diagnostic, computed only after the selector test was preregistered:
+- **129/160 (80.6%)** cases contain at least one correct safe candidate
+- raw duplicate-sensitive candidate plurality accuracy: **62.5%**
+- **37** oracle-positive cases have correct candidates in the minority
+
+Thus the released LLM hypothesis corpus has substantial real selection headroom and easily clears the preregistered raw coverage requirement.
+
+The first sandbox execution attempt is invalid as science because 159/160 cases failed only when the isolated container could not write `/output/results.json`; the remaining case hit the outer infrastructure timeout. No selector result was produced. The output-mount permission was fixed without changing candidate extraction, probes, selectors, thresholds, or aggregation, and the frozen experiment was re-triggered.
