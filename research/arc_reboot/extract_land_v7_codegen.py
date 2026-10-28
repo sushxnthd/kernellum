@@ -120,7 +120,7 @@ def main():
     rows.sort(key=lambda r:(r["task_id"],r["test_index"],r["code_sha256"]))
     with outp.open("w") as f:
         for r in rows:
-            f.write(json.dumps(r,separators=(",",":"))+"\\n")
+            f.write(json.dumps(r,separators=(",",":"))+"\n")
     counts=sorted(per_case.values())
     summary={
         **stats,
