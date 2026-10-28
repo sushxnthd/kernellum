@@ -1,0 +1,41 @@
+name: ARC identify family 6 mutant 13
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_identifiability_family6_spec.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  identify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install numpy shortuuid
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Print frozen mutation indices 10-19 without executing them
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "research/arc_reboot")
+          import identifiability_kill_test_train_shard as core
+          root=Path("/tmp/ARC-TGI"); sys.path.insert(0,str(root))
+          gens=core.load_generators(root)
+          name,mod,cls=gens[6]
+          print("FAMILY",name)
+          for i,(spec,tree) in enumerate(core.mutations(cls.transform_input,500)):
+              if 10 <= i < 20:
+                  print("MUTANT",i,repr(spec))
+          PY
