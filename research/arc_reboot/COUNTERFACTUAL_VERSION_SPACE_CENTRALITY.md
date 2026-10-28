@@ -258,3 +258,10 @@ For global mechanism selection, a central program can minimize expected disagree
 For a fixed query x_q, the loss-minimizing action is instead a predictive decision over outputs. Even if h* is the best single mechanism globally, its output h*(x_q) need not equal the output with maximum aggregate support among plausible mechanisms.
 
 This explains how counterfactual centrality can predict held-out program quality in Stage B while failing to beat semantic-class plurality on Stage C. The next preregistered Stage D tests whether preserving centrality as a weight over semantic classes, rather than collapsing to one class, improves query prediction.
+
+
+### Correction on Stage C selector C
+
+Selector C was labeled "minimum-AST simplicity", but the frozen mutation operators only replace constants and operators in place; they do not materially change AST node count. Consequently nearly all accepted single-edit mutants have the same AST size, and C resolves primarily by the frozen mutation-index tie-break.
+
+Therefore C=93.75% must **not** be interpreted as evidence for an Occam/shorter-program prior. It is better described as an early-mutation-order baseline. Any future simplicity claim requires a candidate generator with genuinely variable structural complexity and an independently fixed description-length metric.
