@@ -1,0 +1,74 @@
+name: ARC Land V7 independent counterfactual evaluation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_V7_EVAL_TRIGGER"
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate frozen scripts
+        run: |
+          python -m py_compile             research/arc_reboot/extract_land_v7_codegen.py             research/arc_reboot/land_candidate_exec_worker.py             research/arc_reboot/evaluate_land_v7_counterfactual.py
+
+      - run: python -m pip install "kagglehub==1.0.3" numpy
+
+      - name: Download exact public paper run v27
+        run: |
+          python - <<'PY'
+          import kagglehub, pathlib
+          out=pathlib.Path("/tmp/land_v27")
+          out.mkdir(parents=True,exist_ok=True)
+          kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v7-public/versions/27",
+              output_dir=str(out),
+              force_download=True
+          )
+          PY
+
+      - name: Extract codegen candidates under frozen rules
+        run: |
+          python research/arc_reboot/extract_land_v7_codegen.py             --logs /tmp/land_v27/ARC-AGI/logs             --out /tmp/land_v27_codegen_candidates.jsonl
+
+      - name: Build isolated solver image
+        run: |
+          mkdir -p /tmp/land_sandbox
+          cp research/arc_reboot/land_candidate_exec_worker.py /tmp/land_sandbox/worker.py
+          cat > /tmp/land_sandbox/Dockerfile <<'EOF'
+          FROM python:3.12-slim
+          RUN pip install --no-cache-dir numpy scipy opencv-python-headless
+          COPY worker.py /worker.py
+          RUN chmod 0444 /worker.py
+          WORKDIR /tmp
+          CMD ["python","/worker.py"]
+          EOF
+          docker build -t land-candidate-sandbox:locked /tmp/land_sandbox
+
+      - name: Execute preregistered independent test
+        env:
+          LAND_SANDBOX_IMAGE: land-candidate-sandbox:locked
+        run: |
+          python research/arc_reboot/evaluate_land_v7_counterfactual.py             --candidates /tmp/land_v27_codegen_candidates.jsonl             --data /tmp/land_v27/ARC-AGI/evaluation             --worker research/arc_reboot/land_candidate_exec_worker.py             --out land_v27_counterfactual_results.json             --max-workers 6
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: land-v27-counterfactual-results
+          path: |
+            land_v27_counterfactual_results.json
+            /tmp/land_v27_codegen_candidates.jsonl.summary.json
+          if-no-files-found: warn
