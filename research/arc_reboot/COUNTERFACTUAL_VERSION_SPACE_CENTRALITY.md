@@ -319,3 +319,85 @@ Result:
 - two of the three usable folds had oracle=0, meaning no surviving DSL semantic class predicted the held-out demonstration correctly.
 
 Interpretation: the transfer test is **inconclusive**, not a mechanism failure. The DSL is too weak/sparse to create enough expressible ambiguous version spaces to satisfy the preregistered coverage gate. A richer independent DSL replication is required.
+
+
+## Query–mechanism separation: formal statement
+
+The Stage B / C / D pattern follows from a clean distinction between integrated mechanism risk and fixed-query prediction risk.
+
+Let Q be any distribution over candidate programs and P a distribution over future inputs.
+
+### Mechanism decision
+
+For a candidate program h, define integrated disagreement risk
+
+\[
+R_{\mathrm{mech}}(h)
+=
+\mathbb E_{X\sim P,H\sim Q}
+\mathbf 1\{h(X)\neq H(X)\}.
+\]
+
+The behavioral medoid
+
+\[
+h^* \in \arg\min_h R_{\mathrm{mech}}(h)
+\]
+
+is equivalently the maximum-centrality candidate. This is the Stage B decision.
+
+### Query decision
+
+For one fixed query x, an output action y has posterior-predictive risk
+
+\[
+R_x(y)
+=
+\Pr_{H\sim Q}[H(x)\neq y].
+\]
+
+Therefore the Bayes-optimal output is
+
+\[
+y_x^*
+\in
+\arg\max_y
+\Pr_{H\sim Q}[H(x)=y].
+\]
+
+Under a uniform distribution over duplicate-invariant semantic classes, this is exactly semantic-class plurality B.
+
+In general,
+
+\[
+h^*(x) \neq y_x^*.
+\]
+
+Thus a program can be the best global representative of the version space while its answer on a particular query is not the posterior-predictive mode.
+
+This is a classical Bayesian-decision distinction, not claimed as a new theorem. Its role here is explanatory: Stage B evaluates a mechanism-level objective, whereas ARC scoring is a fixed-query output objective. Stage C empirically verifies that success on the former does not imply improvement on the latter.
+
+### Why centrality-weighted voting can be redundant
+
+Let A be the semantic-class probe-agreement matrix and
+
+\[
+c_i = \frac1n\sum_j A_{ij}
+\]
+
+the class centrality. Stage D scores a query output group G_y by
+
+\[
+S(y)
+=
+\sum_{i\in G_y} c_i
+=
+\frac1n
+\sum_j\sum_{i\in G_y} A_{ij}.
+\]
+
+This is total probe-graph degree carried by classes predicting y; it is **not** a calibrated posterior probability that y is correct. When class degrees are similar, S(y) preserves the same ordering as unweighted class count. When degree and query-group size covary, it can merely reinforce plurality.
+
+Stage D observed the extreme empirical case: W_all and B had identical family-level top-1 accuracy on all 10 usable families and identical aggregate accuracy (90.0%).
+
+The negative result therefore rules out treating behavioral centrality itself as a probability-of-truth weight without an additional calibration argument.
