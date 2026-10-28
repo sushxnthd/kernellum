@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: python -m pip install numpy matplotlib shortuuid
+      - run: python -m pip install numpy scipy matplotlib shortuuid
       - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
       - name: Print frozen mutation indices 10-19 without executing them
         env:
