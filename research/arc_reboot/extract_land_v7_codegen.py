@@ -32,7 +32,7 @@ def extract_code(resp):
     blocks=re.findall(re.escape(fence)+r"(?:python)?\s*(.*?)"+re.escape(fence),area,re.S|re.I)
     for b in reversed(blocks):
         if "def solver" in b:
-            return normalize_code(b[b.find("def solver"):])
+            return normalize_code(b)
     i=area.rfind("def solver")
     base=area
     if i<0:
@@ -81,7 +81,7 @@ def main():
         for path,node in walk(data):
             path_s="/".join(path)
             raw=node.get("Full raw LLM response","")
-            is_codegen=("codegen" in path_s.lower()) or ("def solver" in raw)
+            is_codegen=("codegen" in path_s.lower())
             if not is_codegen:
                 continue
             stats["call_like_codegen"]+=1
