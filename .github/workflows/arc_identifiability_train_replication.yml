@@ -1,0 +1,38 @@
+name: ARC identifiability frozen replication
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/identifiability_kill_test_train.py"
+      - ".github/workflows/arc_identifiability_train_replication.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - run: |
+          if [ -f /tmp/ARC-TGI/requirements.txt ]; then python -m pip install -r /tmp/ARC-TGI/requirements.txt; fi
+      - name: Run frozen replication
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+        run: python research/arc_reboot/identifiability_kill_test_train.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arc-identifiability-train-replication
+          path: identifiability_kill_test.json
+          if-no-files-found: warn
