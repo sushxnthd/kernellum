@@ -1,0 +1,130 @@
+name: ARC select blind post-v27 replication run
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_REPLICATION_SCAN_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub==1.0.3"
+      - name: Scan versions chronologically using coverage only
+        env:
+          V27_DIGEST: 0a6e53b83ea4c209e3423285306655cef64683f88ece067a73b6bf75740b3a37
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, re, shutil, subprocess
+          import kagglehub
+
+          file_re=re.compile(r"([a-f0-9]{8})_(\d+)_step_([A-Za-z0-9_]+)\.json$")
+          reference=os.environ["V27_DIGEST"]
+          all_rows=[]
+          selected=None
+
+          for v in range(28,40):
+              out=pathlib.Path(f"/tmp/land_v{v}")
+              out.mkdir(parents=True,exist_ok=True)
+              try:
+                  kagglehub.notebook_output_download(
+                      f"johanland/johan-land-solver-v7-public/versions/{v}",
+                      output_dir=str(out),
+                      force_download=True
+                  )
+              except Exception as e:
+                  row={"version":v,"download_error":repr(e)}
+                  all_rows.append(row)
+                  print("VERSION_COVERAGE="+json.dumps(row,sort_keys=True),flush=True)
+                  shutil.rmtree(out,ignore_errors=True)
+                  continue
+
+              log_dirs=[]
+              for p in out.rglob("logs"):
+                  if p.is_dir() and any(p.glob("*.json")):
+                      log_dirs.append(p)
+              if not log_dirs:
+                  row={"version":v,"json_logs":0,"case_groups":0,"cases_ge3_code":0,"eligible":False}
+                  all_rows.append(row)
+                  print("VERSION_COVERAGE="+json.dumps(row,sort_keys=True),flush=True)
+                  shutil.rmtree(out,ignore_errors=True)
+                  continue
+
+              logs=max(log_dirs,key=lambda p:sum(1 for _ in p.glob("*.json")))
+              groups=set()
+              for p in logs.glob("*.json"):
+                  m=file_re.search(p.name)
+                  if m: groups.add((m.group(1),int(m.group(2))))
+
+              cand=pathlib.Path(f"/tmp/v{v}_candidates.jsonl")
+              cp=subprocess.run([
+                  "python","research/arc_reboot/extract_land_v7_codegen.py",
+                  "--logs",str(logs),"--out",str(cand)
+              ],text=True,capture_output=True)
+              if cp.returncode!=0:
+                  row={"version":v,"json_logs":sum(1 for _ in logs.glob("*.json")),
+                       "case_groups":len(groups),"extract_error":cp.stderr[-2000:],"eligible":False}
+                  all_rows.append(row)
+                  print("VERSION_COVERAGE="+json.dumps(row,sort_keys=True),flush=True)
+                  shutil.rmtree(out,ignore_errors=True)
+                  continue
+
+              summary=json.loads(pathlib.Path(str(cand)+".summary.json").read_text())
+              keys=[]
+              with cand.open() as f:
+                  for line in f:
+                      if not line.strip(): continue
+                      r=json.loads(line)
+                      keys.append(f"{r['task_id']}:{r['test_index']}:{r['code_sha256']}")
+              digest=hashlib.sha256("\n".join(sorted(keys)).encode()).hexdigest()
+              eligible=(
+                  len(groups)>=100 and
+                  summary.get("cases_ge3_code",0)>=30 and
+                  digest!=reference
+              )
+              row={
+                  "version":v,
+                  "json_logs":sum(1 for _ in logs.glob("*.json")),
+                  "case_groups":len(groups),
+                  "unique_candidates":summary.get("unique_candidates",0),
+                  "cases_with_code":summary.get("cases_with_code",0),
+                  "cases_ge3_code":summary.get("cases_ge3_code",0),
+                  "candidate_digest":digest,
+                  "differs_from_v27":digest!=reference,
+                  "eligible":eligible,
+              }
+              all_rows.append(row)
+              print("VERSION_COVERAGE="+json.dumps(row,sort_keys=True),flush=True)
+              if eligible:
+                  selected=v
+                  pathlib.Path("selected_replication_version.txt").write_text(str(v)+"\n")
+                  pathlib.Path("selected_replication_coverage.json").write_text(json.dumps(row,indent=2))
+                  break
+              shutil.rmtree(out,ignore_errors=True)
+
+          pathlib.Path("replication_version_scan.json").write_text(json.dumps({
+              "selected_version":selected,
+              "versions":all_rows
+          },indent=2))
+          print("SCAN_FINAL="+json.dumps({"selected_version":selected,"versions_checked":len(all_rows)},sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: land-post-v27-replication-scan
+          path: |
+            replication_version_scan.json
+            selected_replication_version.txt
+            selected_replication_coverage.json
+          if-no-files-found: ignore
