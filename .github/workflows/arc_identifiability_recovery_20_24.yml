@@ -1,0 +1,49 @@
+name: ARC identifiability recovery 20-24
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_identifiability_recovery_20_24.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  family:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { index: 20, start: 20, end: 21 }
+          - { index: 21, start: 21, end: 22 }
+          - { index: 22, start: 22, end: 23 }
+          - { index: 23, start: 23, end: 24 }
+          - { index: 24, start: 24, end: 25 }
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - run: |
+          if [ -f /tmp/ARC-TGI/requirements.txt ]; then python -m pip install -r /tmp/ARC-TGI/requirements.txt; fi
+      - name: Run exact frozen family
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          SHARD_START: ${{ matrix.start }}
+          SHARD_END: ${{ matrix.end }}
+          OUT_FILE: identifiability_recovery_${{ matrix.index }}.json
+        run: python research/arc_reboot/identifiability_kill_test_train_shard.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identifiability-recovery-${{ matrix.index }}
+          path: identifiability_recovery_${{ matrix.index }}.json
+          if-no-files-found: warn
