@@ -93,3 +93,8 @@ Secondary:
 Passing this test would show that label-free counterfactual behavioral centrality transfers to an independently enumerated DSL version space.
 
 Failure would imply the strong Stage B effect may depend materially on the local-mutant / ARC-TGI candidate construction and must be narrowed accordingly.
+
+
+## Frozen grid-equivalence normalization
+
+The quickstart `rot90` primitive returns rows as Python tuples, while JSON task grids load as lists. This is a container-type artifact, not a semantic grid distinction. Before execution, all program outputs and target grids are canonicalized to rectangular tuples of integer tuples. Equality is canonical grid equality; list-vs-tuple representation never changes correctness.
