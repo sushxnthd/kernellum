@@ -84,14 +84,35 @@ def probe_sets(task_id,test_index,demos):
 
 def run_candidate(worker,code,grids,timeout_s=75):
     payload=json.dumps({"code":code,"grids":[np.asarray(g,dtype=int).tolist() for g in grids]},separators=(",",":"))
+    image=os.environ.get("LAND_SANDBOX_IMAGE")
+    if image:
+        cmd=[
+            "docker","run","--rm","-i",
+            "--network","none",
+            "--read-only",
+            "--tmpfs","/tmp:rw,noexec,nosuid,size=64m",
+            "--pids-limit","32",
+            "--memory","1024m",
+            "--cpus","1.0",
+            "--cap-drop","ALL",
+            "--security-opt","no-new-privileges",
+            "--user","65534:65534",
+            "-e","PER_GRID_SECONDS=2.0",
+            image,
+            "python","/worker.py",
+        ]
+        env=os.environ.copy()
+    else:
+        cmd=[sys.executable,worker]
+        env={**os.environ,"PER_GRID_SECONDS":"2.0","PYTHONUNBUFFERED":"1"}
     try:
         p=subprocess.run(
-            [sys.executable,worker],
+            cmd,
             input=payload,
             text=True,
             capture_output=True,
             timeout=timeout_s,
-            env={**os.environ,"PER_GRID_SECONDS":"2.0","PYTHONUNBUFFERED":"1"},
+            env=env,
         )
         if p.returncode!=0:
             return [None]*len(grids)
