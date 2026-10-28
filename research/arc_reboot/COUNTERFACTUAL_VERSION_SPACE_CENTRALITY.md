@@ -173,3 +173,48 @@ Reasons:
 - strong prior art already documents contextual anchoring / diversity loss in iterative refinement.
 
 Clean 3B and causal anchor-decomposition runs are retained as supporting falsification evidence only.
+
+
+## Stage B final result
+
+The frozen Train replication is complete over all 51 loadable generator classes from the pinned ARC-TGI inventory (55 raw files; four structurally excluded by the frozen loader because their class names do not end in `Generator`: task17cae0c1, task18447a8d, task195ba7dc, task1c02dbbe).
+
+Final Stage B:
+- accounted loadable families: **51/51**
+- usable demo-perfect version spaces (>=3 semantic mutants): **10**
+- median agnostic Spearman: **0.6511**
+- median selector gain over mean demo-perfect mutant: **+10.36 pp**
+- macro centrality-selected held-out accuracy: **90.00%**
+- macro mean demo-perfect-mutant held-out accuracy: **78.88%**
+- positive agnostic correlation: **8/10** usable families
+
+This passes all three preregistered Stage B gates without changing thresholds.
+
+The effect is not uniform. Some families are negative, including task1190bc91 (agnostic gain -8.56 pp) and task0e671a1a (-6.67 pp). Therefore the claim is distributional, not that centrality is universally safe.
+
+## Probe-type robustness
+
+A preregistration-independent robustness ablation on the nine originally usable families compared the frozen mixed probe set against restricted probe families.
+
+Macro selector gain over the mean demo-perfect mutant:
+- D4-only geometric probes: **+18.87 pp mean, +19.44 pp median, positive in 9/9**
+- color-only probes: **+18.50 pp mean, +16.11 pp median, positive in 9/9**
+- original mixed probes: **+13.31 pp mean, +13.06 pp median, positive in 8/9**
+- cyclic-roll-only probes: **+6.46 pp mean, +11.00 pp median, positive in 7/9**
+
+The roll-only family has a catastrophic failure on task182e5d0f (-35.56 pp), while D4-only never has a negative gain in this nine-family set. This weakens any claim that arbitrary counterfactual perturbations are informative and instead points toward structure-preserving geometric probes as the strongest current mechanism.
+
+## Stage C partial status
+
+Stage C was executed only after the Stage B pass was committed. The frozen primary comparison is counterfactual centrality (D) versus duplicate-invariant semantic-class plurality (B) on exactly 32 fresh queries per usable family.
+
+Partial completed usable families show mostly ties and at least one loss:
+- task0bb8deee: B=1.000, D=1.000
+- task09c534e7: B=1.000, D=1.000
+- task0a2355a6: B=1.000, D=0.875
+- task0e671a1a: B=0.59375, D=0.59375
+- task1190bc91: B=1.000, D=1.000
+- task137f0df0: B=0.875, D=0.875
+- task1d0a4b61: B=1.000, D=1.000
+
+Do not infer the final Stage C verdict until shard 9 and the frozen aggregate complete.
