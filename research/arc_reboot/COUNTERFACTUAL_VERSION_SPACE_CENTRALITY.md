@@ -440,3 +440,119 @@ The exact Johan Land V7 public paper run was located and validated.
 - Land metadata marks 1,136 calls as training-verification PASS; the independent experiment re-verifies every candidate itself.
 
 This corpus clears the prior coverage bottleneck by a large margin. The preregistered LLM-code counterfactual evaluation is the primary current falsification test.
+
+
+## Independent LLM-code transfer — exact V27 result
+
+The preregistered independent test was run on the exact Johan Land V7 paper corpus (Kaggle version 27 / scriptVersionId 290052212).
+
+Candidate coverage before scoring:
+- 1,578 codegen call-like entries
+- 1,382 unique normalized code hypotheses
+- 167 task/test cases with code
+- 160 cases with >=3 extracted code hypotheses
+- median 10 extracted hypotheses/case
+- 167/167 public test cases had archived truth
+
+Every candidate used for scoring was independently reverified on all demonstrations in an isolated network-disabled container, then run on frozen probes and the public test input without access to evaluation files.
+
+Final usable set:
+- **95 usable cases**
+- **75 distinct ARC tasks**
+- **67 oracle-positive cases**
+- **29 minority-correct cases**
+
+### Preregistered primary — counterfactual medoid D: FAIL
+
+Top-1:
+- semantic-class plurality B: **50.53%**
+- mixed-probe medoid D: **43.16%**
+- D-B: **-7.37 pp**
+- task-bootstrap 95% CI: **[-16.0, +1.33] pp**
+- task directions: 4 positive, 11 negative, 60 tied
+
+Oracle-positive:
+- D-B: **-10.45 pp**
+
+Minority-correct:
+- D-B: **-17.24 pp**
+
+Pass@2:
+- B: **64.21%**
+- D: **57.89%**
+
+Thus the practical medoid selector is decisively killed on independent real LLM-generated programs.
+
+### Mechanism transfer: POSITIVE
+
+Despite the failed decision rule, counterfactual centrality predicts which independently generated programs are actually correct:
+
+- mean within-case mixed-centrality/correctness Spearman: **0.270**
+- mean within-case mixed-centrality correctness AUC: **0.663**
+
+Pre-result frozen permutation control:
+- 10,000 within-case label permutations
+- null mean AUC: ~0.500
+- null 95% AUC: **[0.434, 0.567]**
+- 0/10,000 permutations reached observed 0.663
+- null 95% Spearman: approximately **[-0.109, +0.111]**
+- 0/10,000 permutations reached observed ~0.270
+
+D4-only centrality:
+- mean within-case Spearman: **0.299**
+- mean AUC: **0.648**
+- D4 permutation null 95% AUC: **[0.441, 0.558]**
+- 0/10,000 permutations reached observed AUC or Spearman
+
+### Candidate-origin and complexity controls
+
+The generator pool is dominated by GPT-5.2-xhigh plus Gemini-3-high, with very different training-verification rates. The centrality association nevertheless survives model controls.
+
+Within same case and same canonical-representative model family:
+- mixed-centrality mean AUC: **0.661**
+- mixed-centrality mean Spearman: **0.265**
+- GPT-only informative groups: mean AUC **0.674**, mean Spearman **0.283**
+
+After residualizing both correctness and centrality against case and model-family fixed effects:
+- mixed centrality residual correlation with correctness: **r≈0.172**
+- D4 centrality residual correlation: **r≈0.206**
+
+Source length is not the explanation:
+- within-case mixed-centrality vs log source length: **r≈0.015**
+- within-case log source length vs correctness: **r≈0.118**
+- centrality/correctness correlation after case + source-length adjustment remains positive:
+  - mixed **r≈0.190**
+  - D4 **r≈0.218**
+
+Class multiplicity is only weakly related to correctness:
+- within-case log class size vs correctness: **r≈0.053**
+
+### Exploratory secondary — D4-weighted semantic voting W4
+
+This was preregistered as secondary and **cannot rescue the failed primary**, but it generated a new replication hypothesis.
+
+V27 exploratory:
+- B top-1: **50.53%**
+- W4 top-1: **55.79%**
+- case-macro gain: **+5.26 pp**
+- task-macro gain: **+6.67 pp**
+- task-bootstrap 95%: **[0, +13.33] pp**
+- case discordance: W4 wins 6, loses 1
+- task directions: 6 positive, 1 negative, 68 tied
+
+Oracle-positive:
+- B **71.64%**
+- W4 **79.10%**
+- gain **+7.46 pp**
+
+Minority-correct:
+- B **34.48%**
+- W4 **51.72%**
+- gain **+17.24 pp**
+- W4 wins 6, loses 1 on the 29-case subset
+
+Pass@2:
+- B **64.21%**
+- W4 **66.32%**
+
+Interpretation: W4 is promising but post-discovery on V27. It requires a separately preregistered candidate-generation rerun before any practical claim is made.
