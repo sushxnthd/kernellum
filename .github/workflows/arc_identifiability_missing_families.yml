@@ -1,0 +1,46 @@
+name: ARC identifiability missing-family recovery
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_identifiability_missing_families.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  family:
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        idx: [5,6,7,8,9,10,11,12,13,14,20,21,22,23,24,25,26,27,28,29,35,36,37,38,39]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Minimal runtime
+        run: python -m pip install numpy scipy matplotlib shortuuid
+      - name: Fetch ARC-TGI
+        run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Run exactly one frozen family
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          OUT_FILE: identifiability_family_${{ matrix.idx }}.json
+        run: |
+          export SHARD_START=${{ matrix.idx }}
+          export SHARD_END=$(( ${{ matrix.idx }} + 1 ))
+          python research/arc_reboot/identifiability_kill_test_train_shard.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identifiability-family-${{ matrix.idx }}
+          path: identifiability_family_${{ matrix.idx }}.json
+          if-no-files-found: warn
