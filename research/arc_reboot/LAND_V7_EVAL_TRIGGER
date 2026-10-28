@@ -1,1 +1,2 @@
 Execute the preregistered exact-v27 LLM-code counterfactual evaluation after coverage validation passed.
+Retrigger after JSONL serialization fix.
