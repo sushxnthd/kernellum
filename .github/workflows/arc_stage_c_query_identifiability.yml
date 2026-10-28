@@ -1,0 +1,75 @@
+name: ARC Stage C preregistered query identifiability
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - {id: 0, start: 0, end: 5}
+          - {id: 1, start: 5, end: 10}
+          - {id: 2, start: 10, end: 15}
+          - {id: 3, start: 15, end: 20}
+          - {id: 4, start: 20, end: 25}
+          - {id: 5, start: 25, end: 30}
+          - {id: 6, start: 30, end: 35}
+          - {id: 7, start: 35, end: 40}
+          - {id: 8, start: 40, end: 45}
+          - {id: 9, start: 45, end: 50}
+          - {id: 10, start: 50, end: 55}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Run frozen Stage C shard
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          SHARD_START: ${{ matrix.start }}
+          SHARD_END: ${{ matrix.end }}
+          CALL_TIMEOUT_S: "2.0"
+          N_QUERIES: "32"
+          OUT_FILE: stage_c_shard_${{ matrix.id }}.json
+        run: python research/arc_reboot/stage_c_query_identifiability.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stage-c-shard-${{ matrix.id }}
+          path: stage_c_shard_${{ matrix.id }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: stage-c-shard-*
+          path: stagec_shards
+          merge-multiple: true
+      - name: Aggregate with frozen survival rule
+        env:
+          SHARD_DIR: stagec_shards
+          OUT_FILE: stage_c_query_identifiability_aggregated.json
+        run: python research/arc_reboot/aggregate_stage_c_query_identifiability.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stage-c-query-identifiability-aggregated
+          path: stage_c_query_identifiability_aggregated.json
