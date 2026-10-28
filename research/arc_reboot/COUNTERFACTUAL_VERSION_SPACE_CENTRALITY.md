@@ -293,3 +293,29 @@ The surviving result is narrower:
 > In local executable version spaces induced by ARC-TGI AST mutations, label-free counterfactual behavioral centrality predicts **global off-demonstration program quality**, but this information does not improve query-level prediction beyond duplicate-invariant semantic-class plurality, either by selecting one central program or by centrality-weighted voting.
 
 The key remaining threat is candidate-generator dependence. The independent enumerative-DSL transfer test is now the primary falsification experiment for the mechanism itself.
+
+
+## Independent quickstart DSL transfer — inconclusive due coverage
+
+A preregistered leave-one-demo-out transfer test used the independent `hackos-team/arc-agi-quickstart` DSL pinned at commit `2ea62d01162b436854b089a80715728cad2f2a3f`.
+
+Search space:
+- 5 primitives;
+- every composition depth 1–6;
+- 19,530 programs;
+- all 400 ARC-AGI-1 public training tasks.
+
+Result:
+- usable folds: **3**
+- distinct tasks: **3**
+- required coverage: >=20 folds from >=10 tasks — **FAIL**
+- D centrality accuracy: **33.33%**
+- uniform semantic-class expected correctness U: **16.67%**
+- D-U: **+16.67 pp**
+- semantic plurality B: **33.33%**
+- D-B: **0.00 pp**
+- task-bootstrap 95% D-U: **[0, +50 pp]**
+- positive task direction: **1 positive, 2 zero**
+- two of the three usable folds had oracle=0, meaning no surviving DSL semantic class predicted the held-out demonstration correctly.
+
+Interpretation: the transfer test is **inconclusive**, not a mechanism failure. The DSL is too weak/sparse to create enough expressible ambiguous version spaces to satisfy the preregistered coverage gate. A richer independent DSL replication is required.
