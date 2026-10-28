@@ -1,0 +1,106 @@
+name: ARC Stage D weighted predictive voting
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/STAGE_D_RUN_TRIGGER"
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - {id: 0, start: 0, end: 5}
+          - {id: 1, start: 5, end: 10}
+          - {id: 2, start: 10, end: 15}
+          - {id: 3, start: 15, end: 20}
+          - {id: 4, start: 20, end: 25}
+          - {id: 5, start: 25, end: 30}
+          - {id: 6, start: 30, end: 35}
+          - {id: 7, start: 35, end: 40}
+          - {id: 8, start: 40, end: 45}
+          - {id: 9, start: 45, end: 50}
+          - {id: 10, start: 50, end: 55}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - name: Fetch pinned ARC-TGI
+        run: |
+          git clone https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+          cd /tmp/ARC-TGI
+          git checkout a614132ff5b2cb3628063d541e7cbd74a2cd2edb
+          python -m pip install -r requirements.txt
+      - name: Verify frozen generator inventory
+        env:
+          PYTHONPATH: /tmp/ARC-TGI
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0,"research/arc_reboot")
+          import identifiability_kill_test_train_shard as core
+          root=Path("/tmp/ARC-TGI")
+          raw=sorted((root/"Generators/ARC-AGI-2/Train").glob("task*.py"))
+          gens=core.load_generators(root)
+          loaded={g[0] for g in gens}
+          excluded=sorted(p.stem for p in raw if p.stem not in loaded)
+          print("RAW_FILE_COUNT",len(raw))
+          print("LOADED_GENERATOR_COUNT",len(gens))
+          print("EXCLUDED",excluded)
+          assert len(raw)==55
+          assert len(gens)==51
+          assert excluded==["task17cae0c1","task18447a8d","task195ba7dc","task1c02dbbe"]
+          PY
+      - name: Run frozen Stage D shard
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          SHARD_START: ${{ matrix.start }}
+          SHARD_END: ${{ matrix.end }}
+          CALL_TIMEOUT_S: "2.0"
+          N_QUERIES: "32"
+          OUT_FILE: stage_d_shard_${{ matrix.id }}.json
+        run: python research/arc_reboot/stage_d_weighted_query.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stage-d-shard-${{ matrix.id }}
+          path: stage_d_shard_${{ matrix.id }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: stage-d-shard-*
+          path: stage_d_shards
+          merge-multiple: true
+      - name: Aggregate frozen Stage D primary
+        env:
+          SHARD_DIR: stage_d_shards
+          OUT_FILE: stage_d_weighted_aggregated.json
+        run: python research/arc_reboot/aggregate_stage_d_weighted.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stage-d-weighted-aggregated
+          path: stage_d_weighted_aggregated.json
