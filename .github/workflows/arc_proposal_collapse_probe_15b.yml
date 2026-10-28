@@ -1,0 +1,49 @@
+name: ARC proposal collapse probe v2 1.5B
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_proposal_collapse_probe_15b.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe15b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch
+          python -m pip install "transformers>=4.46,<4.48" sentencepiece safetensors accelerate
+      - name: Fetch ARC-AGI-2
+        run: git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git
+      - name: Run matched v2 probe
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: |
+          python research/arc_reboot/proposal_collapse_probe.py \
+            --arc-dir ARC-AGI-2/data/training \
+            --model Qwen/Qwen2.5-Coder-1.5B-Instruct \
+            --dtype bfloat16 \
+            --tasks 12 \
+            --max-new-tokens 180 \
+            --out proposal_collapse_probe_v2_15b_results.json
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arc-proposal-collapse-probe-v2-15b
+          path: proposal_collapse_probe_v2_15b_results.json
+          if-no-files-found: warn
