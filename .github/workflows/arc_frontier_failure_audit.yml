@@ -1,0 +1,38 @@
+name: ARC frontier failure-law audit
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/frontier_failure_audit.py"
+      - ".github/workflows/arc_frontier_failure_audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install audit dependencies
+        run: python -m pip install huggingface_hub
+      - name: Fetch ARC-AGI-2 ground truth
+        run: git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git /tmp/ARC-AGI-2
+      - name: Audit official frontier model outputs
+        env:
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: python research/arc_reboot/frontier_failure_audit.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arc-frontier-failure-audit
+          path: frontier_failure_audit.json
+          if-no-files-found: warn
