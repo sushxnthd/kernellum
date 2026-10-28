@@ -1,0 +1,46 @@
+name: ARC anchor decomposition v2 3B
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_anchor_decomposition_3b.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  decompose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch
+          python -m pip install "transformers>=4.46,<4.48" sentencepiece safetensors accelerate
+      - run: git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git
+      - name: Run causal anchor decomposition
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: |
+          python research/arc_reboot/anchor_decomposition.py \
+            --arc-dir ARC-AGI-2/data/training \
+            --model Qwen/Qwen2.5-3B-Instruct \
+            --dtype bfloat16 \
+            --tasks 8 \
+            --max-new-tokens 180 \
+            --out anchor_decomposition_v2_3b_results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arc-anchor-decomposition-v2-3b
+          path: anchor_decomposition_v2_3b_results.json
+          if-no-files-found: warn
