@@ -16,7 +16,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        index: [5, 6, 7, 8, 9]
+        include:
+          - { index: 5, start: 5, end: 6 }
+          - { index: 6, start: 6, end: 7 }
+          - { index: 7, start: 7, end: 8 }
+          - { index: 8, start: 8, end: 9 }
+          - { index: 9, start: 9, end: 10 }
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -32,8 +37,8 @@ jobs:
         env:
           ARC_TGI_ROOT: /tmp/ARC-TGI
           PYTHONPATH: /tmp/ARC-TGI
-          SHARD_START: ${{ matrix.index }}
-          SHARD_END: ${{ matrix.index + 1 }}
+          SHARD_START: ${{ matrix.start }}
+          SHARD_END: ${{ matrix.end }}
           OUT_FILE: identifiability_recovery_${{ matrix.index }}.json
         run: python research/arc_reboot/identifiability_kill_test_train_shard.py
       - uses: actions/upload-artifact@v4
