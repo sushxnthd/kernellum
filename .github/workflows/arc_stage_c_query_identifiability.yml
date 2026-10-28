@@ -2,6 +2,11 @@ name: ARC Stage C preregistered query identifiability
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/STAGE_C_RUN_TRIGGER"
 
 permissions:
   contents: read
