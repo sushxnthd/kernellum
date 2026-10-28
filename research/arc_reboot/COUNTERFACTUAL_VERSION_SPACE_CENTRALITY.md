@@ -218,3 +218,43 @@ Partial completed usable families show mostly ties and at least one loss:
 - task1d0a4b61: B=1.000, D=1.000
 
 Do not infer the final Stage C verdict until shard 9 and the frozen aggregate complete.
+
+
+## Stage C final result — practical single-mechanism method killed
+
+The preregistered Stage C query-selection experiment completed across all 51 loadable families, with 10 usable version spaces and 32 fresh queries per usable family.
+
+Primary:
+- semantic-class plurality B: **90.000%**
+- single-class counterfactual centrality D: **89.375%**
+- D-B: **-0.625 pp**
+- family-bootstrap 95% CI: **[-3.75, +1.875] pp**
+- family directions: **1 improved, 1 hurt, 8 tied**
+- disagreement-query accuracy: B **82.42%**, D **81.32%**
+- disagreement gain: **-1.10 pp**
+- pass@2: B=D=**96.5625%**
+
+Frozen Stage C survival:
+- >=3 pp macro gain: FAIL
+- >=3 improving families: FAIL
+- positive disagreement-query gain: FAIL
+- bootstrap CI not entirely below zero: PASS
+
+Therefore the practical single-mechanism centrality method is killed.
+
+Secondary, not a rescue of the primary:
+- raw candidate plurality A: **93.125%**
+- minimum-AST simplicity C: **93.750%**
+- lexicographic centrality-then-simplicity E: **93.4375%**
+
+These secondary results motivate, but do not establish, a distinction between selecting one globally plausible mechanism and aggregating predictions for the actual query.
+
+## Query–mechanism gap
+
+Stage B and Stage C together expose two different decision problems.
+
+For global mechanism selection, a central program can minimize expected disagreement over future inputs.
+
+For a fixed query x_q, the loss-minimizing action is instead a predictive decision over outputs. Even if h* is the best single mechanism globally, its output h*(x_q) need not equal the output with maximum aggregate support among plausible mechanisms.
+
+This explains how counterfactual centrality can predict held-out program quality in Stage B while failing to beat semantic-class plurality on Stage C. The next preregistered Stage D tests whether preserving centrality as a weight over semantic classes, rather than collapsing to one class, improves query prediction.
