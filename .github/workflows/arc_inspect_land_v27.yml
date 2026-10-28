@@ -1,0 +1,62 @@
+name: ARC inspect Land V7 paper trace archive
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_V27_INSPECT_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub==1.0.3"
+      - name: Download exact paper run v27
+        run: |
+          python - <<'PY'
+          import pathlib, json, kagglehub, os, tarfile, zipfile
+          out=pathlib.Path("/tmp/land_v27")
+          out.mkdir(parents=True,exist_ok=True)
+          p=kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v7-public/versions/27",
+              output_dir=str(out),
+              force_download=True
+          )
+          print("DOWNLOAD_PATH",p)
+          files=[]
+          for x in sorted(out.rglob("*")):
+              if x.is_file() and ".complete/" not in str(x):
+                  files.append({"path":str(x.relative_to(out)),"bytes":x.stat().st_size})
+          print("OUTPUT_MANIFEST="+json.dumps(files,sort_keys=True))
+          manifest={"files":files,"archives":{}}
+          for x in out.rglob("*"):
+              if not x.is_file(): continue
+              rel=str(x.relative_to(out))
+              if tarfile.is_tarfile(x):
+                  with tarfile.open(x) as t:
+                      names=t.getnames()
+                  manifest["archives"][rel]={"type":"tar","count":len(names),"sample":names[:100]}
+                  print("TAR_SUMMARY="+json.dumps({"path":rel,"count":len(names),"sample":names[:30]}))
+              elif zipfile.is_zipfile(x):
+                  with zipfile.ZipFile(x) as z:
+                      names=z.namelist()
+                  manifest["archives"][rel]={"type":"zip","count":len(names),"sample":names[:100]}
+                  print("ZIP_SUMMARY="+json.dumps({"path":rel,"count":len(names),"sample":names[:30]}))
+          pathlib.Path("land_v27_archive_manifest.json").write_text(json.dumps(manifest,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: land-v27-archive-manifest
+          path: land_v27_archive_manifest.json
+          if-no-files-found: warn
