@@ -1,0 +1,91 @@
+name: ARC validate Land V6 replication coverage
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_V6_COVERAGE_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub==1.0.3"
+      - name: Download exact V6 historical run
+        run: |
+          python - <<'PY'
+          import kagglehub, pathlib
+          out=pathlib.Path("/tmp/land_v6")
+          out.mkdir(parents=True,exist_ok=True)
+          kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v6-public/versions/20",
+              output_dir=str(out),
+              force_download=True
+          )
+          PY
+      - name: Locate logs and extract candidate coverage
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          root=pathlib.Path("/tmp/land_v6")
+          log_dirs=[p for p in root.rglob("logs") if p.is_dir() and any(p.glob("*.json"))]
+          if not log_dirs:
+              raise SystemExit("no logs directory")
+          logs=max(log_dirs,key=lambda p:sum(1 for _ in p.glob("*.json")))
+          print("LOG_DIR",logs)
+          print("JSON_LOGS",sum(1 for _ in logs.glob("*.json")))
+          cp=subprocess.run([
+              "python","research/arc_reboot/extract_land_v7_codegen.py",
+              "--logs",str(logs),
+              "--out","land_v6_codegen_candidates.jsonl"
+          ],check=True)
+          summary=json.loads(pathlib.Path("land_v6_codegen_candidates.jsonl.summary.json").read_text())
+          keys=[]
+          with open("land_v6_codegen_candidates.jsonl") as f:
+              for line in f:
+                  if not line.strip(): continue
+                  r=json.loads(line)
+                  keys.append(f"{r['task_id']}:{r['test_index']}:{r['code_sha256']}")
+          digest=hashlib.sha256("\n".join(sorted(keys)).encode()).hexdigest()
+          summary["candidate_digest"]=digest
+          pathlib.Path("land_v6_coverage.json").write_text(json.dumps(summary,indent=2))
+          print("V6_COVERAGE="+json.dumps(summary,sort_keys=True))
+          PY
+      - name: Validate truth source availability without scoring
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path("/tmp/land_v6")
+          candidates=[
+              p for p in root.rglob("evaluation")
+              if p.is_dir() and any(p.glob("*.json"))
+          ]
+          if candidates:
+              ev=max(candidates,key=lambda p:sum(1 for _ in p.glob("*.json")))
+              files=sorted(ev.glob("*.json"))
+              tests=out=0
+              for p in files:
+                  d=json.loads(p.read_text())
+                  for t in d.get("test",[]):
+                      tests+=1
+                      out+=int("output" in t)
+              print("V6_TRUTH="+json.dumps({"evaluation_dir":str(ev),"task_files":len(files),"test_cases":tests,"with_output":out},sort_keys=True))
+          else:
+              print("V6_TRUTH="+json.dumps({"evaluation_dir":None,"task_files":0,"test_cases":0,"with_output":0}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: land-v6-coverage
+          path: |
+            land_v6_coverage.json
+            land_v6_codegen_candidates.jsonl.summary.json
