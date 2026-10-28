@@ -1,0 +1,47 @@
+name: ARC fetch Land V7 version 27 traces
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_V27_FETCH_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub>=1.0.0"
+      - name: Download exact public V27 notebook output
+        run: |
+          python - <<'PY'
+          import json, pathlib, kagglehub, shutil, os
+          out=pathlib.Path("/tmp/land_v27")
+          out.mkdir(parents=True,exist_ok=True)
+          handle="johanland/johan-land-solver-v7-public/versions/27"
+          p=kagglehub.notebook_output_download(handle,output_dir=str(out))
+          print("DOWNLOAD_PATH",p)
+          files=[]
+          for x in sorted(out.rglob("*")):
+              if x.is_file() and ".complete" not in x.parts:
+                  files.append({"path":str(x.relative_to(out)),"bytes":x.stat().st_size})
+          print("FILE_COUNT",len(files))
+          print("TOTAL_BYTES",sum(x["bytes"] for x in files))
+          print("FILE_MANIFEST="+json.dumps(files[:5000]))
+          pathlib.Path("land_v27_manifest.json").write_text(json.dumps(files,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: land-v27-manifest
+          path: land_v27_manifest.json
+          if-no-files-found: warn
