@@ -401,3 +401,42 @@ This is total probe-graph degree carried by classes predicting y; it is **not** 
 Stage D observed the extreme empirical case: W_all and B had identical family-level top-1 accuracy on all 10 usable families and identical aggregate accuracy (90.0%).
 
 The negative result therefore rules out treating behavioral centrality itself as a probability-of-truth weight without an additional calibration argument.
+
+
+## Independent transfer II — rich typed DSL also coverage-inconclusive
+
+A second preregistered transfer used an independently implemented typed ARC DSL from `sirPhoebus/challenge-ARC-AGI`, pinned at commit `15c39778f9c36e511053b00fe69658bb3dc5be4d`.
+
+The transfer used:
+- the source repository's own config, enumerator, token registry, and interpreter;
+- enabled operations MAP_COLOR, FILTER_EQ, ROTATE, REFLECT, CROP, PAD, COMPOSE;
+- exactly the first 20,000 deterministic enumerated programs, matching its configured `search.max_nodes`;
+- all 1,000 ARC-AGI-2 training tasks;
+- the same preregistered leave-one-demonstration-out transfer protocol.
+
+Final:
+- usable folds: **1**
+- distinct tasks: **1**
+- oracle-positive folds: **0**
+- D=U=B=D4=0 on the sole usable fold
+- preregistered verdict: **INCONCLUSIVE_COVERAGE**
+
+Thus two independent enumerative DSLs fail primarily because they almost never generate sufficiently rich, expressible ambiguous version spaces. They do not provide a meaningful negative test of counterfactual centrality.
+
+## Independent transfer III — real LLM-generated executable hypotheses
+
+The exact Johan Land V7 public paper run was located and validated.
+
+- paper scriptVersionId: `290052212`
+- exact Kaggle notebook version: **27**
+- released `logs.tgz`: **51,592,228 bytes**, 763 members
+- public evaluation cases: **167**, all with archived output truth
+- raw codegen calls found under frozen codegen-only extraction: **1,578**
+- unique extracted code hypotheses: **1,382**
+- cases containing code: **167/167**
+- cases with >=3 extracted code hypotheses before independent verification: **160/167**
+- median extracted candidates per case: **10**
+- maximum: **11**
+- Land metadata marks 1,136 calls as training-verification PASS; the independent experiment re-verifies every candidate itself.
+
+This corpus clears the prior coverage bottleneck by a large margin. The preregistered LLM-code counterfactual evaluation is the primary current falsification test.
