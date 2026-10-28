@@ -1,0 +1,81 @@
+name: ARC V6 source-version metadata map
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_v6_source_version_map.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub>=1.0.0"
+      - name: Inspect SDK request schema and historical source metadata only
+        run: |
+          python - <<'PY'
+          import json, inspect
+          from kagglehub.clients import build_kaggle_client
+          import kagglesdk.kernels.types.kernels_api_service as kas
+
+          cls=kas.ApiGetKernelRequest
+          q=cls()
+          print("GET_REQ_DICT",q.__dict__)
+          print("GET_REQ_DIR="+json.dumps([x for x in dir(q) if not x.startswith("_")]))
+
+          with build_kaggle_client() as client:
+              meth=client.kernels.kernels_api_client.get_kernel
+              print("GET_SIG",inspect.signature(meth))
+              # Probe accepted request fields without downloading any notebook outputs.
+              # version_label values are metadata labels; try numeric labels 1..23 and common forms.
+              labels=[]
+              for v in range(1,24):
+                  labels += [str(v), f"Version {v}", f"version {v}", f"v{v}"]
+              seen=set()
+              for label in labels:
+                  if label in seen: continue
+                  seen.add(label)
+                  try:
+                      req=cls()
+                      req.user_name="johanland"
+                      req.kernel_slug="johan-land-solver-v6-public"
+                      if hasattr(req,"version_label"):
+                          req.version_label=label
+                      resp=meth(req)
+                      d=resp.to_dict()
+                      md=d.get("metadata",{}) if isinstance(d,dict) else {}
+                      blob=d.get("blob",{}) if isinstance(d,dict) else {}
+                      source=blob.get("source","") if isinstance(blob,dict) else ""
+                      # Only derive execution timestamp/version metadata. Do not print source.
+                      exec_times=[]
+                      try:
+                          nb=json.loads(source)
+                          for cell in nb.get("cells",[]):
+                              ex=cell.get("metadata",{}).get("execution",{})
+                              for k,val in ex.items():
+                                  if isinstance(val,str) and val[:4].isdigit():
+                                      exec_times.append(val)
+                      except Exception:
+                          pass
+                      print("SOURCE_META="+json.dumps({
+                        "label":label,
+                        "currentVersionNumber":md.get("currentVersionNumber"),
+                        "id":md.get("id"),
+                        "lastRunTime":md.get("lastRunTime"),
+                        "execution_min":min(exec_times) if exec_times else None,
+                        "execution_max":max(exec_times) if exec_times else None,
+                        "source_bytes":len(source)
+                      },default=str,sort_keys=True))
+                  except Exception as e:
+                      print("SOURCE_ERROR="+json.dumps({"label":label,"error":repr(e)}))
+          PY
