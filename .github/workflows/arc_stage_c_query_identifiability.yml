@@ -32,7 +32,25 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install numpy scipy matplotlib shortuuid
-      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Fetch pinned ARC-TGI
+        run: |
+          git clone https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+          cd /tmp/ARC-TGI
+          git checkout a614132ff5b2cb3628063d541e7cbd74a2cd2edb
+          python -m pip install -r requirements.txt
+      - name: Verify frozen generator inventory
+        env:
+          PYTHONPATH: /tmp/ARC-TGI
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0,"research/arc_reboot")
+          import identifiability_kill_test_train_shard as core
+          gens=core.load_generators(Path("/tmp/ARC-TGI"))
+          print("GENERATOR_COUNT",len(gens))
+          assert len(gens)==55, [g[0] for g in gens]
+          PY
       - name: Run frozen Stage C shard
         env:
           ARC_TGI_ROOT: /tmp/ARC-TGI
