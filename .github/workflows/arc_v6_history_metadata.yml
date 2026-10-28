@@ -1,0 +1,79 @@
+name: ARC V6 historical metadata map
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/V6_HISTORY_METADATA_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub>=1.0.0"
+      - name: Inspect SDK version/file metadata API and versions 1-23 only
+        run: |
+          python - <<'PY'
+          import json, inspect
+          from kagglehub.clients import build_kaggle_client
+          import kagglesdk.kernels.types.kernels_api_service as kas
+
+          classes=[x for x in dir(kas) if "Kernel" in x and ("List" in x or "Version" in x or "Get" in x)]
+          print("KERNEL_TYPES="+json.dumps(classes))
+
+          req_cls=getattr(kas,"ApiListKernelFilesRequest",None)
+          print("LIST_REQ_CLASS",req_cls)
+          if req_cls:
+              req=req_cls()
+              print("LIST_REQ_DICT",getattr(req,"__dict__",{}))
+              print("LIST_REQ_DIR="+json.dumps([x for x in dir(req) if not x.startswith("_")]))
+
+          with build_kaggle_client() as client:
+              meth=client.kernels.kernels_api_client.list_kernel_files
+              print("LIST_METHOD_SIG",str(inspect.signature(meth)))
+
+              for v in range(1,24):
+                  try:
+                      req=req_cls()
+                      # Set every plausible supported field by attribute existence.
+                      vals={
+                        "owner_slug":"johanland","user_name":"johanland","owner":"johanland",
+                        "kernel_slug":"johan-land-solver-v6-public","slug":"johan-land-solver-v6-public",
+                        "version_number":v,"kernel_version_number":v,"version":v
+                      }
+                      for k,val in vals.items():
+                          if hasattr(req,k):
+                              setattr(req,k,val)
+                      resp=meth(req)
+                      try:d=resp.to_dict()
+                      except Exception:d=getattr(resp,"__dict__",{})
+                      files=[]
+                      for f in getattr(resp,"files",[]) or []:
+                          try:fd=f.to_dict()
+                          except Exception:fd=getattr(f,"__dict__",{})
+                          # metadata only
+                          files.append({k:fd.get(k) for k in fd if k.lower() in {
+                            "name","file_name","filename","size","bytes","creation_date",
+                            "date_created","last_modified","url","ref","version_number",
+                            "kernel_version_number","script_version_id","id"
+                          }})
+                      print("VERSION_META="+json.dumps({
+                        "version":v,
+                        "response_keys":sorted(d.keys()) if isinstance(d,dict) else [],
+                        "response":{k:d[k] for k in d if any(s in k.lower() for s in ["version","script","id","date","time"])} if isinstance(d,dict) else {},
+                        "file_count":len(files),
+                        "files":files[:100]
+                      },default=str,sort_keys=True))
+                  except Exception as e:
+                      print("VERSION_ERROR="+json.dumps({"version":v,"error":repr(e)}))
+          PY
