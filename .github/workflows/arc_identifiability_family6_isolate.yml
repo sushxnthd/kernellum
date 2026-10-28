@@ -1,0 +1,47 @@
+name: ARC identifiability family 6 isolate mutants 10-19
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_identifiability_family6_isolate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mutant:
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        idx: [10,11,12,13,14,15,16,17,18,19]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Screen exactly one frozen mutant
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          FAMILY_INDEX: "6"
+          MODE: screen
+          CHUNK_START: ${{ matrix.idx }}
+          CHUNK_END: ${{ matrix.idx }}
+          OUT_FILE: placeholder.json
+        run: |
+          export CHUNK_END=$(( ${{ matrix.idx }} + 1 ))
+          export OUT_FILE=screen_${{ matrix.idx }}.json
+          python research/arc_reboot/identifiability_family_checkpointed.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: family6-mutant-${{ matrix.idx }}
+          path: screen_${{ matrix.idx }}.json
+          if-no-files-found: warn
