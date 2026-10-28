@@ -82,8 +82,10 @@ def probe_sets(task_id,test_index,demos):
                     return primary,d4p
     return primary,d4p[:12]
 
-def run_candidate(worker,code,grids,timeout_s=75):
+def run_candidate(worker,code,grids,timeout_s=None):
     payload=json.dumps({"code":code,"grids":[np.asarray(g,dtype=int).tolist() for g in grids]},separators=(",",":"))
+    if timeout_s is None:
+        timeout_s=max(90.0, len(grids)*2.5+30.0)
     image=os.environ.get("LAND_SANDBOX_IMAGE")
     if image:
         cmd=[
