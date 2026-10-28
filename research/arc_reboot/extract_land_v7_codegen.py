@@ -2,14 +2,14 @@ import argparse, hashlib, json, re
 from collections import Counter, defaultdict
 from pathlib import Path
 
-FILE_RE=re.compile(r"([a-f0-9]{8})_(\\d+)_step_([A-Za-z0-9_]+)\\.json$")
+FILE_RE=re.compile(r"([a-f0-9]{8})_(\d+)_step_([A-Za-z0-9_]+)\.json$")
 
 def normalize_code(code):
-    code=code.replace("\\r\\n","\\n").replace("\\r","\\n")
+    code=code.replace("\r\n","\n").replace("\r","\n")
     lines=[ln.rstrip() for ln in code.strip().splitlines()]
     while lines and lines[-1].strip().startswith(chr(96)*3):
         lines.pop()
-    return "\\n".join(lines).strip()+"\\n"
+    return "\n".join(lines).strip()+"\n"
 
 def extract_code(resp):
     if not isinstance(resp,str) or "def solver" not in resp:
@@ -29,7 +29,7 @@ def extract_code(resp):
             pass
     area=s.split("### FINAL SOLUTION ###")[-1] if "### FINAL SOLUTION ###" in s else s
     fence=chr(96)*3
-    blocks=re.findall(re.escape(fence)+r"(?:python)?\\s*(.*?)"+re.escape(fence),area,re.S|re.I)
+    blocks=re.findall(re.escape(fence)+r"(?:python)?\s*(.*?)"+re.escape(fence),area,re.S|re.I)
     for b in reversed(blocks):
         if "def solver" in b:
             return normalize_code(b[b.find("def solver"):])
