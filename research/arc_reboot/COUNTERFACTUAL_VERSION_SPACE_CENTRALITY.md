@@ -265,3 +265,31 @@ This explains how counterfactual centrality can predict held-out program quality
 Selector C was labeled "minimum-AST simplicity", but the frozen mutation operators only replace constants and operators in place; they do not materially change AST node count. Consequently nearly all accepted single-edit mutants have the same AST size, and C resolves primarily by the frozen mutation-index tie-break.
 
 Therefore C=93.75% must **not** be interpreted as evidence for an Occam/shorter-program prior. It is better described as an early-mutation-order baseline. Any future simplicity claim requires a candidate generator with genuinely variable structural complexity and an independently fixed description-length metric.
+
+
+## Stage D final result — weighted predictive method killed
+
+Stage D retained every Stage C semantic class and weighted each class vote by its counterfactual centrality rather than collapsing to one class.
+
+Across the same 10 usable families and 320 queries:
+
+- B semantic-class plurality top-1: **90.000%**
+- W_all all-probe centrality-weighted vote: **90.000%**
+- W_D4 D4-centrality-weighted vote: **90.000%**
+- W_all - B: **0.000 pp**
+- family-bootstrap 95% CI: **[0.000, 0.000]**
+- family direction: **0 improved, 0 hurt, 10 tied**
+- disagreement-query accuracy: B=W_all=**80.72%**
+- pass@2: B=W_all=W_D4=**96.5625%**
+
+Every W_all query decision produced the same correctness outcome as B at the family-aggregate level; no family changed accuracy.
+
+Therefore the practical counterfactual-weighted prediction hypothesis is killed under its preregistered rule.
+
+### Current surviving scientific claim
+
+The surviving result is narrower:
+
+> In local executable version spaces induced by ARC-TGI AST mutations, label-free counterfactual behavioral centrality predicts **global off-demonstration program quality**, but this information does not improve query-level prediction beyond duplicate-invariant semantic-class plurality, either by selecting one central program or by centrality-weighted voting.
+
+The key remaining threat is candidate-generator dependence. The independent enumerative-DSL transfer test is now the primary falsification experiment for the mechanism itself.
