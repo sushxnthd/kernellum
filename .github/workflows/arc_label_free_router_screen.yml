@@ -1,0 +1,34 @@
+name: ARC label-free router kill screen
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/label_free_router_screen.py"
+      - ".github/workflows/arc_label_free_router_screen.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install huggingface_hub scikit-learn numpy
+      - run: git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git /tmp/ARC-AGI-2
+      - run: python research/arc_reboot/label_free_router_screen.py
+        env:
+          HF_HUB_DISABLE_TELEMETRY: "1"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arc-label-free-router-screen
+          path: label_free_router_screen.json
+          if-no-files-found: warn
