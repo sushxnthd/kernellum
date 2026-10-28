@@ -1,0 +1,49 @@
+name: ARC Stage D named-family recovery 45-49
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_stage_d_named_recovery.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  family:
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        family: [task18286ef8,task182e5d0f,task184a9768,task1990f7a8,task1a6449f1]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - name: Fetch pinned ARC-TGI
+        run: |
+          git clone https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+          cd /tmp/ARC-TGI
+          git checkout a614132ff5b2cb3628063d541e7cbd74a2cd2edb
+          python -m pip install -r requirements.txt
+      - name: Run exact frozen Stage D family
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          FAMILY: ${{ matrix.family }}
+          CALL_TIMEOUT_S: "2.0"
+          N_QUERIES: "32"
+          OUT_FILE: stage_d_${{ matrix.family }}.json
+        run: python research/arc_reboot/stage_d_named_family.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stage-d-recovery-${{ matrix.family }}
+          path: stage_d_${{ matrix.family }}.json
+          if-no-files-found: warn
