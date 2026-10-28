@@ -198,12 +198,14 @@ def main():
     ap.add_argument("--tasks",type=int,default=20)
     ap.add_argument("--max-new-tokens",type=int,default=144)
     ap.add_argument("--out",default="proposal_collapse_probe_v2_results.json")
+    ap.add_argument("--dtype",choices=["float32","bfloat16"],default="float32")
     args=ap.parse_args()
 
     torch.set_num_threads(max(1,min(4,os.cpu_count() or 2)))
     print("MODEL",args.model,flush=True)
     tok=AutoTokenizer.from_pretrained(args.model)
-    model=AutoModelForCausalLM.from_pretrained(args.model,torch_dtype=torch.float32)
+    dtype=torch.bfloat16 if args.dtype=="bfloat16" else torch.float32
+    model=AutoModelForCausalLM.from_pretrained(args.model,torch_dtype=dtype,low_cpu_mem_usage=True)
     model.eval()
 
     pool=[]
@@ -253,7 +255,7 @@ def main():
 
     summary={
         "version":"v2_prompt_fixed_train_easy",
-        "model":args.model,"n_tasks":n,
+        "model":args.model,"dtype":args.dtype,"n_tasks":n,
         "task_ids":[r["task_id"] for r in rows],
         "parse_rate":{"ind0":mean("ind0_valid"),"ind1":mean("ind1_valid"),"seq1":mean("seq1_valid")},
         "correct_rate":{"ind0":mean("ind0_correct"),"ind1":mean("ind1_correct"),"seq1":mean("seq1_correct")},
