@@ -1,0 +1,81 @@
+name: ARC identifiability family 24 checkpointed exact retry
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - ".github/workflows/arc_identifiability_family24_checkpointed.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screen:
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {chunk: 0, start: 0, end: 50}
+          - {chunk: 1, start: 50, end: 100}
+          - {chunk: 2, start: 100, end: 150}
+          - {chunk: 3, start: 150, end: 200}
+          - {chunk: 4, start: 200, end: 250}
+          - {chunk: 5, start: 250, end: 300}
+          - {chunk: 6, start: 300, end: 350}
+          - {chunk: 7, start: 350, end: 400}
+          - {chunk: 8, start: 400, end: 450}
+          - {chunk: 9, start: 450, end: 500}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - name: Screen frozen mutant chunk
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          FAMILY_INDEX: "24"
+          MODE: screen
+          CHUNK_START: ${{ matrix.start }}
+          CHUNK_END: ${{ matrix.end }}
+          OUT_FILE: screen_${{ matrix.chunk }}.json
+        run: python research/arc_reboot/identifiability_family_checkpointed.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: family24-screen-${{ matrix.chunk }}
+          path: screen_${{ matrix.chunk }}.json
+
+  aggregate:
+    needs: screen
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install numpy scipy matplotlib shortuuid
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: family24-screen-*
+          path: screens
+          merge-multiple: true
+      - name: Reconstruct exact frozen accepted pool and evaluate
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          FAMILY_INDEX: "24"
+          MODE: aggregate
+          SCREEN_DIR: screens
+          OUT_FILE: identifiability_family_24_checkpointed.json
+        run: python research/arc_reboot/identifiability_family_checkpointed.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: identifiability-family-24-checkpointed
+          path: identifiability_family_24_checkpointed.json
