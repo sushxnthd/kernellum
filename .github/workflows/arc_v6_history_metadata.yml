@@ -5,7 +5,7 @@ on:
     branches:
       - research/arc-proposal-collapse-probe
     paths:
-      - "research/arc_reboot/V6_HISTORY_METADATA_TRIGGER"
+      - ".github/workflows/arc_v6_history_metadata.yml"
   workflow_dispatch:
 
 permissions:
