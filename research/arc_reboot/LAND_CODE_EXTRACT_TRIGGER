@@ -1,1 +1,2 @@
 Trigger exact-v27 candidate extraction and truth-coverage validation.
+Retrigger after codegen-only ingestion fix.
