@@ -1,0 +1,75 @@
+name: ARC identifiability frozen sharded replication
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/identifiability_kill_test_train_shard.py"
+      - "research/arc_reboot/aggregate_identifiability_shards.py"
+      - ".github/workflows/arc_identifiability_train_sharded.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { shard: 0, start: 0, end: 5 }
+          - { shard: 1, start: 5, end: 10 }
+          - { shard: 2, start: 10, end: 15 }
+          - { shard: 3, start: 15, end: 20 }
+          - { shard: 4, start: 20, end: 25 }
+          - { shard: 5, start: 25, end: 30 }
+          - { shard: 6, start: 30, end: 35 }
+          - { shard: 7, start: 35, end: 40 }
+          - { shard: 8, start: 40, end: 45 }
+          - { shard: 9, start: 45, end: 50 }
+          - { shard: 10, start: 50, end: 55 }
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy scipy matplotlib
+      - run: git clone --depth 1 https://github.com/Omega-Reasoning/ARC-Task-Generators-Inventory.git /tmp/ARC-TGI
+      - run: |
+          if [ -f /tmp/ARC-TGI/requirements.txt ]; then python -m pip install -r /tmp/ARC-TGI/requirements.txt; fi
+      - name: Run frozen shard
+        env:
+          ARC_TGI_ROOT: /tmp/ARC-TGI
+          PYTHONPATH: /tmp/ARC-TGI
+          SHARD_START: ${{ matrix.start }}
+          SHARD_END: ${{ matrix.end }}
+          OUT_FILE: identifiability_shard_${{ matrix.shard }}.json
+        run: python research/arc_reboot/identifiability_kill_test_train_shard.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identifiability-shard-${{ matrix.shard }}
+          path: identifiability_shard_${{ matrix.shard }}.json
+          if-no-files-found: warn
+
+  aggregate:
+    if: always()
+    needs: shard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: identifiability-shard-*
+          path: shards
+          merge-multiple: true
+      - name: Aggregate without changing gates
+        run: python research/arc_reboot/aggregate_identifiability_shards.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: identifiability-train-aggregated
+          path: identifiability_train_replication_aggregated.json
