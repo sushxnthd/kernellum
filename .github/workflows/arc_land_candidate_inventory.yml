@@ -1,0 +1,55 @@
+name: ARC Land V7 code candidate inventory
+
+on:
+  push:
+    branches:
+      - research/arc-proposal-collapse-probe
+    paths:
+      - "research/arc_reboot/LAND_CANDIDATE_INVENTORY_TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "kagglehub>=1.0.0"
+      - name: Download exact V27 logs archive only
+        run: |
+          mkdir -p /tmp/land
+          python - <<'PY'
+          import kagglehub
+          p=kagglehub.notebook_output_download(
+              "johanland/johan-land-solver-v7-public/versions/27",
+              path="logs.tgz",
+              output_dir="/tmp/land"
+          )
+          print("LOGS_ARCHIVE",p)
+          PY
+          mkdir -p /tmp/land_logs
+          tar -xzf /tmp/land/logs.tgz -C /tmp/land_logs
+          find /tmp/land_logs -type f | wc -l
+      - name: Extract verified codegen candidate inventory
+        run: |
+          python research/arc_reboot/land_v7_extract_candidates.py /tmp/land_logs land_v7_candidates.json
+          python - <<'PY'
+          import json,statistics
+          d=json.load(open("land_v7_candidates.json"))
+          counts={k:len(v) for k,v in d.items()}
+          print("CASES_GE3",sum(n>=3 for n in counts.values()))
+          print("CASES_GE5",sum(n>=5 for n in counts.values()))
+          print("CASES_GE10",sum(n>=10 for n in counts.values()))
+          print("DISTINCT_TASKS_GE3",len({k.split(":")[0] for k,n in counts.items() if n>=3}))
+          print("COUNT_QUANTILES",sorted(counts.values())[::max(1,len(counts)//20)] if counts else [])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: land-v7-code-candidates
+          path: land_v7_candidates.json
