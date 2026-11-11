@@ -1,0 +1,74 @@
+name: JMLR v27 Ubuntu runtime probe
+
+on:
+  push:
+    branches: [research/jmlr-v27-cpu]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  qm9_one_epoch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source-faithful QM9 one-epoch timing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANDB_MODE: disabled
+        run: |
+          set +e
+          pip install -q torch torchvision torch_geometric numpy scipy cvxpy wandb tqdm
+          git clone -q https://github.com/OptMN-Lab/FairGrad.git fairgrad
+          cd fairgrad && git checkout -q b58bce810e57288f7bf2c4c9effb7133b856739a
+          START_ALL=$(date +%s)
+          PYTHONPATH="$PWD" python experiments/quantum_chemistry/trainer.py --method=ls --seed=0 --n-epochs=1 --batch-size=120 --lr=1e-3 --data-path="$PWD/qm9_data" --scale-y=true > /tmp/qm9u.log 2>&1
+          RC=$?
+          END_ALL=$(date +%s)
+          SEC=$((END_ALL-START_ALL))
+          TAIL=$(tail -20 /tmp/qm9u.log | tr '\n' ' ' | cut -c1-6000)
+          cd "$GITHUB_WORKSPACE"
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="QM9_UBUNTU_RUNTIME_PROBE status=\`$RC\` seconds=\`$SEC\` log=\`$TAIL\`"
+          exit 0
+
+  nyuv2_one_epoch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source-faithful NYUv2 one-epoch timing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANDB_MODE: disabled
+        run: |
+          set +e
+          pip install -q torch torchvision numpy scipy cvxpy wandb tqdm
+          git clone -q https://github.com/OptMN-Lab/FairGrad.git fairgrad
+          cd fairgrad && git checkout -q b58bce810e57288f7bf2c4c9effb7133b856739a && cd ..
+          curl -L --fail --retry 3 --retry-delay 5 -o nyuv2.zip "https://www.dropbox.com/scl/fo/p7n54hqfpfyc6fe6n62qk/AKVb28ZmgDiGdRMNkX5WJvo?rlkey=hcf31bdrezqjih36oi8usjait&dl=1" > /tmp/curl.log 2>&1
+          CR=$?
+          unzip -q nyuv2.zip -d nyu_data > /tmp/unzip.log 2>&1
+          ROOT=$(find "$PWD/nyu_data" -type d -name train -print | head -1 | xargs -r dirname)
+          if [ "$CR" -ne 0 ] || [ -z "$ROOT" ]; then
+            STATUS="DATA_FAIL_$CR"; SEC=FAIL
+            TAIL="$(tail -15 /tmp/curl.log | tr '\n' ' ' | cut -c1-5000)"
+          else
+            cd fairgrad
+            START=$(date +%s)
+            PYTHONPATH="$PWD" python experiments/nyuv2/trainer.py --method=ls --seed=0 --n-epochs=1 --batch-size=2 --lr=1e-4 --data-path="$ROOT" --apply-augmentation=true > /tmp/nyuu.log 2>&1
+            RC=$?
+            END=$(date +%s)
+            SEC=$((END-START)); STATUS="TRAIN_$RC"
+            TAIL=$(tail -20 /tmp/nyuu.log | tr '\n' ' ' | cut -c1-6000)
+          fi
+          cd "$GITHUB_WORKSPACE"
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="NYUV2_UBUNTU_RUNTIME_PROBE status=\`$STATUS\` seconds=\`$SEC\` log=\`$TAIL\`"
+          exit 0
