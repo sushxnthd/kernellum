@@ -1,0 +1,44 @@
+name: JMLR v27 MPS probe
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PyTorch
+        run: python -m pip install --upgrade pip && pip install torch
+      - name: Probe accelerator and report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY' > /tmp/probe.txt
+          import json, platform, torch
+          out = {
+              "platform": platform.platform(),
+              "machine": platform.machine(),
+              "torch": torch.__version__,
+              "mps_built": bool(torch.backends.mps.is_built()),
+              "mps_available": bool(torch.backends.mps.is_available()),
+          }
+          if out["mps_available"]:
+              x=torch.randn(2048,2048,device="mps")
+              y=torch.randn(2048,2048,device="mps")
+              z=x@y
+              torch.mps.synchronize()
+              out["mps_matmul_ok"]=bool(torch.isfinite(z).all().item())
+          print(json.dumps(out, sort_keys=True))
+          PY
+          BODY=$(cat /tmp/probe.txt)
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="MPS_PROBE \`$BODY\`"
