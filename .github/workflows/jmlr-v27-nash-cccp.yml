@@ -1,0 +1,106 @@
+name: JMLR v27 official Nash CCCP calibration
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  calibrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run official finite solver calibration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          pip install numpy scipy torch cvxpy ecos
+          git clone https://github.com/AvivNavon/nash-mtl.git nash
+          cd nash
+          git checkout cce18403ef5557a6b30f4ba43b896117107d6902
+          PYTHONPATH="$PWD" python - <<'PY' > /tmp/nash_result.json
+          import json, math, numpy as np, torch
+          from scipy.optimize import brentq
+          from methods.weight_methods import NashMTL
+
+          def exact_t(p,q,r,k,beta=1.0):
+              def f(t):
+                  return math.log(t)+(1/beta)*(math.log(p*t+q)-math.log(q*t+r))-math.log(k)
+              if q<0:
+                  left=-q/p; right=r/(-q); w=right-left
+                  lo=left+w*1e-11; hi=right-w*1e-11
+              else:
+                  lo=1e-12; hi=1.0
+                  while f(hi)<0: hi*=2
+              return brentq(f,lo,hi,xtol=1e-12,rtol=1e-12,maxiter=500)
+
+          def make_system(cos,k,hnorm=1.0):
+              g=np.array([1.0,0.0],float)
+              h=hnorm*np.array([cos,math.sqrt(max(0,1-cos*cos))],float)
+              return np.vstack([np.repeat(g[None,:],k,axis=0),h[None,:]]),g,h
+
+          rows=[]
+          for cos in [-.7,-.4,0,.25,.6,.9]:
+            for hnorm in [.6,1.0,1.7]:
+              for k in [2,4,8,16]:
+                G,g,h=make_system(cos,k,hnorm)
+                raw=G@G.T
+                nf=float(np.linalg.norm(raw))
+                H=raw/nf
+                m=NashMTL(n_tasks=len(G),device=torch.device('cpu'),max_norm=1.0,update_weights_every=1,optim_niter=20)
+                m.normalization_factor=np.array([nf])
+                m._init_optim_problem()
+                alpha=np.asarray(m.solve_optimization(H),float)
+                t=float(alpha[:-1].sum()/alpha[-1])
+                p=float(g@g); q=float(g@h); r=float(h@h)
+                te=exact_t(p,q,r,k,1.0)
+                residual=float(np.linalg.norm(H@alpha-1/(alpha+1e-10)))
+                rows.append(dict(cos=cos,hnorm=hnorm,k=k,t_official=t,t_exact=te,
+                                 relative_error=abs(t-te)/te,residual=residual,
+                                 alpha_min=float(alpha.min()),alpha_max=float(alpha.max())))
+          errs=np.array([x['relative_error'] for x in rows])
+          residuals=np.array([x['residual'] for x in rows])
+          out={
+            "source_revision":"cce18403ef5557a6b30f4ba43b896117107d6902",
+            "solver":"released CVXPY/ECOS CCCP, optim_niter=20, released stop criteria",
+            "n":len(rows),
+            "median_relative_error":float(np.median(errs)),
+            "p95_relative_error":float(np.quantile(errs,.95)),
+            "max_relative_error":float(errs.max()),
+            "n_relerr_gt_1e3":int((errs>1e-3).sum()),
+            "n_relerr_gt_1e2":int((errs>1e-2).sum()),
+            "median_fixed_point_residual":float(np.median(residuals)),
+            "max_fixed_point_residual":float(residuals.max()),
+            "worst":sorted(rows,key=lambda x:x["relative_error"],reverse=True)[:12],
+            "rows":rows
+          }
+          print(json.dumps(out,separators=(',',':')))
+          PY
+          python - <<'PY' > /tmp/nash_summary.txt
+          import json
+          o=json.load(open('/tmp/nash_result.json'))
+          keep={k:v for k,v in o.items() if k not in ('rows',)}
+          print(json.dumps(keep,separators=(',',':')))
+          PY
+          BODY=$(cat /tmp/nash_summary.txt)
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="NASH_CCCP_OFFICIAL \`$BODY\`"
+          FULL=$(cat /tmp/nash_result.json)
+          python - <<'PY'
+          import os,json
+          s=open('/tmp/nash_result.json').read()
+          # split safely into <=50k chunks for GitHub issue comments
+          for i in range(0,len(s),45000):
+              open(f'/tmp/chunk_{i//45000}.txt','w').write(s[i:i+45000])
+          PY
+          for F in /tmp/chunk_*.txt; do
+            C=$(cat "$F")
+            gh api repos/${{ github.repository }}/issues/120/comments -f body="NASH_CCCP_FULL_CHUNK \`$C\`"
+          done
