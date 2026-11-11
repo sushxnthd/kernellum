@@ -1,0 +1,115 @@
+name: JMLR v27 Nash solver diagnostics
+
+on:
+  push:
+    branches: [research/jmlr-v27-solverdiag]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  diag:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instrument released CCCP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          pip install -q numpy scipy torch cvxpy ecos
+          git clone -q https://github.com/AvivNavon/nash-mtl.git nash
+          cd nash
+          git checkout -q cce18403ef5557a6b30f4ba43b896117107d6902
+          PYTHONPATH="$PWD" python - <<'PY' > /tmp/diag.json
+          import json, math, numpy as np, torch
+          from methods.weight_methods import NashMTL
+
+          cases=[
+            (-0.4,0.6,2),(-0.4,0.6,4),(-0.4,0.6,8),(-0.4,0.6,16),
+            (-0.4,1.0,8),(-0.4,1.0,16),
+            (-0.7,0.6,8),(-0.7,0.6,16),
+            (0.0,1.0,16),(0.6,1.0,16)
+          ]
+          def matrix(cos,hnorm,k):
+              g=np.array([1.,0.]); h=hnorm*np.array([cos,math.sqrt(max(0.,1-cos*cos))])
+              G=np.vstack([np.repeat(g[None,:],k,axis=0),h[None,:]])
+              A=G@G.T; nf=float(np.linalg.norm(A)); H=A/nf
+              return A,H,nf
+          out=[]
+          for cos,hnorm,k in cases:
+              A,H,nf=matrix(cos,hnorm,k)
+              m=NashMTL(n_tasks=k+1,device=torch.device('cpu'),max_norm=1.0,update_weights_every=1,optim_niter=20)
+              m.normalization_factor=np.array([nf]); m._init_optim_problem()
+              m.G_param.value=H; m.normalization_factor_param.value=np.array([nf])
+              alpha=np.ones(k+1,dtype=np.float32)
+              trace=[]
+              for it in range(20):
+                  m.alpha_param.value=alpha
+                  m.prvs_alpha_param.value=alpha
+                  pre_G=(H@alpha).tolist()
+                  pre_raw=(A@alpha).tolist()
+                  pre_res=float(np.linalg.norm(H@alpha-1/(alpha+1e-10)))
+                  try:
+                      val=m.prob.solve(solver='ECOS',warm_start=True,max_iters=100)
+                      status=m.prob.status
+                      aval=None if m.alpha_param.value is None else np.array(m.alpha_param.value,float)
+                      stats=m.prob.solver_stats
+                      trace.append(dict(it=it,status=status,obj=None if val is None else float(val),
+                                        pre_min_Halpha=float(np.min(H@alpha)),
+                                        pre_min_Aalpha=float(np.min(A@alpha)),
+                                        pre_stop_res=pre_res,
+                                        solver_iters=getattr(stats,'num_iters',None),
+                                        alpha_out=None if aval is None else aval.tolist()))
+                  except Exception as e:
+                      trace.append(dict(it=it,status='EXCEPTION',error=repr(e),
+                                        pre_min_Halpha=float(np.min(H@alpha)),
+                                        pre_min_Aalpha=float(np.min(A@alpha)),
+                                        pre_stop_res=pre_res))
+                      aval=None
+                  # exact released control flow
+                  stop=(m.alpha_param.value is None) or pre_res<1e-3 or (
+                      m.prvs_alpha_param.value is not None and m.alpha_param.value is not None
+                      and np.linalg.norm(m.alpha_param.value-m.prvs_alpha_param.value)<1e-6)
+                  if stop: break
+                  alpha=np.array(m.alpha_param.value,float)
+              # call actual method independently
+              m2=NashMTL(n_tasks=k+1,device=torch.device('cpu'),max_norm=1.0,update_weights_every=1,optim_niter=20)
+              m2.normalization_factor=np.array([nf]); m2._init_optim_problem()
+              actual=np.asarray(m2.solve_optimization(H),float)
+              out.append(dict(cos=cos,hnorm=hnorm,k=k,nf=nf,
+                              ones_min_Halpha=float(np.min(H@np.ones(k+1))),
+                              ones_min_Aalpha=float(np.min(A@np.ones(k+1))),
+                              actual=actual.tolist(),trace=trace))
+          print(json.dumps(out,separators=(',',':')))
+          PY
+          python - <<'PY' > /tmp/summary.json
+          import json
+          o=json.load(open('/tmp/diag.json'))
+          s=[]
+          for x in o:
+              tr=x['trace']
+              s.append(dict(cos=x['cos'],hnorm=x['hnorm'],k=x['k'],
+                            ones_min_Halpha=x['ones_min_Halpha'],ones_min_Aalpha=x['ones_min_Aalpha'],
+                            first_status=tr[0]['status'],first_obj=tr[0].get('obj'),
+                            n_iter=len(tr),statuses=[z['status'] for z in tr],
+                            actual_min=min(x['actual']),actual_max=max(x['actual'])))
+          print(json.dumps(s,separators=(',',':')))
+          PY
+          BODY=$(cat /tmp/summary.json)
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="NASH_SOLVER_DIAG \`$BODY\`"
+          FULL=$(cat /tmp/diag.json)
+          python - <<'PY'
+          s=open('/tmp/diag.json').read()
+          for i in range(0,len(s),45000):
+              open(f'/tmp/d_{i//45000}.txt','w').write(s[i:i+45000])
+          PY
+          for F in /tmp/d_*.txt; do
+            C=$(cat "$F")
+            gh api repos/${{ github.repository }}/issues/120/comments -f body="NASH_SOLVER_DIAG_FULL \`$C\`"
+          done
