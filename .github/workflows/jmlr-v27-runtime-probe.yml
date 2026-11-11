@@ -1,0 +1,89 @@
+name: JMLR v27 runtime probes
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  nyuv2_one_epoch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch torchvision numpy scipy cvxpy wandb tqdm
+      - name: Clone FairGrad pinned source
+        run: |
+          git clone https://github.com/OptMN-Lab/FairGrad.git fairgrad
+          cd fairgrad
+          git checkout b58bce810e57288f7bf2c4c9effb7133b856739a
+      - name: Download NYUv2
+        run: |
+          curl -L --retry 3 --retry-delay 5 -o nyuv2.zip "https://www.dropbox.com/s/p2nn02wijg7peiy/nyuv2.zip?dl=1"
+          unzip -q nyuv2.zip -d nyu_data
+          find nyu_data -maxdepth 3 -type d | head -30
+      - name: Run one epoch
+        env:
+          WANDB_MODE: disabled
+        run: |
+          ROOT=$(find "$PWD/nyu_data" -type d -name train -print | head -1 | xargs dirname)
+          echo "ROOT=$ROOT"
+          cd fairgrad
+          START=$(date +%s)
+          python experiments/nyuv2/trainer.py --method=ls --seed=0 --n-epochs=1 --batch-size=2 --lr=1e-4 --data-path="$ROOT" --apply-augmentation=true > /tmp/nyu.log 2>&1
+          END=$(date +%s)
+          echo $((END-START)) > /tmp/nyu_seconds
+          tail -40 /tmp/nyu.log
+      - name: Report
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          S=$(cat /tmp/nyu_seconds 2>/dev/null || echo FAIL)
+          L=$(tail -8 /tmp/nyu.log 2>/dev/null | tr '\n' ' ' | cut -c1-2500)
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="NYUV2_RUNTIME_PROBE seconds=\`$S\` log=\`$L\`"
+
+  qm9_one_epoch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch torchvision torch_geometric numpy scipy cvxpy wandb tqdm
+      - name: Clone FairGrad pinned source
+        run: |
+          git clone https://github.com/OptMN-Lab/FairGrad.git fairgrad
+          cd fairgrad
+          git checkout b58bce810e57288f7bf2c4c9effb7133b856739a
+      - name: Run one epoch
+        env:
+          WANDB_MODE: disabled
+        run: |
+          cd fairgrad
+          START=$(date +%s)
+          python experiments/quantum_chemistry/trainer.py --method=ls --seed=0 --n-epochs=1 --batch-size=120 --lr=1e-3 --data-path="$PWD/qm9_data" --scale-y=true > /tmp/qm9.log 2>&1
+          END=$(date +%s)
+          echo $((END-START)) > /tmp/qm9_seconds
+          tail -40 /tmp/qm9.log
+      - name: Report
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          S=$(cat /tmp/qm9_seconds 2>/dev/null || echo FAIL)
+          L=$(tail -8 /tmp/qm9.log 2>/dev/null | tr '\n' ' ' | cut -c1-2500)
+          gh api repos/${{ github.repository }}/issues/120/comments -f body="QM9_RUNTIME_PROBE seconds=\`$S\` log=\`$L\`"
