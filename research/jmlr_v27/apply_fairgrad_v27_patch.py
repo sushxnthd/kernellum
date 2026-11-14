@@ -169,9 +169,12 @@ def main():
         raise FileNotFoundError("expected pinned FairGrad trainer paths not found")
     patch_nyuv2(ny)
     patch_qm9(qm)
-    # Match released run.sh infrastructure setup without changing trainer semantics.
-    (root / "save").mkdir(exist_ok=True)
-    print(f"PASS: patched FairGrad {PINNED_FAIRGRAD} trainers; save directory initialized")
+    # Match released per-experiment run.sh setup without changing trainer semantics.
+    (ny.parent / "save").mkdir(exist_ok=True)
+    (ny.parent / "trainlogs").mkdir(exist_ok=True)
+    (qm.parent / "save").mkdir(exist_ok=True)
+    (qm.parent / "trainlogs").mkdir(exist_ok=True)
+    print(f"PASS: patched FairGrad {PINNED_FAIRGRAD} trainers; per-experiment save/trainlogs initialized")
 
 if __name__ == "__main__":
     main()
