@@ -57,3 +57,10 @@ jobs:
       - name: Nash-MTL stop-resume equivalence gate
         working-directory: fairgrad
         run: PYTHONPATH="$PWD:$GITHUB_WORKSPACE" python "$GITHUB_WORKSPACE/research/jmlr_v27/test_nash_resume_state.py"
+      - name: Compute handoff scripts compile
+        run: |
+          python -m py_compile research/jmlr_v27/kaggle_bootstrap.py
+          python -m py_compile research/jmlr_v27/runtime_probe.py
+          python -m py_compile research/jmlr_v27/run_amended_batch.py
+          python -m py_compile research/jmlr_v27/run_amended_cell.py
+          python -m py_compile research/jmlr_v27/analyze_tier_a_gram.py
