@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: jmlr-v27-completion-preflight
+  cancel-in-progress: true
+
 jobs:
   source_patch_and_atomicity:
     runs-on: ubuntu-latest
