@@ -48,7 +48,7 @@ def ensure_pinned_and_patched(fairgrad_root: Path):
         (d/"save").mkdir(exist_ok=True)
         (d/"trainlogs").mkdir(exist_ok=True)
 
-def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data, audit_epochs):
+def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data, audit_epochs, checkpoint_path, resume_from=None):
     bench=cell["benchmark"]
     exp=fairgrad_root/"experiments"/("nyuv2" if bench=="nyuv2" else "quantum_chemistry")
     cmd=[sys.executable,"-u","trainer.py",
@@ -69,6 +69,9 @@ def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data, audit_epochs):
          "--jmlr-run-id",cell["run_id"]]
     if audit_epochs:
         cmd += ["--jmlr-audit-epochs", ",".join(str(x) for x in audit_epochs)]
+    cmd += ["--jmlr-checkpoint-path", str(checkpoint_path)]
+    if resume_from is not None:
+        cmd += ["--jmlr-resume-from", str(resume_from)]
     if cell.get("canonical_mgda"):
         cmd.append("--jmlr-canonical-mgda")
     if bench=="nyuv2":
@@ -95,17 +98,32 @@ def main():
     cell,tier_a=find_cell(args.run_id)
     fairgrad=args.fairgrad_root.resolve()
     ensure_pinned_and_patched(fairgrad)
+
+    ledger_dir=args.ledger_root.resolve()/cell["run_id"]
+    ledger_dir.mkdir(parents=True,exist_ok=True)
+    checkpoint_path=ledger_dir/"resume.pt"
+    resume_from=checkpoint_path if checkpoint_path.exists() else None
+
     source_spec=tier_a[cell["benchmark"]]
     audit_epochs=source_spec["audit_epochs"] if cell["run_id"] in source_spec["source_runs"] else []
-    exp,cmd=build_command(cell,fairgrad,args.gpu,args.nyuv2_data,args.qm9_data,audit_epochs)
+    exp,cmd=build_command(
+        cell,fairgrad,args.gpu,args.nyuv2_data,args.qm9_data,audit_epochs,
+        checkpoint_path=checkpoint_path,resume_from=resume_from,
+    )
 
     if cell["benchmark"]=="nyuv2":
         data=Path(args.nyuv2_data).resolve() if args.nyuv2_data else exp/"dataset"
         if not data.exists() and not args.dry_run:
             raise FileNotFoundError(f"NYUv2 data path missing: {data}")
 
-    ledger_dir=args.ledger_root.resolve()/cell["run_id"]
-    ledger_dir.mkdir(parents=True,exist_ok=True)
+    prior_ledger={}
+    prior_ledger_path=ledger_dir/"ledger.json"
+    if prior_ledger_path.exists():
+        try:
+            prior_ledger=json.loads(prior_ledger_path.read_text())
+        except Exception:
+            prior_ledger={}
+    attempt=int(prior_ledger.get("attempt",0))+1
     ledger={
         "schema":"jmlr-v27-cell-ledger-v1",
         "cell":cell,
@@ -114,6 +132,10 @@ def main():
         "cwd":str(exp),
         "hardware":hardware_snapshot(),
         "tier_a_audit_epochs":audit_epochs,
+        "checkpoint_path":str(checkpoint_path),
+        "resumed":resume_from is not None,
+        "resume_from":str(resume_from) if resume_from is not None else None,
+        "attempt":attempt,
         "started_unix":time.time(),
         "status":"dry-run" if args.dry_run else "running",
     }
@@ -123,10 +145,17 @@ def main():
         return
 
     log_path=ledger_dir/"stdout_stderr.log"
-    with log_path.open("w",encoding="utf-8") as log:
+    with log_path.open("a",encoding="utf-8") as log:
+        log.write(f"\n===== ATTEMPT {attempt} START {time.time():.6f} resumed={resume_from is not None} =====\n")
+        log.flush()
         proc=subprocess.run(cmd,cwd=exp,stdout=log,stderr=subprocess.STDOUT,text=True)
+        log.write(f"\n===== ATTEMPT {attempt} END {time.time():.6f} returncode={proc.returncode} =====\n")
 
     ledger["finished_unix"]=time.time()
+    ledger["checkpoint_exists_after_run"]=checkpoint_path.exists()
+    if checkpoint_path.exists():
+        ledger["checkpoint_sha256"]=sha256(checkpoint_path)
+        ledger["checkpoint_bytes"]=checkpoint_path.stat().st_size
     ledger["returncode"]=proc.returncode
     save_dir=exp/"save"
     artifacts=[]
