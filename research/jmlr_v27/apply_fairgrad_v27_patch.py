@@ -44,6 +44,15 @@ def _jmlr_atomicity_transform(losses, arm, parent, clone_k):
 
 def _jmlr_combiner_task_count(semantic_count, arm, clone_k):
     return semantic_count + clone_k - 1 if arm == "exposed" else semantic_count
+
+def _jmlr_backward(weight_method, losses, args, **kwargs):
+    """Keep released methods untouched unless the explicit canonical-MGDA control is requested."""
+    if args.jmlr_canonical_mgda and args.method == "mgda":
+        loss, extra_outputs = weight_method.get_weighted_loss(losses=losses, **kwargs)
+        loss = loss / float(len(losses))
+        loss.backward()
+        return loss, extra_outputs
+    return weight_method.backward(losses=losses, **kwargs)
 '''
 
 def replace_once(text: str, old: str, new: str, label: str) -> str:
@@ -65,6 +74,7 @@ def patch_common(text: str) -> str:
         '    parser.add_argument("--jmlr-arm", choices=["coarse","exposed","canonicalized"], default="coarse")\n'
         '    parser.add_argument("--jmlr-parent", type=int, default=0)\n'
         '    parser.add_argument("--jmlr-k", type=int, default=2)\n'
+        '    parser.add_argument("--jmlr-canonical-mgda", action="store_true")\n'
         '    args = parser.parse_args()\n',
         "JMLR CLI args",
     )
@@ -87,8 +97,8 @@ def patch_nyuv2(path: Path) -> None:
     repl = '''            combiner_losses = _jmlr_atomicity_transform(
                 losses, args.jmlr_arm, args.jmlr_parent, args.jmlr_k
             )
-            loss, extra_outputs = weight_method.backward(
-                losses=combiner_losses,
+            loss, extra_outputs = _jmlr_backward(
+                weight_method, combiner_losses, args,
 '''
     text = replace_once(text, needle, repl, "NYUv2 loss-vector intervention")
     path.write_text(text)
@@ -107,8 +117,8 @@ def patch_qm9(path: Path) -> None:
     repl = '''            combiner_losses = _jmlr_atomicity_transform(
                 losses, args.jmlr_arm, args.jmlr_parent, args.jmlr_k
             )
-            loss, extra_outputs = weight_method.backward(
-                losses=combiner_losses,
+            loss, extra_outputs = _jmlr_backward(
+                weight_method, combiner_losses, args,
 '''
     text = replace_once(text, needle, repl, "QM9 loss-vector intervention")
     path.write_text(text)
