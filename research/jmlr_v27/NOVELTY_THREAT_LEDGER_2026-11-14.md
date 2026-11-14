@@ -36,7 +36,11 @@ Consequences:
 - the paper must explain why exact objective duplication at the *algorithmic update* level can matter even when the optimization problem's efficient set is unchanged;
 - the cited “stronger concept” requires full-text comparison before final novelty clearance.
 
-Classification: **material 2026 novelty threat / mandatory full-text comparison.**
+Full-text comparison completed 2026-11-14. Section 6.2 proves preservation of the strict common-descent cone and stationary points when removed objectives are nonnegative monotone functions of retained objectives (Lemma 6.10 / Theorem 6.11). The paper does **not** analyze duplicate identical objectives as separate entries to a gradient combiner, list-multiplicity response of MGDA/CAGrad/Nash-MTL/FairGrad, mass-preserving refinement invariance, singleton consistency, a mean-forcing characterization, or an incompatibility between refinement invariance and common-descent completeness.
+
+This is therefore not theorem-equivalent. It strengthens our related-work boundary: efficient/stationary sets and common-descent *availability* can be unchanged by redundant objectives while a concrete finite gradient aggregator can still select a different update because of represented multiplicity.
+
+Classification: **close 2026 antecedent / mandatory citation; full-text theorem-equivalent threat cleared.**
 
 ## Threat D — classical aggregation/decomposability literature
 
@@ -55,4 +59,4 @@ Repeated searches across task/objective duplication, redundant objectives, MGDA,
 2. the geometry-dependent power-equilibrium implicit law and its bounded/power/linear phases in this task-replication setting;
 3. an exact theorem matching the stated mass-refinement-invariance + singleton-consistency + common-descent-completeness incompatibility, or its instance-specific epsilon lower bound.
 
-This is **not** a proof of novelty. Full-text comparison with Eichfelder et al. 2026 and a final citation chase remain mandatory.
+This is **not** a proof of novelty. The Eichfelder et al. 2026 full-text collision check is now closed as a non-equivalent antecedent; a final citation chase for duplicate/clone-sensitive gradient aggregation and aggregation/decomposability characterizations remains mandatory.
