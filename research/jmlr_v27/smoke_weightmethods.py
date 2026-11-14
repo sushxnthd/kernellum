@@ -12,6 +12,7 @@ from research.jmlr_v27.atomicity_intervention import transform_losses
 METHODS = {
     "ls": {},
     "mgda": {},
+    "mgda_canonical": {},
     "cagrad": {"c": 0.4, "max_norm": 0.0},
     "nashmtl": {"optim_niter": 20, "update_weights_every": 1, "max_norm": 0.0},
     "fairgrad": {"alpha": 2.0, "max_norm": 0.0},
@@ -26,7 +27,8 @@ def run(method_name, arm, k=4):
     semantic = torch.stack([l0, l1])
     represented, _ = transform_losses(semantic, arm, parent_task=0, clone_k=k)
     n_tasks = len(represented)
-    wm = WeightMethods(method_name, n_tasks=n_tasks, device=torch.device("cpu"), **METHODS[method_name])
+    base_method = "mgda" if method_name == "mgda_canonical" else method_name
+    wm = WeightMethods(base_method, n_tasks=n_tasks, device=torch.device("cpu"), **METHODS[method_name])
     kwargs = dict(
         losses=represented,
         shared_parameters=[p],
@@ -34,7 +36,11 @@ def run(method_name, arm, k=4):
         last_shared_parameters=[p],
         representation=p.reshape(1,-1),
     )
-    _, extra = wm.backward(**kwargs)
+    if method_name == "mgda_canonical":
+        loss, extra = wm.get_weighted_loss(**kwargs)
+        (loss / float(n_tasks)).backward()
+    else:
+        _, extra = wm.backward(**kwargs)
     if p.grad is None:
         raise RuntimeError(f"{method_name}/{arm}: no shared gradient")
     return p.grad.detach().clone(), n_tasks, extra
@@ -50,15 +56,20 @@ def main():
             raise AssertionError((method, nc, nz, ne))
         if rel > 2e-6:
             raise AssertionError(f"{method}: canonicalized null relerr={rel}")
+        if method == "mgda_canonical":
+            exposed_rel = float((ge-gc).norm() / gc.norm().clamp_min(1e-30))
+            if exposed_rel > 2e-5:
+                raise AssertionError(f"canonical MGDA clone null relerr={exposed_rel}")
         report[method] = {
             "coarse_tasks": nc,
             "canonicalized_tasks": nz,
             "exposed_tasks": ne,
             "canonicalized_grad_relerr": rel,
             "exposed_to_coarse_grad_l2": float((ge-gc).norm()),
+            "exposed_to_coarse_grad_relerr": float((ge-gc).norm() / gc.norm().clamp_min(1e-30)),
         }
     print(report)
-    print("PASS: five-method represented-dimension + canonicalized-null preflight")
+    print("PASS: released-method + canonical-MGDA represented-dimension preflight")
 
 if __name__ == "__main__":
     main()
