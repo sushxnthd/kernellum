@@ -60,3 +60,35 @@ Repeated searches across task/objective duplication, redundant objectives, MGDA,
 3. an exact theorem matching the stated mass-refinement-invariance + singleton-consistency + common-descent-completeness incompatibility, or its instance-specific epsilon lower bound.
 
 This is **not** a proof of novelty. The Eichfelder et al. 2026 full-text collision check is now closed as a non-equivalent antecedent; a final citation chase for duplicate/clone-sensitive gradient aggregation and aggregation/decomposability characterizations remains mandatory.
+
+
+## Threat E — clone-proof benchmark weighting is now explicit ML prior art
+
+Damien Berriaud and Roger Wattenhofer, "Clone-Robust Weights in Metric Spaces: Handling Redundancy Bias in Benchmark Aggregation," AAMAS 2026, DOI 10.65109/MJWJ6521, arXiv:2502.03576v3.
+
+This is a major conceptual antecedent. The paper formalizes weighting functions over finite subsets of a metric space, with axioms for symmetry, continuity, approximate-clone fairness, and locality under addition of clones. Its Axiom 6 requires that adding a sufficiently close clone leave weights of sufficiently distant elements approximately unchanged; Appendix F extends the discussion to perfect clones in pseudo-metric spaces.
+
+Boundary after theorem-level audit:
+- domain/object: benchmark/evaluation weighting over finite metric-space sets, not training-time multi-objective gradient aggregation;
+- transformation: addition of approximate/metric clones with local weight sharing, not an explicit measured ontology with mass-preserving exact list refinement;
+- guarantee: local stability/weight-sharing of the weighting rule, not equality of a downstream parameter update under every mass-preserving refinement;
+- no MGDA/CAGrad/Nash-MTL/FairGrad response law;
+- no theorem that refinement invariance plus singleton consistency forces a mass mean;
+- no incompatibility with common-descent completeness or the quantitative epsilon lower bound.
+
+The manuscript must not claim clone-proof weighting, redundancy-bias mitigation, or "similar tasks should share weight" as new. Berriaud--Wattenhofer should be cited in the main related-work section, not only late discussion. The novelty boundary is training-time optimizer response, measured exact refinement, modern-gradient-combiner response laws, and the Pareto/common-descent boundary.
+
+Classification: **major conceptual ML antecedent / mandatory reframing; no theorem-equivalent collision found.**
+
+## Threat F — duplicated objectives affecting optimization search predates this paper
+
+Hisao Ishibuchi, Masakazu Yamane, and Yusuke Nojima, "Effects of Duplicated Objectives in Many-Objective Optimization Problems on the Search Behavior of Hypervolume-Based Evolutionary Algorithms," IEEE MCDM 2013, pp. 25--32, DOI 10.1109/MCDM.2013.6595440.
+
+The published abstract reports that duplicated objectives bias SMS-EMOA's hypervolume-based evolutionary search toward Pareto-front regions with favorable values on the duplicated objectives.
+
+Consequences:
+- **do not claim** that objective duplication affecting an optimization algorithm is newly discovered here;
+- distinguish population-based hypervolume selection from differentiable MTL gradient combiners and exact fixed-computation causal refinement;
+- the paper contributes no known MGDA/CAGrad/Nash/FairGrad replication law and no mass-refinement/Pareto theorem in the retrieved record.
+
+Classification: **direct historical duplicated-objective antecedent / mandatory citation; optimizer-law and theorem claims remain distinct.**
