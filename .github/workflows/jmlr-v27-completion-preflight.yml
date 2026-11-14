@@ -54,3 +54,6 @@ jobs:
             --dry-run
       - name: Tier-A Gram census synthetic gate
         run: python research/jmlr_v27/test_tier_a_gram.py fairgrad
+      - name: Nash-MTL stop-resume equivalence gate
+        working-directory: fairgrad
+        run: PYTHONPATH="$PWD:$GITHUB_WORKSPACE" python "$GITHUB_WORKSPACE/research/jmlr_v27/test_nash_resume_state.py"
