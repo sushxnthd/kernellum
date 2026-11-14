@@ -52,3 +52,5 @@ jobs:
             --run-id nyu__mgda__canon__0__exposed__0__4 \
             --fairgrad-root fairgrad \
             --dry-run
+      - name: Tier-A Gram census synthetic gate
+        run: python research/jmlr_v27/test_tier_a_gram.py fairgrad
