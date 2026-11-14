@@ -35,7 +35,8 @@ This tier preserves the breadth of the original task/multiplicity/method grid wi
 ### Offline combiner census
 On every retained gradient system, evaluate source-faithful deterministic combiners:
 - equal weighting;
-- canonical MGDA;
+- released MGDA (including its task-count rescaling) for implementation calibration;
+- canonical MGDA (same pinned min-norm solver, simplex-scaled control);
 - CAGrad;
 - Nash-MTL finite released solver;
 - FairGrad alpha=2 (released run-script configuration).
@@ -57,7 +58,7 @@ Retain original 200-epoch protocol and five paired seeds.
 
 Methods:
 - equal weighting (linear multiplicity response);
-- canonical MGDA (invariant control);
+- canonical MGDA (invariant mathematical control; explicitly not the released task-count-rescaled wrapper);
 - Nash-MTL (bargaining/power-equilibrium response).
 
 For each method:
@@ -103,6 +104,7 @@ No seed removal except a preregistered infrastructure failure. No per-arm retuni
 - The pinned QM9 trainer computes mean/std through `train_dataset.data.y`, which accesses underlying full PyG storage. Primary source-faithful runs preserve and disclose this released behavior. A train-only normalization sensitivity run, if later added, is explicitly secondary.
 - FairGrad alpha=2 is the released run-script setting, not the parser default.
 - Exposed arms instantiate the combiner at T+k-1 represented tasks.
+- Released FairGrad MGDA multiplies the simplex solution by declared n_tasks; it is therefore separately audited as an implementation-sensitive rule. Tier B's "canonical MGDA" divides this released weighted loss by represented n_tasks, leaving the pinned min-norm solver unchanged and restoring the mathematical simplex combination.
 
 ## Compute planning boundary
 
