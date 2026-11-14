@@ -92,3 +92,16 @@ Consequences:
 - the paper contributes no known MGDA/CAGrad/Nash/FairGrad replication law and no mass-refinement/Pareto theorem in the retrieved record.
 
 Classification: **direct historical duplicated-objective antecedent / mandatory citation; optimizer-law and theorem claims remain distinct.**
+
+
+## Threat G — mean/barycentre forcing is classical in substance
+
+Classical mean theory already studies the property that replacing a subcollection by its mean should leave the aggregate unchanged ("decomposability" / "barycentric associativity"). Kolmogorov--Nagumo use this family of consistency properties to characterize quasi-arithmetic means. More directly for finite masses, Girotto & Holzer, *A characterization of the barycentre* (Mathematika 51, 2004) characterize the barycentre of simple masses via associativity, internality and continuity; Girotto & Holzer, *Finite quasi-barycentric means in an abstract setting* (Information Sciences 489, 2019) give an axiomatic treatment on finitely supported masses with consistency/associativity and weighted-arithmetic representations.
+
+Consequences:
+- The unrestricted-refinement + singleton-consistency => mass-barycentre result must **not** be sold as a fundamentally new aggregation characterization.
+- Reframe it as the measured-gradient specialization / structural bridge connecting classical barycentric consistency to the ML optimizer interface.
+- The paper's theorem novelty, if retained, should center on the incompatibility/quantitative lower bound once a learning rule is also required to be common-descent complete, together with exact response laws of concrete modern MTL optimizers.
+- A hostile reviewer can reasonably call the mean-forcing step an instance of classical barycentric associativity; the manuscript should concede this explicitly instead of forcing the reviewer to discover it.
+
+Classification: **classical theorem antecedent / mandatory demotion of novelty claim.**
