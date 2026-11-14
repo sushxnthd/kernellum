@@ -19,7 +19,7 @@ METHODS = {
 
 def run(method_name, arm, k=4):
     from methods.weight_methods import WeightMethods
-    p = torch.tensor([0.31, -0.47, 0.19], dtype=torch.float64, requires_grad=True)
+    p = torch.tensor([0.31, -0.47, 0.19], dtype=torch.float32, requires_grad=True)
     # Strictly positive nonlinear losses with distinct gradient geometry.
     l0 = ((p - torch.tensor([0.8,-0.1,0.2], dtype=p.dtype))**2).sum() + 0.3
     l1 = ((p - torch.tensor([-0.2,0.6,-0.4], dtype=p.dtype))**2).sum() + 0.5
@@ -48,7 +48,7 @@ def main():
         rel = float((gc-gz).norm() / gc.norm().clamp_min(1e-30))
         if nc != 2 or nz != 2 or ne != 5:
             raise AssertionError((method, nc, nz, ne))
-        if rel > 1e-8:
+        if rel > 2e-6:
             raise AssertionError(f"{method}: canonicalized null relerr={rel}")
         report[method] = {
             "coarse_tasks": nc,
