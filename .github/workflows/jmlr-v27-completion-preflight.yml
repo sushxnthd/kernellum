@@ -46,3 +46,9 @@ jobs:
         run: |
           python generate_amended_manifest.py
           python test_amended_manifest.py
+      - name: Frozen-cell launcher dry run
+        run: |
+          python research/jmlr_v27/run_amended_cell.py \
+            --run-id nyu__mgda__canon__0__exposed__0__4 \
+            --fairgrad-root fairgrad \
+            --dry-run
