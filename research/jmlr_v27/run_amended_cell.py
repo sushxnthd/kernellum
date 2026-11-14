@@ -30,11 +30,11 @@ def hardware_snapshot():
     return snap
 
 def find_cell(run_id):
-    cells,_=build()
+    cells,tier_a=build()
     matches=[c for c in cells if c["run_id"]==run_id]
     if len(matches)!=1:
         raise SystemExit(f"run_id must match exactly one frozen cell; got {len(matches)}")
-    return matches[0]
+    return matches[0], tier_a
 
 def ensure_pinned_and_patched(fairgrad_root: Path):
     code,out=run_capture(["git","rev-parse","HEAD"],cwd=fairgrad_root)
@@ -48,7 +48,7 @@ def ensure_pinned_and_patched(fairgrad_root: Path):
         (d/"save").mkdir(exist_ok=True)
         (d/"trainlogs").mkdir(exist_ok=True)
 
-def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data):
+def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data, audit_epochs):
     bench=cell["benchmark"]
     exp=fairgrad_root/"experiments"/("nyuv2" if bench=="nyuv2" else "quantum_chemistry")
     cmd=[sys.executable,"-u","trainer.py",
@@ -67,6 +67,8 @@ def build_command(cell, fairgrad_root, gpu, nyuv2_data, qm9_data):
          "--jmlr-parent",str(cell["parent"]),
          "--jmlr-k",str(cell["k"]),
          "--jmlr-run-id",cell["run_id"]]
+    if audit_epochs:
+        cmd += ["--jmlr-audit-epochs", ",".join(str(x) for x in audit_epochs)]
     if cell.get("canonical_mgda"):
         cmd.append("--jmlr-canonical-mgda")
     if bench=="nyuv2":
@@ -90,10 +92,12 @@ def main():
     ap.add_argument("--dry-run",action="store_true")
     args=ap.parse_args()
 
-    cell=find_cell(args.run_id)
+    cell,tier_a=find_cell(args.run_id)
     fairgrad=args.fairgrad_root.resolve()
     ensure_pinned_and_patched(fairgrad)
-    exp,cmd=build_command(cell,fairgrad,args.gpu,args.nyuv2_data,args.qm9_data)
+    source_spec=tier_a[cell["benchmark"]]
+    audit_epochs=source_spec["audit_epochs"] if cell["run_id"] in source_spec["source_runs"] else []
+    exp,cmd=build_command(cell,fairgrad,args.gpu,args.nyuv2_data,args.qm9_data,audit_epochs)
 
     if cell["benchmark"]=="nyuv2":
         data=Path(args.nyuv2_data).resolve() if args.nyuv2_data else exp/"dataset"
@@ -109,6 +113,7 @@ def main():
         "command":cmd,
         "cwd":str(exp),
         "hardware":hardware_snapshot(),
+        "tier_a_audit_epochs":audit_epochs,
         "started_unix":time.time(),
         "status":"dry-run" if args.dry_run else "running",
     }
@@ -132,12 +137,14 @@ def main():
     ledger["artifacts"]=artifacts
     has_stats=any(x["name"].endswith(".stats") for x in artifacts)
     has_final=any(x["name"].endswith(".final.pt") for x in artifacts)
-    if proc.returncode==0 and has_stats and has_final:
+    audit_count=sum(".audit.ep" in x["name"] for x in artifacts)
+    audit_ok=(not audit_epochs) or audit_count==len(audit_epochs)
+    if proc.returncode==0 and has_stats and has_final and audit_ok:
         ledger["status"]="complete"
     else:
         ledger["status"]="failed"
         if proc.returncode==0:
-            ledger["integrity_error"]=f"successful process missing required artifacts: stats={has_stats}, final={has_final}"
+            ledger["integrity_error"]=f"successful process missing required artifacts: stats={has_stats}, final={has_final}, audits={audit_count}/{len(audit_epochs)}"
     (ledger_dir/"ledger.json").write_text(json.dumps(ledger,indent=2,sort_keys=True)+"\n")
     print(json.dumps({"run_id":cell["run_id"],"status":ledger["status"],"returncode":proc.returncode,"artifacts":artifacts},indent=2))
     if ledger["status"]!="complete":
