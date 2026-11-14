@@ -75,6 +75,7 @@ def patch_common(text: str) -> str:
         '    parser.add_argument("--jmlr-parent", type=int, default=0)\n'
         '    parser.add_argument("--jmlr-k", type=int, default=2)\n'
         '    parser.add_argument("--jmlr-canonical-mgda", action="store_true")\n'
+        '    parser.add_argument("--jmlr-run-id", type=str, default="")\n'
         '    args = parser.parse_args()\n',
         "JMLR CLI args",
     )
@@ -101,6 +102,23 @@ def patch_nyuv2(path: Path) -> None:
                 weight_method, combiner_losses, args,
 '''
     text = replace_once(text, needle, repl, "NYUv2 loss-vector intervention")
+    text = replace_once(
+        text,
+        '            torch.save({\n',
+        '            if args.jmlr_run_id:\n'
+        '                name = f"{name}_{args.jmlr_run_id}"\n'
+        '            torch.save({\n'
+        '                "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda),\n',
+        "NYUv2 collision-proof metadata",
+    )
+    text = replace_once(
+        text,
+        '            }, f"./save/{name}.stats")\n',
+        '            }, f"./save/{name}.stats")\n'
+        '            if epoch == epochs - 1:\n'
+        '                torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n',
+        "NYUv2 final-state snapshot",
+    )
     path.write_text(text)
 
 def patch_qm9(path: Path) -> None:
@@ -121,6 +139,23 @@ def patch_qm9(path: Path) -> None:
                 weight_method, combiner_losses, args,
 '''
     text = replace_once(text, needle, repl, "QM9 loss-vector intervention")
+    text = replace_once(
+        text,
+        '        torch.save({\n',
+        '        if args.jmlr_run_id:\n'
+        '            name = f"{name}_{args.jmlr_run_id}"\n'
+        '        torch.save({\n'
+        '            "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda),\n',
+        "QM9 collision-proof metadata",
+    )
+    text = replace_once(
+        text,
+        '        }, f"./save/{name}.stats")\n',
+        '        }, f"./save/{name}.stats")\n'
+        '        if epoch == n_epochs - 1:\n'
+        '            torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n',
+        "QM9 final-state snapshot",
+    )
     path.write_text(text)
 
 def main():
