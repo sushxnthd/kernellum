@@ -1,0 +1,39 @@
+name: JMLR v27 completion preflight
+
+on:
+  push:
+    branches: [research/jmlr-v27-completion]
+    paths:
+      - 'research/jmlr_v27/**'
+      - '.github/workflows/jmlr-v27-completion-preflight.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  source_patch_and_atomicity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install solver/test dependencies
+        run: pip install -q torch numpy scipy cvxpy ecos
+      - name: Clone exact FairGrad revision
+        run: |
+          git clone -q https://github.com/OptMN-Lab/FairGrad.git fairgrad
+          cd fairgrad
+          git checkout -q b58bce810e57288f7bf2c4c9effb7133b856739a
+      - name: Apply narrow v27 source patch
+        run: python research/jmlr_v27/apply_fairgrad_v27_patch.py fairgrad
+      - name: Verify patched trainers compile
+        run: |
+          python -m py_compile fairgrad/experiments/nyuv2/trainer.py
+          python -m py_compile fairgrad/experiments/quantum_chemistry/trainer.py
+      - name: Canonicalization graph test
+        run: python research/jmlr_v27/test_atomicity_intervention.py
+      - name: Five-method represented-task-count smoke test
+        working-directory: fairgrad
+        run: PYTHONPATH="$PWD:$GITHUB_WORKSPACE" python "$GITHUB_WORKSPACE/research/jmlr_v27/smoke_weightmethods.py"
