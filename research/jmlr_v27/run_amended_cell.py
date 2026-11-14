@@ -12,8 +12,11 @@ from generate_amended_manifest import build
 PINNED = "b58bce810e57288f7bf2c4c9effb7133b856739a"
 
 def run_capture(cmd, cwd=None):
-    p = subprocess.run(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    return p.returncode, p.stdout
+    try:
+        p = subprocess.run(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        return p.returncode, p.stdout
+    except FileNotFoundError as e:
+        return 127, f"{e.__class__.__name__}: {e}"
 
 def sha256(path: Path):
     h=hashlib.sha256()
