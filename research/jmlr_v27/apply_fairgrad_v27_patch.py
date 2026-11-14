@@ -95,6 +95,66 @@ def _jmlr_maybe_save_audit(losses, shared_parameters, args, epoch, batch_index):
         },
         f"./save/{run_id}.audit.ep{epoch}.pt",
     )
+
+def _jmlr_method_state(weight_method):
+    method = weight_method.method
+    if method.__class__.__name__ == "NashMTL":
+        return {
+            "kind": "NashMTL",
+            "step": float(method.step),
+            "prvs_alpha": np.asarray(method.prvs_alpha, dtype=np.float32),
+        }
+    return {"kind": method.__class__.__name__}
+
+def _jmlr_restore_method_state(weight_method, state):
+    if not state:
+        return
+    method = weight_method.method
+    if state.get("kind") == "NashMTL":
+        method.prvs_alpha = np.asarray(state["prvs_alpha"], dtype=np.float32)
+        method.step = float(state["step"])
+        method._init_optim_problem()
+
+def _jmlr_save_checkpoint(path, model, optimizer, scheduler, weight_method, epoch, payload):
+    if not path:
+        return
+    import random as _jmlr_random
+    import os as _jmlr_os
+    _jmlr_os.makedirs(_jmlr_os.path.dirname(path) or ".", exist_ok=True)
+    state = {
+        "epoch": int(epoch),
+        "model_state": model.state_dict(),
+        "optimizer_state": optimizer.state_dict(),
+        "scheduler_state": scheduler.state_dict(),
+        "method_state": _jmlr_method_state(weight_method),
+        "python_rng": _jmlr_random.getstate(),
+        "numpy_rng": np.random.get_state(),
+        "torch_rng": torch.get_rng_state(),
+        "cuda_rng": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None,
+        "payload": payload,
+    }
+    tmp = path + ".tmp"
+    torch.save(state, tmp)
+    _jmlr_os.replace(tmp, path)
+
+def _jmlr_load_checkpoint(path, model, optimizer, scheduler, weight_method):
+    if not path:
+        return None
+    import random as _jmlr_random
+    try:
+        state = torch.load(path, map_location="cpu", weights_only=False)
+    except TypeError:
+        state = torch.load(path, map_location="cpu")
+    model.load_state_dict(state["model_state"])
+    optimizer.load_state_dict(state["optimizer_state"])
+    scheduler.load_state_dict(state["scheduler_state"])
+    _jmlr_restore_method_state(weight_method, state.get("method_state"))
+    _jmlr_random.setstate(state["python_rng"])
+    np.random.set_state(state["numpy_rng"])
+    torch.set_rng_state(state["torch_rng"])
+    if torch.cuda.is_available() and state.get("cuda_rng") is not None:
+        torch.cuda.set_rng_state_all(state["cuda_rng"])
+    return state
 '''
 
 def replace_once(text: str, old: str, new: str, label: str) -> str:
@@ -119,6 +179,8 @@ def patch_common(text: str) -> str:
         '    parser.add_argument("--jmlr-canonical-mgda", action="store_true")\n'
         '    parser.add_argument("--jmlr-run-id", type=str, default="")\n'
         '    parser.add_argument("--jmlr-audit-epochs", type=str, default="")\n'
+        '    parser.add_argument("--jmlr-resume-from", type=str, default="")\n'
+        '    parser.add_argument("--jmlr-checkpoint-path", type=str, default="")\n'
         '    args = parser.parse_args()\n',
         "JMLR CLI args",
     )
@@ -150,6 +212,28 @@ def patch_nyuv2(path: Path) -> None:
     text = replace_once(text, needle, repl, "NYUv2 loss-vector intervention")
     text = replace_once(
         text,
+        '    epoch_iter = trange(epochs)\n',
+        '    epoch_iter = None\n',
+        "NYUv2 deferred epoch iterator",
+    )
+    text = replace_once(
+        text,
+        '    loss_list = []\n\n    for epoch in epoch_iter:\n',
+        '    loss_list = []\n'
+        '    _jmlr_start_epoch = 0\n'
+        '    if args.jmlr_resume_from:\n'
+        '        _jmlr_state = _jmlr_load_checkpoint(args.jmlr_resume_from, model, optimizer, scheduler, weight_method)\n'
+        '        _jmlr_start_epoch = int(_jmlr_state["epoch"]) + 1\n'
+        '        _jmlr_payload = _jmlr_state.get("payload", {})\n'
+        '        if "avg_cost" in _jmlr_payload: avg_cost[:] = _jmlr_payload["avg_cost"]\n'
+        '        if "deltas" in _jmlr_payload: deltas[:] = _jmlr_payload["deltas"]\n'
+        '        if "loss_list" in _jmlr_payload: loss_list = _jmlr_payload["loss_list"]\n'
+        '    epoch_iter = trange(_jmlr_start_epoch, epochs)\n\n'
+        '    for epoch in epoch_iter:\n',
+        "NYUv2 resume setup",
+    )
+    text = replace_once(
+        text,
         '            torch.save({\n',
         '            if args.jmlr_run_id:\n'
         '                name = f"{name}_{args.jmlr_run_id}"\n'
@@ -162,7 +246,8 @@ def patch_nyuv2(path: Path) -> None:
         '            }, f"./save/{name}.stats")\n',
         '            }, f"./save/{name}.stats")\n'
         '            if epoch == epochs - 1:\n'
-        '                torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n',
+        '                torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n'
+        '            _jmlr_save_checkpoint(args.jmlr_checkpoint_path, model, optimizer, scheduler, weight_method, epoch, {"avg_cost": avg_cost, "deltas": deltas, "loss_list": loss_list})\n',
         "NYUv2 final-state snapshot",
     )
     path.write_text(text)
@@ -190,6 +275,33 @@ def patch_qm9(path: Path) -> None:
     text = replace_once(text, needle, repl, "QM9 loss-vector intervention")
     text = replace_once(
         text,
+        '    epoch_iterator = trange(n_epochs)\n',
+        '    epoch_iterator = None\n',
+        "QM9 deferred epoch iterator",
+    )
+    text = replace_once(
+        text,
+        '    loss_list = []\n\n    for epoch in epoch_iterator:\n',
+        '    loss_list = []\n'
+        '    _jmlr_start_epoch = 0\n'
+        '    if args.jmlr_resume_from:\n'
+        '        _jmlr_state = _jmlr_load_checkpoint(args.jmlr_resume_from, model, optimizer, scheduler, weight_method)\n'
+        '        _jmlr_start_epoch = int(_jmlr_state["epoch"]) + 1\n'
+        '        _jmlr_payload = _jmlr_state.get("payload", {})\n'
+        '        if "avg_cost" in _jmlr_payload: avg_cost[:] = _jmlr_payload["avg_cost"]\n'
+        '        if "deltas" in _jmlr_payload: deltas[:] = _jmlr_payload["deltas"]\n'
+        '        if "loss_list" in _jmlr_payload: loss_list = _jmlr_payload["loss_list"]\n'
+        '        best_val = _jmlr_payload.get("best_val", best_val)\n'
+        '        best_test = _jmlr_payload.get("best_test", best_test)\n'
+        '        best_test_delta = _jmlr_payload.get("best_test_delta", best_test_delta)\n'
+        '        best_val_delta = _jmlr_payload.get("best_val_delta", best_val_delta)\n'
+        '        best_test_results = _jmlr_payload.get("best_test_results", best_test_results)\n'
+        '    epoch_iterator = trange(_jmlr_start_epoch, n_epochs)\n\n'
+        '    for epoch in epoch_iterator:\n',
+        "QM9 resume setup",
+    )
+    text = replace_once(
+        text,
         '        torch.save({\n',
         '        if args.jmlr_run_id:\n'
         '            name = f"{name}_{args.jmlr_run_id}"\n'
@@ -202,7 +314,8 @@ def patch_qm9(path: Path) -> None:
         '        }, f"./save/{name}.stats")\n',
         '        }, f"./save/{name}.stats")\n'
         '        if epoch == n_epochs - 1:\n'
-        '            torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n',
+        '            torch.save({"model_state": model.state_dict(), "optimizer_state": optimizer.state_dict(), "scheduler_state": scheduler.state_dict(), "epoch": epoch, "jmlr_meta": dict(arm=args.jmlr_arm, parent=args.jmlr_parent, k=args.jmlr_k, run_id=args.jmlr_run_id, canonical_mgda=args.jmlr_canonical_mgda)}, f"./save/{name}.final.pt")\n'
+        '        _jmlr_save_checkpoint(args.jmlr_checkpoint_path, model, optimizer, scheduler, weight_method, epoch, {"avg_cost": avg_cost, "deltas": deltas, "loss_list": loss_list, "best_val": best_val, "best_test": best_test, "best_test_delta": best_test_delta, "best_val_delta": best_val_delta, "best_test_results": best_test_results})\n',
         "QM9 final-state snapshot",
     )
     path.write_text(text)
