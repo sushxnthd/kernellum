@@ -41,3 +41,8 @@ jobs:
       - name: Five-method represented-task-count smoke test
         working-directory: fairgrad
         run: PYTHONPATH="$PWD:$GITHUB_WORKSPACE" python "$GITHUB_WORKSPACE/research/jmlr_v27/smoke_weightmethods.py"
+      - name: Amended manifest generation and invariants
+        working-directory: research/jmlr_v27
+        run: |
+          python generate_amended_manifest.py
+          python test_amended_manifest.py
