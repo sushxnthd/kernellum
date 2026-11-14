@@ -53,6 +53,48 @@ def _jmlr_backward(weight_method, losses, args, **kwargs):
         loss.backward()
         return loss, extra_outputs
     return weight_method.backward(losses=losses, **kwargs)
+
+def _jmlr_gradient_gram(losses, params):
+    """Capture semantic gradient geometry without changing .grad or the training graph."""
+    flats = []
+    for loss in losses:
+        gs = torch.autograd.grad(loss, params, retain_graph=True, allow_unused=True)
+        chunks = []
+        for p, g in zip(params, gs):
+            if g is None:
+                chunks.append(torch.zeros_like(p).reshape(-1).detach().cpu())
+            else:
+                chunks.append(g.reshape(-1).detach().cpu())
+        flats.append(torch.cat(chunks).to(torch.float64))
+    n = len(flats)
+    gram = torch.empty((n, n), dtype=torch.float64)
+    for i in range(n):
+        for j in range(i, n):
+            v = torch.dot(flats[i], flats[j])
+            gram[i, j] = v
+            gram[j, i] = v
+    return gram
+
+def _jmlr_maybe_save_audit(losses, shared_parameters, args, epoch, batch_index):
+    if batch_index != 0 or not args.jmlr_audit_epochs:
+        return
+    epochs = {int(x) for x in args.jmlr_audit_epochs.split(",") if x.strip()}
+    if epoch not in epochs:
+        return
+    run_id = args.jmlr_run_id or "unnamed"
+    gram = _jmlr_gradient_gram(losses, shared_parameters)
+    torch.save(
+        {
+            "epoch": int(epoch),
+            "semantic_losses": losses.detach().cpu().to(torch.float64),
+            "semantic_gram": gram,
+            "run_id": run_id,
+            "arm": args.jmlr_arm,
+            "parent": int(args.jmlr_parent),
+            "k": int(args.jmlr_k),
+        },
+        f"./save/{run_id}.audit.ep{epoch}.pt",
+    )
 '''
 
 def replace_once(text: str, old: str, new: str, label: str) -> str:
@@ -76,6 +118,7 @@ def patch_common(text: str) -> str:
         '    parser.add_argument("--jmlr-k", type=int, default=2)\n'
         '    parser.add_argument("--jmlr-canonical-mgda", action="store_true")\n'
         '    parser.add_argument("--jmlr-run-id", type=str, default="")\n'
+        '    parser.add_argument("--jmlr-audit-epochs", type=str, default="")\n'
         '    args = parser.parse_args()\n',
         "JMLR CLI args",
     )
@@ -95,7 +138,10 @@ def patch_nyuv2(path: Path) -> None:
     needle = '''            loss, extra_outputs = weight_method.backward(
                 losses=losses,
 '''
-    repl = '''            combiner_losses = _jmlr_atomicity_transform(
+    repl = '''            _jmlr_maybe_save_audit(
+                losses, list(model.shared_parameters()), args, epoch, j
+            )
+            combiner_losses = _jmlr_atomicity_transform(
                 losses, args.jmlr_arm, args.jmlr_parent, args.jmlr_k
             )
             loss, extra_outputs = _jmlr_backward(
@@ -132,7 +178,10 @@ def patch_qm9(path: Path) -> None:
     needle = '''            loss, extra_outputs = weight_method.backward(
                 losses=losses,
 '''
-    repl = '''            combiner_losses = _jmlr_atomicity_transform(
+    repl = '''            _jmlr_maybe_save_audit(
+                losses, list(model.shared_parameters()), args, epoch, j
+            )
+            combiner_losses = _jmlr_atomicity_transform(
                 losses, args.jmlr_arm, args.jmlr_parent, args.jmlr_k
             )
             loss, extra_outputs = _jmlr_backward(
