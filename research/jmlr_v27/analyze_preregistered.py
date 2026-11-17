@@ -23,7 +23,7 @@ def bootstrap_ci(x,stat=np.mean,draws=20000,seed=271828):
 
 def effect_size_paired(d):
     d=np.asarray(d,float)
-    if len(d)<2 or np.std(d,ddof=1)==0:return 0.0 if np.allclose(d,0) else math.inf
+    if len(d)<2 or np.std(d,ddof=1)==0:return 0.0 if np.all(d==0) else None
     return float(np.mean(d)/np.std(d,ddof=1))
 
 def load_records(paths):
@@ -34,17 +34,17 @@ def load_records(paths):
     return out
 
 def key(r):
-    return (r["benchmark"],r["method"],int(r["seed"]),r["arm"],int(r.get("refine_task",-1)),int(r.get("clone_k",1)))
+    if "refine_task" not in r or "clone_k" not in r:\n        raise ValueError("Explicit refine_task/clone_k mapping required; never infer from parent/k")\n    return (r["benchmark"],r["method"],int(r["seed"]),r["arm"],int(r["refine_task"]),int(r["clone_k"]))
 
 def summarize(records):
-    by={key(r):r for r in records if r.get("status","ok")=="ok"}
+    by={}\n    issues=[]\n    for r in records:\n        kr=key(r)\n        if kr in by:\n            issues.append({"kind":"duplicate_cell","key":list(kr)})\n        else:\n            by[kr]=r\n        if r.get("status","ok")!="ok":\n            issues.append({"kind":"failed_cell","key":list(kr),"status":r.get("status")})
     failures=[r for r in records if r.get("status","ok")!="ok"]
     rows=[]
     for r in records:
         if r.get("status","ok")!="ok" or r["arm"]=="coarse":continue
         ck=(r["benchmark"],r["method"],int(r["seed"]),"coarse",-1,1)
         c=by.get(ck)
-        if c is None:continue
+        if c is None:\n            issues.append({"kind":"unmatched_refined","key":list(key(r))})\n            continue
         rr={k:r.get(k) for k in ["benchmark","method","seed","arm","refine_task","clone_k"]}
         if r["benchmark"]=="nyuv2":
             rr["delta_m_diff"]=float(r["metrics"]["delta_m"]-c["metrics"]["delta_m"])
@@ -76,13 +76,13 @@ def summarize(records):
             if vals:
                 out[metric]={"seed_values":vals,"mean":float(np.mean(vals)),"median":float(np.median(vals)),"ci95_mean":bootstrap_ci(vals,np.mean),"paired_effect_size":effect_size_paired(vals)}
         agg.append(out)
-    can=[a for a in agg if a["arm"]=="canonicalized"]
+    # This preliminary gate is deliberately conservative. It is NOT a replacement\n    # for checking the entire frozen manifest against all expected benchmark cells.\n    if not rows:\n        issues.append({"kind":"no_paired_observations"})\n    for g,rs in groups.items():\n        distinct={int(r["seed"]) for r in rs}\n        if distinct!=set(SEEDS):\n            issues.append({"kind":"incomplete_paired_seeds","group":list(g),"seeds":sorted(distinct)})\n    can=[a for a in agg if a["arm"]=="canonicalized"]\n    if not can:\n        issues.append({"kind":"missing_canonicalized_observations"})
     can_fail=[]
     for a in can:
         dm=abs(a.get("delta_m_diff",{}).get("mean",0.0))
         pd=a.get("final_param_l2_to_coarse",{}).get("mean",0.0)
         if dm>1e-6 or pd>1e-5:can_fail.append(a)
-    return {"n_records":len(records),"n_failures":len(failures),"failures":failures,"paired_cells":rows,"aggregate":agg,"canonicalized_gate_pass":len(can_fail)==0,"canonicalized_gate_failures":can_fail}
+    return {"n_records":len(records),"n_failures":len(failures),"failures":failures,"paired_cells":rows,"aggregate":agg,"analysis_blocked":bool(issues),"analysis_issues":issues,"canonicalized_gate_pass":bool(can) and len(can_fail)==0 and not issues,"canonicalized_gate_failures":can_fail}
 
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("inputs",nargs="+"); ap.add_argument("-o","--out",required=True)
