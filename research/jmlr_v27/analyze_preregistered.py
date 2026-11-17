@@ -34,17 +34,30 @@ def load_records(paths):
     return out
 
 def key(r):
-    if "refine_task" not in r or "clone_k" not in r:\n        raise ValueError("Explicit refine_task/clone_k mapping required; never infer from parent/k")\n    return (r["benchmark"],r["method"],int(r["seed"]),r["arm"],int(r["refine_task"]),int(r["clone_k"]))
+    if "refine_task" not in r or "clone_k" not in r:
+        raise ValueError("Explicit refine_task/clone_k mapping required; never infer from parent/k")
+    return (r["benchmark"],r["method"],int(r["seed"]),r["arm"],int(r["refine_task"]),int(r["clone_k"]))
 
 def summarize(records):
-    by={}\n    issues=[]\n    for r in records:\n        kr=key(r)\n        if kr in by:\n            issues.append({"kind":"duplicate_cell","key":list(kr)})\n        else:\n            by[kr]=r\n        if r.get("status","ok")!="ok":\n            issues.append({"kind":"failed_cell","key":list(kr),"status":r.get("status")})
+    by={}
+    issues=[]
+    for r in records:
+        kr=key(r)
+        if kr in by:
+            issues.append({"kind":"duplicate_cell","key":list(kr)})
+        else:
+            by[kr]=r
+        if r.get("status","ok")!="ok":
+            issues.append({"kind":"failed_cell","key":list(kr),"status":r.get("status")})
     failures=[r for r in records if r.get("status","ok")!="ok"]
     rows=[]
     for r in records:
         if r.get("status","ok")!="ok" or r["arm"]=="coarse":continue
         ck=(r["benchmark"],r["method"],int(r["seed"]),"coarse",-1,1)
         c=by.get(ck)
-        if c is None:\n            issues.append({"kind":"unmatched_refined","key":list(key(r))})\n            continue
+        if c is None:
+            issues.append({"kind":"unmatched_refined","key":list(key(r))})
+            continue
         rr={k:r.get(k) for k in ["benchmark","method","seed","arm","refine_task","clone_k"]}
         if r["benchmark"]=="nyuv2":
             rr["delta_m_diff"]=float(r["metrics"]["delta_m"]-c["metrics"]["delta_m"])
@@ -76,7 +89,17 @@ def summarize(records):
             if vals:
                 out[metric]={"seed_values":vals,"mean":float(np.mean(vals)),"median":float(np.median(vals)),"ci95_mean":bootstrap_ci(vals,np.mean),"paired_effect_size":effect_size_paired(vals)}
         agg.append(out)
-    # This preliminary gate is deliberately conservative. It is NOT a replacement\n    # for checking the entire frozen manifest against all expected benchmark cells.\n    if not rows:\n        issues.append({"kind":"no_paired_observations"})\n    for g,rs in groups.items():\n        distinct={int(r["seed"]) for r in rs}\n        if distinct!=set(SEEDS):\n            issues.append({"kind":"incomplete_paired_seeds","group":list(g),"seeds":sorted(distinct)})\n    can=[a for a in agg if a["arm"]=="canonicalized"]\n    if not can:\n        issues.append({"kind":"missing_canonicalized_observations"})
+    # This preliminary gate is deliberately conservative. It is NOT a replacement
+    # for checking the entire frozen manifest against all expected benchmark cells.
+    if not rows:
+        issues.append({"kind":"no_paired_observations"})
+    for g,rs in groups.items():
+        distinct={int(r["seed"]) for r in rs}
+        if distinct!=set(SEEDS):
+            issues.append({"kind":"incomplete_paired_seeds","group":list(g),"seeds":sorted(distinct)})
+    can=[a for a in agg if a["arm"]=="canonicalized"]
+    if not can:
+        issues.append({"kind":"missing_canonicalized_observations"})
     can_fail=[]
     for a in can:
         dm=abs(a.get("delta_m_diff",{}).get("mean",0.0))
