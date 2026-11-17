@@ -102,9 +102,19 @@ def summarize(records):
         issues.append({"kind":"missing_canonicalized_observations"})
     can_fail=[]
     for a in can:
-        dm=abs(a.get("delta_m_diff",{}).get("mean",0.0))
-        pd=a.get("final_param_l2_to_coarse",{}).get("mean",0.0)
-        if dm>1e-6 or pd>1e-5:can_fail.append(a)
+        required=("delta_m_diff","final_param_l2_to_coarse")
+        missing=[metric for metric in required if metric not in a or "mean" not in a[metric]]
+        if missing:
+            issues.append({"kind":"missing_canonicalization_metrics","group":{k:a.get(k) for k in ("benchmark","method","arm","refine_task","clone_k")},"metrics":missing})
+            can_fail.append(a)
+            continue
+        dm=a["delta_m_diff"]["mean"]
+        pd=a["final_param_l2_to_coarse"]["mean"]
+        if not (math.isfinite(dm) and math.isfinite(pd)):
+            issues.append({"kind":"nonfinite_canonicalization_metrics","group":{k:a.get(k) for k in ("benchmark","method","arm","refine_task","clone_k")}})
+            can_fail.append(a)
+            continue
+        if abs(dm)>1e-6 or pd>1e-5 or pd<0:can_fail.append(a)
     return {"n_records":len(records),"n_failures":len(failures),"failures":failures,"paired_cells":rows,"aggregate":agg,"analysis_blocked":bool(issues),"analysis_issues":issues,"canonicalized_gate_pass":bool(can) and len(can_fail)==0 and not issues,"canonicalized_gate_failures":can_fail}
 
 if __name__=="__main__":
