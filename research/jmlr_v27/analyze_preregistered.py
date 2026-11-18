@@ -55,8 +55,8 @@ def summarize(records):
         if r.get("status","ok")!="ok" or r["arm"]=="coarse":continue
         ck=(r["benchmark"],r["method"],int(r["seed"]),"coarse",-1,1)
         c=by.get(ck)
-        if c is None:
-            issues.append({"kind":"unmatched_refined","key":list(key(r))})
+        if c is None or c.get("status","ok")!="ok":
+            issues.append({"kind":"unmatched_or_failed_coarse","key":list(key(r))})
             continue
         rr={k:r.get(k) for k in ["benchmark","method","seed","arm","refine_task","clone_k"]}
         if r["benchmark"]=="nyuv2":
@@ -97,6 +97,16 @@ def summarize(records):
         distinct={int(r["seed"]) for r in rs}
         if distinct!=set(SEEDS):
             issues.append({"kind":"incomplete_paired_seeds","group":list(g),"seeds":sorted(distinct)})
+    # Validate individual canonicalized observations, never aggregate cancellation.
+    for rr in rows:
+        if rr["arm"]!="canonicalized":
+            continue
+        for metric,tol in (("delta_m_diff",1e-6),("final_param_l2_to_coarse",1e-5)):
+            value=rr.get(metric)
+            if value is None or not math.isfinite(float(value)):
+                issues.append({"kind":"missing_or_nonfinite_per_seed_canonicalization","key":[rr["benchmark"],rr["method"],rr["seed"],rr["refine_task"],rr["clone_k"]],"metric":metric})
+            elif abs(float(value))>tol or (metric=="final_param_l2_to_coarse" and value<0):
+                issues.append({"kind":"per_seed_canonicalization_violation","key":[rr["benchmark"],rr["method"],rr["seed"],rr["refine_task"],rr["clone_k"]],"metric":metric,"value":float(value)})
     can=[a for a in agg if a["arm"]=="canonicalized"]
     if not can:
         issues.append({"kind":"missing_canonicalized_observations"})
