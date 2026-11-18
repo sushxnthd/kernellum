@@ -38,6 +38,23 @@ def key(r):
         raise ValueError("Explicit refine_task/clone_k mapping required; never infer from parent/k")
     return (r["benchmark"],r["method"],int(r["seed"]),r["arm"],int(r["refine_task"]),int(r["clone_k"]))
 
+def frozen_expected_keys():
+    """Expected experiment identities; do not infer completeness from observed groups."""
+    expected=set()
+    for benchmark in ("nyuv2","qm9"):
+        if benchmark=="nyuv2":
+            refinements=[(task,k) for task in NY_TASKS for k in NY_K]
+        else:
+            refinements=[(task,QM9_MAIN_K) for task in QM9_TARGETS]
+            refinements += [(task,k) for task in QM9_DOSE_TARGETS for k in QM9_DOSE_K]
+        for method in METHOD_ORDER:
+            for seed in SEEDS:
+                expected.add((benchmark,method,seed,"coarse",-1,1))
+                for task,k in refinements:
+                    for arm in ("refined","canonicalized"):
+                        expected.add((benchmark,method,seed,arm,task,k))
+    return expected
+
 def summarize(records):
     by={}
     issues=[]
@@ -47,12 +64,23 @@ def summarize(records):
             issues.append({"kind":"duplicate_cell","key":list(kr)})
         else:
             by[kr]=r
-        if r.get("status","ok")!="ok":
+        if "status" not in r:
+            issues.append({"kind":"missing_status","key":list(kr)})
+        if r.get("status")!="ok":
             issues.append({"kind":"failed_cell","key":list(kr),"status":r.get("status")})
-    failures=[r for r in records if r.get("status","ok")!="ok"]
+    expected=frozen_expected_keys()
+    missing=expected-set(by)
+    unexpected=set(by)-expected
+    if missing:
+        issues.append({"kind":"missing_preregistered_cells","count":len(missing),
+                       "sample":[list(k) for k in sorted(missing)[:20]]})
+    if unexpected:
+        issues.append({"kind":"unexpected_preregistered_cells","count":len(unexpected),
+                       "sample":[list(k) for k in sorted(unexpected)[:20]]})
+    failures=[r for r in records if r.get("status")!="ok"]
     rows=[]
     for r in records:
-        if r.get("status","ok")!="ok" or r["arm"]=="coarse":continue
+        if r.get("status")!="ok" or r["arm"]=="coarse":continue
         ck=(r["benchmark"],r["method"],int(r["seed"]),"coarse",-1,1)
         c=by.get(ck)
         if c is None or c.get("status","ok")!="ok":
