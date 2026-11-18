@@ -105,5 +105,30 @@ class RejectionGateContract(unittest.TestCase):
         self.assertEqual(out["paired_cells"], [])
 
 
+    def test_missing_status_cannot_be_assumed_success(self):
+        rows = [record("coarse", seed=i) for i in range(5)]
+        rows += [record("refined", seed=i) for i in range(5)]
+        for r in rows:
+            r.pop("status")
+        out = A.summarize(rows)
+        self.assertTrue(out["analysis_blocked"],
+                        "Absent execution status cannot certify a completed cell")
+        self.assertTrue(any(x["kind"] == "missing_status"
+                            for x in out["analysis_issues"]))
+
+    def test_complete_one_group_is_not_complete_frozen_grid(self):
+        rows = [record("coarse", seed=i) for i in range(5)]
+        rows += [record("refined", seed=i) for i in range(5)]
+        rows += [dict(record("canonicalized", seed=i),
+                      final_param_l2_to_coarse=0.0) for i in range(5)]
+        for r in rows:
+            if r["arm"] == "canonicalized":
+                r["metrics"]["delta_m"] = 0.0
+        out = A.summarize(rows)
+        self.assertTrue(out["analysis_blocked"],
+                        "Five seeds in one group cannot certify the frozen NYUv2/QM9 grid")
+        self.assertTrue(any(x["kind"] == "missing_preregistered_cells"
+                            for x in out["analysis_issues"]))
+
 if __name__ == "__main__":
     unittest.main()
