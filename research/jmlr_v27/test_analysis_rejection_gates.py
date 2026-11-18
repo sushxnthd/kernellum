@@ -69,5 +69,41 @@ class RejectionGateContract(unittest.TestCase):
                         "Four seeds cannot be presented as five-seed confirmation")
 
 
+    def test_canonicalized_opposite_signed_seed_errors_must_fail(self):
+        rows = [record("coarse", seed=i) for i in range(5)]
+        for i, delta in enumerate([0.01, -0.01, 0.0, 0.0, 0.0]):
+            r = record("canonicalized", seed=i)
+            r["metrics"]["delta_m"] = delta
+            r["final_param_l2_to_coarse"] = 0.0
+            rows.append(r)
+        out = A.summarize(rows)
+        self.assertTrue(out["analysis_blocked"])
+        self.assertFalse(out["canonicalized_gate_pass"])
+        self.assertEqual(sum(x["kind"] == "per_seed_canonicalization_violation"
+                             for x in out["analysis_issues"]), 2)
+
+    def test_missing_single_seed_parameter_distance_must_fail(self):
+        rows = [record("coarse", seed=i) for i in range(5)]
+        for i in range(5):
+            r = record("canonicalized", seed=i)
+            r["metrics"]["delta_m"] = 0.0
+            if i != 2:
+                r["final_param_l2_to_coarse"] = 0.0
+            rows.append(r)
+        out = A.summarize(rows)
+        self.assertTrue(out["analysis_blocked"])
+        self.assertTrue(any(x["kind"] == "missing_or_nonfinite_per_seed_canonicalization"
+                            for x in out["analysis_issues"]))
+
+    def test_failed_coarse_cannot_be_a_valid_parent(self):
+        rows = [record("coarse", seed=0, status="failed"),
+                record("refined", seed=0)]
+        out = A.summarize(rows)
+        self.assertTrue(out["analysis_blocked"])
+        self.assertTrue(any(x["kind"] == "unmatched_or_failed_coarse"
+                            for x in out["analysis_issues"]))
+        self.assertEqual(out["paired_cells"], [])
+
+
 if __name__ == "__main__":
     unittest.main()
