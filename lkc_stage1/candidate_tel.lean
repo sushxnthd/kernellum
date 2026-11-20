@@ -819,6 +819,37 @@ theorem eulerDen_pos (n : Nat) :
   | succ d =>
       exact Nat.zero_lt_succ d
 
+
+theorem eulerDen_sub_one_dvd_lane (n : Nat) :
+    laneBase n ∣ eulerDen n - 1 := by
+  have hD := eulerDen_mod_lane n n (Nat.le_refl n)
+  have h1 : 1 % laneBase n = 1 :=
+    Nat.mod_eq_of_lt (laneBase_gt_one n)
+  have hm : eulerDen n % laneBase n = 1 % laneBase n := by
+    simpa [eulerDen] using hD
+  exact Nat.dvd_of_mod_eq_zero (Nat.sub_mod_eq_zero_of_mod_eq hm)
+
+theorem rowMod_dvd_lane_pow64 (n : Nat) (hn : n < 64) :
+    rowMod n ∣ laneBase n ^ 64 := by
+  unfold rowMod laneBase
+  rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul]
+  rw [← Nat.pow_mul]
+  apply Nat.pow_dvd_pow 2
+  have h := Nat.mul_le_mul_left (width n) (show n + 1 ≤ 64 by omega)
+  simpa [Nat.mul_assoc] using h
+
+theorem rowMod_dvd_den_sub_one_pow64 (n : Nat) (hn : n < 64) :
+    rowMod n ∣ (eulerDen n - 1) ^ 64 := by
+  rcases eulerDen_sub_one_dvd_lane n with ⟨q, hq⟩
+  rcases rowMod_dvd_lane_pow64 n hn with ⟨r, hr⟩
+  refine ⟨r * q ^ 64, ?_⟩
+  rw [hq, Nat.mul_pow, hr]
+  ac_rfl
+
+theorem den_sub_one_pow64_mod (n : Nat) (hn : n < 64) :
+    (eulerDen n - 1) ^ 64 % rowMod n = 0 :=
+  Nat.mod_eq_zero_of_dvd (rowMod_dvd_den_sub_one_pow64 n hn)
+
 theorem packedOneShot_eq_rowsP (n : Nat) :
     packedOneShot n = rowsP n n := by
   unfold packedOneShot
