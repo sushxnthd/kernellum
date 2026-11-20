@@ -49,6 +49,26 @@ jobs:
           } > Repeat.lean
           echo 'REPEAT NEWTON x400 n=36'
           /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Repeat.lean
+      - name: Narrow Newton n36 x400
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp lkc_stage1/newton_narrow_probe.lean upstream/problems/partition/NewtonNarrowProbe.lean
+          cd upstream/problems/partition
+          lake env lean NewtonNarrowProbe.lean -o .lake/build/lib/lean/NewtonNarrowProbe.olean
+          for pair in "0 1" "1 1" "2 2" "3 3" "5 7" "10 42" "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
+            set -- $pair; n=$1; v=$2
+            printf 'import NewtonNarrowProbe\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : NewtonNarrowProbe.impl %s = %s := by rfl\n' "$n" "$v" > Probe.lean
+            lake env lean Probe.lean
+          done
+          {
+            echo 'import NewtonNarrowProbe'
+            echo 'set_option maxRecDepth 8000000'
+            echo 'set_option maxHeartbeats 0'
+            for i in $(seq 1 400); do echo "theorem q$i : NewtonNarrowProbe.impl 36 = 17977 := by rfl"; done
+          } > Repeat.lean
+          echo 'REPEAT NEWTON-NARROW x400 n=36'
+          /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Repeat.lean
       - name: Larger probes
         shell: bash
         run: |
