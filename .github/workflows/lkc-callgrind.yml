@@ -1,16 +1,36 @@
 name: LKC Callgrind frontier
+
 on:
   push:
-    branches: [lkc-stage1-superopt]
+    branches:
+      - lkc-stage1-superopt
     paths:
-      - '.github/workflows/lkc-callgrind.yml'
+      - .github/workflows/lkc-callgrind.yml
+      - lkc_stage1/diag_*.lean
+      - lkc_stage1/candidate.lean
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   callgrind:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: closed
+            submission: lkc_stage1/candidate.lean
+          - label: newton6mod
+            submission: lkc_stage1/diag_newton6mod.lean
+          - label: newton6mask
+            submission: lkc_stage1/diag_newton6mask.lean
+          - label: telmask
+            submission: lkc_stage1/diag_telmask.lean
+          - label: newton6masknarrow
+            submission: lkc_stage1/diag_newton6mask_narrow.lean
     steps:
       - uses: actions/checkout@v7
       - name: Install prerequisites
@@ -19,31 +39,27 @@ jobs:
           sudo apt-get install -y -qq valgrind
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.33.1
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          source "$HOME/.elan/env"
       - name: Setup benchmark harness
         run: |
           git clone -q https://github.com/shalashaska117/LeanKernelChallengeStage1Benchmark.git bench
           cd bench
           python3 benchmark.py setup --problem partition
           python3 benchmark.py doctor --problem partition --metric callgrind
-      - name: Callgrind n36 candidates
+      - name: Callgrind n36
         shell: bash
         run: |
           set -euo pipefail
           root="$GITHUB_WORKSPACE"
           cd bench
-          for spec in             "closed:$root/lkc_stage1/candidate.lean"             "newton6mod:$root/lkc_stage1/diag_newton6mod.lean"             "newton6mask:$root/lkc_stage1/diag_newton6mask.lean"             "telmask:$root/lkc_stage1/diag_telmask.lean"             "newton6masknarrow:$root/lkc_stage1/diag_newton6mask_narrow.lean"
-          do
-            name="${spec%%:*}"; file="${spec#*:}"
-            out="$root/callgrind-$name"
-            echo "CALLGRIND $name"
-            python3 benchmark.py diagnostic --problem partition --submission "$file" --inputs 36 --metric callgrind --repetitions 1 --timeout 600 --output "$out"
-            python3 - "$out" "$name" <<'PY'
-import json,sys,pathlib
-out=pathlib.Path(sys.argv[1]); name=sys.argv[2]
-p=out/"report.json"
-d=json.loads(p.read_text())
-print("REPORT",name,json.dumps(d.get("totals",{}),sort_keys=True))
-for run in d.get("runs",[]):
-    print("RUN",name,run.get("input"),run.get("median"),run.get("samples"))
-PY
-          done
+          out="$root/callgrind-${{ matrix.label }}"
+          python3 benchmark.py diagnostic             --problem partition             --submission "$root/${{ matrix.submission }}"             --inputs 36             --metric callgrind             --repetitions 1             --timeout 600             --output "$out"
+          python3 - "$out" "${{ matrix.label }}" <<'PY'
+          import json, pathlib, sys
+          out = pathlib.Path(sys.argv[1])
+          name = sys.argv[2]
+          data = json.loads((out / "report.json").read_text())
+          print("REPORT", name, json.dumps(data.get("totals", {}), sort_keys=True))
+          for run in data.get("runs", []):
+              print("RUN", name, run.get("input"), run.get("median"), run.get("samples"))
+          PY
