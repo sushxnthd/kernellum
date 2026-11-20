@@ -24,6 +24,7 @@ jobs:
       - name: Build and repeat
         shell: bash
         run: |
+          source "$HOME/.elan/env"
           cp lkc_stage1/fintel_probe.lean upstream/problems/partition/FinTelProbe.lean
           cd upstream/problems/partition
           lake env lean FinTelProbe.lean -o .lake/build/lib/lean/FinTelProbe.olean
