@@ -29,14 +29,16 @@ jobs:
           cp lkc_stage1/newton6_mod_probe.lean upstream/problems/partition/Newton6ModProbe.lean
           cp lkc_stage1/newton_mask_probe.lean upstream/problems/partition/NewtonMaskProbe.lean
           cp lkc_stage1/newton6_mask_narrow_probe.lean upstream/problems/partition/Newton6MaskNarrowProbe.lean
+          cp lkc_stage1/tel_mask_probe.lean upstream/problems/partition/TelMaskProbe.lean
+          cp lkc_stage1/tel_mask_narrow_probe.lean upstream/problems/partition/TelMaskNarrowProbe.lean
           cd upstream/problems/partition
-          for f in NewtonProbe Newton6ModProbe NewtonMaskProbe Newton6MaskNarrowProbe; do lake env lean "$f.lean" -o ".lake/build/lib/lean/$f.olean"; done
+          for f in NewtonProbe Newton6ModProbe NewtonMaskProbe Newton6MaskNarrowProbe TelMaskProbe TelMaskNarrowProbe; do lake env lean "$f.lean" -o ".lake/build/lib/lean/$f.olean"; done
       - name: Compare x1000 n36
         shell: bash
         run: |
           set -euo pipefail
           cd upstream/problems/partition
-          for mod in NewtonProbe Newton6ModProbe NewtonMaskProbe Newton6MaskNarrowProbe; do
+          for mod in NewtonProbe Newton6ModProbe NewtonMaskProbe Newton6MaskNarrowProbe TelMaskProbe TelMaskNarrowProbe; do
             {
               echo "import $mod"
               echo 'set_option maxRecDepth 8000000'
