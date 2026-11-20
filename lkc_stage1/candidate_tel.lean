@@ -761,7 +761,8 @@ theorem eulerFactor_mod_lane (n k : Nat) (hk : 0 < k) (hkn : k ≤ n) :
     dsimp [B, S, laneBase]
     rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul]
     apply Nat.pow_dvd_pow 2
-    exact Nat.mul_le_mul_left (width n) (by omega)
+    have hk1 : 1 ≤ k := by omega
+    simpa using Nat.mul_le_mul_left (width n) hk1
   rcases hBDM with ⟨qm, hM⟩
   rcases hBDS with ⟨qs, hS⟩
   have hsum : eulerFactor n k + S = M + 1 := by
@@ -805,16 +806,18 @@ theorem eulerDen_lt_rowMod (n : Nat) : ∀ k, k ≤ n →
   | succ K =>
     intro _
     rw [eulerDenM, maskRed_rowMod]
-    exact Nat.mod_lt _ (by omega : 0 < rowMod n)
+    exact Nat.mod_lt _ (Nat.lt_trans Nat.zero_lt_one (rowMod_gt_one n))
 
 theorem eulerDen_pos (n : Nat) :
     0 < eulerDen n := by
   have hm := eulerDen_mod_lane n n (Nat.le_refl n)
   unfold eulerDen
-  by_contra h
-  have hz : eulerDenM n (rowMod n) n = 0 := Nat.eq_zero_of_not_pos h
-  rw [hz, Nat.zero_mod] at hm
-  omega
+  cases hD : eulerDenM n (rowMod n) n with
+  | zero =>
+      rw [hD, Nat.zero_mod] at hm
+      omega
+  | succ d =>
+      exact Nat.zero_lt_succ d
 
 theorem packedOneShot_eq_rowsP (n : Nat) :
     packedOneShot n = rowsP n n := by
