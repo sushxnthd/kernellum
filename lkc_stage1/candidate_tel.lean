@@ -720,6 +720,102 @@ theorem factorProd_den_inv (n : Nat) : ∀ k, k ≤ n →
     rw [Nat.mul_mod, hprev, hstep]
     simpa using (Nat.mod_eq_of_lt (rowMod_gt_one n))
 
+
+def laneBase (n : Nat) : Nat := 1 <<< width n
+
+theorem laneBase_gt_one (n : Nat) : 1 < laneBase n := by
+  unfold laneBase
+  rw [Nat.shiftLeft_eq, Nat.one_mul]
+  apply one_lt_two_pow_of_pos
+  unfold width
+  omega
+
+theorem laneBase_dvd_rowMod (n : Nat) : laneBase n ∣ rowMod n := by
+  unfold laneBase rowMod
+  rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul]
+  apply Nat.pow_dvd_pow 2
+  have h := Nat.mul_le_mul_left (width n) (show 1 ≤ n + 1 by omega)
+  simpa using h
+
+theorem eulerFactor_mod_lane (n k : Nat) (hk : 0 < k) (hkn : k ≤ n) :
+    eulerFactor n k % laneBase n = 1 := by
+  let B := laneBase n
+  let M := rowMod n
+  let S := 1 <<< (width n * k)
+  have hBgt : 1 < B := by
+    dsimp [B]
+    exact laneBase_gt_one n
+  have hSpos : 0 < S := by
+    dsimp [S]
+    rw [Nat.shiftLeft_eq, Nat.one_mul]
+    exact two_pow_pos _
+  have hSle : S ≤ M := by
+    dsimp [S, M, rowMod]
+    rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul]
+    apply Nat.pow_le_pow_right (by omega)
+    exact Nat.mul_le_mul_left (width n) (by omega)
+  have hBDM : B ∣ M := by
+    dsimp [B, M]
+    exact laneBase_dvd_rowMod n
+  have hBDS : B ∣ S := by
+    dsimp [B, S, laneBase]
+    rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul]
+    apply Nat.pow_dvd_pow 2
+    exact Nat.mul_le_mul_left (width n) (by omega)
+  rcases hBDM with ⟨qm, hM⟩
+  rcases hBDS with ⟨qs, hS⟩
+  have hsum : eulerFactor n k + S = M + 1 := by
+    unfold eulerFactor
+    dsimp [S, M]
+    omega
+  have hM' : M = qm * B := by simpa [Nat.mul_comm] using hM
+  have hS' : S = qs * B := by simpa [Nat.mul_comm] using hS
+  have hcong : eulerFactor n k + qs * B = 1 + qm * B := by
+    rw [← hS', ← hM']
+    omega
+  have hm : eulerFactor n k % B = 1 % B :=
+    (Nat.mod_eq_mod_iff).2 ⟨qs, qm, hcong⟩
+  change eulerFactor n k % B = 1
+  simpa [Nat.mod_eq_of_lt hBgt] using hm
+
+theorem eulerDen_mod_lane (n : Nat) : ∀ k, k ≤ n →
+    eulerDenM n (rowMod n) k % laneBase n = 1 := by
+  intro k
+  induction k with
+  | zero =>
+    intro _
+    rw [eulerDenM]
+    exact Nat.mod_eq_of_lt (laneBase_gt_one n)
+  | succ K ih =>
+    intro hK
+    have hKn : K ≤ n := by omega
+    rw [eulerDenM, maskRed_rowMod]
+    rw [Nat.mod_mod_of_dvd _ (laneBase_dvd_rowMod n)]
+    rw [Nat.mul_mod, ih hKn, eulerFactor_mod_lane n (K + 1) (by omega) hK]
+    simpa using (Nat.mod_eq_of_lt (laneBase_gt_one n))
+
+theorem eulerDen_lt_rowMod (n : Nat) : ∀ k, k ≤ n →
+    eulerDenM n (rowMod n) k < rowMod n := by
+  intro k
+  cases k with
+  | zero =>
+    intro _
+    rw [eulerDenM]
+    exact rowMod_gt_one n
+  | succ K =>
+    intro _
+    rw [eulerDenM, maskRed_rowMod]
+    exact Nat.mod_lt _ (by omega : 0 < rowMod n)
+
+theorem eulerDen_pos (n : Nat) :
+    0 < eulerDen n := by
+  have hm := eulerDen_mod_lane n n (Nat.le_refl n)
+  unfold eulerDen
+  by_contra h
+  have hz : eulerDenM n (rowMod n) n = 0 := Nat.eq_zero_of_not_pos h
+  rw [hz, Nat.zero_mod] at hm
+  omega
+
 theorem packedOneShot_eq_rowsP (n : Nat) :
     packedOneShot n = rowsP n n := by
   unfold packedOneShot
