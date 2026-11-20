@@ -238,6 +238,72 @@ def sweep (s R : Nat) : Nat → Nat
   | 0     => R
   | J + 1 => R + (sweep s R J) <<< s
 
+/-- Geometric coefficient used only in the correctness bridge. -/
+def geomRec (q : Nat) : Nat → Nat
+  | 0 => 1
+  | J + 1 => 1 + q * geomRec q J
+
+theorem sweep_eq_mul_geomRec (s R : Nat) : ∀ J,
+    sweep s R J = R * geomRec (2 ^ s) J := by
+  intro J
+  induction J with
+  | zero => rfl
+  | succ J ih =>
+    simp only [sweep, geomRec, Nat.shiftLeft_eq, ih, Nat.mul_add, Nat.mul_one]
+    ac_rfl
+
+theorem geomRec_mul_sub_add_one (q : Nat) (hq : 0 < q) : ∀ J,
+    geomRec q J * (q - 1) + 1 = q ^ (J + 1) := by
+  intro J
+  induction J with
+  | zero =>
+    simp only [geomRec, Nat.one_mul, Nat.pow_one]
+    exact Nat.sub_add_cancel (by omega)
+  | succ J ih =>
+    simp only [geomRec, Nat.add_mul, Nat.one_mul]
+    calc
+      (q - 1) + q * geomRec q J * (q - 1) + 1
+          = q * (geomRec q J * (q - 1) + 1) := by
+              rw [Nat.mul_add, Nat.mul_one, Nat.mul_assoc]
+              omega
+      _ = q * q ^ (J + 1) := by rw [ih]
+      _ = q ^ ((J + 1) + 1) := by
+              rw [Nat.pow_succ, Nat.mul_comm]
+
+theorem one_lt_two_pow_of_pos (s : Nat) (hs : 0 < s) : 1 < 2 ^ s := by
+  cases s with
+  | zero => omega
+  | succ t =>
+    rw [Nat.pow_succ]
+    have hp := two_pow_pos t
+    omega
+
+/-- Closed-form geometric coefficient.  The shifts construct powers of two
+directly; one exact Nat division replaces J recursive shift/add steps. -/
+def geomFast (s J : Nat) : Nat :=
+  ((1 <<< (s * (J + 1))) - 1) / ((1 <<< s) - 1)
+
+theorem geomFast_eq_geomRec (s J : Nat) (hs : 0 < s) :
+    geomFast s J = geomRec (2 ^ s) J := by
+  have hq : 1 < 2 ^ s := one_lt_two_pow_of_pos s hs
+  have hd : 0 < 2 ^ s - 1 := by omega
+  have hg := geomRec_mul_sub_add_one (2 ^ s) (by omega) J
+  have hmul :
+      geomRec (2 ^ s) J * (2 ^ s - 1) = (2 ^ s) ^ (J + 1) - 1 := by
+    omega
+  unfold geomFast
+  rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.shiftLeft_eq, Nat.one_mul, Nat.pow_mul]
+  rw [← hmul, Nat.mul_div_left _ hd]
+
+/-- Fast row sweep: one multiply and one exact division instead of J recursive
+shifts and additions. -/
+def sweepFast (s R J : Nat) : Nat := R * geomFast s J
+
+theorem sweepFast_eq_sweep (s R J : Nat) (hs : 0 < s) :
+    sweepFast s R J = sweep s R J := by
+  rw [sweepFast, geomFast_eq_geomRec s J hs, sweep_eq_mul_geomRec]
+
+
 def sweepF (d : Nat) (f : Nat → Nat) : Nat → Nat → Nat
   | 0,     m => f m
   | J + 1, m => f m + (if m < d then 0 else sweepF d f J (m - d))
@@ -444,13 +510,13 @@ def rowsPM (n : Nat) (M : Nat) : Nat → Nat
   | 0     => 1
   | k + 1 =>
     let prev := rowsPM n M k
-    sweep (width n * (k + 1)) prev (n / (k + 1)) % M
+    sweepFast (width n * (k + 1)) prev (n / (k + 1)) % M
 
 def rowsP (n : Nat) (k : Nat) : Nat := rowsPM n (rowMod n) k
 
 theorem rowsP_succ (n k : Nat) :
     rowsP n (k + 1)
-      = sweep (width n * (k + 1)) (rowsP n k) (n / (k + 1)) % rowMod n := by
+      = sweepFast (width n * (k + 1)) (rowsP n k) (n / (k + 1)) % rowMod n := by
   rfl
 
 theorem rowsP_zero (n : Nat) : rowsP n 0 = 1 := rfl
@@ -507,10 +573,13 @@ theorem rowsP_correct (n : Nat) : ∀ k, k ≤ n →
       exact entry_lt n (K + 1) m hK (by omega)
     have hmod : (1 : Nat) <<< (width n * (n + 1)) = 2 ^ (width n * (n + 1)) := by
       rw [Nat.shiftLeft_eq, Nat.one_mul]
-    show sweep (width n * (K + 1)) (rowsP n K) (n / (K + 1))
+    have hsweep : 0 < width n * (K + 1) := by
+      unfold width
+      omega
+    show sweepFast (width n * (K + 1)) (rowsP n K) (n / (K + 1))
           % (1 <<< (width n * (n + 1)))
         = pack (width n) (cut (n + 1) (partAux (K + 1))) (n + 1)
-    rw [hprev, sweep_pack (width n) (K + 1) (n / (K + 1)) (n + 1) _ hz, hmod,
+    rw [sweepFast_eq_sweep _ _ _ hsweep, hprev, sweep_pack (width n) (K + 1) (n / (K + 1)) (n + 1) _ hz, hmod,
         pack_trunc (width n) (n + 1) (n / (K + 1) * (K + 1)) _ hbound]
     refine pack_congr (width n) (n + 1) _ _ (fun m hm => ?_)
     rw [hcell m hm]
