@@ -678,6 +678,48 @@ theorem geom_euler_step_inv (n k : Nat) (hk : 0 < k) (hkn : k ≤ n) :
   change (geomFast s J * (M + 1 - b)) % M = 1
   simpa [Nat.mod_eq_of_lt hMgt] using hmod
 
+
+/-! The computation keeps the denominator reduced with a power-of-two mask.
+For the row modulus, masking is exactly modular reduction. -/
+
+def maskRed (M x : Nat) : Nat := x &&& (M - 1)
+
+theorem maskRed_rowMod (n x : Nat) :
+    maskRed (rowMod n) x = x % rowMod n := by
+  unfold maskRed rowMod
+  rw [Nat.shiftLeft_eq, Nat.one_mul, Nat.and_two_pow_sub_one_eq_mod]
+
+def eulerDenM (n M : Nat) : Nat → Nat
+  | 0 => 1
+  | k + 1 => maskRed M (eulerDenM n M k * eulerFactor n (k + 1))
+
+def eulerDen (n : Nat) : Nat := eulerDenM n (rowMod n) n
+
+theorem factorProd_den_inv (n : Nat) : ∀ k, k ≤ n →
+    (factorProd n (width n) k * eulerDenM n (rowMod n) k) % rowMod n = 1 := by
+  intro k
+  induction k with
+  | zero =>
+    intro _
+    rw [factorProd, eulerDenM, Nat.one_mul]
+    exact Nat.mod_eq_of_lt (rowMod_gt_one n)
+  | succ K ih =>
+    intro hK
+    have hKn : K ≤ n := by omega
+    have hprev := ih hKn
+    have hstep := geom_euler_step_inv n (K + 1) (by omega) hK
+    rw [factorProd, eulerDenM, maskRed_rowMod]
+    rw [Nat.mul_mod_mod]
+    rw [show
+      (factorProd n (width n) K * geomFast (width n * (K + 1)) (n / (K + 1))) *
+          (eulerDenM n (rowMod n) K * eulerFactor n (K + 1))
+        =
+      (factorProd n (width n) K * eulerDenM n (rowMod n) K) *
+          (geomFast (width n * (K + 1)) (n / (K + 1)) * eulerFactor n (K + 1))
+      by ac_rfl]
+    rw [Nat.mul_mod, hprev, hstep]
+    simpa using (Nat.mod_eq_of_lt (rowMod_gt_one n))
+
 theorem packedOneShot_eq_rowsP (n : Nat) :
     packedOneShot n = rowsP n n := by
   unfold packedOneShot
