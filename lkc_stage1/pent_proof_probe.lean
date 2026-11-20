@@ -3,6 +3,8 @@ import Submission
 
 namespace PentProofProbe
 
+set_option maxRecDepth 2000000 in
+
 def bt (n e : Nat) : Nat :=
   if e ≤ n then 1 <<< (Submission.width n * e) else 0
 
