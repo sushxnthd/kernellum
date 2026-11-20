@@ -39,10 +39,7 @@ jobs:
           for pair in "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
             set -- $pair
             n=$1; v=$2
-            cat > Bench.lean <<EOF
-import Submission
-example : Submission.impl $n = $v := by rfl
-EOF
+            printf 'import Submission\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
             echo "BASELINE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
@@ -55,10 +52,7 @@ EOF
       - name: Candidate axiom audit
         run: |
           cd upstream/problems/partition
-          cat > Axioms.lean <<'EOF'
-import Submission
-#print axioms Submission.impl_correct
-EOF
+          printf 'import Submission\n#print axioms Submission.impl_correct\n' > Axioms.lean
           lake env lean Axioms.lean
       - name: Benchmark candidate endpoints
         shell: bash
@@ -68,10 +62,7 @@ EOF
           for pair in "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
             set -- $pair
             n=$1; v=$2
-            cat > Bench.lean <<EOF
-import Submission
-example : Submission.impl $n = $v := by rfl
-EOF
+            printf 'import Submission\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
             echo "CANDIDATE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
