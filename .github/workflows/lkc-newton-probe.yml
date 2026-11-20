@@ -29,6 +29,7 @@ jobs:
           set -euo pipefail
           cp lkc_stage1/newton_probe.lean upstream/problems/partition/NewtonProbe.lean
           cd upstream/problems/partition
+          lake build Spec
           lake env lean NewtonProbe.lean -o .lake/build/lib/lean/NewtonProbe.olean
           for pair in "0 1" "1 1" "2 2" "3 3" "5 7" "10 42" "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
             set -- $pair; n=$1; v=$2
