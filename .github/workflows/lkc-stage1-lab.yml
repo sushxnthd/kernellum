@@ -43,6 +43,18 @@ jobs:
             echo "BASELINE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
+      - name: Amplified baseline benchmark
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd upstream/problems/partition
+          for pair in "100 190569292" "200 3972999029388" "300 9253082936723602" "500 2300165032574323995027"; do
+            set -- $pair
+            n=$1; v=$2
+            printf 'import Submission\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
+            echo "BASELINE-LARGE n=$n"
+            /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
+          done
       - name: Benchmark one-shot product probe
         shell: bash
         run: |
@@ -78,5 +90,17 @@ jobs:
             n=$1; v=$2
             printf 'import Submission\nset_option maxRecDepth 100000\nset_option maxHeartbeats 0\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
             echo "CANDIDATE n=$n"
+            /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
+          done
+      - name: Amplified candidate benchmark
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd upstream/problems/partition
+          for pair in "100 190569292" "200 3972999029388" "300 9253082936723602" "500 2300165032574323995027"; do
+            set -- $pair
+            n=$1; v=$2
+            printf 'import Submission\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
+            echo "CANDIDATE-LARGE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
