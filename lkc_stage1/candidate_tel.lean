@@ -670,6 +670,7 @@ theorem geom_euler_step_inv (n k : Nat) (hk : 0 < k) (hkn : k ≤ n) :
       dsimp [A]
       rw [Nat.shiftLeft_eq, Nat.one_mul]
       exact two_pow_pos _
+    have hcomm : M * q = q * M := Nat.mul_comm M q
     omega
   have hmod :
       (geomFast s J * (M + 1 - b)) % M = 1 % M :=
