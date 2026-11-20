@@ -607,7 +607,7 @@ theorem rowsP_eq_factor_mod (n : Nat) : ∀ k,
   | zero =>
     rw [rowsP_zero, factorProd, Nat.mod_eq_of_lt (rowMod_gt_one n)]
   | succ k ih =>
-    rw [rowsP_succ, ih, factorProd]
+    rw [rowsP_succ, ih, factorProd, sweepFast]
     simp only [Nat.mul_mod, Nat.mod_mod]
 
 theorem packedOneShot_eq_rowsP (n : Nat) :
