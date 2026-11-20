@@ -826,6 +826,7 @@ theorem eulerDen_sub_one_dvd_lane (n : Nat) :
   have h1 : 1 % laneBase n = 1 :=
     Nat.mod_eq_of_lt (laneBase_gt_one n)
   have hm : eulerDen n % laneBase n = 1 % laneBase n := by
+    rw [h1]
     simpa [eulerDen] using hD
   exact Nat.dvd_of_mod_eq_zero (Nat.sub_mod_eq_zero_of_mod_eq hm)
 
