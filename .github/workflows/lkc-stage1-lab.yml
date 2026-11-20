@@ -43,6 +43,20 @@ jobs:
             echo "BASELINE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
+      - name: Benchmark one-shot product probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp lkc_stage1/oneshot_probe.lean upstream/problems/partition/OneShotProbe.lean
+          cd upstream/problems/partition
+          lake env lean OneShotProbe.lean -o .lake/build/lib/lean/OneShotProbe.olean
+          for pair in "36 17977" "50 204226" "75 8118264" "100 190569292" "150 40853235313" "200 3972999029388"; do
+            set -- $pair
+            n=$1; v=$2
+            printf 'import OneShotProbe\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : OneShotProbe.impl %s = %s := by rfl\n' "$n" "$v" > ProbeBench.lean
+            echo "ONESHOT n=$n"
+            /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean ProbeBench.lean
+          done
       - name: Build candidate
         run: |
           cp lkc_stage1/candidate.lean upstream/problems/partition/Submission.lean
