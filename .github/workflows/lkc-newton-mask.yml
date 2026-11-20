@@ -1,0 +1,59 @@
+name: LKC Newton mask probe
+on:
+  push:
+    branches: [lkc-stage1-superopt]
+    paths:
+      - 'lkc_stage1/newton_mask_probe.lean'
+      - '.github/workflows/lkc-newton-mask.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.33.1
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          git clone -q https://github.com/SAIRcompetition/lean-kernel-challenge.git upstream
+          cd upstream && git checkout -q 940f0a2ead23ef70ab1387edabb347e629111edd
+          cd problems/partition && lake build Spec
+      - name: Build and values
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp lkc_stage1/newton_mask_probe.lean upstream/problems/partition/NewtonMaskProbe.lean
+          cd upstream/problems/partition
+          lake env lean NewtonMaskProbe.lean -o .lake/build/lib/lean/NewtonMaskProbe.olean
+          for pair in "0 1" "1 1" "2 2" "3 3" "5 7" "10 42" "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
+            set -- $pair; n=$1; v=$2
+            printf 'import NewtonMaskProbe\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : NewtonMaskProbe.impl %s = %s := by rfl\n' "$n" "$v" > Probe.lean
+            lake env lean Probe.lean
+          done
+      - name: Repeat n36 x400
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd upstream/problems/partition
+          {
+            echo 'import NewtonMaskProbe'
+            echo 'set_option maxRecDepth 8000000'
+            echo 'set_option maxHeartbeats 0'
+            for i in $(seq 1 400); do echo "theorem q$i : NewtonMaskProbe.impl 36 = 17977 := by rfl"; done
+          } > Repeat.lean
+          echo 'REPEAT NEWTON-MASK x400 n=36'
+          /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Repeat.lean
+      - name: Larger
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd upstream/problems/partition
+          for pair in "50 204226" "75 8118264" "100 190569292" "150 40853235313" "200 3972999029388"; do
+            set -- $pair; n=$1; v=$2
+            printf 'import NewtonMaskProbe\nset_option maxRecDepth 8000000\nset_option maxHeartbeats 0\nexample : NewtonMaskProbe.impl %s = %s := by rfl\n' "$n" "$v" > Probe.lean
+            echo "NEWTON-MASK n=$n"
+            /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Probe.lean
+          done
