@@ -2,10 +2,9 @@ import Spec
 
 namespace ProofProbe
 
-def telFin {M : Nat} [NeZero M] (a : Fin M) : Fin M :=
-  let y := a - 1
+def telFinRepr {M : Nat} [NeZero M] (y c : Fin M) : Fin M :=
   let z2 := y * y
-  let a2 := (1 - y) * (1 + z2)
+  let a2 := c * (1 + z2)
   let z4 := z2 * z2
   let a4 := a2 * (1 + z4)
   let z8 := z4 * z4
@@ -15,16 +14,47 @@ def telFin {M : Nat} [NeZero M] (a : Fin M) : Fin M :=
   let z32 := z16 * z16
   a16 * (1 + z32)
 
-theorem fin_tel64 {M : Nat} [NeZero M] (a : Fin M) :
-    a * telFin a = 1 - (a - 1) ^ 64 := by
-  unfold telFin
+theorem fin_tel64_repr {M : Nat} [NeZero M] (a y c : Fin M)
+    (ha : a = 1 + y) (hc : c + y = 1) :
+    a * telFinRepr y c = 1 - y ^ 64 := by
+  unfold telFinRepr
   grind
 
-theorem fin_nat_sub_repr (M y : Nat) [NeZero M] (hM : 1 < M) (hy : y < M) :
-    Fin.ofNat M (M + 1 - y) = (1 : Fin M) - Fin.ofNat M y := by
+theorem fin_complement (M y : Nat) [NeZero M] (hM : 1 < M) (hy : y < M) :
+    Fin.ofNat M (M + 1 - y) + Fin.ofNat M y = 1 := by
   apply Fin.ext
-  simp [Fin.ofNat, Fin.sub]
-  grind
+  change (((M + 1 - y) % M + y % M) % M) = 1 % M
+  rw [Nat.mod_eq_of_lt hy, ← Nat.add_mod]
+  rw [show M + 1 - y + y = M + 1 by omega]
+  simp [Nat.mod_eq_of_lt hM]
+
+theorem fin_succ_repr (M a : Nat) [NeZero M] (hM : 1 < M)
+    (ha0 : 0 < a) (haM : a < M) :
+    Fin.ofNat M a = 1 + Fin.ofNat M (a - 1) := by
+  apply Fin.ext
+  change a % M = ((1 % M + (a - 1) % M) % M)
+  rw [Nat.mod_eq_of_lt haM, Nat.mod_eq_of_lt (by omega : a - 1 < M)]
+  rw [show 1 + (a - 1) = a by omega]
+  exact (Nat.mod_eq_of_lt haM).symm
+
+def telMod (M a : Nat) : Nat :=
+  let y := a - 1
+  let z2 := (y * y) % M
+  let a2 := ((M + 1 - y) * (1 + z2)) % M
+  let z4 := (z2 * z2) % M
+  let a4 := (a2 * (1 + z4)) % M
+  let z8 := (z4 * z4) % M
+  let a8 := (a4 * (1 + z8)) % M
+  let z16 := (z8 * z8) % M
+  let a16 := (a8 * (1 + z16)) % M
+  let z32 := (z16 * z16) % M
+  (a16 * (1 + z32)) % M
+
+theorem telMod_fin (M a : Nat) [NeZero M] :
+    Fin.ofNat M (telMod M a)
+      = telFinRepr (Fin.ofNat M (a - 1)) (Fin.ofNat M (M + 1 - (a - 1))) := by
+  apply Fin.ext
+  simp [telMod, telFinRepr, Fin.ofNat, Fin.mul, Fin.add]
 
 theorem mask_pow_mod (x e : Nat) :
     x &&& ((1 <<< e) - 1) = x % (1 <<< e) := by
