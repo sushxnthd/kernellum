@@ -247,7 +247,7 @@ theorem sweep_eq_mul_geomRec (s R : Nat) : ∀ J,
     sweep s R J = R * geomRec (2 ^ s) J := by
   intro J
   induction J with
-  | zero => rfl
+  | zero => simp [sweep, geomRec]
   | succ J ih =>
     simp only [sweep, geomRec, Nat.shiftLeft_eq, ih, Nat.mul_add, Nat.mul_one]
     ac_rfl
@@ -257,8 +257,9 @@ theorem geomRec_mul_sub_add_one (q : Nat) (hq : 0 < q) : ∀ J,
   intro J
   induction J with
   | zero =>
-    simp only [geomRec, Nat.one_mul, Nat.pow_one]
-    exact Nat.sub_add_cancel (by omega)
+    change (q - 1) + 1 = q ^ 1
+    rw [Nat.pow_one]
+    exact Nat.sub_add_cancel (by omega : 1 ≤ q)
   | succ J ih =>
     simp only [geomRec, Nat.add_mul, Nat.one_mul]
     calc
@@ -267,8 +268,9 @@ theorem geomRec_mul_sub_add_one (q : Nat) (hq : 0 < q) : ∀ J,
               rw [Nat.mul_add, Nat.mul_one, Nat.mul_assoc]
               omega
       _ = q * q ^ (J + 1) := by rw [ih]
+      _ = q ^ (J + 1) * q := by rw [Nat.mul_comm]
       _ = q ^ ((J + 1) + 1) := by
-              rw [Nat.pow_succ, Nat.mul_comm]
+              rw [Nat.pow_succ]
 
 theorem one_lt_two_pow_of_pos (s : Nat) (hs : 0 < s) : 1 < 2 ^ s := by
   cases s with
@@ -574,8 +576,10 @@ theorem rowsP_correct (n : Nat) : ∀ k, k ≤ n →
     have hmod : (1 : Nat) <<< (width n * (n + 1)) = 2 ^ (width n * (n + 1)) := by
       rw [Nat.shiftLeft_eq, Nat.one_mul]
     have hsweep : 0 < width n * (K + 1) := by
-      unfold width
-      omega
+      apply Nat.mul_pos
+      · unfold width
+        omega
+      · omega
     show sweepFast (width n * (K + 1)) (rowsP n K) (n / (K + 1))
           % (1 <<< (width n * (n + 1)))
         = pack (width n) (cut (n + 1) (partAux (K + 1))) (n + 1)
