@@ -257,8 +257,7 @@ theorem geomRec_mul_sub_add_one (q : Nat) (hq : 0 < q) : ∀ J,
   intro J
   induction J with
   | zero =>
-    change (q - 1) + 1 = q ^ 1
-    rw [Nat.pow_one]
+    simp only [geomRec, Nat.one_mul, Nat.zero_add, Nat.pow_one]
     exact Nat.sub_add_cancel (by omega : 1 ≤ q)
   | succ J ih =>
     simp only [geomRec, Nat.add_mul, Nat.one_mul]
@@ -269,8 +268,7 @@ theorem geomRec_mul_sub_add_one (q : Nat) (hq : 0 < q) : ∀ J,
               omega
       _ = q * q ^ (J + 1) := by rw [ih]
       _ = q ^ (J + 1) * q := by rw [Nat.mul_comm]
-      _ = q ^ ((J + 1) + 1) := by
-              rw [Nat.pow_succ]
+      _ = q ^ ((J + 1) + 1) := (Nat.pow_add_one q (J + 1)).symm
 
 theorem one_lt_two_pow_of_pos (s : Nat) (hs : 0 < s) : 1 < 2 ^ s := by
   cases s with
