@@ -29,7 +29,7 @@ def packed (n:Nat):Nat :=
   letI : NeZero M := ⟨by
     unfold M modulus
     rw [Nat.shiftLeft_eq, Nat.one_mul]
-    exact Nat.ne_of_gt (Nat.pow_pos (by omega) _)⟩
+    exact Nat.ne_of_gt (Nat.pow_pos (by omega))⟩
   (telFin (Fin.ofNat M (den n (width n) M n))).val
 
 def impl (n:Nat):Nat :=
