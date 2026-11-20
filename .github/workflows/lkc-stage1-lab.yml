@@ -39,7 +39,7 @@ jobs:
           for pair in "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
             set -- $pair
             n=$1; v=$2
-            printf 'import Submission\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
+            printf 'import Submission\nset_option maxRecDepth 100000\nset_option maxHeartbeats 0\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
             echo "BASELINE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
@@ -62,7 +62,7 @@ jobs:
           for pair in "14 135" "18 385" "22 1002" "26 2436" "32 8349" "36 17977"; do
             set -- $pair
             n=$1; v=$2
-            printf 'import Submission\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
+            printf 'import Submission\nset_option maxRecDepth 100000\nset_option maxHeartbeats 0\nexample : Submission.impl %s = %s := by rfl\n' "$n" "$v" > Bench.lean
             echo "CANDIDATE n=$n"
             /usr/bin/time -f 'elapsed=%e user=%U maxrss=%M' lake env lean Bench.lean
           done
